@@ -21,7 +21,7 @@ Before you can connect you need to make sure that:
 4. Copy your API Key from the Custom.MT console to the API Token field.
 5. Click _Connect_
 
-![connecting](https://raw.githubusercontent.com/bb-io/CustomMT/main/image/README/1692783524226.png)
+![connecting](https://raw.githubusercontent.com/bb-io/CustomMT/master/image/README/1692783524226.png)
 
 ## Actions
 
@@ -30,7 +30,7 @@ Before you can connect you need to make sure that:
 
 ## Example
 
-![example](https://raw.githubusercontent.com/bb-io/CustomMT/main/image/README/1692783915834.png)
+![example](https://raw.githubusercontent.com/bb-io/CustomMT/master/image/README/1692783915834.png)
 This example shows a very simple workflow where any incoming mention on particular channel is translated using the specified template _EnToHu_ and send back to the same channel as a response.
 
 ## Feedback

@@ -16,7 +16,7 @@ const all_repos = await octokit.paginate("GET /orgs/{org}/repos", {
 
 await all_repos
   .filter((x) => x.name != "docs")
-  .forEach(async ({ name }) => {
+  .forEach(async ({ name, default_branch }) => {
     try {
       const { data: raw_readme } = await octokit.rest.repos.getContent({
         mediaType: {
@@ -48,7 +48,7 @@ await all_repos
       const md_content =
         frontmatter +
         docs_section.replace(regex, (a, b) =>
-          a.replace(b, `https://raw.githubusercontent.com/bb-io/${name}/main/${b}`)
+          a.replace(b, `https://raw.githubusercontent.com/bb-io/${name}/${default_branch}/${b}`)
         );
 
       fs.writeFile(`./src/content/docs/apps/${name}.md`, md_content, function (err) {
