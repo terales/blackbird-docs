@@ -1,0 +1,111 @@
+---
+  title: Click Up
+  description: The ClickUp Blackbird app
+---
+
+ClickUp project management software that allows you to plan, track and collaborate on any project. This ClickUp application primarily centers around task and team management.
+
+## Connecting
+
+1.  Navigate to apps and search for ClickUp. If you cannot find ClickUp then click _Add App_ in the top right corner, select ClickUp and add the app to your Blackbird environment.
+2.  Click _Add Connection_.
+3.  Name your connection for future reference e.g. 'My client'.
+4.  Go to ClickUp personal settings and click _Apps_.
+5.  Click _Generate_ under the _API Token_ label
+6.  Copy API token and paste it to the appropriate field in the BlackBird
+7.  Click _Connect_.
+8.  Confirm that the connection has appeared and the status is _Connected_.
+
+## Actions
+
+### Attachments
+
+- **Create attachment** uploads a file to a `task` as an attachment.
+
+### Folders
+
+- **Get folders** returns all folders of a chosen `space`.
+- **Get/create/delete folder**.
+
+### Goals
+
+- **Get goals** returns all goals of specified `team`.
+- **Get/create/delete goal**.
+- **Create key result** adds a `target` to a goal.
+
+### Lists
+
+- **Get lists from space** returns all lists in a `space` that aren't located in a folder/
+- **Get lists from folder** returns all lists within a specified `folder`.
+- **Create space list** adds a new list in a specified `space`.
+- **Create folder list** adds a new list to a specified `folder`.
+- **Delete list** deletes list.
+
+### Spaces
+
+- **Get spaces** returns all spaces of specified `team`.
+- **Get/create/update/delete space**
+
+### Tags
+
+- **List tags** returns all tags of specified `space`.
+- **Create/delete tag**.
+
+### Tasks
+
+- **Get tasks** returns all tasks of specified `list`.
+- **Get/create/delete task**.
+
+### Teams - Workspaces
+
+- **Get teams** returns all teams available to the authenticated user.
+
+### Teams - User Groups
+
+- **Get user groups** returns all user groups in the workspace.
+- **Create/delete user group**.
+
+## Events
+
+- **On task created** is triggered when a new task is created.
+- **On task updated** is triggered when a task is updated.
+- **On task deleted** is triggered when a task is deleted.
+- **On task priority updated** is triggered when the priority of a task is updated.
+- **On task status updated** is triggered when the status of a task is updated.
+- **On task assignee updated** is triggered when an assignee is added or removed from a task.
+- **On task due date updated** is triggered when the due date of a task is updated.
+- **On task tag updated** is triggered when a tag is added or removed from a task.
+- **On task moved** is triggered a task is moved to a new `list`.
+- **On task comment posted** is triggered when a `comment` is added to a task.
+- **On task comment updated** is triggered when an existing `comment` on a task is updated.
+- **On task time estimate updated** is triggered when the time estimate on a task is added or updated.
+- **On task time tracked updated** is triggered when the time tracked on a task is added, updated, or deleted.
+- **On list created** is triggered when a new list is created.
+- **On list updated** is triggered when an existing list is updated.
+- **On list deleted** is triggered when a list is deleted.
+- **On folder created** is triggered when a new folder is created.
+- **On folder updated** is triggered when an existing folder is updated.
+- **On folder deleted** is triggered when a folder is deleted.
+- **On space created** is triggered when a new space is created.
+- **On space updated** is triggered when an existing space is updated.
+- **On space deleted** is triggered when a space is deleted.
+- **On goal created** is triggered when a new goal is created.
+- **On goal updated** is triggered when an existing goal is updated.
+- **On goal deleted** is triggered when a goal is deleted.
+- **On key result created** is triggered when a new target is created.
+- **On key result updated** is triggered when an existing target is updated.
+- **On key result deleted** is triggered when a target is deleted.
+
+## Missing features
+
+In the future we can add actions for:
+
+- Users
+- Members
+- Custom fields
+- Comments
+
+## Feedback
+
+Feedback to our implementation of ClickUp is always very welcome. Reach out to us using the established channels or create an issue.
+

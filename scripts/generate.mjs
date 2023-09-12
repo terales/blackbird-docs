@@ -6,7 +6,7 @@ dotenv.config();
 const auth = process.env.GITHUB_ACCESS_TOKEN;
 const octokit = new Octokit({ auth: auth });
 
-const docs_coment_begin = "<!-- begin docs -->";
+const docs_comment_begin = "<!-- begin docs -->";
 const docs_comment_end = "<!-- end docs -->";
 
 const all_repos = await octokit.paginate("GET /orgs/{org}/repos", {
@@ -15,7 +15,7 @@ const all_repos = await octokit.paginate("GET /orgs/{org}/repos", {
 });
 
 await all_repos
-  .filter((x) => x.name == "Zendesk")
+  .filter((x) => x.name != "docs")
   .forEach(async ({ name }) => {
     try {
       const { data: raw_readme } = await octokit.rest.repos.getContent({
@@ -27,15 +27,19 @@ await all_repos
         path: "README.md",
       });
 
+      if (!raw_readme.includes(docs_comment_begin)) return;
+
       const docs_section = raw_readme.substring(
-        raw_readme.indexOf(docs_coment_begin) + docs_coment_begin.length + 1,
+        raw_readme.indexOf(docs_comment_begin) + docs_comment_begin.length + 1,
         raw_readme.lastIndexOf(docs_comment_end)
       );
 
       if (!docs_section) return;
 
+      console.log(name);
+
       const frontmatter = `---
-  title: ${name.replace(/([A-Z])/g, " $1").trim()}
+  title: ${name.replace(/([a-z])([A-Z])/g, "$1 $2").trim()}
   description: The ${name} Blackbird app
 ---
 `;

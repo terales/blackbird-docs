@@ -1,0 +1,41 @@
+---
+  title: Translation OS
+  description: The TranslationOS Blackbird app
+---
+
+TranslationOS API allows you to localize your content programmatically in over 200+ languages using Translated services.
+
+## Before setting up
+
+Before you can connect you need to make sure that:
+
+- You have a TranslationOS.
+- You have requested a TranslationOS API key. See the [authentication](https://api-sandbox.translated.com/v2#section/Authentication) section of the TranslationOS documentation.
+
+## Connecting
+
+1. Navigate to apps and search for TranslationOS. If you cannot find TranslationOS then click _Add App_ in the top right corner, select TranslationOS and add the app to your Blackbird environment.
+2. Click _Add Connection_.
+3. Name your connection for future reference e.g. 'My TranslationOS'.
+4. Enter your TranslationOS [API key](https://api-sandbox.translated.com/v2#section/Authentication).
+5. Click _Authorize connection_.
+
+![connecting](https://raw.githubusercontent.com/bb-io/TranslationOS/main/image/README/1693309042281.png)
+
+## Actions
+
+### Translation
+
+- **Create text translation** create a translation based on a given text. The translation is queued and will be processed by Translated. For a detailed explanation of all options see the [TranslationOS documentation](https://api-sandbox.translated.com/v2#tag/Translate/operation/translate).
+- **Create file translation** behaves the same as a text translation, but with a file input.
+- **Update translation** updates an existing translation request
+- **Cancel translation** cancels an existing translation request
+
+## Events
+
+- **On translation finished** is triggered when a translation is finished. When setting up this event in a bird you are presented with a Callback URL. Copy this URL and use it in translation creation actions across Blackbird to direct these translations to this bird.
+
+## Feedback
+
+Feedback to our implementation of TranslationOS is always very welcome. Reach out to us using the [established channels](https://www.blackbird.io/), or create an issue.
+
