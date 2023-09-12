@@ -16,7 +16,7 @@ const all_repos = await octokit.paginate("GET /orgs/{org}/repos", {
 
 await all_repos
   .filter((x) => x.name != "docs")
-  .forEach(async ({ name, default_branch }) => {
+  .forEach(async ({ name, default_branch, html_url }) => {
     try {
       const { data: raw_readme } = await octokit.rest.repos.getContent({
         mediaType: {
@@ -42,6 +42,9 @@ await all_repos
   title: ${name.replace(/([a-z])([A-Z])/g, "$1 $2").trim()}
   description: The ${name} Blackbird app
 ---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="${html_url}" icon="github" />
 `;
 
       const regex = /!\[[^\]]*\]\((?<filename>.*?)(?=\"|\))\)/g;
@@ -51,7 +54,7 @@ await all_repos
           a.replace(b, `https://raw.githubusercontent.com/bb-io/${name}/${default_branch}/${b}`)
         );
 
-      fs.writeFile(`./src/content/docs/apps/${name}.md`, md_content, function (err) {
+      fs.writeFile(`./src/content/docs/apps/${name}.mdx`, md_content, function (err) {
         if (err) throw err;
       });
     } catch {}
