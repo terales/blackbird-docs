@@ -9,6 +9,9 @@ const octokit = new Octokit({ auth: auth });
 const docs_comment_begin = "<!-- begin docs -->";
 const docs_comment_end = "<!-- end docs -->";
 
+// Add altered_names here to turn repo names into nice names, f.e: HubspotCRM -> Hubspot CRM
+const altered_names = {};
+
 const all_repos = await octokit.paginate("GET /orgs/{org}/repos", {
   org: "bb-io",
   per_page: 100,
@@ -36,10 +39,14 @@ await all_repos
 
       if (!docs_section) return;
 
+      if (name in altered_names) {
+        name = altered_names[name];
+      }
+
       console.log(name);
 
       const frontmatter = `---
-  title: ${name.replace(/([a-z])([A-Z])/g, "$1 $2").trim()}
+  title: ${name}
   description: The ${name} Blackbird app
 ---
 import { LinkCard } from "@astrojs/starlight/components";
