@@ -11,7 +11,8 @@ const docs_comment_end = "<!-- end docs -->";
 
 // Add altered_names here to turn repo names into nice names, f.e: HubspotCRM -> Hubspot CRM
 const altered_names = {
-  "MemoQ": "memoQ"
+  "MemoQ": "memoQ",
+  "HubspotCRM": "Hubspot CRM",
 };
 
 const all_repos = await octokit.paginate("GET /orgs/{org}/repos", {
