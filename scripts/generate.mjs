@@ -45,15 +45,13 @@ await all_repos
 
       if (!docs_section) return;
 
-      if (name in altered_names) {
-        name = altered_names[name];
-      }
+      const friendly_name = name in altered_names ? altered_names[name] : name;
 
       console.log(name);
 
       const frontmatter = `---
-  title: ${name}
-  description: The ${name} Blackbird app
+  title: ${friendly_name}
+  description: The ${friendly_name} Blackbird app
 ---
 import { LinkCard } from "@astrojs/starlight/components";
 
@@ -67,7 +65,7 @@ import { LinkCard } from "@astrojs/starlight/components";
           a.replace(b, `https://raw.githubusercontent.com/bb-io/${name}/${default_branch}/${b}`)
         );
 
-      fs.writeFile(`./src/content/docs/apps/${name}.mdx`, md_content, function (err) {
+      fs.writeFile(`./src/content/docs/apps/${friendly_name}.mdx`, md_content, function (err) {
         if (err) throw err;
       });
     } catch {}
