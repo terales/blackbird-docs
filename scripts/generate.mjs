@@ -14,6 +14,8 @@ const altered_names = {
   MemoQ: "memoQ",
   HubspotCRM: "Hubspot CRM",
   Hubspot: "Hubspot CMS",
+  MicrosoftTeams: "Microsoft Teams",
+  "Phrase-TMS": "Phrase",
 };
 
 const all_repos = await octokit.paginate("GET /orgs/{org}/repos", {
