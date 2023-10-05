@@ -15,12 +15,14 @@ const altered_names = {
   HubspotCRM: "Hubspot CRM",
   Hubspot: "Hubspot CMS",
   MicrosoftTeams: "Microsoft Teams",
+  MicrosoftOutlook: "Microsoft Outlook",
+  HuggingFace: "Hugging Face",
   "Phrase-TMS": "Phrase",
 };
 
 const all_repos = await octokit.paginate("GET /orgs/{org}/repos", {
   org: "bb-io",
-  per_page: 100,
+  per_page: 100
 });
 
 await all_repos
