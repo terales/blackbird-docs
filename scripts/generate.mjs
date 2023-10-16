@@ -18,11 +18,12 @@ const altered_names = {
   MicrosoftOutlook: "Microsoft Outlook",
   HuggingFace: "Hugging Face",
   "Phrase-TMS": "Phrase",
+  LanguageWeaver: "Language Weaver",
 };
 
 const all_repos = await octokit.paginate("GET /orgs/{org}/repos", {
   org: "bb-io",
-  per_page: 100
+  per_page: 100,
 });
 
 await all_repos
