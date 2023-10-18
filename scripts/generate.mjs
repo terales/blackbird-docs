@@ -19,6 +19,7 @@ const altered_names = {
   HuggingFace: "Hugging Face",
   "Phrase-TMS": "Phrase",
   LanguageWeaver: "Language Weaver",
+  AmazonBedrock: "Amazon Bedrock"
 };
 
 const all_repos = await octokit.paginate("GET /orgs/{org}/repos", {
