@@ -19,7 +19,8 @@ const altered_names = {
   HuggingFace: "Hugging Face",
   "Phrase-TMS": "Phrase",
   LanguageWeaver: "Language Weaver",
-  AmazonBedrock: "Amazon Bedrock"
+  AmazonBedrock: "Amazon Bedrock",
+  MicrosoftSharePoint: "Microsoft SharePoint"
 };
 
 const all_repos = await octokit.paginate("GET /orgs/{org}/repos", {

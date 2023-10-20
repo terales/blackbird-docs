@@ -23,7 +23,7 @@ Before you can connect you need to make sure that:
 4. Fill in your Client ID and Client secret that you copied from the [Language Weaver portal](https://portal.languageweaver.com/settings/api-credentials)
 5. Click _Connect_.
 
-![1697473360187](https://raw.githubusercontent.com/bb-io/LanguageWeaver/main/image/README/1697473360187.png)
+![Connecting](https://raw.githubusercontent.com/bb-io/LanguageWeaver/main/image/README/1697473360187.png)
 
 ## Actions
 
@@ -32,7 +32,12 @@ Before you can connect you need to make sure that:
 - **Translate text** translates a text input.
 - **Translate file** translates a file input. Supported file formats can be found [here](https://developers.languageweaver.com/api/lw/common/input-formats.html).
 
-Both translation endpoints can have a mode of either "quality" or "speed".
+All translation endpoints can have a mode of either "quality" or "speed".
+
+- **Translate text with QE**
+- **Translate file with QE** both apply a quality estimation to the translated content. Source language is required and cannot be guessed. These actions have limited language combinations available and you should check available models in your Language Weaver account for supported language combinations.
+
+Quality estimation and ABBYY PDF conversion have to be enabled for your account in the Language Weaver settings.
 
 ### Identification
 
@@ -49,10 +54,13 @@ Both translation endpoints can have a mode of either "quality" or "speed".
 - **Delete dictionary**
 - **Get dictionary**
 
-## Example
+## Examples
 
-![1697474172103](https://raw.githubusercontent.com/bb-io/LanguageWeaver/main/image/README/1697474172103.png)
-This basic example shows how you can use Language Weaver to translate Microsoft Teams messages
+![First example](https://raw.githubusercontent.com/bb-io/LanguageWeaver/main/image/README/1697474172103.png)
+This basic example shows how you can use Language Weaver to translate Microsoft Teams messages.
+
+![Second example](https://raw.githubusercontent.com/bb-io/LanguageWeaver/main/image/README/Example2.png)
+Here, whenever PDF files are uploaded to SharePoint Documents, each file is downloaded, translated with Language Weaver and placed in the appropriate directory based on the translation quality assessment. 
 
 ## Missing features
 
@@ -65,7 +73,6 @@ In the future we can support and add actions for:
 - Group management
 - Feedback management
 - Adaption
-- Quality estimation
 
 Let us know if you're interested!
 
