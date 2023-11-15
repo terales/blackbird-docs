@@ -23,13 +23,15 @@ const altered_names = {
   MicrosoftSharePoint: "Microsoft SharePoint"
 };
 
+const skip_repos = ["docs", "template-repo"];
+
 const all_repos = await octokit.paginate("GET /orgs/{org}/repos", {
   org: "bb-io",
   per_page: 100,
 });
 
 await all_repos
-  .filter((x) => x.name != "docs")
+  .filter((x) => !skip_repos.includes(x.name))
   .forEach(async ({ name, default_branch, html_url }) => {
     try {
       const { data: raw_readme } = await octokit.rest.repos.getContent({

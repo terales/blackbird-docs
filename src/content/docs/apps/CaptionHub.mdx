@@ -39,6 +39,11 @@ CaptionHub is a cloud-based platform that provided services related to video cap
 - **Create original caption set** creates a new original caption set.
 - **Download original/translated captions** downloads a caption set in the requested format.
 
+### Custom dictionaries
+
+- **Get custom dictionary** returns details of a specific custom dictionary.
+- **List custom dictionaries** returns a list of all custom dictionaries belonging to your team.
+
 ### Languages
 
 - **List languages** returns a list of all available languages for your team.
@@ -74,7 +79,6 @@ CaptionHub is a cloud-based platform that provided services related to video cap
 
 In the future we can add actions for:
 
-- Custom dictionaries
 - Team workflows
 
 ## Feedback
