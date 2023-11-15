@@ -11,7 +11,6 @@ const docs_comment_end = "<!-- end docs -->";
 
 // Add altered_names here to turn repo names into nice names, f.e: HubspotCRM -> Hubspot CRM
 const altered_names = {
-  MemoQ: "memoQ",
   HubspotCRM: "Hubspot CRM",
   Hubspot: "Hubspot CMS",
   MicrosoftTeams: "Microsoft Teams",
