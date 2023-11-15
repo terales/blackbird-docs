@@ -20,7 +20,16 @@ const altered_names = {
   "Phrase-TMS": "Phrase",
   LanguageWeaver: "Language Weaver",
   AmazonBedrock: "Amazon Bedrock",
-  MicrosoftSharePoint: "Microsoft SharePoint"
+  AmazonComprehend: "Amazon Comprehend",
+  MicrosoftSharePoint: "Microsoft SharePoint",
+  AmazonPolly: "Amazon Polly",
+  CrowdinEnterprise: "Crowdin Enterprise",
+  GoogleAnalytics: "Google Analytics",
+  GoogleDrive: "Google Drive",
+  GoogleSheets: "Google Sheets",
+  GoogleTranslate: "Google Translate",
+  LanguageCloud: "Language Cloud",
+  "QuickBooks-Online": "QuickBooks Online",
 };
 
 const skip_repos = ["docs", "template-repo"];
