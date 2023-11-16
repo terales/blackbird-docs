@@ -12,30 +12,55 @@ Furthermore, we know exactly what problems you may face when it comes to languag
 
 Our philosophy is and always will be: make it as easy as possible for you without being opinionated or being a bottleneck.
 
-<Card title="Q1 2024: Error handling and retry policy" icon="warning">
+## Q1 2024
+
+<Card title="Error handling and retry policy" icon="warning">
   Sometimes actions can fail because of unforeseen reasons and we need to live with that. Blackbird will introduce retry
   policies for every action (e.g. retry 5 times for 1 minute) that you can configure in detail. Furthermore, you will
   also be able to define what you want to happen if an action still fails. Staying true to Blackbird's philosophy, we
   won't notify you about errors our way, but you can define custom flows that execute when a certain action fails.
 </Card>
-<Card title="Q1 2024: Polling events" icon="magnifier">
-  All birds start with an event: "If this happens then do that". Blackbird is currently able to resopnd to webhooks and
+
+<Card title="Polling events" icon="magnifier">
+  All birds start with an event: "If this happens then do that". Blackbird is currently able to respond to webhooks and
   callbacks from other services. We want to extend this behavior to also easily poll for changes as well. That way we
   can build very detailed events in cases where webhooks are not available. And of course, you always have full control
   about polling intervals in the bird editor.
 </Card>
-<Card title="Later: Okapi file processing workflows" icon="document">
+
+<Card title="Libraries extended" icon="open-book">
+  Our libraries enable you to map values between systems. The most common use case for this are langauge codes, which we already offer. 
+  Soon you will also be able to map other values like countries or status codes. On top of that, you will be able to define your own custom libraries.
+  Finally, for the out-of-the-box libraries we want you to not have to worry about conversion anymore, and conversion will be done behind the scenes without the need for an operator.
+</Card>
+
+## Later
+<Card title="Okapi file processing workflows" icon="document">
   Most language processing technologies work on strings or segments. However, most of our content is structured in
   files. Unifying these different dimensions of content is a problem a Blackbird user will face a lot.
   [Okapi](https://okapiframework.org/) is an open source framework designed and built to tackle this problem. We are
   looking to incorporate the full power of Okapi into Blackbird so that you can parse and segment any file in order to
   execute custom workflows on each segment.
 </Card>
-<Card title="Later: optimized segment processing" icon="rocket">
+
+<Card title="Optimized segment processing" icon="rocket">
   Blackbird is really good at defining how content should be orchestrated throughout your stack. With Okapi integrated
   it will also be good at defining how file content should be treated and processed. The last processing level is
   segment processing orchestration. Even though you can use Blackbird today to chain LLM models, try out different NMTs
   or score based on MTQE, we want to give you the ability to create dedicated segment based workflows that perform
   blazingly fast: Build your own orchestrated AI/NMT. Furthermore, we want to give you the ability to use these segment
   processing workflows directly in your favorite TMS.
+</Card>
+
+<Card title="Easy bird creation (or templating)" icon="sun">
+  The time it takes to build a bird is our most important metric. We know that templates for birds would provide great user experience and inspiration for you to leverage the most out of Blackbird.
+  We are excited to build an interactive templating system that gives you this inspiration, sets up birds for you with the apps that you use, and will always generate birds that are up-to-date with the latest powerful features Blackbird has to offer.
+</Card>
+
+<Card title="Customization and integration" icon="puzzle">
+  We want to enable you to use Blackbird in the way you prefer, this includes how you interact with your clients on Blackbird. We want to further broaden Blackbird's OEM potential, starting with custom domains, custom styling. Later we envision that you can embed Blackbird inside the software you already offer to your clients.
+</Card>
+
+<Card title="Private apps connected to git" icon="github">
+  To provide the best experience for your developers, we will have your private Blackbird apps connected to your Github repositories. This enables your developers to deploy updates faster with the best developer experience possible.
 </Card>

@@ -20,6 +20,8 @@ const altered_names = {
   LanguageWeaver: "Language Weaver",
   AmazonBedrock: "Amazon Bedrock",
   AmazonComprehend: "Amazon Comprehend",
+  AmazonTranslate: "Amazon Translate",
+  AmazonS3: "Amazon S3",
   MicrosoftSharePoint: "Microsoft SharePoint",
   AmazonPolly: "Amazon Polly",
   CrowdinEnterprise: "Crowdin Enterprise",
@@ -27,8 +29,14 @@ const altered_names = {
   GoogleDrive: "Google Drive",
   GoogleSheets: "Google Sheets",
   GoogleTranslate: "Google Translate",
-  LanguageCloud: "Language Cloud",
+  LanguageCloud: "Trados",
   "QuickBooks-Online": "QuickBooks Online",
+  AzureImageAnalysis: "Microsoft Image Analysis",
+  MicrosoftOneDrive: "Microsoft OneDrive",
+  SalesforceCRM: "Salesforce CRM",
+  SalesforceKnowledge: "Salesforce Knowledge",
+  Twitter: "X",
+  Acclaro: "My Acclaro",
 };
 
 const skip_repos = ["docs", "template-repo"];

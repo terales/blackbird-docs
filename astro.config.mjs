@@ -32,6 +32,10 @@ export default defineConfig({
           label: "SDK",
           autogenerate: { directory: "sdk" },
         },
+        {
+          label: "More",
+          autogenerate: { directory: "more" },
+        },
       ],
     }),
   ],
