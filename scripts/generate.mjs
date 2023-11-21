@@ -21,6 +21,7 @@ const altered_names = {
   AmazonBedrock: "Amazon Bedrock",
   AmazonComprehend: "Amazon Comprehend",
   AmazonTranslate: "Amazon Translate",
+  AmazonWorkDocs: "Amazon WorkDocs",
   AmazonS3: "Amazon S3",
   MicrosoftSharePoint: "Microsoft SharePoint",
   AmazonPolly: "Amazon Polly",
@@ -37,6 +38,8 @@ const altered_names = {
   SalesforceKnowledge: "Salesforce Knowledge",
   Twitter: "X",
   Acclaro: "My Acclaro",
+  MicrosoftImageAnalysis: "Microsoft Image Analysis",
+  MicrosoftOpenAI: "Microsoft OpenAI",
 };
 
 const skip_repos = ["docs", "template-repo"];
