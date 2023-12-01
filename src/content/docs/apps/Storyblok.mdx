@@ -5,10 +5,65 @@
 import { LinkCard } from "@astrojs/starlight/components";
 
 <LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Storyblok" icon="github" />
+ 
+  
+Storyblok is a headless content management. This Storyblok application primarily centers around story and task management.  
 
-Documentation coming soon.
+## Connecting  
+  
+1. Navigate to apps and search for Storyblok. If you cannot find Notion then click _Add App_ in the top right corner, select Storyblok and add the app to your Blackbird environment.  
+2. Click _Add Connection_.  
+3. Name your connection for future reference e.g. 'My client'.  
+4. Go to your Storyblok profile and select `Personal access tokens` section
+5. Generate a new API token
+7. Copy generated token and paste it to the appropriate field in Blackbird
+8. Click _Connect_.  
+9. Confirm that the connection has appeared and the status is _Connected_.  
+  
+## Actions  
+ 
+### Components
 
-## Feedback
+- **List/Get/Create/Delete components**
 
+### Releases
+
+- **List/Get/Create/Delete release**
+
+### Spaces
+
+- **List/Get/Create/Delete/Backup spaces**
+
+### Stories
+
+- **Export story content** returns story content as an HTML file.
+- **Import story content** updates story content from an HTML file.
+- **List/Get/Create/Update/Delete stories**
+- **Publish/Unpublish story**
+
+### Tasks
+
+- **List/Get/Create/Delete tasks**
+
+### Events
+
+- **On story published**
+- **On story unpublished**
+- **On story moved**
+- **On story deleted**
+- **On asset created**
+- **On asset deleted**
+- **On asset replaced**
+- **On asset restored**
+- **On user added**
+- **On user removed**
+- **On user roles updated**
+- **On data source entry saved**
+- **On pipeline deployed**
+- **On release merged**
+- **On workflow changed**
+  
+## Feedback  
+  
 Do you want to use this app or do you have feedback on our implementation? Reach out to us using the [established channels](https://www.blackbird.io/) or create an issue.
-
+  
