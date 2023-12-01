@@ -6,7 +6,57 @@ import { LinkCard } from "@astrojs/starlight/components";
 
 <LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Pinecone" icon="github" />
 
-Documentation coming soon.
+
+Pinecone is a cloud-native vector database designed for high-performance AI applications, offering a managed solution with no infrastructure complexities. It specializes in storing and quickly querying vector embeddings, which serve as long-term memory for applications involving large language models, generative AI, and semantic search. The system ensures fast and accurate queries at scale, with low-latency results reflecting real-time updates and offering customization options for enhanced performance.
+
+## Before setting up
+
+Before you can connect you need to make sure that: 
+
+- You have a Pinecone account.
+- You have [created a project](https://docs.pinecone.io/docs/create-project).
+- You have obtained an _API key_ and _Environment_ connection parameters. To find them, open the [Pinecone console](https://app.pinecone.io/), select the project you are interested in, and click on _API Keys_. Here, you can copy your _Environment_ and _API key_ values.
+
+![API keys](https://raw.githubusercontent.com/bb-io/Pinecone/main/image/api_keys.png)
+
+## Connecting
+
+1. Navigate to apps and search for Pinecone. If you cannot find Pinecone then click _Add App_ in the top right corner, select Pinecone and add the app to your Blackbird environment.
+2. Click _Add Connection_.
+3. Name your connection for future reference e.g. 'My database'.
+4. Fill in the _API key_ and _Environment_ obtained earlier.
+5. Click _Connect_.
+6. Confirm that the connection has appeared and the status is _Connected_.
+
+![Connecting](https://raw.githubusercontent.com/bb-io/Pinecone/main/image/connecting.png)
+
+## Actions
+
+### Indexes
+
+- **List indexes**.
+- **Create index**. You can read about indexes and their parameters [here](https://docs.pinecone.io/docs/indexes). This action also accepts _Source collection_ parameter which is a static copy of an index. You can read more about collections [here](https://docs.pinecone.io/docs/collections).
+- **Describe index** returns a description of an index.
+- **Configure index** updates the pod type and/or number of replicas for an index. You can only increase the pod size or the number of replicas.
+- **Delete index**.
+- **List collections**.
+- **Create collection** creates a collection from an index.
+- **Describe collection** returns a description of a collection.
+- **Delete collection**.
+
+### Vectors
+
+- **Query** retrieves the records in the index that are most similar to a given query vector.
+- **Fetch vector** retrieves a vector by its ID.
+- **Upsert vector** writes a new vector into the index.
+- **Delete vector**.
+- **Delete all vectors in namespace**.
+
+## Example
+
+![Example](https://raw.githubusercontent.com/bb-io/Pinecone/main/image/example.png)
+
+In this example, a bird fetches Zendesk articles added in the past 24 hours, creates an embedding for each of them, and stores them in Pinecone.
 
 ## Feedback
 
