@@ -40,6 +40,9 @@ const altered_names = {
   Acclaro: "My Acclaro",
   MicrosoftImageAnalysis: "Microsoft Image Analysis",
   MicrosoftOpenAI: "Microsoft OpenAI",
+  MicrosoftExcel: "Microsoft Excel",
+  AmazonRedshift: "Amazon Redshift",
+  MemoQCMS: "MemoQ CMS"
 };
 
 const skip_repos = ["docs", "template-repo"];
