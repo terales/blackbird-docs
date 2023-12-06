@@ -42,7 +42,9 @@ const altered_names = {
   MicrosoftOpenAI: "Microsoft OpenAI",
   MicrosoftExcel: "Microsoft Excel",
   AmazonRedshift: "Amazon Redshift",
-  MemoQCMS: "MemoQ CMS"
+  MemoQCMS: "MemoQ CMS",
+  BlackbirdPrompts: "Blackbird Prompts",
+  UnbabelTranslation: "Unbabel Translation",
 };
 
 const skip_repos = ["docs", "template-repo"];
