@@ -45,6 +45,7 @@ const altered_names = {
   MemoQCMS: "MemoQ CMS",
   BlackbirdPrompts: "Blackbird Prompts",
   UnbabelTranslation: "Unbabel Translation",
+  UnbabelProjects: "Unbabel Projects",
   AIUtilities: "AI Utilities"
 };
 
