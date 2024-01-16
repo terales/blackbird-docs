@@ -1,0 +1,71 @@
+---
+  title: ContentQuo Evaluate
+  description: The ContentQuo Evaluate Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/ContentQuo" icon="github" />
+
+ContentQuo evaluate is a vendor-agnostic cloud software for managing and scaling Language Quality (LQA) programs for Human and Machine Translation. This app focusses on creating evaluations in ContentQuo evaluate, and exporting evaluations in reports or to spreadsheets or databases.
+
+## Before setting up
+
+Before you can connect you need to make sure that:
+
+- You have a ContentQuo account on the instance you want to connect to.
+- You have received a public key and secret key from ContentQuo.
+
+## Connecting
+
+1. Navigate to apps and search for ContentQuo. If you cannot find ContentQuo then click _Add App_ in the top right corner, select ContentQuo and add the app to your Blackbird environment.
+2. Click _Add Connection_.
+3. Name your connection for future reference e.g. 'My ContentQuo connection'.
+4. Fill in the the public and secret key that you have received from ContentQuo.
+5. Click _Connect_.
+
+![1705419776657](https://raw.githubusercontent.com/bb-io/ContentQuo/main/image/README/1705419776657.png)
+
+## Actions
+
+### Evaluation
+
+- **Create evaluation**
+- **Start evaluation**
+- **Delete evaluation**
+- **Get evaluation**
+- **Get evaluation workflow**
+
+## Files
+
+- **Delete bilingual file**
+- **Download bilingual file**
+- **List evaluation files**
+- **Upload bilingual file**
+
+### Reporting
+
+- **Download evaluation report**
+- **Get evaluation issues**
+
+## Example
+
+Create an evaluation from memoQ a memoQ project:
+
+![1705420501260](https://raw.githubusercontent.com/bb-io/ContentQuo/main/image/README/1705420501260.png)
+
+Story issues in an Excel file:
+
+![1705420538988](https://raw.githubusercontent.com/bb-io/ContentQuo/main/image/README/1705420538988.png)
+
+Download an evaluation report an send it on Slack:
+
+![1705420570372](https://raw.githubusercontent.com/bb-io/ContentQuo/main/image/README/1705420570372.png)
+
+## Missing features
+
+There are numerous endpoints in the ContentQuo documentation labeled as [not implemented yet]. The moment these are available they can be added as features to this Blackbird app.
+
+## Feedback
+
+Do you want to use this app or do you have feedback on our implementation? Reach out to us using the [established channels](https://www.blackbird.io/) or create an issue.
+

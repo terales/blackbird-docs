@@ -22,6 +22,7 @@ const altered_names = {
   AmazonComprehend: "Amazon Comprehend",
   AmazonTranslate: "Amazon Translate",
   AmazonWorkDocs: "Amazon WorkDocs",
+  AmazonTextract: "Amazon Textract",
   AmazonS3: "Amazon S3",
   MicrosoftSharePoint: "Microsoft SharePoint",
   AmazonPolly: "Amazon Polly",
@@ -46,7 +47,8 @@ const altered_names = {
   BlackbirdPrompts: "Blackbird Prompts",
   UnbabelTranslation: "Unbabel Translation",
   UnbabelProjects: "Unbabel Projects",
-  AIUtilities: "AI Utilities"
+  AIUtilities: "AI Utilities",
+  ContentQuo: "ContentQuo Evaluate",
 };
 
 const skip_repos = ["docs", "template-repo"];

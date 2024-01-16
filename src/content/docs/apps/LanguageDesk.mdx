@@ -6,7 +6,41 @@ import { LinkCard } from "@astrojs/starlight/components";
 
 <LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/LanguageDesk" icon="github" />
 
-Documentation coming soon.
+[LanguageDesk](https://www.milengo.com/languagedesk/) enables customers to easily track the progress of their projects from start to finish by providing a centralized overview of all translation and localization projects, their status, associated files, costs and communication history.
+
+## Before setting up
+
+Before you can connect you need to make sure that:
+
+- You have a LanguageDesk account
+- You have an API token. You can find this token in LanguageDesk under _settings_ -> _API & Ftp servers_.
+
+## Connecting
+
+1. Navigate to apps and search for LanguageDesk. If you cannot find Jira then click _Add App_ in the top right corner, select LanguageDesk and add the app to your Blackbird environment.
+2. Click _Add Connection_.
+3. Name your connection for future reference e.g. 'My organization'.
+4. Fill in the base URL of your LanguageDesk instance. The base URL is of shape `https://<environment>.languagedesk.com`. You can usually copy this part of the URL when you are logged into your LanguageDesk instance.
+5. Fill in your API token.
+6. Click _Connect_.
+
+![1705078067846](https://raw.githubusercontent.com/bb-io/LanguageDesk/main/image/README/1705078067846.png)
+
+## Actions
+
+- **Create project** creates a new LanguageDesk project with variable source/target language combinations among other inputs. Note: use the Callback URL input to enable events (see below).
+- **Get project** returns all available information about a specific project
+- **Change project status** changes the status of an existing project
+- **Download delivery files** retrieves the translated file in a zip file.
+- **Download invoice** retrieves the invoice in PDF format.
+
+## Events
+
+- **On project status changed** is triggered when a project changes its status. When creating a bird with this trigger, copy the URL that Blackbird generates and add it as the Callback URL field in. _Create project_ actions. (See screenshots below)
+
+![1705078296613](https://raw.githubusercontent.com/bb-io/LanguageDesk/main/image/README/1705078296613.png)
+
+![1705078347912](https://raw.githubusercontent.com/bb-io/LanguageDesk/main/image/README/1705078347912.png)
 
 ## Feedback
 
