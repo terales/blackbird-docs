@@ -32,20 +32,17 @@ Before you can connect you need to make sure that:
 - **Create evaluation**
 - **Start evaluation**
 - **Delete evaluation**
-- **Get evaluation**
-- **Get evaluation workflow**
+- **Download evaluation report** returns an Excel file based report of the entire evaluation. Optionally, one can use a custom report ID if configured in their ContentQuo Evaluate instance.
+- **Get evaluation** returns general information about the evaluation plus:
+  - A list of issues.
+  - Quality evaluation metrics with a _grade_ and a _quality score_.
+  - A list of files with attached information including _word count_ and _segment count_.
 
 ## Files
 
-- **Delete bilingual file**
 - **Download bilingual file**
-- **List evaluation files**
 - **Upload bilingual file**
-
-### Reporting
-
-- **Download evaluation report**
-- **Get evaluation issues**
+- **Delete bilingual file**
 
 ## Example
 
@@ -53,13 +50,13 @@ Create an evaluation from memoQ a memoQ project:
 
 ![1705420501260](https://raw.githubusercontent.com/bb-io/ContentQuo/main/image/README/1705420501260.png)
 
-Story issues in an Excel file:
+Store issues in an Excel file:
 
 ![1705420538988](https://raw.githubusercontent.com/bb-io/ContentQuo/main/image/README/1705420538988.png)
 
-Download an evaluation report an send it on Slack:
+If the quality score of an evaluation is below a certain threshhold, download the evaluation report an send it on Slack:
 
-![1705420570372](https://raw.githubusercontent.com/bb-io/ContentQuo/main/image/README/1705420570372.png)
+![1705580633329](https://raw.githubusercontent.com/bb-io/ContentQuo/main/image/README/1705580633329.png)
 
 ## Missing features
 
