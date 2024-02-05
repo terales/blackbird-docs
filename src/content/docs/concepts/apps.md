@@ -2,7 +2,7 @@
 title: Understanding Apps in Blackbird
 description: Learn what Apps are
 sidebar:
-  label: Understanding Apps
+  label: Apps
   order: 1
 ---
 

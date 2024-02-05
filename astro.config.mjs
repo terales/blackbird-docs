@@ -25,16 +25,16 @@ export default defineConfig({
           autogenerate: { directory: "concepts" },
         },
         {
-          label: "Apps",
-          autogenerate: { directory: "apps" },
-        },
-        {
           label: "SDK",
           autogenerate: { directory: "sdk" },
         },
         {
           label: "More",
           autogenerate: { directory: "more" },
+        },
+        {
+          label: "Apps",
+          autogenerate: { directory: "apps" },
         },
       ],
     }),

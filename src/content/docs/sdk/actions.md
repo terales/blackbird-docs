@@ -3,16 +3,17 @@ title: Defining actions
 description: Learn how to define actions in a Blackbird project.
 sidebar:
   label: Actions
-  order: 6
+  order: 4
 ---
 
 You can use the SDK to define actions that should appear in your app. Contrary to other workflow orchestration platforms, actions in Blackbird don't necessarily correlate 1:1 with an endpoint. Often we tweak the action to be more user-friendly and/or add extra functionality for convenience.
 
 ## Pointing Blackbird to actions
 
-Actions in a Blackbird project are defined as methods in a class that has the `ActionList` attribute. These methods will need the `Action` attribute.
+Actions in a Blackbird project are defined as methods in a class that has the `ActionList` attribute. These methods will need the `Action` attribute. The basic structure of an action looks like this:
 
 ```cs
+// To be visible to Blackbird, add the [ActionList] attribute
 [ActionList]
 public class MyActions
 {
@@ -21,6 +22,7 @@ public class MyActions
   public async Task<TextResult> Translate([ActionParameter] TextTranslationRequest request)
   {
     // Do something here with the request
+
     return new TextResult{ Translation = "My translation" }
   }
 }
@@ -31,6 +33,40 @@ Arguments of methods that use the `ActionParameter` attributes are inputs of the
 The `Action` attribute will take a string as its first argument. This will be the display name of the action in Blackbird. You can also provide an optional Description argument that is displayed in Blackbird.
 
 The fields in the outputted class will automatically be available in the Bird editor in subsequent steps. Action methods can be async - but this is not a requirement.
+
+## Defining display names input values
+
+The `[ActionParameter]` attribute can be added to any acceptable argument (strings, numbers, booleans, dates, lists) but also to classes. When added to the class, Blackbird will simply display all the properties of this class as input arguments.
+
+The `[Display]` attribute can be used on both class properties as well as input arguments to define how the variable should be named in the Blackbird UI. Additionally, a description can be given as well.
+
+```cs
+public class GetBerryRequest
+{
+    // Properties must have display attributes which contain user-friendly name of variable
+    [Display("Berry name", Description = "The name of the berry")]
+    public string BerryName { get; set; }
+}
+```
+
+This class is transformed to:
+
+![connection](../../../assets/docs/berry.png)
+
+Just as with input arguments, the `[Display]` atribute also works on the return types of your actions in order to give them user-friendly names.
+
+## Optional inputs
+
+By default all input parameters are required in the Blackbird UI. You can mark any input to be optional simply by making the value nullable (`?` in C#).
+
+```cs
+public class CreateCallbackRequest
+{
+    // This input is now optional
+    [Display("Action")] public string? Action { get; set; }
+    [Display("Callback URL")] public string CallbackUrl { get; set; }
+}
+```
 
 ## Using your connection
 

@@ -14,12 +14,12 @@ Our philosophy is and always will be: make it as easy as possible for you withou
 
 ## Q1 2024
 
-<Card title="Error handling and retry policy" icon="warning">
+<Card title="Retry policy" icon="warning">
   Sometimes actions can fail because of unforeseen reasons and we need to live with that. Blackbird will introduce retry
-  policies for every action (e.g. retry 5 times for 1 minute) that you can configure in detail. Furthermore, you will
-  also be able to define what you want to happen if an action still fails. Staying true to Blackbird's philosophy, we
-  won't notify you about errors our way, but you can define custom flows that execute when a certain action fails.
+  policies for every action (e.g. retry 5 times for 1 minute) that you can configure in detail.
 </Card>
+
+## Q2 2024
 
 <Card title="Polling events" icon="magnifier">
   All birds start with an event: "If this happens then do that". Blackbird is currently able to respond to webhooks and
@@ -34,7 +34,13 @@ Our philosophy is and always will be: make it as easy as possible for you withou
   Finally, for the out-of-the-box libraries we want you to not have to worry about conversion anymore, and conversion will be done behind the scenes without the need for an operator.
 </Card>
 
-## Later
+<Card title="Error handling" icon="warning">
+  Sometimes actions can fail because of unforeseen reasons and we need to live with that. Besides defining a retry policy, you will
+  also be able to define what you want to happen if an action still fails. Staying true to Blackbird's philosophy, we
+  won't notify you about errors our way, but you can define custom flows that execute when a certain action fails.
+</Card>
+
+## Q3 2024
 {/* <Card title="Okapi file processing workflows" icon="document">
   Most language processing technologies work on strings or segments. However, most of our content is structured in
   files. Unifying these different dimensions of content is a problem a Blackbird user will face a lot.
