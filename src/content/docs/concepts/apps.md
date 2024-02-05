@@ -6,7 +6,7 @@ sidebar:
   order: 1
 ---
 
-A Blackbird App is a wrapper around an API that allows the underlying service to communicate with other apps and services. An App consists of at least one connector, trigger, and action. You can manage and set up _Apps_ in the Apps screen of Blackbird.io.
+A Blackbird App connects an application to the vast Blackbird ecosystem using its API. An App consists of events and/or actions that allow the user to orchestrate workflows. You can manage and set up _Apps_ in the Apps screen of Blackbird.io.
 
 ## Browsing Apps
 
