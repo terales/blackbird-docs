@@ -25,6 +25,10 @@ export default defineConfig({
           autogenerate: { directory: "concepts" },
         },
         {
+          label: "Guides",
+          autogenerate: { directory: "guides" },
+        },
+        {
           label: "SDK",
           autogenerate: { directory: "sdk" },
         },

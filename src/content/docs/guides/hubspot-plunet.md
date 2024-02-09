@@ -3,7 +3,8 @@ title: Plunet & Hubspot CRM
 description: Our first introduction to solution architecting with Blackbird - let's synchronize Plunet customer/order data with Hubspot CRM!
 sidebar:
   label: SA 101 - Plunet & Hubspot
-  order: 1
+  order: 2
+  hidden: true
 ---
 
 This guide is our first introduction to business process management and solution architecting. Now that you know how to use the basic functionality (birds, flights and apps) it is time to learn the soft skills that will help you get the most out of Blackbird!
@@ -63,5 +64,3 @@ Luckily, both Plunet and Hubspot allow us to create and set custom fields for ea
 For Plunet, we create a _text module_ and apply it to Customers, internal resources, and orders. For more information on text modules, check out the [Plunet documentation](https://kb.plunet.com/display/KB/Text+modules).
 
 ![Plunet text module](../../../assets/guides/hubspot-plunet/plunet-text-module.png)
-
-In Hubspot
