@@ -6,7 +6,7 @@ sidebar:
   order: 2
 ---
 
-The Flights tab gives you an overview about how your Birds perform. The list displays the latest 50 flights from the last thirty days. You can use the search bar to narrow down the results by typing in the Bird name or the Flight ID. You can also filter the list by the latest, failed, running, or succeeded flights.
+The Flights tab gives you an overview about how your Birds perform. The list displays the latest 500 flights from the last thirty days. You can use the search bar to narrow down the results by typing in the Bird name or the Flight ID. You can also filter the list by the latest, failed, running, or succeeded flights.
 
 ## Checking the details of a flight
 
