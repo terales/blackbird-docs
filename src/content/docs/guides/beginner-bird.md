@@ -1,8 +1,8 @@
 ---
-title: Chick bird - building your first bird step by step
+title: Beginner bird - building your first bird step by step
 description: In order to become an expert bird watcher you have to start somewhere. This guide is for Blackbird beginners and will get you up to speed with the basics of building birds.
 sidebar:
-  label: Chick bird step by step
+  label: Beginner bird step by step
   order: 1
 ---
 
