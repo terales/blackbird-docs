@@ -31,10 +31,10 @@ See the [Matecat API documentation](https://www.matecat.com/api/docs#/) for a de
 ### Projects
 
 - **Create project** creates a new project in detached mode.
-- **Get project**
-- **Cancel project**
-- **Archive project**
-- **Activate project**
+- **Get project**.
+- **Cancel project**.
+- **Archive project**.
+- **Activate project**.
 
 ### Jobs
 
@@ -42,30 +42,33 @@ See the [Matecat API documentation](https://www.matecat.com/api/docs#/) for a de
 - **Download translation** returns multiple seperate translated files of this job.
 - **Download job TMX** returns the TMX file representing the current status of the job.
 - **Get job segments comments** returns a list of all comments that have been made in this job.
-- **Get job**
-- **Cancel job**
-- **Archive job**
-- **Activate job**
+- **Get job**.
+- **Cancel job**.
+- **Archive job**.
+- **Activate job**.
 
 ### Teams
 
-- **List teams**
-- **Create team**
-- **List team projects**
-- **List team members**
-- **Add members**
-- **Remove member**
+- **List teams**.
+- **Create team**.
+- **List team projects**.
+- **List team members**.
+- **Add members**.
+- **Remove member**.
 
 ### Translation issues
 
-- **Get translation issue**
-- **Create translation issue**
-- **Delete translation issue**
-- **Get translation issue comments**
+- **Get translation issue**.
+- **Create translation issue**.
+- **Delete translation issue**.
+- **Get translation issue comments**.
+
+### Glossaries
+
+- **Import glossary**. Matecat doesn't support language codes without a country portion. If the glossary contains such languages, the most appropriate Matecat-supported language code is selected (e.g., _es-ES_ for the _es_ language code). Glossaries can only be imported as private TMs in Matecat. More details on glossary import specifics in Matecat can be found [here](https://guides.matecat.com/how-to-add-a-glossary).
 
 ## Missing features
 
-- Glossary actions
 - Translation Versions
 - Quality report
 - Project merging
