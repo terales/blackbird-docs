@@ -49,9 +49,10 @@ const altered_names = {
   UnbabelProjects: "Unbabel Projects",
   AIUtilities: "AI Utilities",
   ContentQuo: "ContentQuo Evaluate",
+  GoogleVertexAI: "Google Vertex AI",
 };
 
-const skip_repos = ["docs", "template-repo"];
+const skip_repos = ["docs", "template-repo", "NotionOAuth"];
 
 const all_repos = await octokit.paginate("GET /orgs/{org}/repos", {
   org: "bb-io",

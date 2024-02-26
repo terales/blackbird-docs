@@ -4,7 +4,7 @@ description: Our first introduction to solution architecting with Blackbird - le
 sidebar:
   label: SA 101 - Plunet & Hubspot
   order: 2
-  hidden: false
+  hidden: true
 ---
 
 This guide is our first introduction to business process management and solution architecting. Now that you know how to use the basic functionality (birds, flights and apps) it is time to learn the soft skills that will help you get the most out of Blackbird!
