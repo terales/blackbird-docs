@@ -4,7 +4,7 @@ description: Our first introduction to solution architecting with Blackbird - le
 sidebar:
   label: SA 101 - Plunet & Hubspot
   order: 2
-  hidden: true
+  hidden: false
 ---
 
 This guide is our first introduction to business process management and solution architecting. Now that you know how to use the basic functionality (birds, flights and apps) it is time to learn the soft skills that will help you get the most out of Blackbird!
@@ -81,19 +81,73 @@ We have arrived at the most important step that you take before building the bir
 
 Let's write down the manual steps that one needs to perform in order to synchronize their Plunet order to a Hubspot deal. We assume that the order has already been created.
 
-- Create a new deal in Hubspot and fill in from our Plunet order:
-
-  - The total price from Plunet should be filled in for the amount
-  - The order name from Plunet should be the deal name
-  - The order date from Plunet should be the closed date
-  - The Plunet order ID should be set as the Plunet ID custom property
-
-- After creating the deal, get the Deal ID from Hubspot and add it to the Hubspot ID text module in Plunet
-- Go to the customer of the order in Plunet and find its Hubspot ID from the text module
-- Create a new association between this Hubspot customer and the Hubspot deal
-- Go to the contact of the order in Plunet and find its Hubspot ID
-- Create a new association between the Hubspot contact and the Hubspot deal
+1. Create a new deal in Hubspot and add the price, name and date from our Plunet order.
+2. Set the Plunet order ID custom property in Hubspot with the ID of the Plunet order we created
+3. After creating the deal, get the Deal ID from Hubspot and add it to the Hubspot ID text module in Plunet
+4. Go to the customer of the order in Plunet and find its Hubspot ID from the text module
+5. Create a new association between this Hubspot customer and the Hubspot deal
+6. Go to the contact of the order in Plunet and find its Hubspot ID
+7. Create a new association between the Hubspot contact and the Hubspot deal
 
 > You may wonder why we are filling the custom properties and text modules while they are not necessarily required for this bird. We recommend that it as good practise to create these associations for future workflows and scenarios.
 
 So it seems that our bird is going to be pretty straightforward! We perform about 6 actions when manually synchrnozing Plunet to Hubspot, we can thus expect a bird of about equal size.
+
+## 5. Building the bird
+
+Finally, we're ready to build the bird! If you have planned your actions correctly then the actions in your bird should basically correspond with the manual steps you would have to perform.
+
+![Simple bird](../../../assets/guides/hubspot-plunet/bird-simple.png)
+
+As you can see, the numbered actions correspond to the steps we planned above!
+
+When you have tested this flow in itself (we recommend doing so with a manual trigger initially and just grabbing a 'hardcoded' Plunet order) you can start thinking about the trigger: when did this bird need to fly again?
+
+The bird should trigger _when a new order is created in Plunet_. It seems that there is an event in Plunet called _On order created_. Unfortunatly, this is the moment where we would need some deeper system knowledge of Plunet. Namely, this event is not triggered when a new order is saved the first time, but triggered in Plunet the moment you click on the _new order_ button. This is extremely unuseful as at that moment, the entire order will still be empty.
+
+> We encourage you to experiment with events (and actions) in isolation birds, simply to get familiar with their behaviour, before using them in bigger bird scenarios.
+
+No fear, there is another event we can use: _On order status changed_. It is common for project managers to create a new order, and finishing up the initialization phase by changing the order status. This should be our trigger instead!
+
+A problem that arises now is that this status change can be applied multiple times. Imagine a project manager changing to our status, triggering the bird, changing the status back and forth and triggering it again. Now we have duplicate Hubspot deals!
+
+The best way to circumvent this new problem we created for ourselves, is to simply check in the beginning if we have already set the Hubspot deal ID in our Plunet text module. If not, then we can safely execute the rest of the bird.
+
+With those details added, our complete bird looks like this:
+
+![Complete bird](../../../assets/guides/hubspot-plunet/complete-bird.png)
+
+Congratulations! You have taken all the solution architect's steps in order to create a production ready bird!
+
+## 6. Additional birds
+
+But wait! In order for this bird to actually be effective in production, I need to have created the relationship (filled in text modules) between Hubspot companies and Plunet customers already. Likewise, we rely on the relationship between Plunet contact and Hubspot contact.
+
+Sharp observation.
+
+We could ask our project managers to create a Plunet customer each time a Hubspot company is created and associate the two by filling in the text modules and custom properties...
+
+We could ask our project managers to create a Plunet contact each time a Hubspot contact is created and associate the two by filling in the text modules and custom properties...
+
+...or we can just create two more birds and automate this process.
+
+For the sake of not repeating the last two sections, let's keep it simple and be brief. The bird for contacts is very similar to that of customers so we will only show the customer workflow.
+
+> In this example we assume that companies and contacts primarily live in Hubspot, as that is where the sales department creates them on first contact.
+
+Requirement: _We want to create a customer in Plunet, when a company is created in Hubspot_
+
+Manual steps (after a company is created in Hubspot):
+
+1. Get the company's information from Hubspot
+2. Create a new customer in Plunet
+3. Set the Hubspot ID text module of the Plunet customer
+4. Set the Plunet ID custom property in Hubspot
+
+Bird:
+
+![Complete bird](../../../assets/guides/hubspot-plunet/company-sync.png)
+
+> The biggest difference between customers and contacts in Plunet is that contacts don't have text modules. Luckily they instead have an "external ID" property that we can use.
+
+Congratulations for reading all the way to the end! Hopefully we have shown that setting up a Blackbird workflow goes a lot deeper than just playing in Blackbird exclusively. Sometimes you have to dive a little deeper in how these systems are intended to be used, how your team uses them and how an optimal workflow can be found. And then we haven't even discussed the human aspects of implementing a workflow like this, e.g. change management. Nevertheless, we hope that you can see that Blackbird itself makes the technical aspect of building these workflows completely trivial so that you can focus on people!
