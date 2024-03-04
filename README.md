@@ -1,41 +1,47 @@
 # Blackbird documentation
 
-Build with Astro starlight. [Read the reference documentation](https://starlight.astro.build/).
+Build with Astro starlight. [Read the reference documentation](https://starlight.astro.build/). Check out its documentation.
+
+## Installation
+
+1. Run `npm install`
+2. Add a `.env` file in the top level of the repository
+3. Get a [Github personal access token](https://github.com/settings/tokens?type=beta) [(See docs here)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+4. Add the access token to the `.env` file.
+
+```
+GITHUB_ACCESS_TOKEN=<token here>
+```
 
 ## Project Structure
 
 ```
 .
 ├── public/
+├── scripts/ (This has the script to generate the apps)
 ├── src/
 │   ├── assets/
 │   ├── content/
 │   │   ├── docs/
+│   │   │   ├── apps/ (All generated apps appear here)
+│   │   │   ├── ... (other top categories)
 │   │   └── config.ts
 │   └── env.d.ts
 ├── astro.config.mjs
 ├── package.json
 └── tsconfig.json
+└── .env (This file needs to be added by you)
 ```
-
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
-
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
-
-Static assets, like favicons, can be placed in the `public/` directory.
 
 ## Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Command            | Action                                         |
+| :----------------- | :--------------------------------------------- |
+| `npm install`      | Installs dependencies                          |
+| `npm run dev`      | Starts local dev server at `localhost:4321`    |
+| `npm run generate` | Generates all apps from the bb-io repositories |
 
 ## Generating apps
 
