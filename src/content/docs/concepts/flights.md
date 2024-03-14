@@ -12,6 +12,6 @@ The Flights tab gives you an overview about how your Birds perform. The list dis
 
 To check your flights, navigate to the _Flights_ tab and click on a flight in the list to check its details. In this overview you can check each individual action, their inputs and their outputs. You will see a message if an action failed.
 
-You can click _EditBird_ to open the editor page of the current Bird, where you can make the necessary edits.
+You can click _Edit_ to open the editor page of the current Bird, where you can make the necessary edits.
 
 ![connection](../../../assets/docs/flight-details.png)
