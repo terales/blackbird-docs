@@ -5,7 +5,6 @@
 import { LinkCard } from "@astrojs/starlight/components";
 
 <LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Lokalise" icon="github" />
- 
 
 Lokalise is a continuous localization and translation management platform. This Lokalise application primarily centers around project, key and task management.
 
@@ -63,6 +62,7 @@ Lokalise is a continuous localization and translation management platform. This 
 ### Tasks
 
 - **Create task from the built languages** creates a new task with languages from `Build language` action results. Note: ordinary `Create` task action assigns all specified users/groups to all of the languages. If you need languages to have unique users/groups, please use this action.
+- **Create language task** creates a task for one target language. Because there is only one target language, you can immediatly assign users and groups, and filter keys by translation reviewed/unverified/untranslated.
 - **List/Create/Get/Update/Delete task(s)**
 
 ### Translations
@@ -71,35 +71,35 @@ Lokalise is a continuous localization and translation management platform. This 
 
 ## Events
 
--   **On key modified for assignee** triggers when project key is added/modified or a new task is created.
--   **On project imported**
--   **On project exported**
--   **On project deleted**
--   **On project snapshot**
--   **On project branch added**
--   **On project branch deleted**
--   **On project branch merged**
--   **On project languages added**
--   **On project language removed**
--   **On project language settings changed**
--   **On project key added**
--   **On project keys added**
--   **On project key modified**
--   **On project keys deleted**
--   **On project key comment added**
--   **On project translation updated**
--   **On project translations updated**
--   **On project translation proofread**
--   **On project contributor added**
--   **On project contributor deleted**
--   **On team order created**
--   **On team order deleted**
--   **On team order completed**
--   **On project task initial TM leverage calculated**
--   **On project task created**
--   **On project task closed**
--   **On project task deleted**
--   **On project task language closed**
+- **On key modified for assignee** triggers when project key is added/modified or a new task is created.
+- **On project imported**
+- **On project exported**
+- **On project deleted**
+- **On project snapshot**
+- **On project branch added**
+- **On project branch deleted**
+- **On project branch merged**
+- **On project languages added**
+- **On project language removed**
+- **On project language settings changed**
+- **On project key added**
+- **On project keys added**
+- **On project key modified**
+- **On project keys deleted**
+- **On project key comment added**
+- **On project translation updated**
+- **On project translations updated**
+- **On project translation proofread**
+- **On project contributor added**
+- **On project contributor deleted**
+- **On team order created**
+- **On team order deleted**
+- **On team order completed**
+- **On project task initial TM leverage calculated**
+- **On project task created**
+- **On project task closed**
+- **On project task deleted**
+- **On project task language closed**
 
 ## Feedback
 
