@@ -50,6 +50,7 @@ const altered_names = {
   AIUtilities: "AI Utilities",
   ContentQuo: "ContentQuo Evaluate",
   GoogleVertexAI: "Google Vertex AI",
+  Rss: "RSS API",
 };
 
 const skip_repos = ["docs", "template-repo", "NotionOAuth"];
