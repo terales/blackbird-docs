@@ -1,8 +1,8 @@
 ---
-title: Workign with XLIFF
+title: Working with XLIFF
 description: XLIFF is a cornerstone of translation automation, in this guide we'll show you some examples of how you can use XLIFF in Blackbird.
 sidebar:
-  label: Workign with XLIFF
+  label: Working with XLIFF
   order: 4
   hidden: false
 ---
