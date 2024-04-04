@@ -47,10 +47,11 @@ const altered_names = {
   BlackbirdPrompts: "Blackbird Prompts",
   UnbabelTranslation: "Unbabel Translation",
   UnbabelProjects: "Unbabel Projects",
-  AIUtilities: "AI Utilities",
+  AIUtilities: "Blackbird Prompts",
   ContentQuo: "ContentQuo Evaluate",
   GoogleVertexAI: "Google Vertex AI",
   Rss: "RSS API",
+  GlobalLinkNow: "GlobalLink Now",
 };
 
 const skip_repos = ["docs", "template-repo", "NotionOAuth"];
