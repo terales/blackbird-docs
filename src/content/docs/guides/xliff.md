@@ -31,7 +31,7 @@ With the [Okapi](https://docs.blackbird.io/apps/okapi/) Framework on board, conv
 
 Introducing the "Process XLIFF file" action! While it may seem like magic, behind the scenes, Blackbird diligently dissects each translation unit within your XLIFF, processing source-target pairs accordingly via [OpenAI](https://docs.blackbird.io/apps/openai/). Instructions are provided as `Prompt` input but, if none are specified, then by default the source text will be translated and targets updated, resulting in a localized XLIFF.
 
-## DeepL
+### DeepL
 
 While [DeepL](https://docs.blackbird.io/apps/deepl/) supports several [file types](https://developers.deepl.com/docs/api-reference/document), only version 2.1 is an accepted input when it comes to XLIFF files. We have now added more behind the scenes magic to bridge this gap so that you are able to get your 1.2 XLIFF files translated through DeepL, as well as any other file previously converted into XLIFF 1.2 through our Okapi action. 
 
