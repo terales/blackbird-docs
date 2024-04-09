@@ -46,6 +46,7 @@ Our newest Blackbird actions allow for a bird's-eye view of your XLIFF's quality
 Optionally, Threshold, New Target State and Condition input parameters can be set to the Blackbird action to change the target state value of segments meeting the desired criteria. This means that you can signal properly translated segments and block them when importing the XLIFF file into a TMS for human revision, saving time and money and focusing efforts in those segments that actually need editing.
 
 Example
+
 Setting the optional input values as shown in the image below will result in all segments with a score above 0.9 to have their target state values updated to “final”. When importing these XLIFF files into TMS tools, a setting can be usually added to lock segments with a specific target value ("final" in this case), so that translators can focus on and edit only the segments of lower quality.
 
 ![Optional Input](../../../assets/guides/xliff/optionalinput.png)
