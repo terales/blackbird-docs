@@ -23,3 +23,5 @@ pnpm-debug.log*
 .vs/VSWorkspaceState.json
 .vs/docs/v17/.wsuo
 /.vs
+/src/.vs/src/FileContentIndex
+/src/.vs
