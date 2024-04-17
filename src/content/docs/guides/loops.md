@@ -7,7 +7,7 @@ sidebar:
   hidden: true
 ---
 
-Welcome to the Looping 101 – your guide to mastering Blackbird's Loops without getting tangled in technical jargon!
+Welcome to the Looping 101 - your guide to mastering Blackbird's Loops without getting tangled in technical jargon!
 
 ## Understanding the Basics
 In Blackbird, actions in a workflow can sometimes produce outputs that come in groups, like sets of items. These groups are known as arrays or lists. But, when the next action expects just one item, not a whole group, that's where the Loop comes into play.
