@@ -6,7 +6,76 @@ import { LinkCard } from "@astrojs/starlight/components";
 
 <LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Trello" icon="github" />
 
-Documentation coming soon.
+Trello is a web-based project management and collaboration tool that organizes tasks into visual boards. It allows users to create boards for different projects or tasks, and within each board, users can create lists to represent stages or categories, and cards to represent individual tasks or items. Users can move cards between lists to track progress, add descriptions, checklists, due dates, attachments, and assign them to team members. Trello is known for its intuitive and flexible interface, making it popular among individuals, teams, and organizations for managing various types of projects, from software development to event planning to personal task management
+
+## Before setting up
+
+Before you can connect you need to make sure that:
+
+- You are an Administrator in the Trello instance you want to connect to.
+- You have an Api key and user token for your Trello instance.
+
+To get your Api key and user token: 
+
+1. Log in to your Trello account and then navigate to [https://trello.com/app-key]() > `Power-Up Admin Portal`. Here, you can create a new integration by clicking on `New` in the top right.
+
+![Trello_Integrations](https://raw.githubusercontent.com/bb-io/Trello/main/image/README/Trello_Integrations_1.png)
+
+2. Next, fill in the required fields (New Power-Up or Integration, Workspace, Email, Support contact, Author) and click `Create`. 
+3. Click on `API key` > `Generate a new API key`. 
+4. Copy your Api key as it is one of the pieces of information needed. 
+5. On the right side of your API key, click on `Token` to generate your Trello's user token.
+
+![Trello Token Generation](https://raw.githubusercontent.com/bb-io/Trello/main/image/README/Trello_Token_2.png)
+
+6. Copy your token, it's the last piece of information you need to connect your Trello instance to Blackbird.
+
+## Connecting
+
+1. Navigate to apps and search for Trello. If you cannot find Trello then click _Add App_ in the top right corner, select Trello and add the app to your Blackbird environment.
+2. Click _Add Connection_.
+3. Name your connection for future reference e.g. 'My Trello connection'.
+4. Fill in the Api key of your Trello instance.
+5. Fill in the user token to your Trello instance.
+6. Click _Connect_.
+
+![Adding a connection](https://raw.githubusercontent.com/bb-io/Trello/main/image/README/Trello_Connection_3.png)
+
+## Actions
+
+### Boards
+
+- **Create board** Create a new board
+- **Delete board** Delete specific board
+- **Get board** Get board details
+- **List boards** List all user boards
+- **List starred boards** List all boards starred by the user
+
+### Cards
+
+- **Create card** Create card on board
+- **Delete card** Delete specific card
+- **Get card** Get specific card details
+- **List assigned cards** List all cards assigned to the user
+- **List cards** List all board cards
+- **Update card** Update specific card
+
+### Lists
+
+- **Create list** Create list on board
+- **Get lists** Get all board lists
+
+## Events
+
+- **On card comment added** On a specific card comment added
+- **On card created** On a new card created
+- **On card moved from board** On a specific card moved from the board
+- **On card moved to board** On a specific card moved to the board
+- **On card moved to list** On a specific card moved to another list
+- **On card renamed** On a specific card renamed
+- **On list created** On a new list created
+- **On member added to card** On a new member added to the card
+- **On member left card** On a member removed from card
 
 ## Feedback
 
