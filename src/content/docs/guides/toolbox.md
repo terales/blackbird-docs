@@ -4,7 +4,7 @@ description: In this guide, we will go through different actions within Blackbir
 sidebar:
   label: The Toolbox
   order: 6
-  hidden: true
+  hidden: false
 ---
 
 When navigating accross apps in a workflow, you may find yourslef needing to perform some extra actions to twist and transform data in multiple ways. Here are some Blackbird tools that will help you succeed.
@@ -21,9 +21,9 @@ The [Utilities](https://docs.blackbird.io/apps/utilities/) app provides a wide r
     ![Getting File Extension](../../../assets/guides/toolbox/Toolbox_1.png)
     - You can count the number of words or characters in a file. Maybe you need to keep track of how many characters are sent to your MT engine because you are charged based on this, then it becomes a valuable piece of data to extract and record. 
 - Text:
-    - It is also possible to count words and charactes from text formats. So, if you pick up a message from Slack or Teams, or you want to know how long file name is, you can use the actions in Utilities to count any of these.
+    - It is also possible to count words and charactes from text formats. So, if you pick up a message from Slack or Teams, or you want to know how long a file name is, you can use the actions in Utilities to count any of these.
     ![Char count of text](../../../assets/guides/toolbox/Toolbox_2.png)
-    - Regular expressions can be used to extract or replace content from text. While extracting content, you can specify as optional parameter the group number you want to extract specifically. Or you can use grouping wth the replace action to regroup parts of your text. With these options you can extract email addresses from a message or a list of language codes from an email body. 
+    - Regular expressions can be used to extract or replace content from text. While extracting content, you can specify as optional parameter the group number you want to extract specifically. Or you can use grouping with the replace action to regroup parts of your text. With these options you can extract email addresses from a message or a list of language codes from an email body. 
     ![Extract with Regex](../../../assets/guides/toolbox/Toolbox_3.png)
 - Range of numbers:
     - Providing a start and end point, a range of numbers can be generated. This is particularly useful when paired with a Loop because you need to repeat an action an X number of times. A good use case is iterating through the rows of a table (think of Microsoft Excel) and getting information from column A, processing it and finally pasting the result to column B. In this scenario, you can use the numbers in the range to indicate the row number.
