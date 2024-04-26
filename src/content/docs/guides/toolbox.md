@@ -42,13 +42,13 @@ This app comprises some very useful options when working with files.
 - XML files:
     - If you are working with XML files, you may need to get the value from a specific property, or change it, or even update the version property. These are all possible. 
 - Text files:
-    - If your file is docx/doc, pdf or txt format, the file can then be open and content extracted. Specially useful if you want to send this content to an AI model that does not thake files. 
+    - If your file is docx/doc, pdf or txt format, the file can then be opened and content extracted. Specially useful if you want to send this content to an AI model that does not thake files. 
 - Text:
     - Text can be converted into a .txt file or even chunked into smaller pieces. So if you get text as output from app A and app B (probably a TMS) only takes files, the "Convert text to txt document" will help smooth this transition. On the other hand, if your text is too long, you can chop it into smaller pieces. 
 
 ## Blackbird Prompts app
 
-This app contains a collection of pre-engineered prompts that can be used in conjunction with different AI apps. These prompts have proved to be successfull when working with language actions. The list comprise prompts for getting translation issues, summarizing text, getting translation reports, preforming post editing. 
+This app contains a collection of pre-engineered prompts that can be used in conjunction with different AI apps. These prompts have proved to be successfull when working with language actions. The list comprises prompts for getting translation issues, summarizing text, getting translation reports, preforming post editing, and more. 
 
 ![List of prompts](../../../assets/guides/toolbox/Toolbox_6.png)
 
