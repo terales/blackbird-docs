@@ -22,7 +22,7 @@ The [Utilities](https://docs.blackbird.io/apps/utilities/) app provides a wide r
     - You can count the number of words or characters in a file. Maybe you need to keep track of how many characters are sent to your MT engine because you are charged based on this, then it becomes a valuable piece of data to extract and record. 
 - Text:
     - It is also possible to count words and charactes from text formats. So, if you pick up a message from Slack or Teams, or you want to know how long file name is, you can use the actions in Utilities to count any of these.
-    [!Char count of text](../../../assets/guides/toolbox/Toolbox_2.png)
+    ![Char count of text](../../../assets/guides/toolbox/Toolbox_2.png)
     - Regular expressions can be used to extract or replace content from text. While extracting content, you can specify as optional parameter the group number you want to extract specifically. Or you can use grouping wth the replace action to regroup parts of your text. With these options you can extract email addresses from a message or a list of language codes from an email body. 
     ![Extract with Regex](../../../assets/guides/toolbox/Toolbox_3.png)
 - Range of numbers:
