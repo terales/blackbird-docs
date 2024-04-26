@@ -66,7 +66,7 @@ When adding an action via plus sign, you can also choose to add an Operator inst
 
 ![Compose message](../../../assets/guides/toolbox/Toolbox_8.png)
 
-- String Split: Given a string of text, maybe a list of items in text format. You can specify the separator and get in return ac actual list the you can loop through and treat each of these items separately. 
+- String Split: Given a string of text, maybe a list of items in text format. You can specify the separator and get in return an actual list that you can loop through and treat each of these items separately. 
 
 Finally, if you need to twist these _apps_ in any way (maybe add your own recurring prompt to Blackbird Prompts, or change the HTTP app to add authentication or specific parameters), you can clone the code from Github, where our [open source code resides](https://github.com/orgs/bb-io/repositories), make the necessary changes and redeploy your customized app to Blackbird (Apps > Custom apps > Create app). Find more details [here](https://docs.blackbird.io/sdk/deploying/#uploading). These custom apps will only be available to the nest(s) you choose to upload it to. 
 
