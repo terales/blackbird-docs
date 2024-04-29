@@ -35,16 +35,11 @@ The [Utilities](https://docs.blackbird.io/apps/utilities/) app provides a wide r
     - Raw and unformatted web page content can be extracted from a URL. You can also provide an XPATH to specify the exact content to be scrapped. This is particularly useful if you need to take content from a webpage but don't have access to the CMS or source code.
     ![Scrapping + summarize](../../../assets/guides/toolbox/Toolbox_5.png)
 
-## Document Loader app
-
-This app comprises some very useful options when working with files.
-
 - XML files:
     - If you are working with XML files, you may need to get the value from a specific property, or change it, or even update the version property. These are all possible. 
-- Text files:
-    - If your file is docx/doc, pdf or txt format, the file can then be opened and content extracted. Especially useful if you want to send this content to an AI model that does not take files. 
-- Text:
-    - Text can be converted into a .txt file or even chunked into smaller pieces. So if you get text as output from app A and app B (probably a TMS) only takes files, the "Convert text to txt document" will help smooth this transition. On the other hand, if your text is too long, you can chop it into smaller pieces. 
+    - 
+- Text to files and files to text:
+    - If your file is docx/doc, pdf or txt format, the file can then be opened and content extracted. Especially useful if you want to send this content to an AI model that does not take files. The opposite is also true, as plain text can be converted into a doc/docx or txt file. So if you get text as output from app A, and app B (probably a TMS) only takes files, the "Convert text to document" action will help smooth this transition. 
 
 ## Blackbird Prompts app
 
