@@ -65,6 +65,13 @@ To get your Api key and user token:
 - **Create list** Create list on board
 - **Get lists** Get all board lists
 
+### Checklists
+
+- **Get card checklist**  Gets a specific checklist from a card
+- **List card checklists**  Lists all checklists in a card
+- **Search checklist item**  Gets a specific checklist item from a card
+- **Update checklist item**  Update checklist item
+
 ## Events
 
 - **On card comment added** On a specific card comment added
