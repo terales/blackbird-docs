@@ -53,6 +53,7 @@ const altered_names = {
   Rss: "RSS API",
   GlobalLinkNow: "GlobalLink Now",
   BWX: "Bureau Works",
+  BureauWorks: "Bureau Works",
 };
 
 const skip_repos = ["docs", "template-repo", "NotionOAuth", "LanguageWire"];
@@ -97,7 +98,7 @@ import { LinkCard } from "@astrojs/starlight/components";
 <LinkCard title="View on Github" target="_blank" href="${html_url}" icon="github" />
 `;
 
-      const regex = /!\[[^\]]*\]\((?<filename>.*?)(?=\"|\))\)/g;
+      const regex = /!\[[^\]]*\]\((?<filename>(?!http).*?)(?=\"|\))\)/g;
       const md_content =
         frontmatter +
         docs_section.replace(regex, (a, b) =>
