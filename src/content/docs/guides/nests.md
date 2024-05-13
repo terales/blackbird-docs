@@ -7,7 +7,7 @@ sidebar:
   hidden: true
 ---
 
-In this guide you will learn about Nests: Blackbird's way to compartmentalizing your processes, credentials and users. 
+In this guide you will learn about Nests: Blackbird's way to compartmentalizing your processes, credentials and users.
 
 > As an administrator with access to your Blackbird account, you have the power to create multiple Nests, users, and roles to suit your organizational needs. Navigate to Organization Management to access these options.
 
@@ -21,7 +21,7 @@ At the top, you'll find a 'Create Nest' button to establish a new compartment.
 
 ![Nests create button](../../../assets/guides/nests/2.png)
 
-If you want to add a subnest under an existing one, simply click the plus sign at the end of the Nest's row. 
+If you want to add a subnest under an existing one, simply click the plus sign at the end of the Nest's row.
 
 ![Create subnest](../../../assets/guides/nests/31.png)
 
@@ -37,15 +37,14 @@ You can also define who has access to each of these instances and what they can 
 
 ## Roles
 
-By default, you will see User and Admin roles as available options. However, this can be tailored to align with specific responsibilities and access requirements. Roles can be edited (by clicking on the specific role you want to update), deleted or created from scratch. To create a new role, simply click on _Add role_, provide a name for this role and choose which permissions you want to grant. 
+By default, you will see User and Admin roles as available options. However, this can be tailored to align with specific responsibilities and access requirements. Roles can be edited (by clicking on the specific role you want to update), deleted or created from scratch. To create a new role, simply click on _Add role_, provide a name for this role and choose which permissions you want to grant.
 
 ![Available permissions](../../../assets/guides/nests/5.png)
 
-As an example, you may want to invite one of your clients to your Blackbird instance and give them a "Client" role that only entitles them to add their credentials to connect to an app. This way you avoid data manipulation or sharing. You may have clients that need a more _empowered_ role because they want to review processes, for this purpose, you can give them a broader but read only access. Or you may want to have a more collaborative approach and enable them to build workflows with you. All of this is possible and, just like everything else at Blackbird, you define it. 
+As an example, you may want to invite one of your clients to your Blackbird instance and give them a "Client" role that only entitles them to add their credentials to connect to an app. This way you avoid data manipulation or sharing. You may have clients that need a more _empowered_ role because they want to review processes, for this purpose, you can give them a broader but read only access. Or you may want to have a more collaborative approach and enable them to build workflows with you. All of this is possible and, just like everything else at Blackbird, you define it.
 
 ## Branding
 
-Finally, there is a whitelabelling option under the _Branding_ tab that allows you to upload your own logo (to replace Blackbird's on the top left corner) and customize your instance's look. 
+Finally, there is a whitelabelling option under the _Branding_ tab that allows you to upload your own logo (to replace Blackbird's on the top left corner) and customize your instance's look.
 
 ![Branding](../../../assets/guides/nests/6.png)
-
