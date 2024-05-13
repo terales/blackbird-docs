@@ -1,6 +1,6 @@
 ---
-title: Let's talk about Nests
-description: In this guide you will learn about Nests: Blackbird's way to compartmentalizing your processes, credentials and users. 
+title: Lets talk about Nests
+description: In this guide you will learn about Nests: Blackbirds way to compartmentalizing your processes, credentials and users. 
 sidebar:
   label: Nests
   order: 8
