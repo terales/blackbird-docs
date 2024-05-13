@@ -40,6 +40,7 @@ Lokalise is a continuous localization and translation management platform. This 
 
 - **List all project keys** returns a list of keys for the specified project.
 - **List key IDs** returns a list of key IDs that can be used in actions for `Task` creation. Action includes default filters from Lokalise API as well as custom ones such as _Unverified_, _Unreviewed_ and _Exclude tags_.
+- **Update key translation** updates translation for a key, providing said key ID and locale.
 - **Get/Create/Delete key**
 
 ### Languages

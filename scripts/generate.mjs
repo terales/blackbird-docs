@@ -52,9 +52,11 @@ const altered_names = {
   GoogleVertexAI: "Google Vertex AI",
   Rss: "RSS API",
   GlobalLinkNow: "GlobalLink Now",
+  BWX: "Bureau Works",
+  BureauWorks: "Bureau Works",
 };
 
-const skip_repos = ["docs", "template-repo", "NotionOAuth"];
+const skip_repos = ["docs", "template-repo", "NotionOAuth", "LanguageWire"];
 
 const all_repos = await octokit.paginate("GET /orgs/{org}/repos", {
   org: "bb-io",
@@ -96,7 +98,7 @@ import { LinkCard } from "@astrojs/starlight/components";
 <LinkCard title="View on Github" target="_blank" href="${html_url}" icon="github" />
 `;
 
-      const regex = /!\[[^\]]*\]\((?<filename>.*?)(?=\"|\))\)/g;
+      const regex = /!\[[^\]]*\]\((?<filename>(?!http).*?)(?=\"|\))\)/g;
       const md_content =
         frontmatter +
         docs_section.replace(regex, (a, b) =>
