@@ -1,13 +1,13 @@
 ---
-title: Let's talk about Nests
-description: In this guide you will learn about Nests - Blackbird's way to compartmentalizing your processes, credentials and users. 
+title: Let's talk about Nests & access control
+description: In this guide you will learn about Blackbird's way to compartmentalizing your processes, credentials and users. 
 sidebar:
-  label: Nests
+  label: Nests & access control
   order: 8
-  hidden: true
+  hidden: false
 ---
 
-In this guide you will learn about Nests: Blackbird's way to compartmentalizing your processes, credentials and users.
+In this guide you will learn about Blackbird's way to compartmentalizing your processes, credentials and users.
 
 > As an administrator with access to your Blackbird account, you have the power to create multiple Nests, users, and roles to suit your organizational needs. Navigate to Organization Management to access these options.
 
