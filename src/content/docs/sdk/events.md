@@ -131,3 +131,7 @@ This translates to:
 ![callback](../../../assets/docs/callback.png)
 
 > Tip: one can use the callback functionality to create "callable" birds as if Blackbird had its own API.
+
+> **💡 Note**: If you create different birds with the same event and the same connection, then all of these birds will have the same URL. Blackbird has the assumption that it is still the same event that is being triggered and this allows us to optimize internally.
+
+> **💡 Note**: If you suspend a bird, or if you change the event and republish the bird, the URL will change and would have to be reconfigured where the URL is applied.

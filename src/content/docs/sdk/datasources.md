@@ -1,16 +1,16 @@
 ---
 title: Data sources
-description: Learn how to define dynamic data sources for your action and event inputs.
+description: Learn how to define static dynamic data sources for your action and event inputs.
 sidebar:
   label: Data sources
   order: 6
 ---
 
-So far we have learned how to define your connections, actions and events. The combination of these can create a full-fletched usable app. However, your users will most likely still have to 'hard-code' a lot of values like language codes, entity IDs, enumerated statusses, etc. That's why we created _Data sources_. Data sources allow you to specify for certain input paremeters (on both actions and events) where Blackbird can fetch a list of values for that can be inputted by the user instead. This saves the user time copying and pasting!
+So far we have learned how to define your connections, actions and events. The combination of these can create a full-fletched usable app. However, your users will most likely still have to 'hard-code' a lot of values like language codes, entity IDs, enumerated statusses, etc. That's why we created _Data sources_. Data sources allow you to specify for certain input paremeters (on both actions and events) what data Blackbird can display in a dropdown. This saves the user time copying and pasting! There are two types of data sources: _static data sources_ and _dynamic data sources_. Static data sources allow you to define a finite list of values that never change. An example of this could be different statusses a project can be in. Dynamic data sources allow you to fetch dynamic content based on the connection of the user. An example of this would be a list of existing projects. We're first going to discuss how dynamic data sources work and then we'll look at static data sources.
 
-## Anatomy
+## Dynamic data sources
 
-Let's take a look at the anatomy of a data source:
+Let's take a look at the anatomy of a dynamic data source:
 
 ```cs
 /// <summary>
@@ -52,7 +52,7 @@ You should return a `Dictionary<string, string>` where the key represents the va
 
 ![connection](../../../assets/docs/dynamic_input.png)
 
-## Advanced context
+### Advanced context
 
 You can also get even more context than just the search string. What if you want to know the values of some other fields that were selected in an action? You can pass an `[ActionParameter]` to the constructor in order to see the other fields the user filled in.
 
@@ -86,7 +86,7 @@ public class DataSourceHandlerWithParameters : AppInvocable, IAsyncDataSourceHan
 }
 ```
 
-## Usage
+### Usage
 
 Simply add the `[DataSource]` attribute to any `string` or `IEnumerable<string>` typed input value, and the free typing field will turn into a dropdown!
 
@@ -99,4 +99,35 @@ public class GetBerryRequest
     [DataSource(typeof(AsyncDataSourceHandler))]
     public string BerryName { get; set; }
 }
+```
+
+## Static data sources
+
+Static data sources are very similar to dynamic data sources. The main difference in usage is the interface and attributes you have to use to implement then. Secondly, you have to be aware that you cannot get a connection context. You should instead simply return a pre-defined dictionary of keys (the underlying data) and values (the displayed names in the dropdown).
+
+Blackbird compiles these static data sources on build time, meaning that when someone uses your app, they won't see a loading spinner when clicking on a static dropdown. Instead the values will be displayed instantly.
+
+Static data source class:
+
+```cs
+public class ProjectStatusDataHandler : IStaticDataSourceHandler
+{
+    public Dictionary<string, string> GetData()
+     => new()
+    {
+        {"Draft", "Draft"},
+        {"Pending", "Pending"},
+        {"Approved", "Approved"},
+        {"Delivered", "Delivered"},
+        {"Invoiced", "Invoiced"},
+    };
+}
+```
+
+And its usage as an attribute:
+
+```cs
+    [Display("Project statuses")]
+    [StaticDataSource(typeof(ProjectStatusDataHandler))]
+    public List<string>? ProjectStatuses { get; set; }
 ```
