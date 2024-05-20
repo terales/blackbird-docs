@@ -101,9 +101,11 @@ import { LinkCard } from "@astrojs/starlight/components";
       const regex = /!\[[^\]]*\]\((?<filename>(?!http).*?)(?=\"|\))\)/g;
       const md_content =
         frontmatter +
-        docs_section.replace(regex, (a, b) =>
-          a.replace(b, `https://raw.githubusercontent.com/bb-io/${name}/${default_branch}/${b}`)
-        );
+        docs_section
+          .replace(regex, (a, b) =>
+            a.replace(b, `https://raw.githubusercontent.com/bb-io/${name}/${default_branch}/${b}`)
+          )
+          .replace("</br>", "");
 
       fs.writeFile(`./src/content/docs/apps/${friendly_name}.mdx`, md_content, function (err) {
         if (err) throw err;
