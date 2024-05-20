@@ -3,8 +3,7 @@ title: Let's talk about Nests & access control
 description: In this guide you will learn about Blackbird's way to compartmentalizing your processes, credentials and users. 
 sidebar:
   label: Nests & access control
-  order: 8
-  hidden: false
+  order: 3
 ---
 
 In this guide you will learn about Blackbird's way to compartmentalizing your processes, credentials and users.
