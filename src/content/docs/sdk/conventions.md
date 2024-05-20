@@ -7,7 +7,7 @@ sidebar:
   hidden: true
 ---
 
-As you know, Blackbird apps can be viewed as mini products where each event, action and dropdown delivers a deliberate user experience with the goal of building workflows in the easiest way possible. We have been building more than a 100 apps and integrations and during this time we have learned which standard and conventions should be adhered to to deliver an easy and consistent user experience. The standard you will find below are applied to all Blackbird public apps (where possible) and can be an invaluable resource for you when building your own apps.
+As you know, Blackbird apps can be viewed as mini products where each event, action and dropdown delivers a deliberate user experience with the goal of building workflows in the easiest way possible. We have been building more than a 100 apps and integrations and during this time we have learned what standards and conventions should be adhered to to deliver an easy and consistent user experience. The conventions you will find below are applied to all Blackbird public apps (where possible) and can be an invaluable resource for you when building your own apps.
 
 ## 1. Types
 
