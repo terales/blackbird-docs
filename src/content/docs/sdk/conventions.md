@@ -51,7 +51,7 @@ Except for abbreviations. **All abbreviations should be fully uppercase**. So ID
 
 ### 2.2 - IDs
 
-For a period of time we ommited the word "ID" from input/output variables that were actually ID parameters in favor of just calling it what it was: Project, Translation, Task. This was a mistake. It is unclear to the user what parameter represents and was often mistaken for f.e. translation content. **Any variable that is an ID should have the word ID in it**. Also, **never name a parameter just “ID”, always be more explicit** e.g. “Company ID”.
+For a period of time we omitted the word "ID" from input/output variables that were actually ID parameters in favor of just calling it what it was: Project, Translation, Task. This was a mistake. It is unclear to the user what parameter represents and was often mistaken for f.e. translation content. **Any variable that is an ID should have the word ID in it**. Also, **never name a parameter just “ID”, always be more explicit** e.g. “Company ID”.
 
 > ❌ ID
 
@@ -69,7 +69,7 @@ Names in the bird editor don’t have too much space to work with. That’s why 
 
 ## 3. Errors
 
-We want to **provide descriptive and actionable errors to users at all times**. Our users are can be non-technical and we want to assist them the best way we can. Especially when it comes to errors that the user can do something about, f.e. when they are inputting a wrong variable, when their authentication details are incorrect, or when their system is misconfigured.
+We want to **provide descriptive and actionable errors to users at all times**. Our users can be non-technical and we want to assist them the best way we can. Especially when it comes to errors that the user can do something about, f.e. when they are inputting a wrong variable, when their authentication details are incorrect, or when their system is misconfigured.
 
 ### 3.1 - Displaying errors
 
@@ -124,7 +124,7 @@ Static data sources are designed for variables that are predefined and finite. T
 
 ### 5.2 - Dynamic data sources
 
-Dynamic data sources, as the word suggests, are used when the data has to be loaded in from the connection. Classic examples of dynamic data sources are:
+[Dynamic data sources](https://docs.blackbird.io/sdk/datasources/#dynamic-data-sources), as the word suggests, are used when the data has to be loaded in from the connection. Classic examples of dynamic data sources are:
 
 - Projects, when the input parameter is a Project ID in a TMS app.
 - Channels, when the input parameter is a Channel ID for Slack.
@@ -133,9 +133,11 @@ Dynamic data sources, as the word suggests, are used when the data has to be loa
 
 **Any input parameter that has a finite number of possible values, but which depend on the connection of the user, should have a dynamic data source defined.**
 
-Sometimes, to load the data of a data source, you need more information from the user. An example of this would be a structure where projects can have multiple jobs. In order to show a dynamic dropdown for all the jobs in the project, the API and underlying code requires the Project ID first. In these cases you should use [dynamic data sources with advanced context](/sdk/datasources/#advanced-context). Be very mindful when using advanced contexts though, as there are cases where you think an advanced context would be useful while in actuality it blocks the user from building its workflow. And example of this is a dropdown for adding language information when uploading a file. It would seem that loading the configured files on the project is a good idea, but the user may be building a workflow where the Project ID is coming from a different step. The user thus cannot select a project before selecting a language. Thus the language dropdown should not depend on the projct but on all possible languages.
+Sometimes, to load the data of a data source, you need more information from the user. An example of this would be a structure where projects can have multiple jobs. In order to show a dynamic dropdown for all the jobs in the project, the API and underlying code requires the Project ID first. In these cases you should use [dynamic data sources with advanced context](/sdk/datasources/#advanced-context). Be very mindful when using advanced contexts though, as there are cases where you think an advanced context would be useful while in actuality it blocks the user from building its workflow. And example of this is a dropdown for adding language information when uploading a file. It would seem that loading the configured files on the project is a good idea, but the user may be building a workflow where the Project ID is coming from a different step. The user thus cannot select a project before selecting a language. Thus the language dropdown should not depend on the project but on all possible languages.
 
 As a rule of thumb, only **add advanced context dropdowns if you are certain that all dependent information is always known at the time of building a bird**.
+
+Finally, dynamic data sources could in theory return hundreds of items when combined with pagination. That is not desirable in Blackbird as the user will be waiting longer to see their suggestions. Instead, **dynamic data sources should only return at most one API pagination size of data**. This is also because the user is encouraged to use the search feature in the dropdown. **The search input to dynamic data sources should trigger a filtering of data in the code**, preferably by using query parameters in API endpoints.
 
 ## 6. Actions
 
@@ -147,7 +149,7 @@ The philosophy at the heart of Blackbird is that **developers build an app so th
 
 ### 6.2 - API calls
 
-To examplify the aforementioned philosphy, let's look at how our DeepL app works when it comes to transling documents. To familiarize yourself, you can read what the [DeepL API says about translating documents](https://developers.deepl.com/docs/api-reference/document). Here is the TLDR;
+To exemplify the aforementioned philosphy, let's look at how our DeepL app works when it comes to transling documents. To familiarize yourself, you can read what the [DeepL API says about translating documents](https://developers.deepl.com/docs/api-reference/document). Here is the TLDR;
 
 - Call the `/document` endpoint to upload the document.
 - Repeatedly call the endpoint to check the document status.
@@ -178,7 +180,7 @@ Sometimes the user wants to search for one specific entity, as they perhaps know
 
 ### 6.5 - Pagination
 
-Continueing on actions that can return multiple entities: often APIs implement pagination with these kinds of list or query endpoints. In Blackbird, **pagination should be taken care off by the app developer in the action**, and not delegated to the user. This means that limit or page should not be inputs to search actions. Actions should take care off pagination in the app code.
+Continuing on actions that can return multiple entities: often APIs implement pagination with these kinds of list or query endpoints. In Blackbird, **pagination should be taken care off by the app developer in the action**, and not delegated to the user. This means that limit or page should not be inputs to search actions. Actions should take care off pagination in the app code.
 
 ### 6.6 - Interoperability
 
@@ -192,7 +194,7 @@ In Blackbird, we try to **always provide actions to pull content out of CMS syst
 
 #### 6.6.2 - Glossaries
 
-Glossaries (or terminologies) are traditionally maintained inside TMSes or dedicated systems. However, they often need to be used inside MT or LLM apps. Furthermore, sometimes a glossary needs to be transfered between TMSes.
+Glossaries (or terminologies) are traditionally maintained inside TMSes or dedicated systems. However, they often need to be used inside MT or LLM apps. Furthermore, sometimes a glossary needs to be transferred between TMSes.
 
 All TMS and MT systems have made their own choices when it comes to accepting file formats for glossaries. Sometimes it's .csv, sometimes .tsv, sometimes .xlsx. We have chosen to make all glossary import/export actions interoperable by always converting to and from [.tbx](https://en.wikipedia.org/wiki/TermBase_eXchange). That's why **any action that deals with glossaries should take or return .tbx files**. We have created a library to do this easily which you can see examples of in many of our apps.
 
@@ -202,14 +204,14 @@ Events are after actions of course an integral part of any bird. Currently most 
 
 ### 7.1 - Event names
 
-**Events should follow the "On ..." pattern** and preferable the "On \<noun> \<verb>" pattern to always accuratly and concisely clarify when the event takes place. E.g.
+**Events should follow the "On ..." pattern** and preferably the "On \<noun> \<verb>" pattern to always accuratly and concisely clarify when the event takes place. E.g.
 
 - On project imported
 - On team order deleted
 
 ### 7.2 - Event output
 
-Events should always output sufficient parameters for the user to continue working with the information. For example, if the event only outputs an ID, then the user would always have to do a "Get entity" step as their first action. This is undesirable since you force the user to always follow the same pattern of actions and clicks. Let's help our user and already perform that get request in our event code and return the full enttity instead. **Where possible, events should always return complete entities akin to the implemented Get entity action**.
+Events should always output sufficient parameters for the user to continue working with the information. For example, if the event only outputs an ID, then the user would always have to do a "Get entity" step as their first action. This is undesirable since you force the user to always follow the same pattern of actions and clicks. Let's help our user and already perform that get request in our event code and return the full entity instead. **Where possible, events should always return complete entities akin to the implemented Get entity action**.
 
 ### 7.3 - Optional inputs
 
@@ -244,11 +246,11 @@ Examples include: "Send message" (In Slack this has an optional multiple files i
 
 It's important that any app is well documented. This way the user will have a reference to how to connect and use this app.
 
-Any **documentation should atleast consist of the following** parts:
+Any **documentation should at least consist of the following** parts:
 
 - What prerequisits the user needs to fulfill before being able to connect.
 - How to connect their app
-- What actions the app offers, plus for each a sufficient description on its ussage
+- What actions the app offers, plus for each a sufficient description on its usage
 - What event the app offers, plus for each a sufficient description on its usage
 - An example bird that uses this app
 - A discussion on what features are not implemented but can be implemented in the future
