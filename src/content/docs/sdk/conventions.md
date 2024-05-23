@@ -69,11 +69,11 @@ Names in the bird editor don’t have too much space to work with. That’s why 
 
 ## 3. Errors
 
-We want to provide descriptive and actionable errors to users at all times. Our users are can be non-technical and we want to assist them the best way we can. Especially when it comes to errors that the user can do something about, f.e. when they are inputting a wrong variable, when their authentication details are incorrect, or when their system is misconfigured.
+We want to **provide descriptive and actionable errors to users at all times**. Our users are can be non-technical and we want to assist them the best way we can. Especially when it comes to errors that the user can do something about, f.e. when they are inputting a wrong variable, when their authentication details are incorrect, or when their system is misconfigured.
 
-Errors in Blackbird are simply thrown as exceptions, and Blackbird will output the exception message to the users when the flight is inspected. When using `cs throw new Exception("My error message goes here") ` the error message will be displayed to the user.
+### 3.1 - Displaying errors
 
-#### Example
+Errors in Blackbird are simply thrown as exceptions, and Blackbird will output the exception message to the users when the flight is inspected. When using `throw new Exception("My error message goes here") ` the error message will be displayed to the user.
 
 ![Example error](../../../assets/docs/conventions/error_example.png)
 
@@ -85,8 +85,6 @@ The error above is a result of the Restsharp library throwing an error.
 
 Other typical error examples can be null references (which would indicate that you have to update your app) or JSON parsing going wrong.
 
-#### Handling errors in the SDK
-
 In order to provide a good experience, **errors should be caught and whenever there is a detailed description possible, this description should be displayed**. Use the following guidelines:
 
 - Catch standard HTTP errors. E.g. 401 Unauthorized should inform the user that their credentials may be wrong.
@@ -96,6 +94,10 @@ In order to provide a good experience, **errors should be caught and whenever th
 - Check in advance if the input parameter the user is using are correct. If they aren't, inform the user how to correct them.
 
 **An error should always inform the user how they can fix their issue.**
+
+### 3.2 - Rate limits
+
+Almost every API has a rate limit policy setup. This rate limit can often be found in the APIs documentation. It is the duty of the app developer to make sure rate limit errors don't bubble up to the Blackbird user on the action level. This means that **rate limits need to be taken care off** by identifying rate limit error responses (sometimes those are added to response headers) and implementing task sleeps in order to slow down the amount of requests that your code makes.
 
 ## 4. Connections
 
@@ -174,17 +176,21 @@ Besides CRUD actions on single entities, most apps also benefit from having acti
 
 Sometimes the user wants to search for one specific entity, as they perhaps know that it matches uniquely with any of the inputed optional parameters. It would be annoying for the user to still receive an array of results back if they can be sure that there will only be one result. That's why **actions that start with "Find" take the same parameters as equivalent search actions, but only return one result instead of an array**.
 
-### 6.5 - Interoperability
+### 6.5 - Pagination
+
+Continueing on actions that can return multiple entities: often APIs implement pagination with these kinds of list or query endpoints. In Blackbird, **pagination should be taken care off by the app developer in the action**, and not delegated to the user. This means that limit or page should not be inputs to search actions. Actions should take care off pagination in the app code.
+
+### 6.6 - Interoperability
 
 Recalling the Blackbird philsoophy: "developers build an app so that users can combine it in the easiest way possible with other apps". This means that sometimes more work needs to be done for certain inputs and outputs to 'play nice' with eachother. To that end we have created certain conventions for some often-used entities to be returned and used in actions.
 
-#### 6.5.1 - HTML
+#### 6.6.1 - HTML
 
 Translation tools, both TMSes and machine translation providers (even LLMs) handle HTML files quite well. However, modern CMS systems tend not to store their content as HTML files. Examples of these include Hubspot, Storyblok, Contentful, Marketo and Contentstack. They store their content in such a structure that when queried, these APIs return content in JSON format along with a lot of non-translatable data.
 
 In Blackbird, we try to **always provide actions to pull content out of CMS systems as HTML files, and equivalent actions to upload translations from HTML files**. The conversion between HTML and the specific JSON structure each of these apps needs should be taken care of in the action code.
 
-#### 6.5.2 - Glossaries
+#### 6.6.2 - Glossaries
 
 Glossaries (or terminologies) are traditionally maintained inside TMSes or dedicated systems. However, they often need to be used inside MT or LLM apps. Furthermore, sometimes a glossary needs to be transfered between TMSes.
 
