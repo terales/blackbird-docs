@@ -6,7 +6,33 @@ import { LinkCard } from "@astrojs/starlight/components";
 
 <LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/WordsOnline" icon="github" />
 
-Documentation coming soon.
+**WordsOnline** offers AI-powered platform, using Neural Machine Translation technology with human expertise to provide our enterprise customers with cost-effective, fast turnaround language services at optimal quality.
+
+## Before setting up
+
+Before you can connect you need to make sure that:
+
+- You have a WordsOnline instance 
+- You have a WordsOnline `API key`
+- You have a WordsOnline `Project GUID`
+
+Both the `API key` and the `Project GUID` you can get by asking WordsOnline support.
+
+## Connecting
+
+1. Navigate to Apps, and identify the **WordsOnline** app. You can use search to find it.
+2. Click _Add Connection_.
+3. Name your connection for future reference e.g. 'My WordsOnline connection'.
+4. Fill in the `API key` and the `Project GUID` you got from WordsOnline.
+5. Click **Connect**.
+6. Make sure that connection was added successfully.
+
+![connection](https://raw.githubusercontent.com/bb-io/WordsOnline/main//image/README/connection.png)
+
+## Actions
+
+- **Create request**: Create a new translation request based on the provided parameters. Auto approving the request is optional, but by default it is set to `true`. Under the hood we receive files, then we zip them and send them to WordsOnline.
+- **Download files**: Downloads the files from the request. By default, it will download all files (in all zip files). But you can specify zip which contains the files you want to download.
 
 ## Feedback
 
