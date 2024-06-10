@@ -13,7 +13,7 @@ All processes must begin at some point: a **trigger** is what defines when a wor
 
 Manual triggers are activated by human intervention. These workflows start as soon as someone clicks the `Fly` button. This type of trigger is ideal for testing and debugging, or when processes need to be started based on specific, often unpredictable, conditions that require human judgment. This is the recommended trigger type while you are in the process of building your Birds.
 
-![Fly button](../../../assets/docs/triggers/fly.png)
+![Fly button](../../../assets/docs/triggers/Fly.png)
 
 **Key Features**:
 
@@ -27,9 +27,9 @@ Scheduled triggers are time-based and initiate processes at predefined intervals
 
 In Blackbird, you can choose an interval—from the moment the Bird is published, every X amount of hours or minutes the Bird will be triggered. Another option is to start the process daily at a specific time, or always on a set day of the week/month. Additionally, you can specify a timezone to avoid any confusion.
 
-![Interval](../../../assets/docs/triggers/interval.png)
+![Interval](../../../assets/docs/triggers/Interval.png)
 
-![Day of week](../../../assets/docs/triggers/dayofweek.png)
+![Day of week](../../../assets/docs/triggers/DayOfWeek.png)
 
 **Key Features**:
 
@@ -45,7 +45,7 @@ Once you select the Event type, move to the Connection tab or click Continue, ch
 
 In the image below, we can choose to react to a number of different events happening in Zendesk, for instance, a new article being published. 
 
-![Event](../../../assets/docs/triggers/event.png)
+![Event](../../../assets/docs/triggers/Event.png)
 
 In case any extra setting is needed (some apps require this), you may see an URL that needs to be copy-pasted somewhere. In such scenarios, details will be specified in the app's section within Blackbird documentation. 
 
@@ -61,7 +61,7 @@ Sometimes, reacting every single time something happens can create clutter as th
 
 In the image below, following the previous example, we don't want to create a new TMS project each time an article is published in Zendesk. Instead, we wait until at least five articles are published or two hours have passed, whichever happens first. If after two hours only three articles were published, the Bird will execute anyway and create a new TMS project for those three articles. This adjustment ensures that processes are responsive enough without creating excessive noise.
 
-![Bucketing](../../../assets/docs/triggers/bucketing.png)
+![Bucketing](../../../assets/docs/triggers/Bucketing.png)
 
 ## Polling - Coming Soon
 
