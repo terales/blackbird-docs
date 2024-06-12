@@ -3,8 +3,7 @@ title: Understanding Triggers - Initiating Processes and Workflows
 description: Learn what trigges are.
 sidebar:
   label: Triggers
-  order: 8
-  hidden: true
+  order: 4
 ---
 
 All processes must begin at some point: a **trigger** is what defines when a workflow should start, ensuring that tasks are executed at the right time and under the right conditions. Within Blackbird, there are four types of triggers: manual, scheduled, event-based and polling. Each type serves a unique purpose and is suited to different scenarios.
@@ -13,7 +12,7 @@ All processes must begin at some point: a **trigger** is what defines when a wor
 
 Manual triggers are activated by human intervention. These workflows start as soon as someone clicks the `Fly` button. This type of trigger is ideal for testing and debugging, or when processes need to be started based on specific, often unpredictable, conditions that require human judgment. This is the recommended trigger type while you are in the process of building your Birds.
 
-![Fly button](../../../assets/docs/triggers/Fly.png)
+![Fly button](../../../assets/docs/triggers/Fly.gif)
 
 **Key Features**:
 
@@ -27,9 +26,7 @@ Scheduled triggers are time-based and initiate processes at predefined intervals
 
 In Blackbird, you can choose an interval—from the moment the Bird is published, every X amount of hours or minutes the Bird will be triggered. Another option is to start the process daily at a specific time, or always on a set day of the week/month. Additionally, you can specify a timezone to avoid any confusion.
 
-![Interval](../../../assets/docs/triggers/Interval.png)
-
-![Day of week](../../../assets/docs/triggers/DayOfWeek.png)
+![Scheduled](../../../assets/docs/triggers/Scheduled.gif)
 
 **Key Features**:
 
