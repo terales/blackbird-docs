@@ -64,6 +64,7 @@ const all_repos = await octokit.paginate("GET /orgs/{org}/repos", {
 });
 
 await all_repos
+  .filter((x) => !x.private)
   .filter((x) => !skip_repos.includes(x.name))
   .forEach(async ({ name, default_branch, html_url }) => {
     try {
