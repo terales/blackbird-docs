@@ -7,7 +7,7 @@ sidebar:
   hidden: true
 ---
 
-All processes must begin at some point: a **trigger** is what defines when a workflow should start, ensuring that tasks are executed at the right time and under the right conditions. Within Blackbird, there are three types of triggers: manual, scheduled, and event-based. Each type serves a unique purpose and is suited to different scenarios.
+All processes must begin at some point: a **trigger** is what defines when a workflow should start, ensuring that tasks are executed at the right time and under the right conditions. Within Blackbird, there are four types of triggers: manual, scheduled, event-based and polling. Each type serves a unique purpose and is suited to different scenarios.
 
 ## Manual Triggers
 
@@ -63,6 +63,13 @@ In the image below, following the previous example, we don't want to create a ne
 
 ![Bucketing](../../../assets/docs/triggers/bucketing.png)
 
-## Polling - Coming Soon
+## Polling
 
-Since some systems don't have webhooks or callbacks, but we would still like to be diligent and reactive enough, Blackbird is about to launch Polling events. This type of scheduled trigger checks for changes in an app to decide whether to start a workflow, bridging the gap for apps that don't provide webhooks by allowing to react in _real time_.
+Since some systems don't have webhooks or callbacks, but we would still like to be diligent and reactive, Blackbird has launched Polling events. For the regular user, this trigger looks exactly like an event-based one, while, under the hood, Blackbird is checking for changes at specified intervals. This type of scheduled trigger looks for updates in an app's data to decide whether to start a workflow, bridging the gap for apps that don't provide webhooks by allowing our Birds to react in _real time_.
+
+![Polling](../../../assets/docs/triggers/Polling.gif)
+
+## Checkpoints - coming soon
+
+This innovative feature will enable in-Bird triggers, allowing your Bird to wait for an specific event to occur before moving on to the following action.
+
