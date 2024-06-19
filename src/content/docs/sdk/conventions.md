@@ -178,6 +178,10 @@ Besides CRUD actions on single entities, most apps also benefit from having acti
 
 Sometimes the user wants to search for one specific entity, as they perhaps know that it matches uniquely with any of the inputed optional parameters. It would be annoying for the user to still receive an array of results back if they can be sure that there will only be one result. That's why **actions that start with "Find" take the same parameters as equivalent search actions, but only return one result instead of an array**.
 
+#### 6.4.1 - Search for previous items
+
+A likely scenario is that a user wants to continuously translate new items (thinkg articles, pages, posts, etc.). However, they may also want to translate all existing items. In order to help with this scenario, when possible **all search actions should contain query parameters 'date from' and 'date to' in order to search for items within a specific range**.
+
 ### 6.5 - Pagination
 
 Continuing on actions that can return multiple entities: often APIs implement pagination with these kinds of list or query endpoints. In Blackbird, **pagination should be taken care off by the app developer in the action**, and not delegated to the user. This means that limit or page should not be inputs to search actions. Actions should take care off pagination in the app code.

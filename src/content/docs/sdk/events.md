@@ -51,7 +51,7 @@ You can also control what message will be send back to the calling service by pr
 
 All the properties passed to the `Result` class implementation will be available in the bird editor. All `Display` attributes are possible here as well.
 
-You can use the `[WebhookParameter]` attribute to add (optional) input values to your webhook event. F.e. if you want to allow your user to specify their event more narrowly.
+> Note: The name of your webhook method cannot be changed, Blackbird would interpret it as a deleted and newly created event.
 
 ### Automatic subscription and unsubscription
 
@@ -113,6 +113,36 @@ public class BaseWebhookHandler : BaseInvocable, IWebhookEventHandler
 ```
 
 > Tip: you can use the Bird ID from the invocation context to generate unique keys for each subscription if required.
+
+## Additional webhook inputs
+
+You can use the `[WebhookParameter]` attribute to add (optional) input values to your webhook event. F.e. if you want to allow your user to specify their event more narrowly. 
+
+These input parameters may or may not be used in the actual subscription method. This can happen if your endpoint or the body of the subscription request takes certain extra parameters for the input. If an input parameter is actually used to create the subscription we recommend that you use `[WebhookParameter(true)]`. This optional boolean value tells Blackbird that the description depends on this input. If this input value is now changed, the bird will automatically resubscribe.
+
+```cs
+[Webhook("On issue status changed", typeof(IssueUpdatedHandler), 
+    Description = "This webhook is triggered when issue status is changed.")]
+public async Task<WebhookResponse<IssueResponse>> OnIssueStatusChanged(WebhookRequest request,
+    [WebhookParameter] ProjectIdentifier project, [WebhookParameter] OptionalStatusInput status, [WebhookParameter] IssueInput issue)
+{
+    var payload = DeserializePayload(request);
+    var statusItem = payload.Changelog.Items.FirstOrDefault(item => item.FieldId == "status");
+
+    if (statusItem is null 
+        || (project.ProjectKey is not null && !project.ProjectKey.Equals(payload.Issue.Fields.Project.Key))
+        || (status.StatusId is not null && payload.Issue.Fields.Status.Id != status.StatusId)
+        || (issue.IssueKey is not null && !issue.IssueKey.Equals(payload.Issue.Key)))
+        return new WebhookResponse<IssueResponse>
+        {
+            HttpResponseMessage = new HttpResponseMessage(HttpStatusCode.OK),
+            ReceivedWebhookRequestType = WebhookRequestType.Preflight
+        };
+
+    var issueResponse = CreateIssueResponse(payload);
+    return issueResponse;
+}
+```
 
 ## Callbacks
 

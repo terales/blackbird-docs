@@ -34,6 +34,8 @@ The `Action` attribute will take a string as its first argument. This will be th
 
 The fields in the outputted class will automatically be available in the Bird editor in subsequent steps. Action methods can be async - but this is not a requirement.
 
+> Note: The name of your action method cannot be changed, Blackbird would interpret it as a deleted and newly created action.
+
 ## Defining display names input values
 
 The `[ActionParameter]` attribute can be added to any acceptable argument (strings, numbers, booleans, dates, lists) but also to classes. When added to the class, Blackbird will simply display all the properties of this class as input arguments.
@@ -54,6 +56,26 @@ This class is transformed to:
 ![connection](../../../assets/docs/berry.png)
 
 Just as with input arguments, the `[Display]` atribute also works on the return types of your actions in order to give them user-friendly names.
+
+When using
+
+### Ignoring attributes
+
+You can use the `[DefinitionIgnore]` attribute to hide a property from showing up in Blackbird.
+
+```cs
+public class BerryResponse
+{
+    [Display("Berry ID", Description = "The ID of the berry")]
+    public string Id { get; set; }
+
+    [Display("Berry name", Description = "The name of the berry")]
+    public string Name { get; set; }
+
+    [DefinitionIgnore]
+    public string InternalReference { get; set; }
+}
+```
 
 ## Optional inputs
 
