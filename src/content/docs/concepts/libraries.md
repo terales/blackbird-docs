@@ -3,8 +3,8 @@ title: Libraries
 description: Learn how to map predefined data and use it during your Flights
 sidebar:
   label: Libraries
-  order: 8
-  hidden: true
+  order: 5
+  hidden: false
 ---
 
 ## What is a Library?
