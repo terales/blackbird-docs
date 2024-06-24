@@ -26,7 +26,7 @@ In Blackbird, there is a dedicated tab for Libraries (navigation bar at the top 
 
 Within your workflow (Bird), you can reference the library by using the Convert operator. Click on the plus sign, as if you were adding an action, but select Operator instead. Then choose `Convert`, the library to use, and the pieces of data you want to go from and to. Once your Bird is flying (_workflow running_), data gets transformed and routed accordingly.
 
-![Convert Operator](../../../assets/docs/libraries/Convert.gif)
+<!-- ![Convert Operator](../../../assets/docs/libraries/Convert.gif) -->
 
 Here is one example where the output of one tool becomes the input of the next one, and in between, the Convert operator follows the rules in the library to ensure everything works smoothly in terms of interoperability, even when the two tools use different standards to refer to languages. In this case, we get the list of locales missing a translation for a particular article in Zendesk and we want to translate the articles into these languages through DeepL. However, we know DeepL uses a different code to refer to the same languages. Hence, we set up these codes once in our library, add the Convert operator as part of our workflow, and we have a fully functional Bird now that won't be interrupted because two apps _don't speak the same language_.
 
