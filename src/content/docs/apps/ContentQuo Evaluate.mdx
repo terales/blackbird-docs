@@ -38,11 +38,16 @@ Before you can connect you need to make sure that:
   - Quality evaluation metrics with a _grade_ and a _quality score_.
   - A list of files with attached information including _word count_ and _segment count_.
 
-## Files
+### Files
 
 - **Download bilingual file**
 - **Upload bilingual file**
 - **Delete bilingual file**
+
+## Events
+
+- **On evaluations created**
+- **On evaluations finished**
 
 ## Example
 
