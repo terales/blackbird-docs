@@ -6,7 +6,45 @@ import { LinkCard } from "@astrojs/starlight/components";
 
 <LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Wise" icon="github" />
 
-Documentation coming soon.
+Wise facilitates fast, low-cost international money transfers and offers a multi-currency account to hold, send, receive, and spend money in over 50 currencies. It features transparent fees, rapid transfers, and a Wise debit card for spending abroad with low conversion fees. 
+
+## Actions
+
+###  Balance
+- **List balances** List all balances for a profile
+- **Get balance** Get details of a specific balance
+- **Create balance** Create a new balance
+- **Delete balance** Delete specific balance
+
+###  BatchGroup
+- **Create batch group** Create a new batch group
+- **Create batch group transfer** Create a new transfer for the batch group
+
+###  Card
+- **List cards** List all profile cards
+
+###  Profile
+- **List profiles** List all user profiles
+
+###  Transaction
+- **List transactions** List all card transactions
+- **Get transaction** Get details of a specific transaction
+
+###  Transfer
+- **List transfers** List all transfer info
+- **Create transfer** Create a new transfer
+- **Get transfer** Get details of a specific transfer
+- **Cancel transfer** Cancel specific transfer
+- **Get transfer receipt as PDF** Get receipt of a specific transfer as PDF
+
+##  Events
+- **On account credited** On multi-currency account is credited
+- **On balance updated** On a specific balance updated
+- **On payment initiations state changed** On payment initiation state of a batch group payment changed
+- **On SWIFT message received and a credit deposited** On SWIFT message is received and a credit is deposited into a balance account
+- **On transfer status updated** On a specific transfer's status updated
+- **On transfer active cases updated** On transfer's list of active cases is updated
+- **On transfer payout failed** On a specific transfer's payout failed
 
 ## Feedback
 
