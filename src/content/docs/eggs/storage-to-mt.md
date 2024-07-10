@@ -41,8 +41,8 @@ Egg between Google Drive and DeepL
 Egg between Google Drive and DeepL with glossaries.
 ![Egg with Glossary](../../../assets/docs/eggs/Eggs1_withGlossary.png)
 
-Adding arrays of language codes.
-![Multiple languages](../../../assets/docs/eggs/multipleLangs.gif)
+Adding an array of language codes to a loop.
+![Multiple languages](../../../assets/docs/eggs/MultipleLangs.png)
 
 ## Suggested Apps
 
