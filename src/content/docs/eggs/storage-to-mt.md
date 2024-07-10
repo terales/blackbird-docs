@@ -7,11 +7,11 @@ sidebar:
   hidden: true
 ---
 
-### Eggs: The Seed of Your Workflow
+**Eggs: Starting Points for Your Birds**
 
 In Blackbird, Eggs are the seeds or blueprints for your workflows. They represent the initial ideas that have the potential to become fully-fledged Birds. Let's explore some options to integrate cloud storage with machine translation.
 
-## Process Overview
+## Process Outline
 
 1. **Trigger: File(s) uploaded to cloud storage**
 Users upload files to a chosen cloud storage application. This action sets our workflow into motion.
