@@ -65,11 +65,10 @@ Translated files are uploaded back to the cloud storage, placed in a designated 
 
 Download JSON workflows to import into your Nest, make any desired adjustments, and **fly**.
 
-<a href="https://docs.blackbird.io/downloads/Sharepoint_to_Amazon_Translate_and_back.json" download>SharePoint to Amazon Translate and back</a>
-
-- [Amazon S3 to Language Weaver](../../../public/downloads/AmazonS3_to_Language_Weaver.json)  
-- [Dropbox to GlobalLink NOW set multiple languages](../../../public/downloads/Dropbox_to_GlobalLink_NOW_set_multiple_languages.json)  
-- [Dropbox to GlobalLink NOW and back](../../../public/downloads/Dropbox_to_GlobalLink_NOW_and_back.json)  
-- [Google Drive to DeepL and back](../../../public/downloads/Google_Drive_to_DeepL_and_back.json)  
-- [Google Drive to DeepL with Phrase Glossary and back](../../../public/downloads/Google_Drive_to_DeepL_with_Phrase_Glossary_and_back.json)  
-- [SFTP to Google Translate with file renaming](../../../public/downloads/SFTP_to_Google_Translate_with_file_renaming.json)
+- <a href="https://docs.blackbird.io/downloads/Sharepoint_to_Amazon_Translate_and_back.json" download>SharePoint to Amazon Translate and back</a>
+- <a href="https://docs.blackbird.io//downloads/AmazonS3_to_Language_Weaver.json" download>Amazon S3 to Language Weaver</a>  
+- <a href="https://docs.blackbird.io//downloads/Dropbox_to_GlobalLink_NOW_set_multiple_languages.json" download>Dropbox to GlobalLink NOW set multiple languages</a>  
+- <a href="https://docs.blackbird.io//downloads/Dropbox_to_GlobalLink_NOW_and_back.json" download>Dropbox to GlobalLink NOW and back</a>  
+- <a href="https://docs.blackbird.io//downloads/Google_Drive_to_DeepL_and_back.json" download>Google Drive to DeepL and back</a>  
+- <a href="https://docs.blackbird.io//downloads/Google_Drive_to_DeepL_with_Phrase_Glossary_and_back.json" download>Google Drive to DeepL with Phrase Glossary and back</a>  
+- <a href="https://docs.blackbird.io//downloads/SFTP_to_Google_Translate_with_file_renaming.json" download>SFTP to Google Translate with file renaming</a>
