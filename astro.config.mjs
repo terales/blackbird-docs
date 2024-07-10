@@ -33,6 +33,10 @@ export default defineConfig({
           autogenerate: { directory: "sdk" },
         },
         {
+          label: "Eggs",
+          autogenerate: { directory: "eggs" },
+        },
+        {
           label: "More",
           autogenerate: { directory: "more" },
         },

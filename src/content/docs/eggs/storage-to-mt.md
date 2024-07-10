@@ -4,7 +4,7 @@ description: An Egg with the potential to create a Cloud Storage to Machine Tran
 sidebar:
   label: Storage to MT
   order: 1
-  hidden: true
+  hidden: false
 ---
 
 ### Eggs: Starting Points for Your Birds
@@ -84,11 +84,12 @@ Download JSON workflows to import into your Nest, make any desired adjustments, 
 ### Importing Eggs
 
 To import an Egg into your Nest:
-1- Navigate to the Bird Editor section.
-2- Click on Import on the top right.
-3- Select the Egg (JSON) file to import and click `Import`.
-4- Identify the newly created Bird and click on it to edit it.
-5- Update the Connction details and any other needed input/output parameters or desired steps. Look for red warning signs next to the step name signaling missing details in said step.
-6- Click Save/Publish.
+
+1. Navigate to the Bird Editor section.
+2. Click on Import on the top right.
+3. Select the Egg (JSON) file to import and click `Import`.
+4. Identify the newly created Bird and click on it to edit it.
+5. Update the Connction details and any other needed input/output parameters or desired steps. Look for red warning signs next to the step name signaling missing details in said step.
+6. Click Save/Publish.
 
 ![Importing Eggs](../../../assets/docs/eggs/ImportEggs.gif)
