@@ -7,9 +7,11 @@ sidebar:
   hidden: true
 ---
 
-**Eggs: Starting Points for Your Birds**
+### Eggs: Starting Points for Your Birds
 
-In Blackbird, Eggs are the seeds or blueprints for your workflows. They represent the initial ideas that have the potential to become fully-fledged Birds. Let's explore some options to integrate cloud storage with machine translation.
+In Blackbird, Eggs are the seeds or blueprints for your workflows. They represent the initial ideas that have the potential to become fully-fledged Birds.
+
+In this Egg-guide, let's explore some options to integrate cloud storage with machine translation.
 
 ## Process Outline
 
@@ -63,7 +65,8 @@ Translated files are uploaded back to the cloud storage, placed in a designated 
 
 Download JSON workflows to import into your Nest, make any desired adjustments, and **fly**.
 
-- [SharePoint to Amazon Translate and back](../../../public/downloads/Sharepoint_to_Amazon_Translate_and_back.json)  
+<a href="https://docs.blackbird.io/downloads/Sharepoint_to_Amazon_Translate_and_back.json" download>SharePoint to Amazon Translate and back</a>
+
 - [Amazon S3 to Language Weaver](../../../public/downloads/AmazonS3_to_Language_Weaver.json)  
 - [Dropbox to GlobalLink NOW set multiple languages](../../../public/downloads/Dropbox_to_GlobalLink_NOW_set_multiple_languages.json)  
 - [Dropbox to GlobalLink NOW and back](../../../public/downloads/Dropbox_to_GlobalLink_NOW_and_back.json)  
