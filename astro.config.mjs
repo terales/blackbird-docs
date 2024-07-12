@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
+import starlightOpenAPI, { openAPISidebarGroups } from "starlight-openapi";
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,6 +16,16 @@ export default defineConfig({
       social: {
         github: "https://github.com/bb-io",
       },
+      plugins: [
+        // Generate the OpenAPI documentation pages.
+        starlightOpenAPI([
+          {
+            base: "api",
+            label: "Blacbird API",
+            schema: "./schemas/openapi.json",
+          },
+        ]),
+      ],
       sidebar: [
         {
           label: "Learning to fly",
@@ -40,6 +51,7 @@ export default defineConfig({
           label: "More",
           autogenerate: { directory: "more" },
         },
+        ...openAPISidebarGroups,
         {
           label: "Apps",
           autogenerate: { directory: "apps" },

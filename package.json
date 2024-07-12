@@ -11,12 +11,13 @@
     "generate": "node --experimental-modules scripts/generate.mjs"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.9.1",
-    "astro": "^3.0.6",
-    "sharp": "^0.32.5"
+    "@astrojs/starlight": "^0.25.1",
+    "astro": "^4.11.5",
+    "sharp": "^0.33.4",
+    "starlight-openapi": "^0.6.4"
   },
   "devDependencies": {
-    "dotenv": "^16.3.1",
-    "octokit": "^3.1.0"
+    "dotenv": "^16.4.5",
+    "octokit": "^4.0.2"
   }
 }
