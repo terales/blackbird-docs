@@ -54,9 +54,15 @@ Now, if this particular action errors, it will be skipped, allowing the workflow
 
 The skip action ability is designed to work perfectly for non-essential workflow steps. E.g. steps that are not vital for the correct executing of your workflow like logging, notifications, status updates, etc. It is up to the user to decide which actions are non-critical and are permissable to be skipped.
 
-## Error handling (not released yet)
+## Error handling
 
-This feature will allow you to trigger birds when other birds fail. You can use this to notify yourself or others of failed flights, create tickets or even rollback changes. It is expected to be released in Q2 2024.
+Even with retry policies and skipping actions it's still possible that things fail. Sticking to the Blackbird philosophy we wanted to enable you to completely customize what would happen in this failed flight event. That's why you can use the Blackbird app to create birds that trigger on failed flights, so that you can define exactly what you want to do. As you have complete freedom you can choose to for example send yourself a message on Slack, create a Jira ticket (or use any other task tracking tool), send an email, log to a database, or even a combination of any of these! Perhaps you even want to rollback some changes that you made.
+
+![1721141187211](https://raw.githubusercontent.com/bb-io/Blackbird/main/image/README/1721141187211.png)
+
+This incredibly simple bird will send a notification in Slack when any flight fails. This can be useful for alerting people about possible issues. An alternative, or suplementary action to Slack would be logging a ticket in f.e. Jira.
+
+You can read more about how to setup error handling birds on the [Blackbird app page](../../apps/blackbird/)
 
 ## End Notes
 
