@@ -22,7 +22,7 @@ Before setting up the connection you must be known with the following:
 2. Click _Add Connection_.
 3. Name your connection for future reference e.g. 'My organization'.
 4. Fill all the required fields:
-   - `Document translation endpoint` - The endpoint for the document translation service. We expect something like this: https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com.
+   - `Document translation endpoint` - The endpoint for the document translation service. We expect something like this: https://[NAME-OF-YOUR-RESOURCE].cognitiveservices.azure.com.
    - `API key` - The API key for the document translation service.
    - `Region` - The region where the document translation service is hosted.
 5. Click _Connect_.
