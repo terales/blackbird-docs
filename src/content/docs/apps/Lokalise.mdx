@@ -35,6 +35,7 @@ Lokalise is a continuous localization and translation management platform. This 
 - **Download XLIFF files from task** returns all task XLIFF files.
 - **Download all XLIFF files from project** returns all project XLIFF files.
 - **Upload/Delete file for project**
+- **Upload file to project as XLIFF** Upload a file to the project as XLIFF. You can set the `Overwrite existing keys` optional input to true if you want to update existing keys instead of adding new ones.
 
 ### Keys
 
