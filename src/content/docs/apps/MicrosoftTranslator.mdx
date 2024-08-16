@@ -32,9 +32,44 @@ Before setting up the connection you must be known with the following:
 
 ## Actions
 
-- **Translate** - Translates the text to the target language. 
-- **Translate document** - Translates the document to the target language, under the hood we are using synchronous translation. The action returns the translated document. You can find supported file formats [here](https://learn.microsoft.com/en-us/azure/ai-services/translator/document-translation/overview#batch-supported-document-formats).
-- **Transliterate** - Transliterates the text to the target script.
+### **Translate**
+Translates the text to the target language. This action supports the following input parameters:
+
+- **Text**: The text to be translated.
+- **Target language**: The language to which the text will be translated.
+- **Source language**: The language of the input text. If not specified, automatic language detection is applied.
+- **Text type**: Defines whether the text being translated is plain text or HTML. Possible values are: `plain` or `html`.
+- **Category**: Specifies the category (domain) of the translation, used to get translations from a customized system.
+- **Profanity action**: Specifies how profanities should be treated in translations. Possible values are: `NoAction`, `Marked`, or `Deleted`.
+- **Profanity marker**: Specifies how profanities should be marked in translations. Possible values are: `Asterisk` or `Tag`.
+- **Include alignment**: Specifies whether to include alignment projection from source text to translated text. Possible values are: `true` or `false`.
+- **Include sentence length**: Specifies whether to include sentence boundaries for the input text and the translated text. Possible values are: `true` or `false`.
+- **Suggested from**: A fallback language if the language of the input text can't be identified.
+- **From script**: The script of the input text.
+- **To script**: The script of the translated text.
+- **Allow fallback**: Specifies that the service is allowed to fall back to a general system when a custom system doesn't exist. Possible values are: `true` or `false`. Allow fallback = false specifies that the translation should only use systems trained for the category specified by the request. If a translation from language X to language Y requires chaining through a pivot language E, then all the systems in the chain (X → E and E → Y) need to be custom and have the same category. If no system is found with the specific category, the request returns a 400 status code. Allow fallback = true specifies that the service is allowed to fall back to a general system when a custom system doesn't exist.
+
+As this [documentation](https://learn.microsoft.com/en-us/azure/ai-services/translator/custom-translator/how-to/translate-with-custom-model) mentions, if you want to translate text with a custom model, you should specify the `category` optional input and provide the ID of your custom category in this field.
+Example of a category ID: `a2eb72f9-43a8-46bd-82fa-4693c8b64c3c-TECH`
+
+### **Translate document**
+Translates the document to the target language, using synchronous translation under the hood. The action returns the translated document. This action supports the following input parameters:
+
+- **File**: The document file to be translated.
+- **Target language**: The language to which the document will be translated.
+- **Source language**: The language of the input document. If not specified, automatic language detection is applied.
+- **Category**: Specifies the category (domain) of the translation, used to get translations from a customized system.
+- **Allow fallback**: Specifies that the service is allowed to fall back to a general system when a custom system doesn't exist. Possible values are: `true` or `false`.  Allow fallback = false specifies that the translation should only use systems trained for the category specified by the request. If a translation from language X to language Y requires chaining through a pivot language E, then all the systems in the chain (X → E and E → Y) need to be custom and have the same category. If no system is found with the specific category, the request returns a 400 status code. Allow fallback = true specifies that the service is allowed to fall back to a general system when a custom system doesn't exist.
+
+Supported file formats can be found [here](https://learn.microsoft.com/en-us/azure/ai-services/translator/document-translation/overview#batch-supported-document-formats).
+
+### **Transliterate**
+Transliterates the text to the target script. This action supports the following input parameters:
+
+- **Text**: The text to be transliterated.
+- **Source language**: The language of the input text.
+- **Source script**: Specifies the script used by the input text.
+- **Target script**: Specifies the script to which the text will be transliterated.
 
 ## Example 
 
