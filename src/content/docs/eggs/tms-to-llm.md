@@ -11,7 +11,7 @@ sidebar:
 
 In Blackbird, Eggs are the seeds or blueprints for your workflows. They represent the initial ideas that have the potential to become fully-fledged Birds.
 
-In this Egg-guide, let's explore some options to integrate a TMS and an LLM. Find **Downloadable Eggs** at the end!
+In this Egg-guide, let's explore some options to integrate a TMS and an LLM. [Find **Downloadable Eggs** at the end!](https://docs.blackbird.io/eggs/tms-to-llm/#download-an-egg)
 
 ## Process Outline
 
