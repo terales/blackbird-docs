@@ -51,9 +51,6 @@ Egg between MemoQ and OpenAI with glossaries.
 - [Anthropic](https://docs.blackbird.io/apps/anthropic/)
 - [Google Vertex AI](https://docs.blackbird.io/apps/google-vertex-ai/)
 
-Egg between Phrase and Anthropic
-![Egg simple](../../../assets/docs/eggs/Egg2-Phrase-to-Anthropic.png)
-
 ## Download an Egg
 
 Download JSON workflows to import into your Nest, make any desired adjustments, and **fly**.
