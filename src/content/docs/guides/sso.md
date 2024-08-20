@@ -23,3 +23,7 @@ This action will open the selected service and prompt you to sign in, if you hav
 If multi-factor authentication (MFA) is enabled, you will also need to complete the secondary authentication step.
 
 Once you're signed in, Blackbird will verify whether your Microsoft or Google email address matches the email address associated with your Blackbird account. If they match, you'll be granted access to your Blackbird instance.
+
+> **💡 Note**: during your first sign in your SSO provider may ask you to confirm you want to share details with Blackbird.
+
+If you want to setup an organization wide policy so that only users from your organization can sign in to your Blackbird instance, have an organization admin sign in. They will be presented with an additional screen to configure these settings.
