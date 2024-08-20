@@ -42,6 +42,8 @@ const altered_names = {
   MicrosoftImageAnalysis: "Microsoft Image Analysis",
   MicrosoftOpenAI: "Microsoft OpenAI",
   MicrosoftExcel: "Microsoft Excel",
+  MicrosoftAILanguage: "Microsoft AI Language",
+  MicrosoftTranslator: "Microsoft Translator",
   AmazonRedshift: "Amazon Redshift",
   MemoQCMS: "MemoQ CMS",
   BlackbirdPrompts: "Blackbird Prompts",
@@ -54,6 +56,8 @@ const altered_names = {
   GlobalLinkNow: "GlobalLink Now",
   BWX: "Bureau Works",
   BureauWorks: "Bureau Works",
+  MatecatFilters: "Matecat Filters",
+  MistralAI: "Mistral AI",
 };
 
 const skip_repos = ["docs", "template-repo", "NotionOAuth", "LanguageWire"];
