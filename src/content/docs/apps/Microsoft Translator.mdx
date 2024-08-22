@@ -18,7 +18,7 @@ Before setting up the connection you must be known with the following:
 
 ## Connecting
 
-1. Navigate to Apps, and identify the **Microsoft Translator** app. You can use search to find it.
+1. Navigate to Apps, and identify the **Azure AI Translator** app. You can use search to find it.
 2. Click _Add Connection_.
 3. Name your connection for future reference e.g. 'My organization'.
 4. Fill all the required fields:
@@ -61,7 +61,7 @@ Translates the document to the target language, using synchronous translation un
 - **Category**: Specifies the category (domain) of the translation, used to get translations from a customized system.
 - **Allow fallback**: Specifies that the service is allowed to fall back to a general system when a custom system doesn't exist. Possible values are: `true` or `false`.  Allow fallback = false specifies that the translation should only use systems trained for the category specified by the request. If a translation from language X to language Y requires chaining through a pivot language E, then all the systems in the chain (X → E and E → Y) need to be custom and have the same category. If no system is found with the specific category, the request returns a 400 status code. Allow fallback = true specifies that the service is allowed to fall back to a general system when a custom system doesn't exist.
 
-Supported file formats can be found [here](https://learn.microsoft.com/en-us/azure/ai-services/translator/document-translation/overview#batch-supported-document-formats).
+Supported file formats can be found [here](https://learn.microsoft.com/en-us/azure/ai-services/translator/document-translation/overview#synchronous-supported-document-formats).
 
 ### **Transliterate**
 Transliterates the text to the target script. This action supports the following input parameters:
@@ -73,7 +73,7 @@ Transliterates the text to the target script. This action supports the following
 
 ## Example 
 
-Here is an example of how you can use the Microsoft Translator app in a workflow. In this example, we are translating a document from Google Drive to the target language and then sending the translated document back to a different folder.
+Here is an example of how you can use the Azure AI Translator app in a workflow. In this example, we are translating a document from Google Drive to the target language and then sending the translated document back to a different folder.
 
 ![Example](https://raw.githubusercontent.com/bb-io/MicrosoftTranslator/main/image/README/example.png)
 

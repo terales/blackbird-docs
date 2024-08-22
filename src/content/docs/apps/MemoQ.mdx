@@ -45,6 +45,7 @@ You can read more about how to set up your WS API [here](https://docs.memoq.com/
 - **Get/delete/overwrite/deliver document**.
 - **Import/Export document** uploads/downloads file to the project. Make sure your file name contains extension, otherwise the action will fail. Also has optional inputs for external document ID, filter config, preview creation and importing embedded images and objects.
 - **Apply translated content to updated source**.
+- **Document exists** checks if a document with provided properties exists in the project.
 
 ### XLIFFs
 
@@ -95,6 +96,12 @@ You can read more about how to set up your WS API [here](https://docs.memoq.com/
 14. **Coverage type**: This optional parameter is used to specify the type of coverage for pretranslation. By default, this is set to 'Not full'.  
 15. **Only unambiguous matches**: This optional parameter, when set to true, only includes unambiguous matches in the pretranslation. By default, this is set to true.
 16. **Final translation state**: This optional parameter is used to specify the final translation state for pretranslated segments. By default, this is set to 'No change'.
+
+### Project Custom Fields
+- **Get project custom fields** Gets all custom metadata fields for a specific project
+- **Get custom field value** Gets value of a specific custom metadata field
+- **Set custom field value** Sets the value of a specific custom metadata field
+- **Add new custom field** Adds a custom metadata field to the specified project
 
 ### Translation memories
 
