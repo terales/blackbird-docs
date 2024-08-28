@@ -58,6 +58,7 @@ const altered_names = {
   BureauWorks: "Bureau Works",
   MatecatFilters: "Matecat Filters",
   MistralAI: "Mistral AI",
+  Magento: "Adobe Commerce - Magento",
 };
 
 const skip_repos = ["docs", "template-repo", "NotionOAuth", "LanguageWire"];

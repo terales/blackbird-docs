@@ -1,0 +1,44 @@
+---
+  title: Changelog
+  description: A global overview of all changes made to the Blackbird core platform
+---
+
+### (26-08-2024) 4.10 
+
+Main features: Custom connection buttons and organization creation automations.
+
+##### SDK
+- Added the ability to customize the HTML of connection modals by supporting HTML templates in the SDK.
+- Multiple related dynamic inputs are now available in events.
+- App names and descriptions are now also updated when a new app version is pushed.
+
+##### Other
+- Default nests are now created when a new organization is created.
+
+##### Bug fixes
+- Fixed an incorrect error being displayed when a file was too large.
+- Nest user added and nest user created API events are now correctly triggered.
+- Creating a new connection now shows a loading icon.
+- Retried actions now fail quicker once all retries are completed.
+
+### (09-08-2024) 4.9 
+
+Main features: Automatic loop creation.
+
+##### Bird editor
+- The list of available values now also shows values that are part of an array. F.e. when you can input a file, but a list of files is outputed by a previous action, you can still select this value.
+- When selecting a value that is coming from an array, a loop will automatically be added around the action.
+
+### (07-08-2024) 4.8.1 
+
+Main features: Webhook performance improvements.
+
+##### Flights
+- Webhooks now perform better given the recent addition of action limitations in our workflow engine.
+
+### (05-08-2024) 4.8 
+
+Main features: concurrent actions per organization limitations on multi-tenant environments.
+
+##### Flights
+- Flights now by default process 6 concurrent actions per organization. This amount can be adjusted for each tenant.
