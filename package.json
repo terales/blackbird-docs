@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "generate": "node --experimental-modules scripts/generate.mjs"
+    "generate": "node --experimental-modules scripts/generate.mjs",
+    "bin": "node --experimental-modules scripts/bin.mjs"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.25.1",

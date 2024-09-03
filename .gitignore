@@ -25,3 +25,5 @@ pnpm-debug.log*
 /.vs
 /src/.vs/src/FileContentIndex
 /src/.vs
+
+/bin
