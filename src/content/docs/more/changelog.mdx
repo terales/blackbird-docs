@@ -3,6 +3,26 @@
   description: A global overview of all changes made to the Blackbird core platform
 ---
 
+### (10-09-2024) 4.11
+
+Main features: Flow operator improvements and new composable input expressions.
+
+##### Bird editor
+- The "End flight" operator is available everywhere in your bird. The "End flight" operator will stop the flight when reached.
+- The "End loop" operator will break out of the loop when reached. It is available in loops.
+- "End flight" and "End loop" also have an optional condition input, so that one is not always forced to put them into a decision.
+- A user can now compose texts in any textual input that does not have an input handler (dropdown) defined, by pressing the magic wand button above their cursor.
+- The modal opened when clicking on the "+" button in the bird editor is redesigned.
+- A friendly message is added to the compose operator to remind people they can now use the new text input expression feature.
+
+##### Bug fixes
+- The \ is no longer duplicated as \\ in custom inputs.
+- A numeric list in a compose operator does no longer break a bird.
+- Resolved several issues around importing .csv files into custom libraries.
+- Flights are now properly removed from our workflow engine on unsubscription even if flights came in simultantiously.
+- Missing flights on the flight page are now displayed.
+- Resolved an edge case that didn't allow for the saving of bird modifications.
+
 ### (26-08-2024) 4.10 
 
 Main features: Custom connection buttons and organization creation automations.
