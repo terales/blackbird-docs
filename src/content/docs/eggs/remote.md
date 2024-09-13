@@ -45,9 +45,9 @@ The image below displays a Bird that is triggered whenever a time off request ha
 ## Tips
 
 - **Mapping data across apps:** To map important data points that refer to the same (e. g. Contractor ID in Remote and Resource ID in Plunet), there are various options to use: 
-    - (Custom libraries)[https://docs.blackbird.io/concepts/libraries/#custom-libraries] can be used to set up your data mapping and use them within your Birds via Convert operator in the same way you would use a VLookup formula in Excel. 
+    - [Custom libraries](https://docs.blackbird.io/concepts/libraries/#custom-libraries) can be used to set up your data mapping and use them within your Birds via Convert operator in the same way you would use a VLookup formula in Excel. 
     - Custom fields. Many apps offer custom fields that can be defined as it best suits you. 
-    - (Linked entities)[https://docs.blackbird.io/guides/entity-linking/]. 
+    - [Linked entities](https://docs.blackbird.io/guides/entity-linking/). 
 - **Optional inputs:** Check the different input alternaives, especially on the event triggers since these give you options to filter when to trigger a Bird. As an example, if you use an "on status update" event trigger, you will most likely find the option to specify which status should start the process.
 
 ### Importing Eggs
