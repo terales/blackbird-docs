@@ -60,6 +60,7 @@ To get your Api key and user token:
 - **List assigned cards** List all cards assigned to the user
 - **List cards** List all board cards
 - **Update card** Update specific card
+- **Add reaction to comment** React using an emoji to a specific comment on a card
 
 ### Lists
 
