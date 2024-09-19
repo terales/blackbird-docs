@@ -14,7 +14,7 @@ const altered_names = {
   HubspotCRM: "Hubspot CRM",
   Hubspot: "Hubspot CMS",
   MicrosoftTeams: "Microsoft Teams",
-  MicrosoftOutlook: "Microsoft Outlook",
+  MicrosoftOutlook: "Microsoft 365 Email (Outlook)",
   HuggingFace: "Hugging Face",
   "Phrase-TMS": "Phrase",
   LanguageWeaver: "Language Weaver",
@@ -59,6 +59,9 @@ const altered_names = {
   MatecatFilters: "Matecat Filters",
   MistralAI: "Mistral AI",
   Magento: "Adobe Commerce - Magento",
+  Microsoft365Calendar: "Microsoft 365 Calendar",
+  Microsoft365People: "Microsoft 365 People",
+  "XTRF-Customer-portal": "XTRF Customer Portal",
 };
 
 const skip_repos = ["docs", "template-repo", "NotionOAuth", "LanguageWire"];

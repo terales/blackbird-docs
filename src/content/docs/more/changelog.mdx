@@ -3,6 +3,21 @@
   description: A global overview of all changes made to the Blackbird core platform
 ---
 
+### (18-09-2024) 4.12
+
+Main features: Webhooks can immediatly trigger after subscription.
+
+#### SDK
+- A new interface (`IAfterSubscriptionWebhookEventHandler`) with the `OnWebhookSubscribedAsync()` method has been added. This method is called directly after subscription and can be used to start flights at this point.
+
+##### Bug fixes
+- Polled flights now properly display on the flight page of new nests.
+- Enabling skip action will not prevent you from saving the bird in certain cases anymore.
+- Actions after a flow operator that is not triggered are now properly executed.
+
+##### Other
+- The file handling core has been updated to play more nicely with WorldServer.
+
 ### (10-09-2024) 4.11
 
 Main features: Flow operator improvements and new composable input expressions.
@@ -32,14 +47,14 @@ Main features: Custom connection buttons and organization creation automations.
 - Multiple related dynamic inputs are now available in events.
 - App names and descriptions are now also updated when a new app version is pushed.
 
-##### Other
-- Default nests are now created when a new organization is created.
-
 ##### Bug fixes
 - Fixed an incorrect error being displayed when a file was too large.
 - Nest user added and nest user created API events are now correctly triggered.
 - Creating a new connection now shows a loading icon.
 - Retried actions now fail quicker once all retries are completed.
+
+##### Other
+- Default nests are now created when a new organization is created.
 
 ### (09-08-2024) 4.9 
 
