@@ -4,7 +4,7 @@ description: Different use cases where triggering your Birds manually makes tota
 sidebar:
   label: Manual push
   order: 10
-  hidden: true
+  hidden: false
 ---
 
 Manual triggers (also referred as Manual push) offer a powerful solution for workflows that require flexibility and human intervention. Unlike automated processes, manual triggers allow users to initiate a workflow exactly when needed by clicking the Fly button. This feature is particularly useful for any user that needs to start tasks based on specific conditions or human judgment. Whether it's for testing new Birds, debugging workflows, or handling one-off projects, manual triggers give you control over the timing and initiation of processes, ensuring tasks start when you're ready.
