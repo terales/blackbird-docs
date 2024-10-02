@@ -10,7 +10,7 @@ All processes must begin at some point: a **trigger** is what defines when a wor
 
 ## Manual Triggers
 
-Manual triggers are activated by human intervention. These workflows start as soon as someone clicks the `Fly` button. This type of trigger is ideal for testing and debugging, or when processes need to be started based on specific, often unpredictable, conditions that require human judgment. This is the recommended trigger type while you are in the process of building your Birds.
+Manual triggers (also referred to as [Manual push](https://docs.blackbird.io/guides/manual-triggers/))are activated by human intervention. These workflows start as soon as someone clicks the `Fly` button. This type of trigger is ideal for testing and debugging, or when processes need to be started based on specific, often unpredictable, conditions that require human judgment. This is the recommended trigger type while you are in the process of building your Birds.
 
 ![Fly button](../../../assets/docs/triggers/Fly.gif)
 
