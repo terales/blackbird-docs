@@ -4,7 +4,7 @@ description: Introducing Checkpoints
 sidebar:
   label: Checkpoints
   order: 6
-  hidden: true
+  hidden: false
 ---
 
 Blackbird has released a powerful new feature called Checkpoints, designed to enhance workflow automation with the ability to manage multiple triggers and enable human intervention at key points. This guide explains how Checkpoints work, their benefits, and how you can leverage them for greater efficiency and control in your workflows.
@@ -29,7 +29,7 @@ Traditional workflows typically follow a single chain of events, triggered by on
 
 ## How do I add a Checkpoint to my Bird?
 
-Click on the plus sign as you would to add any other step and select `Checkpoint`. Choose between waiting for an `Event` in an app to happen or a specific amount of time (`Delay`). If you've chosen to wait for an event, you need to click continue or go to the `Connection` tab, then select the app, the type of event, your connection and maybe even the ID for the exact object to monitor — if you are awaiting a project to be completed, you can specify the project ID so your Flight only continues once this specific project is completed. If the Delay option was selected instead, you need to specify the amount of time to wait in the `Duration` tab.
+Click on the plus sign as you would to add any other step and select `Checkpoint`. Choose between waiting for an `Event` in an app to happen or a specific amount of time (`Delay`). If you've chosen to wait for an event, you need to click continue or go to the `Connection` tab, then select the app, the type of event, your connection and the ID for the exact object to monitor — if you are awaiting a project to be completed, you can specify the project ID so your Flight only continues once this specific project is completed. If the Delay option was selected instead, you need to specify the amount of time to wait in the `Duration` tab.
 
 ![Adding a checkpoint GIF](../../../assets/guides/checkpoints/AddingCheckpoint.gif)
 
