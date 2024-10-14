@@ -35,7 +35,7 @@ The same can be done in Airtable. The image below shows a Bird tha starts whenev
 
 ![AirtableSearchRecord](../../../assets/docs/eggs/AirtableSearchRecord.png)
 
-ADD EGG for airtable workflow
+- Download Egg: <a href="https://docs.blackbird.io/downloads/Bureau_Works_to_Airtable.json" download>Airtable Search record</a>
 
 ### Iterating Through Spreadsheet Rows
 
@@ -48,7 +48,9 @@ If you already know the rows or subset of rows you want to work with, you can ge
 3. Inside the loop, use the `Get sheet cell` action to retrieve data by composing the cell address (combining the known column with the current row number from the loop).
 4. After processing the extracted data, use the `Update sheet cell` action to add your result, or mark the row as processed.
 
-![Image of generated range process]()
+![Generate range](../../../assets/docs/eggs/GenerateRange.png)
+
+- Download Egg: <a href="https://docs.blackbird.io/downloads/excel_generate_range.json" download>Microsoft Excel Generate Range</a>
 
 In a very similar fashion, when the number of rows in the spreadsheet is unknown, you can dynamically get the used range to get the total number of rows in the spreadsheet.
 
@@ -58,7 +60,9 @@ In a very similar fashion, when the number of rows in the spreadsheet is unknown
 
 > Note that you can input 2 as the start row for your range generation in case you want to spare the spreadsheet headers.
 
-![Image of example]()
+![Generate range Google Sheets](../../../assets/docs/eggs/GenerateRange2.png)
+
+- Download Egg: <a href="https://docs.blackbird.io/downloads/google_sheets_generate_range.json" download>Google Sheets Generate Range</a>
 
 #### Iterating Through Rows Using Arrays:
 If you need to extract multiple values from each row, treating each row as an array of cell values can simplify the process. This approach is also more efficient as it entails making fewer API calls. 
@@ -68,9 +72,14 @@ If you need to extract multiple values from each row, treating each row as an ar
 3. Use the `Get entry by position` action from the Utilities app to extract specific column values based on their position in the array (e.g., position 3 for column C).
 4. After you have processed the data, you can `Update sheet cell` by composing the cell address (using Row ID from the loop and specifying the column)
 
-![Image example]()
+![Iterate through range](../../../assets/docs/eggs/IterateThroughRangeSheets.png)
 
-ADD EGGS HERE
+Another variant, using a subset and multiple column entries as input for other actions:
+
+![Iterate through range](../../../assets/docs/eggs/IterateThroughRangeExcel.png)
+
+- Download Egg: <a href="https://docs.blackbird.io/downloads/google_sheets_iterate_through_range.json" download>Google Sheets Iterate through Range</a>
+- Download Egg: <a href="https://docs.blackbird.io/downloads/microsoft_excel_iterate_through_range.json.json" download>Microsoft Excel Generate Range</a>
 
 ### Getting or Updating Column Values in Bulk
 In some workflows, it might be necessary to handle bulk updates or retrieve multiple values from a single column in a spreadsheet. There are some specific actions available that will save time by processing entire columns at once, instead of doing it row by row.
