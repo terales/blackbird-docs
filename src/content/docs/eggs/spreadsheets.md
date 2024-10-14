@@ -4,14 +4,14 @@ description: Let's deep dive into common use cases around spreadsheets
 sidebar:
   label: Spreadsheets
   order: 4
-  hidden: true
+  hidden: false
 ---
 
 ### Eggs: Starting Points for Your Birds
 
 In Blackbird, Eggs are the seeds or blueprints for your workflows. They represent the initial ideas that have the potential to become fully-fledged Birds.
 
-In this Egg-guide, let's explore some common use case around spreadsheets using [Google Sheets](https://docs.blackbird.io/apps/google-sheets/), [Microsoft Excel](https://docs.blackbird.io/apps/microsoft-excel/) or [Airtable](https://docs.blackbird.io/apps/airtable/). Find **Downloadable Eggs** under some use cases - download JSON workflows to [import into your Nest](https://docs.blackbird.io/eggs/remote/#importing-eggs), add your connections, make any desired adjustments, and **fly**.
+In this Egg-guide, let's explore some common use case around spreadsheets using [Google Sheets](https://docs.blackbird.io/apps/google-sheets/), [Microsoft Excel](https://docs.blackbird.io/apps/microsoft-excel/) or [Airtable](https://docs.blackbird.io/apps/airtable/). Find **Downloadable Eggs** under some use cases - download JSON workflows to [import into your Nest](https://docs.blackbird.io/eggs/spreadsheets/#importing-eggs), add your connections, make any desired adjustments, and **fly**.
 
 ## Use cases
 
@@ -95,7 +95,7 @@ Similarly, you might need to retrieve a set of values from a specific column for
 
 ![Get column](../../../assets/docs/eggs/GetColumn.png)
 
-### Importing Eggs
+## Importing Eggs
 
 To import an Egg into your Nest:
 
