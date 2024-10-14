@@ -11,7 +11,7 @@ sidebar:
 
 In Blackbird, Eggs are the seeds or blueprints for your workflows. They represent the initial ideas that have the potential to become fully-fledged Birds.
 
-In this Egg-guide, let's explore some common use case around spreadsheets using [Google Sheets](https://docs.blackbird.io/apps/google-sheets/), [Microsoft Excel](https://docs.blackbird.io/apps/microsoft-excel/) or [Airtable](https://docs.blackbird.io/apps/airtable/). Find **Downloadable Eggs** under some use cases - download JSON workflows to [import into your Nest](https://docs.blackbird.io/eggs/spreadsheets/#importing-eggs), add your connections, make any desired adjustments, and **fly**.
+In this Egg-guide, let's explore some common use cases around spreadsheets using [Google Sheets](https://docs.blackbird.io/apps/google-sheets/), [Microsoft Excel](https://docs.blackbird.io/apps/microsoft-excel/) or [Airtable](https://docs.blackbird.io/apps/airtable/). Find **Downloadable Eggs** under the examples - download JSON workflows to [import into your Nest](https://docs.blackbird.io/eggs/spreadsheets/#importing-eggs), add your connections, make any desired adjustments, and **fly**.
 
 ## Use cases
 
@@ -26,7 +26,7 @@ The `Add new sheet row` action in Blackbird is ideal for this purpose. It **appe
 ### Searching and Updating Information
 
 Managing dynamic data in spreadsheets often involves searching for and updating specific information. The `Find sheet row` action **searches for a specified value within a designated column and returns the row number** where the value was found (or null if not found).
-Example: You may have a column in your table with unique order IDs. Every time an update occurs, you want to log these changes (maybe a status update) in your spreadsheet, use the "Find sheet row" action to locate the relevant row for that particular order, and subsequent actions like "Update sheet row" or "Update cell" will allow you to modify information —such as the order status— in a different column but corresponding row.
+Example: You may have a column in your table with unique order IDs. Every time an update occurs, you want to log these changes (maybe a status update) in your spreadsheet, use the `Find sheet row` action to locate the relevant row for that particular order, and subsequent actions like `Update sheet row` or `Update sheet cell` will allow you to modify information —such as the order status— in a different column but corresponding row.
 This action can also be paired with a decision point to check if the unique value already exists in the spreadsheet. If the output is null, you can add a new entry; otherwise, update the existing one.
 
 ![FindSheetRow](../../../assets/docs/eggs/FindSheetRow.png)

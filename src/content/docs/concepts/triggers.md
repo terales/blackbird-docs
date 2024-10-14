@@ -66,7 +66,7 @@ Since some systems don't have webhooks or callbacks, but we would still like to 
 
 ![Polling](../../../assets/docs/triggers/Polling.gif)
 
-## Checkpoints - coming soon
+## Checkpoints
 
-This innovative feature will enable in-Bird triggers, allowing your Bird to wait for an specific event to occur before moving on to the following action.
+This innovative feature enables in-Bird triggers, allowing your Bird to wait for a specific event to occur before moving on to the subsequent steps. Find more information about Checkpoints in a dedicated entry [here](https://docs.blackbird.io/concepts/checkpoints/).
 
