@@ -2,6 +2,18 @@
   title: Changelog
   description: A global overview of all changes made to the Blackbird core platform
 ---
+### (14-10-2024) 4.14
+
+Main features: Checkpoints 🎉
+
+##### Bird editor
+- You can now create _checkpoints_ in the bird editor. Checkpoints in Blackbird workflows are control steps that enable Birds to pause and wait for different events before continuing their Flights. You can read more about checkpoints [here](/concepts/checkpoints).
+
+##### Other
+- The rules and nests dropdown when adding a user now also works when you were filtering the list.
+- Birds containing Google and Microsoft related events can now properly be activated again after suspending.
+- The polling information text is now properly aligned again.
+
 ### (24-09-2024) 4.13
 
 Main features: Right click options, copy, paste and duplicate items.
