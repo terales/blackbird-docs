@@ -8,6 +8,8 @@ Main features: Checkpoints 🎉
 
 ##### Bird editor
 - You can now create _checkpoints_ in the bird editor. Checkpoints in Blackbird workflows are control steps that enable Birds to pause and wait for different events before continuing their Flights. You can read more about checkpoints [here](/concepts/checkpoints).
+- The trigger type selection has received a visual overhaul.
+- The delay feature was moved from operators to a trigger type under checkpoint.
 
 ##### Other
 - The rules and nests dropdown when adding a user now also works when you were filtering the list.

@@ -7,6 +7,8 @@ sidebar:
   hidden: false
 ---
 
+> **🚨 IMPORTANT NOTE 🚨 Always look into using [checkponts](/concepts/checkpoints/) instead of using entity linking. Checkpoints is a newer feature with the goal of completely deprecating entity linking and thus, entity linking may be removed from Blackbird in the future.** 
+
 Now that you have learned the concept of a linked entity across different systems and platforms in the previous guide, it's time to look at how you can link entities without having to rely on a certain system's capability to store custom values. Namely, Blackbird offers you the ability to link these entities through a special operator, conveniently named _Link entities_. But first a TLDR of the previous guide:
 
 ## TLDR; what are linked entities?
