@@ -40,7 +40,7 @@ For businesses utilizing TMS tools (like Phrase or RWS WorldServer, etc.), trans
 
 ![MemoQ wordpress with checkpoints](../../../assets/guides/checkpoints/wordpress_memoq.png)
 
-The image above shows a Bird that takes new posts from Wordpress, creates a project in MemoQ, imports the posts as HTML source documents into the newly created MemoQ project, waits for the project status in MemoQ to be "Wrapped up", then downloads the translated documents and uploads them into Wordpress.
+The image above shows a Bird that takes new posts from Wordpress, creates a project in memoQ, imports the posts as HTML source documents into the newly created memoQ project, waits for the project status in memoQ to be "Wrapped up", then downloads the translated documents and uploads them into Wordpress.
 
 ### Human Approvals in Project Management
 In platforms like Asana, Jira, or Trello, certain tasks require approval before proceeding. With Checkpoints, workflows can pause until the necessary review or approval is completed. This ensures nothing is missed, and approvals are smoothly integrated into the process.
