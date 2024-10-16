@@ -50,7 +50,7 @@ In platforms like Asana, Jira, or Trello, certain tasks require approval before 
 The picture above shows a Bird with two Checkpoints. The flow starts whenever a new Zendesk article is published, the content from the new article is extracted as HTML and added as source file in a newly created Trados project. At this point, the process is paused and once the project is updated and reached the desired status, the target file is downloaded and added as attachment to a new Jira issue. A new halt is reached as the flow awaits for the status of the Jira issue to be changed, allowing for human intervention — maybe a legal or marketing team needs to review the translation. A decision point is reached afterwards: if the new status is "Approved", then the translated Zendesk article is published. Otherwise, the corresponding Teams channel is notified. 
 
 ### Large Language Models (LLMs) & Batch Processing
-When using LLM services like OpenAI’s Batch API for content generation or data processing (especially long running tasks), a Checkpoint can pause the workflow until the LLM returns a result or a batch process completes. If further human validation is required, the workflow can wait for that input before moving to the next stage.
+When using LLM services like [OpenAI’s Batch API]([url](https://docs.blackbird.io/apps/openai/#batch-processing)) for content generation or data processing (especially long running tasks), a Checkpoint can pause the workflow until the LLM returns a result or a batch process completes. If further human validation is required, the workflow can wait for that input before moving to the next stage.
 
 ![Open AI batch](../../../assets/guides/checkpoints/OpenAICheckpoint.png)
 
