@@ -6,7 +6,48 @@ import { LinkCard } from "@astrojs/starlight/components";
 
 <LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Lexeri" icon="github" />
 
-Documentation coming soon.
+Lexeri is a cloud-based terminology management system. Lexeri wants to bring terminology into all departments of your company and tries to achieve this with by focussing on usability and integration. Lexeri offers collaborative terminology workflows and checks for documents and texts in differnt systems. Learn more at [www.lexeri.com](https://www.lexeri.com).
+
+## Connecting
+
+1. Navigate to apps and search for Lexeri. If you cannot find Lexeri then click 'Add App' in the top right corner, select Lexeri and add the app to your Blackbird environment.
+2. Click 'Add Connection'.
+3. Name your connection for future reference e.g. 'Lexeri connection'.
+4. Add an API token (you can create this in the termbase settings of Lexeri in the tab 'API')
+5. Click 'Connect'
+
+![LexeriConnection](https://raw.githubusercontent.com/bb-io/Lexeri/main/image/README/connection.png)
+
+## Actions
+
+### Term checks
+
+- **Check text** Check text for matching and forbidden terms
+
+## Terms and termbases
+
+- **Search terms** Search terms by term value
+- **Export termbase** Export the preferred and admitted terms of the termbase as a tbx file
+- **Get termbase info** Get details about the termbase
+
+### Terminology management
+
+- **Create term request** Create a term request that can suggest terms to be added to the termbase.
+- **Extract terms from document** Create a new term extraction from a document. The term extraction will be accessible in the task board.
+- **Import terms** Import from a tbx, csv or xlsx file. The import will be accessible in the task board for further editing.
+
+## Events
+
+### Terminology management
+
+- **On term request created** - Triggered when a term request was created 
+- **On term request finished** - Triggered when processing of a term request was finished and its drafts were published to the termbase
+- **On import finished** - Triggered when processing of a import was finished and its drafts were published to the termbase
+- **On term extraction finished** - Triggered when processing of a term extractions was finished and its term candidates were published to the termbase
+- **On task finished** - Triggered when processing of a terminology task was finished and its drafts were published to the termbase
+
+### Terms
+- **On term created** - Triggered when a term was created or updated
 
 ## Feedback
 
