@@ -30,31 +30,23 @@ See the [Matecat API documentation](https://www.matecat.com/api/docs#/) for a de
 
 ### Projects
 
-- **Create project** creates a new project in detached mode.
-- **Get project**.
-- **Cancel project**.
-- **Archive project**.
-- **Activate project**.
+- **Create project** creates a new project. You have to include all files, source language and target languages at once. It cannot be updated later. It returns the same information as _Get project_.
+- **Get project** returns information about the project. This also includes word counts.
+- **Cancel project** cancels the project.
+- **Archive project** archives the project.
+- **Activate project** activates the project.
 
 ### Jobs
 
-- **Download translation as ZIP** returns a ZIP file that includes all the translated files.
-- **Download translation** returns multiple seperate translated files of this job.
-- **Download job TMX** returns the TMX file representing the current status of the job.
+- **Download job translated files** returns all translated files of this job.
+- **Download job TMX** returns the TMX file representing the current translation memory.
 - **Get job segments comments** returns a list of all comments that have been made in this job.
-- **Get job**.
-- **Cancel job**.
-- **Archive job**.
-- **Activate job**.
+- **Get job** returns general job information.
+- **Cancel job** cancels the job.
+- **Archive job** archives the job.
+- **Activate job** activates the job.
 
-### Teams
-
-- **List teams**.
-- **Create team**.
-- **List team projects**.
-- **List team members**.
-- **Add members**.
-- **Remove member**.
+> Matecat does not have a job status that indicates whether it is in translated, translated, revised, etc. Instead, that needs to be deduced from the different job word counts. For convenience we have added a "Derived status" to the job model which can take have the following statusses: NEW, IN_TRANSLATION, TRANSLATED, IN_REVISION, REVISED. We have also added this property to the project model which will return the lowest of all the accumulated statusses of all its jobs.
 
 ### Translation issues
 
@@ -67,10 +59,23 @@ See the [Matecat API documentation](https://www.matecat.com/api/docs#/) for a de
 
 - **Import glossary**. Matecat doesn't support language codes without a country portion. If the glossary contains such languages, the most appropriate Matecat-supported language code is selected (e.g., _es-ES_ for the _es_ language code). Glossaries can only be imported as private TMs in Matecat. More details on glossary import specifics in Matecat can be found [here](https://guides.matecat.com/how-to-add-a-glossary).
 
+## Events
+
+- **On analysis completed** is triggered when a project analysis completes or when it fails. Use in combination with checkpoints.
+- **On project status changed** is triggered when a project changes its derived status. F.e. if all jobs in a project change their status to translated.
+- **On job status changed** is triggered when a job changes its derived status. F.e. when all the segments in a job are translated the status changes to translated.
+
+## Example
+
+![1729768345607](https://raw.githubusercontent.com/bb-io/Matecat/main/image/README/1729768345607.png)
+
+In this example we see a translation being created from a Slack message and its attachments. When the Matecat analysis is complete we send a message with the link to Slack. Then when all the translations are completed we loop through all jobs and download the files. We then send the translated files back to Slack.
+
 ## Missing features
 
 - Translation Versions
-- Quality report
+- Split jobs / chunks
+- Full quality reports
 - Project merging
 
 Let us know if you are interested in these features!
