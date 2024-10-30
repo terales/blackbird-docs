@@ -45,6 +45,7 @@ See the [Matecat API documentation](https://www.matecat.com/api/docs#/) for a de
 - **Cancel job** cancels the job.
 - **Archive job** archives the job.
 - **Activate job** activates the job.
+- **Assign job** assigns the job to a translator.
 
 > Matecat does not have a job status that indicates whether it is in translated, translated, revised, etc. Instead, that needs to be deduced from the different job word counts. For convenience we have added a "Derived status" to the job model which can take have the following statusses: NEW, IN_TRANSLATION, TRANSLATED, IN_REVISION, REVISED. We have also added this property to the project model which will return the lowest of all the accumulated statusses of all its jobs.
 
