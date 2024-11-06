@@ -99,6 +99,7 @@ To get your Api key and user token:
 - **On list created** On a new list created
 - **On member added to card** On a new member added to the card
 - **On member left card** On a member removed from card
+- **On cards comments added** Polling event. Triggered after specified time interval and returns new comments. The difference between this event and `On card comment added` is that this event returns all comments even if they were added by another user.
 
 ## Feedback
 
