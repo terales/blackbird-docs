@@ -2,6 +2,47 @@
   title: Changelog
   description: A global overview of all changes made to the Blackbird core platform
 ---
+### (01-11-2024) 4.15
+
+Main features: Friendlier and more informative error messages and SDK improvements
+
+##### Bird editor
+- You can now properly update numeric inputs to the number 0.
+- Manual birds are now also validated for completeness and missing inputs.
+- The minimum interval for scheduled triggers is now 5 minutes.
+- The push button is enabled after republishing a manual bird.
+- The split operator now behaves as it should.
+- Keyboard navigation in array inputs now works.
+- Convert and entity connection operators can now also be renamed.
+- Event activation is now compatible with Outlook.
+- If an action with the skip action option is placed within two loops that receive outputs from another action and are nested inside each other.... the bird is able to publish again :\).
+- Tooltips properly close after moving your mouse very quickly.
+- Discarding changes now also discards changes in static dropdowns.
+
+##### Flights
+- More friendly error messages are now displayed on the flight page that indicate where in the system an error occured. This will help the user identify who is responsible.
+- Some bucketing edge cases have been resolved.
+
+##### SDK
+- Events can now also output files.
+- The filemanager upload method now resets the stream position.
+- IApplication's name attribute has been deprecated.
+- The tenant ID has been added to the invocation context.
+- The data handler return type is now extendable for extra information.
+- Connection definitions can now have static data source handlers.
+
+##### API
+- Suspended birds can not be triggered through the API anymore.
+- The flight duration retrieved from the API is now more accurate.
+- The 'IsPublished' variable retrieved from the API is now always correct.
+- A retry policy does not cause the flight failed webhook to be called multiple times anymore.
+
+##### Other
+- The import bird modal now properly closes after uploading a JSON.
+- Some texts that represented errors that were black are now red and properly displayed.
+- Library outputs now don't include an extra \ if the library value contained a ".
+- Spam clicking the 'add user' does not result in multiple users being added anymore.
+
 ### (14-10-2024) 4.14
 
 Main features: Checkpoints 🎉
