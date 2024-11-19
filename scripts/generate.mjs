@@ -62,6 +62,7 @@ const altered_names = {
   Microsoft365Calendar: "Microsoft 365 Calendar",
   Microsoft365People: "Microsoft 365 People",
   "XTRF-Customer-portal": "XTRF Customer Portal",
+  "X.AI": "xAI",
 };
 
 const skip_repos = ["docs", "template-repo", "NotionOAuth", "LanguageWire"];
