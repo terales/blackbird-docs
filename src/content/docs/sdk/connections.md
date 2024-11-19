@@ -26,7 +26,6 @@ public IEnumerable<ConnectionPropertyGroup> ConnectionPropertyGroups => new List
     {
         Name = "Developer API token",
         AuthenticationType = ConnectionAuthenticationType.Undefined,
-        ConnectionUsage = ConnectionUsage.Actions,
 
         // Specifying properties that we will need for authorization of the app
         ConnectionProperties = new List<ConnectionProperty>
@@ -47,6 +46,25 @@ public IEnumerable<ConnectionPropertyGroup> ConnectionPropertyGroups => new List
 };
 ```
 
+Your connection property can also be a dropdown list of finite values. Use the `DataItems` property for this:
+
+```cs
+    new(CredsNames.Environment)
+    {
+        DisplayName = "Environment",
+        Description = "Whether to use staging or production",
+        DataItems = 
+        [
+            new (Urls.ProductionApi, "Production"),
+            new (Urls.StagingApi, "Staging")
+        ]
+    }
+```
+
+Which will render the dropdown:
+
+![dropdown](../../../assets/docs/dropdown.png)
+
 ## Transforming connection properties into credentials
 
 Remember that we store all connection properties as key/value pairs in a secure vault? The `CreateAuthorizationCredentialProviders` method converts the list of stored key/value pairs into an accessible list of credentials passed to actions and webhooks. This methods allows you to specify more information here depending on your implementation. In its most basic form this method simply converts key/value pairs into `AuthenticationCredentialsProvider`.
@@ -58,11 +76,17 @@ public IEnumerable<AuthenticationCredentialsProvider> CreateAuthorizationCredent
     // Processing API key credentials
     var apiKey = values.First(v => v.Key == CredsNames.ApiToken);
     yield return new AuthenticationCredentialsProvider(
-        AuthenticationCredentialsRequestLocation.Header,
         apiKey.Key,
         apiKey.Value
     );
 }
+```
+
+If you don't need to make any transformations then you can simply implement this shorthand:
+
+```cs
+public IEnumerable<AuthenticationCredentialsProvider> CreateAuthorizationCredentialsProviders(
+    Dictionary<string, string> values) => values.Select(x => new AuthenticationCredentialsProvider(x.Key, x.Value)).ToList();
 ```
 
 ## OAuth connections
@@ -81,7 +105,6 @@ public class ConnectionDefinition : IConnectionDefinition
          {
              Name = "OAuth2",
              AuthenticationType = ConnectionAuthenticationType.OAuth2,
-             ConnectionUsage = ConnectionUsage.Actions,
              ConnectionProperties = new List<ConnectionProperty>()
          },
     };
@@ -92,7 +115,6 @@ public class ConnectionDefinition : IConnectionDefinition
         // Processing OAuth credentials
         var accessToken = values.First(v => v.Key == CredsNames.AccessToken);
         yield return new AuthenticationCredentialsProvider(
-            AuthenticationCredentialsRequestLocation.Header,
             "Authorization",
             $"Bearer {accessToken.Value}"
         );
@@ -119,7 +141,6 @@ Let's see a simple implementation example:
 public class SampleApplication : IApplication
 {
   private readonly Dictionary<Type, object> _container;
-  public string Name => "Sample Application";
 
   public SampleApplication()
   {

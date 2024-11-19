@@ -15,8 +15,10 @@ Actions in a Blackbird project are defined as methods in a class that has the `A
 ```cs
 // To be visible to Blackbird, add the [ActionList] attribute
 [ActionList]
-public class MyActions
+public class MyActions : BaseInvocable
 {
+  // [...]
+
   // All methods in this class with an [Action] attribute will be visible as actions in Blackbird
   [Action("Translate", Description = "Translate a string")]
   public async Task<TextResult> Translate([ActionParameter] TextTranslationRequest request)
@@ -28,7 +30,7 @@ public class MyActions
 }
 ```
 
-Arguments of methods that use the `ActionParameter` attributes are inputs of the action in the Bird editor. If the action has no input parameters, the argument might be missing. One can also add `IEnumerable<AuthenticationCredentialsProvider> authenticationCredentialsProviders` as the first argument to this method, however we recommend using `BaseInvocable` instead.
+Arguments of methods that use the `ActionParameter` attributes are inputs of the action in the Bird editor. If the action has no input parameters, the argument might be missing.
 
 The `Action` attribute will take a string as its first argument. This will be the display name of the action in Blackbird. You can also provide an optional Description argument that is displayed in Blackbird.
 
@@ -56,8 +58,6 @@ This class is transformed to:
 ![connection](../../../assets/docs/berry.png)
 
 Just as with input arguments, the `[Display]` atribute also works on the return types of your actions in order to give them user-friendly names.
-
-When using
 
 ### Ignoring attributes
 

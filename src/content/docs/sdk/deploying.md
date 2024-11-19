@@ -10,7 +10,7 @@ Blackbird apps that you create using the SDK can be deployed to your Blackbird o
 
 ## Publishing
 
-Before deploying an app, make sure that it at least contains a class that implements `IApplication`, a class that implements `IConnectionDefinition` and a class that implements `IConnectionValidator`. If your app has actions, then make sure your classes implementing actions have the `[ActionList]` attribute. If you have events make sure that your event classes have the `[WebhookList]` attribute.
+Before deploying an app, make sure that it at least contains a class that implements `IApplication` (and optionally `ICategoryProvider` ), a class that implements `IConnectionDefinition` and a class that implements `IConnectionValidator`. If your app has actions, then make sure your classes implementing actions have the `[ActionList]` attribute. If you have events make sure that your event classes have the `[WebhookList]` or `[PollingEventList]` attribute.
 
 1. Right-click on your project in the solution explorer and click _Publish_
 

@@ -17,19 +17,16 @@ Let's take a look at the anatomy of a dynamic data source:
 /// Data source handler for asynchronous dynamic inputs.
 /// It provides static data on the UI, so that user can choose values from the dropdown instead of printing it manually.
 /// </summary>
-public class AsyncDataSourceHandler : AppInvocable, IAsyncDataSourceHandler
+public class AsyncDataSourceHandler : AppInvocable, IAsyncDataSourceItemHandler
 {
     public AsyncDataSourceHandler(InvocationContext invocationContext) : base(invocationContext)
     {
     }
 
     /// <summary>
-    /// Fetches data for the dynamic inputs and returns it as a dictionary.
-    /// Key of the dictionary represents data needed in the app itself, e.g. ID.
-    /// Values is displayed to user in the UI, so that it should be a user-friendly name of the item
+    /// Fetches data for the dynamic inputs and returns it as a list of options.
     /// </summary>
-    public async Task<Dictionary<string, string>> GetDataAsync(DataSourceContext context,
-        CancellationToken cancellationToken)
+    public async Task<IEnumerable<DataSourceItem>> GetDataAsync(DataSourceContext context, CancellationToken cancellationToken)
     {
         var request = new AppRestRequest(ApiEndpoints.Berry, Method.Get, Creds);
         var response = await Client.ExecuteWithHandling<ListResponse<Berry>>(request);
@@ -39,7 +36,7 @@ public class AsyncDataSourceHandler : AppInvocable, IAsyncDataSourceHandler
             // So that we return only values that match user search request
             .Where(x => context.SearchString == null ||
                         x.Name.Contains(context.SearchString, StringComparison.OrdinalIgnoreCase))
-            .ToDictionary(x => x.Name, x => x.Name.ToPascalCase());
+            .Select(x => new DataSourceItem(x.Id, x.Name));
     }
 }
 ```
@@ -48,7 +45,7 @@ We see that the data source 'handler' class can inherit from `BaseInvocable`, me
 
 The `DataSourceContext.SearchString` provides the typed in search string by the user. You can use this to filter your result.
 
-You should return a `Dictionary<string, string>` where the key represents the value that will be "filled in" e.g. the ID of a certain status or entity and the value is the display name.
+You should return a `IEnumerable<DataSourceItem>` where the `value` argument of a `DataSourceItem` represents the value that will be "filled in" e.g. the ID of a certain status or entity. The second argument is the displayed name.
 
 ![connection](../../../assets/docs/dynamic_input.png)
 
@@ -57,7 +54,7 @@ You should return a `Dictionary<string, string>` where the key represents the va
 You can also get even more context than just the search string. What if you want to know the values of some other fields that were selected in an action? You can pass an `[ActionParameter]` to the constructor in order to see the other fields the user filled in.
 
 ```cs
-public class DataSourceHandlerWithParameters : AppInvocable, IAsyncDataSourceHandler
+public class DataSourceHandlerWithParameters : AppInvocable, IAsyncDataSourceItemHandler
 {
     // Saving input model to use it while fetching data
     private readonly DataSourceWithParametersRequest _request;
@@ -69,8 +66,7 @@ public class DataSourceHandlerWithParameters : AppInvocable, IAsyncDataSourceHan
         _request = request;
     }
 
-    public async Task<Dictionary<string, string>> GetDataAsync(DataSourceContext context,
-        CancellationToken cancellationToken)
+    public async Task<IEnumerable<DataSourceItem>> GetDataAsync(DataSourceContext context, CancellationToken cancellationToken)
     {
         // Throwing error if parameters are not specified
         if (string.IsNullOrWhiteSpace(_request.Url))
@@ -81,7 +77,7 @@ public class DataSourceHandlerWithParameters : AppInvocable, IAsyncDataSourceHan
 
         // Fetching data based on provided parameters
         var request = new AppRestRequest($"{_request.Url}/{_request.EntityId}", Method.Get, Creds);
-        return await Client.ExecuteWithHandling<Dictionary<string, string>>(request);
+        return await Client.ExecuteWithHandling<IEnumerable<DataSourceItem>>(request);
     }
 }
 ```
@@ -103,31 +99,30 @@ public class GetBerryRequest
 
 ## Static data sources
 
-Static data sources are very similar to dynamic data sources. The main difference in usage is the interface and attributes you have to use to implement then. Secondly, you have to be aware that you cannot get a connection context. You should instead simply return a pre-defined dictionary of keys (the underlying data) and values (the displayed names in the dropdown).
+Static data sources are very similar to dynamic data sources. The main difference in usage is the interface and attributes you have to use to implement then. Secondly, you have to be aware that you cannot get a connection context. You should instead simply return a pre-defined `IEnumerable<DataSourceItem>`.
 
 Blackbird compiles these static data sources on build time, meaning that when someone uses your app, they won't see a loading spinner when clicking on a static dropdown. Instead the values will be displayed instantly.
+
+> If your app does not properly upload to Blackbird, it could be because you have duplicate values in your static data sources.
 
 Static data source class:
 
 ```cs
-public class ProjectStatusDataHandler : IStaticDataSourceHandler
+public class StaticDataSourceHandler : IStaticDataSourceItemHandler
 {
-    public Dictionary<string, string> GetData()
-     => new()
-    {
-        {"Draft", "Draft"},
-        {"Pending", "Pending"},
-        {"Approved", "Approved"},
-        {"Delivered", "Delivered"},
-        {"Invoiced", "Invoiced"},
-    };
+    public IEnumerable<DataSourceItem> GetData() =>
+    [
+        new("water_electric", "Water/Electric"),
+        new("fighting_psychic", "Fighting/Psychic"),
+        new("grass_flying", "Grass/Flying"),
+    ];
 }
 ```
 
 And its usage as an attribute:
 
 ```cs
-    [Display("Project statuses")]
-    [StaticDataSource(typeof(ProjectStatusDataHandler))]
-    public List<string>? ProjectStatuses { get; set; }
+    [Display("Pokemon type")]
+    [StaticDataSource(typeof(StaticDataSourceHandler))]
+    public string PokemonType { get; set; }
 ```
