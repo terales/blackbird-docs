@@ -2,6 +2,19 @@
   title: Changelog
   description: A global overview of all changes made to the Blackbird core platform
 ---
+### (22-11-2024) 4.16
+
+Main features: back-end flight optimizations
+
+##### Other
+
+- Flights are now stored in a different structure which allows us to query them faster.
+
+##### Bug fixes
+
+- Outlook checkpoint events can now properly be activated.
+- The after subscription event now works during checkpoint activation.
+
 ### (01-11-2024) 4.15
 
 Main features: Friendlier and more informative error messages and SDK improvements
