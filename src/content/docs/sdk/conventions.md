@@ -3,7 +3,7 @@ title: App conventions
 description: Use the knowledge that we aquired with building over a 100 apps and integrations.
 sidebar:
   label: App conventions
-  order: 8
+  order: 9
   hidden: false
 ---
 
@@ -73,27 +73,9 @@ We want to **provide descriptive and actionable errors to users at all times**. 
 
 ### 3.1 - Displaying errors
 
-Errors in Blackbird are simply thrown as exceptions, and Blackbird will output the exception message to the users when the flight is inspected. When using `throw new Exception("My error message goes here") ` the error message will be displayed to the user.
+Errors in Blackbird are simply thrown as exceptions, and Blackbird will output the exception message to the users when the flight is inspected. When using `throw new Exception("My error message goes here") ` the error message will be displayed to the user. However, we prefer to always eliminate the regular exceptions that a user sees. Instead the two exception classes `PluginMisconfigurationException` and `PluginApplicationException` should be used. Read the [errors page](/sdk/errors) for a detailed description.
 
-![Example error](../../../assets/docs/conventions/error_example.png)
-
-However, if code is not properly wrapped. It can occur that we just see these types of errors:
-
-![Error bad](../../../assets/docs/conventions/error_bad.png)
-
-The error above is a result of the Restsharp library throwing an error.
-
-Other typical error examples can be null references (which would indicate that you have to update your app) or JSON parsing going wrong.
-
-In order to provide a good experience, **errors should be caught and whenever there is a detailed description possible, this description should be displayed**. Use the following guidelines:
-
-- Catch standard HTTP errors. E.g. 401 Unauthorized should inform the user that their credentials may be wrong.
-- If the endpoints give further information in their bodies (perhaps in some json), then this information should be passed to the user, instead of a plain “400 bad request”.
-- Runtime errors should be avoided at any cost. Check for null references, empty arrays, etc. There should not be any warnings in your IDE.
-- Don't forget to check if your JSON parsing is working correctly, and inform the user if there is a problem there.
-- Check in advance if the input parameter the user is using are correct. If they aren't, inform the user how to correct them.
-
-**An error should always inform the user how they can fix their issue.**
+In order to provide a good experience, **errors should be caught and whenever there is a detailed description possible, this description should be displayed**. And **A configuration error should always inform the user how they can fix their issue.**
 
 ### 3.2 - Rate limits
 
@@ -222,6 +204,20 @@ Events should always output sufficient parameters for the user to continue worki
 Often, the user will want to respond to an event, but has some additional parameters that determine whether to perform the actual actions in their bird. An example of this is a "On project status changed" event. A common workflow would be that if a project is completed, a certain message should be sent. If the "On project status changed" event was naively implemented then the user would always have to directly perform a decision operation in Blackbird in order to check the new status of the project. Only if this new status is 'completed' then all the actions in one branch of the decision would be performed.
 
 This type of bird could look a lot nicer if the event handling code takes optional inputs to further specify when this event is triggered. An event like "On project status changed" should thus have an optional input to further specify the new status, and only if this status is coming through then a flight would be triggered. Therefore, where possible, **events should take optional input parameters that can narrow down when the event should be triggered**.
+
+### 7.4 Optional inputs for checkpoints
+
+With checkpoints, it has become normal to be able to specify the events with even more optional inputs. F.e. in the previous example "On project status changed" should not only be able to specify the status, but also the *Project ID* itself. It's after all possible to create this event as a checkpoint and in this case the user is only interested in a specific project.
+
+### 7.5 Polling events
+
+Polling events should apply all of the above conventions. As a rule of thumb, **polling events should be implemented for common cases if a webhook alternative does not exist**.
+
+Polling events can be efficient if they only look at one entity. If multiple entities need to be watched (f.e. when looking for newly created entities), then using the some sort of query parameter to filter by date times (since the last polling event) is most efficient. As a last resort, all entities can be stored in memory and compared on every poll.
+
+### 7.6 Polling vs. callbacks
+
+Callbacks are difficult for the user to configure. Additionally, callbacks are harded to use in checkpoints since the bird first needs to be published before the URL becomes available. Therefore, **if no functionality is lost, polling events should be prefered instead of callbacks**.
 
 ## 8. Files
 
