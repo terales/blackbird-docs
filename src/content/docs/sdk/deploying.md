@@ -26,7 +26,7 @@ Before deploying an app, make sure that it at least contains a class that implem
 
 ## Uploading
 
-If you want to create a new app, go to _Apps_ -> _Add app_ -> _Create app_. Upload the `.zip` file on the second step.
+If you want to create a new app, go to _Apps_ -> _My custom apps_ -> Click on _Create app_. Upload the `.zip` file on the second step.
 
 If you want to update an existing app. On the app you want to update click _New version_ and then _Update App_. Upload the `.zip` file to the screen that pops up and click _Update_.
 

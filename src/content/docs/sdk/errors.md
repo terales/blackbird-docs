@@ -66,6 +66,12 @@ The app not responding error can be thrown with the `PluginApplicationException`
 
 All other errors that are thrown by your app will appear as *unexpected errors*. The goal is to **minimize the amount of unexpected errors**. If an unexpected error is seen, it's the responsibility of the app developer to either handle the error in code, or throw any of the other 2 error types.
 
+In short:
+
+- If the neither the user nor the app developer can do anything -> `PluginApplicationException`.
+- If the user needs to do something -> `PluginMisconfigurationException`.
+- If the app developer needs to do something -> any other exception.
+
 Some more guidelines:
 
 - Catch standard HTTP errors. E.g. 401 Unauthorized should inform the user that their credentials may be wrong.
