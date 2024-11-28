@@ -1,8 +1,8 @@
 ---
-title: Creating your first connection
+title: Creating Your First Connection
 description: The wiring of apps.
 sidebar:
-  label: Your first connection
+  label: Your First Connection
   order: 2
 ---
 

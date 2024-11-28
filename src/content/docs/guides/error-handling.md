@@ -1,8 +1,8 @@
 ---
-title: Dealing with errors
+title: Dealing With Errors
 description: Effective error handling can be a crucial component of any workflow orchestrator. Blackbird offers several ways to manage errors when they occur. This guide will walk you through the three main aspects of error handling in Blackbird.
 sidebar:
-  label: Dealing with errors
+  label: Dealing With Errors
   order: 7
   hidden: false
 ---

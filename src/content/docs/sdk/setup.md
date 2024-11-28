@@ -1,8 +1,8 @@
 ---
-title: Setting up a Blackbird project
+title: Setting Up a Blackbird Project
 description: Learn how to create a Blackbird project using the Blackbird SDK.
 sidebar:
-  label: Project setup & cloning apps
+  label: Project Setup & Cloning Apps
   order: 1
 ---
 

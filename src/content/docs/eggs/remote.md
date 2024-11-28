@@ -1,5 +1,5 @@
 ---
-title: Remote.com use cases
+title: Remote.com Use Cases
 description: An Egg with the potential to create Remote.com-related Birds
 sidebar:
   label: Remote.com

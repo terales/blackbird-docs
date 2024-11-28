@@ -1,8 +1,8 @@
 ---
-title: Data sources
+title: Data Sources
 description: Learn how to define static dynamic data sources for your action and event inputs.
 sidebar:
-  label: Data sources
+  label: Data Sources
   order: 6
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: TMS to LLM and back
+title: TMS to LLM and Back
 description: An Egg with the potential to create a TMS to LLM and back Bird
 sidebar:
   label: TMS to LLM

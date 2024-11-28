@@ -1,8 +1,8 @@
 ---
-title: Beginner bird - building your first bird step by step
+title: Beginner Bird - Building Your First Bird Step by Step
 description: In order to become an expert bird watcher you have to start somewhere. This guide is for Blackbird beginners and will get you up to speed with the basics of building birds.
 sidebar:
-  label: Beginner bird step by step
+  label: Beginner Bird Step by Step
   order: 1
 ---
 

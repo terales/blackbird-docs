@@ -1,8 +1,8 @@
 ---
-title: Building a bird
+title: Building a Bird
 description: Let's create lift-off. Learn how to build your first bird.
 sidebar:
-  label: Building a bird
+  label: Building a Bird
   order: 3
 ---
 

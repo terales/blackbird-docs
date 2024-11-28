@@ -44,6 +44,7 @@ const altered_names = {
   MicrosoftExcel: "Microsoft Excel",
   MicrosoftAILanguage: "Azure AI Language",
   MicrosoftTranslator: "Azure AI Translator",
+  MicrosoftForms: "Microsoft Forms",
   AmazonRedshift: "Amazon Redshift",
   MemoQCMS: "MemoQ CMS",
   BlackbirdPrompts: "Blackbird Prompts",
@@ -121,5 +122,5 @@ import { LinkCard } from "@astrojs/starlight/components";
       fs.writeFile(`./src/content/docs/apps/${friendly_name}.mdx`, md_content, function (err) {
         if (err) throw err;
       });
-    } catch {}
+    } catch { }
   });

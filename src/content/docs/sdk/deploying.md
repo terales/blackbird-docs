@@ -1,8 +1,8 @@
 ---
-title: Deploying your app
+title: Deploying Your App
 description: Learn how to deploy a Blackbird app.
 sidebar:
-  label: Deploying your app
+  label: Deploying Your App
   order: 2
 ---
 

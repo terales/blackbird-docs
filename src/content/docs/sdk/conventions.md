@@ -1,8 +1,8 @@
 ---
-title: App conventions
+title: App Conventions
 description: Use the knowledge that we aquired with building over a 100 apps and integrations.
 sidebar:
-  label: App conventions
+  label: App Conventions
   order: 9
   hidden: false
 ---

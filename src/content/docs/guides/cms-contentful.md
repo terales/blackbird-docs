@@ -1,8 +1,8 @@
 ---
-title: CMS workflows - Contentful
+title: CMS Workflows - Contentful
 description: Learn how to build powerful workflows around CMS apps. In this guide we take a closer look at Contentful.
 sidebar:
-  label: CMS workflows - Contentful
+  label: CMS Workflows - Contentful
   order: 11
   hidden: false
 ---

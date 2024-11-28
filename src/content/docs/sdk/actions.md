@@ -1,5 +1,5 @@
 ---
-title: Defining actions
+title: Defining Actions
 description: Learn how to define actions in a Blackbird project.
 sidebar:
   label: Actions

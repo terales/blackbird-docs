@@ -1,5 +1,5 @@
 ---
-title: Common spreadsheets use cases
+title: Common Spreadsheets Use Cases
 description: Let's deep dive into common use cases around spreadsheets
 sidebar:
   label: Spreadsheets

@@ -1,8 +1,8 @@
 ---
-title: Entity linking
+title: Entity Linking
 description: Now that you have seen how to link entities using a system's capabilities, let's see how we can build workflows that span multiple birds using entity linking.
 sidebar:
-  label: Entity linking
+  label: Entity Linking
   order: 3
   hidden: false
 ---

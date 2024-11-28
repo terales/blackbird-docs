@@ -1,5 +1,5 @@
 ---
-title: Defining events
+title: Defining Events
 description: Learn how to define webhook and callback events in a Blackbird project.
 sidebar:
   label: Events
