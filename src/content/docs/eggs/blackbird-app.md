@@ -1,5 +1,5 @@
 ---
-title: Uses cases around the Blackbird app in Blackbird
+title: Blackbird App
 description: An Egg with the potential to create monitoring Birds to keep up with everything that happens in your Blackbird instance
 sidebar:
   label: Blackbird app
@@ -7,7 +7,7 @@ sidebar:
   hidden: true
 ---
 
-### Eggs: Starting Points for Your Birds
+## Eggs: Starting Points for Your Birds
 
 In Blackbird, Eggs are the seeds or blueprints for your workflows. They represent the initial ideas that have the potential to become fully-fledged Birds.
 
