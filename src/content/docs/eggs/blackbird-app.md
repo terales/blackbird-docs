@@ -4,7 +4,7 @@ description: An Egg with the potential to create monitoring Birds to keep up wit
 sidebar:
   label: Blackbird app
   order: 5
-  hidden: true
+  hidden: false
 ---
 
 ## Eggs: Starting Points for Your Birds
@@ -41,7 +41,7 @@ Error logging Bird
 
 ### Users added or removed
 
-Monitor users added or removed from an specific Nest.
+Monitor users added or removed from a specific Nest.
 
 ![Egg](../../../assets/docs/eggs/BBApp3.png)
 
@@ -49,11 +49,11 @@ Monitor users added or removed from an specific Nest.
 
 ### Birds suspended or activated
 
-Get notified when Birds are suspended or activated: get real time notifications of changes in your Production Nest.
+Get notified when Birds are suspended or activated: get real-time notifications of changes in your Production Nest.
 
 ![Egg](../../../assets/docs/eggs/BBApp4.png)
 
-> Use optional inputs to monitor a specific Nest, otherwise a single Bird will monitor all Nests within your Blackbird instance.
+> Use optional inputs to monitor a specific Nest, otherwise, a single Bird will monitor all Nests within your Blackbird instance.
 
 - Download Egg: <a href="https://docs.blackbird.io/downloads/On_Bird_activated_send_Slack_message.json" download>On Bird activated send Slack message</a>
 
