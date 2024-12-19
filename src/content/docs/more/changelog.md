@@ -2,6 +2,28 @@
   title: Changelog
   description: A global overview of all changes made to the Blackbird core platform
 ---
+### (17-12-2024) 4.17
+Main features: SAML, home page, and many smaller UI updates
+
+##### Bird editor
+- You can now select `Month's end` in the scheduled trigger Monthly setting.
+- 'Inputs' have been renamed to 'Filters' for all events.
+- The order of selectable variables have been reversed. Now, the top most variables in the dropdown will come from actions closer to where you are compared to from the top down.
+- Dynamic input values now also have the option to still input a custom value. This is useful if for some reason the dropdown fails to load.
+
+#### Other
+- A help icon with links to documentation articles has been added on many pages of the app in the bottom left corner.
+- Some buttons, tabs and inputs have gotten an improved hover and interaction state.
+- Enterprise users can now request SAML based SSO to be provisioned.
+- All users now have a randomly assigned Bird as their avatar.
+- Invalid connections will now show a clearer error message.
+- The home page has gotten a new look with articles, videos and quick links.
+
+##### Bug fixes
+- The 'magic wand' composable input button is now shown in the correct place on the Firefox browser.
+- Checkpoint activation now properly succeeds if the Bird has unpublished changes.
+- Delayed checkpoints on the same level with the same duration can now be published.
+
 ### (22-11-2024) 4.16
 
 Main features: back-end flight optimizations
