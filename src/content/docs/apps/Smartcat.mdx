@@ -29,6 +29,7 @@ Smartcat is a cloud-based translation and localization platform designed to stre
 
 - **Download file** Download specific project file
 - **Upload file** Add file to project files
+- **Update file from XLIFF** Update the specified file from a translated XLIFF
 
 ## Events
 
