@@ -31,6 +31,7 @@ See the [Matecat API documentation](https://www.matecat.com/api/docs#/) for a de
 ### Projects
 
 - **Create project** creates a new project. You have to include all files, source language and target languages at once. It cannot be updated later. It returns the same information as _Get project_.
+> Please note, the files you send to the 'Create project' action should have English names, without any other language characters or special symbols. Otherwise, Matecat may throw an unclear error
 - **Get project** returns information about the project. This also includes word counts.
 - **Cancel project** cancels the project.
 - **Archive project** archives the project.

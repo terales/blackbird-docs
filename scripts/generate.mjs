@@ -69,7 +69,7 @@ const altered_names = {
   Sitecore: "Sitecore XP",
 };
 
-const skip_repos = ["docs", "template-repo", "NotionOAuth", "LanguageWire"];
+const skip_repos = ["docs", "template-repo", "NotionOAuth", "LanguageWire", "CraftCMS"];
 
 const all_repos = await octokit.paginate("GET /orgs/{org}/repos", {
   org: "bb-io",
