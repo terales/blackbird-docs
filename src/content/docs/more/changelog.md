@@ -1,7 +1,38 @@
 ---
   title: Changelog
-  description: A global overview of all changes made to the Blackbird core platform
+  description: A global overview of all changes made to the BlackBird core platform
 ---
+### (04-02-2025) 4.19
+Main features: More Flight page improvements and custom app upload logic
+
+##### Flight page
+- Improved the visualization of large Flights (More than 16 mb of data).
+- Fixed various small issues on the Flight page.
+- Blackbird now automatically redirects to a Flight when clicking the 'Fly' button in the Bird editor.
+- An animation is shown when a manual Flight is still queued.
+- Various copy standardizations.
+
+#### Custom apps
+- Custom apps are now visible to all Nests, no matter in which Nest the user was when uploading the app.
+
+### (07-01-2025) 4.18
+Main features: Flight page rework
+
+##### Flight page
+- A new status has been added. `Waiting` significies that the Bird is in its queue and will take-off shortly.
+- A flying Bird animation has been added to the Flight page that is flying through the process to signify where the Flight is.
+- Live updating has been added to the Flight page. The Flight page always represents the current state of the Flight.
+- The Flight details section has been updated with various visual enhancements
+- Various bugs were fixed that previously lead to an inaccurate depiction of actual Flight data.
+- You can now inspect every iteration of a loop seperately.
+- The 'Stop Flight' button has been added, when clicked, only this Flight is stopped while others remain flying.
+- A Flight list has been added as a collapsable sidebar. It includes all Flights of the same Bird you are viewing for easy navigating between different Flights.
+
+##### Flight overview page
+- Live updating has been added to the Flight overview page
+- The table and filters have received a visual overhaul.
+- An infinite scrolling mechanism has been added to the Flight overview page.
+
 ### (17-12-2024) 4.17
 Main features: SAML, home page, and many smaller UI updates
 
@@ -26,7 +57,7 @@ Main features: SAML, home page, and many smaller UI updates
 
 ### (22-11-2024) 4.16
 
-Main features: back-end flight optimizations
+Main features: back-end Flight optimizations
 
 ##### Other
 
@@ -43,19 +74,19 @@ Main features: Friendlier and more informative error messages and SDK improvemen
 
 ##### Bird editor
 - You can now properly update numeric inputs to the number 0.
-- Manual birds are now also validated for completeness and missing inputs.
+- Manual Birds are now also validated for completeness and missing inputs.
 - The minimum interval for scheduled triggers is now 5 minutes.
-- The push button is enabled after republishing a manual bird.
+- The push button is enabled after republishing a manual Bird.
 - The split operator now behaves as it should.
 - Keyboard navigation in array inputs now works.
 - Convert and entity connection operators can now also be renamed.
 - Event activation is now compatible with Outlook.
-- If an action with the skip action option is placed within two loops that receive outputs from another action and are nested inside each other.... the bird is able to publish again :\).
+- If an action with the skip action option is placed within two loops that receive outputs from another action and are Nested inside each other.... the Bird is able to publish again :\).
 - Tooltips properly close after moving your mouse very quickly.
 - Discarding changes now also discards changes in static dropdowns.
 
 ##### Flights
-- More friendly error messages are now displayed on the flight page that indicate where in the system an error occured. This will help the user identify who is responsible.
+- More friendly error messages are now displayed on the Flight page that indicate where in the system an error occured. This will help the user identify who is responsible.
 - Some bucketing edge cases have been resolved.
 
 ##### SDK
@@ -67,13 +98,13 @@ Main features: Friendlier and more informative error messages and SDK improvemen
 - Connection definitions can now have static data source handlers.
 
 ##### API
-- Suspended birds can not be triggered through the API anymore.
-- The flight duration retrieved from the API is now more accurate.
+- Suspended Birds can not be triggered through the API anymore.
+- The Flight duration retrieved from the API is now more accurate.
 - The 'IsPublished' variable retrieved from the API is now always correct.
-- A retry policy does not cause the flight failed webhook to be called multiple times anymore.
+- A retry policy does not cause the Flight failed webhook to be called multiple times anymore.
 
 ##### Other
-- The import bird modal now properly closes after uploading a JSON.
+- The import Bird modal now properly closes after uploading a JSON.
 - Some texts that represented errors that were black are now red and properly displayed.
 - Library outputs now don't include an extra \ if the library value contained a ".
 - Spam clicking the 'add user' does not result in multiple users being added anymore.
@@ -83,12 +114,12 @@ Main features: Friendlier and more informative error messages and SDK improvemen
 Main features: Checkpoints 🎉
 
 ##### Bird editor
-- You can now create _checkpoints_ in the bird editor. Checkpoints in Blackbird workflows are control steps that enable Birds to pause and wait for different events before continuing their Flights. You can read more about checkpoints [here](/concepts/checkpoints).
+- You can now create _checkpoints_ in the Bird editor. Checkpoints in BlackBird workflows are control steps that enable Birds to pause and wait for different events before continuing their Flights. You can read more about checkpoints [here](/concepts/checkpoints).
 - The trigger type selection has received a visual overhaul.
 - The delay feature was moved from operators to a trigger type under checkpoint.
 
 ##### Other
-- The rules and nests dropdown when adding a user now also works when you were filtering the list.
+- The rules and Nests dropdown when adding a user now also works when you were filtering the list.
 - Birds containing Google and Microsoft related events can now properly be activated again after suspending.
 - The polling information text is now properly aligned again.
 
@@ -97,11 +128,11 @@ Main features: Checkpoints 🎉
 Main features: Right click options, copy, paste and duplicate items.
 
 ##### Bird editor
-- You can now right click on items in the bird editor to show a context menu. You can also left click on the three dots.
+- You can now right click on items in the Bird editor to show a context menu. You can also left click on the three dots.
 - From the context menu you can now rename, cut, copy, duplicate and delete items.
-- From the + icon in the bird editor you can now paste copied items from your clipboard.
-- The general bird options menu has received a different look.
-- Blackbird will now inform you to enable the clipboard in your browser if you haven't done so already.
+- From the + icon in the Bird editor you can now paste copied items from your clipboard.
+- The general Bird options menu has received a different look.
+- BlackBird will now inform you to enable the clipboard in your browser if you haven't done so already.
 
 ##### Other
 - The convert operator now more clearly displays if it's configured incorrectly.
@@ -111,11 +142,11 @@ Main features: Right click options, copy, paste and duplicate items.
 Main features: Webhooks can immediatly trigger after subscription.
 
 #### SDK
-- A new interface (`IAfterSubscriptionWebhookEventHandler`) with the `OnWebhookSubscribedAsync()` method has been added. This method is called directly after subscription and can be used to start flights at this point.
+- A new interface (`IAfterSubscriptionWebhookEventHandler`) with the `OnWebhookSubscribedAsync()` method has been added. This method is called directly after subscription and can be used to start Flights at this point.
 
 ##### Bug fixes
-- Polled flights now properly display on the flight page of new nests.
-- Enabling skip action will not prevent you from saving the bird in certain cases anymore.
+- Polled Flights now properly display on the Flight page of new Nests.
+- Enabling skip action will not prevent you from saving the Bird in certain cases anymore.
 - Actions after a flow operator that is not triggered are now properly executed.
 
 ##### Other
@@ -126,20 +157,20 @@ Main features: Webhooks can immediatly trigger after subscription.
 Main features: Flow operator improvements and new composable input expressions.
 
 ##### Bird editor
-- The "End flight" operator is available everywhere in your bird. The "End flight" operator will stop the flight when reached.
+- The "End Flight" operator is available everywhere in your Bird. The "End Flight" operator will stop the Flight when reached.
 - The "End loop" operator will break out of the loop when reached. It is available in loops.
-- "End flight" and "End loop" also have an optional condition input, so that one is not always forced to put them into a decision.
+- "End Flight" and "End loop" also have an optional condition input, so that one is not always forced to put them into a decision.
 - A user can now compose texts in any textual input that does not have an input handler (dropdown) defined, by pressing the magic wand button above their cursor.
-- The modal opened when clicking on the "+" button in the bird editor is redesigned.
+- The modal opened when clicking on the "+" button in the Bird editor is redesigned.
 - A friendly message is added to the compose operator to remind people they can now use the new text input expression feature.
 
 ##### Bug fixes
 - The \ is no longer duplicated as \\ in custom inputs.
-- A numeric list in a compose operator does no longer break a bird.
+- A numeric list in a compose operator does no longer break a Bird.
 - Resolved several issues around importing .csv files into custom libraries.
-- Flights are now properly removed from our workflow engine on unsubscription even if flights came in simultantiously.
-- Missing flights on the flight page are now displayed.
-- Resolved an edge case that didn't allow for the saving of bird modifications.
+- Flights are now properly removed from our workflow engine on unsubscription even if Flights came in simultantiously.
+- Missing Flights on the Flight page are now displayed.
+- Resolved an edge case that didn't allow for the saving of Bird modifications.
 
 ### (26-08-2024) 4.10 
 
@@ -152,12 +183,12 @@ Main features: Custom connection buttons and organization creation automations.
 
 ##### Bug fixes
 - Fixed an incorrect error being displayed when a file was too large.
-- Nest user added and nest user created API events are now correctly triggered.
+- Nest user added and Nest user created API events are now correctly triggered.
 - Creating a new connection now shows a loading icon.
 - Retried actions now fail quicker once all retries are completed.
 
 ##### Other
-- Default nests are now created when a new organization is created.
+- Default Nests are now created when a new organization is created.
 
 ### (09-08-2024) 4.9 
 
