@@ -114,7 +114,7 @@ Main features: Friendlier and more informative error messages and SDK improvemen
 Main features: Checkpoints 🎉
 
 ##### Bird editor
-- You can now create _checkpoints_ in the Bird editor. Checkpoints in BlackBird workflows are control steps that enable Birds to pause and wait for different events before continuing their Flights. You can read more about checkpoints [here](/concepts/checkpoints).
+- You can now create _checkpoints_ in the Bird editor. Checkpoints in BlackBird workflows are control steps that enable Birds to pause and wait for different events before continuing their Flights. You can read more about checkpoints [here](/blackbird-docs/concepts/checkpoints).
 - The trigger type selection has received a visual overhaul.
 - The delay feature was moved from operators to a trigger type under checkpoint.
 
