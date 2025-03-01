@@ -8,7 +8,31 @@ export default defineConfig({
   base: 'blackbird-docs',
   integrations: [
     starlight({
-      title: "Blackbird docs",
+      title: {
+        en: 'Blackbird docs',
+        'nl-NL': 'Blackbird documentatie',
+        'hu-HU': 'Blackbird dokumentáció',
+        'uk-UA': 'Документація Blackbird',
+      },
+      defaultLocale: 'root',
+      locales: {
+        root: {
+          label: 'English',
+          lang: 'en',
+        },
+        'nl': {
+          label: 'Nederlands',
+          lang: 'nl-NL',
+        },
+        'hu': {
+          label: 'Magyar',
+          lang: 'hu-HU',
+        },
+        'uk': {
+          label: 'Українська',
+          lang: 'uk-UA',
+        },
+      },
       customCss: ["./src/styles/custom.css"],
       logo: {
         light: "./src/assets/light-logo.svg",
