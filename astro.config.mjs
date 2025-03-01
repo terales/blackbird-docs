@@ -4,6 +4,8 @@ import starlightOpenAPI, { openAPISidebarGroups } from "starlight-openapi";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://terales.github.io',
+  base: 'blackbird-docs',
   integrations: [
     starlight({
       title: "Blackbird docs",

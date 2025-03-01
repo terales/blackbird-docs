@@ -52,7 +52,7 @@ Open the solution file and explore the project
 
 Clone the repository of the app you want to modify. You can find all Blackbird's repositories [here](https://github.com/orgs/bb-io/repositories).
 
-When deploying your modifications, you do so in a custom app. Please see the [deployment guide](/sdk/deploying). Note that you also need to change the `Product` and the `AssemblyName` variables in the metadata strcuture. See below.
+When deploying your modifications, you do so in a custom app. Please see the [deployment guide](/blackbird-docs/sdk/deploying). Note that you also need to change the `Product` and the `AssemblyName` variables in the metadata strcuture. See below.
 
 ## Metadata structure
 
