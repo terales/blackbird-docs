@@ -1,0 +1,85 @@
+---
+  title: Contentstack
+  description: Додаток Blackbird для Contentstack
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Contentstack" icon="github" />
+ 
+
+Contentstack — це безголова CMS-технологія, зібрана з набору кращих рішень у своєму класі. Цей додаток Contentstack переважно зосереджений на управлінні записами та активами.
+
+## Перед налаштуванням
+
+Перш ніж підключитися, переконайтеся, що у вас є:
+
+- Ключ API стеку Contentstack (_Stack API key_): перейдіть до налаштувань стеку Contentstack (_Stack settings_) і скопіюйте ключ API з розділу _API Credentials_
+- Токен управління Contentstack (_Management token_): на сторінці налаштувань перейдіть до _Tokens_, виберіть розділ _Management Tokens_ і згенеруйте токен управління API з необхідними параметрами.
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть Contentstack.
+2. Натисніть _Add Connection_.
+3. Назвіть своє підключення для подальшого використання, наприклад, "Моє підключення до Contentstack".
+4. У полі _Host region_ виберіть свій регіон Contentstack.
+5. Заповніть поля _Stack API key_ та _Management token_
+6. Натисніть _Connect_.
+7. Переконайтеся, що з'явилося підключення і його статус — _Connected_.
+
+![1733749434672](https://raw.githubusercontent.com/bb-io/Contentstack/main/image/README/1733749434672.png)
+
+## Actions
+
+### Assets
+
+- **Download/Upload asset** завантажує або вивантажує вміст для активу.
+
+### Content types
+
+- **List content types**
+
+### Entries
+
+- **Get entry** повертає деталі конкретного запису.
+- **Get entry string/number/date/boolean property** отримує дані вказаної властивості запису.
+- **Set entry string/number/date/boolean property** встановлює дані для вказаної властивості запису.
+- **Search entries** повертає список записів на основі вказаних критеріїв фільтрації.
+- **Get entry content as HTML** повертає вміст запису, перетворений у HTML-файл.
+- **Update entry content from HTML** оновлює вміст запису з HTML-файлу.
+- **Get IDs from HTML** витягує ідентифікатори типу контенту та запису з HTML-файлу
+- **Publish entry** публікує конкретний запис на основі ID
+
+## Events
+
+-   **On asset deleted**
+-   **On asset published**
+-   **On asset unpublished**
+-   **On entry created**
+-   **On entry deleted**
+-   **On entry published**
+-   **On entry unpublished**
+-   **On entry updated**
+
+
+## Особливості HTML
+
+Ми додаємо метадані до HTML-файлу, включаючи `Entry ID` та `Content Type ID`. Ці метадані використовуються для оновлення вмісту запису з HTML-файлу. Ці теги використовуються для ідентифікації вмісту в `Contentstack`, усуваючи необхідність зберігати ідентифікатори деінде.
+
+Ось приклад того, як ми включаємо метадані в HTML-файл:
+
+```html
+<html>
+    <head>
+        <meta name="blackbird-content-type-id" content="your-content-type">
+        <meta name="blackbird-entry-id" content="your-entry-id">
+    </head>
+    <body>
+        <div path="title">Example HTML page</div>
+        <div path="description">Blackbird is the new automation backbone for the language technology industry.</div>
+    </body>
+</html>
+```
+
+## Зворотний зв'язок
+
+Бажаєте використовувати цей додаток або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть issue.

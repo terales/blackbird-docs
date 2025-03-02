@@ -1,0 +1,169 @@
+---
+  title: Jira
+  description: De Jira Blackbird-app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Jira" icon="github" />
+
+Jira is een veelgebruikte tool voor projectmanagement en issue tracking ontwikkeld door Atlassian. Het biedt teams een platform om taken, projecten en softwareontwikkelingsprocessen te plannen, volgen en beheren, waardoor samenwerking wordt gestroomlijnd en projectzichtbaarheid wordt verbeterd. Deze Jira-app richt zich voornamelijk op issuebeheer.
+
+## Voordat je begint
+
+Voordat je een verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een Atlassian-account en [Jira-site](https://support.atlassian.com/jira-work-management/docs/set-up-your-site/) hebt.
+- Je een [project hebt aangemaakt](https://support.atlassian.com/jira-software-cloud/docs/create-a-new-project/).
+- Je de juiste [machtigingen](https://support.atlassian.com/jira-cloud-administration/docs/permissions-for-company-managed-projects/#Issue-permissions) hebt.
+
+### Webhooks inschakelen
+
+Als je Jira-webhooks wilt gebruiken, moet je:
+
+- Inloggen als een gebruiker met de [globale machtiging](https://support.atlassian.com/jira-cloud-administration/docs/manage-global-permissions/) Jira beheren.
+- In de rechterbovenhoek ![Settings](https://raw.githubusercontent.com/bb-io/Jira/main/Images/README/settings.png) > _System_ kiezen. Onder _Advanced_, selecteer _WebHooks_.
+- In de rechterbovenhoek _Create a WebHook_ kiezen.
+- In het veld _URL_ invullen: `https://bridge.blackbird.io/api/webhooks/jira`.
+- Zorg ervoor dat _Status_ op _Enabled_ staat.
+- Selecteer alles onder _Issue related events_ > _Issue_.
+- Scroll naar de onderkant van de pagina en klik op _Create_.
+
+![Selecting events](https://raw.githubusercontent.com/bb-io/Jira/main/Images/README/issue_related_events.png)
+
+### Aangepaste velden toevoegen
+
+Om aangepaste velden aan te maken, volg [deze handleiding](https://confluence.atlassian.com/adminjiraserver/adding-custom-fields-1047552713.html). Zodra de benodigde aangepaste velden zijn aangemaakt, moet je:
+
+- Kies ![Settings](https://raw.githubusercontent.com/bb-io/Jira/main/Images/README/settings.png) > _Projects_ in de rechterbovenhoek.
+- Voor het project waarin je geïnteresseerd bent, selecteer ![More](https://raw.githubusercontent.com/bb-io/Jira/main/Images/README/more_button.png) > _Project settings_.
+- Selecteer _Issue types_ in het linkerpaneel.
+- Klik op het issuetype waaraan je aangepaste velden wilt toevoegen.
+- Zoek de zoekbalk _Search all fields_ in het rechterpaneel.
+- Zoek naar het veld waarin je geïnteresseerd bent en sleep het naar de velden van de issue.
+- Klik op de knop _Save changes_.
+
+Opmerking: deze app ondersteunt momenteel alleen korte tekst (alleen platte tekst) aangepaste velden.
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar Jira. Als je Jira niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Jira en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijvoorbeeld 'Mijn organisatie'.
+4. Vul de basis-URL in naar de Jira-site waarmee je verbinding wilt maken. De basis-URL heeft de vorm `https://<organisatienaam>.atlassian.net`. Je kunt dit deel van de URL meestal kopiëren wanneer je bent ingelogd in je Jira-instantie.
+5. Klik op _Authorize connection_.
+6. Volg de instructies die Jira je geeft, waarbij je Blackbird.io autoriseert om namens jou te handelen.
+7. Wanneer je terugkeert naar Blackbird, controleer of de verbinding is verschenen en de status _Connected_ is.
+
+![Connecting](https://raw.githubusercontent.com/bb-io/Jira/main/Images/README/connection.png)
+
+## Actions
+
+### Issues
+
+- **Get issue** geeft de details van een issue terug (samenvatting, beschrijving, status, prioriteit, toegewezen persoon, project).
+- **List recently created issues** geeft issues terug die tijdens de afgelopen uren in een specifiek project zijn aangemaakt.
+- **List attachments** geeft een lijst met bestanden die aan een issue zijn gekoppeld.
+- **Download attachment** geeft de inhoud van een bijlage terug.
+- **Create issue**.
+- **Add attachment** voegt een bijlage toe aan een issue.
+- **Update issue**. Specificeer alleen de velden die moeten worden bijgewerkt.
+- **Append to issue description** voegt tekst toe aan de beschrijving van een issue. Breekt de opmaak niet, handig voor het toevoegen van tekst aan het einde van de beschrijving.
+- **Delete issue**.
+- **Add labels to issue** voegt labels toe aan een issue. Geeft de bijgewerkte issue terug.
+- **Move issues to sprint** verplaatst issues naar een specifieke sprint.
+
+### Issue custom fields
+
+- **Get custom text field value** geeft de waarde van een aangepast tekstveld (bijv. platte tekst of URL) voor een specifieke issue.
+- **Set custom text field value** stelt de waarde van een aangepast tekstveld in voor een specifieke issue.
+- **Get custom dropdown field value** geeft de waarde van een aangepast vervolgkeuzemenu terug voor een specifieke issue.
+- **Set custom dropdown field value** stelt de waarde van een aangepast vervolgkeuzemenu in voor een specifieke issue.
+- **Get custom date field value** geeft de waarde van een aangepast datumveld terug voor een specifieke issue.
+- **Set custom date field value** stelt de waarde van een aangepast datumveld in voor een specifieke issue.
+- **Get custom multiselect field values** haalt de geselecteerde waarden op van een aangepaste keuzelijst met meerdere keuzes voor een specifieke issue.
+- **Get custom number field value** haalt de waarde op van een aangepast getalveld.
+- **Set custom number field value** stelt de waarde van een aangepast getalveld in.
+- **Get custom multiselect field value** haalt de waarde op van een aangepast meervoudig selectieveld.
+- **Set custom multiselect field value** stelt de waarde van een aangepast meervoudig selectieveld in.
+
+### User Actions
+
+- **List users**: Geeft een vooraf gedefinieerd aantal gebruikers (standaard maximaal 20) van Jira weer.
+- **Get user**: Haalt gedetailleerde informatie op over een specifieke gebruiker, geïdentificeerd door hun account-ID.
+- **Delete user**: Verwijdert een gebruiker uit Jira op basis van hun account-ID. Deze actie is onomkeerbaar.
+- **Create user**: Maakt een nieuwe gebruiker aan in Jira met de opgegeven details.
+- **Get groups**: Haalt de groepen op die bij een bepaalde gebruiker horen.
+- **Get user email**: Haalt het e-mailadres op voor een bepaalde gebruiker.
+- **Get user columns**: Haalt de kolomconfiguratie op voor een bepaalde gebruiker.
+- **Reset user default columns**: Reset de kolomconfiguratie naar standaard voor een bepaalde gebruiker.
+- **Set user columns**: Stelt de kolomconfiguratie in voor een bepaalde gebruiker.
+- **Bulk get users**: Haalt informatie op voor een groep gebruikers op basis van hun account-ID's.
+
+### Issue Comment Actions
+
+- **Get sssue comments**: Haalt opmerkingen op voor een opgegeven issue. Het kan opmerkingen ophalen voor meerdere issues als ID's worden opgegeven.
+- **Get issue comment**: Haalt een specifieke opmerking op van een opgegeven issue.
+- **Delete issue comment**: Verwijdert een opmerking van een opgegeven issue.
+- **Add issue comment**: Voegt een nieuwe opmerking toe aan een opgegeven issue.
+- **UpdateIssue comment**: Werkt een bestaande opmerking bij op een opgegeven issue.
+
+### Sprint Actions
+
+- **Get relevant sprint for date** haalt de Sprint op die overeenkomt met de opgegeven datum voor een geselecteerd bord.
+
+### User Properties Actions
+
+- **Get user properties**: Haalt alle eigenschappen op voor een bepaalde gebruiker. Dit kan verschillende gebruikersspecifieke instellingen en gegevens bevatten die in Jira zijn opgeslagen.
+- **Get boolean user property**: Haalt de waarde op van een specifieke booleaanse eigenschap voor een bepaalde gebruiker. Handig voor waar/onwaar gebruikersinstellingen.
+- **Get string user property**: Haalt de waarde op van een specifieke string-eigenschap voor een bepaalde gebruiker. Dit kan tekstgebaseerde gebruikersinstellingen of informatie bevatten.
+- **Get integer user property**: Haalt de waarde op van een specifieke integer-eigenschap voor een gebruiker. Ideaal voor numerieke gebruikersinstellingen zoals limieten of drempels.
+- **Get dateuser property**: Haalt de waarde op van een specifieke datum-eigenschap voor een gebruiker. Handig voor datumgebaseerde instellingen of mijlpalen gerelateerd aan de gebruiker.
+- **GetArray user property**: Haalt de waarden op van een specifieke array-eigenschap voor een gebruiker. Dit kan worden gebruikt voor lijsten met gebruikersinstellingen of voorkeuren die als arrays worden opgeslagen.
+- **Set user property**: Stelt de waarde in van een opgegeven eigenschap voor een gebruiker. Deze methode maakt het mogelijk om gebruikerseigenschappen dynamisch bij te werken op basis van de gegeven input.
+- **Delete user property**: Verwijdert een opgegeven eigenschap voor een gebruiker. Deze actie verwijdert de geselecteerde eigenschap uit het profiel van de gebruiker in Jira.
+
+## Events
+
+- **On issue updated** wordt geactiveerd wanneer een issue wordt bijgewerkt. Als je wilt dat een bird wordt geactiveerd wanneer een specifieke issue wordt bijgewerkt, specificeer dan de issueparameter. Anders kun je de projectparameter specificeren als je geïnteresseerd bent in issues van een specifiek project.
+- **On issue created** wordt geactiveerd wanneer een issue wordt aangemaakt. Als je wilt dat een bird wordt geactiveerd wanneer een issue in een specifiek project wordt aangemaakt, vul dan de projectparameter in.
+- **On issue assigned** wordt geactiveerd wanneer een issue wordt toegewezen aan een specifieke gebruiker. Je kunt de projectparameter specificeren als je geïnteresseerd bent in een specifiek project.
+- **On issue with specific type created** wordt geactiveerd wanneer een aangemaakt issue een specifiek type heeft (bijvoorbeeld een bug) of een bestaande issue is bijgewerkt om een specifiek type te hebben. Optioneel kun je de projectparameter specificeren.
+- **On issue with specific priority created** wordt geactiveerd wanneer een aangemaakt issue de opgegeven prioriteit heeft of een bestaande issue is bijgewerkt om de opgegeven prioriteit te hebben.
+- **On issue deleted** wordt geactiveerd wanneer een issue wordt verwijderd. Als je wilt dat een bird wordt geactiveerd wanneer een issue in een specifiek project wordt verwijderd, vul dan de projectparameter in.
+- **On file attached to issue** wordt geactiveerd wanneer een bestand aan een issue wordt gekoppeld. Als je wilt dat een bird wordt geactiveerd wanneer een bestand aan een specifieke issue wordt gekoppeld, specificeer dan de issueparameter. Anders kun je de projectparameter specificeren als je geïnteresseerd bent in issues van een specifiek project.
+- **On issue status changed** wordt geactiveerd wanneer de status van een issue wordt gewijzigd. Als je wilt dat een bird wordt geactiveerd wanneer de status van een specifieke issue wordt gewijzigd, specificeer dan de issueparameter. Anders kun je de projectparameter specificeren als je geïnteresseerd bent in issues van een specifiek project. Je kunt de gebeurtenis ook beperken om alleen bij bepaalde statuswaarden te activeren.
+
+## Optionele inputs
+
+We kunnen twee opties bieden voor het invoeren van één eigenschap om resultaten te filteren:
+
+1. **Handmatig**:
+    - **Beschrijving**: Stelt de gebruiker in staat om handmatig een waarde in te voeren zonder hulp van een vervolgkeuzelijst.
+    - **Gebruiksscenario**: Deze optie is ideaal wanneer de gebruiker de exacte waarde kent die hij wil gebruiken of wanneer de vervolgkeuzelijst niet effectief is vanwege het grote aantal waarden dat beschikbaar is via de API.
+
+2. **Vervolgkeuzeselectie**:
+    - **Beschrijving**: Stelt de gebruiker in staat een waarde te selecteren uit een vervolgkeuzelijst.
+    - **Gebruiksscenario**: Deze optie is geschikt wanneer er minder labels zijn, waardoor het handig is voor gebruikers om te selecteren uit een vooraf gedefinieerde lijst. Deze aanpak kan echter minder effectief zijn als het aantal labels erg groot is, wat mogelijk kan leiden tot time-outfouten tijdens het ophalen van gegevens.
+
+### Waarom gebruiken we deze aanpak?
+
+Deze aanpak zorgt voor flexibiliteit door twee methoden voor invoer te bieden, waarbij zowel situaties waarin de gebruiker handmatig specifieke waarden moet invoeren als situaties waarin het selecteren uit een vooraf gedefinieerde lijst praktischer is, worden ondersteund. De 'handmatige' optie is vooral handig bij het omgaan met een groot aantal labels, wat anders tot prestatieproblemen zou kunnen leiden bij het ophalen van waarden uit de API.
+
+## Voorbeeld
+
+![example](https://raw.githubusercontent.com/bb-io/Jira/main/Images/README/example.png)
+
+Dit voorbeeldbird haalt de nieuwste issues op en wijst degene met de hoogste prioriteit toe aan een specifieke gebruiker.
+
+![example_2](https://raw.githubusercontent.com/bb-io/Jira/main/image/README/1708600402619.png)
+
+Dit voorbeeld laat zien hoe je nieuwe TMS (Phrase) projecten kunt maken van issues.
+
+## Ontbrekende functies
+
+In de toekomst kunnen we acties toevoegen voor:
+
+- Projecten
+- Dashboards
+
+Laat het ons weten als je geïnteresseerd bent!

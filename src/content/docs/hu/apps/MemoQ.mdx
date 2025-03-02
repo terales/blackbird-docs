@@ -1,0 +1,133 @@
+---
+  title: MemoQ
+  description: A MemoQ Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/MemoQ" icon="github" />
+
+
+A memoQ rugalmas fordítási és lokalizációs menedzsment megoldásokat kínál vállalatok, nyelvi szolgáltatók és fordítók számára. Ez a memoQ alkalmazás elsősorban a projekt- és fájlkezelésre összpontosít.
+
+## Beállítás előtt
+
+A csatlakozás előtt győződjön meg a következőkről:
+
+- Hozzáféréssel rendelkezik egy memoQ példányhoz.
+- A memoQ példánya rendelkezik engedélyezett WS API-val és van API kulcsa.
+- Ha a memoQ példánya engedélyezett IP címeket igényel, kérdezzen rá a Blackbird _sandbox_ IP címeinkre.
+
+A WS API beállításáról további információkat olvashat [itt](https://docs.memoq.com/current/en/memoQ-server-deployment-tool/deptool-install-memoq-server.html) a 'Secure the Web Service API' résznél.
+
+## Csatlakozás
+
+1.  Navigáljon az alkalmazásokhoz és keressen rá a memoQ-ra. Ha nem találja a memoQ-t, kattintson a jobb felső sarokban található _Add App_ gombra, válassza a memoQ-t, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2.  Kattintson az _Add Connection_ gombra.
+3.  Nevezze el a kapcsolatot a későbbi hivatkozáshoz, pl. 'Saját memoQ'.
+4.  Adja meg a memoQ példány API-jára mutató URL-t. Ez általában a példány URL-je, port a hozzáadott `/memoqservices` résszel, de ez különböző lehet (lásd az alábbi képet).
+5.  Adja meg az API kulcsát. Ha a memoQ szolgáltatása nem igényel API kulcsot, beírhatja a 'NONE' értéket. Ezt a háttérben feldolgozzuk és kihagyjuk a kérésekből.
+6.  Kattintson a _Connect_ gombra.
+7.  Ellenőrizze, hogy a kapcsolat megjelent és a státusza _Connected_.
+
+![1695644590394](https://raw.githubusercontent.com/bb-io/MemoQ/main/image/README/1695644590394.png)
+
+## Actions
+
+### Analyses
+
+- **Get file/project analysis**.
+
+### Files
+
+- **Search project files** visszaadja a projektben jelenleg található fájlokat.
+- **Slice file** feldarabol egy fájlt a megadott opciók alapján.
+- **Assign file to user** hozzárendeli a fájlt egy adott felhasználóhoz.
+- **Get/delete/overwrite/deliver file**.
+- **Upload/Download file** feltölti/letölti a fájlt a projektbe/ből. Győződjön meg arról, hogy a fájlnév tartalmazza a kiterjesztést, ellenkező esetben a művelet sikertelen lesz. Opcionális beviteli mezőket is tartalmaz a külső fájlazonosítóhoz, szűrő konfigurációhoz, előnézet létrehozásához és beágyazott képek és objektumok importálásához.
+- **Apply translated content to updated source**.
+- **File exists** ellenőrzi, hogy a megadott tulajdonságokkal rendelkező fájl létezik-e a projektben.
+
+### XLIFFs
+
+- **Download XLIFF file**: Exportál és letölt egy XLIFF fájlt. Ha az 'Use MQXLIFF' opcionális bemenetet true-ra állítja, akkor mqxliff fájlt ad vissza; ha false-ra állítja, akkor XLIFF 1.2 verziójú fájlt ad vissza. Alapértelmezetten ez false.
+
+- **Upload XLIFF file**: Feltölt és importál egy XLIFF fájlt egy projektbe. Az XLIFF a lokalizációs adatok cseréjének szabványa. Jelenleg az XLIFF 1.2 és 2.1 verziókat támogatja, és mqxliff fájlokat is importálhat.
+	- 'Re-import file ID': Az eredeti fájl egyedi azonosítója, amelyet felül szeretne írni. Ez szükséges, ha újra akar importálni egy fájlt. Ha meg van adva, a művelet megpróbálja újraimportálni a fájlt az egyszerű importálás helyett.
+
+	- 'Update segment statuses': Egy opcionális bemenet, amely jelzi, hogy frissíteni kell-e a szegmens állapotokat az importálás során. Ha false-ra van állítva, csak újraimportálja a meglévő fájlt; ha true-ra van állítva, összeegyezteti a szegmensek azonosítóit, és a szegmens állapotát 'Edited'-re változtatja, ha a szegmens célértéke különbözik, valamint frissíti a szegmens célszövegét.
+
+	- 'Path to set as import path': Egy opcionális bemenet, amely az importálási útvonalként beállítandó elérési utat reprezentálja. Ha újra szeretné importálni a fájlt, ez kötelező, ezt az elérési utat megtalálhatja a **Download XLIFF file** műveletben egy adott fájl exportálásával, és használhatja az 'Export path' tulajdonságot itt (ez így néz ki: '\\en-uk_ukr.xliff')
+
+- **Update file from XLIFF file**: Frissít egy projektfájlt egy XLIFF fájlból. Opcionális bemenetként kiválaszthatja, hogy a zárolt vagy megerősített szegmenseket frissíteni kell-e. Alapértelmezetten minden változással rendelkező szegmens frissül.
+
+### Packages
+
+- **Create delivery package** új kézbesítési csomagot hoz létre fájlazonosítókból.
+- **Deliver package** kézbesít egy adott csomagot.
+
+### Projects
+
+- **Search projects** Keresés a memoQ projektekben.
+- **Get/create/delete/distribute project**.
+- **Create project from package/template** új projektet hoz létre egy megadott sablon/csomag alapján.
+- **Update project** frissíti egy adott projekt részleteit.
+- **Add target language to project** célnyelvet ad egy adott projekthez.
+- **Get resources assigned to project** visszaadja a projekthez rendelt összes erőforrás listáját. Megadhatja a keresett erőforrás típusát, például MT motort vagy TM-et.
+- **Add resource to project** új erőforrást ad egy projekthez.
+- **Add glossary to project** terminológiai adatbázist ad egy adott projekthez azonosító alapján.
+- **Pretranslate files** Ez a művelet lehetővé teszi a fájlok előfordítását egy adott projektben. Az előfordítás egy olyan folyamat, amelyben a rendszer automatikusan kitölti a fájl szegmenseinek fordítását bizonyos kritériumok alapján. Ez jelentősen felgyorsíthatja a fordítási folyamatot. Paraméterek:  
+	- 'File IDs': Ez a paraméter az előfordítani kívánt fájlok egyedi azonosítóinak megadására szolgál. Ha nem ad meg fájlazonosítót, a művelet a projekt összes fájlját előfordítja.
+	- 'Target languages': Ez a paraméter az előfordítás célnyelvének megadására szolgál. Ha nem ad meg célnyelveket, a művelet a projekt összes célnyelvét előfordítja.
+	- 'Lock': Ez az opcionális paraméter, ha true-ra van állítva, zárolja az előfordított szegmenseket, hogy megakadályozza a további szerkesztést. Alapértelmezetten true-ra van állítva.
+	- 'Confirm lock pretranslated': Ez az opcionális paraméter határozza meg, hogy mely szegmenseket kell megerősíteni és zárolni az előfordítás során. Alapértelmezetten 'ExactMatch'-re van állítva.
+	- 'Pretranslate lookup behavior': Ez az opcionális paraméter határozza meg az előfordítási keresési folyamat viselkedését.  
+	- 'Use MT': Ez az opcionális paraméter, ha true-ra van állítva, engedélyezi a gépi fordítás (MT) használatát az előfordítás során.  
+	- 'Translation memories IDs': Ez az opcionális paraméter az előfordítás során használni kívánt fordítási memóriák egyedi azonosítóinak megadására szolgál.  
+	- 'Include numbers': Ez az opcionális paraméter, ha true-ra van állítva, a számok bekerülnek az előfordításba. Alapértelmezetten true-ra van állítva.  
+	- 'Change case': Ez az opcionális paraméter, ha true-ra van állítva, megváltoztatja az előfordított szöveg betűnagyságát. Alapértelmezetten false-ra van állítva.  
+	- 'Include auto translations': Ez az opcionális paraméter, ha true-ra van állítva, az automatikus fordításokat beleveszi az előfordításba. Alapértelmezetten true-ra van állítva.  
+	- 'Include fragments': Ez az opcionális paraméter, ha true-ra van állítva, a töredékeket beleveszi az előfordításba. Alapértelmezetten true-ra van állítva.  
+	- 'Include non-translatables': Ez az opcionális paraméter, ha true-ra van állítva, a nem fordítható szövegeket beleveszi az előfordításba. Alapértelmezetten true-ra van állítva.  
+	- 'Include term bases': Ez az opcionális paraméter, ha true-ra van állítva, a terminológiai adatbázisokat beleveszi az előfordításba. Alapértelmezetten true-ra van állítva.  
+	- 'Minimum coverage': Ez az opcionális paraméter az előfordítás minimális lefedettségének megadására szolgál. Alapértelmezetten 50-re van állítva.  
+	- 'Coverage type': Ez az opcionális paraméter az előfordítás lefedettségi típusának megadására szolgál. Alapértelmezetten 'Not full'-ra van állítva.  
+	- 'Only unambiguous matches': Ez az opcionális paraméter, ha true-ra van állítva, csak az egyértelmű találatokat veszi bele az előfordításba. Alapértelmezetten true-ra van állítva.
+	- 'Final translation state': Ez az opcionális paraméter az előfordított szegmensek végső fordítási állapotának megadására szolgál. Alapértelmezetten 'No change'-re van állítva.
+
+### Project custom fields
+- **Get project custom fields** Lekéri az összes egyéni metaadat mezőt egy adott projekthez
+- **Get custom field value** Lekéri egy adott egyéni metaadat mező értékét
+- **Set custom field value** Beállítja egy adott egyéni metaadat mező értékét
+- **Add new custom field** Egyéni metaadat mezőt ad a megadott projekthez
+
+### Translation memories
+
+- **Search translation memories** visszaadja az összes fordítási memóriát bizonyos szűrők alapján.
+- **Get/create/update/delete**.
+- **Import TMX file** TMX fájlt importál a fordítási memóriába.
+- **Import translation memory scheme from XML** fordítási memória metaadat sémát importál egy XML fájlból.
+
+### Term bases
+
+- **Get term bases assigned to project** Lekéri egy projekthez rendelt terminológiai adatbázisok listáját egy adott célnyelvhez.
+- **Import or update glossary** Ez a művelet lehetővé teszi egy '.tbx' fájl importálását terminológiai adatbázis frissítéséhez vagy létrehozásához. Terminológiai adatbázis létrehozása esetén a következő mezők szükségesek: `Glossary file`, `Glossary name`. Terminológiai adatbázis frissítése esetén a következő mezők szükségesek: `Glossary file`, `Existing termbase ID`.
+- **Export glossary** exportál egy meglévő terminológiai adatbázist. Ez a művelet egy opcionális bemeneti paramétert fogad el, amelynek neve _Include forbidden terms_, alapértelmezetten _False_. Ha _False_-ra van állítva, a _Forbidden_ állapotú kifejezések ki vannak zárva az eredményül kapott exportból.
+- **Update existing glossary** frissíti a meglévő terminológiai adatbázist. Opcionális bemenetek: `AllowAddNewLanguages` (ahol engedélyt adhat új nyelvek hozzáadására, alapértelmezetten `true`) és `OverwriteEntiesWithSameId` (ahol felülírhatja az azonos azonosítójú bejegyzéseket, alapértelmezetten `false`)
+
+Az **Import glossary** és **Export glossary** támogatja mind a szabályos terminológiai adatbázisokat, mind a QTerm-et. Fontos megjegyezni, hogy a jelenlegi implementáció csak alapvető importot/exportot tesz lehetővé, amely olyan alapvető információkat tartalmaz, mint a kifejezések, nyelvek és definíciók. Azonban a további részletek, mint a domain, használati példák, ügyfél, projekt és egyéb részletek nem szerepelnek a szószedekben.
+
+Egy másik fontos szempont, hogy a szószedeink implementációja az ISO 639-1 szabvány nyelvkódokhoz igazodik, ellentétben a memoQ-val. Ha nincs megfelelő ISO 639-1 nyelvkód egy memoQ által támogatott nyelvhez, a szószedeink a memoQ ISO 639-3 nyelvkódját használják. Ez inkompatibilitást eredményezhet más rendszerekkel, ha ilyen nyelvek vannak jelen egy szószedben. Azonban érdemes megjegyezni, hogy továbbra is képes lesz kezelni ezeket a szószedeket a memoQ-n belül.
+
+### Users
+
+- **Get/create/delete user**.
+
+## Events
+
+- **On file delivered** akkor aktiválódik, amikor bármely projektfájl kézbesítésre kerül.
+- **On projects created** akkor aktiválódik, amikor új projektek jönnek létre.
+- **On project status changed** akkor aktiválódik, amikor egy adott projekt státusza megváltozik.
+
+## Hiányzó funkciók
+
+A jövőben hozzáadhatunk

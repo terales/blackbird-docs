@@ -1,0 +1,123 @@
+---
+  title: Lionbridge
+  description: De Lionbridge Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Lionbridge" icon="github" />
+
+Lionbridge Technologies, Inc is een Amerikaans bedrijf dat vertaal- en lokalisatiediensten levert. De Lionbridge Content API is een open API die alle vertaalkwaliteitsniveaus en een breed scala aan inhoudstypen ondersteunt. Lionbridge-klanten kunnen deze app gebruiken voor al hun vertaalbehoeften. De Lionbridge Content API kan worden geïntegreerd met meer dan 100 apps op Blackbird, waaronder Amazon S3, Contentful, Contentstack, Customer.io, Github, HubSpot, Adobe Marketo, Microsoft Sharepoint, Notion, Salesforce, Shopify, Sitecore, Storyblok, Wordpress en Zendesk.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je beschikt over een **Client ID** en **Client Secret**
+- Je ten minste één provider hebt om een Lionbridge-workflow op te bouwen
+
+## Verbinding maken
+
+1. Ga naar apps en zoek naar Lionbridge.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn klant'.
+4. Voer in het veld _API Key_ je API-sleutel in.
+5. Voer in het veld _Client secret_ je clientgeheim in.
+6. Klik op _Connect_.
+7. Controleer of de verbinding is verschenen en de status _Connected_ is.
+
+![Lionbridge-connection](https://raw.githubusercontent.com/bb-io/Lionbridge/main/image/README/Lionbridge-connection.png)
+
+## Actions
+
+### Jobs
+
+- **Create job**: Maak een nieuwe opdracht door details in te vullen zoals de naam van de opdracht, beschrijving, provider-ID en specifieke metadata. Deze actie start een nieuwe opdracht in het systeem, die klaar wordt gemaakt voor verdere handelingen zoals indienen of bijwerken.
+
+- **Delete job**: Verwijder een bestaande opdracht uit het systeem aan de hand van de unieke opdracht-ID. Deze actie is onomkeerbaar en moet worden gebruikt wanneer een opdracht niet meer nodig is of per ongeluk is aangemaakt.
+
+- **Get job**: Haal de details op van een specifieke opdracht aan de hand van de ID. Dit omvat alle informatie die bij de opdracht hoort, zoals de huidige status, providerdetails en eventuele gerelateerde bestanden of verzoeken.
+
+- **Update job**: Wijzig de details van een bestaande opdracht. Dit kan het wijzigen van de naam, beschrijving, provider of status van de opdracht omvatten. Specifieke instructies voor het voltooien van de opdracht of het overgaan naar een 'In vertaling'-status kunnen hier ook worden afgehandeld.
+
+- **Submit job**: Stuur een opdracht door naar een geselecteerde provider voor vertaling. Deze actie neemt een bestaande opdracht en start officieel het vertaalproces met de opgegeven provider.
+
+- **Archive job**: Verplaats een opdracht naar archiefopslag, gebruikt voor opdrachten die voltooid of inactief zijn maar bewaard moeten blijven voor administratie.
+
+- **Unarchive job**: Draai de archivering van een opdracht terug, waardoor deze weer actief wordt. Dit wordt gebruikt wanneer een gearchiveerde opdracht opnieuw bekeken of geactiveerd moet worden.
+
+- **Get job extended metadata**: Haal de uitgebreide metadatawaarde op voor een bepaalde sleutel.
+
+- **Complete job**: Geef Lionbridge aan dat de opdracht is voltooid.
+
+- **Un-complete job**: Geef Lionbridge aan dat de opdracht niet is voltooid.
+
+### Requests
+
+- **Search requests**: Bekijk een lijst van je vertaalverzoeken. Deze methode stelt gebruikers in staat om een overzicht op te halen van alle vertaalverzoeken die bij een opdracht horen. Het geeft ook aan of alle verzoeken *In review* zijn en dus klaar om te worden gedownload.
+
+- **Create file request**: Start een nieuw verzoek om een document te vertalen door een documentbestand te uploaden. Als de 'Request name' of 'Source native ID' niet zijn opgegeven, genereert het systeem unieke identificatoren (GUID's) voor hen.
+
+- **Get request**: Bekijk details van een specifiek vertaalverzoek. Deze actie haalt gedetailleerde informatie op over één vertaalverzoek, inclusief de huidige status, bron- en doeltalen, en eventuele bijbehorende metadata.
+
+- **Delete request**: Verwijder een vertaalverzoek dat niet meer nodig is. Wanneer een vertaalverzoek niet meer nodig is, kan deze methode worden gebruikt om het uit het systeem te verwijderen, waardoor de lijst met actieve verzoeken schoon en beheerbaar blijft.
+
+- **Approve requests**: Keur vertaalde inhoud goed voor specifieke verzoeken. Geeft Lionbridge aan dat de verzoeken zijn goedgekeurd.
+
+- **Reject requests**: Wijs vertaalverzoeken af. Als een vertaalverzoek onjuist blijkt te zijn, kan het worden afgewezen.
+
+- **Update request details**: Breng wijzigingen aan in de details van een bestaand vertaalverzoek. Met deze methode kunnen gebruikers de inhoud of parameters van een vertaalverzoek wijzigen, zoals het bijwerken van het document of het wijzigen van de doeltaal.
+
+- **Get request extended metadata**: Haal de uitgebreide metadatawaarde op voor een bepaalde sleutel.
+
+### Source file
+
+- **Retrieve file**: Download een document van een specifiek verzoek. Deze methode maakt het mogelijk om een bestand op te halen dat bij een vertaalverzoek hoort. Het controleert of het geüploade bestand leeg is en gooit een uitzondering als dat zo is. Als het bestand geen specifieke naam heeft, wordt standaard de verzoek-naam met een .xml-extensie gebruikt, wat aangeeft dat het verzoek waarschijnlijk is gemaakt van broninhoud. Deze aanpak zorgt ervoor dat elk document, of het nu oorspronkelijk een naam had of niet, opvraagbaar is en correct wordt geïdentificeerd binnen het systeem.
+
+### Support assets
+
+- **Get support asset**: Haal details op over een specifiek ondersteunend element dat aan een opdracht is gekoppeld. Deze actie is essentieel voor het raadplegen van de eigenschappen en informatie van ondersteunende elementen, dit zijn aanvullende bronnen of documenten die bij een vertaalopdracht horen om het vertaalproces te ondersteunen.
+
+- **Delete support asset**: Verwijder een ondersteunend element uit een opdracht. Deze functionaliteit is cruciaal voor het behouden van de relevantie en nauwkeurigheid van de ondersteunende elementen die bij een opdracht horen, waardoor gebruikers elementen kunnen verwijderen die niet langer nodig zijn of per vergissing zijn toegevoegd.
+
+- **Add support asset**: Voeg een nieuw ondersteunend element toe aan een opdracht. Dit proces omvat het uploaden van een bestand dat als ondersteunend element wordt gebruikt, wat extra context of informatie biedt die nodig is voor de vertaling. Als de bestandsbeheer-systeem-ID (FMS-bestand-ID) ontbreekt, wordt een uitzondering gegenereerd, zodat elk ondersteunend element correct wordt bijgehouden en beheerd binnen het systeem. De methode verwerkt ook het aanmaken van metadata voor het ondersteunende element, waardoor de gegevens van het element verder worden verrijkt voor gebruik tijdens de vertaling.
+
+### Translation content
+
+- **Get translation content**: Toegang tot de originele inhoud die voor vertaling is ingediend in een opdracht. Met deze actie kunnen gebruikers het bronmateriaal ophalen dat voor vertaling is aangeleverd, waardoor ze de inhoud kunnen bekijken of verifiëren voor of na het vertaalproces.
+
+- **Update translation content**: Werk de originele inhoud bij die voor vertaling is ingediend. Deze methode maakt het mogelijk om broninhoud in een vertaalopdracht te wijzigen, waardoor correcties, updates of verfijningen kunnen worden aangebracht om nauwkeurigheid en relevantie van het vertaalresultaat te waarborgen.
+
+- **Retrieve source content**: Download de vertaalde inhoud voor een of meer vertaalverzoeken.
+
+### Translation memory
+
+- **Add translation memory**: Voeg een vertaalgeheugenbestand toe aan een opdracht.
+
+- **Get translation memory**: Haal details op van een specifiek vertaalgeheugen dat bij een opdracht hoort.
+
+## Events
+
+- **Job status updated**: Deze gebeurtenis informeert je wanneer de status van een opdracht wijzigt, bijvoorbeeld wanneer deze is voltooid of geannuleerd. Als specifieke statuscodes niet zijn gedefinieerd, wordt deze standaard alleen geactiveerd voor opdrachten die "IN_TRANSLATION" zijn. De gebeurtenis beoordeelt verschillende voorwaarden zoals overeenkomsten met opdracht-ID's, archiefstatus, verwijderingsstatus, en vergelijkt de huidige status met verwachte statuscodes. Als aan de voorwaarden wordt voldaan, wordt gedetailleerde informatie over de opdracht geretourneerd, inclusief de huidige status.
+
+- **On request status updated**: Vergelijkbaar met opdrachtstatus-updates, waarschuwt deze gebeurtenis je wanneer een vertaalverzoek een bepaalde mijlpaal bereikt, zoals voltooiing of annulering. Standaard is deze ingesteld om te activeren voor verzoeken met de status "REVIEW_TRANSLATION", tenzij anders aangegeven. De webhook evalueert of het verzoek voldoet aan de vooraf gedefinieerde voorwaarden, zoals statuscodes, relevantie van de opdracht-ID, en of de verzoek-ID's overeenkomen met de verwachte waarden. Succesvolle validatie resulteert in een gedetailleerd rapport over de opdracht en de betreffende verzoeken, zodat je altijd op de hoogte bent van de voortgang van je vertaalprojecten.
+
+- **On all requests in review**: Op basis van alleen een Job ID. Deze gebeurtenis wordt geactiveerd wanneer alle verzoeken in deze specifieke opdracht de status *In review* hebben. Met deze status geeft Lionbridge aan dat je de doelbestanden kunt downloaden en goedkeuren of afwijzen. Gebruik dit in een controlepunt om te wachten tot alle verzoeken klaar zijn en download daarna alle bestanden.
+
+## Voorbeeld
+
+Deze birds demonstreren de gebruikelijke workflow in de Lionbridge-app.
+De eerste bird initieert een opdracht en maakt verzoeken op basis van bestanden die zijn geüpload naar Google Drive, en stuurt deze vervolgens naar de Lionbridge-provider met de actie 'Submit Job'.
+
+![Lionbridge-example-1](https://raw.githubusercontent.com/bb-io/Lionbridge/main/image/README/Lionbridge-example-1.png)
+
+De tweede bird wordt geactiveerd wanneer de provider ons bestand (of bestanden) heeft verwerkt, waarna we het terugplaatsen in cloudopslag (Google Drive in dit voorbeeld). Tot slot archiveren we eenvoudigweg de opdracht.
+
+![Lionbridge-example-2](https://raw.githubusercontent.com/bb-io/Lionbridge/main/image/README/Lionbridge-example-2.png)
+
+Als je liever één Bird gebruikt in plaats van 2, kun je de gebeurtenis **On all requests in review** als volgt gebruiken:
+
+![Lionbridge-example-3](https://raw.githubusercontent.com/bb-io/Lionbridge/main/image/README/1738156311174.png)
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [vastgestelde kanalen](https://www.blackbird.io/) of maak een issue aan.

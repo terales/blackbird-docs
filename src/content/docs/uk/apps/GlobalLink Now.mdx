@@ -1,0 +1,49 @@
+---
+  title: GlobalLink Now
+  description: Додаток Blackbird для GlobalLink Now
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/GlobalLinkNow" icon="github" />
+
+ GlobalLink NOW — це рішення для нейронного машинного перекладу, що використовує технології ШІ для безпечного надання високоякісного контенту на вимогу.
+ 
+## Перед налаштуванням
+
+Перш ніж підключитися, переконайтеся, що:
+
+- У вас є екземпляр GlobalLink NOW.
+- У вас є дані HOST та Api key для вашого екземпляра GlobalLink NOW.
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть GlobalLink NOW. Якщо ви не можете знайти GlobalLink NOW, натисніть _Add App_ у верхньому правому куті, виберіть GlobalLink NOW і додайте додаток до свого середовища Blackbird.
+2. Натисніть _Add Connection_.
+3. Назвіть ваше з'єднання для подальшого використання, наприклад, 'Моє з'єднання'.
+4. Заповніть поле Host вашого екземпляра GlobalLink NOW.
+5. Введіть Api key для вашого екземпляра GlobalLink NOW.
+6. Натисніть _Connect_.
+
+![Додавання з'єднання](https://raw.githubusercontent.com/bb-io/GlobalLinkNow/main/image/README/GLN_AddConnection.png)
+
+## Actions
+
+- **Translate** Translate text
+- **Translate Document** Translate a file. 
+Input:
+    - File
+    - Target Language
+    - Source Language (optional)
+    - Domain (optional)
+    - Engine ID (optional)
+    - OCR (optional)
+
+## Приклад
+
+Птах на зображенні нижче представляє робочий процес, у якому вміст витягується зі сторінки Wordpress у форматі HTML, а також усі локалі, які не мають перекладу для цієї конкретної сторінки. Потім ми перебираємо локалі, перекладаємо HTML-файл для кожної локалі за допомогою GlobalLink NOW і створюємо сторінки перекладу в Wordpress із перекладених HTML-файлів.
+
+![Wordpress + GlobalLink NOW](https://raw.githubusercontent.com/bb-io/GlobalLinkNow/main/image/README/WordpressGLN.png)
+
+## Зворотній зв'язок
+
+Хочете використовувати цей додаток або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть запит.

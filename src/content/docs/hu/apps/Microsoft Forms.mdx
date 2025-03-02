@@ -1,0 +1,43 @@
+---
+  title: Microsoft Forms
+  description: A Microsoft Forms Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/MicrosoftForms" icon="github" />
+
+A Microsoft Forms (korábban Office 365 Forms) egy online kérdőívkészítő, az Office 365 része. A Microsoft 2016 júniusában adta ki, a Forms lehetővé teszi a felhasználók számára felmérések és automatikusan értékelhető kvízek létrehozását.
+
+## Beállítás előtt
+
+A csatlakozás előtt győződjön meg arról, hogy rendelkezik Microsoft 365 fiókkal.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Microsoft Forms-ra.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például: 'Szervezetem'.
+4. Kattintson az _Authorize connection_ gombra.
+5. Kövesse a Microsoft által adott utasításokat, engedélyezve a Blackbird.io számára, hogy az Ön nevében járjon el.
+6. Amikor visszatér a Blackbird-hez, ellenőrizze, hogy a kapcsolat megjelent-e és a státusza _Connected_.
+
+![Csatlakozás](https://raw.githubusercontent.com/bb-io/MicrosoftForms/main/image/README/connecting.png)
+
+## Actions
+
+- **List my forms** lekéri az általam létrehozott űrlapok listáját.
+- **Get form info** lekéri egy adott űrlap információit.
+- **List questions** lekéri egy adott űrlap kérdéseinek listáját.
+- **List responses** lekéri egy adott űrlap válaszainak listáját.
+- **Get answer from response** egy adott válasz egy adott kérdésére adott választ kap vissza szövegként
+- **Download responses as excel file** letölti egy adott űrlap válaszait Excel fájlként
+
+## Events
+
+- **On responses received** akkor váltódik ki, amikor új válaszok érkeznek a megadott űrlapra.
+
+## Példa
+
+![példa](https://raw.githubusercontent.com/bb-io/MicrosoftForms/main/image/README/example.png)
+
+Itt, amikor új válaszok érkeznek, minden válasz minden kérdésére adott választ elküldünk a Slack-re.

@@ -1,0 +1,122 @@
+---
+  title: Remote
+  description: A Blackbird Remote alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Remote" icon="github" />
+
+A **Remote** egy globális HR platform, amely segít a vállalatoknak a teljes csapatuk felvételében, kezelésében és fizetésében, valamint a modern globális gazdaságban való hatékonyabb versenyzésben átfogó alapmegoldások révén, beleértve a HRIS-t, a bérszámfejtést, a nemzetközi foglalkoztatást, a vállalkozók kezelését és még sok mást.
+
+Lásd még a Remote.com támogatási dokumentumait [itt](https://support.remote.com/hc/en-us/articles/30035877720973-Blackbird-Remote-Connector).
+
+## Beállítás előtt
+
+Mielőtt csatlakozhatna, győződjön meg a következőkről:
+
+- Rendelkezik Remote példánnyal
+- Rendelkezik Remote API tokennel. Részletes útmutatót a beszerzéséhez [itt](https://remote.com/resources/api/auth-and-authorization) talál.
+
+## Csatlakozás
+
+1. Navigáljon az Alkalmazásokhoz, és keresse meg a **Remote** alkalmazást. Használhatja a keresőt a megtalálásához.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, pl. 'Saját Remote kapcsolat'.
+4. Töltse ki a `Base URL` mezőt. Ha éles környezetet használ, a `https://gateway.remote.com` címet kell használnia. Ha sandbox környezetet használ, a `https://gateway.remote-sandbox.com` címet kell használnia.
+5. Töltse ki az `API token` mezőt a Remote-tól kapott tokennel.
+6. Kattintson a **Connect** gombra.
+7. Győződjön meg arról, hogy a kapcsolat sikeresen létrejött.
+
+![connection](https://raw.githubusercontent.com/bb-io/Remote/main/./image/README/connecting.png)
+
+## Actions
+
+### Employees
+
+- **Search employments** Foglalkoztatások keresése meghatározott kritériumok alapján.
+- **Get employment** Foglalkoztatás lekérése azonosító alapján.
+- **Create employment** Foglalkoztatás létrehozása megadott adatokkal.
+- **Invite employment** Foglalkoztatás meghívása azonosító alapján az önregisztráció megkezdéséhez.
+- **Get employment custom field** Foglalkoztatás egyedi mezőértékének lekérése azonosító alapján.
+- **Update employment custom field** Foglalkoztatás egyedi mezőértékének frissítése azonosító alapján a megadott adatokkal.
+- **Update employment** Foglalkoztatás frissítése azonosító alapján a megadott adatokkal. Ez a művelet lehetővé teszi a foglalkoztatási adatok frissítését azonosító alapján a megadott adatokkal. A szerződési részletek esetén vegye figyelembe, hogy a kötelező tulajdonságok változhatnak az alkalmazott országától függően.
+
+Lépések:
+
+1. Országkód: Adja meg az alkalmazott országkódját. Ez kulcsfontosságú, mivel minden ország különböző szerződési részleteket igényelhet.
+2. Szerződési részletek kulcsai (Opcionális beviteli mező): Az országkód kiválasztása után megjelenik egy dinamikus legördülő lista, amely lehetővé teszi a releváns szerződési részletek kulcsainak kiválasztását.
+3. Szerződési részletek értékei (Opcionális beviteli mező): A kulcsokkal együtt meg kell adnia az egyes kulcsokhoz tartozó értékeket. A kulcsok és értékek sorrendjének pontosan meg kell egyeznie, mivel ezek objektummá lesznek egyesítve a kódban.
+
+Példa:
+
+![example](https://raw.githubusercontent.com/bb-io/Remote/main/./image/README/UpdateEmploymentExample.png)
+
+További példákat és terveket az útmutatónkban [itt](https://docs.blackbird.io/eggs/remote/) talál.
+
+### Invoices
+
+- **Search invoices** Számlák keresése meghatározott kritériumok alapján.
+- **Get invoice** Számla lekérése azonosító alapján.
+
+### Invoice schedules
+
+- **Search invoice schedules** Vállalkozói számlázási ütemtervek keresése meghatározott kritériumok alapján.
+- **Get invoice schedule** Vállalkozói számlázási ütemterv lekérése azonosító alapján.
+- **Create invoice schedule** Vállalkozói számlázási ütemterv létrehozása megadott adatokkal.
+- **Update invoice schedule** Vállalkozói számlázási ütemterv frissítése azonosító alapján a megadott adatokkal.
+- **Import invoice schedule** Vállalkozói számlázási ütemtervek importálása JSON fájlból. Ezt a fájlt például a `Plunet` alkalmazásból exportálhatja.
+
+A Remote API centekben dolgozza fel az összegeket, nem pedig standard pénznemformátumban. Ez azt jelenti, hogy az API által visszaadott bármely összeg centekben lesz megadva. Például egy 800 dolláros összeg 80 000 centként jelenik meg az API kimenetében.
+
+
+### Time offs
+
+- **Get time off** egy adott szabadság részleteit adja vissza.
+- **Create time off** új szabadságot hoz létre az alkalmazott számára.
+- **Get time off balance** visszaadja az alkalmazott szabadságegyenlegét.
+
+### Expenses
+
+- **Get expenses** visszaadja az összes költséget.
+- **Get expense** egy adott költség részleteit adja vissza.
+- **Create expense** új költséget hoz létre.
+- **Download receipt** letölti egy költség nyugtafájlját.
+
+## Events
+
+### Employments
+
+- **On employment activated** Ez az esemény akkor aktiválódik, amikor egy foglalkoztatott felhasználó aktív státuszra frissül.
+- **On employment onboarding completed** Ez az esemény akkor aktiválódik, amikor egy foglalkoztatott felhasználó befejezte a bevezetési folyamatot.
+- **On employment details updated** Ez az esemény akkor aktiválódik, amikor egy foglalkoztatott felhasználó adatai frissülnek.
+- **On employment personal information updated** Ez az esemény akkor aktiválódik, amikor egy foglalkoztatott felhasználó személyes adatai frissülnek.
+- **On employment status deactivated** Ez az esemény akkor aktiválódik, amikor egy foglalkoztatott felhasználó státusza inaktívra frissül.
+
+### Time offs
+
+- **On time off canceled** Akkor aktiválódik, amikor egy szabadságot törölnek.
+- **On time off declined** Akkor aktiválódik, amikor egy szabadságot elutasítanak.
+- **On time off requested** Akkor aktiválódik, amikor szabadságot kérnek.
+- **On time off date changed** Akkor aktiválódik, amikor egy szabadság dátuma megváltozik.
+- **On time off approved** Akkor aktiválódik, amikor egy szabadságot jóváhagynak.
+
+### Custom fields
+
+- **On custom field value updated** Ez az esemény akkor aktiválódik, amikor egy egyedi mező értéke frissül.
+
+### Invoices
+
+- **On invoices status changed** Ez az esemény visszaadja azokat a számlákat, amelyek státusza megváltozott az utolsó lekérdezés óta. 
+- **On contractor invoice added** Ez az esemény akkor aktiválódik, amikor új vállalkozói számlát adnak hozzá.
+
+Megjegyzés: A számlaesemények lekérdezésen alapulnak. Ez azt jelenti, hogy az esemény az eseménykonfigurációban beállított lekérdezési időköz alapján aktiválódik.
+
+## Hiányzó funkciók
+
+A Remote API meglehetősen kiterjedt, és dolgozunk további funkciók hozzáadásán az alkalmazáshoz. Ha hiányol egy funkciót, kérjük, tudassa velünk.
+
+Ellenőrizheti, hogy a Remote API mely funkciókat támogatja [itt](https://remote.com/resources/api/reference#section/Authentication).
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Lépjen kapcsolatba velünk a [megszokott csatornákon](https://www.blackbird.io/) keresztül vagy hozzon létre egy problémajegyet.

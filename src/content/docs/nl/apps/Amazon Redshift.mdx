@@ -1,0 +1,64 @@
+---
+  title: Amazon Redshift
+  description: De Amazon Redshift Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/AmazonRedshift" icon="github" />
+ 
+  
+Amazon Redshift is een volledig beheerde datawarehouse-service op petabyte-schaal in de cloud, ontworpen voor krachtige analyse met behulp van standaard SQL-queries. Deze Amazon Redshift-applicatie richt zich voornamelijk op databasebeheer.  
+
+## Voordat u begint
+
+Voordat u verbinding kunt maken, moet u ervoor zorgen dat:
+
+- U een [AWS root-gebruikersaccount](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) hebt of een [IAM-gebruiker](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_identity-management.html) die voor u is aangemaakt door de root-gebruiker.
+- U een toegangssleutel en geheim hebt gegenereerd voor uw IAM-gebruiker.
+- U toegang hebt tot de modellen die u wilt gebruiken. U moet toegang tot een model aanvragen voordat u het kunt gebruiken. Als u het model probeert te gebruiken voordat u toegang hebt aangevraagd, ontvangt u een foutmelding.
+
+### IAM-gebruiker aanmaken
+
+- Ga naar [Identity and Access Management](https://console.aws.amazon.com/iamv2/home).
+- Selecteer _Users_ in de linker zijbalk.
+- Klik op _Create user_.
+- Voer een _User name_ in en klik op _Next_.
+- Selecteer de optie _Attach policies directly_ bij _Permissions options_.
+- Voeg de beleidsregels _AdministratorAccess_ en _AmazonRedshiftFullAccess_ toe en klik vervolgens op _Next_.
+- Controleer de gebruikersgegevens en machtigingen en klik op _Create user_.
+
+### Toegangssleutel genereren
+
+- Ga naar [Identity and Access Management](https://console.aws.amazon.com/iamv2/home).
+- Selecteer _Users_ in de linker zijbalk.
+- Selecteer de gebruiker voor wie u een toegangssleutel wilt genereren.
+- Ga naar het tabblad _Security credentials_.
+- Scroll naar beneden naar de sectie _Access keys_ en klik op _Create access key_.
+- Selecteer _Use case_ en klik op _Next_.
+- Voer een _Description tag value_ in en klik op _Create access key_.
+- Bewaar de waarden _Access key_ en _Secret access key_ om verbinding te kunnen maken met Amazon Redshift via Blackbird.
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar Amazon Redshift. Als u Amazon Redshift niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Amazon Redshift en voeg de app toe aan uw Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef uw verbinding een naam voor toekomstige referentie, bijvoorbeeld 'Mijn organisatie'.
+4. Vul de toegangssleutel en het geheim in dat u in de vorige sectie hebt verkregen.
+5. Klik op _Connect_.
+6. Controleer of de verbinding is verschenen en de status _Connected_ is.
+  
+## Actions  
+ 
+### Database
+
+- **Get entries** geeft een lijst met tabelrecords terug op basis van de opgegeven filters. U kunt optioneel een limit/offset of _Where_-statement specificeren. De Where-statement wordt gespecificeerd als een string, bijvoorbeeld `age > 18`.
+- **Add entry** voegt een nieuw record toe aan de tabel. Waarden worden gespecificeerd als een array van strings in dezelfde volgorde als de kolommen in de tabel. U kunt minder waarden specificeren als de overige kolommen nullable zijn of een standaardwaarde hebben.
+- **Update entries** werkt tabelrecords bij op basis van de opgegeven filters. Om de criteria voor het bijwerken te definiëren, kunt u een _Where_-statement gebruiken op een manier die vergelijkbaar is met de _Get Entries_-actie. De invoer van _Columns_ en _Values_ moeten van dezelfde grootte zijn en op elkaar worden afgestemd op basis van hun respectievelijke posities.
+
+	Als bijvoorbeeld de Columns invoer is: Name, Age, Gender; en de Values invoer is: Bob, 13, Non-binary; zal de tabel het record bijwerken, waarbij Bob voor Name, 13 voor Age en Non-binary voor Gender wordt ingesteld. Zorg voor consistentie in de grootte van de invoer van Columns en Values voor nauwkeurige en effectieve updates.
+- **Delete entries** verwijdert records uit de gespecificeerde tabel. Om de criteria voor het bijwerken te definiëren, kunt u een _Where_-statement gebruiken op een manier die vergelijkbaar is met de _Get Entries_-actie.
+- **Query database** voert elke ruwe SQL-query uit en geeft de resultaten terug als deze er zijn.
+  
+## Feedback  
+  
+Wilt u deze app gebruiken of heeft u feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

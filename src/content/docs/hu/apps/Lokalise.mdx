@@ -1,0 +1,108 @@
+---
+  title: Lokalise
+  description: A Lokalise Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/Lokalise" icon="github" />
+
+A Lokalise egy folyamatos lokalizációs és fordításkezelő platform. Ez a Lokalise alkalmazás elsősorban a projekt-, kulcs- és feladatkezelésre összpontosít.
+
+## Csatlakozás
+
+1. Navigálj az alkalmazásokhoz és keress rá a Lokalise-ra. Ha nem találod a Lokalise-t, kattints a jobb felső sarokban található _Add App_ gombra, válaszd a Lokalise-t, és add hozzá az alkalmazást a Blackbird környezetedhez.
+2. Kattints az _Add Connection_ gombra.
+3. Nevezd el a kapcsolatot a későbbi hivatkozáshoz, pl. 'Saját ügyfél'.
+4. Menj a Lokalise profilodra: `https://app.lokalise.com/profile`
+5. Válaszd az _API tokens_ részt
+6. Kattints a _Generate new token_ gombra, válaszd ki a token típusát. Ezután kattints a _Generate_ gombra
+7. Másold a generált tokent és illeszd be a megfelelő mezőbe a Blackbird-ben
+8. Kattints a _Connect_ gombra.
+9. Győződj meg róla, hogy a kapcsolat megjelent és az állapota _Connected_.
+
+## Actions
+
+### Comments
+
+- **Add comments** megjegyzéseket ad egy adott `Key`-hez.
+
+### Files
+
+- **List all project files** visszaadja egy adott `Project` fájljainak listáját. Szűrheted őket név szerint.
+- **Download all project files as ZIP** visszaad egy ZIP fájlt az összes projektfájllal.
+- **Download project source/translated files"** visszaadja a projektfájlok listáját.
+- **Download XLIFF file** letölti a fájlt a feladatból nyelv szerint.
+- **Download XLIFF files from task** visszaadja az összes feladat XLIFF fájlt.
+- **Download all XLIFF files from project** visszaadja az összes projekt XLIFF fájlt.
+- **Upload/Delete file for project**
+- **Upload file to project as XLIFF** Fájl feltöltése a projektbe XLIFF formátumban. Beállíthatod az `Overwrite existing keys` opcionális bemenetet true értékre, ha a meglévő kulcsokat frissíteni szeretnéd új kulcsok hozzáadása helyett.
+
+### Keys
+
+- **List all project keys** visszaadja a megadott projekt kulcsainak listáját.
+- **List key IDs** visszaadja a kulcs azonosítók listáját, amelyek használhatók a `Task` létrehozásához szükséges műveletekben. A művelet tartalmazza a Lokalise API alapértelmezett szűrőit, valamint egyéni szűrőket, mint például _Unverified_, _Unreviewed_ és _Exclude tags_.
+- **Update key translation** frissíti egy kulcs fordítását a megadott kulcs azonosító és nyelv alapján.
+- **Get/Create/Delete key**
+
+### Languages
+
+- **List all system languages** visszaadja a Lokalise által támogatott nyelvek listáját.
+- **List all project languages** visszaadja a `Project`-hez hozzáadott nyelvek listáját.
+- **Build language** visszaad egy nyelvi objektumot, amely a `Task` létrehozása során használható. Így több nyelvet építhetsz egyedi megbízottakkal.
+- **Add/Delete delete project language**
+
+### Projects
+
+- **Empty project** törli az összes `Keys`-t és `Translations`-t a megadott projektből.
+- **List projects by date** visszaadja a projektek listáját a létrehozási dátum intervalluma szerint szűrve.
+- **List/Get/Create/Update/Delete project(s)**
+
+### Segments
+
+- **List/Get/Update segment(s)**
+
+### Tasks
+
+- **Create task from the built languages** új feladatot hoz létre a `Build language` művelet eredményeiből származó nyelvekkel. Megjegyzés: a szokásos `Create` feladat művelet az összes megadott felhasználót/csoportot az összes nyelvhez rendeli. Ha azt szeretnéd, hogy a nyelvekhez egyedi felhasználók/csoportok tartozzanak, használd ezt a műveletet.
+- **Create language task** feladatot hoz létre egy célnyelv számára. Mivel csak egy célnyelv van, azonnal hozzárendelhetsz felhasználókat és csoportokat, valamint szűrheted a kulcsokat ellenőrzött/nem ellenőrzött/le nem fordított fordítások szerint.
+- **List/Create/Get/Update/Delete task(s)**
+
+### Translations
+
+- **Update translation** frissíti az adott fordítást
+
+## Events
+
+- **On key modified for assignee** akkor aktiválódik, amikor a projektkulcs hozzáadódik/módosul, vagy új feladat jön létre.
+- **On project imported**
+- **On project exported**
+- **On project deleted**
+- **On project snapshot**
+- **On project branch added**
+- **On project branch deleted**
+- **On project branch merged**
+- **On project languages added**
+- **On project language removed**
+- **On project language settings changed**
+- **On project key added**
+- **On project keys added**
+- **On project key modified**
+- **On project keys deleted**
+- **On project key comment added**
+- **On project translation updated**
+- **On project translations updated**
+- **On project translation proofread**
+- **On project contributor added**
+- **On project contributor deleted**
+- **On team order created**
+- **On team order deleted**
+- **On team order completed**
+- **On project task initial TM leverage calculated**
+- **On project task created**
+- **On project task closed**
+- **On project task deleted**
+- **On project task language closed**
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy visszajelzésed van a megvalósításunkról? Keress minket a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozz létre egy problémát.

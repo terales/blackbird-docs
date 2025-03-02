@@ -1,0 +1,106 @@
+---
+  title: Trello
+  description: De Trello Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Trello" icon="github" />
+
+Trello is een webgebaseerde projectmanagement- en samenwerkingstool die taken organiseert in visuele borden. Het stelt gebruikers in staat om borden te maken voor verschillende projecten of taken, en binnen elk bord kunnen gebruikers lijsten maken die stadia of categorieën vertegenwoordigen, en kaarten die individuele taken of items vertegenwoordigen. Gebruikers kunnen kaarten tussen lijsten verplaatsen om voortgang bij te houden, beschrijvingen, checklists, deadlines, bijlagen toevoegen en ze toewijzen aan teamleden. Trello staat bekend om zijn intuïtieve en flexibele interface, waardoor het populair is bij individuen, teams en organisaties voor het beheren van verschillende soorten projecten, van softwareontwikkeling tot evenementenplanning tot persoonlijk taakbeheer.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een Administrator bent in de Trello-instantie waarmee je verbinding wilt maken.
+- Je een API-sleutel en gebruikerstoken hebt voor je Trello-instantie.
+
+Om je API-sleutel en gebruikerstoken te verkrijgen:
+
+1. Log in op je Trello-account en ga naar [https://trello.com/app-key]() > `Power-Up Admin Portal`. Hier kun je een nieuwe integratie maken door op `New` te klikken in de rechterbovenhoek.
+
+![Trello_Integrations](https://raw.githubusercontent.com/bb-io/Trello/main/image/README/Trello_Integrations_1.png)
+
+2. Vul vervolgens de vereiste velden in (New Power-Up or Integration, Workspace, Email, Support contact, Author) en klik op `Create`.
+3. Klik op `API key` > `Generate a new API key`.
+4. Kopieer je API-sleutel, dit is een van de benodigde gegevens.
+5. Aan de rechterkant van je API-sleutel, klik op `Token` om je Trello-gebruikerstoken te genereren.
+
+![Trello Token Generation](https://raw.githubusercontent.com/bb-io/Trello/main/image/README/Trello_Token_2.png)
+
+6. Kopieer je token, dit is het laatste stukje informatie dat je nodig hebt om je Trello-instantie te verbinden met Blackbird.
+
+## Verbinding maken
+
+1. Ga naar apps en zoek naar Trello. Als je Trello niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Trello en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijv. 'Mijn Trello-verbinding'.
+4. Vul de API-sleutel van je Trello-instantie in.
+5. Vul het gebruikerstoken voor je Trello-instantie in.
+6. Klik op _Connect_.
+
+![Adding a connection](https://raw.githubusercontent.com/bb-io/Trello/main/image/README/Trello_Connection_3.png)
+
+## Actions
+
+### Boards
+
+- **Create board** Create a new board
+- **Delete board** Delete specific board
+- **Get board** Get board details
+- **List boards** List all user boards
+- **List starred boards** List all boards starred by the user
+
+### Cards
+
+- **Create card** Create card on board
+- **Copy card** Creates a new card based on another one. Choose Board, Card to copy and List where to place the new card, and, optionally, which items to copy into the new card (attachments, checklists, stickers, etc.)
+- **Delete card** Delete specific card
+- **Get card** Get specific card details
+- **Search cards** Add optional filters to get matching cards from a board
+- **Find card** Get first matching card by name or url
+- **List assigned cards** List all cards assigned to the user
+- **List cards** List all board cards
+- **Update card** Update specific card
+- **Add reaction to comment** React using an emoji to a specific comment on a card
+
+### Lists
+
+- **Create list** Create list on board
+- **Get lists** Get all board lists
+
+### Checklists
+
+- **Get card checklist**  Gets a specific checklist from a card
+- **List card checklists**  Lists all checklists in a card
+- **Find card checklist**  Gets the first checklist from a card that amtches the provided name
+- **Find checklist item**  Gets a specific checklist item from a card
+- **Update checklist item**  Update checklist item
+
+### Custom Fields
+
+- **List card custom fields** Get all custom field details of a specific card as text
+- **Get date custom field value** Get the datetime value of a specific custom field on a card
+- **Get number custom field value** Get the numeric value of a specific custom field on a card
+- **Get text custom field value** Get the text value of a specific custom field on a card
+- **Set card date custom field** Update the date value of a custom field in a card
+- **Set card dropdown custom field** Update the dropdown value of a custom field in a card
+- **Set card number custom field** Update the numeric value of a custom field in a card
+- **Set card text custom field** Update the value of a text custom field in a card
+
+## Events
+
+- **On card comment added** On a specific card comment added
+- **On card created** On a new card created
+- **On card moved from board** On a specific card moved from the board
+- **On card moved to board** On a specific card moved to the board
+- **On card moved to list** On a specific card moved to another list
+- **On card renamed** On a specific card renamed
+- **On list created** On a new list created
+- **On member added to card** On a new member added to the card
+- **On member left card** On a member removed from card
+- **On cards comments added** Polling event. Triggered after specified time interval and returns new comments. The difference between this event and `On card comment added` is that this event returns all comments even if they were added by another user.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [gebruikelijke kanalen](https://www.blackbird.io/) of maak een issue aan.

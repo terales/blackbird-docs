@@ -1,0 +1,109 @@
+---
+  title: Slack
+  description: De Slack Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Slack" icon="github" />
+
+Slack is een berichtenapp voor bedrijven die communicatie, teamwerk en besluitvorming verbetert. Het stelt mensen in staat om gemakkelijk samen te werken, op hun eigen tempo te werken en informatie te delen in speciale chatruimtes.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat je een Slack-account hebt en deel uitmaakt van een specifieke werkruimte. Je moet een Slack-beheerder zijn of toestemming hebben om externe applicaties te verbinden met je Slack-kanaal. Je kunt ook [je Slack-beheerder uitnodigen voor Blackbird](https://docs.blackbird.io/concepts/nests/#users) zodat zij de verbinding kunnen autoriseren.
+
+### Webhooks inschakelen
+
+Als je Slack-webhooks wilt gebruiken, moet je de Blackbird-bot toevoegen aan de kanalen waarin je geïnteresseerd bent nadat je een verbinding hebt gemaakt. Er zijn twee manieren om dit te doen.
+
+De eerste manier:
+
+- Selecteer een kanaal.
+- Verstuur een bericht met de inhoud _@Blackbird_.
+- Klik op _Add to channel_.
+- Doe hetzelfde voor andere kanalen waarin je geïnteresseerd bent.
+
+![Blackbird toevoegen aan kanaal](https://raw.githubusercontent.com/bb-io/Slack/main/image/README/add_to_channel.png)
+
+De tweede manier:
+
+- Ga naar het kanaal dat je hebt geselecteerd tijdens het maken van de verbinding.
+- Zoek het bericht _added an integration to this channel: Blackbird_.
+- Klik op _Blackbird_ -> _Add this app to a channel..._ -> selecteer een kanaal uit de dropdown.
+- Doe hetzelfde voor andere kanalen waarin je geïnteresseerd bent.
+
+![Blackbird toevoegen aan kanaal](https://raw.githubusercontent.com/bb-io/Slack/main/image/README/add_to_channel2.png)
+
+## Verbinden
+
+1. Navigeer naar Apps en zoek de **Slack** app. Je kunt de zoekfunctie gebruiken om deze te vinden.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijvoorbeeld 'Mijn organisatie'.
+4. Klik op _Authorize connection_.
+5. Volg de instructies die Slack je geeft en sta Blackbird toe om toegang te krijgen tot de geselecteerde werkruimte.
+6. Wanneer je terugkeert naar Blackbird, controleer dan of de verbinding is verschenen en de status _Connected_ is.
+
+![Verbinden](https://raw.githubusercontent.com/bb-io/Slack/main/image/README/connecting.png)
+
+## Actions
+
+### Messages
+
+- **Send message** verstuurt een bericht naar een Slack-kanaal of rechtstreeks naar een gebruiker. Extra optionele inputs:
+  - **Thread timestamp**: Stel deze waarde in op de timestamp van een ander bericht om op dat bericht te reageren in een thread.
+  - **Schedule at**: Indien ingesteld, wordt het bericht op dit tijdstip verzonden.
+  - **Ephemeral user ID**: Indien ingesteld, is het bericht alleen zichtbaar voor deze gebruiker. Werkt alleen in kanalen. Werkt niet samen met 'Schedule at'.
+  - **Bot's username**: Indien ingesteld, wordt de gebruikersnaam van de bot weergegeven als deze tekst.
+  - **Send as user**: Indien ingesteld, wordt het bericht verzonden als deze gebruiker, in plaats van als de bot.
+
+- **Send files** verstuurt bestanden naar een Slack-kanaal. Extra optionele inputs:
+  - **Thread timestamp**: Stel deze waarde in op de timestamp van een ander bericht om op dat bericht te reageren in een thread.
+  - **Message**: Stel het bericht in dat samen met de bestanden moet worden verzonden.
+  
+- **Get message** geeft, op basis van een kanaal-ID en timestamp, het volgende terug:
+  - **Message text** de tekst van het bericht
+  - **Sender user ID** de gebruikers-ID van de afzender
+  - **Message timestamp** de timestamp van dit bericht. Kan worden gebruikt in andere Slack-acties en checkpoints.
+  - **Message timestamp (Datetime)** de berichttimestamp in Datumformaat.
+  - **Thread timestamp** als het bericht deel uitmaakte van een thread, is dit de thread-timestamp die kan worden gebruikt in andere Slack-acties en checkpoints.
+  - **Message timestamp (Datetime)** de thread-timestamp in Datumformaat.
+  - **Channel ID** de ID van het kanaal waarin dit bericht is verzonden.
+  - **Files** alle bestanden die aan dit bericht waren toegevoegd.
+  - **Reactions** alle reacties die dit bericht heeft
+
+- **Update message** werkt een bestaand bericht bij met nieuwe teksten.
+- **Delete message** verwijdert een bericht
+
+### Reactions
+
+- **Add reaction** voegt een reactie toe aan een bericht. Biedt een dropdown van alle mogelijke reactie-emoji's.
+- **Remove reaction** verwijdert een reactie van een bericht. Opmerking: De Slack-bot kan alleen reacties verwijderen die hij zelf heeft toegevoegd.
+
+### Users
+
+- **Search users** geeft alle gebruikers in dit Slack-team terug.
+- **Get user** geeft algemene en profielgegevens over de gebruiker terug, waaronder team-ID, naam, tijdzone, status en e-mail.
+- **Find user by email** geeft de gebruiker terug die gekoppeld is aan deze e-mail in deze Slack-instantie.
+
+## Events
+
+- **On message** wordt geactiveerd wanneer een nieuw bericht naar een kanaal wordt gestuurd. Deze gebeurtenis heeft een parameter _Trigger on message replies_ die standaard _False_ is. Als je wilt dat je bird wordt geactiveerd bij kanaalberichten en berichtantwoorden, stel je deze parameter in op _True_. Als je **On channel message** met **Send message in thread** in één enkele flow gebruikt, moet je _Trigger on message replies_ instellen op _False_ of niet specificeren om een oneindige lus te voorkomen. Als je wilt dat je bird alleen wordt geactiveerd wanneer een bericht bestandsbijlagen heeft, stel je _Trigger only when message has files_ in op _True_, standaard is _False_.
+- **On app mentioned** wordt geactiveerd wanneer de app wordt genoemd (@Blackbird). Handig om workflowtriggers te maken die alleen starten wanneer ze specifiek door een gebruiker via Slack worden aangeroepen.
+- **On reaction added**. Kan worden geconfigureerd voor een specifiek kanaal en een lijst van emoji's waarop het moet reageren. Geeft ook de "Reaction user ID" terug, wat de gebruiker is die de reactie heeft toegevoegd.
+- **On member joined channel**.
+
+> Alle berichtgerelateerde gebeurtenissen geven dezelfde output terug als de "Get message" actie, dus inclusief bestanden en reacties.
+
+## Voorbeeld
+
+![Voorbeeld](https://raw.githubusercontent.com/bb-io/Slack/main/image/README/1734624290730.png)
+
+In dit voorbeeld reageren we op reacties op Slack-berichten. Deze reacties komen overeen met landvlaggen. Wanneer geactiveerd, zal de Bird alle bestanden waarnaar de reactie was toegevoegd vertalen naar de gevraagde taal en reageren met de vertaalde bestanden in een thread-antwoord.
+
+## Ontbrekende functies
+
+Slack is een enorme app met veel functies. Als een van deze functies bijzonder interessant voor je is, laat het ons weten!
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [gevestigde kanalen](https://www.blackbird.io/) of maak een issue aan.

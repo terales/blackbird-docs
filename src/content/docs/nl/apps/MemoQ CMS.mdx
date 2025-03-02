@@ -1,0 +1,53 @@
+---
+  title: MemoQ CMS
+  description: De MemoQ CMS Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Bekijk op Github" target="_blank" href="https://github.com/bb-io/MemoQCMS" icon="github" />
+
+MemoQ CMS is een platform dat workflows stroomlijnt door efficiënte taakindienings-, verwerkings- en leveringsprocessen binnen de memoQ Server-omgeving te bieden, waardoor de algemene vertaalbeheermogelijkheden worden verbeterd.
+
+## Voordat je begint met instellen
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je [memoQ geïnstalleerd hebt](https://www.memoq.com/downloads).
+- Je een verbinding hebt aangemaakt en je _Base URL_ en _Connection key_ hebt verkregen. Informatie over het opzetten van een verbinding kun je vinden in de [_memoQ Server CMS API documentatie_](https://docs.memoq.com/current/api-docs/cmsapi/CMS%20Gateway%20REST%20API%20v2.00.pdf?_gl=1*nqna0h*_ga*ODg3NDQ5Njc0LjE3MDExNjIwMjY.*_ga_HHK0YX9VVW*MTcwMTI0MzUxMS4zLjAuMTcwMTI0MzUxMS4wLjAuMA..*_ga_TVK7MSKW78*MTcwMTI0MzUxMS4zLjAuMTcwMTI0MzUyMC4wLjAuMA..*_gcl_au*MTM3Njk1OTc2NC4xNzAxMTYyMDI1#page=13&zoom=100,90,94) onder de secties _2.3.1. CMS connection lifecycle_ en _2.3.2. CMS connection management_.
+
+## Verbinden
+
+1. Ga naar apps en zoek naar memoQ CMS. Als je memoQ CMS niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer memoQ CMS en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn organisatie'.
+4. Vul de basis-URL en verbindingssleutel in die je eerder hebt verkregen. Je kunt de verbindingsinformatie ook kopiëren. Ga hiervoor naar _Server Administrator_ -> _CMS connections_ en klik op _Copy client configuration information to the clipboard_.
+5. Klik op _Connect_.
+6. Controleer of de verbinding is verschenen en de status _Connected_ aangeeft.
+
+![Verbinden](https://raw.githubusercontent.com/bb-io/MemoQCMS/main/image/connecting.png)
+
+## Actions
+
+### Orders
+
+- **List orders**. Orders kunnen optioneel gefilterd worden met behulp van invoerparameters.
+- **Get order**.
+- **Create order**. Laat de parameter _Callback URL_ leeg als je van plan bent om de events **On job completed** en/of **On job cancelled** te gebruiken.
+- **Commit order** verandert de status van een order naar _Committed_, wat betekent dat alle taken van de order zijn ingediend.
+
+### Jobs
+
+- **List jobs** geeft de vertaaltaken van de opgegeven order terug.
+- **Get job**.
+- **Create job** maakt een nieuwe vertaaltaak aan in de opgegeven order. Let op: je kunt geen nieuwe taak toevoegen aan een order met de status _Committed_.
+- **Download translation** downloadt de vertaling voor de opgegeven taak. De taak moet in de staat _In Delivery_ of _Delivered_ zijn voordat de vertaling kan worden gedownload.
+- **Deliver job** verandert de status van een taak naar _Delivered_.
+
+## Events
+
+- **On job completed** en **On job completed (manual)** worden geactiveerd wanneer een taak is voltooid, wat aangeeft dat de vertaling klaar is en kan worden gedownload.
+- **On job cancelled** en **On job cancelled (manual)** worden geactiveerd wanneer een taak is geannuleerd.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

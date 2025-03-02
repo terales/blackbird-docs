@@ -1,0 +1,54 @@
+---
+  title: Lexeri
+  description: De Lexeri Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Lexeri" icon="github" />
+
+Lexeri is een cloud-gebaseerd terminologiebeheersysteem. Lexeri wil terminologie naar alle afdelingen van uw bedrijf brengen en probeert dit te bereiken door zich te richten op gebruiksvriendelijkheid en integratie. Lexeri biedt samenwerkende terminologieworkflows en controles voor documenten en teksten in verschillende systemen. Meer informatie op [www.lexeri.com](https://www.lexeri.com).
+
+## Verbinden
+
+1. Navigeer naar apps en zoek naar Lexeri. Als u Lexeri niet kunt vinden, klik dan op 'Add App' in de rechterbovenhoek, selecteer Lexeri en voeg de app toe aan uw Blackbird-omgeving.
+2. Klik op 'Add Connection'.
+3. Geef uw verbinding een naam voor toekomstig gebruik, bijv. 'Lexeri verbinding'.
+4. Voeg een API-token toe (u kunt dit aanmaken in de termbase-instellingen van Lexeri in het tabblad 'API')
+5. Klik op 'Connect'
+
+![LexeriConnection](https://raw.githubusercontent.com/bb-io/Lexeri/main/image/README/connection.png)
+
+## Actions
+
+### Term checks
+
+- **Check text** Controleer tekst op overeenkomende en verboden termen
+
+## Terms and termbases
+
+- **Search terms** Zoek termen op termwaarde
+- **Export termbase** Exporteer de voorkeurs- en toegelaten termen van de termbase als een tbx-bestand
+- **Get termbase info** Krijg details over de termbase
+
+### Terminology management
+
+- **Create term request** Maak een termaanvraag die termen kan voorstellen om aan de termbase toe te voegen.
+- **Extract terms from document** Maak een nieuwe termextractie van een document. De termextractie zal toegankelijk zijn in het takenbord.
+- **Import terms** Importeer vanuit een tbx-, csv- of xlsx-bestand. De import zal toegankelijk zijn in het takenbord voor verdere bewerking.
+
+## Events
+
+### Terminology management
+
+- **On term request created** - Wordt geactiveerd wanneer een termaanvraag is gemaakt 
+- **On term request finished** - Wordt geactiveerd wanneer de verwerking van een termaanvraag is voltooid en de concepten zijn gepubliceerd naar de termbase
+- **On import finished** - Wordt geactiveerd wanneer de verwerking van een import is voltooid en de concepten zijn gepubliceerd naar de termbase
+- **On term extraction finished** - Wordt geactiveerd wanneer de verwerking van een termextractie is voltooid en de termkandidaten zijn gepubliceerd naar de termbase
+- **On task finished** - Wordt geactiveerd wanneer de verwerking van een terminologietaak is voltooid en de concepten zijn gepubliceerd naar de termbase
+
+### Terms
+- **On term created** - Wordt geactiveerd wanneer een term is gemaakt of bijgewerkt
+
+## Feedback
+
+Wilt u deze app gebruiken of heeft u feedback over onze implementatie? Neem contact met ons op via de [gevestigde kanalen](https://www.blackbird.io/) of maak een issue aan.

@@ -1,0 +1,51 @@
+---
+  title: Microsoft OneDrive
+  description: De Microsoft OneDrive Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/MicrosoftOneDrive" icon="github" />
+
+OneDrive is de clouddienst van Microsoft die u verbindt met al uw bestanden. Het stelt u in staat om uw bestanden op te slaan en te beschermen, ze te delen met anderen en ze overal op al uw apparaten te benaderen.
+
+## Verbinding maken
+
+1. Ga naar apps en zoek naar Microsoft OneDrive.
+2. Klik op _Add Connection_.
+3. Geef uw verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn organisatie'.
+4. Klik op _Authorize connection_.
+5. Volg de instructies die Microsoft u geeft en autoriseer Blackbird.io om namens u te handelen.
+6. Wanneer u terugkeert naar Blackbird, controleer dan of de verbinding is verschenen en dat de status _Connected_ is.
+
+## Actions
+
+### Storage
+
+- **Upload file to folder** Upload bestand naar gespecificeerde map
+- **Download file** Download het gespecificeerde bestand
+- **List files in folder** Toon metadata van bestanden in de gespecificeerde map
+- **List changed files** Toon gewijzigde bestanden binnen een bepaald aantal laatste uren
+- **Get folder metadata** Verkrijg informatie over een specifieke map
+- **Get file metadata** Verkrijg informatie over een specifiek bestand
+- **Create folder in parent folder** Maak een nieuwe map in een andere map
+- **Delete folder** Verwijder de gespecificeerde map
+- **Delete file** Verwijder het gespecificeerde bestand
+
+> Bij het uploaden van een bestand naar een map kunt u uit de volgende opties kiezen hoe om te gaan met een conflict (er bestaat al een bestand met dezelfde naam in de opgegeven map):
+**Fail Uploading**: Als er een bestand met dezelfde naam bestaat, wordt het uploaden gestopt, waarbij het originele bestand behouden blijft.
+**Replace File**: Het bestaande bestand wordt overschreven door de nieuwe upload, waarbij de inhoud wordt vervangen.
+**Rename File**: Het nieuwe bestand wordt opgeslagen met een unieke naam, waarbij zowel het originele als het geüploade bestand behouden blijft.
+
+## Polling events
+
+- **On files created or updated** Deze polling event wordt geactiveerd wanneer bestanden worden aangemaakt of bijgewerkt. U kunt de map specificeren die u wilt monitoren op wijzigingen en de optie `Include subfolders` gebruiken om wijzigingen in submappen op te nemen (standaard is dit ingesteld op `false`).
+- **On folders created or updated** Deze polling event wordt geactiveerd wanneer mappen worden aangemaakt of bijgewerkt.
+
+## Voorbeelden
+
+![Connecting](https://raw.githubusercontent.com/bb-io/MicrosoftOneDrive/main/image/README/example_bird.png)
+Deze bird haalt nieuwe of bijgewerkte bestanden op van OneDrive, vertaalt ze met DeepL en stuurt ze vervolgens naar een Slack-kanaal
+
+## Feedback
+
+Wilt u deze app gebruiken of heeft u feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

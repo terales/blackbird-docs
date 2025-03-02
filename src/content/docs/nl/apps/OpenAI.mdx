@@ -1,0 +1,148 @@
+---
+  title: OpenAI
+  description: De OpenAI Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/OpenAI" icon="github" />
+
+Deze OpenAI app in Blackbird geeft je toegang tot alle API-endpoints en modellen die OpenAI te bieden heeft, van completion, chat, edit tot DALL-E beeldgeneratie en Whisper.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een [OpenAI account](https://platform.openai.com/signup) hebt.
+- Je een nieuwe API-sleutel hebt gegenereerd in de sectie [API keys](https://platform.openai.com/account/api-keys), die programmatische toegang verleent tot OpenAI-modellen op basis van 'pay-as-you-go'. Hiermee betaal je alleen voor je werkelijke gebruik, wat [begint bij $0,002 per 1.000 tokens](https://openai.com/pricing) voor het snelste chatmodel. Houd er rekening mee dat het ChatGPT Plus abonnement hiervoor niet van toepassing is; het biedt alleen toegang tot de beperkte webinterface op chat.openai.com en omvat geen OpenAI API-toegang. Zorg ervoor dat je de volledige API-sleutel kopieert, die eenmalig wordt weergegeven bij het aanmaken, en niet een verkorte versie. De API-sleutel heeft de vorm `sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.
+- Je API-account een betaalmethode en een positief saldo heeft, met een minimum van $5. Je kunt dit instellen in de sectie [Billing settings](https://platform.openai.com/account/billing/overview).
+
+**Opmerking**: Blackbird gebruikt standaard de nieuwste modellen in zijn acties. Als je abonnement deze modellen niet ondersteunt, moet je de modellen die je kunt gebruiken toevoegen aan elke Blackbird-actie.
+
+## Verbinding maken
+
+1. Ga naar apps en zoek naar OpenAI.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijv. 'Mijn OpenAI verbinding'.
+4. Vul je eerder verkregen API-sleutel in.
+5. Klik op _Connect_.
+
+![1694611695232](https://raw.githubusercontent.com/bb-io/OpenAI/main/image/README/1694611695232.png)
+
+## Actions
+
+Alle tekstuele acties hebben de volgende optionele invoerwaarden om de gegenereerde respons te wijzigen:
+
+- Model (standaard het nieuwste)
+- Maximum tokens
+- Temperature
+- top_p
+- Presence penalty
+- Frequency penalty
+
+Voor meer gedetailleerde informatie over de meeste acties, raadpleeg de [OpenAI API reference](https://platform.openai.com/docs/api-reference).
+
+Verschillende acties ondersteunen verschillende modellen die geschikt zijn voor de gegeven taak (bijv. gpt-4 model voor **Chat** actie). Actiegroepen en de bijbehorende aanbevolen modellen worden in de onderstaande tabel weergegeven.
+
+| Actiegroep |                                                                                                                          Nieuwste modellen                                                                                                                           |      Standaardmodel (wanneer de invoerparameter _Model ID_ niet is opgegeven)      |                                                                                                                                                                                                                        Verouderde modellen                                                                                                                                                                                                                         |
+| :----------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|     Chat     | gpt-4o, gpt-o1, gpt-o1 mini,  gpt-4-turbo-preview en gedateerde modelreleases, gpt-4 en gedateerde modelreleases, gpt-4-vision-preview, gpt-4-32k en gedateerde modelreleases, gpt-3.5-turbo en gedateerde modelreleases, gpt-3.5-turbo-16k en gedateerde modelreleases, fine-tuned versies van gpt-3.5-turbo | gpt-4-turbo-preview; gpt-4-vision-preview voor **Chat with image** actie |                                                                                                                                                                                    gpt-3.5-turbo-0613, gpt-3.5-turbo-16k-0613, gpt-3.5-turbo-0301, gpt-4-0314, gpt-4-32k-0314                                                                                                                                                                                    |
+| Audiovisueel  |                                                                      Alleen whisper-1 wordt ondersteund voor transcripties en vertalingen. tts-1 en tts-1-hd worden ondersteund voor spraakcreatie.                                                                      |                  tts-1-hd voor **Create speech** actie                   |                                                                                                                                                                                                                                -                                                                                                                                                                                                                                 |
+|    Afbeeldingen    |                                                                                                                        dall-e-2, dall-e-3                                                                                                                        |                                 dall-e-3                                 |                                                                                                                                                                                                                                -                                                                                                                                                                                                                                 |
+|  Embeddings  |                                                                                                                      text-embedding-ada-002                                                                                                                      |                          text-embedding-ada-002                          | text-similarity-ada-001, text-similarity-babbage-001, text-similarity-curie-001, text-similarity-davinci-001, text-search-ada-doc-001, text-search-ada-query-001, text-search-babbage-doc-001, text-search-babbage-query-001, text-search-curie-doc-001, text-search-curie-query-001, text-search-davinci-doc-001, text-search-davinci-query-001, code-search-ada-code-001, code-search-ada-text-001, code-search-babbage-code-001, code-search-babbage-text-001 |
+
+Je kunt de [Models](https://platform.openai.com/docs/models) documentatie raadplegen voor informatie over beschikbare modellen en de verschillen daartussen.
+
+Sommige aangeboden acties zijn voorontworpen bovenop OpenAI. Dit betekent dat ze OpenAI's endpoints uitbreiden met extra prompt engineering voor veelvoorkomende taal- en contentoperaties.
+
+Heb je een coole use case die we kunnen omzetten in een actie? Laat het ons weten!
+
+### Chat
+
+- **Chat** geeft een reactie op een chatbericht. Je kunt optioneel een systeemprompt en/of een afbeelding toevoegen. Ook kun je een verzameling teksten toevoegen die samen met het bericht aan de prompt worden toegevoegd. Daarnaast kun je optioneel een glossarium toevoegen. Handig als je een verzameling berichten aan de prompt wilt toevoegen.
+- **Chat with system prompt** hetzelfde als hierboven, behalve dat de systeemprompt verplicht is.
+
+### Assistant
+
+- **Message assistant** stuurt een bericht naar een vooraf geconfigureerde assistent. Deze voert de assistent uit en geeft het antwoord terug. De assistent-actie kan maximaal 10 bestanden als invoer accepteren. **Opmerking**: Als je de bijgevoegde bestanden wilt lezen, zorg er dan voor dat je assistent _Retrieval_ heeft ingeschakeld.
+
+### Lokalisatie (voorontworpen)
+
+- **Post-edit MT** gegeven een bronsegment en een door MT vertaald doelsegment, antwoordt met een nabewerkte versie van het doelsegment, rekening houdend met typische MT-fouten.
+- **Get translation issues** gegeven een bronsegment en een door MT vertaald doelsegment, belicht potentiële vertaalproblemen. Kan worden gebruikt om TMS-segmentcommentaren vooraf in te vullen.
+- **Get MQM report** voert een LQA-analyse van de vertaling uit. Het resultaat zal in het MQM-raamwerk zijn. De dimensies zijn: terminologie, nauwkeurigheid, taalkundige conventies, stijl, lokale conventies, geschiktheid voor het publiek, ontwerp en markup. De invoer bestaat uit de bron- en vertaalde tekst. Optioneel kan men talen en een beschrijving van het doelpubliek toevoegen.
+- **Get MQM dimension values** gebruikt dezelfde invoer en prompt als 'Get MQM report'. In deze actie worden de scores echter als individuele getallen teruggegeven, zodat ze in beslissingen kunnen worden gebruikt. Geeft ook de voorgestelde vertaling terug.
+- **Translate text** gegeven een tekst en een taalregio, probeert een gelokaliseerde versie van de tekst te maken.
+
+- **Get localizable content from image** haalt lokaliseerbare inhoud op uit een gegeven afbeelding.
+
+### Contentherbestemming
+
+Alle acties kunnen het volgende bevatten: Doelpubliek, taalregio, glossarium, tone of voice en eventuele aanvullende prompts
+
+- **Repurpose content** herbestemt content voor een specifiek doelpubliek.
+- **Summarize content** maakt een samenvatting van content.
+
+### Glossarium-extractie
+
+- **Extract glossary** extraheert een glossarium (.tbx) uit elke (meertalige) inhoud. Je kunt dit goed gebruiken in combinatie met andere apps die glossaria gebruiken.
+
+### Audiovisueel
+
+- **Create transcription** transcribeert de ondersteunde audiovisuele bestandsformaten naar een tekstuele respons.
+- **Create English translation** hetzelfde als hierboven, maar automatisch vertaald naar het Engels.
+- **Create speech** genereert audio van de tekstinvoer.
+
+### Afbeeldingen
+
+- **Generate image** gebruik DALL-E om een afbeelding te genereren op basis van een prompt.
+
+### Overige
+
+- **Create embedding** maak een gevectoriseerde embedding van een tekst. Nuttig in combinatie met vectordatabases zoals Pinecone om grote datasets op te slaan.
+- **Tokenize text** zet een tekst om in tokens. Gebruikt Tiktoken onder de motorkap.
+
+### XLIFF-operaties
+
+Alle XLIFF-acties ondersteunen versies 1.2 en 2.1 van het XLIFF-formaat, aangezien deze de meest gebruikte versies in de industrie zijn. Als je ondersteuning nodig hebt voor andere versies, neem dan contact met ons op en we zullen overwegen om ondersteuning hiervoor toe te voegen.
+
+Momenteel gebruiken we de functie [structured output](https://platform.openai.com/docs/guides/structured-outputs/structured-outputs) om de resultaten van de acties te retourneren. Dit betekent dat de uitvoer van de acties zodanig gestructureerd is dat deze gemakkelijk te parseren is en de stabiliteit van de acties zou kunnen verhogen. Let op: `Structured Outputs` zijn beschikbaar in de nieuwste grote taalmodellen, beginnend bij GPT-4o:
+- gpt-4o-mini-2024-07-18 en later
+- gpt-4o-2024-08-06 en later
+<br/>
+
+Je kunt meer informatie vinden over gestructureerde uitvoer in de [OpenAI documentatie](https://platform.openai.com/docs/guides/structured-outputs/introduction).
+
+- **Get Quality Scores for XLIFF file** Haalt segment- en bestandsniveaukwaliteitsscores op voor XLIFF-bestanden. Optioneel kun je de invoerparameters Threshold, New Target State en Condition toevoegen aan de Blackbird-actie om de doelstaatwaarde van segmenten te wijzigen die aan de gewenste criteria voldoen (alle drie moeten worden ingevuld).
+
+    Optionele invoer:
+	- Prompt: Voeg je criteria toe voor het scoren van elk bron-doelpaar. Als er geen worden opgegeven, wordt dit vervangen door _"accuracy, fluency, consistency, style, grammar and spelling"_.
+	- Bucket size: Aantal vertaaleenheden dat in dezelfde aanvraag wordt verwerkt. (Zie speciale sectie)
+	- Source and Target languages: Standaard halen we deze waarden uit de XLIFF-header. Je kunt verschillende waarden opgeven, er is geen specifiek formaat vereist. 
+	- Threshold: waarde tussen 0-10.
+	- Condition: Criteria om segmenten te filteren waarvan de doelstatus zal worden gewijzigd.
+	- New Target State: waarde om de doelstatus naar te wijzigen voor gefilterde vertaaleenheden.
+
+    Uitvoer:
+	- Average Score: geaggregeerde score van alle segmentniveauscores.
+	- Updated XLIFF file: segmentniveauscore toegevoegd aan extradata-attribuut & bijgewerkte doelstatus indien opgedragen.
+
+> De prompt die in deze actie wordt gebruikt is "Your input is going to be a group of sentences in `source language` and their translation into `target language`. Only provide as output the ID of the sentence and the score number. The score number is a score from 1 to 10 assessing the quality of the translation, considering the following criteria: `Criteria provided via Prompt input`."
+
+Als voorbeeld zullen de instellingen in de onderstaande afbeelding ertoe leiden dat alle segmenten met een score van 6 of lager hun doelstatus bijgewerkt krijgen naar "needs-review-translation". 
+
+![OpenAIOptionalInput](https://raw.githubusercontent.com/bb-io/OpenAI/main/image/README/OpenAIOptionalInput.png)
+
+- **Post-edit XLIFF file** Werkt de doelteksten van XLIFF-bestanden bij
+
+Optionele invoer:
+	- Prompt: Voeg je taalkundige criteria toe voor het postediten van doelteksten.
+	- Bucket size: Aantal vertaaleenheden dat in dezelfde aanvraag wordt verwerkt. (Zie speciale sectie)
+	- Source and Target languages: Standaard halen we deze waarden uit de XLIFF-header. Je kunt verschillende waarden opgeven, er is geen specifiek formaat vereist.
+	- Glossary
+	- Update locked segments: Indien waar, worden vergrendelde segmenten bijgewerkt, anders worden ze overgeslagen. Standaard is dit ingesteld op onwaar.
+
+> De prompt die in deze acties wordt gebruikt is "Your input consists of sentences in `source` language with their translations into `target language`. Review and edit the translated target text as necessary to ensure it is a correct and accurate translation of the source text. If you encounter XML tags in the source also include them in the target text, don't delete or modify them." Door de optionele invoer "Prompt" te gebruiken, worden jouw instructies aan de prompt toegevoegd.
+
+- **Process XLIFF file** gegeven een XLIFF-bestand, verwerkt elke vertaaleenheid volgens de instructies in de optionele invoer "Prompt" (als er geen Prompt is opgegeven, worden de bronteksten vertaald) en werkt de doeltekst bij voor elke eenheid.
+
+> Wanneer een Glossarium wordt toegevoegd als optionele invoer voor een van de hi

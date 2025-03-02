@@ -1,0 +1,108 @@
+---
+  title: Lokalise
+  description: Додаток Blackbird для Lokalise
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Lokalise" icon="github" />
+
+Lokalise — це платформа для безперервної локалізації та управління перекладами. Цей додаток Lokalise в основному зосереджений на управлінні проєктами, ключами та завданнями.
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть Lokalise. Якщо ви не можете знайти Lokalise, натисніть _Add App_ у верхньому правому куті, виберіть Lokalise та додайте додаток до свого середовища Blackbird.
+2. Натисніть _Add Connection_.
+3. Назвіть своє підключення для подальшого використання, наприклад, 'Мій клієнт'.
+4. Перейдіть до свого профілю Lokalise `https://app.lokalise.com/profile`
+5. Виберіть розділ _API tokens_
+6. Натисніть _Generate new token_, виберіть тип токена. Після цього натисніть _Generate_
+7. Скопіюйте згенерований токен і вставте його у відповідне поле в Blackbird
+8. Натисніть _Connect_.
+9. Переконайтеся, що з'явилося підключення і статус _Connected_.
+
+## Actions
+
+### Comments
+
+- **Add comments** додає коментарі до конкретного `Key`.
+
+### Files
+
+- **List all project files** повертає список файлів із конкретного `Project`. Ви можете фільтрувати їх за іменем.
+- **Download all project files as ZIP** повертає ZIP-файл з усіма файлами проєкту.
+- **Download project source/translated files"** повертає список файлів проєкту.
+- **Download XLIFF file** завантажує файл із завдання за мовою.
+- **Download XLIFF files from task** повертає всі XLIFF-файли завдання.
+- **Download all XLIFF files from project** повертає всі XLIFF-файли проєкту.
+- **Upload/Delete file for project**
+- **Upload file to project as XLIFF** Завантажує файл до проєкту як XLIFF. Ви можете встановити опціональний параметр `Overwrite existing keys` як true, якщо хочете оновити наявні ключі замість додавання нових.
+
+### Keys
+
+- **List all project keys** повертає список ключів для вказаного проєкту.
+- **List key IDs** повертає список ідентифікаторів ключів, які можна використовувати в діях для створення `Task`. Дія включає стандартні фільтри з API Lokalise, а також користувацькі, такі як _Unverified_, _Unreviewed_ та _Exclude tags_.
+- **Update key translation** оновлює переклад для ключа, вказуючи ID ключа та локаль.
+- **Get/Create/Delete key**
+
+### Languages
+
+- **List all system languages** повертає список мов, які підтримує Lokalise.
+- **List all project languages** повертає список мов, доданих до `Project`.
+- **Build language** повертає об'єкт мови, який можна використовувати під час створення `Task`. Таким чином, ви можете створити кілька мов з унікальними виконавцями.
+- **Add/Delete delete project language**
+
+### Projects
+
+- **Empty project** видаляє всі `Keys` та `Translations` із вказаного проєкту.
+- **List projects by date** повертає список проєктів, відфільтрованих за інтервалом дат створення.
+- **List/Get/Create/Update/Delete project(s)**
+
+### Segments
+
+- **List/Get/Update segment(s)**
+
+### Tasks
+
+- **Create task from the built languages** створює нове завдання з мовами з результатів дії `Build language`. Примітка: звичайна дія `Create` task призначає всіх вказаних користувачів/групи для всіх мов. Якщо вам потрібно, щоб мови мали унікальних користувачів/групи, використовуйте цю дію.
+- **Create language task** створює завдання для однієї цільової мови. Оскільки є лише одна цільова мова, ви можете відразу призначити користувачів і групи, а також фільтрувати ключі за перевіреними/неперевіреними/неперекладеними перекладами.
+- **List/Create/Get/Update/Delete task(s)**
+
+### Translations
+
+- **Update translation** оновлює конкретний переклад
+
+## Events
+
+- **On key modified for assignee** спрацьовує, коли ключ проєкту додано/змінено або створено нове завдання.
+- **On project imported**
+- **On project exported**
+- **On project deleted**
+- **On project snapshot**
+- **On project branch added**
+- **On project branch deleted**
+- **On project branch merged**
+- **On project languages added**
+- **On project language removed**
+- **On project language settings changed**
+- **On project key added**
+- **On project keys added**
+- **On project key modified**
+- **On project keys deleted**
+- **On project key comment added**
+- **On project translation updated**
+- **On project translations updated**
+- **On project translation proofread**
+- **On project contributor added**
+- **On project contributor deleted**
+- **On team order created**
+- **On team order deleted**
+- **On team order completed**
+- **On project task initial TM leverage calculated**
+- **On project task created**
+- **On project task closed**
+- **On project task deleted**
+- **On project task language closed**
+
+## Зворотний зв'язок
+
+Ви хочете використовувати цей додаток або маєте відгук щодо нашої реалізації? Зв'яжіться з нами, використовуючи [встановлені канали](https://www.blackbird.io/) або створіть проблему.

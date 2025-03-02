@@ -1,0 +1,59 @@
+---
+  title: Box
+  description: De Box Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Box" icon="github" />
+
+Box is een cloudgebaseerd contentmanagement- en bestandsdelingsplatform waarmee individuen en bedrijven documenten en bestanden kunnen opslaan, openen en eraan kunnen samenwerken vanaf elke locatie. Het biedt functies zoals veilige bestandsopslag, realtime samenwerking en integraties met verschillende productiviteitstools, waardoor de efficiëntie van teams en de toegankelijkheid van gegevens worden verbeterd.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een Box-account hebt en over de inloggegevens beschikt om toegang te krijgen.
+
+## Verbinding maken
+
+1. Navigeer naar Apps en zoek de **Box** app. Je kunt de zoekfunctie gebruiken om deze te vinden.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn Plunet-verbinding'.
+4. Maak verbinding met Box via OAuth.
+5. Klik op _Connect_.
+
+![connection](https://raw.githubusercontent.com/bb-io/Box/main/image/README/connection.png)
+
+## Actions
+
+- **Search files in folder**: Haal een lijst met bestanden op uit een specifieke map. Deze actie helpt je om alle inhoud binnen een map te bekijken.
+- **Get file information**: Verkrijg gedetailleerde informatie over een specifiek bestand, inclusief de naam en andere metadata.
+- **Rename file**: Wijzig de naam van een bestaand bestand naar iets nieuws.
+- **Download file**: Download een bestand uit de map, waardoor je het lokaal kunt opslaan of naar behoefte kunt gebruiken.
+- **Upload file**: Upload een nieuw bestand naar een specifieke map, waardoor het toegankelijk wordt in je cloudopslag.
+- **Copy file**: Kopieer een bestand naar een andere map.
+- **Delete file**: Verwijder een bestand permanent uit de map.
+- **Create folder**: Maak een nieuwe map aan binnen een gespecificeerde hoofdmap, waardoor je je bestanden beter kunt organiseren.
+- **Delete folder**: Verwijder een map en de inhoud ervan permanent uit de directory.
+- **Add collaborator to folder**: Nodig iemand uit om samen te werken aan een map door ze toe te voegen als medewerker, zodat ze toegang hebben tot de inhoud van de map en deze kunnen beheren.
+
+## Events
+
+Deze sectie biedt eventtriggers die je waarschuwen wanneer bepaalde acties plaatsvinden binnen je bestands- en mapbeheer. Deze triggers werken via een pollingsmechanisme, wat betekent dat ze periodiek controleren op updates in plaats van onmiddellijke meldingen te geven.
+
+- **On files created or updated**: Deze gebeurtenis wordt geactiveerd wanneer een bestand wordt gemaakt of bijgewerkt binnen je mappen. Het helpt je op de hoogte te blijven van wijzigingen en nieuwe toevoegingen aan je bestanden.
+- **On files deleted**: Deze gebeurtenis wordt geactiveerd wanneer een bestand uit je mappen wordt verwijderd. Het zorgt ervoor dat je op de hoogte bent van verwijderde bestanden, zodat je je inhoud kunt bijhouden.
+
+Je kunt het polling-interval voor deze gebeurtenissen configureren en kiezen hoe vaak je wilt dat het systeem controleert op updates. Het interval kan variëren van 5 minuten tot 7 dagen, afhankelijk van je voorkeuren en behoeften.
+
+## Voorbeeld
+
+Hier is een voorbeeld van hoe je de Box-app in een workflow kunt gebruiken:
+
+![example](https://raw.githubusercontent.com/bb-io/Box/main/image/README/Example.png)
+
+In dit voorbeeld begint de workflow met de gebeurtenis **On files created or updated**, die wordt geactiveerd wanneer een bestand wordt gemaakt of bijgewerkt in je mappen. Vervolgens gebruikt de workflow de actie **Download file** om het bestand te downloaden dat is gemaakt of bijgewerkt. In de volgende stap vertalen we het bestand via `DeepL` en uploaden we het vertaalde bestand terug naar de Box-map.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

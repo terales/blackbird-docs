@@ -1,0 +1,70 @@
+---
+title: Storyblok
+description: Додаток Storyblok для Blackbird
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Storyblok" icon="github" />
+ 
+  
+Storyblok - це безголова система керування контентом. Цей додаток Storyblok в основному зосереджений на управлінні історіями та завданнями.  
+
+## Підключення  
+  
+1. Перейдіть до додатків і знайдіть Storyblok. Якщо ви не можете знайти Notion, натисніть кнопку _Add App_ у верхньому правому куті, виберіть Storyblok і додайте додаток до свого середовища Blackbird.  
+2. Натисніть _Add Connection_.  
+3. Назвіть своє з'єднання для подальшого використання, наприклад, 'Мій клієнт'.  
+4. Перейдіть до свого профілю Storyblok і виберіть розділ `Personal access tokens`
+5. Згенеруйте новий API-токен
+7. Скопіюйте згенерований токен і вставте його у відповідне поле в Blackbird
+8. Натисніть _Connect_.  
+9. Підтвердіть, що з'єднання з'явилося і його статус - _Connected_.  
+  
+## Actions  
+ 
+### Components
+
+- **List/Get/Create/Delete components**
+
+### Releases
+
+- **List/Get/Create/Delete release**
+
+### Spaces
+
+- **List/Get/Create/Delete/Backup spaces**
+
+### Stories
+
+- **Export story content** повертає вміст історії у форматі HTML-файлу.
+- **Import story content** оновлює вміст історії з HTML-файлу.
+- **List/Get/Create/Update/Delete stories**
+- **Publish/Unpublish story**
+- **Get story as HTML for translation** отримує історію як HTML-файл для локалізації на рівні полів.
+- **Translate story from HTML file** оновлює історію з HTML-файлу, використовуючи локалізацію на рівні полів.
+
+### Tasks
+
+- **List/Get/Create/Delete tasks**
+
+## Events
+
+- **On story published**
+- **On story unpublished**
+- **On story moved**
+- **On story deleted**
+- **On asset created**
+- **On asset deleted**
+- **On asset replaced**
+- **On asset restored**
+- **On user added**
+- **On user removed**
+- **On user roles updated**
+- **On data source entry saved**
+- **On pipeline deployed**
+- **On release merged**
+- **On workflow changed**
+  
+## Зворотній зв'язок  
+  
+Хочете використовувати цей додаток або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть issue.

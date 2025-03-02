@@ -1,0 +1,43 @@
+---
+  title: Google Translate
+  description: Додаток Blackbird для Google Translate
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/GoogleTranslate" icon="github" />
+
+Google Translate - це багатомовний сервіс нейронного машинного перекладу, розроблений Google для перекладу тексту, документів та веб-сайтів з однієї мови на іншу.
+
+## Перед налаштуванням
+
+Перш ніж підключитися, переконайтеся, що:
+
+- У вас є `Рядок конфігурації службового облікового запису` для вашого проєкту Google Cloud. Ви можете створити службовий обліковий запис або використовувати існуючий у консолі Google Cloud (IAM & Admin -> Service accounts) та згенерувати для нього ключ. Ключ буде JSON-файлом, який містить рядок конфігурації службового облікового запису. Вам потрібно скопіювати вміст JSON-файлу та вставити його в поле `Рядок конфігурації службового облікового запису`.
+
+## Підключення
+
+1. Перейдіть до розділу Додатки та знайдіть додаток Google Translate. Для пошуку можна використовувати функцію пошуку.
+2. Натисніть _Add Connection_.
+3. Назвіть своє підключення для подальшого використання, наприклад, 'Моє підключення до Google Translate'.
+4. Заповніть поле 'Рядок конфігурації службового облікового запису'.
+5. Натисніть _Connect_.
+
+![connection.png](https://raw.githubusercontent.com/bb-io/GoogleTranslate/main//image/README/Connection.png)
+
+## Actions 
+
+- **Translate** - Перекладає текст на вказану мову. Дія також підтримує глосарії та адаптивні набори даних.
+- **Detect language** - Визначає мову вхідного тексту
+- **Translate document** - Перекладає документ на вказану мову
+  - Підтримувані формати вхідних документів:
+    - DOC application/msword
+    - DOCX application/vnd.openxmlformats-officedocument.wordprocessingml.document
+    - PDF application/pdf
+    - PPT application/vnd.ms-powerpoint
+    - PPTX application/vnd.openxmlformats-officedocument.presentationml.presentation
+    - XLS application/vnd.ms-excel
+    - XLSX application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+
+## Зворотний зв'язок
+
+Ви хочете використовувати цей додаток або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть запит.

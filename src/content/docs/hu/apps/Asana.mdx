@@ -1,0 +1,159 @@
+---
+  title: Asana
+  description: Az Asana Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/Asana" icon="github" />
+
+Az Asana egy projektmenedzsment és csapatmunka platform. Funkcióinak köre magában foglalja a feladatkezelést, csapatkommunikációt, projekttervezési eszközöket és idővonal nézetet. Ez az Asana alkalmazás elsősorban a projekt- és feladatkezelésre összpontosít.
+
+## Csatlakozás
+
+1.  Navigálj az alkalmazásokhoz és keress rá az Asana-ra. Ha nem találod az Asana-t, kattints a jobb felső sarokban található _Add App_ gombra, válaszd ki az Asana-t és add hozzá az alkalmazást a Blackbird környezetedhez.
+2.  Kattints az _Add Connection_ gombra.
+3.  Nevezd el a kapcsolatot a későbbi hivatkozáshoz, pl. 'Saját ügyfél'.
+4.  Menj az Asana fejlesztői konzoljára (https://app.asana.com/0/my-apps) és kattints a _Create token_ gombra.
+5.  Add meg a nevét, fogadd el az Asana feltételeit
+6.  Másold ki az API tokent és illeszd be a megfelelő mezőbe a BlackBird-ben
+7.  Kattints a _Connect_ gombra.
+8.  Ellenőrizd, hogy a kapcsolat megjelent-e és az állapota _Connected_.
+
+## Actions
+
+### Attachments
+
+- **List attachments** visszaadja a megadott objektum összes mellékletét. Az objektum azonosító lehet egy `Project`, `Project brief` vagy `Task` azonosítója.
+- **Get/upload/delete attachment**.
+
+### Custom fields
+
+- **Get text/date/enum custom field** visszaadja egy szöveg/dátum/enum típusú egyéni mező értékét egy adott feladathoz.
+- **Update text/date/enum custom field** beállítja egy szöveg/dátum/enum típusú egyéni mező értékét egy adott feladathoz.
+
+### Projects
+
+- **List projects** visszaadja az összes projektet. Megadhatsz `Workspace`-t vagy `Team`-et is a specifikus munkaterület vagy csapat projektjeinek lekéréséhez. Az `Archived` változóval lekérheted csak az archivált projekteket vagy fordítva.
+- **Get/create/update/delete project**.
+- **Get project sections** visszaadja a megadott projekt összes szekcióját.
+- **Get project status** visszaadja egy állapotfrissítés teljes rekordját
+- **Get project status updates** visszaadja az állapotfrissítési rekordokat a projekt összes frissítéséhez
+
+### Sections
+
+- **List sections** visszaadja a megadott projekt összes szekcióját.
+- **Get/create/update/delete section**.
+
+### Tags
+
+- **List tags** visszaadja az összes címkét. Megadhatsz `Workspace`-t is a specifikus munkaterület címkéinek lekéréséhez.
+- **Get/create/update/delete tag**.
+
+### Tasks
+
+- **List tasks** visszaadja a megadott `Workspace`, `Project`, `Tag`, `Section` vagy `User task list` összes feladatát.
+- **Get/create/update/delete task**.
+- **Get tasks from a user task list** visszaadja a feladatok listáját egy felhasználó Saját feladatok listájából.
+- **Get tasks by tag** visszaadja az összes feladatot a megadott címkével.
+- **Assign tag to task** hozzáad egy címkét egy feladathoz.
+
+### Users
+
+- **List users** visszaadja az összes felhasználót. Megadhatsz `Workspace`-t vagy `Team`-et is a specifikus munkaterület vagy csapat felhasználóinak lekéréséhez.
+- **Get user** visszaadja a megadott felhasználó részleteit.
+- **Get user's task list** visszaadja a teljes rekordot egy felhasználó feladatlistájához.
+- **Get user's teams** visszaadja az összes csapatot, amelyhez a felhasználó hozzá van rendelve.
+
+### Workspaces
+
+- **List workspaces** visszaadja az összes munkaterületet, amelyek láthatók a jogosult felhasználó számára.
+- **Get workspace** visszaadja a megadott munkaterület részleteit
+
+## Events
+
+### Projects 
+- **On projects added** akkor aktiválódik, amikor projekteket adnak hozzá.
+- **On projects changed** akkor aktiválódik, amikor projekteket módosítanak.
+- **On projects deleted** akkor aktiválódik, amikor projekteket törölnek.
+- **On projects removed** akkor aktiválódik, amikor projekteket eltávolítanak.
+- **On projects undeleted** akkor aktiválódik, amikor a törölt projekteket visszaállítják.
+
+### Tasks
+
+- **On tasks added** akkor aktiválódik, amikor feladatokat adnak hozzá.
+- **On tasks changed** akkor aktiválódik, amikor feladatokat módosítanak.
+- **On tasks deleted** akkor aktiválódik, amikor feladatokat törölnek.
+- **On tasks removed** akkor aktiválódik, amikor feladatokat eltávolítanak.
+- **On tasks undeleted** akkor aktiválódik, amikor a törölt feladatokat visszaállítják.
+
+### Tags
+
+- **On tags added** akkor aktiválódik, amikor címkéket adnak hozzá.
+- **On tags changed** akkor aktiválódik, amikor címkéket módosítanak.
+- **On tags deleted** akkor aktiválódik, amikor címkéket törölnek.
+- **On tags undeleted** akkor aktiválódik, amikor a törölt címkéket visszaállítják.
+
+### Sections
+
+- **On sections added** akkor aktiválódik, amikor szekciókat adnak hozzá.
+- **On sections changed** akkor aktiválódik, amikor szekciókat módosítanak.
+- **On sections deleted** akkor aktiválódik, amikor szekciókat törölnek.
+- **On sections undeleted** akkor aktiválódik, amikor a törölt szekciókat visszaállítják.
+
+### Stories
+
+- **On stories added** akkor aktiválódik, amikor történeteket adnak hozzá.
+- **On stories removed** akkor aktiválódik, amikor történeteket eltávolítanak.
+- **On stories undeleted** akkor aktiválódik, amikor a törölt történeteket visszaállítják.
+- **On stories comments added** akkor aktiválódik, amikor megjegyzéseket adnak a történetekhez.
+- **On stories comments changed** akkor aktiválódik, amikor a történetekhez fűzött megjegyzéseket módosítják.
+- **On stories comments removed** akkor aktiválódik, amikor megjegyzéseket távolítanak el a történetekből.
+- **On stories comments undeleted** akkor aktiválódik, amikor a történetekből törölt megjegyzéseket visszaállítják.
+
+### Workspaces
+
+- **On workspaces changed** akkor aktiválódik, amikor módosításokat végeznek a munkaterületeken.
+
+### Goals
+
+- **On goals added** akkor aktiválódik, amikor célokat adnak hozzá.
+- **On goals changed** akkor aktiválódik, amikor célokat módosítanak.
+- **On goals removed** akkor aktiválódik, amikor célokat eltávolítanak.
+- **On goals deleted** akkor aktiválódik, amikor célokat törölnek.
+- **On goals undeleted** akkor aktiválódik, amikor a törölt célokat visszaállítják.
+
+### Project memberships
+
+- **On project memberships added** akkor aktiválódik, amikor projekttagságokat adnak hozzá.
+- **On project memberships removed** akkor aktiválódik, amikor projekttagságokat távolítanak el.
+
+### Teams
+
+- **On teams added** akkor aktiválódik, amikor csapatokat adnak hozzá.
+- **On teams changed** akkor aktiválódik, amikor csapatokat módosítanak.
+- **On teams deleted** akkor aktiválódik, amikor csapatokat törölnek.
+- **On team memberships added** akkor aktiválódik, amikor csapattagságokat adnak hozzá.
+- **On team memberships removed** akkor aktiválódik, amikor csapattagságokat távolítanak el.
+
+### Workspace memberships
+
+- **On workspace memberships added** akkor aktiválódik, amikor munkaterület-tagságokat adnak hozzá.
+- **On workspace memberships removed** akkor aktiválódik, amikor munkaterület-tagságokat távolítanak el.
+
+## Példa
+
+![Asana példa](https://raw.githubusercontent.com/bb-io/Asana/main//README/images/example.png)
+
+Ebben a példában egy olyan munkafolyamatunk van, amely akkor indul el, amikor feladatokat adnak hozzá egy projekthez. A munkafolyamat ezután lekéri a feladat részleteit és elküldi azokat egy Slack csatornára.
+
+## Hiányzó funkciók
+
+A jövőben hozzáadhatunk műveleteket a következőkhöz:
+
+- Portfoliók
+- Projekt összefoglalók
+- Csapatok
+
+## Visszajelzés
+
+Az Asana implementációnkkal kapcsolatos visszajelzéseket mindig szívesen fogadjuk. Lépj kapcsolatba velünk a már létező csatornákon vagy hozz létre egy problémát.

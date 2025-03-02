@@ -1,0 +1,99 @@
+---
+  title: Microsoft Teams
+  description: De Microsoft Teams Blackbird-app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Bekijk op Github" target="_blank" href="https://github.com/bb-io/MicrosoftTeams" icon="github" />
+
+Microsoft 365 Teams is een collaboratief communicatieplatform dat chat, videoconferenties en bestandsdeling combineert, en een gecentraliseerde hub biedt voor teams om naadloos samen te werken. Het stelt organisaties in staat om efficiënt te verbinden, samen te werken en te communiceren, zowel op afstand als op kantoor.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat je een Microsoft 365-account hebt.
+
+### Webhooks en acties gebruiken voor kanaalberichten
+
+Als je webhooks en/of acties voor kanaalberichten wilt gebruiken, heb je goedkeuring van de beheerder van je organisatie nodig. Er zijn twee manieren om beheerderstoestemming te verlenen.
+
+De eerste manier is om organisatiebrede beheerderstoestemming te verlenen aan de Blackbird-applicatie:
+
+- Meld je aan bij het [Microsoft Entra-beheercentrum](https://entra.microsoft.com/) als [globale beheerder](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference#global-administrator), [beheerder voor bevoorrechte rollen](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference#privileged-role-administrator) of gebruiker met de [machtiging om toestemmingen aan applicaties te verlenen](https://learn.microsoft.com/en-us/azure/active-directory/roles/custom-consent-permissions).
+- Ga naar _Identity_ > _Applications_ > _Enterprise applications_ > _All applications_.
+- Voer _Blackbird_ in het zoekvak in en selecteer vervolgens de Blackbird-applicatie uit de zoekresultaten.
+- Ga naar _Security_ > _Permissions_.
+- Klik op _Grant admin consent for Blackbird.io International LLC_.
+
+![Zoeken naar Blackbird-applicatie](https://raw.githubusercontent.com/bb-io/MicrosoftTeams/main/image/README/searching_for_app.png)
+
+De tweede manier is om de beheerderstoestemmingsworkflow te configureren:
+
+- Meld je aan bij het [Microsoft Entra-beheercentrum](https://entra.microsoft.com/) als [globale beheerder](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference#global-administrator).
+- Ga naar _Identity_ > _Applications_ > _Enterprise applications_ > _Consent and permissions_ > _Admin consent settings_.
+- Onder _Admin consent requests_, selecteer _Yes_ voor _Users can request admin consent to apps they are unable to consent to_.
+- Configureer de volgende instellingen:
+    * _Who can review admin consent requests_ - selecteer gebruikers, groepen of rollen die zijn aangewezen als beoordelaars voor beheerderstoestemmingsverzoeken. Beoordelaars kunnen beheerderstoestemmingsverzoeken bekijken, blokkeren of weigeren, maar alleen globale beheerders kunnen beheerderstoestemmingsverzoeken goedkeuren. Om verzoeken goed te keuren, moet een beoordelaar beschikken over de [vereiste machtigingen](https://learn.microsoft.com/en-us/azure/active-directory/roles/custom-consent-permissions) om beheerderstoestemming te verlenen voor de aangevraagde applicatie. Mensen die als beoordelaars zijn aangewezen, kunnen inkomende verzoeken bekijken in het tabblad _My Pending_ nadat ze als beoordelaars zijn ingesteld. Nieuwe beoordelaars kunnen niet handelen op bestaande of verlopen beheerderstoestemmingsverzoeken.
+    * _Selected users will receive email notifications for requests_ - e-mailmeldingen aan de beoordelaars in- of uitschakelen wanneer een verzoek wordt gedaan.
+    * _Selected users will receive request expiration reminders_ - herinneringsmails aan de beoordelaars in- of uitschakelen wanneer een verzoek bijna verloopt.
+    * _Consent request expires after (days)_ - geef aan hoe lang verzoeken geldig blijven.
+- Klik op _Save_.
+
+![Beheerderstoestemmingsworkflow inschakelen](https://raw.githubusercontent.com/bb-io/MicrosoftTeams/main/image/README/enable-admin-consent-workflow.png)
+
+## Verbinden
+
+1. Navigeer naar apps en zoek naar Microsoft 365 Teams.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijvoorbeeld 'Mijn organisatie'.
+4. Onder _Channel messages scope required_ specificeer _Yes_ als je webhooks en/of acties voor kanaalberichten wilt gebruiken en _No_ als dit niet het geval is. Verschillende machtigingen worden toegevoegd aan het autorisatieverzoek op basis van de waarde van deze verbindingsparameter.
+5. Klik op _Authorize connection_.
+6. Volg de instructies die Microsoft je geeft, en autoriseer Blackbird.io om namens jou te handelen.
+7. Wanneer je terugkeert naar Blackbird, controleer of de verbinding is verschenen en de status _Connected_ is.
+
+![Verbinden](https://raw.githubusercontent.com/bb-io/MicrosoftTeams/main/image/README/connecting.png)
+
+## Actions
+
+### Chat
+
+- **List chats** geeft de lijst weer van chats waaraan de gebruiker deelneemt.
+- **Get chat message** haalt een enkel bericht of een berichtantwoord op in een chat.
+- **Download files attached to chat message**.
+- **Get the most recent chat messages**.
+- **Send message to chat** stuurt een nieuw bericht naar de gespecificeerde chat. Optioneel kun je een bestand bijvoegen van OneDrive en/of een bestand dat is verkregen als resultaat van de vorige actie.
+- **Delete message from chat**.
+
+### Channel
+
+- **Get channel message** haalt een enkel bericht of een berichtantwoord op in een kanaal.
+- **Download files attached to channel message**.
+- **Send message to channel** stuurt een nieuw bericht naar het gespecificeerde kanaal. Optioneel kun je een bestand bijvoegen van OneDrive en/of een bestand dat is verkregen als resultaat van de vorige actie.
+- **Reply to message in channel** stuurt een antwoord op een bericht naar een specifiek kanaal. Optioneel kun je een bestand bijvoegen van OneDrive en/of een bestand dat is verkregen als resultaat van de vorige actie.
+
+### Users
+
+- **Get my user information** haalt informatie op over het huidige account.
+- **List all users** geeft een lijst weer van gebruikers in je organisatie.
+- **Get user**.
+- **Get chat members** geeft alle gesprekdeelnemers in een chat weer.
+
+## Events
+
+- **On message sent to chat** wordt geactiveerd wanneer een nieuw bericht naar de chat wordt gestuurd.
+- **On message with attachments sent to chat** wordt geactiveerd wanneer een nieuw bericht met bijlagen naar de chat wordt gestuurd.
+- **On user mentioned in chat** wordt geactiveerd wanneer een nieuw bericht naar de chat wordt gestuurd waarin de gespecificeerde gebruiker wordt genoemd.
+- **On message sent to channel** wordt geactiveerd wanneer een nieuw bericht naar het kanaal wordt gestuurd.
+- **On message with attachment sent to channel** wordt geactiveerd wanneer een nieuw bericht met bijlagen naar het kanaal wordt gestuurd.
+- **On user mentioned in channel** wordt geactiveerd wanneer een nieuw bericht naar het kanaal wordt gestuurd waarin de gespecificeerde gebruiker wordt genoemd.
+
+## Ontbrekende functies
+
+In de toekomst kunnen we toevoegen:
+
+- Webhooks voor online vergaderopnames en transcripties
+- Webhooks voor chat-/kanaalleden
+- Meer acties voor teams, kanalen, chats
+- Acties voor online vergaderingen
+- Acties voor diensten en roosters
+
+Laat het ons weten als je hierin geïnteresseerd bent!

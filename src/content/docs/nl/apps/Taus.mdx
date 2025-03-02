@@ -1,0 +1,58 @@
+---
+  title: Taus
+  description: De Taus Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Taus" icon="github" />
+
+TAUS Quality Estimate by Language Data Network helpt gebruikers de kwaliteit van door machines vertaalde inhoud te beoordelen en geïnformeerde beslissingen te nemen over de geschiktheid ervan voor verschillende doeleinden.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een TAUS-account hebt.
+- Je een API-sleutel hebt die overeenkomt met je TAUS-account. Je kunt API-sleutels [hier](https://www.taus.net/user/services) vinden.
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar TAUS.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn TAUS-verbinding'.
+4. Vul de basis-URL in voor je TAUS-verbinding. Dit is waarschijnlijk ofwel `https://api.taus.net` of `https://api.sandbox.taus.net`
+5. Vul de API-sleutel in voor je TAUS-account.
+6. Klik op _Connect_.
+
+![TAUSBlackbirdConnection](https://raw.githubusercontent.com/bb-io/Taus/main/image/README/1714471684106.png)
+
+## Actions
+
+### Segments
+
+- **Estimate** Verkrijgt kwaliteitsinschattingsgegevens voor een enkel segment door te specificeren: - Brontekst - Brontaal - Doeltekst - Doeltaal -
+  Ondersteunde talen kunnen [hier](https://developer.taus.net/) gevonden worden. De sandbox-omgeving van TAUS ondersteunt alleen:
+
+- Engels (en)
+- Frans (fr)
+- Duits (de)
+- Italiaans (it)
+- Spaans (es)
+
+### XLIFF files
+
+- **Estimate XLIFF** Verkrijgt kwaliteitsinschattingsgegevens voor alle segmenten in een XLIFF 1.2-bestand. Verplichte invoergegevens zijn onder andere het vertaalde XLIFF-bestand, bron- en doeltaalwaarden. Als uitvoer wordt een gemiddelde score gegeven, wat het gemiddelde is van de kwaliteitsscores voor alle segmenten in het bestand. Daarnaast worden alle vertaaleenheden voorzien van hun individuele score, die wordt toegevoegd aan het `extradata`-attribuut in het XLIFF-bestand. Optioneel kun je de invoerparameters Threshold, New Target State en Condition toevoegen aan de Blackbird-actie om de doelstatuswaarde van segmenten die aan de gewenste criteria voldoen te wijzigen.
+
+Voorbeelden:
+
+Het instellen van de optionele invoerwaarden zoals weergegeven in de onderstaande afbeelding zal ertoe leiden dat alle segmenten met een score boven 0.9 hun doelstatuswaarden bijgewerkt krijgen naar "final".
+
+![TAUSoptionalinput1](https://raw.githubusercontent.com/bb-io/Taus/main/image/README/TAUSoptionalinput1.png)
+
+Op dezelfde manier zal de onderstaande instelling ervoor zorgen dat alle segmenten met een kwaliteitsscore onder of gelijk aan 0.6 hun doelstatuswaarde gewijzigd krijgen naar "needs-review-translation".
+
+![TAUSoptionalinput2](https://raw.githubusercontent.com/bb-io/Taus/main/image/README/TAUSoptionalinput2.png)
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

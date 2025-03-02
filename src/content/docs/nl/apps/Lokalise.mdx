@@ -1,0 +1,108 @@
+---
+title: Lokalise
+description: De Lokalise Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Lokalise" icon="github" />
+
+Lokalise is een continu lokalisatie- en vertaalbeheersplatform. Deze Lokalise-applicatie richt zich voornamelijk op project-, sleutel- en taakbeheer.
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar Lokalise. Als je Lokalise niet kunt vinden, klik dan op _App toevoegen_ in de rechterbovenhoek, selecteer Lokalise en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijv. 'Mijn klant'.
+4. Ga naar je Lokalise-profiel `https://app.lokalise.com/profile`
+5. Selecteer de sectie _API tokens_
+6. Klik op _Generate new token_, selecteer het tokentype. Klik daarna op _Generate_
+7. Kopieer het gegenereerde token en plak het in het juiste veld in Blackbird
+8. Klik op _Connect_.
+9. Bevestig dat de verbinding is verschenen en de status _Connected_ is.
+
+## Actions
+
+### Comments
+
+- **Add comments** voegt opmerkingen toe aan een specifieke `Key`.
+
+### Files
+
+- **List all project files** geeft een lijst van bestanden uit het specifieke `Project`. Je kunt ze filteren op naam.
+- **Download all project files as ZIP** retourneert een ZIP-bestand met alle projectbestanden.
+- **Download project source/translated files"** retourneert een lijst met projectbestanden.
+- **Download XLIFF file** downloadt een bestand van een taak per taal.
+- **Download XLIFF files from task** retourneert alle XLIFF-bestanden van een taak.
+- **Download all XLIFF files from project** retourneert alle XLIFF-bestanden van een project.
+- **Upload/Delete file for project**
+- **Upload file to project as XLIFF** Upload een bestand naar het project als XLIFF. Je kunt de optionele invoer `Overwrite existing keys` op true zetten als je bestaande sleutels wilt bijwerken in plaats van nieuwe toe te voegen.
+
+### Keys
+
+- **List all project keys** retourneert een lijst met sleutels voor het opgegeven project.
+- **List key IDs** retourneert een lijst met sleutel-ID's die kunnen worden gebruikt in acties voor het maken van een `Task`. Actie bevat standaardfilters van Lokalise API evenals aangepaste filters zoals _Unverified_, _Unreviewed_ en _Exclude tags_.
+- **Update key translation** werkt de vertaling voor een sleutel bij, door de betreffende sleutel-ID en locale te verstrekken.
+- **Get/Create/Delete key**
+
+### Languages
+
+- **List all system languages** retourneert een lijst met talen die door Lokalise worden ondersteund.
+- **List all project languages** retourneert een lijst met talen die aan het `Project` zijn toegevoegd.
+- **Build language** retourneert een taalobject dat kan worden gebruikt tijdens het maken van een `Task`. Op deze manier kun je meerdere talen bouwen met unieke toegewezen personen.
+- **Add/Delete delete project language**
+
+### Projects
+
+- **Empty project** verwijdert alle `Keys` en `Translations` uit het opgegeven project.
+- **List projects by date** retourneert een lijst met projecten gefilterd op interval van aanmaakdatum.
+- **List/Get/Create/Update/Delete project(s)**
+
+### Segments
+
+- **List/Get/Update segment(s)**
+
+### Tasks
+
+- **Create task from the built languages** maakt een nieuwe taak met talen uit de resultaten van de actie `Build language`. Opmerking: de gewone actie `Create` task wijst alle opgegeven gebruikers/groepen toe aan alle talen. Als je wilt dat talen unieke gebruikers/groepen hebben, gebruik dan deze actie.
+- **Create language task** maakt een taak voor één doeltaal. Omdat er slechts één doeltaal is, kun je direct gebruikers en groepen toewijzen, en sleutels filteren op vertaling beoordeeld/ongeverifieerd/onvertaald.
+- **List/Create/Get/Update/Delete task(s)**
+
+### Translations
+
+- **Update translation** werkt een specifieke vertaling bij
+
+## Events
+
+- **On key modified for assignee** triggert wanneer een projectsleutel wordt toegevoegd/gewijzigd of een nieuwe taak wordt aangemaakt.
+- **On project imported**
+- **On project exported**
+- **On project deleted**
+- **On project snapshot**
+- **On project branch added**
+- **On project branch deleted**
+- **On project branch merged**
+- **On project languages added**
+- **On project language removed**
+- **On project language settings changed**
+- **On project key added**
+- **On project keys added**
+- **On project key modified**
+- **On project keys deleted**
+- **On project key comment added**
+- **On project translation updated**
+- **On project translations updated**
+- **On project translation proofread**
+- **On project contributor added**
+- **On project contributor deleted**
+- **On team order created**
+- **On team order deleted**
+- **On team order completed**
+- **On project task initial TM leverage calculated**
+- **On project task created**
+- **On project task closed**
+- **On project task deleted**
+- **On project task language closed**
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

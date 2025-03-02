@@ -1,0 +1,128 @@
+---
+  title: Hubspot CMS
+  description: A Blackbird Hubspot CMS alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/Hubspot" icon="github" />
+
+
+A HubSpot CMS egy felhasználóbarát platform, amelyet arra terveztek, hogy egyszerűsítse a weboldalakhoz szükséges digitális tartalom létrehozásának, kezelésének és optimalizálásának folyamatát. Számos eszközt kínál, amelyek lehetővé teszik a vállalkozások számára, hogy kiterjedt technikai szakértelem nélkül építsék és testreszabják online jelenlétüket. A platform intuitív fogd és vidd interfésze megkönnyíti a tartalom létrehozását és szerkesztését, és hangsúlyt fektet a bejövő marketingstratégiákra. Ez teszi a HubSpot CMS-t értékes megoldássá azon vállalkozások számára, amelyek javítani szeretnék online jelenlétüket, bevonni közönségüket és értékes konverziókat elérni.
+
+A többnyelvű tartalomkezeléssel, globális tartalommodulokkal és tartalom személyre szabási funkciókkal a HubSpot CMS megkönnyíti a digitális tartalom különböző nyelvekhez és régiókhoz való adaptálását. A Blackbird.io-val való zökkenőmentes kapcsolódásnak köszönhetően a vállalkozások könnyedén szinkronizálhatják és kezelhetik tartalmaikat, adataikat és marketingstratégiáikat a platformok között. Érjen el magasabb szintű működési hatékonyságot, csökkentse a manuális erőfeszítéseket, és biztosítsa a következetes márkaüzenetet a különböző piacokon.
+
+## A beállítás előtt
+
+Mielőtt csatlakozna, győződjön meg arról, hogy:
+
+- Rendelkezik HubSpot CMS fiókkal és [beállította HubSpot fiókját](https://knowledge.hubspot.com/get-started/set-up-your-account).
+- [Létrehozott egy projektet](https://app.hubspot.com/academy/43682681/lessons/1054824/5082).
+- A fiók létrehozása után automatikusan be lesz jelentkezve. [Tudjon meg többet a HubSpotba való bejelentkezésről](https://knowledge.hubspot.com/account/why-can-t-i-log-into-hubspot) és a [jelszóproblémák elhárításáról](https://knowledge.hubspot.com/account/reset-user-passwords).
+- Fiókja megfelelő jogosultságokkal rendelkezik. Lásd alább.
+
+## Szükséges Hubspot jogosultságok
+
+Az alkalmazás a `content` és `forms` OAuth hatásköröket használja. Fiókjának hozzáféréssel kell rendelkeznie ezekhez a hatáskörökhöz. Fiókja megfelelő jogosultságokkal rendelkezik, ha Ön egy szuperadmin _vagy_ fiókja rendelkezik **az összes** alábbi jogosultsággal:
+
+- Marketing
+   - Forms
+   - Marketing email (megtekintés/szerkesztés/közzététel)
+   - Blog, landing pages, website pages (megtekintés/szerkesztés/közzététel)
+   - Design tools
+   - Content staging
+- Account > Settings access
+   - App marketplace access
+   - Website settings
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a **Hubspot (CMS)** alkalmazásra.
+2. Kattintson a _Add Connection_ gombra.
+   ![Add Connection](https://raw.githubusercontent.com/bb-io/Hubspot/main/image/README/connection.png)
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például 'Szervezetem'.
+4. Kattintson az _Authorize connection_ gombra.
+5. Kövesse a HubSpot CMS utasításait, és engedélyezze a Blackbird.io számára, hogy az Ön nevében eljárjon.
+6. Az utolsó szakaszban a Hubspot valószínűleg átirányítja Önt a szolgáltatásunkhoz anélkül, hogy meg kellene nyomnia a 'Connect app' gombot. <b>Kérjük, várjon néhány másodpercet, amíg ez megtörténik, és kerülje a gomb megnyomását</b>, mivel ez megkettőzi a Hubspot által már elküldött kérést, és UI hibát okozhat a kapcsolat oldalon. Az új kapcsolat 'Not Connected' státuszúnak tűnhet, de az alkalmazás oldalának frissítése után a státusz 'Connected'-re változik. Ha a Hubspot 5-7 másodpercen belül nem irányítja át Önt a szolgáltatásunkhoz, manuálisan kattinthat a 'Connect app' gombra
+![connect-app-button.png](https://raw.githubusercontent.com/bb-io/Hubspot/main/image/README/connect-app-button.png)
+7. Amikor visszatér a Blackbirdhez, ellenőrizze, hogy megjelent-e a kapcsolat, és a státusz _Connected_.
+   ![Connected](https://raw.githubusercontent.com/bb-io/Hubspot/main/image/README/connected.png)
+
+## Actions
+
+### Content actions
+
+> A "Content" az alkalmazásunkban elérhető összes tartalomtípusra utal, beleértve a landing és weboldalakat, blogbejegyzéseket, marketing e-maileket és marketing űrlapokat. Ezek az objektumok egy egységes tartalmi osztály alatt vannak egyesítve, amely a következő tulajdonságokat tartalmazza: Content ID, Title, Language, Created At, Updated At és Content Type (blog, landing_page, site_page, email vagy form).
+
+- **Search content**: Bármilyen típusú tartalom keresése.
+- **Get content**: Adott tartalomtípus metaadatainak lekérése az azonosítója alapján.
+- **Download content**: Tartalom letöltése HTML formátumban egy adott tartalomtípushoz az azonosítója alapján.
+- **Update content from HTML**: Tartalom frissítése HTML-fájlból.
+- **Update content**: Tartalom frissítése megadott kritériumok alapján az azonosítója segítségével.
+- **Delete content**: Tartalom törlése az azonosítója alapján.
+
+### Landing & site pages
+
+> Megjegyzés: a landing és site oldalakhoz tartozó műveletek ugyanazok, de külön műveletként szerepelnek mindegyikhez. Ajánlott a fent vázolt tartalom műveleteket használni, mivel ezek a jövőben helyettesítik az alábbi egyedi műveleteket.
+
+A site page egy általánosabb és sokoldalúbb oldal a Hubspot CMS weboldalon, amely különböző típusú tartalmakat tartalmazhat, és része a webhely általános navigációjának és struktúrájának. A landing page a HubSpot CMS-ben egy önálló oldal, amelyet általában egy adott marketingkampányhoz terveztek, világos cselekvésre ösztönző felhívással (CTA) a potenciális ügyfelek megszerzése érdekében.
+
+- **Get a landing/site page** Információk lekérése a webhelyén lévő egy adott oldalról, kiválasztva azt egy dinamikus legördülő listából bemeneti értékként.
+- **Search landing/site pages** keresi a bizonyos kritériumoknak megfelelő landing/site oldalakat. Az egyik ilyen kritérium a _Not translated in language_, amelyet használhat azon oldalak szűrésére, amelyeknek hiányzik a fordítása.
+- **Get a landing/site page as HTML file** Az oldal részleteinek és a tartalom HTML fájljának lekérése a könnyű fordítás és integráció érdekében, miközben megőrzi a formázást és az elrendezést.
+- **Translate a landing/site page from HTML file** Új fordítás létrehozása egy landing/site oldalhoz HTML fájl bemenete alapján. Lehetővé teszi a külsőleg lefordított tartalom zökkenőmentes integrálását a weboldalba, miközben megőrzi a HTML struktúrát. Megjegyzés: ha ezt a műveletet olyan landing/site oldalon használja, amelynek még nincsenek fordításai, meg kell adnia az elsődleges nyelvet.
+- **Schedule a landing/site page for publishing** Automatizálja a weboldal közzétételét, hogy a megfelelő időben tegye közzé a lefordított tartalmat, ezzel jobb felhasználói élményt biztosítva.
+
+### Blog posts
+
+- **Search blog posts** blogbejegyzéseket keres bizonyos kritériumok alapján. Az egyik ilyen kritérium a _Not translated in language_, amelyet használhat azon oldalak szűrésére, amelyeknek hiányzik a fordítása.
+- **Get blog post** Blogbejegyzés információinak lekérése.
+- **Create blog post** Új blogbejegyzés létrehozása. Ez a művelet lehetővé teszi friss, lokalizált tartalom létrehozását a globális közönség bevonása és a blog vagy weboldal elérésének bővítése érdekében, elősegítve a nemzetközi növekedést és a felhasználói elkötelezettséget.
+- **Delete blog post** Blogbejegyzés törlése
+- **Get blog post as HTML file** Blogbejegyzés lekérése HTML fájlként.
+- **Translate blog post from HTML file** Blogbejegyzés fordítása HTML fájlból.
+- **Update blog post** Blogbejegyzés információinak frissítése.
+- **Schedule a blog post page for publishing** Blogbejegyzés közzétételének automatizálása a lefordított tartalom megfelelő időben történő közzétételéhez, jobb felhasználói élményt biztosítva.
+
+### Marketing emails
+
+Megjegyzés: a Hubspot API béta állapotúnak jelöli ezeket a végpontokat.
+
+- **Search marketing emails** marketing e-maileket keres bizonyos kritériumok alapján.
+- **Create marketing email** új marketing e-mail létrehozása.
+- **Get marketing email content as HTML** visszaadja egy marketing e-mail tartalmát (lefordított) HTML fájlból. A `Marketing Email ID` mező kötelező 
+- **Update marketing email content from HTML** frissíti egy marketing e-mail tartalmát (lefordított) HTML fájlból. A `File` és `Marketing Email ID` mezők kötelezőek.
+- **Create marketing email from HTML** marketing e-mailt hoz létre feltöltött HTML fájlból kinyert tartalommal
+
+### Marketing forms
+
+Megjegyzés: a Hubspot API béta állapotúnak jelöli ezeket a végpontokat.
+
+- **Search marketing forms** marketing űrlapokat keres bizonyos kritériumok alapján.
+- **Get marketing form** lekérdez egy marketing űrlapot.
+- **Get marketing form as HTML** visszaadja a marketing űrlapot HTML fájlként a kényelmes fordítás érdekében.
+- **Update marketing form from HTML** frissíti a marketing űrlapot (lefordított) HTML fájlból.
+- **Create marketing form** új marketing űrlap létrehozása.
+- **Create marketing form from HTML** marketing űrlap létrehozása HTML fájl tartalomból a következő metaadat-azonosítók használatával: `name`, `type`, `language`, `archived`. Ha nincs konkrét metaadat, akkor a HTML címke azonosítókat keresi: `name`, `type`, `language`, `archived`.
+
+## Events
+
+- **On content created or updated** (polling): Meghatározott időközönként aktiválódik, és visszaadja az összes blogbejegyzést, landing page-et, site page-et, e-mailt és űrlapot, amelyeket a megadott időintervallumon belül frissítettek vagy hoztak létre.
+- **On blog posts created or updated** (polling): Meghatározott időközönként aktiválódik, és visszaadja az összes létrehozott vagy frissített blogbejegyzést.
+- **On landing pages created or updated** (polling): Meghatározott időközönként aktiválódik, és visszaadja az összes létrehozott vagy frissített landing page-et.
+- **On site pages created or updated** (polling): Meghatározott időközönként aktiválódik, és visszaadja az összes létrehozott vagy frissített site page-et.
+
+> Ezek az események polling mechanizmussal működnek, így nem kap azonnali értesítést a változásokról. Beállíthatja a lekérdezési időközt 5 perctől 7 napig terjedő időtartamban.
+
+## Hasznos tippek
+
+Minden HTML fájlokkal dolgozó művelet meta címkét ad a HTML-hez. Ez a meta címke a `blackbird-reference-id` nevet viseli. Ez a címke azonosítja a tartalmat a Hubspot CMS-ben, így nincs szükség arra, hogy az azonosítókat máshol tárolja
+
+## Példák
+
+![Example](https://raw.githubusercontent.com/bb-io/Hubspot/main/image/README/Event-example.png)
+
+Ez a példa egy polling eseményt használ az új blogbejegyzések ellenőrzésére. Amikor új blogbejegyzés készül, az esemény aktiválódik, és a blogbejegyzés lefordításra kerül egy másik nyelvre.
+
+![Generic example](https://raw.githubusercontent.com/bb-io/Hubspot/main/image/README/generic-bird.png)
+
+Ez a példa bemutatja, hogyan dolgozhat a `Hubspot CMS` alkalmazással általános módon. Ez a bird (automata folyamat) összegyűjti az összes frissített vagy létrehozott tartalmat egy meghatározott időintervallumon belül, és lefordítja egy adott nyelvre. Ennek a megközelítésnek a használatával nem kell öt különböző bird-et létrehoznia; elég egyet létrehozni erre a célra

@@ -1,0 +1,96 @@
+---
+  title: Zendesk
+  description: A Zendesk Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés GitHubon" target="_blank" href="https://github.com/bb-io/Zendesk" icon="github" />
+
+A Zendesk egy ügyfélszolgálati megoldásokat kínáló szolgáltató. Funkciói közé tartozik a jegykezelés, chat, súgócikkek és egy értékesítési CRM rendszer. Ez a Zendesk alkalmazás elsősorban a súgócikkekre és azok lokalizációs funkcióira összpontosít. Tartalmaz emellett műveleteket a jegyekhez is.
+
+## Beállítás előtt
+
+Mielőtt kapcsolódna, győződjön meg a következőkről:
+
+- Rendelkezik Zendesk fiókkal azon az példányon, amelyhez csatlakozni szeretne.
+- A Zendesk fiókja megfelelő jogosultságokkal rendelkezik. Javasolt, hogy **admin jogosultsággal rendelkezzen a Zendesk útmutatóhoz**. Továbbá, ha eseményindítókat szeretne beállítani, akkor vagy **admin jogosultsággal kell rendelkeznie a Zendesk támogatáshoz**, vagy rendelkeznie kell egy [egyedi szerepkörrel](https://support.zendesk.com/hc/en-us/articles/4408882153882-Creating-custom-roles-and-assigning-agents#topic_cxn_hig_bd), amely webhookok kezelésére jogosult.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keresse meg a Zendesket.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, pl. "Ügyfelem".
+4. Töltse ki az alap URL-t ahhoz a Zendesk példányhoz, amelyhez csatlakozni szeretne. Az alap URL formátuma: `https://<példány neve>.zendesk.com`. Ezt az URL-részt általában kimásolhatja, amikor be van jelentkezve a Zendesk példányába. Megjegyzés: a különböző márkákhoz lásd a lenti megjegyzést.
+5. Kattintson az _Authorize connection_ gombra.
+6. Kövesse a Zendesk utasításait, engedélyezve a Blackbird.io számára, hogy az Ön nevében eljárjon.
+7. Amikor visszatér a Blackbirdhez, győződjön meg arról, hogy a kapcsolat megjelent és az állapota _Connected_.
+
+![Csatlakozás](https://raw.githubusercontent.com/bb-io/Zendesk/main/image/README/1692612174111.png)
+
+> **Csatlakozás különböző márkákhoz**: Ha a Zendeskben több márka is van, minden egyes márkához külön kapcsolatot kell létrehoznia. A márkákat az alap URL-jük különbözteti meg. Az alap URL-t megtalálhatja a *Settings > Account > Brand management > Brands* útvonalon, és megtekintheti az egyes márkák *Subdomain* attribútumát. Használja a Subdomain attribútumot az alap URL mezőjében.
+
+![1738163882548](https://raw.githubusercontent.com/bb-io/Zendesk/main/image/README/1738163882548.png)
+
+## Actions
+
+### General
+
+- **Search helpcenter locales** visszaadja mind a súgóközpont alapértelmezett nyelvét, mind a Zendeskben konfigurált nyelvek listáját. Ezeket a beállításokat a Zendesk súgóközpont > Settings > Language settings menüpontban találhatja meg.
+
+### Articles
+
+- **Search articles** cikkek keresése különböző szűrési paraméterek használatával
+- **Get/create/update/archive article (metadata)** metaadat változók, például szekció, szerző, pozíció, jogosultsági csoport, felhasználói szegmens stb. beállítására használható.
+- **Search article missing locales** visszaadja a Zendeskben beállított, de ehhez a cikkhez még nem létező nyelvek listáját. Használható a hiányzó fordítások létrehozásához.
+- **Download article content** letölti egy cikk fordítható tartalmát fájlként. Használja ezt a műveletet valamilyen fordítási alkalmazással együtt és az 'Upload article content' művelettel.
+- **Upload article content** frissíti egy cikk fordítását, új fordítást hoz létre, ha még nincs. Bemenetként egy lefordított fájlt (HTML) vár. Mivel a cikk azonosító benne van a HTML-fájl fejrészében, a helyes cikket fogja frissíteni, de megadhatja a `Article ID`-t is a műveletben.
+- **Add label to article** professional vagy enterprise előfizetéssel címkét ad egy cikkhez.
+- **Delete label from article** professional vagy enterprise előfizetéssel töröl egy címkét egy cikkből.
+
+![HTML cikkek](https://raw.githubusercontent.com/bb-io/Zendesk/main/image/README/1692613846802.png)
+
+### Categories
+
+- **Get all categories** visszaadja az összes kategóriát ezen a Zendesk példányon. Megadhatja a _Missing translation in_ változót is, ebben az esetben ez a művelet csak azokat a kategóriákat adja vissza, amelyekből ténylegesen hiányzik fordítás az adott nyelven.
+- **Get category articles** visszaadja az összes cikket ebben a kategóriában.
+- **Create/update/delete category**.
+- **Get category missing translations** visszaadja a Zendeskben beállított, de ehhez a kategóriához még nem létező nyelvek listáját. Használható a hiányzó fordítások létrehozásához.
+- **Update category translation** új fordítást hoz létre, ha még nincs, vagy frissíti a meglévő fordítást.
+
+### Sections
+
+- **Get all sections** visszaadja az összes szekciót ezen a Zendesk példányon. Opcionálisan megadhatja a kategóriát is, ami a keresést az adott kategóriára korlátozza. Megadhatja a _Missing translation in_ változót is, ebben az esetben ez a művelet csak azokat a szekciókat adja vissza, amelyekből ténylegesen hiányzik fordítás az adott nyelven.
+- **Create/update/delete section**.
+- **Get section missing translations** visszaadja a Zendeskben beállított, de ehhez a szekcióhoz még nem létező nyelvek listáját. Használható a hiányzó fordítások létrehozásához.
+- **Update section translation** új fordítást hoz létre, ha még nincs, vagy frissíti a meglévő fordítást.
+
+### Tickets
+
+- **Create/update/delete ticket**.
+
+## Events
+
+- **On article published** a leghasznosabb esemény. Ez az esemény akkor aktiválódik, amikor bármely cikk publikálásra kerül, és tökéletes kiváltó ok lehet a cikk fordításra küldésére a hiányzó fordítások alapján (lásd a példát). Van egy opcionális paramétere: _Only source articles_, amely, ha igaz, csak akkor indítja el a folyamatot, ha a cikk forrásnyelvi változata kerül publikálásra. Ez segít elkerülni a fordítások végtelen publikálási ciklusát.
+- **Other** események cikkmegjegyzésekhez, feliratkozásokhoz, szavazatokhoz és felhasználói eseményekhez.
+
+## Példa
+
+![példa](https://raw.githubusercontent.com/bb-io/Zendesk/main/image/README/1692615904702.png)
+Ez a példa a sok felhasználási eset egyikét mutatja be. Itt, amikor egy cikk publikálásra kerül, lekérjük a hiányzó fordításokat és letöltjük a cikket HTML fájlként. Ezután létrehozunk egy új Lokalise projektet a hiányzó nyelvekkel mint célnyelvekkel, és feltöltjük a cikket. Végül küldünk egy Slack üzenetet, hogy értesítsük a projektmenedzsert.
+
+## Hiányzó funkciók
+
+A legtöbb tartalommal kapcsolatos művelet már létezik. Azonban a jövőben hozzáadhatunk műveleteket a következőkhöz:
+
+- Cikk mellékletek
+- Témák és Bejegyzések
+- Hozzászólások
+- Feliratkozások
+- Szavazatok
+- Részletes jegykezelés
+
+Tudassa velünk, ha érdekli!
+
+## Visszajelzés
+
+A Zendesk megvalósításunkkal kapcsolatos visszajelzéseket mindig nagyon szívesen fogadjuk. Lépjen kapcsolatba velünk a megszokott csatornákon, vagy hozzon létre egy problémajegyet.

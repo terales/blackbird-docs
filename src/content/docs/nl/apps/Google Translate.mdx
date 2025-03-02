@@ -1,0 +1,43 @@
+---
+  title: Google Translate
+  description: De Google Translate Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/GoogleTranslate" icon="github" />
+
+Google Translate is een meertalige neurale machinevertaalservice ontwikkeld door Google om tekst, documenten en websites van de ene taal naar de andere te vertalen.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een `Service account configuratiestring` hebt voor je Google Cloud-project. Je kunt een serviceaccount aanmaken of een bestaand account gebruiken in de Google Cloud Console (IAM & Admin -> Service accounts) en een sleutel genereren. De sleutel is een JSON-bestand dat de configuratiestring van het serviceaccount bevat. Je moet de inhoud van het JSON-bestand kopiëren en plakken in het veld `Service account configuratiestring`.
+
+## Verbinding maken
+
+1. Navigeer naar Apps en zoek de Google Translate app. Je kunt de zoekfunctie gebruiken om het te vinden.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn Google Translate verbinding'.
+4. Vul het veld 'Service account configuratiestring' in.
+5. Klik op _Connect_.
+
+![connection.png](https://raw.githubusercontent.com/bb-io/GoogleTranslate/main//image/README/Connection.png)
+
+## Actions 
+
+- **Translate** - Vertaalt tekst naar een specifieke taal. De actie ondersteunt ook woordenlijsten en adaptieve datasets.
+- **Detect language** - Detecteert de taal van de invoertekst
+- **Translate document** - Vertaalt een document naar een specifieke taal
+  - Ondersteunde invoerdocumentformaten:
+    - DOC application/msword
+    - DOCX application/vnd.openxmlformats-officedocument.wordprocessingml.document
+    - PDF application/pdf
+    - PPT application/vnd.ms-powerpoint
+    - PPTX application/vnd.openxmlformats-officedocument.presentationml.presentation
+    - XLS application/vnd.ms-excel
+    - XLSX application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

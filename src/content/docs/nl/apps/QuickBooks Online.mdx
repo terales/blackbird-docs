@@ -1,0 +1,141 @@
+---
+  title: QuickBooks Online
+  description: De Blackbird-app voor QuickBooks Online
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/QuickBooks-Online" icon="github" />
+
+QuickBooks is een boekhoudpakket ontwikkeld en op de markt gebracht door Intuit. QuickBooks, dat in 1992 werd geïntroduceerd, richt zich voornamelijk op kleine en middelgrote bedrijven en biedt zowel lokale boekhoudapplicaties als cloudversies die betalingen van bedrijven accepteren, facturen beheren en betalen, en loonverwerkingsfuncties bieden.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een QuickBooks Online-account hebt
+- Je een organisatie in QuickBooks Online hebt en je het organisatie-ID kent
+
+## Verbinding maken
+
+1. Ga naar Apps en zoek de QuickBooks Online-app. Je kunt de zoekfunctie gebruiken om deze te vinden.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn QuickBooks Online-verbinding'.
+4. Vul het veld 'API url' in, bijvoorbeeld `https://sandbox-quickbooks.api.intuit.com` of `https://quickbooks.api.intuit.com`.
+5. Vul het veld 'Company ID' in met je QuickBooks Online organisatie-ID.
+6. Vul het veld 'Minor version' in met de minor versie van de QuickBooks Online API die je wilt gebruiken. Op dit moment is de nieuwste versie `70` (en het kan beginnen vanaf `1`).
+7. Klik op _Connect_.
+
+## Actions
+
+### Class
+
+- **Get all classes**: Haal alle klassen op.
+- **Get class by ID**: Haal een klasse op met ID.
+- **Create class**: Maak klasse, optioneel met verwijzing naar bovenliggende klasse.
+- **Update class**: Werk klasse bij, optioneel met nieuwe naam, actieve status, subklasse-status, sync token, domein en volledig gekwalificeerde naam.
+
+### Customer
+
+- **Get all customers**: Haal alle klanten op.
+- **Find customer**: Haal de eerste overeenkomende klant op op basis van de opgegeven criteria.
+- **Get customer by ID**: Haal een klant op met ID.
+- **Create customer**: Maak een klant aan.
+- **Update customer**: Werk een klant bij.
+
+### Invoice
+
+- **Get all invoices**: Haal alle facturen op.
+- **Get invoice by ID**: Haal een factuur op met ID.
+- **Create invoice**: Maak een factuur met een klant en regelitems.
+- **Update invoice**: Werk een factuur bij met een nieuwe vervaldatum en klasseverwijzing.
+- **Delete invoice**: Verwijder een factuur.
+- **Send invoice**: Verstuur een factuur naar factureringsemailadres of e-mail opgegeven in het verzoek.
+- **Void invoice**: Maak een factuur ongeldig met een klasseverwijzing en sync token.
+- **Import invoice**: Importeer een factuur met een klant en regelitems. Deze actie gebruikt een bestand in JSON-formaat dat kan worden geëxporteerd uit andere apps in Blackbird. Als je 'Invoice ID' als optionele invoer opgeeft, zal de app proberen de factuur met dit ID bij te werken. Als je het niet opgeeft, zal de app een nieuwe factuur aanmaken. De volgende aangepaste velden worden ondersteund: 'class_id' - wordt toegewezen aan 'ClassRef' in de factuur, maar als Class ID is opgegeven in de optionele invoer, heeft dit voorrang.
+
+Merk op dat om de klasseverwijzing in een factuur te gebruiken, je ervoor moet zorgen dat `Preferences.AccountingInfoPrefs.ClassTrackingPerTxn` is ingesteld op true. Als het is ingesteld op false, wordt er geen fout gegenereerd, maar de klasseverwijzing zal niet worden opgeslagen.
+
+### Item
+
+- **Get all items**: Haal alle items op.
+- **Get item by ID**: Haal een item op met ID.
+
+### Payment
+
+- **Get all payments**: Haal alle betalingen op.
+- **Get payment by ID**: Haal een betaling op met ID.
+- **Create payment**: Maak een betaling met een klantverwijzing en factuurverwijzing.
+- **Update payment**: Werk een betaling bij met een nieuw bedrag en klasseverwijzing.
+- **Delete payment**: Verwijder een betaling.
+- **Void payment**: Maak een betaling ongeldig met een klasseverwijzing en sync token.
+- **Send payment**: Verstuur betaling naar e-mailadres opgegeven in het verzoek of factureringsemailadres.
+
+### Vendor
+
+- **Get all vendors**: Haal alle leveranciers op.
+- **Get vendor by ID**: Haal een leverancier op met ID.
+- **Update vendor**: Werkt een bestaande leverancier bij met opgegeven details.
+- **Create vendor**: Registreert een nieuwe leverancier met opgegeven details.
+
+### Attachment
+
+- **Get all attachments**: Haal alle bijlagen op.
+- **Get attachment**: Haal een bijlage op met ID.
+- **Create attachment**: Maak een bijlage met een bestand of notitie.
+- **Update attachment**: Werk een bijlage bij met ID.
+- **Delete attachment**: Verwijder bijlage met ID.
+- **Download attachment**: Download bijlage met ID.
+
+## Events
+
+### Class Events
+
+- **On classes created:** Deze gebeurtenis wordt geactiveerd wanneer een klasse of klassen worden aangemaakt.
+- **On classes updated:** Deze gebeurtenis wordt geactiveerd wanneer een klasse of klassen worden bijgewerkt.
+- **On classes deleted:** Deze gebeurtenis wordt geactiveerd wanneer een klasse of klassen worden verwijderd.
+
+### Vendor Events
+
+- **On vendors created:** Deze gebeurtenis wordt geactiveerd wanneer een leverancier of leveranciers worden aangemaakt.
+- **On vendors updated:** Deze gebeurtenis wordt geactiveerd wanneer een leverancier of leveranciers worden bijgewerkt.
+- **On vendors merged:** Deze gebeurtenis wordt geactiveerd wanneer een leverancier of leveranciers worden samengevoegd.
+- **On vendors deleted:** Deze gebeurtenis wordt geactiveerd wanneer een leverancier of leveranciers worden verwijderd.
+
+### Customer Events
+
+- **On customers created:** Deze gebeurtenis wordt geactiveerd wanneer een klant of klanten worden aangemaakt.
+- **On customers updated:** Deze gebeurtenis wordt geactiveerd wanneer een klant of klanten worden bijgewerkt.
+- **On customers merged:** Deze gebeurtenis wordt geactiveerd wanneer een klant of klanten worden samengevoegd.
+- **On customers deleted:** Deze gebeurtenis wordt geactiveerd wanneer een klant of klanten worden verwijderd.
+
+### Invoice Events
+
+- **On invoices created:** Deze gebeurtenis wordt geactiveerd wanneer een factuur of facturen worden aangemaakt.
+- **On invoices updated:** Deze gebeurtenis wordt geactiveerd wanneer een factuur of facturen worden bijgewerkt.
+- **On invoices voided:** Deze gebeurtenis wordt geactiveerd wanneer een factuur of facturen ongeldig worden gemaakt.
+- **On invoices deleted:** Deze gebeurtenis wordt geactiveerd wanneer een factuur of facturen worden verwijderd.
+
+### Payment Events
+
+- **On payments created:** Deze gebeurtenis wordt geactiveerd wanneer een betaling of betalingen worden aangemaakt.
+- **On payments updated:** Deze gebeurtenis wordt geactiveerd wanneer een betaling of betalingen worden bijgewerkt.
+- **On payments voided:** Deze gebeurtenis wordt geactiveerd wanneer een betaling of betalingen ongeldig worden gemaakt.
+- **On payments deleted:** Deze gebeurtenis wordt geactiveerd wanneer een betaling of betalingen worden verwijderd.
+
+## Voorbeelden
+
+### QuickBooks Online-facturen synchroniseren met Plunet-facturen
+
+Dit voorbeeld laat zien hoe je facturen van QuickBooks Online kunt synchroniseren met Plunet-facturen. Eerst ontvangen we de tekstmodule van de Plunet-factuur en controleren we of het een lege string is. Als het leeg is, maken we een nieuwe factuur in QuickBooks Online en stellen we de tekstmodule in op het nieuw aangemaakte factuur-ID. Als het niet leeg is, werken we de bestaande factuur in QuickBooks Online bij met dezelfde tekstmodule.
+
+![Example-invoices](https://raw.githubusercontent.com/bb-io/QuickBooks-Online/main/image/README/Example-invoices.png)
+
+Deze bird is gebouwd rond de acties `Export invoice` en `Import invoice`. De Export invoice-actie haalt de factuur op uit Plunet, terwijl de Import invoice-actie de factuur in QuickBooks Online aanmaakt of bijwerkt. Onder de motorkap ontvangen we gegevens van Plunet, zetten deze om in JSON-formaat, sturen ze naar de QuickBooks Online-app, analyseren ze en maken of werken vervolgens de factuur bij.
+
+## Niet-ondersteunde functies
+
+De Quickbooks Online API is vrij uitgebreid en we werken eraan om meer functies toe te voegen. Als je een specifieke functie nodig hebt, neem dan contact met ons op.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [gevestigde kanalen](https://www.blackbird.io/) of maak een issue aan.

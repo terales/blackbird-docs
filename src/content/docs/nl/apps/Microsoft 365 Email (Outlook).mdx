@@ -1,0 +1,55 @@
+---
+  title: Microsoft 365 Email (Outlook)
+  description: De Microsoft 365 Email (Outlook) Blackbird-app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/MicrosoftOutlook" icon="github" />
+
+Microsoft 365 Email is een persoonlijk informatiebeheersysteem waarmee gebruikers hun e-mails kunnen beheren.
+
+## Vóór het instellen
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat je een Microsoft 365-account hebt.
+
+## Verbinding maken
+
+1. Ga naar apps en zoek naar Microsoft 365 Email.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn organisatie'.
+4. Klik op _Authorize connection_.
+5. Volg de instructies die Microsoft je geeft en autoriseer Blackbird.io om namens jou te handelen.
+6. Wanneer je terugkeert naar Blackbird, controleer dan of de verbinding is verschenen en de status _Connected_ is.
+
+![Connecting](https://raw.githubusercontent.com/bb-io/MicrosoftOutlook/main/image/README/connecting.png)
+
+## Actions
+
+- **List most recent messages** geeft berichten terug die in de afgelopen uren zijn ontvangen. Als het aantal uren niet is opgegeven, worden berichten van de afgelopen 24 uur weergegeven. Om berichten uit een specifieke mailmap (bijv. inbox) op te halen, specificeer je de betreffende parameter.
+- **Get message** haalt een specifieke e-mail op uit je mailbox.
+- **List attached files** haalt een lijst op van bestanden die aan een bericht zijn gekoppeld.
+- **List mail folders**.
+- **Create draft message** maakt een concept van een nieuw bericht. Deze actie is handig wanneer je later in de flow updates aan je e-mail wilt maken (bijvoorbeeld bijlagen toevoegen in een lus) of wanneer het later door een persoon moet worden beoordeeld.
+- **Attach file to draft message**.
+- **Update draft message subject**.
+- **Update draft message body**.
+- **Add recipients to draft message** voegt een of meer e-mailontvangers toe aan een bestaande lijst met ontvangers van een conceptbericht.
+- **Remove recipients from draft message** verwijdert een of meer e-mailontvangers uit een bestaande lijst met ontvangers van een conceptbericht.
+- **Send draft message**.
+- **Send new message** maakt een nieuw bericht aan en verstuurt het in één actie.
+- **Forward message**.
+- **Reply to a message**.
+- **Delete message** verwijdert verzonden of conceptberichten.
+
+## Events
+
+- **On email created** wordt geactiveerd wanneer een nieuwe e-mail wordt aangemaakt in een opgegeven mailmap.
+- **On email updated** wordt geactiveerd wanneer een e-mail wordt bijgewerkt in een opgegeven mailmap.
+- **On emails received** wordt geactiveerd wanneer nieuwe e-mails worden ontvangen in de inbox-map.
+- **On emails with files attached received** wordt geactiveerd wanneer e-mails met bestandsbijlagen worden ontvangen in de inbox-map.
+
+## Voorbeeld
+
+![example](https://raw.githubusercontent.com/bb-io/MicrosoftOutlook/main/image/README/example.png)
+
+Hier voeren we e-mailinhoudclassificatie uit met behulp van een van Cohere's modellen wanneer een e-mail wordt ontvangen, en op basis van de voorspelling sturen we het bericht door naar een specifieke klantenservicespecialist.

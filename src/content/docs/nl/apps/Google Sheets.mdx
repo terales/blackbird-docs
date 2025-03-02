@@ -1,0 +1,54 @@
+---
+  title: Google Sheets
+  description: De Google Sheets Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/GoogleSheets" icon="github" />
+
+Google Sheets is een cloud-gebaseerde spreadsheet-tool waarmee je gemakkelijk kunt samenwerken bij het maken, bewerken en analyseren van gegevens online. Met functies voor samenwerking in realtime en een gebruiksvriendelijke interface is het een veelzijdig platform voor het organiseren van informatie, het beheren van projecten en het maken van grafieken en diagrammen.
+
+## Acties
+
+### Spreadsheet Actions
+
+- **Add new sheet row** Voegt een nieuwe rij toe aan de eerste lege regel van het blad
+- **Create sheet** Maakt een blad aan
+- **Download sheet CSV file** Downloadt CSV-bestand
+- **Download spreadsheet as PDF file** Downloadt specifieke spreadsheet in PDF
+- **Find sheet row** Door een kolomadres en een waarde op te geven, wordt het rijnummer geretourneerd waar de waarde zich bevindt
+- **Get column** Haalt kolomwaarden op
+- **Get range** Haalt specifiek bereik op
+- **Get sheet cell** Haalt cel op via adres
+- **Get sheet row** Haalt rij op via adres
+- **Get sheet used range** Haalt gebruikt bereik op
+- **Update sheet cell** Werkt cel bij via adres
+- **Update sheet row** Werkt rij bij vanaf startadres
+- **Update sheet column** Werkt kolom bij vanaf startadres
+
+### Glossary Actions
+
+- **Import glossary** Importeert woordenlijst als een blad
+- **Export glossary** Exporteert woordenlijst vanuit een blad
+
+Om de actie **Export glossary** te gebruiken, zorg ervoor dat het Google-blad de structuur weerspiegelt die is verkregen uit het resultaat van de actie **Import glossary**. Volg deze richtlijnen:
+
+- **Bladstructuur**:
+    - De eerste rij dient als kolomnamen, die eigenschappen van de woordenlijstentiteit vertegenwoordigen: _ID_, _Definition_, _Subject field_, _Notes_, _Term (language code)_, _Variations (language code)_, _Notes (language code)_.
+    - Voeg kolommen toe voor elke taal die in de woordenlijst voorkomt. Als de woordenlijst bijvoorbeeld Engels en Spaans bevat, zijn de kolomnamen: _ID_, _Definition_, _Subject field_, _Notes_, _Term (en)_, _Variations (en)_, _Notes (en)_, _Term (es)_, _Variations (es)_, _Notes (es)_.
+- **Optionele velden**:
+    - _Definition_, _Subject field_, _Notes_, _Variations (language code)_, _Notes (language code)_ zijn optioneel en kunnen leeg worden gelaten.
+- **Hoofdterm en synoniemen**:
+    - _Term (language code)_ vertegenwoordigt de hoofdterm in de opgegeven taal voor de woordenlijst.
+    - _Variations (language code)_ bevat synonieme waarden voor de term.
+- **Verwerking van notities**:
+    - Notities in de kolom _Notes_ moeten worden gescheiden door ';' als er meerdere notities zijn voor een bepaalde invoer.
+- **Verwerking van variaties**:
+    - Variaties in de kolom _Variations (language code)_ moeten worden gescheiden door ';' als er meerdere variaties zijn voor een bepaalde term.
+- **Notitieformaat voor termen**:
+    - Elke notitie in de kolom _Notes (language code)_ moet deze structuur volgen: **Term of variatie: notitie**.
+    - Notities voor termen moeten worden gescheiden door ';;'. Bijvoorbeeld, 'money: may refer to physical or banked currency;; cash: refers to physical currency.'
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

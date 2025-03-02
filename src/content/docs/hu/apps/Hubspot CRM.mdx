@@ -1,0 +1,91 @@
+---
+  title: Hubspot CRM
+  description: A Hubspot CRM Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés Githubon" target="_blank" href="https://github.com/bb-io/HubspotCRM" icon="github" />
+
+A Hubspot CRM egy népszerű és széles körben használt ügyfélkapcsolat-kezelő platform, amelyet arra terveztek, hogy segítse a vállalkozásokat értékesítési, marketing és ügyfélszolgálati erőfeszítéseik hatékonyabb és szervezettebb kezelésében. Ez a Hubspot CRM alkalmazás elsősorban a vállalatok, üzletek, jegyek, kapcsolatok és a közöttük lévő kapcsolatok kezelésére összpontosít.
+
+## Csatlakozás
+1. Navigálj az alkalmazásokhoz és keress rá a **Hubspot (CRM)** kifejezésre. Ha nem találod a Hubspot (CRM) alkalmazást, kattints a jobb felső sarokban található _Add App_ gombra, válaszd ki a Hubspot (CRM) opciót, és add hozzá az alkalmazást a Blackbird környezetedhez.
+2. Kattints az _Add Connection_ gombra.
+3. Nevezd el a kapcsolatot a későbbi hivatkozáshoz, például 'Saját szervezetem'.
+4. Kattints az _Authorize connection_ gombra.
+5. Kövesd a HubSpot CRM által adott utasításokat, engedélyezve a Blackbird.io számára, hogy a nevedben eljárjon.
+6. Amikor visszatérsz a Blackbird felületére, győződj meg róla, hogy a kapcsolat megjelent és az állapota _Connected_.
+
+## Actions
+
+### Associations
+
+-   **List associations** visszaadja a megadott objektumkapcsolatok listáját.
+-   **List association definitions** visszaadja a megadott objektumkapcsolat-definíciók listáját.
+-   **Create association label** kapcsolati címkéket állít be két rekord között.
+-   **Create/delete association**
+-   **Create/delete association definition**
+
+### Companies
+
+-  **Get all companies** visszaadja az összes vállalat listáját.
+-  **Get company address** visszaadja a vállalat teljes címét.
+-  **Get company by custom property** visszaad egy vállalatot a megadott tulajdonság alapján.
+-  **Get/create/delete company**
+-  **Get/set company property**
+
+### Contacts
+
+-  **Get all contacts** visszaadja az összes kapcsolat listáját.
+-  **Get/create/delete contact**
+-  **Get/set contact property**
+
+### Deals 
+
+-  **Get all deals** visszaadja az összes üzlet listáját.
+-  **Get/create/delete deal**
+-  **Get/set deal property**
+
+### Quotes
+
+-  **Get all quotes** visszaadja az összes árajánlat listáját.
+-  **Get/create/delete quote**
+-  **Get/set quote property**
+
+### Tickets
+
+-  **Get all tickets** visszaadja az összes jegy listáját.
+-  **Get/create/delete ticket**
+-  **Get/set ticket property**
+
+## Events
+
+-   **On company created/deleted/merged**
+-   **On company association/property changed**
+-   **On contact created/deleted/merged/restored**
+-   **On contact association/property changed**
+-   **On contact deleted for privacy**
+-   **On conversation created/deleted**
+-   **On conversation deleted for privacy**
+-   **On conversation new message**
+-   **On conversation property changed**
+-   **On deal created/deleted/merged/restored**
+-   **On deal association/property changed**
+-   **On line item created/deleted/merged/restored**
+-   **On line item association/property changed**
+-   **On product created/deleted/merged/restored**
+-   **On product property changed**
+-   **On ticket created/deleted/merged/restored**
+-   **On ticket association/property changed**
+
+## Hiányzó funkciók
+
+A jövőben hozzáadhatunk műveleteket a következőkhöz:
+
+-   Adók
+-   Célok
+-   Tételek
+
+## Visszajelzés
+
+A Hubspot CRM megvalósításunkkal kapcsolatos visszajelzéseket mindig nagyon szívesen fogadjuk. Vedd fel velünk a kapcsolatot a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozz létre egy problémát.

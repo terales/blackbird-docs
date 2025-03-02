@@ -1,0 +1,274 @@
+---
+  title: Plunet
+  description: A Plunet Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Plunet" icon="github" />
+
+
+A Plunet egy fordítási üzletmenedzsment szoftvermegoldás. Funkciói közé tartozik árajánlatok, megrendelések készítése, erőforrások hozzárendelése a munkákhoz és számlázás. Ez a Plunet alkalmazás lehetővé teszi számos munkaigényes feladat automatizálását.
+
+## Beállítás előtt
+
+A csatlakozás előtt győződjön meg a következőkről:
+
+- Rendelkezik Plunet példánnyal és megfelelő adminisztrátori jogosultságokkal ezen a példányon.
+- Létrehozott egy Plunet API felhasználót.
+
+## Csatlakozás
+
+1. Navigáljon az Alkalmazásokhoz, és keresse meg a **Plunet** alkalmazást. A keresővel is megtalálhatja.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például: 'Saját Plunet kapcsolat'.
+4. Adja meg a csatlakoztatni kívánt Plunet példány URL-jét. Ezt általában a Plunet-fiókjába bejelentkezve másolhatja ki az URL egy részéből.
+5. Adja meg a Plunet API felhasználójának felhasználónevét.
+6. Adja meg a Plunet API felhasználójának jelszavát.
+7. Kattintson a _Connect_ gombra.
+
+![1701864930160](https://raw.githubusercontent.com/bb-io/Plunet/main/image/README/1701864930160.png)
+
+### Hibaelhárítás
+
+Ha nem tud csatlakozni, ellenőrizze a következőket:
+1. Az URL-nek így kell kinéznie: `https://plunet-friend.plunet.com`. A végén ne legyen /PlunetAPI.
+2. Győződjön meg arról, hogy az URL a szerverünkről elérhető. Ennek ellenőrzéséhez próbálja meg megnyitni az URL-t a böngészőjében a '/PlunetAPI?wsdl' végződéssel (egy XML dokumentumot kell látnia, amely az API-t írja le).
+3. Győződjön meg arról, hogy nincsenek olyan tűzfalszabályok, amelyek blokkolják a kapcsolatot, vagy olyan IP-cím fehérlista, amely meghatározza a Plunet példányához csatlakozni jogosult IP-címeket (vagy ha van ilyen, akkor adja hozzá a Blackbird IP-címeit a fehérlistához).
+
+## Actions
+
+### Contacts
+
+- **Get customer contacts** Kilistázza az ügyfelekhez kapcsolódó összes elérhetőséget
+- **Get contact** visszaadja a kapcsolattartó adatait
+- **Get contact by external ID** megtalálja a kapcsolattartót a külső azonosító mező alapján
+- **Create contact** új ügyfél-kapcsolattartót hoz létre
+- **Update contact** frissíti a meglévő ügyfél-kapcsolattartót
+
+### Customers
+
+- **Search customers** ügyfelek listáját adja vissza számos opcionális keresési paraméter alapján, beleértve:
+  - Customer type
+  - Email
+  - Source language
+  - Name 1 & Name 2
+  - Status
+- **Get customer**
+- **Delete customer**
+- **Create customer**
+- **Update customer**
+
+### Documents
+
+- **Upload file** fájlt tölt fel egy adott entitás meghatározott mappájába, amelyhez fájlok csatolhatók
+- **Download file** bármely entitás fájlját letöltheti, amelyhez fájlok csatolhatók
+- **Download all files in folder**
+- **Calculate word count** kiszámítja a dokumentumok szószámát. Csak szöveges fájlok támogatottak, mint például .txt, .html, .xliff, .docx és .pdf.
+
+### Items
+
+- **Search items** tételek listáját adja vissza a következő kritériumok alapján, opcionálisan a visszaadott pénznem is beállítható:
+  - Order or quote iD
+  - Item status
+  - Document status
+- **Get item**
+- **Create item**
+- **Delete item**
+- **Update item**
+- **Get item pricelines** visszaadja az összes ehhez a tételhez csatolt ársort
+- **Create item priceline** új ársor bejegyzést hoz létre ehhez a tételhez
+- **Delete item priceline** töröl egy ársort egy tételből
+- **Update item priceline** frissít egy ársort egy tételen
+
+Megjegyzendő, hogy tételek létrehozásakor/frissítésekor a forrás- és célnyelvek beállíthatók (vagy mindkettőt meg kell adni, vagy egyiket sem). A Blackbird a megfelelő meglévő nyelvkombinációt rendeli a tételhez, vagy ha a nyelvkombináció nem létezik, először létrehozza a nyelvkombinációt a rendelésen vagy árajánlaton.
+
+### Jobs
+
+- **Get item jobs** egy adott tételhez kapcsolódó munkák listáját adja vissza
+- **Get job**
+- **Create job**
+- **Delete job**
+- **Update job**
+- **Get job pricelines**
+- **Create job priceline**
+- **Delete job priceline**
+- **Update job priceline**
+
+### Orders
+
+- **Search orders** rendelések listáját adja vissza számos opcionális keresési paraméter alapján, beleértve:
+  - Date from
+  - Date to
+  - Source language
+  - Target language
+  - Status
+  - Customer ID
+  - Name
+  - Description
+  - Type
+- **Get order**
+- **Create order**
+- **Delete order**
+- **Update order**
+- **Add language combination to order**
+
+![1701867033221](https://raw.githubusercontent.com/bb-io/Plunet/main/image/README/1701867033221.png)
+
+Példa arra, hogy milyen részletességgel választhatók ki a rendelések (és más entitások).
+
+### Payables
+
+- **Search payables** fizetendő tételek listáját adja vissza számos opcionális keresési paraméter alapján, beleértve:
+- **Get payable**
+- **Export payable** egy fizetendő tételt JSON formátumba exportál, amely más alkalmazásokban használható.
+- **Update payable**
+
+### Quotes
+
+- **Search quotes** árajánlatok listáját adja vissza számos opcionális keresési paraméter alapján, beleértve:
+  - Date from
+  - Date to
+  - Date refers to (invoice date, value date, due date, paid date)
+  - Exported
+  - Status
+  - Currency
+  - Resource ID
+- **Get quote**
+- **Get quote item target languages for source**
+- **Create quote**
+- **Delete quote**
+- **Update order**
+- **Add quote combination to quote**
+
+### Requests
+
+- **Search requests** kérések listáját adja vissza számos opcionális keresési paraméter alapján, beleértve:
+  - Date from
+  - Date to
+  - Source language
+  - Target language
+  - Status
+  - Customer type
+  - Customer ID
+- **Get request**
+- **Create request**
+- **Delete request**
+- **Update request**
+- **Add language combination to request**
+- **Create quote from request**
+- **Create order from request**
+
+### Resources
+
+- **Search resources** erőforrások listáját adja vissza számos opcionális keresési paraméter alapján, beleértve:
+  - Contact ID
+  - Resource type
+  - Email
+  - Name 1 & Name 2
+  - Status
+  - Source language
+  - Target language
+  - Working status
+- **Get resource** Egy adott erőforrás részleteinek lekérése
+- **Find resource** Egy adott erőforrás keresése meghatározott kritériumok alapján
+- **Find resource by text module** Erőforrások keresése szövegmodul alapján
+- **Update resource** Egy adott erőforrás frissítése új adatokkal
+- **Assign resource to job** erőforrás hozzárendelése egy munkához
+- **Create resource** új üres erőforrás-adatkészlet létrehozása
+
+### Custom properties
+
+- **Set property**
+- **Get property**
+- **Set text module value** beállítja egy szövegmodul értékét, ha az egyetlen értéket képvisel
+- **Get text module value** lekéri egy szövegmodul értékét, ha a szövegmodul több értéket képvisel, az elsőt adja vissza
+- **Get multiple text module values** értékek listáját adja vissza. Akkor működik, ha a szövegmodul több értéket képvisel.
+- **Set multiple text module values** beállítja a szövegmodul értékeinek listáját, ha az több értéket képvisel.
+
+Megjegyzendő, hogy a szövegmodulokkal meg kell adnia a Plunet _Flag_ értéket, amely az Admin > Document templates > Text modules menüpontban található. A jelzők általában [szögletes zárójelek] között vannak létrehozva.
+
+## Keresési korlátozások
+
+A keresési műveletek legfeljebb 50 eredményt adnak vissza. Ha több eredményre van szüksége, használhatja a `Limit` opcionális paramétert a limit növeléséhez.
+
+Ezt a korlátot azért állítottuk be, hogy megelőzzük a több párhuzamos művelet egyidejű végrehajtásából eredő problémákat. Amikor több keresési műveletet futtatnak egyidejűleg, az jelentős terhelést jelent a Plunet API-ra. Ez időtúllépéseket és hibákat okozhat, különösen nagy számú eredmény esetén. Az egyes keresési műveletekben visszaadott eredmények számának korlátozásával segítünk biztosítani a Plunet API stabilabb és megbízhatóbb teljesítményét.
+
+## Events
+
+Minden webhook visszaadja az összes adatot arról az entitásról, amelyen aktiválódott. Minden _status changed_ eseménynek van egy opcionális beviteli mezője, a _new status_, amely felhasználható az esemény után bekövetkező új állapot megkülönböztetésére.
+
+### Customers
+
+- **On customer deleted**
+- **On customer created**
+- **On customer status changed**
+
+### Items
+
+- **On item deleted**
+- **On item created**
+- **On item status changed**
+- **On item delivery date changed**
+
+### Jobs
+
+- **On job deleted**
+- **On job created**
+- **On job status changed**
+- **On job delivery date changed**
+- **On job start date changed**
+
+### Orders
+
+- **On order deleted**
+- **On order created**
+- **On order status changed**
+
+### Quotes
+
+- **On quote deleted**
+- **On quote created**
+- **On quote status changed**
+
+### Requests
+
+- **On request deleted**
+- **On request created**
+- **On request status changed**
+
+### Resources
+
+- **On resource deleted**
+- **On resource created**
+- **On resource status changed**
+
+### Payables
+
+- **On payable created**
+
+## Példa
+
+![1701866832560](https://raw.githubusercontent.com/bb-io/Plunet/main/image/README/1701866832560.png)
+
+A következő példa azt mutatja, hogyan lehet beállítani egy bird-et, amely új Wise kötegelt átutalást hoz létre minden olyan fizetendő tételhez, amely fizetésre kész állapotban van, és ahol az erőforrások a Wise platformon vannak. Egy kiegészítő bird frissítené a fizetendő tétel állapotát, amikor a fizetés sikeresen megtörtént a Wise-ban.
+
+## Leggyakoribb felhasználási esetek
+
+1. **Plunet és CRM adatok szinkronizálása** - A Blackbird olyan CRM platformokat támogat, mint a HubSpot, Notion, Salesforce és Pipedrive.
+2. **Plunet megrendelések létrehozása bejövő TMS feladatokból csoportosítással-kötegelt feldolgozással** - Olyan rendszereket támogatunk, mint a Bureau Works, Lokalise, Crowdin, Phrase, Smartling, XTM és még sok más.
+3. **CAT eszközök integrálása Plunet-tel (kétirányú integráció)**.
+4. **Szállítók kifizetése Wise-szal** - Plunet-Wise fizetési integráció.
+5. **Integráció a QuickBooks Online-nal**.
+6. **Integráció az Outlook, Gmail, Teams és Slack alkalmazásokkal** a jobb kommunikáció érdekében.
+7. **Adatok szinkronizálása BI eszközökkel**.
+8. **Plunet - Remote.com integráció** - Kulcsfontosságú adatok szinkronizálása a Plunet és a Remote között.
+
+Szeretne többet megtudni? [Foglaljon be egy demót](https://www.blackbird.io/)
+
+## Hiányzó funkciók
+
+Hiányol egy bizonyos funkciót? Tudassa velünk!
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy van visszajelzése a megvalósításunkról? Lépjen kapcsolatba velünk a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

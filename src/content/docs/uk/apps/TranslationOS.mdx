@@ -1,0 +1,43 @@
+---
+  title: TranslationOS
+  description: Додаток Blackbird для TranslationOS
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/TranslationOS" icon="github" />
+
+API TranslationOS дозволяє програмно локалізувати ваш вміст більш ніж 200 мовами, використовуючи послуги Translated.
+
+## Перед налаштуванням
+
+Перш ніж ви зможете підключитися, переконайтеся, що:
+
+- У вас є TranslationOS.
+- Ви запросили API-ключ TranslationOS. Дивіться розділ [автентифікація](https://api-sandbox.translated.com/v2#section/Authentication) в документації TranslationOS.
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть TranslationOS. Якщо ви не можете знайти TranslationOS, натисніть _Add App_ у верхньому правому куті, виберіть TranslationOS і додайте додаток до вашого середовища Blackbird.
+2. Натисніть _Add Connection_.
+3. Назвіть ваше підключення для подальшого використання, наприклад, 'Мій TranslationOS'.
+4. Введіть ваш [API-ключ](https://api-sandbox.translated.com/v2#section/Authentication) TranslationOS.
+5. Натисніть _Authorize connection_.
+
+![connecting](https://raw.githubusercontent.com/bb-io/TranslationOS/main/image/README/1693309042281.png)
+
+## Actions
+
+### Translation
+
+- **Create text translation** створює переклад на основі заданого тексту. Переклад ставиться в чергу і буде оброблений сервісом Translated. Детальне пояснення всіх опцій див. у [документації TranslationOS](https://api-sandbox.translated.com/v2#tag/Translate/operation/translate).
+- **Create file translation** працює так само, як і переклад тексту, але з вхідним файлом.
+- **Update translation** оновлює існуючий запит на переклад
+- **Cancel translation** скасовує існуючий запит на переклад
+
+## Events
+
+- **On translation finished** спрацьовує, коли переклад завершено. При налаштуванні цієї події у пташці вам надається URL зворотного виклику. Скопіюйте цей URL і використовуйте його в діях створення перекладу в Blackbird, щоб направляти ці переклади до цієї пташки.
+
+## Зворотній зв'язок
+
+Відгуки про нашу реалізацію TranslationOS завжди дуже вітаються. Зв'яжіться з нами, використовуючи [встановлені канали](https://www.blackbird.io/), або створіть проблему (issue).

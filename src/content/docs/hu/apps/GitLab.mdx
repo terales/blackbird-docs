@@ -1,0 +1,104 @@
+---
+  title: GitLab
+  description: A GitLab Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés GitHubon" target="_blank" href="https://github.com/bb-io/GitLab" icon="github" />
+
+A GitLab egy fejlesztői platform, amely lehetővé teszi a fejlesztők számára a kód létrehozását, tárolását és kezelését. Ez a GitLab alkalmazás a GitLab események és fájlműveletek Blackbird ökoszisztémába való integrálására összpontosít.
+
+## Beállítás előtt
+
+Mielőtt csatlakozna, győződjön meg arról, hogy:
+
+- Rendelkezik GitLab fiókkal.
+- Tulajdonosi jogosultságokkal rendelkezik azon a tárolón, amelyen automatizálni szeretne.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a GitLab-ra. Ha nem találja a GitLab-ot, kattintson a jobb felső sarokban található _Add App_ gombra, válassza a GitLab-ot, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például: 'Saját GitLab kapcsolat'.
+4. Kattintson az _Authorize connection_ gombra.
+5. Kövesse a GitLab által adott utasításokat, hogy engedélyezze a Blackbird.io számára, hogy az Ön nevében eljárjon.
+6. Amikor visszatér a Blackbird-hez, ellenőrizze, hogy a kapcsolat megjelent-e és az állapota _Connected_.
+
+![1705402013379](https://raw.githubusercontent.com/bb-io/GitLab/main/image/README/1705402013379.png)
+
+## Actions
+
+### Repositories
+
+- **List repositories**
+- **Create new repository**
+- **Get repository**
+- **Get repository issues**
+- **List repository folder content**
+
+### Branches
+
+- **List branches**
+- **Get branch**
+
+### Commits
+
+- **List commits**
+- **Get commit**
+
+### Merge requests
+
+- **Create merge request**
+- **List merge requests**
+- **Get merge request**
+- **Get repository merge requests**
+- **Complete merge request**
+
+### Files
+
+- **Get repository file**
+- **Get all files in folder**
+- **Get files by filepaths**
+- **Delete file**
+- **Push file**
+- **Update file**
+
+### Users
+
+- **Get my user data**
+- **Get user**
+- **Get user by username**
+
+### Utility
+
+- **Is file in folder**
+
+## Events
+
+### Pulls
+
+- **On pull request action** akkor következik be, amikor egy pull request-en aktivitás történik. További információkat [ezen az oldalon](https://docs.GitLab.com/en/webhooks/webhook-events-and-payloads#pull_request) találhat.
+
+### Pushes
+
+- **On commit pushed** akkor következik be, amikor egy tároló ágra (branch) pusholás történik. Ez magában foglalja a commit pusholását, a commit címke pusholását, egy ág törlését, egy címke törlését, vagy amikor egy tárolót sablonból hoznak létre.
+- **On files added** akkor aktiválódik, amikor az új commit-ok új fájlokat tartalmaznak. Visszaadja az összes hozzáadott fájl elérési útját.
+- **On files modified** akkor aktiválódik, amikor az új commit-ok fájlokat módosítanak. Visszaadja az összes módosított fájl elérési útját.
+- **On files added or modified** akkor aktiválódik, amikor az új commit-ok új fájlokat adnak hozzá vagy módosítanak fájlokat. Visszaadja az összes ilyen fájl elérési útját.
+- **On files removed** akkor aktiválódik, amikor az új commit-ok fájlokat törölnek. Visszaadja az összes törölt fájl elérési útját.
+
+A fájlspecifikus eseményeknél egy elérési út paraméter adható meg, hogy az eseményt csak bizonyos mappákban lévő fájlokra vagy bizonyos kiterjesztésű fájlokra szűkítsük. Használja a per jelet ('/') a könyvtár elválasztó jelölésére. Használja a '*' karaktert helyettesítő jelként a fájl- és könyvtárnevekben. Használja a '**' jelölést tetszőleges könyvtármélység jelölésére.
+
+Például: ha olyan eseményt szeretne létrehozni, amely csak akkor aktiválódik, amikor .html fájlokat módosítanak egy _locales_ nevű mappában, akkor az **On files added or modified** esemény elérési útjának a következőnek kell lennie: _/locales/\*.html_
+
+![1705407685118](https://raw.githubusercontent.com/bb-io/GitLab/main/image/README/1705407685118.png)
+
+## Példa
+
+A következő madár új memoQ projektet hoz létre, amikor fájlokat frissítenek vagy adnak hozzá egy adott mappához egy GitLab tárolóban.
+
+![1705408481146](https://raw.githubusercontent.com/bb-io/GitLab/main/image/README/1705408481146.png)
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy van visszajelzése a megvalósításunkról? Lépjen kapcsolatba velünk a [megadott csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

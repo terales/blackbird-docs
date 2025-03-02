@@ -1,0 +1,104 @@
+---
+  title: Utilities
+  description: De Utilities Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Utilities" icon="github" />
+
+Deze gratis app biedt generieke hulpacties die in elke bird van pas kunnen komen. Het bevat utilities voor datums en bestanden.
+
+## Verbinden
+
+1. Navigeer naar apps en zoek naar Utilities. 
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn utilities'.
+4. Klik op _Connect_.
+
+![1700129917822](https://raw.githubusercontent.com/bb-io/Utilities/main/image/README/1700129917822.png)
+
+## Actions
+
+### Dates
+
+- **Generate date** genereert de datum en tijd op het moment van _uitvoering_. Optioneel kun je dagen, uren en minuten toevoegen of aftrekken. Handig voor het instellen van deadlines in de toekomst of voor het genereren van tijdsintervallen voor het opvragen van gegevens. Optioneel kun je ook je eigen waarde voor de datum toevoegen. De nieuw gegenereerde datum zal relatief zijn aan deze datum.
+- **Format date** neemt een datum en formatteert deze naar een leesbare tekst. De documentatie voor de selecteerbare formaten kan [hier](https://ss64.com/ps/syntax-dateformats.html) worden gevonden. Optioneel kan ook een cultuur (locale) worden toegevoegd.
+- **Get date difference** geeft het verschil tussen de twee ingevoerde dagen in totaal aantal seconden, minuten, uren en dagen.
+- **Convert text to date** Zet tekstinvoer om naar een datum. Optioneel kan een cultuur (locale) worden gespecificeerd.
+- **Get first day of previous month** Genereert een datum die overeenkomt met de eerste dag van de vorige maand.
+- **Get last day of previous month** Genereert een datum die overeenkomt met de laatste dag van de vorige maand.
+
+### Files
+
+- **Get file character count** geeft het aantal tekens in het bestand (ondersteunde bestandstypen: doc, docx, txt, pdf).
+- **Get file word count** geeft het aantal woorden in het bestand (ondersteunde bestandstypen: doc, docx, txt, pdf, html).
+- **Get files word count** geeft het aantal woorden in de bestanden (ondersteunde bestandstypen: doc, docx, txt, pdf, html).
+- **Get file name information** geeft de naam van een bestand, met of zonder extensie, en de extensie.
+- **Change file name** neemt een bestand en een tekstinvoer. De bestandsnaam (zonder extensie) wordt hernoemd en het bestand wordt als uitvoer teruggegeven.
+- **Sanitize file name** verwijdert alle gedefinieerde tekens uit een bestandsnaam (zonder extensie).
+- **Get file size** geeft de grootte van een bestand in bytes.
+- **Replace using Regex in document** werkt alleen met tekstgebaseerde bestanden (txt, html, enz.). Deze actie is vergelijkbaar met 'Replace using Regex' maar werkt met bestanden.
+- **Extract using Regex from document** haalt tekst uit een document met behulp van Regex. Dit werkt alleen met tekstgebaseerde bestanden (txt, html, enz.) en is vergelijkbaar met 'Extract using Regex' maar werkt met bestanden.
+- **Unzip files** neemt een ZIP-archief en extraheert de bestanden erin naar meerdere bestanden in Blackbird.
+
+### XML Files
+
+- **Bump version string** Versienummer verhogen.
+- **Get XML file property** Haal XML-bestandseigenschap op.
+- **Change XML file property** Wijzig XML-bestandseigenschap.
+- **Replace XLIFF source with target** Vervang XLIFF-bron door doeltekst.
+
+### Texts
+
+- **Count characters in text** geeft het aantal tekens in de tekst.
+- **Count words in text** geeft het aantal woorden in de tekst.
+- **Sanitize text** verwijdert alle gedefinieerde tekens uit een tekst.
+- **Extract using Regex** geeft de eerste overeenkomst uit de opgegeven tekst met behulp van een reguliere expressie als invoer.
+- **Extract many using Regex** geeft alle overeenkomsten uit de opgegeven tekst met behulp van een reguliere expressie als invoer.
+- **Replace using Regex** gebruik reguliere expressies om te zoeken en te vervangen binnen tekst.
+- **Convert text to document** Zet tekst om naar een txt-, doc- of docx-document.
+- **Convert document to text** Extraheert de tekst van het document. Document moet in docx/doc, pdf of txt formaat zijn.
+- **Calculate BLEU Score** Metriek gebruikt om de kwaliteit van machine-vertaalde tekst te evalueren door deze te vergelijken met een referentietekst.
+- **Split string into array** Splitst een tekenreeks in een array met behulp van het opgegeven scheidingsteken.
+- **Count words in texts** Geeft het aantal woorden in tekst van een array.
+  
+### JSON
+
+- **Get JSON property value** Haal JSON-eigenschapswaarde op.
+- **Change JSON property value** Wijzigt de waarde van een JSON-eigenschap.
+
+### Arrays
+
+- **Array contains** controleert of een array een bepaald item bevat.
+- **Deduplicate Array** Retourneert alleen unieke elementen.
+- **Array count** telt het aantal elementen in een array.
+- **Remove entry from array** geeft de array terug zonder het gespecificeerde item.
+- **Get first entry from array** geeft het eerste element in de array terug.
+- **Get last entry from array** geeft het laatste element in de array terug.
+- **Get entry by position** geeft het element terug op de gespecificeerde positie binnen de array. Begint bij positie 1.
+- **Retain specified entries in array** geeft de oorspronkelijke array terug zonder de items die niet aanwezig waren in de opgegeven controlegroep (te behouden items).
+
+### Numbers
+
+- **Generate Range** Genereer een reeks door start- en eindnummers op te geven.
+- **Convert text to number** Verander het gegevenstype.
+- **Convert text to numbers** Zet een lijst met numerieke strings om in een lijst met getallen. Genereert een uitzondering als een waarde geen geldig getal is.
+
+### Scraping
+
+- **Extract web page content** Haal ruwe en ongeformatteerde inhoud van een URL op als tekst.
+- **Extract HTML content** Haal ruwe en ongeformatteerde inhoud van een HTML-bestand op.
+
+### Context
+
+- **Get flight context** hiermee kun je contextgegevens van de flight ophalen. Dit omvat Flight ID en URL, Bird ID en naam, en Nest ID en naam.
+
+## Events
+
+### Rss
+
+- **On RSS feed changed** wordt geactiveerd wanneer de gespecificeerde RSS-feed nieuwe updates heeft ontvangen.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [gebruikelijke kanalen](https://www.blackbird.io/) of maak een issue aan.

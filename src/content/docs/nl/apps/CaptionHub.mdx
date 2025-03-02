@@ -1,0 +1,86 @@
+---
+  title: CaptionHub
+  description: De CaptionHub Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/CaptionHub" icon="github" />
+
+CaptionHub is een cloudgebaseerd platform dat diensten aanbiedt voor videobijschriften en ondertiteling. Deze CaptionHub-applicatie richt zich voornamelijk op project- en bijschriftensetbeheer.
+
+## Verbinden
+
+1.  Navigeer naar apps en zoek naar CaptionHub. Als je CaptionHub niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer CaptionHub en voeg de app toe aan je Blackbird-omgeving.
+2.  Klik op _Add Connection_.
+3.  Geef je verbinding een naam voor toekomstige referentie, bijv. 'Mijn klant'.
+4.  Ga naar CaptionHub-teaminstellingen en kies _API Keys_ uit het menu aan de linkerkant.
+5.  Ga naar de sectie _API Keys_ en klik op _Create API Key_
+6.  Kopieer de API-sleutel en plak deze in het juiste veld in de BlackBird
+7.  Klik op _Connect_.
+8.  Bevestig dat de verbinding is verschenen en de status is _Connected_.
+
+## Actions
+
+### Activities
+
+- **List activities** geeft een lijst terug van alle activiteiten voor een `Team`, `Project` of `Caption set`.
+
+### Automations
+
+- **List automations** geeft een lijst terug van alle automatiseringen die kunnen worden toegepast op een `Project` bij aanmaak.
+
+### Caption sets
+
+- **List caption sets** geeft een lijst terug van bijschriftensetgegevens die een gebruiker aan het bewerken is.
+- **Approve caption set** markeert alle segmenten in een bijschriftenset als goedgekeurd.
+- **Make caption set reviewable** maakt alle segmenten in een bijschriftenset reviewbaar.
+- **Make caption set claimable** maakt alle segmenten in een bijschriftenset claimbaar.
+- **Create translated caption set** maakt een bijschriftenset die klaar is voor vertaling.
+- **Create original caption set** maakt een nieuwe originele bijschriftenset.
+- **Download original/translated captions** downloadt een bijschriftenset in het gevraagde formaat.
+
+### Custom dictionaries
+
+- **Get custom dictionary** geeft details van een specifiek aangepast woordenboek.
+- **List custom dictionaries** geeft een lijst terug van alle aangepaste woordenboeken die bij je team horen.
+
+### Languages
+
+- **List languages** geeft een lijst terug van alle beschikbare talen voor je team.
+
+### Projects
+
+- **Get/create/update/delete project**
+- **Replace the video for a project** vervangt de originele video voor een project.
+
+### Renders
+
+- **Get render status** geeft de status van een render terug.
+- **Create render** maakt een render voor de gegeven `Caption set`.
+- **Download render** downloadt een voltooide render.
+
+### Teams
+
+- **List teams** geeft een lijst terug van alle teams waarvan de API-gebruiker lid is.
+
+### Termbases
+
+- **List termbases** geeft een lijst terug van alle termbases voor je `Team`.
+
+### Users
+
+- **List users** geeft een lijst terug van alle gebruikers voor je `Team`.
+
+### Workflow transitions
+
+- **List workflow transitions** geeft een lijst terug van alle workflowovergangen voor een team, project of bijschriftenset.
+
+## Ontbrekende functies
+
+In de toekomst kunnen we acties toevoegen voor:
+
+- Team workflows
+
+## Feedback
+
+Feedback op onze implementatie van CaptionHub is altijd zeer welkom. Neem contact met ons op via de bestaande kanalen of maak een issue aan.

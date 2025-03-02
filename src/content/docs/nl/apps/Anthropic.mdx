@@ -1,0 +1,57 @@
+---
+  title: Anthropic
+  description: De Anthropic Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Anthropic" icon="github" />
+
+Een AI-assistent van de volgende generatie voor uw taken, ongeacht de schaal
+
+## Voordat u begint
+
+Voordat u verbinding kunt maken, moet u ervoor zorgen dat:
+
+- U een [Anthropic account](https://console.anthropic.com) heeft en toegang heeft tot de API-sleutels.
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar Anthropic. Als u Anthropic niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Anthropic en voeg de app toe aan uw Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef uw verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn Anthropic-verbinding'.
+4. Vul uw API-sleutel in. U kunt een nieuwe API-sleutel aanmaken onder [API keys](https://console.anthropic.com/account/keys). De API-sleutel heeft de vorm `sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.
+5. Klik op _Connect_.
+
+## Actions
+
+### Chat actions
+
+- **Create completion** actie heeft de volgende invoerwaarden om de gegenereerde reactie te configureren:
+1. Model (Alle huidige en beschikbare modellen staan in de dropdown)
+2. Prompt
+3. Max tokens to sample
+4. Temperature
+5. top_p
+6. top_k
+7. System prompt 
+8. Stop sequences
+
+Voor meer diepgaande informatie over de actie, raadpleeg de [Anthropic API reference](https://docs.anthropic.com/claude/docs).
+
+### XLIFF actions
+
+- **Process XLIFF** verwerkt het XLIFF-bestand en retourneert bijgewerkte XLIFF met de vertaalde inhoud. Standaard zal het de bron vertalen en de vertaling in het doelveld plaatsen. Maar u kunt het gedrag wijzigen door uw aangepaste `prompt` te leveren
+- **Post-edit XLIFF file** actie wordt gebruikt om het XLIFF-bestand na te bewerken.
+- **Get Quality Scores for XLIFF file** actie wordt gebruikt om kwaliteitsscores voor het XLIFF-bestand te krijgen door een `extradata`-attribuut toe te voegen aan de vertaaleenheid van het bestand. Standaardcriteria zijn `fluency`, `grammar`, `terminology`, `style`, en `punctuation`, maar u kunt uw eigen criteria toevoegen door het optionele invoerveld `prompt` in te vullen.
+
+### Batch actions
+
+- **(Batch) Process XLIFF file** verwerkt asynchroon elke vertaaleenheid in het XLIFF-bestand volgens de gegeven instructies (standaard vertaalt het alleen de brontags) en werkt de doeltekst voor elke eenheid bij.
+- **(Batch) Post-edit XLIFF file** bewerkt asynchroon de doeltekst van elke vertaaleenheid in het XLIFF-bestand volgens de gegeven instructies en werkt de doeltekst voor elke eenheid bij.
+- **(Batch) Get Quality Scores for XLIFF file** haalt asynchroon kwaliteitsscores op voor elke vertaaleenheid in het XLIFF-bestand.
+- **(Batch) Get XLIFF from the batch** haalt de resultaten van het batchproces op. Deze actie is alleen geschikt voor verwerking en nabewerking van het XLIFF-bestand en moet worden aangeroepen nadat het asynchrone proces is voltooid.
+- **(Batch) Get XLIFF from the quality score batch** haalt de kwaliteitsscore-resultaten van het batchproces op. Deze actie is alleen geschikt voor het ophalen van kwaliteitsscores voor het XLIFF-bestand en moet worden aangeroepen nadat het asynchrone proces is voltooid.
+
+## Feedback
+
+Wilt u deze app gebruiken of heeft u feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

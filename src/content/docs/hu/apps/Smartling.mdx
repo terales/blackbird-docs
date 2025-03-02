@@ -1,0 +1,129 @@
+---
+  title: Smartling
+  description: A Smartling Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Smartling" icon="github" />
+
+A Smartling egy felhőalapú fordítási és lokalizációs platform, amely lehetővé teszi a vállalkozások számára, hogy hatékonyan kezeljék és automatizálják a tartalom fordítását különböző nyelvekre. Fejlett funkciókkal és intuitív eszközökkel a Smartling biztosítja a következetes és hatékony globális kommunikációs stratégiákat minden méretű vállalkozás számára.
+
+## Beállítás előtt
+
+A csatlakozás előtt győződjön meg arról, hogy:
+
+- Rendelkezik Smartling fiókkal [Account Owner](https://help.smartling.com/hc/en-us/articles/360056193134#h_01F5GM4FJ4Y57MYKZM0YDSM06Q) vagy [Project Manager](https://help.smartling.com/hc/en-us/articles/360056193134#h_01F5GM4MXQS34S0J9R10A5CNJP) jogosultságokkal.
+- Létrehozott egy projektet (ha Account Owner jogosultságokkal rendelkezik), vagy a projektet létrehozták Önnek (ha Project Manager jogosultságokkal rendelkezik).
+- Beszerezte az API hitelesítő adatokat a projekthez. Kövesse [az API v2 tokenek generálásához szükséges lépéseket](https://help.smartling.com/hc/en-us/articles/115004187694-API-Tokens-). Ezután jegyezze fel a **Project ID**, **User Identifier** és **User Secret** értékeket, mivel ezeket fogja használni a Smartling-hez való kapcsolódáshoz a Blackbird-en keresztül.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Smartling-re. Ha nem találja a Smartling-et, kattintson a jobb felső sarokban található _Add App_ gombra, válassza a Smartling-et, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például 'Lokalizációs projektem'.
+4. Töltse ki a Smartling példányának **Project ID**, **User identifier** és **User secret** adatait, amelyhez csatlakozni szeretne.
+5. Kattintson a _Connect_ gombra.
+
+![Connecting](https://raw.githubusercontent.com/bb-io/Smartling/main/image/README/connecting.png)
+
+## Actions
+
+### Jobs
+
+- **Get job** lekéri egy feladat részleteit, például a feladat nevét, leírását, határidejét és referenciaszámát.
+- **Search jobs** felsorolja a megadott szűrési feltételeknek megfelelő feladatokat. Ha nincs megadva paraméter, az összes feladat visszaadásra kerül.
+- **Create job** új feladatot hoz létre. Hagyja üresen a _Callback URL_ és _Callback method_ paramétereket, ha használni kívánja az **On job completed** és/vagy **On job cancelled** eseményeket.
+- **Add locale to job** nyelvi beállítást ad hozzá egy feladathoz. Állítsa a _Sync content_ paramétert _false_ értékre, ha csak a nyelvi helykitöltőt szeretné hozzáadni a feladathoz anélkül, hogy az új helyre vonatkozó összes tartalmat belefoglalná a feladatba.
+- **Authorize job** engedélyezi a feladaton belüli összes tartalmat. Egy feladat csak akkor engedélyezhető, ha van tartalma és _Awaiting Authorization (AWAITING_AUTHORIZATION)_ állapotban van. Megadhatja a célnyelveket és a munkafolyamatot az engedélyezéshez. Mind a célnyelveket, mind a munkafolyamatot meg kell adni, vagy egyiket sem. Ha nincsenek megadva, a Smartling az adott projekt alapértelmezett munkafolyamataihoz engedélyezi a feladatot.
+- **Close job** lezár egy befejezett feladatot. Ahhoz, hogy egy feladatot le lehessen zárni, befejezett állapotban kell lennie. A feladatból minden tartalom eltávolításra kerül, amikor lezárják. A feladat lezárása garantálja, hogy nem végeznek további munkát a feladattal kapcsolatban.
+- **Cancel job** törli a feladatot. A feladaton belüli összes tartalom eltávolításra kerül a feladatból, és a tartalom nem lesz engedélyezve.
+- **Update job** frissíti a feladat attribútumait, például a feladat nevét, leírását, határidejét és referenciaszámát. Csak azokat az attribútumokat adja meg, amelyeket frissíteni kell. A feladat csak _Draft (DRAFT)_, _Awaiting Authorization (AWAITING_AUTHORIZATION)_, _In Progress (IN_PROGRESS)_, _Completed (COMPLETED)_ állapotokban szerkeszthető. Hagyja üresen a _Callback URL_ és _Callback method_ paramétereket, ha használni kívánja az **On job completed** és/vagy **On job cancelled** eseményeket.
+- **Delete job** töröl egy feladatot. Csak a _Cancelled (CANCELLED)_ állapotban lévő feladat törölhető.
+- **Get job word count** lekéri egy feladat szószámát. A szószám a feladatban lévő tartalom alapján kerül kiszámításra.
+
+### Job files
+
+- **Upload source file to job** hozzáadja egy fájl összes nem közzétett karakterláncát egy feladathoz. A fájl a feladat összes nyelvi beállításához hozzáadásra kerül, ha a _Target locales_ paraméter nincs megadva.
+- **List source files within job** felsorolja az összes forrásfájlt egy feladaton belül.
+- **Download source file**.
+- **Download translated file** letölti a lefordított fájlt egy adott nyelvi beállítás esetén.
+- **Download file translations** letölti a kért fájl összes fordítását külön fájlokként.
+- **Download file translations in ZIP archive**.
+- **Import translation** importál egy lefordított fájlt. Ez a művelet korlátozott számú fájltípust támogat. A támogatott fájltípusokról és a fájlelőkészítésről [itt](https://help.smartling.com/hc/en-us/articles/360008031794-Importing-Translated-Files) találhat információkat.
+
+### Job attachments
+
+- **List files attached to job**.
+- **Upload attachment to job**.
+- **Download file attached to job**.
+
+### Strings
+
+- **Add string to project** feltölt egy karakterláncot egy projektbe. Az opcionális _Placeholder format_ és _Custom placeholder format (Java Regular Expression)_ paraméterek a standard vagy egyéni helykitöltő formátum megadására szolgálnak. A helykitöltők olyan szavak egy karakterláncban, amelyeket nem kell lefordítani. Dinamikus változó tartalmat képviselnek. A helykitöltőkről [itt](https://help.smartling.com/hc/en-us/articles/360008143433) olvashat bővebben. Az opcionális _Namespace_ paraméter az adott karakterlánc egyedi hashcode-jának generálására szolgál. Ha két verziót szeretne fenntartani ugyanazon szöveggel és változat-metaadatokkal rendelkező karakterláncból, azokat egyedivé teheti úgy, hogy különböző névteret rendel mindegyik karakterlánchoz. Az opcionális _Maximum character length_ paraméter használható a maximális karakterhossz beállítására, amely ehhez a karakterlánchoz és fordításaihoz ajánlott. Hagyja üresen a _Callback URL_ és _Callback method_ paramétereket, ha használni kívánja az **On string translation published** eseményt.
+- **Add string to job** hozzáad egy karakterláncot egy feladathoz. Ahhoz, hogy egy karakterláncot hozzá lehessen adni egy feladathoz, először hozzá kell adni a projekthez az **Add string to project** művelettel. Egy nyelvi beállításhoz tartozó karakterlánc csak egy feladatban lehet. Ha a kérésben azonosított karakterlánc már egy feladatban van egy nyelvi beállításhoz, akkor nem lesz hozzáadva. Ha azonban a _Move enabled_ értéket _True_-ra állítja, a karakterlánc a megadott feladatba kerül áthelyezésre.
+- **Remove string from job**.
+- **List all source strings for file**.
+- **Get source string by hashcode** lekér egy forrásnyelvi karakterláncot a megadott hashcode alapján, amely a karakterlánc egyedi azonosítója.
+- **List strings in file**.
+- **List translations for strings in file**.
+- **List translations for string by hashcode**.
+
+**Megjegyzés**: Az **Add string to project** művelettel hozzáadott karakterláncot a tartalomtulajdonos engedélyezheti a Smartling Dashboardon. A karakterlánc engedélyezésének másik módja, hogy hozzáadja azt egy feladathoz az **Add string to job** művelettel, majd engedélyezi a feladatot az **Authorize job** művelettel.
+
+### Issues
+
+- **Get issue** részletes információkat kér le egy problémáról.
+- **Search issues** felsorolja a megadott szűrési feltételeknek megfelelő problémákat. Ha nincs megadva paraméter, az összes probléma visszaadásra kerül.
+- **Create issue** új problémát hoz létre egy karakterlánchoz. Az _Issue text_ maximális hossza 4000 karakter. A _Target language_ paraméter kötelező a _Translation_ típusú problémák esetén.
+- **Edit issue**. Csak azokat a mezőket adja meg, amelyeket frissíteni kell. Az _Issue text_ maximális hossza 4000 karakter. A _Target language_ paraméter kötelező, amikor egy problémát _Translation_ típusúra frissít. Az _Issue subtype_ paraméter kötelező az _Issue type_ frissítésekor.
+- **Open issue** a probléma állapotát _Opened_-re állítja.
+- **Close issue** a probléma állapotát _Resolved_-ra állítja.
+
+### Glossaries
+
+- **Get glossary** részletes információkat kér le egy szójegyzékről.
+- **Create glossary**.
+- **Update glossary** frissít egy meglévő szójegyzéket. Csak azokat a mezőket adja meg, amelyeket frissíteni kell. A _Locales_ paraméter megadása felülírja a meglévő nyelvi beállításokat. Ha egyszerűen csak további nyelvi beállításokat szeretne hozzáadni a meglévő listához, használja az **Add locales to glossary** műveletet.
+- **Add locales to glossary**.
+- **Add fallback locale to glossary**. A tartalék nyelvi beállításokról [itt](https://help.smartling.com/hc/en-us/articles/4408673919643) olvashat.
+- **Import glossary** lehetővé teszi szójegyzék importálását, új létrehozását vagy adatok importálását meglévő szójegyzékbe. Ha adatokat szeretne importálni egy meglévő szójegyzékbe, be kell állítania egy opcionális _Glossary ID_ bemeneti paramétert. Ez a művelet nem írja felül a meglévő adatokat; ehelyett új bejegyzéseket ad a meglévő szójegyzékhez. Opcionálisan beállíthatja az _Archive existing entries_ bemeneti paramétert _True_ értékre, hogy archiválja azokat a bejegyzéseket, amelyek nincsenek az importfájlban.
+- **Export glossary** lehetővé teszi egy meglévő szójegyzék exportálását. Opcionális bemeneti paramétereket alkalmazhat az exportba foglalt bejegyzések szűréséhez.
+- **Get glossary entry**.
+- **Search glossary entries** felsorolja a megadott szűrési feltételeknek megfelelő szójegyzék-bejegyzéseket. Ha nincs megadva paraméter, az összes szójegyzék-bejegyzés visszaadásra kerül.
+- **Create glossary entry** létrehoz egy szójegyzék-bejegyzést annak definíciójával és eredeti kifejezésével együtt.
+- **Update glossary entry**. Csak azokat a mezőket adja meg, amelyeket frissíteni kell.
+- **Add glossary entry translation** hozzáad vagy frissít egy szójegyzék-bejegyzés fordítást. Ha nincs fordítás a megadott _Locale_ számára, új fordítás kerül hozzáadásra. Ellenkező esetben a meglévő fordítás frissül, de csak a megadott paraméterekkel; minden más paraméter változatlan marad.
+- **Remove glossary entry**.
+
+### Reports
+
+- **Get word count report**.
+- **Get word count report in CSV format**.
+
+### Contexts
+
+- **Search project context**.
+- **Add project context** feltölti a kontextus fájlt a projektbe, és opcionálisan automatikus kontextus-egyeztetést futtat (amikor a "Run automatic context matching" opcionális bemeneti paraméter "true")
+- **Delete project context**.
+- **Download project context**.
+
+## Events
+
+- **On job completed** és **On job completed (manual)** akkor aktiválódik, amikor egy feladat befejeződik, jelezve, hogy a feladat összes engedélyezett tartalma, minden nyelvi beállításnál, elérte a munkafolyamat _Published_ lépését.
+- **On job cancelled** és **On job cancelled (manual)** akkor aktiválódik, amikor egy feladatot törölnek.
+- **On string translation published** és **On string translation published (manual)** akkor aktiválódik, amikor egy karakterlánc fordítása közzétételre kerül egy nyelvi beállításnál.
+
+## Hiányzó funkciók
+
+- Issue comments
+- Issue webhooks
+- Tags
+- Translation quality checks
+- File Machine Translations
+- Custom fields
+
+Tudassa velünk, ha érdekli!
+
+## Visszajelzés
+
+A Smartling megvalósításunkkal kapcsolatos visszajelzéseket mindig nagyon szívesen fogadjuk. Keressen minket a [megszokott csatornákon](https://www.blackbird.io/) vagy hozzon létre egy problémát.

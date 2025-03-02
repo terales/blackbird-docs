@@ -1,0 +1,82 @@
+---
+  title: Azure AI Translator
+  description: De Blackbird-app voor Azure AI Translator
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Bekijk op Github" target="_blank" href="https://github.com/bb-io/MicrosoftTranslator" icon="github" />
+
+Deze applicatie is gebouwd rond de Azure AI Translator API. Azure AI Translator is een cloudgebaseerde neurale machinevertaalservice die kan worden gebruikt met elk besturingssysteem. Het vormt de basis voor veel Microsoft-producten en -diensten voor vertaling en andere taalgerelateerde bewerkingen. De service maakt gebruik van moderne neurale machinevertaaltechnologie en biedt statistische machinevertaaltechnologie.
+
+## Voordat je begint
+
+Voordat je de verbinding instelt, moet je het volgende weten:
+
+- Voor het verkrijgen van het `Document translation endpoint` kun je documentatie [hier](https://learn.microsoft.com/en-us/azure/ai-services/translator/document-translation/how-to-guides/use-rest-api-programmatically?tabs=csharp#retrieve-your-key-and-custom-domain-endpoint) vinden. Let op dat Document Translation wordt ondersteund in het S1 Standard Service Plan (Pay-as-you-go) en C2, C3, C4, en D3 Volume Discount Plans. Zie [Azure AI services pricing—Translator](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator/)
+- Je kunt [hier](https://learn.microsoft.com/en-us/azure/ai-services/translator/document-translation/how-to-guides/use-rest-api-programmatically?tabs=csharp#prerequisites) vinden hoe je een `API key` krijgt
+- Als je niet zeker bent van je regio, kun je `global` als standaardwaarde proberen. Meer informatie vind je [hier](https://learn.microsoft.com/en-us/azure/ai-services/translator/document-translation/how-to-guides/create-use-managed-identities)
+
+## Verbinding maken
+
+1. Ga naar Apps en zoek de **Azure AI Translator** app. Je kunt de zoekfunctie gebruiken om deze te vinden.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijvoorbeeld 'Mijn organisatie'.
+4. Vul alle vereiste velden in:
+   - `Document translation endpoint` - Het eindpunt voor de documentvertaalservice. We verwachten iets als: https://[NAAM-VAN-JE-RESOURCE].cognitiveservices.azure.com.
+   - `API key` - De API-sleutel voor de documentvertaalservice.
+   - `Region` - De regio waar de documentvertaalservice wordt gehost.
+5. Klik op _Connect_.
+6. Controleer of de verbinding is verschenen en de status _Connected_ is.
+
+![Connection](https://raw.githubusercontent.com/bb-io/MicrosoftTranslator/main/image/README/connection.png)
+
+## Actions
+
+### **Translate**
+Vertaalt de tekst naar de doeltaal. Deze actie ondersteunt de volgende invoerparameters:
+
+- **Text**: De te vertalen tekst.
+- **Target language**: De taal waarnaar de tekst zal worden vertaald.
+- **Source language**: De taal van de invoertekst. Indien niet gespecificeerd, wordt automatische taaldetectie toegepast.
+- **Text type**: Definieert of de te vertalen tekst platte tekst of HTML is. Mogelijke waarden zijn: `plain` of `html`.
+- **Category**: Specificeert de categorie (domein) van de vertaling, gebruikt om vertalingen van een aangepast systeem te krijgen.
+- **Profanity action**: Specificeert hoe godslasteringen in vertalingen moeten worden behandeld. Mogelijke waarden zijn: `NoAction`, `Marked`, of `Deleted`.
+- **Profanity marker**: Specificeert hoe godslasteringen in vertalingen moeten worden gemarkeerd. Mogelijke waarden zijn: `Asterisk` of `Tag`.
+- **Include alignment**: Specificeert of uitlijning van brontekst naar vertaalde tekst moet worden opgenomen. Mogelijke waarden zijn: `true` of `false`.
+- **Include sentence length**: Specificeert of zinsgrenzen voor de invoertekst en de vertaalde tekst moeten worden opgenomen. Mogelijke waarden zijn: `true` of `false`.
+- **Suggested from**: Een terugvaltaal als de taal van de invoertekst niet kan worden geïdentificeerd.
+- **From script**: Het script van de invoertekst.
+- **To script**: Het script van de vertaalde tekst.
+- **Allow fallback**: Specificeert dat de service mag terugvallen op een algemeen systeem wanneer een aangepast systeem niet bestaat. Mogelijke waarden zijn: `true` of `false`. Allow fallback = false specificeert dat de vertaling alleen systemen mag gebruiken die zijn getraind voor de categorie gespecificeerd door het verzoek. Als een vertaling van taal X naar taal Y vereist dat er via een pivottaal E wordt geschakeld, dan moeten alle systemen in de keten (X → E en E → Y) aangepast zijn en dezelfde categorie hebben. Als er geen systeem met de specifieke categorie wordt gevonden, geeft het verzoek een 400-statuscode terug. Allow fallback = true specificeert dat de service mag terugvallen op een algemeen systeem wanneer een aangepast systeem niet bestaat.
+
+Zoals deze [documentatie](https://learn.microsoft.com/en-us/azure/ai-services/translator/custom-translator/how-to/translate-with-custom-model) vermeldt, als je tekst wilt vertalen met een aangepast model, moet je de optionele invoer `category` specificeren en de ID van je aangepaste categorie in dit veld opgeven.
+Voorbeeld van een categorie-ID: `a2eb72f9-43a8-46bd-82fa-4693c8b64c3c-TECH`
+
+### **Translate document**
+Vertaalt het document naar de doeltaal, waarbij onder de motorkap synchrone vertaling wordt gebruikt. De actie retourneert het vertaalde document. Deze actie ondersteunt de volgende invoerparameters:
+
+- **File**: Het documentbestand dat moet worden vertaald.
+- **Target language**: De taal waarnaar het document zal worden vertaald.
+- **Source language**: De taal van het invoerdocument. Indien niet gespecificeerd, wordt automatische taaldetectie toegepast.
+- **Category**: Specificeert de categorie (domein) van de vertaling, gebruikt om vertalingen van een aangepast systeem te krijgen.
+- **Allow fallback**: Specificeert dat de service mag terugvallen op een algemeen systeem wanneer een aangepast systeem niet bestaat. Mogelijke waarden zijn: `true` of `false`. Allow fallback = false specificeert dat de vertaling alleen systemen mag gebruiken die zijn getraind voor de categorie gespecificeerd door het verzoek. Als een vertaling van taal X naar taal Y vereist dat er via een pivottaal E wordt geschakeld, dan moeten alle systemen in de keten (X → E en E → Y) aangepast zijn en dezelfde categorie hebben. Als er geen systeem met de specifieke categorie wordt gevonden, geeft het verzoek een 400-statuscode terug. Allow fallback = true specificeert dat de service mag terugvallen op een algemeen systeem wanneer een aangepast systeem niet bestaat.
+
+Ondersteunde bestandsformaten kunnen [hier](https://learn.microsoft.com/en-us/azure/ai-services/translator/document-translation/overview#synchronous-supported-document-formats) worden gevonden.
+
+### **Transliterate**
+Translitereert de tekst naar het doelschrift. Deze actie ondersteunt de volgende invoerparameters:
+
+- **Text**: De te translitereren tekst.
+- **Source language**: De taal van de invoertekst.
+- **Source script**: Specificeert het script dat wordt gebruikt door de invoertekst.
+- **Target script**: Specificeert het script waarnaar de tekst zal worden getranslitereerd.
+
+## Voorbeeld
+
+Hier is een voorbeeld van hoe je de Azure AI Translator app in een workflow kunt gebruiken. In dit voorbeeld vertalen we een document van Google Drive naar de doeltaal en sturen we het vertaalde document terug naar een andere map.
+
+![Example](https://raw.githubusercontent.com/bb-io/MicrosoftTranslator/main/image/README/example.png)
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

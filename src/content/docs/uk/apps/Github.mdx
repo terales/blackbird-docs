@@ -1,0 +1,135 @@
+---
+  title: Github
+  description: Додаток Blackbird для Github
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/Github" icon="github" />
+
+GitHub - це платформа для розробників, яка дозволяє створювати, зберігати та керувати кодом. Цей додаток Github орієнтований на підключення подій Github та дій з файлами до екосистеми Blackbird.
+
+## Перед налаштуванням
+
+Перш ніж підключитися, переконайтеся, що:
+
+- У вас є обліковий запис Github.
+- У вас є права власника в репозиторії, для якого ви хочете налаштувати автоматизацію.
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть Github. Якщо ви не можете знайти Github, натисніть _Add App_ у верхньому правому куті, виберіть Github і додайте додаток до свого середовища Blackbird.
+2. Натисніть _Add Connection_.
+3. Назвіть своє підключення для подальшого посилання, наприклад, 'Моє підключення Github'.
+4. Натисніть _Authorize connection_.
+5. Дотримуйтесь інструкцій, наданих Github, щоб авторизувати Blackbird.io діяти від вашого імені.
+6. Коли ви повернетеся до Blackbird, переконайтеся, що з'явилося підключення і його статус _Connected_.
+
+![1705402013379](https://raw.githubusercontent.com/bb-io/Github/main/image/README/1705402013379.png)
+
+## Налаштування подій
+
+Щоб реагувати на події, що відбуваються в Github, вам також потрібно встановити наш додаток у своєму репозиторії.
+
+1. Перейдіть на [сторінку додатку Blackbird](https://github.com/apps/blackbird-io) на Github.
+2. Натисніть _Configure_
+3. Виберіть організацію, де ви хочете встановити Blackbird.
+4. Виберіть _All repositories_ або _Only select repositories_, якщо ви хочете обмежити доступ Blackbird до репозиторіїв.
+
+![1705402262423](https://raw.githubusercontent.com/bb-io/Github/main/image/README/1705402262423.png)
+
+## Actions
+
+### Repositories
+
+- **List repositories**
+- **Create new repository**
+- **Get repository**
+- **Get repository issues**
+- **List all repository content**
+- **List repository folder content**
+- **File exists** 
+
+### Branches
+
+- **List branches**
+- **Get branch**
+- **Merge branch**
+
+### Commits
+
+- **List commits**
+- **Get commit**
+
+### Pull requests
+
+- **Create pull request**
+- **List pull requests**
+- **List pull request commits**
+- **Get pull request**
+- **Get repository pull requests**
+- **Is pull request merged**
+- **List pull request files**
+- **Merge pull request**
+
+### Files
+
+- **Get repository file**
+- **Get all files in folder**
+- **Get files by filepaths**
+- **Delete file**
+- **Create or update file**
+- **Update file**
+- **List added or modified files in X hours** 
+  Вхідні параметри:
+  - "Repository ID"
+  - "Last X hours" отримати додані або змінені файли, які були збережені протягом X останніх годин
+  - "Authors" фільтрувати файли за авторами, які додали/змінили ці файли
+  - "Exclude by authors" - встановіть "true", якщо ви хочете виключити зміни, зроблені користувачами, вибраними в полях "Authors"
+  - "Exclude merge commits" - встановіть "true", якщо ви хочете виключити файли, додані/змінені під час коміту злиття
+- **Download added or modified files in X hours as zip**
+  Ті самі вхідні параметри, що й у "List added or modified files in X hours". Але ця дія повертає вам ZIP-архів із фактичними файлами. Також структура папок залишається такою ж, як у вашому репозиторії
+- **Upload files in zip archive**
+  Дія для завантаження файлів назад у ваш репозиторій. Працює в парі з "Download added or modified files in X hours as zip". Структура папок у ZIP-архіві буде спроектована на ваш репозиторій. У випадку існуючого файлу його вміст буде оновлено.
+### Users
+
+- **Get my user data**
+- **Get user**
+- **Get user by username**
+
+### Utility
+
+- **Is file in folder**
+
+## Events
+
+### Pulls
+
+- **On pull request action** відбувається, коли є активність на запиті на злиття. Додаткову інформацію див. на [цій сторінці](https://docs.github.com/en/webhooks/webhook-events-and-payloads#pull_request).
+
+### Pushes
+
+- **On commit pushed** відбувається, коли відбувається push до гілки репозиторію. Це включає випадки, коли комміт надсилається, коли тег комміту надсилається, коли гілка видаляється, коли тег видаляється або коли репозиторій створюється з шаблону.
+- **On files added** запускається, коли нові коміти містять нові файли. Повертає шляхи до всіх доданих файлів.
+- **On files modified** запускається, коли нові коміти змінюють файли. Повертає шляхи до всіх змінених файлів.
+- **On files added or modified** запускається, коли нові коміти додають нові файли або змінюють файли. Повертає шляхи до всіх цих файлів.
+- **On files removed** запускається, коли нові коміти видаляють файли. Повертає шляхи до всіх видалених файлів.
+
+Для подій, пов'язаних із файлами, можна вказати параметр шляху, щоб звузити подію лише для файлів у певних папках або файлів із певними розширеннями. Використовуйте пряму косу риску '/' для позначення роздільника каталогів. Використовуйте '\*' для позначення шаблонів в іменах файлів і каталогів. Використовуйте '\*\*' для позначення довільної глибини каталогу.
+
+Наприклад: коли ви хочете створити подію, яка запускається лише тоді, коли файли .html змінюються в папці з назвою _locales_. Тоді шлях для події **On files added or modified** повинен бути: _/locales/\*.html_
+
+![1705407685118](https://raw.githubusercontent.com/bb-io/Github/main/image/README/1705407685118.png)
+
+## Приклад
+
+Наступний bird створює новий проект memoQ щоразу, коли файли оновлюються або додаються до певної папки в репозиторії Github.
+
+![1705408481146](https://raw.githubusercontent.com/bb-io/Github/main/image/README/1705408481146.png)
+
+## Відсутні функції
+
+У нас є можливість реагувати на будь-яку подію, вказану в [цьому списку](https://docs.github.com/en/webhooks/webhook-events-and-payloads). Не соромтеся звертатися до нас із такими запитами.
+
+## Зворотній зв'язок
+
+Ви хочете використовувати цей додаток або маєте відгуки про нашу реалізацію? Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть запит.

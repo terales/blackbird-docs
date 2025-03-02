@@ -1,0 +1,59 @@
+---
+  title: Box
+  description: A Box Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Box" icon="github" />
+
+A Box egy felhőalapú tartalomkezelő és fájlmegosztó platform, amely lehetővé teszi egyének és vállalkozások számára, hogy dokumentumokat és fájlokat tároljanak, hozzáférjenek és együttműködjenek rajtuk bárhonnan. Olyan funkciókat kínál, mint a biztonságos fájltárolás, valós idejű együttműködés és integrációk különböző produktivitási eszközökkel, javítva a csapatmunka hatékonyságát és az adatok elérhetőségét.
+
+## Beállítás előtt
+
+Mielőtt csatlakozni tudna, győződjön meg arról, hogy:
+
+- Rendelkezik Box fiókkal és megvannak a belépési adatai.
+
+## Csatlakozás
+
+1. Navigáljon az Alkalmazásokhoz, és keresse meg a **Box** alkalmazást. A keresőt is használhatja a megtalálásához.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például 'Saját Plunet kapcsolat'.
+4. Létesítsen Box kapcsolatot OAuth segítségével.
+5. Kattintson a _Connect_ gombra.
+
+![connection](https://raw.githubusercontent.com/bb-io/Box/main/image/README/connection.png)
+
+## Actions
+
+- **Search files in folder**: Fájlok listájának lekérése egy megadott mappából. Ez a művelet segít megtekinteni egy mappa összes tartalmát.
+- **Get file information**: Részletes információk lekérése egy adott fájlról, beleértve a nevét és egyéb metaadatait.
+- **Rename file**: Egy meglévő fájl nevének megváltoztatása.
+- **Download file**: Fájl letöltése a mappából, lehetővé téve a helyi mentést vagy szükség szerinti felhasználást.
+- **Upload file**: Új fájl feltöltése egy megadott mappába, így az elérhetővé válik a felhőtárhelyen.
+- **Copy file**: Fájl másolása egy másik mappába.
+- **Delete file**: Fájl végleges eltávolítása a mappából.
+- **Create folder**: Új mappa létrehozása egy megadott szülőmappán belül, segítve a fájlok jobb rendszerezését.
+- **Delete folder**: Mappa és tartalmának végleges eltávolítása.
+- **Add collaborator to folder**: Valaki meghívása egy mappához közreműködőként, lehetővé téve számára a mappa tartalmának elérését és kezelését.
+
+## Events
+
+Ez a szakasz olyan eseményindítókat tartalmaz, amelyek értesítenek, amikor bizonyos műveletek történnek a fájl- és mapparendszerében. Ezek az indítók lekérdezési mechanizmuson alapulnak, ami azt jelenti, hogy rendszeresen ellenőrzik a frissítéseket, nem pedig azonnali értesítéseket küldenek.
+
+- **On files created or updated**: Ez az esemény akkor aktiválódik, amikor bármilyen fájl létrejön vagy frissül a mappáiban. Segít naprakésznek maradni a fájlok változásairól és új fájlok létrehozásáról.
+- **On files deleted**: Ez az esemény akkor aktiválódik, amikor bármilyen fájlt törölnek a mappáiból. Biztosítja, hogy tudatában legyen az eltávolított fájloknak, segítve a tartalom nyomon követését.
+
+Konfigurálhatja ezen események lekérdezési gyakoriságát, kiválasztva, hogy milyen gyakran ellenőrizze a rendszer a frissítéseket. Az időköz 5 perctől 7 napig terjedhet, az Ön preferenciái és igényei szerint.
+
+## Példa
+
+Íme egy példa arra, hogyan használhatja a Box alkalmazást egy munkafolyamatban:
+
+![example](https://raw.githubusercontent.com/bb-io/Box/main/image/README/Example.png)
+
+Ebben a példában a munkafolyamat az **On files created or updated** eseménnyel kezdődik, amely akkor aktiválódik, amikor bármilyen fájl létrejön vagy frissül a mappáiban. Ezután a munkafolyamat a **Download file** műveletet használja a létrehozott vagy frissített fájl letöltéséhez. A következő lépésben a `DeepL` segítségével lefordítjuk a fájlt, majd feltöltjük a lefordított fájlt vissza a Box mappába.
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Vegye fel velünk a kapcsolatot a [megszokott csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

@@ -1,0 +1,75 @@
+---
+  title: Hugging Face
+  description: A Hugging Face Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés Githubon" target="_blank" href="https://github.com/bb-io/HuggingFace" icon="github" />
+
+A Hugging Face egy platform, amely eszközöket biztosít gépi tanulási modellek készítéséhez, betanításához és telepítéséhez. Gazdag előre betanított modell-könyvtárat és felhasználóbarát eszközöket kínál, lehetővé téve a fejlesztők és kutatók számára, hogy hatékonyan hozzanak létre és optimalizáljanak modern ML modelleket különböző feladatokhoz, különösen a természetes nyelvfeldolgozás területén.
+
+## Beállítás előtt
+
+Mielőtt csatlakozna, a következőkre van szüksége:
+
+- [Hugging Face fiók](https://huggingface.co/join) létrehozása.
+- [Hozzáférési token](https://huggingface.co/settings/tokens) beszerzése: 
+    * Kattintson az _New token_ gombra.
+    * Adjon meg egy _Name_ nevet a tokenhez és válassza ki a _Role_ szerepkört a legördülő menüből.
+    * Kattintson a _Generate a token_ gombra.
+    * A generált token mellett kattintson a _Copy token to clipboard_ ikonra.
+
+### Modell betanítása vagy finomhangolása egyéni adatokkal
+
+A Hugging Face eszközt biztosít ML modellek betanítására, amely használható az igényekhez való jobb alkalmazkodáshoz. Az AutoTrainről [itt](https://huggingface.co/docs/autotrain/index) olvashat bővebben. Miután a modellt betanította a saját adataival, a Blackbirden keresztül ugyanúgy használhatja, mint bármely más modellt.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Hugging Face-re. Ha nem találja a Hugging Face-t, kattintson a jobb felső sarokban található _Add App_ gombra, válassza a Hugging Face-t, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, pl. 'Saját szervezet'.
+4. Töltse ki az előző részben megszerzett API tokent.
+5. Kattintson a _Connect_ gombra.
+6. Ellenőrizze, hogy a kapcsolat megjelent-e és a státusza _Connected_.
+
+![Csatlakozás](https://raw.githubusercontent.com/bb-io/HuggingFace/main/image/README/connecting.png)
+
+## Actions
+
+### Text
+
+- **Summarize text** hosszabb szöveget rövidebb szöveggé foglal össze.
+- **Answer question** megválaszol egy kérdést a megadott kontextus alapján. A kontextus az a szöveg, ahol a válasz megtalálható.
+- **Answer question with table** megválaszol egy kérdést a megadott .xlsx kiterjesztésű Excel-táblázat alapján, ahol a válasz megtalálható.
+- **Classify text** szövegbesorolást végez. A lehetséges címkék a használt modelltől függően változnak. Hasznos lehet például hangulatelemzéshez.
+- **Classify text according to candidate labels** szövegbesorolást végez, és a **Classify text** művelettel ellentétben a megadott címkéket használja a jósláshoz.
+- **Translate text**. A forrás- és célnyelv nem adható meg. Ajánlott olyan modelleket használni, amelyeket egy nyelvpár közötti fordításra tanítottak be. Például tekintse meg a [Helsinki-NLP modelleket](https://huggingface.co/Helsinki-NLP).
+- **Fill mask** kitölti a hiányzó szavakat és visszaadja a kitöltött szöveget. Használjon maszk tokent a kitöltendő hely megadásához. A maszk token modellenként eltérő lehet, de a leggyakrabban használt tokenek a [MASK] vagy &lt;mask>. Ellenőrizze az adott modell által használt maszk tokent annak [Hugging Face oldalán](https://huggingface.co/models?pipeline_tag=fill-mask&sort=trending).
+- **Calculate semantic similarity** kiszámítja két szöveg szemantikai hasonlóságát és visszaadja a hasonlósági pontszámot 0-tól 1-ig terjedő tartományban.
+- **Generate text** folytatja a szöveget egy kezdő prompt alapján.
+- **Chat** beszélgetési feladatot hajt végre. Kontextus biztosításához megadhat korábbi felhasználói bemeneteket és korábban generált válaszokat, amelyeknek azonos hosszúságúaknak kell lenniük.
+- **Classify tokens** token osztályozást végez. Általában kulcsszavak kinyerésére vagy nyelvtani mondatelemzésre használják. A modell használatát és az entitáscsoportokat (címkéket) az adott modell [Hugging Face oldalán](https://huggingface.co/models?pipeline_tag=token-classification&sort=trending) ellenőrizheti.
+- **Generate embedding** szöveg beágyazást generál - lebegőpontos számok listáját, amely megragadja az általa képviselt szöveg szemantikai információit. A beágyazások használhatók adatok tárolására vektor adatbázisokban (mint a Pinecone).
+
+### Audio
+
+- **Create transcription** átírást generál egy hangfájl alapján (Flac, Wav, Mp3, Ogg stb.).
+- **Classify audio** hang osztályozást végez. A lehetséges címkék a használt modelltől függően változnak.
+
+### Image
+
+- **Generate image** képet generál a kép szöveges leírása alapján.
+- **Classify image** kép osztályozást végez. A lehetséges címkék a használt modelltől függően változnak.
+- **Convert image to text** szöveges leírást generál a megadott képhez.
+- **Answer question based on image** vizuális kérdésmegválaszolást végez a megadott kép alapján.
+
+Megjegyzés: sok műveletnek van egy opcionális bemeneti paramétere: _Use cache_. Alapértelmezés szerint ez true értékre van állítva, ami azt jelenti, hogy ha a modell már látta ugyanazt a bemenetet, akkor a korábban kapott eredményt adja vissza. Ezt használhatja annak biztosítására, hogy determinisztikus eredményeket kapjon. Ha nem szeretné, hogy a modell pontosan ugyanazokat az eredményeket adja vissza a korábban látott lekérdezésekre, állítsa a _Use cache_ értéket _false_-ra.
+
+## Hiányzó funkciók
+
+A jövőben hozzáadhatunk műveleteket a következőkhöz:
+
+- Képfelismerés
+- Képszegmentáció
+
+Tudassa velünk, ha érdekli!

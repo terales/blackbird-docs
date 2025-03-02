@@ -1,0 +1,83 @@
+---
+  title: Microsoft SharePoint
+  description: De Microsoft SharePoint Blackbird-app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/MicrosoftSharePoint" icon="github" />
+
+SharePoint is een platform ontwikkeld door Microsoft dat dient als een centrale hub voor samenwerking, documentbeheer en het delen van content binnen organisaties. Het stelt gebruikers in staat documenten te maken, op te slaan en te openen, evenals samen te werken aan projecten in een veilige en georganiseerde online omgeving.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een Microsoft 365-account hebt.
+- Je een [SharePoint-site hebt aangemaakt](https://support.microsoft.com/en-gb/office/create-a-site-in-sharepoint-4d1e11bf-8ddc-499d-b889-2b48d10b1ce8).
+
+### Hoe vind je de sitenaam
+
+Je kunt de sitenaam vinden:
+
+- Op de SharePoint-startpagina.
+![Startpagina](https://raw.githubusercontent.com/bb-io/MicrosoftSharePoint/main/image/README/sharepoint-start-page.png)
+
+- OF door te klikken op het tabblad _Mijn sites_.
+![Mijn sites](https://raw.githubusercontent.com/bb-io/MicrosoftSharePoint/main/image/README/my-sites.png)
+
+Van daaruit kun je je sites bekijken en de site kiezen waarmee je wilt werken.
+
+Kopieer de sitenaam. Als de sitenaam bijvoorbeeld "Mijn communicatiesite" is, kopieer je dit.
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar Microsoft SharePoint. Als je Microsoft SharePoint niet kunt vinden, klik dan op _App toevoegen_ in de rechterbovenhoek, selecteer Microsoft SharePoint en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Verbinding toevoegen_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijvoorbeeld 'Mijn organisatie'.
+4. Vul de weergavenaam van je site in, bijvoorbeeld 'Mijn communicatiesite'.
+5. Klik op _Verbinding autoriseren_.
+6. Volg de instructies die Microsoft je geeft, waarbij je Blackbird.io autoriseert om namens jou te handelen.
+7. Wanneer je terugkeert naar Blackbird, controleer dan of de verbinding is verschenen en de status _Verbonden_ is.
+
+Opmerking: als je net een site hebt aangemaakt, moet je een paar minuten wachten voordat je probeert verbinding te maken.
+
+![Verbinding maken](https://raw.githubusercontent.com/bb-io/MicrosoftSharePoint/main/image/README/connecting.png)
+
+## Actions
+
+### Documents
+
+- **Get file metadata** haalt de metadata op van een bestand uit sitedocumenten.
+- **List changed files** geeft een lijst terug van alle bestanden die in de afgelopen uren zijn gemaakt of gewijzigd. Als het aantal uren niet is opgegeven, worden bestanden die in de afgelopen 24 uur zijn gewijzigd weergegeven.
+- **Download file**.
+- **Upload file to folder**.
+- **Delete file**.
+- **Get folder metadata** haalt de metadata op van een map.
+- **List files in folder** haalt metadata op van bestanden in een map.
+- **Create folder in parent folder**.
+- **Delete folder**.
+
+## Events
+
+- **On files updated or created** wordt geactiveerd wanneer bestanden worden bijgewerkt of aangemaakt.
+- **On folders updated or created** wordt geactiveerd wanneer mappen worden bijgewerkt of aangemaakt.
+- **On pages created or updated** dit polling-event wordt geactiveerd wanneer pagina's worden bijgewerkt of aangemaakt.
+- **On pages deleted** dit polling-event wordt geactiveerd wanneer pagina's worden verwijderd.
+
+## Voorbeeld
+Voorbeeld 1
+![Voorbeeld](https://raw.githubusercontent.com/bb-io/MicrosoftSharePoint/main/image/README/example.png)
+
+Hier wordt, telkens wanneer PDF-bestanden naar SharePoint Documents worden geüpload, elk bestand gedownload, vertaald met Language Weaver en in de juiste map geplaatst op basis van de kwaliteitsbeoordeling van de vertaling.
+
+Voorbeeld 2
+![Voorbeeld](https://raw.githubusercontent.com/bb-io/MicrosoftSharePoint/main/image/README/example2.png)
+In dit voorbeeld begint de workflow met **On pages created or updated**. Vervolgens gebruikt de workflow de actie **Get page as HTML** om de html-inhoud van de bijgewerkte/aangemaakte pagina op te halen. In de volgende stap vertalen we deze inhoud via DeepL en sturen we de vertaalde pagina naar een Slack-kanaal.
+
+## Eggs
+
+Bekijk hier downloadbare workflowprototypes met deze app die je kunt importeren naar je Nests [hier](https://docs.blackbird.io/eggs/storage-to-mt/).
+
+## Ontbrekende functies
+
+In de toekomst kunnen we acties voor lijsten toevoegen. Laat het ons weten als je hierin geïnteresseerd bent!

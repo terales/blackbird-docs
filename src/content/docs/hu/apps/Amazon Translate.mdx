@@ -1,0 +1,56 @@
+---
+title: Amazon Translate
+description: Az Amazon Translate Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/AmazonTranslate" icon="github" />
+
+Az Amazon Translate egy neurális gépi fordítási szolgáltatás, amely gyors, magas minőségű nyelvi fordítást biztosít különféle alkalmazásokhoz. Több tucat nyelvet támogat, lehetővé téve a vállalkozások számára nagy mennyiségű szöveg hatékony lefordítását és valós idejű fordítás integrálását weboldalaikba, alkalmazásaikba és tartalmi munkafolyamataikba. A szolgáltatást általában ügyfélkommunikáció fordítására, weboldal lokalizációra és többnyelvű adatfeldolgozásra használják.
+
+## Beállítás előtt
+
+Mielőtt kapcsolódnál, győződj meg arról, hogy:
+
+- Van **Amazon** fiókod és rendelkezel a hozzáféréshez szükséges hitelesítő adatokkal.
+- Rendelkezel az Amazon Translate fiókodhoz tartozó `Access key` és `Access secret` adatokkal.
+
+Itt találhatod meg, hogyan szerezheted meg az `Access key` és `Access secret` adatokat: [itt](https://support.promax.com/knowledge/amazon-s3).
+
+## Kapcsolódás
+
+1. Navigálj az Alkalmazásokhoz, és keresd meg az **Amazon Translate** alkalmazást. Használhatod a keresőt a megtalálásához.
+2. Kattints az _Add Connection_ gombra.
+3. Nevezd el a kapcsolatot a későbbi hivatkozáshoz, pl. 'Saját X kapcsolatom'.
+4. Add meg az `Access key`, `Access secret` adatokat, és válassz egy `Region` régiót az Amazon Translate fiókodhoz.
+5. Kattints a _Connect_ gombra.
+6. Ellenőrizd, hogy a kapcsolat sikeresen létrejött.
+
+![1738861751328](https://raw.githubusercontent.com/bb-io/AmazonTranslate/main/image/README/1738861751328.png)
+
+## Actions
+
+### Job
+- **Start job** Start a translation job
+- **Get translation job** Describe a specific translation job
+- **Stop translation job** Stop a specific translation job
+
+### ParallelData
+- **Create parallel data** Creates a parallel data resource in Amazon Translate
+- **Get parallel data** Provides information about a parallel data resource
+- **Update parallel data** Updates a previously created parallel data resource
+- **Delete parallel data** Deletes a parallel data resource in Amazon Translate
+
+### Terminology
+- **Import terminology** Creates or updates a custom terminology
+- **Import glossary** Creates or updates a custom terminology
+- **Export glossary** Export a custom terminology
+- **Delete terminology** Retrieves a custom terminology
+
+### Translate
+- **Translate** Translate a simple text string
+- **Translate document** Translate a file
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy visszajelzésed van a megvalósításunkról? Keress minket a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozz létre egy problémát.

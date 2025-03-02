@@ -1,0 +1,66 @@
+---
+  title: Translate5
+  description: De Translate5 Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Translate5" icon="github" />
+
+Cloud vertaal-, review-, post-editing- en terminologieplatform. De missie van translate5 is de door de gemeenschap gedreven en continue ontwikkeling van het open source en cloudgebaseerde vertaalbeheersysteem voor de taalindustrie.
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar Translate5. Als je Translate5 niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Translate5 en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn klant'.
+4. Voer in het veld _URL_ je service-URL in (deze moet de volgende structuur hebben: https://[domein]), bijvoorbeeld: https://translate5.net
+5. Voer in het veld _API Key_ je API-sleutel in
+6. Klik op _Connect_.
+7. Controleer of de verbinding is verschenen en de status _Connected_ is.
+
+## Actions
+
+### Comment
+
+- **List comments**: Deze actie haalt alle opmerkingen op voor een specifiek segment binnen een vertaaltaak
+- **Create Comment**: Nieuwe opmerking maken
+- **Delete Comment**: Specifieke opmerking verwijderen: Hiermee kan een bepaalde opmerking uit een segment worden verwijderd
+
+### Segment
+
+- **List segments**: Haalt alle segmenten op die bij een specifieke taak horen
+- **Get Segment**: Specifiek segment ophalen
+- **Search Segments**: Zoek segmenten in taak. Voert een zoekopdracht uit binnen de segmenten van een taak op basis van specifieke criteria, zoals tekstinhoud
+- **Translate Segment**: Vertaal een specifiek segment. Start de vertaling van een gespecificeerd segment.
+
+### Task
+
+- **List all tasks**: Haalt een uitgebreide lijst op van alle taken binnen het systeem. Deze functionaliteit is cruciaal voor gebruikers die door verschillende taken moeten navigeren en biedt een overzicht van lopende en voltooide vertaalprojecten.
+- **Get Task**: Get specific task: Haalt gedetailleerde informatie op over een bepaalde taak met behulp van de unieke ID. Met deze actie kunnen gebruikers dieper ingaan op de specifieke gegevens van één taak, met inzicht in de voortgang, bijbehorende talen en andere relevante details.
+- **Create Task**: Create new task: Start een nieuwe vertaaltaak met gespecificeerde parameters, inclusief de naam van de taak, bron- en doeltalen, en bijbehorende klantinformatie. Deze functie is essentieel voor het opzetten van vertaalprojecten die zijn afgestemd op specifieke behoeften en vereisten.
+- **Change Task Name**: Change task name: Werkt de naam van een bestaande taak bij. Dit aanpassingsvermogen is belangrijk om de relevantie en duidelijkheid te behouden naarmate projecten zich in de loop van de tijd ontwikkelen.
+- **Delete Task**: Delete task: Verwijdert een taak uit het systeem. Deze functie is essentieel voor het opruimen van voltooide of verouderde taken, zodat de werkruimte georganiseerd en gefocust blijft.
+- **Export Translated File**: Export translated file by task ID: Vergemakkelijkt het downloaden van vertaalde inhoud die aan een specifieke taak is gekoppeld. Deze actie is essentieel voor het ophalen van de definitieve vertalingen, waardoor gebruikers hun vertaalde documenten gemakkelijk kunnen openen en gebruiken.
+- **Create Task from ZIP**: Create task from ZIP: Maakt het mogelijk om een taak te maken door een ZIP-bestand te uploaden dat alle nodige documenten en bronnen voor vertaling bevat. Deze methode vereenvoudigt het proces van het opzetten van een vertaalproject door bulkupload van materialen mogelijk te maken, wat het zeer efficiënt maakt voor het beheren van grote of complexe taken.
+
+### Translations
+
+- **Translate Text**: Vertaal tekst direct met behulp van gespecificeerde bron- en doeltalen, samen met een gekozen taalbron.
+
+- **Translate File**: Vertaal hele bestanden door een document te uploaden en talen te specificeren. De Translate5-service voert de vertaling uit en levert een downloadbaar vertaald document.
+
+- **Write Translation Memory**: Integreer vertaalde segmenten in OpenTM2, waardoor de rijkdom en bruikbaarheid van het vertaalgeheugen wordt verbeterd.
+
+### User
+
+- **List all users**: Lijst van alle gebruikers
+
+## Webhooks
+
+- **On task import finished**: Deze webhook wordt geactiveerd zodra het importproces van een taak is voltooid
+
+- **On Task Finished**: Vergelijkbaar met de taakimport-webhook wordt deze notificatie geactiveerd wanneer een taak wordt voltooid
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [gevestigde kanalen](https://www.blackbird.io/) of maak een issue aan.

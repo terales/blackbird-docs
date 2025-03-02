@@ -1,0 +1,97 @@
+---
+  title: Shopify
+  description: De Shopify Blackbird-app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Shopify" icon="github" />
+
+Shopify is een cloud-gebaseerd e-commerceplatform waarmee gebruikers online winkels kunnen maken, aanpassen en beheren. Het biedt een breed scala aan functies en tools voor bedrijven om producten en diensten online te verkopen, waaronder websitesjablonen, betalingsverwerking, voorraadbeheer en marketingtools. Shopify stelt gebruikers in staat om klanten te bereiken via verschillende kanalen, waaronder web, mobiel, sociale media en marktplaatsen, waardoor het een veelzijdige oplossing is voor particulieren, ondernemers en bedrijven die hun online aanwezigheid willen opbouwen en uitbreiden.
+
+## Verbinden
+
+1. Navigeer in Blackbird naar 'Apps' en zoek naar Shopify.
+2. Klik op _Add Connection_.
+3. Geef uw verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn Shopify-verbinding'.
+4. Ga in Shopify naar `Store settings -> Apps and sales channels -> Develop apps`.
+5. Maak de ontwikkel-app aan.
+6. Klik op `Configure Admin API scopes` om de toegangsrechten te selecteren die u aan Blackbird wilt geven. Zorg ervoor dat u de `read_locales` toegangsrechten toekent. Andere rechten die nodig kunnen zijn, afhankelijk van de gewenste acties, zijn: `write_products`, `read_products`, `write_publications`, `read_publications`, `write_translations`, `read_translations`, `read_themes`, `read_content`.
+7. Na het selecteren van de toegangsrechten, klik op `Save` en ga naar `API credentials` en installeer de nieuw gemaakte app.
+8. Er wordt een `Admin API access token` gemaakt die u moet kopiëren en plakken in het juiste veld in Blackbird.
+9. Klik vervolgens in de winkelinstellingen op `Domains` en kopieer de naam van de winkel uit het domein en plak deze in het juiste veld in Blackbird. Bijvoorbeeld, als uw domein `mystore.myshopify.com` is, moet u `mystore` nemen.
+10. Klik op _Connect_.
+11. Bevestig dat de verbinding is verschenen en dat de status _Connected_ is.
+
+## Actions
+
+### Store
+- **Get store locales information** Krijg informatie over de primaire en andere talen die in de winkel zijn ingesteld
+- **Get store resources content as HTML** geeft de inhoud van alle winkelresourcetype-items terug in HTML-formaat.
+- **Update store resources content from HTML** werkt de inhoud van alle winkelresourcetype-items bij vanuit een HTML-bestand.
+- **Get store content as HTML** geeft de inhoud van de winkel terug in HTML-formaat. U moet specificeren welke bronnen u wilt exporteren: thema, menu, winkel of winkelbeleid.
+- **Update store content from HTML** werkt de inhoud van de winkel bij vanuit een HTML-bestand.
+
+### Articles
+
+- **List online store articles** Lijst van alle artikelen in de online winkel
+- **Get online store article translation as HTML** Haal de inhoud van een specifiek online winkelartikel op in HTML-formaat
+- **Update online store article content from HTML** Werk de inhoud van een specifiek online winkelartikel bij vanuit een HTML-bestand
+
+### Blogs
+
+- **List online store blogs** Lijst van alle blogs in de online winkel
+- **Get online store blog content as HTML** Haal de inhoud van een specifieke online winkel blog op in HTML-formaat. U kunt ook `Include articles` op True zetten om alle blogberichten ook te exporteren.
+- **Update online store blog content from HTML** Werk de inhoud van een specifieke online winkel blog bij vanuit een HTML-bestand
+
+### Pages
+
+- **List online store pages** Lijst van alle pagina's in de online winkel
+- **Get online store page content as HTML** Haal de inhoud van een specifieke online winkelpagina op in HTML-formaat
+- **Update online store page content from HTML** Werk de inhoud van een specifieke online winkelpagina bij vanuit een HTML-bestand
+
+### Products
+
+- **Search products** Zoek naar producten op basis van opgegeven criteria
+- **Get product content as HTML** Haal de inhoud van een specifiek product op in HTML-formaat. U kunt optioneel meer entiteiten specificeren om te exporteren, bijvoorbeeld metavelden, opties, optiewaarden.
+- **Update product content from HTML** Werk de inhoud van een specifiek product bij vanuit een HTML-bestand
+
+### Metafields
+
+- **Get metafield content as HTML** geeft productmetaveldinhoud terug in HTML-formaat
+- **Update metafield content from HTML** werkt productmetaveldinhoud bij vanuit het HTML-bestand
+- **Get metafield** geeft metavelddetails van een specifiek product terug
+- **Update metafield** werkt metaveldwaarde van een specifiek product bij
+
+### Themes
+
+- **Get online store theme content as HTML** geeft de inhoud van een specifiek thema terug in HTML-formaat
+- **Update online store theme content from HTML** werkt de inhoud van een specifiek thema bij vanuit het HTML-bestand
+
+### General
+
+- **Update content from HTML** werkt de inhoud van specifieke content bij vanuit een HTML-bestand. U kunt het contenttype handmatig specificeren door de optionele invoer te gebruiken;
+
+## Events
+
+- **On product created**
+- **On product deleted**
+- **On product updated**
+- **On product publications added**
+- **On product publications deleted**
+- **On locale created**
+- **On locale updated**
+- **On articles created**
+- **On articles updated**
+- **On pages created**
+- **On pages updated**
+- **On content created or updated** (voor artikel en pagina's)
+
+## Voorbeeld
+
+Het volgende voorbeeld toont hoe een bird kan worden opgezet zodat telkens wanneer een Shopify-product wordt bijgewerkt, we de taalinstellingen van de online winkel krijgen, de broninhoud voor het bijgewerkte product als een HTML-bestand downloaden, het bestand vertalen naar alle doeltalen met behulp van de GlobalLink NOW MT-oplossing en alle doelproducten bijwerken.
+
+![Sample Bird](https://raw.githubusercontent.com/bb-io/Shopify/main/image/README/ShopifySampleBird.png)
+
+## Feedback
+
+Wilt u deze app gebruiken of heeft u feedback over onze implementatie? Neem contact met ons op via de [gevestigde kanalen](https://www.blackbird.io/) of maak een issue aan.

@@ -1,0 +1,91 @@
+---
+  title: Mistral AI
+  description: De Mistral AI Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/MistralAI" icon="github" />
+
+Snelle, open-source en veilige taalmodellen. Gefaciliteerde specialisatie van modellen voor zakelijke gebruikssituaties, met gebruik van privégegevens en gebruikersfeedback.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je [toegang hebt tot de Mistral AI-console](https://console.mistral.ai/).
+- Je een [API-sleutel](https://console.mistral.ai/api-keys/) hebt aangemaakt.
+- Je deze sleutel bewaart voor toekomstig gebruik.
+
+Je kunt een [complete handleiding](https://docs.mindmac.app/how-to.../add-api-key/create-mistral-ai-api-key) bekijken over het aanmaken van de Mistral AI API-sleutel met het registratieproces.
+
+## Verbinding maken
+
+1. Ga naar apps en zoek naar Mistral. Als je Mistral niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Contentstack en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijvoorbeeld 'Mijn klant'.
+4. Voer in het veld _API Key_ je API-sleutel in. Je kunt deze [hier](https://console.mistral.ai/api-keys/) verkrijgen.
+5. Klik op _Connect_.
+6. Controleer of de verbinding is verschenen en de status _Connected_ is.
+
+![MistralAIConnection](https://raw.githubusercontent.com/bb-io/MistralAI/main/image/README/MistralAIConnection.png)
+
+## Actions
+
+### Chat
+
+- **Send prompt**: Met deze actie kun je een prompt naar een AI-model sturen en het antwoord ontvangen. Wanneer je je bericht verzendt, wordt het verwerkt en via ons systeem naar de AI gestuurd. De AI genereert vervolgens een antwoord op basis van je input. Als je een gespreksgeschiedenis hebt, wordt deze bewaard en samen met het nieuwe AI-antwoord opgenomen in de teruggegeven details.
+
+### XLIFF
+
+Alle XLIFF-acties ondersteunen versies 1.2 en 2.1 van het XLIFF-formaat, aangezien dit de meest gebruikte versies in de industrie zijn. Als je ondersteuning nodig hebt voor andere versies, neem dan contact met ons op en we zullen overwegen om ondersteuning toe te voegen.
+
+- **Get Quality Scores for XLIFF file** Verkrijgt segment- en bestandsniveau kwaliteitsscores voor XLIFF-bestanden. Optioneel kun je de parameters Threshold, New Target State en Condition toevoegen aan de Blackbird-actie om de doelstatus van segmenten te wijzigen die aan de gewenste criteria voldoen (alle drie moeten worden ingevuld).
+
+  Optionele invoer:
+    - Prompt: Voeg je criteria toe voor het scoren van elk bron-doelpaar. Als er geen criteria worden opgegeven, wordt dit vervangen door _"accuracy, fluency, consistency, style, grammar and spelling"_.
+    - Bucket size: Aantal vertaaleenheden dat in dezelfde aanvraag wordt verwerkt. (Zie speciale sectie)
+    - Threshold: waarde tussen 0-10.
+    - Condition: Criteria om segmenten te filteren waarvan de doelstatus wordt gewijzigd.
+    - New Target State: waarde om de doelstatus bij te werken voor gefilterde vertaaleenheden.
+
+  Uitvoer:
+    - Average Score: geaggregeerde score van alle segmentniveauscores.
+    - Updated XLIFF file: segmentniveauscore toegevoegd aan extradata-kenmerk & bijgewerkte doelstatus wanneer geïnstrueerd.
+
+- **Post-edit XLIFF file** Werkt de doelen van XLIFF-bestanden bij
+
+Optionele invoer:
+- Prompt: Voeg je taalkundige criteria toe voor het naredigen van doelen.
+- Bucket size: Aantal vertaaleenheden dat in dezelfde aanvraag wordt verwerkt. (Zie speciale sectie)
+- Glossary
+- Add missing trailing tags: Als dit waar is, worden ontbrekende eindtags toegevoegd aan het doelsegment.
+
+> De Prompt die in deze acties wordt gebruikt is "Your input consists of sentences in `source` language with their translations into `target language`. Review and edit the translated target text as necessary to ensure it is a correct and accurate translation of the source text. If you encounter XML tags in the source also include them in the target text, don't delete or modify them." Door de optionele invoer "Prompt" te gebruiken, worden je instructies aan de prompt toegevoegd.
+
+- **Process XLIFF file** gegeven een XLIFF-bestand, verwerkt elke vertaaleenheid volgens de instructies in de optionele invoer "Prompt" (als er geen Prompt wordt gegeven, worden de bronteksten vertaald) en werkt de doeltekst voor elke eenheid bij.
+
+> Wanneer een Glossary wordt toegevoegd als optionele invoer voor een van de hierboven beschreven acties, is de gebruikte Prompt "Enhance the target text by incorporating relevant terms from our glossary where applicable. Ensure that the translation aligns with the glossary entries for the respective languages. If a term has variations or synonyms, consider them and choose the most appropriate translation to maintain consistency and precision."
+
+## Voorbeeld
+
+Met onze applicatie kun je de volgende bird bouwen:
+
+![MistralAIExample](https://raw.githubusercontent.com/bb-io/MistralAI/main/image/README/MistralAIExample.png)
+
+Eerste actie:
+
+![MistralAIExample](https://raw.githubusercontent.com/bb-io/MistralAI/main/image/README/MistralAIExample-1-action.png)
+
+Tweede actie:
+
+![MistralAIExample](https://raw.githubusercontent.com/bb-io/MistralAI/main/image/README/MistralAIExample-2-action.png)
+
+Derde actie:
+
+![MistralAIExample](https://raw.githubusercontent.com/bb-io/MistralAI/main/image/README/MistralAIExample-3-action.png)
+
+Zoals je kunt zien, kun je een berichtgeschiedenis opgeven om de context van het gesprek te behouden
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

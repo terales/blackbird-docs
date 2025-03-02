@@ -1,0 +1,125 @@
+---
+title: Marketo
+description: A Marketo Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Github-on" target="_blank" href="https://github.com/bb-io/Marketo" icon="github" />
+
+
+A Marketo egy Software-as-a-Service (SaaS) alapú marketingautomatizálási szoftver, amelyet az Adobe tulajdonol, és azzal a céllal jött létre, hogy segítse a szervezeteket a marketing elkötelezettség, feladatok és munkafolyamatok automatizálásában és mérésében.
+
+## Beállítás előtt
+
+Mielőtt csatlakozni tudna, győződjön meg a következőkről:
+
+- Rendelkezik Marketo fiókkal azon a példányon, amelyhez csatlakozni szeretne.
+- A Marketo fiókja megfelelő jogosultságokkal rendelkezik. A kapcsolat beállításához "API felhasználó" szerepkörrel rendelkező fiók szükséges.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Marketo-ra. Ha nem találja a Marketo-t, kattintson a jobb felső sarokban található _Alkalmazás hozzáadása_ gombra, válassza a Marketo-t, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson a _Kapcsolat hozzáadása_ gombra.
+3. Nevezze el a kapcsolatát későbbi hivatkozáshoz, pl. 'Az ügyfelem'.
+4. Töltse ki a csatlakoztatni kívánt Marketo példány "Munchkin fiók azonosítóját", "Ügyfél azonosítóját" és "Ügyfél titkos kódját". Ezeket a Marketo beállításaiban találja meg.
+5. Kattintson a _Kapcsolat engedélyezése_ gombra.
+
+## Actions
+
+### Emails
+
+- **Search emails**
+- **Get email info**
+- **Get email content**
+- **Delete email**
+- **Get email as HTML for translation**
+  <br/>Hasznos bemeneti paraméterek:
+  * "Include images" - ha igaz értékre van állítva, a képeket is tartalmazza az exportált HTML-ben (alapértelmezetten - hamis)
+  * "Get only dynamic content" - ha igaz értékre van állítva, csak dinamikus tartalmat tartalmaz az e-mailjéből (más típusú tartalmak kimaradnak)
+  
+- **Translate email from HTML file**
+
+### Files
+
+- **List all files**
+- **Get file info**
+- **Download file**
+- **Upload file**
+
+### Folders
+
+- **List folders**
+- **Get folder info**
+- **Create folder**
+- **Delete folder**
+
+### Landing pages
+
+- **Search landing pages**
+- **Get landing page info**
+- **Create landing page**
+- **Delete landing page**
+- **Approve landing page draft**
+- **Discard landing page draft**
+- **Unapprove landing page (back to draft)**
+- **Get landing page full content**
+- **Get landing page as HTML for translation**
+- **Translate landing page from HTML file**
+
+A **Get landing page as HTML for translation** és a **Translate landing page from HTML file** műveletek együtt használhatók a fordítási folyamatban: lekérheti a céloldalt HTML-fájlként, behelyezheti a fordítórendszerbe, majd lekérheti a lefordított HTML-fájlt, és visszahelyezheti a Marketo-ba. A **Translate landing page from HTML file** művelet ugyanazt a HTML-struktúrát várja, mint amit a **Get landing page as HTML for translation** művelettel lekért fájl struktúrája.
+
+
+### Forms
+
+- **Get form**
+- **Search forms created or updated in date range**
+- **Get form as HTML for translation**
+- **Create new form from translated HTML**
+
+A **Get form as HTML for translation** és a **Create new form from translated HTML** műveletek együtt használhatók a fordítási folyamatban: lekérheti az űrlapot HTML-fájlként, behelyezheti a fordítórendszerbe, majd lekérheti a lefordított HTML-fájlt, és visszahelyezheti a Marketo-ba. A **Create new form from translated HTML** művelet ugyanazt a HTML-struktúrát várja, mint amit a **Get form as HTML for translation** művelettel lekért fájl struktúrája.
+
+### Fordítási funkciók (dinamikus tartalom)
+- A fordítási funkciók a Marketo dinamikus tartalmán alapulnak. Ez a fordítási típus e-mailekhez és céloldalakhoz érhető el (az e-mail és céloldal szekciókban fent meghatározott utolsó két művelet)
+- A Marketo-ban lennie kell egy szegmentációnak, amely nyelvi kódokkal vagy nyelvnevekkel elnevezett szegmenseket tartalmaz (ahogy szeretné). Mindkét műveletnek ugyanazt a szegmentációt kell használnia, de különböző szegmenseket (mivel a szegmensek egyszerűen különböző nyelvek).
+- A Blackbird automatikusan átalakítja az összes szövegmezőt (HTML vagy formázott szöveg) dinamikus tartalommá a fordítási művelet során. Ha ezt szeretné megakadályozni, állítsa a "Translate only dynamic content" opciót "true" értékre a fordítási műveletekben, és akkor csak a dinamikus tartalom mezői változnak meg (a statikus szöveges tartalom ugyanaz marad). Ne használja ezt a beállítást, ha a teljes tartalmat le szeretné fordítani.
+- Azok a mezők, amelyeket manuálisan szegmentáltak a felhasználói felületről más szegmentációval (nem azzal, amit a műveletek bemenetében megadott), figyelmen kívül lesznek hagyva.
+- Ha nagyobb ellenőrzést szeretne az e-mailek és céloldalak egyes részeinek dinamikus tartalma felett - kérjük, vegye fel velünk a kapcsolatot
+  
+![kép](https://github.com/bb-io/Marketo/assets/127740895/ec77cf4a-9468-41b8-a5ee-3ca902183eeb)
+
+## Events
+
+- **On emails created or updated**
+- **On email templates created or updated**
+- **On snippets created or updated**
+- **On forms created or updated**
+- **On landing pages created or updated**
+
+## HTML funkciók
+
+Metaadatokat adunk a HTML-fájlhoz, hogy azonosítókat tartalmazhassanak. Ezeket a metaadatokat használjuk a HTML-fájlból származó tartalom frissítéséhez. Ezek a címkék a `Marketo`-ban azonosítják a tartalmat, így nincs szükség az azonosítók máshol történő tárolására.
+
+Példa arra, hogyan illesztünk metaadatokat a HTML-fájlba:
+
+```html
+<html>
+<head>
+    <meta name="blackbird-email-id" content="1001">
+</head>
+<body>
+    <h1>Example title</h1>
+    <p>Example content</p>
+</body>
+</html>
+```
+
+## Hiányzó funkciók
+
+- Smart lists/campaigns
+- Tags and tokens
+
+Tudassa velünk, ha érdeklődik ezek iránt!
+
+## Visszajelzés
+
+A Marketo implementációnkkal kapcsolatos visszajelzéseket mindig nagy örömmel fogadjuk. Keressen minket a meglévő csatornákon keresztül vagy hozzon létre egy problémát.

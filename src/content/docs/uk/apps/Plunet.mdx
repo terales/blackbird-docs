@@ -1,0 +1,274 @@
+---
+  title: Plunet
+  description: Додаток Blackbird для Plunet
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Plunet" icon="github" />
+
+
+Plunet — це програмне рішення для управління перекладацьким бізнесом. Його функції включають створення комерційних пропозицій, замовлень, призначення ресурсів для завдань та виставлення рахунків. Цей додаток Plunet дозволяє автоматизувати багато трудомістких завдань.
+
+## Перед налаштуванням
+
+Перед підключенням переконайтеся, що:
+
+- У вас є екземпляр Plunet і достатні права адміністратора на цьому екземплярі.
+- У вас створений користувач API Plunet.
+
+## Підключення
+
+1. Перейдіть до розділу "Додатки" та знайдіть додаток **Plunet**. Ви можете скористатися пошуком, щоб знайти його.
+2. Натисніть _Add Connection_.
+3. Назвіть своє підключення для подальшого використання, наприклад, 'Моє підключення до Plunet'.
+4. Заповніть URL-адресу екземпляра Plunet, до якого ви хочете підключитися. Зазвичай ви можете скопіювати цю частину URL-адреси, коли ви увійшли до свого екземпляра Plunet.
+5. Введіть ім'я користувача вашого API-користувача Plunet.
+6. Введіть пароль вашого API-користувача Plunet.
+7. Натисніть _Connect_.
+
+![1701864930160](https://raw.githubusercontent.com/bb-io/Plunet/main/image/README/1701864930160.png)
+
+### Усунення проблем
+
+Якщо ви не можете підключитися, перевірте наступне:
+1. URL-адреса повинна виглядати як `https://plunet-friend.plunet.com`. Без /PlunetAPI в кінці.
+2. Ви повинні переконатися, що ваша URL-адреса доступна з наших серверів. Щоб перевірити це, ви можете спробувати відкрити URL-адресу з '/PlunetAPI?wsdl' в кінці у вашому браузері (ви повинні побачити XML-документ, який описує API).
+3. Переконайтеся, що у вас немає правил брандмауера, які блокують підключення, або списку дозволених IP-адрес, які мають доступ до вашого екземпляра Plunet (або, якщо вони є, переконайтеся, що IP-адреси Blackbird додані до білого списку).
+
+## Actions
+
+### Contacts
+
+- **Get customer contacts** Перелічує всі контакти, пов'язані з клієнтом
+- **Get contact** повертає дані контакту
+- **Get contact by external ID** знаходить контакт за зовнішнім ідентифікатором
+- **Create contact** створює новий контакт клієнта
+- **Update contact** оновлює існуючий контакт клієнта
+
+### Customers
+
+- **Search customers** повертає список клієнтів на основі численних необов'язкових параметрів пошуку, включаючи:
+  - Customer type
+  - Email
+  - Source language
+  - Name 1 & Name 2
+  - Status
+- **Get customer**
+- **Delete customer**
+- **Create customer**
+- **Update customer**
+
+### Documents
+
+- **Upload file** завантажує файл до певної папки будь-якого об'єкта, до якого можна прикріпити файли
+- **Download file** може завантажити файл з будь-якого об'єкта, до якого можна прикріпити файли
+- **Download all files in folder**
+- **Calculate word count** підраховує кількість слів у документах. Підтримуються лише текстові файли, такі як .txt, .html, .xliff, .docx та .pdf.
+
+### Items
+
+- **Search items** повертає список елементів на основі наступних критеріїв, додатково можна встановити валюту, яка повертається:
+  - Order or quote iD
+  - Item status
+  - Document status
+- **Get item**
+- **Create item**
+- **Delete item**
+- **Update item**
+- **Get item pricelines** повертає всі цінові рядки, прикріплені до цього елемента
+- **Create item priceline** Створює новий запис цінового рядка для цього елемента
+- **Delete item priceline** Видаляє ціновий рядок з елемента
+- **Update item priceline** Оновлює ціновий рядок елемента
+
+Зауважте, що при створенні/оновленні елементів можна встановити мови джерела та цілі (вони обидві мають бути вказані або жодна). Blackbird призначить правильну існуючу мовну комбінацію елементу або, якщо мовна комбінація не існує, мовна комбінація буде спочатку створена для замовлення або комерційної пропозиції.
+
+### Jobs
+
+- **Get item jobs** повертає список завдань, прикріплених до певного елемента
+- **Get job**
+- **Create job**
+- **Delete job**
+- **Update job**
+- **Get job pricelines**
+- **Create job priceline**
+- **Delete job priceline**
+- **Update job priceline**
+
+### Orders
+
+- **Search orders** повертає список замовлень на основі численних необов'язкових параметрів пошуку, включаючи:
+  - Date from
+  - Date to
+  - Source language
+  - Target language
+  - Status
+  - Customer ID
+  - Name
+  - Description
+  - Type
+- **Get order**
+- **Create order**
+- **Delete order**
+- **Update order**
+- **Add language combination to order**
+
+![1701867033221](https://raw.githubusercontent.com/bb-io/Plunet/main/image/README/1701867033221.png)
+
+Приклад рівня деталізації, на якому можна вибирати замовлення (та інші об'єкти).
+
+### Payables
+
+- **Search payables** повертає список кредиторської заборгованості на основі численних необов'язкових параметрів пошуку, включаючи:
+- **Get payable**
+- **Export payable** експортує кредиторську заборгованість у формат JSON, який можна використовувати в інших додатках.
+- **Update payable**
+
+### Quotes
+
+- **Search quotes** повертає список комерційних пропозицій на основі численних необов'язкових параметрів пошуку, включаючи:
+  - Date from
+  - Date to
+  - Date refers to (invoice date, value date, due date, paid date)
+  - Exported
+  - Status
+  - Currency
+  - Resource ID
+- **Get quote**
+- **Get quote item target languages for source**
+- **Create quote**
+- **Delete quote**
+- **Update order**
+- **Add quote combination to quote**
+
+### Requests
+
+- **Search requests** повертає список запитів на основі численних необов'язкових параметрів пошуку, включаючи:
+  - Date from
+  - Date to
+  - Source language
+  - Target language
+  - Status
+  - Customer type
+  - Customer ID
+- **Get request**
+- **Create request**
+- **Delete request**
+- **Update request**
+- **Add language combination to request**
+- **Create quote from request**
+- **Create order from request**
+
+### Resources
+
+- **Search resources** повертає список ресурсів на основі численних необов'язкових параметрів пошуку, включаючи:
+  - Contact ID
+  - Resource type
+  - Email
+  - Name 1 & Name 2
+  - Status
+  - Source language
+  - Target language
+  - Working status
+- **Get resource** Отримати деталі конкретного ресурсу
+- **Find resource** Знайти конкретний ресурс на основі певних критеріїв
+- **Find resource by text module** Знайти ресурси за текстовим модулем
+- **Update resource** Оновити конкретний ресурс новими деталями
+- **Assign resource to job** призначає ресурс для роботи
+- **Create resource** створити новий порожній набір даних ресурсів
+
+### Custom properties
+
+- **Set property**
+- **Get property**
+- **Set text module value** встановлює значення текстового модуля, якщо він представляє одне значення
+- **Get text module value** отримує значення текстового модуля, якщо текстовий модуль представляє кілька значень, він поверне перше з них. 
+- **Get multiple text module values** повертає список значень. Працює, якщо текстовий модуль представляє кілька значень.
+- **Set multiple text module values** встановлює список значень текстового модуля, якщо він представляє кілька значень.
+
+Зауважте, що для текстових модулів потрібно вказати Plunet _Flag_, який можна знайти, перейшовши до Admin > Document templates > Text modules. Прапори зазвичай створюються між [квадратними дужками]
+
+## Обмеження пошуку
+
+Дії пошуку мають обмеження у 50 результатів. Якщо вам потрібно шукати більше результатів, ви можете використовувати необов'язковий параметр `Limit`, щоб збільшити ліміт.
+
+Ми встановили це обмеження, щоб запобігти проблемам, які можуть виникнути при одночасному виконанні кількох паралельних дій. Коли кілька пошукових дій виконуються одночасно, це створює значне навантаження на API Plunet. Це може призвести до часових затримок та збоїв, особливо при роботі з великою кількістю результатів. Обмежуючи кількість результатів, що повертаються в кожній пошуковій дії, ми допомагаємо забезпечити більш стабільну та надійну роботу API Plunet.
+
+## Events
+
+Усі вебхуки повертають усі дані для об'єкта, на якому вони були викликані. Усі події _status changed_ мають необов'язкове поле введення _new status_, яке можна використовувати для розрізнення нового статусу після події.
+
+### Customers
+
+- **On customer deleted**
+- **On customer created**
+- **On customer status changed**
+
+### Items
+
+- **On item deleted**
+- **On item created**
+- **On item status changed**
+- **On item delivery date changed**
+
+### Jobs
+
+- **On job deleted**
+- **On job created**
+- **On job status changed**
+- **On job delivery date changed**
+- **On job start date changed**
+
+### Orders
+
+- **On order deleted**
+- **On order created**
+- **On order status changed**
+
+### Quotes
+
+- **On quote deleted**
+- **On quote created**
+- **On quote status changed**
+
+### Requests
+
+- **On request deleted**
+- **On request created**
+- **On request status changed**
+
+### Resources
+
+- **On resource deleted**
+- **On resource created**
+- **On resource status changed**
+
+### Payables
+
+- **On payable created**
+
+## Приклад
+
+![1701866832560](https://raw.githubusercontent.com/bb-io/Plunet/main/image/README/1701866832560.png)
+
+Наступний приклад показує, як можна налаштувати птаха, який створює новий пакетний переказ Wise для всіх кредиторських заборгованостей, які готові до оплати, і де ресурси знаходяться на платформі Wise. Супутній птах оновлюватиме статус кредиторської заборгованості, коли платіж буде успішно здійснено в Wise.
+
+## Найпопулярніші випадки використання
+
+1. **Синхронізація даних Plunet та CRM** - Blackbird підтримує CRM-платформи, такі як HubSpot, Notion, Salesforce та Pipedrive.
+2. **Створення замовлень Plunet з вхідних завдань TMS з групуванням-пакетуванням** - Ми підтримуємо такі системи, як Bureau Works, Lokalise, Crowdin, Phrase, Smartling, XTM та багато інших.
+3. **Інтеграція CAT-інструментів з Plunet (двонаправлена інтеграція)**.
+4. **Оплата постачальникам через Wise** - Інтеграція оплати Plunet-Wise.
+5. **Інтеграція з QuickBooks Online**.
+6. **Інтеграція з Outlook, Gmail, Teams та Slack** для кращої комунікації.
+7. **Синхронізація даних з BI-інструментами**.
+8. **Інтеграція Plunet - Remote.com** - Синхронізація ключових даних між Plunet та Remote.
+
+Хочете дізнатися більше? [Замовте демо](https://www.blackbird.io/)
+
+## Відсутні функції
+
+Вам не вистачає якоїсь конкретної функції? Повідомте нам!
+
+## Зворотній зв'язок
+
+Ви хочете використовувати цей додаток або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть проблему.

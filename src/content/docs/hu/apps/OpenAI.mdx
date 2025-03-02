@@ -1,0 +1,135 @@
+---
+  title: OpenAI
+  description: Az OpenAI Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/OpenAI" icon="github" />
+
+Ez az OpenAI alkalmazás a Blackbirdben hozzáférést biztosít az összes API végponthoz és modellhez, amelyet az OpenAI kínál a szövegkiegészítéstől a csevegésen és szerkesztésen át a DALL-E képgenerálásig és a Whisperig.
+
+## Beállítás előtt
+
+Mielőtt csatlakozhatna, győződjön meg arról, hogy:
+
+- Rendelkezik [OpenAI fiókkal](https://platform.openai.com/signup).
+- Az [API kulcsok](https://platform.openai.com/account/api-keys) részben új API kulcsot generált, amely programozott hozzáférést biztosít az OpenAI modellekhez „pay-as-you-go" alapon. Ezzel csak a tényleges használatért fizet, amely [1000 tokenenként 0,002 USD-től kezdődik](https://openai.com/pricing) a leggyorsabb chat modell esetében. Vegye figyelembe, hogy a ChatGPT Plus előfizetési csomag erre nem alkalmazható; ez csak a korlátozott chat.openai.com webes felülethez biztosít hozzáférést, és nem tartalmazza az OpenAI API hozzáférést. Győződjön meg arról, hogy a teljes API kulcsot másolja le, amely a létrehozáskor egyszer jelenik meg, nem pedig egy rövidített verziót. Az API kulcs formája `sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.
+- API-fiókjában van fizetési mód és pozitív egyenleg, minimum 5 USD. Ezt a [Számlázási beállítások](https://platform.openai.com/account/billing/overview) részben állíthatja be.
+
+**Megjegyzés**: A Blackbird alapértelmezés szerint a legújabb modelleket használja a műveleteiben. Ha előfizetése nem támogatja ezeket a modelleket, akkor minden Blackbird művelethez hozzá kell adnia a használható modelleket.
+
+## Kapcsolódás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá az OpenAI-ra.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például "Az én OpenAI kapcsolatom".
+4. Töltse ki az előzőleg megszerzett API kulcsot.
+5. Kattintson a _Connect_ gombra.
+
+![1694611695232](https://raw.githubusercontent.com/bb-io/OpenAI/main/image/README/1694611695232.png)
+
+## Actions
+
+Minden szöveges műveletnek a következő opcionális bemeneti értékei vannak a generált válasz módosításához:
+
+- Modell (alapértelmezés szerint a legújabb)
+- Maximális tokenek
+- Hőmérséklet
+- top_p
+- Jelenlét büntetés
+- Gyakoriság büntetés
+
+A legtöbb műveletről részletesebb információért tekintse meg az [OpenAI API referenciát](https://platform.openai.com/docs/api-reference).
+
+A különböző műveletek különböző modelleket támogatnak, amelyek az adott feladathoz megfelelőek (pl. gpt-4 modell a **Chat** művelethez). A műveletcsoportok és a hozzájuk ajánlott modellek az alábbi táblázatban láthatók.
+
+| Műveletcsoport |                                                                                                                          Legújabb modellek                                                                                                                           |      Alapértelmezett modell (ha a _Model ID_ bemeneti paraméter nincs megadva)      |                                                                                                                                                                                                                        Elavult modellek                                                                                                                                                                                                                         |
+| :----------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|     Chat     | gpt-4o, gpt-o1, gpt-o1 mini,  gpt-4-turbo-preview és dátumozott modellkiadások, gpt-4 és dátumozott modellkiadások, gpt-4-vision-preview, gpt-4-32k és dátumozott modellkiadások, gpt-3.5-turbo és dátumozott modellkiadások, gpt-3.5-turbo-16k és dátumozott modellkiadások, gpt-3.5-turbo finomhangolt verziói | gpt-4-turbo-preview; gpt-4-vision-preview a **Chat with image** művelethez |                                                                                                                                                                                    gpt-3.5-turbo-0613, gpt-3.5-turbo-16k-0613, gpt-3.5-turbo-0301, gpt-4-0314, gpt-4-32k-0314                                                                                                                                                                                    |
+| Audiovizuális  |                                                                      Csak a whisper-1 támogatott átiratok és fordítások esetén. tts-1 és tts-1-hd támogatott beszédkészítéshez.                                                                      |                  tts-1-hd a **Create speech** művelethez                   |                                                                                                                                                                                                                                -                                                                                                                                                                                                                                 |
+|    Képek    |                                                                                                                        dall-e-2, dall-e-3                                                                                                                        |                                 dall-e-3                                 |                                                                                                                                                                                                                                -                                                                                                                                                                                                                                 |
+|  Beágyazások  |                                                                                                                      text-embedding-ada-002                                                                                                                      |                          text-embedding-ada-002                          | text-similarity-ada-001, text-similarity-babbage-001, text-similarity-curie-001, text-similarity-davinci-001, text-search-ada-doc-001, text-search-ada-query-001, text-search-babbage-doc-001, text-search-babbage-query-001, text-search-curie-doc-001, text-search-curie-query-001, text-search-davinci-doc-001, text-search-davinci-query-001, code-search-ada-code-001, code-search-ada-text-001, code-search-babbage-code-001, code-search-babbage-text-001 |
+
+A rendelkezésre álló modellekről és a köztük lévő különbségekről a [Modellek](https://platform.openai.com/docs/models) dokumentációban találhat információt.
+
+Egyes kínált műveletek az OpenAI tetején előre megtervezettek. Ez azt jelenti, hogy kiterjesztik az OpenAI végpontjait kiegészítő prompt mérnöki megoldásokkal a gyakori nyelvi és tartalmi műveletekhez.
+
+Van egy remek használati eset, amelyet műveletté alakíthatunk? Tudassa velünk!
+
+### Chat
+
+- **Chat** adott csevegő üzenethez választ ad. Opcionálisan hozzáadhat egy rendszerüzenetet és/vagy egy képet. Szöveggyűjteményt is hozzáadhat, és ez az üzenettel együtt bekerül a promptba. Opcionálisan Szószedet is hozzáadható. Hasznos, ha üzenetek gyűjteményét szeretné hozzáadni a prompthoz.
+- **Chat with system prompt** ugyanaz, mint a fenti, kivéve, hogy a rendszerüzenet kötelező.
+
+### Assistant
+
+- **Message assistant** üzenetet küld egy előre konfigurált asszisztensnek. Végrehajtja az asszisztenst és visszaadja az üzenetét. Az asszisztens művelet legfeljebb 10 fájlt fogadhat bemenetként. **Megjegyzés**: Ha szeretné olvasni a csatolt fájlokat, győződjön meg arról, hogy az asszisztensén engedélyezve van a _Retrieval_ funkció.
+
+### Lokalizáció (előre megtervezett)
+
+- **Post-edit MT** adott forrásszegmens és NMT fordított célszegmens alapján a célszegmens utószerkesztett verzióját adja vissza, figyelembe véve a tipikus NMT hibákat.
+- **Get translation issues** adott forrásszegmens és NMT fordított célszegmens alapján kiemeli a lehetséges fordítási problémákat. Használható TMS szegmensek megjegyzéseinek előzetes kitöltésére.
+- **Get MQM report** a fordítás LQA elemzését végzi. Az eredmény MQM keretrendszer formában lesz. A dimenziók: terminológia, pontosság, nyelvi konvenciók, stílus, lokális konvenciók, célközönség megfelelősége, tervezés és jelölés. A bemenet a forrás- és fordított szövegből áll. Opcionálisan hozzáadhatók nyelvek és a célközönség leírása.
+- **Get MQM dimension values** ugyanazt a bemenetet és promptot használja, mint a "Get MQM report". Azonban ebben a műveletben a pontszámok egyedi számokként jelennek meg, hogy döntésekben lehessen használni őket. A javasolt fordítást is visszaadja.
+- **Translate text** adott szöveg és lokalizáció alapján megpróbál létrehozni egy lokalizált verziót a szövegből.
+
+- **Get localizable content from image** kinyeri a lokalizálható tartalmat a megadott képből.
+
+### Tartalom újrahasznosítás
+
+Minden művelet figyelembe veheti a következőket: Célközönség, lokalizáció, szószedet, hangnem és bármilyen további utasítás
+
+- **Repurpose content** tartalmat formál át egy adott célközönséghez.
+- **Summarize content** tartalomból összefoglalót készít.
+
+### Szószedet kinyerés
+
+- **Extract glossary** bármilyen (többnyelvű) tartalomból szószedetet (.tbx) nyer ki. Ezt jól használhatja más alkalmazásokkal, amelyek szószedeteket fogadnak.
+
+### Audiovizuális
+
+- **Create transcription** a támogatott audiovizuális fájlformátumokat szöveges válasszá írja át.
+- **Create English translation** ugyanaz, mint a fenti, de automatikusan angol nyelvre fordítva.
+- **Create speech** a szöveges bemenetből hangot generál.
+
+### Képek
+
+- **Generate image** DALL-E használatával képet generál prompt alapján.
+
+### Egyéb
+
+- **Create embedding** szöveg vektorizált beágyazását hozza létre. Hasznos vektoros adatbázisokkal (pl. Pinecone) kombinálva nagy adatkészletek tárolásához.
+- **Tokenize text** szöveget tokenekké alakít. A háttérben Tiktokent használ.
+
+### XLIFF műveletek
+
+Minden XLIFF művelet támogatja az 1.2 és 2.1 verzióját az XLIFF formátumnak, mivel ezek a leggyakrabban használt verziók az iparágban, de ha más verziókat szeretne támogatni, kérjük, forduljon hozzánk, és megfontoljuk a támogatás hozzáadását.
+
+Jelenleg a [structured output](https://platform.openai.com/docs/guides/structured-outputs/structured-outputs) funkciót használjuk a műveletek eredményeinek visszaadásához. Ez azt jelenti, hogy a műveletek kimenete strukturált módon lesz elrendezve, ami megkönnyíti az elemzést és növelheti a műveletek stabilitását. Azonban vegye figyelembe, hogy a `Structured Outputs` csak a legújabb nagy nyelvi modellekben érhető el, kezdve a GPT-4o-val:
+- gpt-4o-mini-2024-07-18 és későbbi verziók
+- gpt-4o-2024-08-06 és későbbi verziók
+<br/>
+
+A strukturált kimenetekről további információkat találhat az [OpenAI dokumentációban](https://platform.openai.com/docs/guides/structured-outputs/introduction).
+
+- **Get Quality Scores for XLIFF file** Szegmens és fájlszintű minőségi pontszámokat kap XLIFF fájlokhoz. Opcionálisan hozzáadhatja a Threshold, New Target State és Condition bemeneti paramétereket a Blackbird művelethez, hogy megváltoztassa a kívánt feltételeknek megfelelő szegmensek célállapot értékét (mindhárom kitöltése szükséges).
+
+    Opcionális bemenetek:
+	- Prompt: Adja meg kritériumait minden forrás-cél pár értékeléséhez. Ha nincs megadva, akkor ezt helyettesíti a _"accuracy, fluency, consistency, style, grammar and spelling"_.
+	- Bucket size: Egy kérésben feldolgozandó fordítási egységek száma. (Lásd a dedikált részt)
+	- Source and Target languages: Alapértelmezés szerint ezeket az értékeket az XLIFF fejlécből vesszük. Megadhat más értékeket is, nincs meghatározott formátum. 
+	- Threshold: 0-10 közötti érték.
+	- Condition: Kritérium a szegmensek szűréséhez, amelyek célállapota módosításra kerül.
+	- New Target State: az érték, amelyre a szűrt fordítási egységek célállapota frissítve lesz.
+
+    Kimenet:
+	- Average Score: az összes szegmensszintű pontszám összesített értéke.
+	- Updated XLIFF file: a szegmensszintű pontszám az extradata attribútumhoz adva és frissített célállapot, ha ez volt az utasítás.
+
+> Az ebben a műveletben használt prompt: "Your input is going to be a group of sentences in `source language` and their translation into `target language`. Only provide as output the ID of the sentence and the score number. The score number is a score from 1 to 10 assessing the quality of the translation, considering the following criteria: `Criteria provided via Prompt input`."
+
+Példaként az alábbi képen látható beállítások eredményeként minden 6 vagy annál alacsonyabb pontszámú szegmens célállapota "needs-review-translation"-re frissül. 
+
+![OpenAIOptionalInput](https://raw.githubusercontent.com/bb-io/OpenAI/main/image/README/OpenAIOptionalInput.png)
+
+- **Post-edit XLIFF file

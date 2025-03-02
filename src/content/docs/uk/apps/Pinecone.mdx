@@ -1,0 +1,63 @@
+---
+  title: Pinecone
+  description: Додаток Blackbird для Pinecone
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/Pinecone" icon="github" />
+
+
+Pinecone — це хмарна векторна база даних, розроблена для високопродуктивних додатків штучного інтелекту, яка пропонує кероване рішення без складнощів інфраструктури. Вона спеціалізується на зберіганні та швидкому пошуку векторних вкладень, які служать довготривалою пам'яттю для додатків, що використовують великі мовні моделі, генеративний ШІ та семантичний пошук. Система забезпечує швидкі та точні запити в масштабі, з низькою затримкою результатів, що відображають оновлення в реальному часі, та пропонує варіанти налаштування для підвищення продуктивності.
+
+## Перед налаштуванням
+
+Перш ніж підключитися, переконайтеся, що: 
+
+- У вас є обліковий запис Pinecone.
+- Ви [створили проєкт](https://docs.pinecone.io/docs/create-project).
+- Ви отримали параметри підключення _API key_ та _Environment_. Щоб знайти їх, відкрийте [консоль Pinecone](https://app.pinecone.io/), виберіть проєкт, який вас цікавить, і натисніть на _API Keys_. Тут ви можете скопіювати значення _Environment_ та _API key_.
+
+![API keys](https://raw.githubusercontent.com/bb-io/Pinecone/main/image/api_keys.png)
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть Pinecone. Якщо ви не можете знайти Pinecone, натисніть _Add App_ у верхньому правому куті, виберіть Pinecone і додайте додаток до свого середовища Blackbird.
+2. Натисніть _Add Connection_.
+3. Назвіть своє підключення для подальшого використання, наприклад, 'Моя база даних'.
+4. Заповніть поля _API key_ та _Environment_, отримані раніше.
+5. Натисніть _Connect_.
+6. Переконайтеся, що з'явилося підключення і його статус _Connected_.
+
+![Connecting](https://raw.githubusercontent.com/bb-io/Pinecone/main/image/connecting.png)
+
+## Actions
+
+### Indexes
+
+- **List indexes**.
+- **Create index**. Про індекси та їхні параметри можна прочитати [тут](https://docs.pinecone.io/docs/indexes). Ця дія також приймає параметр _Source collection_, який є статичною копією індексу. Більше про колекції можна прочитати [тут](https://docs.pinecone.io/docs/collections).
+- **Describe index** повертає опис індексу.
+- **Configure index** оновлює тип поду та/або кількість реплік для індексу. Ви можете лише збільшити розмір поду або кількість реплік.
+- **Delete index**.
+- **List collections**.
+- **Create collection** створює колекцію з індексу.
+- **Describe collection** повертає опис колекції.
+- **Delete collection**.
+
+### Vectors
+
+- **Query** отримує записи в індексі, які найбільш подібні до заданого вектора запиту.
+- **Fetch vector** отримує вектор за його ID.
+- **Upsert vector** записує новий вектор в індекс.
+- **Delete vector**.
+- **Delete all vectors in namespace**.
+
+## Приклад
+
+![Example](https://raw.githubusercontent.com/bb-io/Pinecone/main/image/example.png)
+
+У цьому прикладі bird отримує статті Zendesk, додані за останні 24 години, створює вкладення для кожної з них і зберігає їх у Pinecone.
+
+## Зворотний зв'язок
+
+Бажаєте використовувати цей додаток або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть issue.

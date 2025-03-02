@@ -1,0 +1,64 @@
+---
+  title: Google Drive
+  description: A Google Drive Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/GoogleDrive" icon="github" />
+
+A Google Drive egy fájlmegosztó és szinkronizálási szolgáltatás, amelyet a Google fejlesztett ki. A 2012. április 24-én indított Google Drive lehetővé teszi a felhasználók számára, hogy fájlokat tároljanak a felhőben (a Google szerverein), szinkronizálják a fájlokat az eszközök között, és megosszák azokat.
+
+## Beállítás előtt
+
+Mielőtt csatlakozna, győződjön meg arról, hogy:
+
+- Rendelkezik **Google Drive** fiókkal és hozzáférési adatokkal.
+
+## Csatlakozás
+
+1. Navigáljon az Alkalmazásokhoz, és keresse meg a **Google Drive** alkalmazást. A keresést használhatja a megtalálásához.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például 'Google Drive kapcsolat'.
+4. Kattintson az _Authorize connection_ gombra.
+5. Hozza létre a Google Drive kapcsolatot OAuth-on keresztül.
+
+![connection](https://raw.githubusercontent.com/bb-io/GoogleDrive/main/image/README/connection.png)
+
+## Actions
+
+- **Download file** Egy adott fájl letöltése a Google Drive-ról.
+- **Upload file** Fájl feltöltése a Google Drive-ra, beleértve a megosztott meghajtóra való feltöltést is.
+- **Delete item** Fájl törlése a Google Drive-ról.
+- **Create folder** Mappa létrehozása a Google Drive-on.
+- **Search files** Fájlok keresése a Google Drive-on konkrét keresési kritériumok megadásával (pl. fájlnév, fájltípus stb.). Visszaadja az összes fájlt, amely megfelel a keresési kritériumoknak.
+- **Find file information** Hasonló a fájlok kereséséhez, de ez a művelet csak az első olyan fájlt adja vissza, amely megfelel a keresési kritériumoknak, így nem kell ciklust használnia a fájlinformációk lekéréséhez. Visszaadja az `Is found` kimenetet is, amely jelzi, hogy a fájl megtalálható-e vagy sem.
+
+### Labels
+
+- **Get file labels** visszaadja a fájlhoz csatolt összes címkemező kulcsát. Ez egy karakterlánc-lista formájában történik. A tömb tartalmaz segédműveletet használhatja annak ellenőrzésére, hogy bizonyos címkék hozzá vannak-e adva ehhez a fájlhoz.
+
+## Events
+
+- **On items added** Ez az esemény akkor aktiválódik, amikor fájlt vagy mappát adnak hozzá a Google Drive-hoz. A bemenetek lehetővé teszik a figyelni kívánt mappa meghatározását.
+- **On items updated** Ez az esemény akkor aktiválódik, amikor fájlt vagy mappát frissítenek a Google Drive-on. A bemenetek lehetővé teszik a figyelni kívánt mappa meghatározását.
+- **On items removed** Ez az esemény akkor aktiválódik, amikor fájlt vagy mappát törölnek a Google Drive-ról. A bemenetek lehetővé teszik a figyelni kívánt mappa meghatározását.
+- **On items restored** Ez az esemény akkor aktiválódik, amikor fájlt vagy mappát állítanak helyre a lomtárból a Google Drive-on. A bemenetek lehetővé teszik a figyelni kívánt mappa meghatározását.
+- **On files deleted in shared drives** Ez az esemény akkor aktiválódik, amikor meglévő fájlokat törölnek a megosztott meghajtókon.
+- **On file created** Bármely fájl létrehozásakor a megadott mappában
+- **On file updated** Bármely fájl frissítésekor a megadott mappában
+
+## Példa
+
+Íme egy példa arra, hogyan használhatja a Google Drive alkalmazást egy munkafolyamatban:
+
+![example](https://raw.githubusercontent.com/bb-io/GoogleDrive/main/image/README/example.png)
+
+Ebben a példában a munkafolyamat az **On items added** eseménnyel kezdődik, amely akkor aktiválódik, amikor bármilyen fájlt vagy mappát adnak hozzá a Google Drive-hoz. Ezután a munkafolyamat a **Download files** műveletet használja a hozzáadott fájl letöltéséhez. A következő lépésben lefordítjuk a fájlt a `DeepL` segítségével, majd feltöltjük a lefordított fájlt a Slack csatornára.
+
+## Eggs
+
+Ellenőrizze a letölthető munkafolyamat-prototípusokat, amelyek ezt az alkalmazást tartalmazzák, és amelyeket importálhat a Nests-be [itt](https://docs.blackbird.io/eggs/storage-to-mt/).
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy van visszajelzése a megvalósításunkról? Lépjen kapcsolatba velünk a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

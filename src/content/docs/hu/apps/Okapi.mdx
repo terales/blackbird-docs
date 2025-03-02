@@ -1,0 +1,45 @@
+---
+  title: Okapi
+  description: Az Okapi Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Okapi" icon="github" />
+
+A Longhorn egy szerveralkalmazás, amely lehetővé teszi a Batch Configuration-ök távoli végrehajtását bármilyen bemeneti fájlhalmazon. A Batch Configuration-ök, amelyek előre meghatározott pipeline-okat és szűrő konfigurációkat tartalmaznak, exportálhatók a Rainbow-ból.
+
+## Csatlakozás
+
+1. Navigálj az alkalmazásokhoz és keress rá az Okapi Longhorn-ra. Ha nem találod az Okapi Longhorn-t, kattints a jobb felső sarokban található **Add App** gombra, válaszd az Okapi Longhorn-t, és add hozzá az alkalmazást a Blackbird környezetedhez.
+2. Kattints az **Add Connection** gombra.
+3. Add meg a kapcsolat nevét a későbbi hivatkozáshoz, például 'My Client'.
+4. Menj az Okapi Longhorn szerveredhez.
+5. Másold az URL-jét, például: `http://28.216.252.148:88/okapi-longhorn`.
+6. Illeszd be a Blackbird megfelelő mezőjébe.
+7. Kattints a **Connect** gombra.
+8. Ellenőrizd, hogy a kapcsolat megjelent-e és az állapota **Connected**. Ha ez a szakasz sikertelen, győződj meg arról, hogy nincs tűzfal, amely blokkolja a kapcsolatot, vagy konfiguráld a tűzfalat, hogy engedélyezze a forgalmat a Blackbird szerverről.
+
+## Actions
+
+### XLIFF konverziós actions
+
+Ez az action-kombináció lehetővé teszi bármely Okapi-kompatibilis fájl XLIFF formátumba történő konvertálását és vissza. Használd más Blackbird alkalmazásokkal kombinálva, amelyek XLIFF fájlokat használnak vagy módosítanak.
+
+- **Convert file to XLIFF** bármilyen Okapi-kompatibilis fájlformátumot XLIFF fájllá alakít. Mind az XLIFF fájlt, mind egy 'package' fájlt kimeneti eredményként ad.
+- **Convert XLIFF to file** egy (módosított) XLIFF fájlt és egy package fájlt vesz bemenetként, és visszaadja az eredeti fájlt.
+
+### Manuális batchconfig actions
+
+Használd a következő action-öket a batchconfig végrehajtások teljes körű irányításához egy vagy több fájlon
+
+- **Upload files**: Fájlokat tölt fel egy adott projekthez. Ez az action a kérésben megadott összes fájlt feltölti, és a fájltípusuknak megfelelően kezeli azokat, beleértve a ZIP fájlok speciális kezelését is.
+- **Create project**: Új projektet hoz létre a rendszeren belül, visszaadja az újonnan létrehozott projekt azonosítóját, és feltölt egy batch konfigurációs fájlt.
+- **Execute project** Végrehajtja a batch konfigurációt a feltöltött bemeneti fájlokon, és visszaadja a kimeneti fájlokat
+
+## Példa
+
+![okapi-example-bird](https://raw.githubusercontent.com/bb-io/Okapi/main/image/README/okapi-example-bird.png)
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy visszajelzésed van a megvalósításunkról? Vedd fel velünk a kapcsolatot a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozz létre egy issue-t.

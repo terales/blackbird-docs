@@ -1,0 +1,99 @@
+---
+title: Microsoft Teams
+description: Додаток Blackbird для Microsoft Teams
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/MicrosoftTeams" icon="github" />
+
+Microsoft 365 Teams – це платформа для спільної роботи, яка поєднує чат, відеоконференції та обмін файлами, надаючи централізований хаб для ефективної командної роботи. Вона дозволяє організаціям зв'язуватися, співпрацювати та спілкуватися ефективно, незалежно від того, чи працюють вони віддалено, чи в офісі.
+
+## Перед налаштуванням
+
+Перш ніж підключитися, вам потрібно переконатися, що у вас є обліковий запис Microsoft 365.
+
+### Використання вебхуків та дій для повідомлень каналу
+
+Якщо ви хочете використовувати вебхуки та/або дії для повідомлень каналу, вам потрібно отримати схвалення адміністратора організації. Існує два способи надання згоди адміністратора.
+
+Перший спосіб – надати загальну згоду адміністратора для додатка Blackbird на рівні всього тенанта:
+
+- Увійдіть до [центру адміністрування Microsoft Entra](https://entra.microsoft.com/) як [глобальний адміністратор](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference#global-administrator), [адміністратор привілейованих ролей](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference#privileged-role-administrator) або користувач з [дозволом надавати дозволи додаткам](https://learn.microsoft.com/en-us/azure/active-directory/roles/custom-consent-permissions).
+- Перейдіть до _Identity_ > _Applications_ > _Enterprise applications_ > _All applications_.
+- Введіть _Blackbird_ у поле пошуку, а потім виберіть додаток Blackbird з результатів пошуку.
+- Перейдіть до _Security_ > _Permissions_.
+- Натисніть на _Grant admin consent for Blackbird.io International LLC_.
+
+![Пошук додатка Blackbird](https://raw.githubusercontent.com/bb-io/MicrosoftTeams/main/image/README/searching_for_app.png)
+
+Другий спосіб – налаштувати робочий процес згоди адміністратора:
+
+- Увійдіть до [центру адміністрування Microsoft Entra](https://entra.microsoft.com/) як [глобальний адміністратор](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference#global-administrator).
+- Перейдіть до _Identity_ > _Applications_ > _Enterprise applications_ > _Consent and permissions_ > _Admin consent settings_.
+- У розділі _Admin consent requests_ виберіть _Yes_ для _Users can request admin consent to apps they are unable to consent to_.
+- Налаштуйте такі параметри:
+    * _Who can review admin consent requests_ - виберіть користувачів, групи або ролі, призначені для перегляду запитів на згоду адміністратора. Перевіряючі можуть переглядати, блокувати або відхиляти запити на згоду адміністратора, але лише глобальні адміністратори можуть схвалювати запити на згоду адміністратора. Для схвалення запитів перевіряючий повинен мати [необхідні дозволи](https://learn.microsoft.com/en-us/azure/active-directory/roles/custom-consent-permissions) для надання згоди адміністратора на запитуваний додаток. Особи, призначені як перевіряючі, можуть переглядати вхідні запити на вкладці _My Pending_ після того, як вони були призначені перевіряючими. Будь-які нові перевіряючі не зможуть діяти з існуючими або протермінованими запитами на згоду адміністратора.
+    * _Selected users will receive email notifications for requests_ - увімкніть або вимкніть сповіщення електронною поштою перевіряючим після створення запиту.
+    * _Selected users will receive request expiration reminders_ - увімкніть або вимкніть нагадування електронною поштою перевіряючим, коли термін дії запиту майже закінчується.
+    * _Consent request expires after (days)_ - вкажіть, як довго запити залишаються дійсними.
+- Натисніть _Save_.
+
+![Увімкнення робочого процесу згоди адміністратора](https://raw.githubusercontent.com/bb-io/MicrosoftTeams/main/image/README/enable-admin-consent-workflow.png)
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть Microsoft 365 Teams.
+2. Натисніть _Add Connection_.
+3. Назвіть своє підключення для подальшого використання, наприклад, 'Моя організація'.
+4. У полі _Channel messages scope required_ вкажіть _Yes_, якщо ви хочете використовувати вебхуки та/або дії для повідомлень каналу, і _No_, якщо ні. Різні дозволи додаються до запиту авторизації залежно від значення цього параметра підключення.
+5. Натисніть _Authorize connection_.
+6. Дотримуйтесь інструкцій, які надає Microsoft, авторизуючи Blackbird.io діяти від вашого імені.
+7. Коли ви повернетесь до Blackbird, переконайтеся, що з'явилося підключення і його статус _Connected_.
+
+![Підключення](https://raw.githubusercontent.com/bb-io/MicrosoftTeams/main/image/README/connecting.png)
+
+## Actions
+
+### Chat
+
+- **List chats** повертає список чатів, у яких бере участь користувач.
+- **Get chat message** отримує одне повідомлення або відповідь на повідомлення в чаті.
+- **Download files attached to chat message**.
+- **Get the most recent chat messages**.
+- **Send message to chat** надсилає нове повідомлення до вказаного чату. За бажанням ви можете прикріпити файл з OneDrive та/або файл, отриманий в результаті попередньої дії.
+- **Delete message from chat**.
+
+### Channel
+
+- **Get channel message** отримує одне повідомлення або відповідь на повідомлення в каналі.
+- **Download files attached to channel message**.
+- **Send message to channel** надсилає нове повідомлення до вказаного каналу. За бажанням ви можете прикріпити файл з OneDrive та/або файл, отриманий в результаті попередньої дії.
+- **Reply to message in channel** надсилає відповідь на повідомлення до вказаного каналу. За бажанням ви можете прикріпити файл з OneDrive та/або файл, отриманий в результаті попередньої дії.
+
+### Users
+
+- **Get my user information** отримує інформацію про поточний обліковий запис.
+- **List all users** повертає список користувачів у вашій організації.
+- **Get user**.
+- **Get chat members** перераховує всіх учасників розмови в чаті.
+
+## Events
+
+- **On message sent to chat** запускається, коли до чату надсилається нове повідомлення.
+- **On message with attachments sent to chat** запускається, коли до чату надсилається нове повідомлення з вкладеннями.
+- **On user mentioned in chat** запускається, коли до чату надсилається нове повідомлення із згадкою вказаного користувача.
+- **On message sent to channel** запускається, коли до каналу надсилається нове повідомлення.
+- **On message with attachment sent to channel** запускається, коли до каналу надсилається нове повідомлення з вкладеннями.
+- **On user mentioned in channel** запускається, коли до каналу надсилається нове повідомлення із згадкою вказаного користувача.
+
+## Відсутні функції
+
+У майбутньому ми можемо додати:
+
+- Вебхуки для запису онлайн-зустрічей та транскрипції
+- Вебхуки для учасників чату/каналу
+- Більше дій для команд, каналів, чатів
+- Дії для онлайн-зустрічей
+- Дії для змін та розкладів
+
+Повідомте нам, якщо вас це цікавить!

@@ -1,0 +1,69 @@
+---
+  title: My Acclaro
+  description: A My Acclaro Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/Acclaro" icon="github" />
+
+A MyAcclaro az Acclaro portál alkalmazása, amelyet arra terveztek, hogy egyszerűsítse az ügyfelek fordítási folyamatait. A MyAcclaro segítségével a felhasználók könnyen készíthetnek árajánlatokat, indíthatnak projekteket, tölthetnek fel fájlokat és hatékonyan kezelhetik fordítási igényeiket.
+
+## Beállítás előtt
+
+Mielőtt csatlakozhatnál, győződj meg a következőkről:
+
+- Rendelkezel MyAcclaro fiókkal.
+- Van API tokened. Ezt az Acclaro értékesítési vagy üzletfejlesztési képviselőjével való kapcsolatfelvétellel kaphatod meg, vagy küldj egy e-mail kérelmet a portal@acclaro.com címre.
+
+## Csatlakozás
+
+1. Navigálj az Alkalmazásokhoz, és keresd meg a MyAcclaro alkalmazást. Használhatod a keresőt a megtalálásához.
+2. Kattints az _Add Connection_ gombra.
+3. Nevezd el a kapcsolatot, hogy később könnyen azonosíthasd, pl. 'Saját kapcsolat'.
+4. Add meg a MyAcclaro példány URL-jét, amelyhez csatlakozni szeretnél. Csatlakozhatsz tesztkörnyezethez vagy éles környezethez is.
+5. Add meg az API tokenedet. A tesztkörnyezethez és az éles környezethez tartozó tokenek nem felcserélhetők.
+7. Kattints a _Connect_ gombra.
+
+## Actions
+
+###  File
+
+- **Upload file** Upload a file to an order
+- **Search order files** Search for files in an order depending on certain criteria
+- **Get file information** Get information of a file
+- **Download file** Download order file by ID
+- **Get source file** Get the source file that corresponds with a target file
+
+###  Order
+
+- **Create order** Create order
+- **Update order** UPdate order
+- **Search orders** Search through all orders
+- **Get order** Get order by ID
+- **Does order exist** Find out whether an order with a certain ID exists
+- **Delete order** Delete order
+- **Submit order** Submit order
+- **Add order comment** Add a new comment to an order
+- **Update order comment** Updates an exisitng order comment (note: changes comment ID)
+- **Get order comments** Get a list of all comments attached to an order
+
+###  Quote
+
+- **Request quote** Request a quote for an order
+- **Approve quote** Approve an order for which a quote was requested
+- **Decline quote** Decline an order for which a quote was requested
+
+###  String
+
+- **Get order strings** Get a list of all string of order
+- **Add strings to order** Add strings to an existing order. Note: order process type should be string.
+
+## Events
+
+- **On order updated**
+- **On order string updated**
+- **On order file updated**
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy van visszajelzésed a megvalósításunkról? Keress minket a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozz létre egy hibajegyet.

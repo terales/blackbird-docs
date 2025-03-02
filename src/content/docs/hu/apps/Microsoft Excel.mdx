@@ -1,0 +1,58 @@
+---
+  title: Microsoft Excel
+  description: A Microsoft Excel Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés GitHub-on" target="_blank" href="https://github.com/bb-io/MicrosoftExcel" icon="github" />
+
+A Microsoft 365 Excel egy táblázatkezelő szoftver, amely lehetővé teszi a felhasználók számára az adatok rendszerezését, elemzését és vizualizálását táblázatos rácsok segítségével. Számos funkciót kínál, beleértve a képleteket, diagramokat és formázási lehetőségeket, ami sokoldalú eszközzé teszi különféle adatokkal kapcsolatos feladatok és üzleti alkalmazások számára.
+
+## Actions
+
+- **Add new sheet row**   Új sort ad hozzá a munkalap első üres sorához
+- **Add new table row**   Új táblázatsor hozzáadása
+- **Create table**    Táblázat létrehozása
+- **Create worksheet**    Munkalap létrehozása
+- **Download sheet CSV file**  CSV fájl letöltése
+- **Export glossary**  Kifejezéstár exportálása Excel munkalapról
+- **Find sheet row**  Oszlopcím és érték megadásával visszaadja annak a sornak a számát, ahol az adott érték található
+- **Get sheet cell**  Cella lekérése cím alapján
+- **Get sheet range**  Sorok és oszlopok egy adott tartományának lekérése egy munkalapon
+- **Get sheet row**   Sor lekérése cím alapján
+- **Get sheet used range**    Használt tartomány lekérése egy munkalapon
+- **Get table row**   Táblázatsor lekérése
+- **Import glossary**  Kifejezéstár importálása Excel munkalapként
+- **List table rows**  Táblázatsorok listázása
+- **Update sheet cell**   Cella frissítése cím alapján
+- **Update sheet row**    Sor frissítése kezdőcím alapján
+- **Update table row**    Táblázatsor frissítése
+
+## Kifejezéstárak exportálása
+
+Az **Export glossary** művelet használatához győződjön meg arról, hogy az Excel munkalap tükrözi az **Import glossary** művelet eredményeként kapott szerkezetet. Kövesse ezeket az irányelveket:
+
+- **Munkalap szerkezete**:
+   - Az első sor oszlopnevekként szolgál, amelyek a kifejezéstár entitás tulajdonságait képviselik: _ID_, _Definition_, _Subject field_, _Notes_, _Term (language code)_, _Variations (language code)_, _Notes (language code)_.
+   - Minden, a kifejezéstárban szereplő nyelvhez tartozzon oszlop. Például, ha a kifejezéstár tartalmaz angol és spanyol nyelveket, az oszlopnevek a következők lesznek: _ID_, _Definition_, _Subject field_, _Notes_, _Term (en)_, _Variations (en)_, _Notes (en)_, _Term (es)_, _Variations (es)_, _Notes (es)_.
+- **Opcionális mezők**:
+    - A _Definition_, _Subject field_, _Notes_, _Variations (language code)_, _Notes (language code)_ opcionálisak és üresen hagyhatók.
+- **Fő kifejezés és szinonimák**:
+    - A _Term (language code)_ a kifejezéstár adott nyelvén lévő elsődleges kifejezést jelenti.
+    - A _Variations (language code)_ a kifejezés szinonim értékeit tartalmazza.
+- **Jegyzetek kezelése**:
+    - A _Notes_ oszlopban lévő jegyzeteket ';' jellel kell elválasztani, ha egy adott bejegyzéshez több jegyzet tartozik.
+- **Változatok kezelése**:
+    - A _Variations (language code)_ oszlopban lévő változatokat ';' jellel kell elválasztani, ha egy adott kifejezéshez több változat tartozik.
+- **Kifejezés jegyzetek formátuma**:
+    - A _Notes (language code)_ oszlopban minden jegyzetnek a következő szerkezetet kell követnie: **Kifejezés vagy változat: jegyzet**.
+    - A kifejezésekhez tartozó jegyzeteket ';;' jellel kell elválasztani. Például: 'money: utalhat fizikai vagy bankban lévő pénzre;; cash: fizikai valutára utal.'
+
+## SharePoint dokumentumok támogatása
+Minden műveletben megadhatja az opcionális "SharePoint site name" bemeneti paramétert, hogy SharePoint-webhelyről származó Excel-fájlokat használjon a "Workbook" paraméter legördülő menüben.
+
+![SharePointSupport1](https://raw.githubusercontent.com/bb-io/MicrosoftExcel/main//image/README/SharePointSupport1.png) ![SharePointSupport2](https://raw.githubusercontent.com/bb-io/MicrosoftExcel/main//image/README/SharePointSupport2.png)
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Keressen minket a [bevett csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

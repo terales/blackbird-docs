@@ -1,0 +1,77 @@
+---
+  title: ModernMT
+  description: A ModernMT Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/ModernMT" icon="github" />
+
+A ModernMT egy emberközpontúbb gépi fordítás. Tanul a javításokból és alkalmazkodik a dokumentum kontextusához. Jellemzői közé tartozik a súlyozott fordítási memóriákkal, tippekkel és szószedetek használatával történő fordítás.
+
+## Beállítás előtt
+
+Mielőtt csatlakozna, győződjön meg arról, hogy:
+
+- Rendelkezik ModernMT fiókkal.
+- ModernMT fiókjához olyan [előfizetés](https://modernmt.com/dashboard) tartozik, amely lehetővé teszi licenckulcs generálását.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a ModernMT-re. Ha nem találja a ModernMT-t, kattintson a jobb felső sarokban az _Add App_ gombra, válassza a ModernMT-t, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot későbbi hivatkozáshoz, például: 'Saját ModernMT'.
+4. Adja meg a ModernMT [licenckulcsát](https://modernmt.com/dashboard).
+5. Kattintson az _Authorize connection_ gombra.
+
+![connecting](https://raw.githubusercontent.com/bb-io/ModernMT/main/image/README/1693302180954.png)
+
+## Actions
+
+### Translation
+
+- **Translate** lefordít egy szegmenst egy adott nyelvre. Opcionálisan elfogad argumentumokat szószedetekhez, kontextusokhoz, tippekhez és egyebekhez. Az összes lehetőségért lásd a [ModernMT dokumentációt](https://www.modernmt.com/api/#translate-text).
+- **Translate multiple** ugyanúgy működik, mint a fordítás, de több szegmenssel egy helyett.
+- **Translate XLIFF** XLIFF 1.2 dokumentumot fordít le a megadott nyelvre.
+
+### Quality estimation
+
+- **Estimate quality** forrásszöveget és fordítást vesz alapul, és visszaad egy 0 és 1 közötti pontszámot, amely a gépi fordítás minőségét jelzi.
+- **Estimate XLIFF quality** minőségbecslési adatokat szolgáltat egy XLIFF 1.2 fájl összes szegmenséhez. A kötelező bemeneti adatok közé tartozik a lefordított XLIFF fájl, a forrás- és célnyelv értékei. Kimenetként egy Átlagpontszám áll rendelkezésre, amely a fájlban lévő összes szegmens minőségi pontszámának átlaga. Ezen felül minden fordítási egység kibővül egyéni pontszámával, amelyet az XLIFF fájl `extradata` attribútumához adnak hozzá. Opcionálisan hozzáadhatja a _Threshold_, _New Target State_ és _Condition_ bemeneti paramétereket a Blackbird művelethez, hogy módosítsa a kívánt kritériumoknak megfelelő szegmensek célállapot-értékét.
+
+
+Példák:
+
+Az opcionális bemeneti értékek alábbi képen látható beállítása azt eredményezi, hogy minden olyan szegmens, amelynek pontszáma 0,9 felett van, a célállapot értéke "final"-ra változik.
+
+![Optional inputs 1](https://raw.githubusercontent.com/bb-io/ModernMT/main/image/README/MMTOptionalInput1.png)
+
+Hasonlóképpen, az alábbi beállítás minden olyan szegmens célállapotát "needs-review-translation"-re változtatja, amelynek minőségi pontszáma 0,6 vagy annál alacsonyabb.
+
+![Optional inputs 2](https://raw.githubusercontent.com/bb-io/ModernMT/main/image/README/MMTOptionalInput2.png)
+
+### Language detection
+
+- **Detect langauge** egy adott szegmenshez nyelvi kódot ad vissza.
+- **Detect multiple languages** ugyanúgy működik, mint a nyelvfelismerés, de több szegmenshez.
+
+### Context Vectors
+
+- **Get context vector from text** visszaad egy kontextus vektort, amely fordítási műveletekhez használható. A kontextus vektorokról részletesen lásd a [ModernMT dokumentációt](https://www.modernmt.com/api/#context-vector).
+
+### Memories
+
+- **Get memory**, **Create memory**, **Update memory**, **Delete memory** olyan műveletek, amelyekkel kezelhetők a meglévő memóriák és metaadatok, mint a név és a leírás.
+- **Add translation to memory** és **Update memory translation pair** használható új mondat-fordítás párok hozzáadására/frissítésére egy meglévő memóriában.
+- **Import memory from tmx** lehetővé teszi új mondat-fordítás párok tömeges hozzáadását meglévő TMX fájlokon keresztül.
+
+## Példa
+
+![example](https://raw.githubusercontent.com/bb-io/ModernMT/main/image/README/1693303412326.png)
+
+Ez a példa egy egyszerű madarat mutat be, amely lefordítja a beérkező Slack üzeneteket, minőségbecslést végez, majd a fordítást és a minőségbecslést együtt küldi vissza Slack üzenetként.
+
+![1693303512885](https://raw.githubusercontent.com/bb-io/ModernMT/main/image/README/1693303512885.png)
+
+## Visszajelzés
+
+A ModernMT implementációnkkal kapcsolatos visszajelzéseket mindig szívesen fogadjuk. Keressen minket a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

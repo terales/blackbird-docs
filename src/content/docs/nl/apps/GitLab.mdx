@@ -1,0 +1,104 @@
+---
+  title: GitLab
+  description: De GitLab Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/GitLab" icon="github" />
+
+GitLab is een ontwikkelaarsplatform waarmee ontwikkelaars hun code kunnen creëren, opslaan en beheren. Deze GitLab-app richt zich op het verbinden van GitLab-gebeurtenissen en bestandsacties met het Blackbird-ecosysteem.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een GitLab-account hebt.
+- Je eigenaarsmachtigingen hebt voor de repository waarop je wilt automatiseren.
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar GitLab. Als je GitLab niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer GitLab en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn GitLab-verbinding'.
+4. Klik op _Authorize connection_.
+5. Volg de instructies die GitLab je geeft om Blackbird.io toestemming te geven om namens jou te handelen.
+6. Wanneer je terugkeert naar Blackbird, controleer dan of de verbinding is verschenen en de status _Connected_ is.
+
+![1705402013379](https://raw.githubusercontent.com/bb-io/GitLab/main/image/README/1705402013379.png)
+
+## Actions
+
+### Repositories
+
+- **List repositories**
+- **Create new repository**
+- **Get repository**
+- **Get repository issues**
+- **List repository folder content**
+
+### Branches
+
+- **List branches**
+- **Get branch**
+
+### Commits
+
+- **List commits**
+- **Get commit**
+
+### Merge requests
+
+- **Create merge request**
+- **List merge requests**
+- **Get merge request**
+- **Get repository merge requests**
+- **Complete merge request**
+
+### Files
+
+- **Get repository file**
+- **Get all files in folder**
+- **Get files by filepaths**
+- **Delete file**
+- **Push file**
+- **Update file**
+
+### Users
+
+- **Get my user data**
+- **Get user**
+- **Get user by username**
+
+### Utility
+
+- **Is file in folder**
+
+## Events
+
+### Pulls
+
+= **On pull request action** treedt op wanneer er activiteit is op een pull request. Zie [deze pagina](https://docs.GitLab.com/en/webhooks/webhook-events-and-payloads#pull_request) voor meer informatie.
+
+### Pushes
+
+- **On commit pushed** treedt op wanneer er een push is naar een repository-branch. Dit omvat wanneer een commit wordt gepusht, wanneer een commit-tag wordt gepusht, wanneer een branch wordt verwijderd, wanneer een tag wordt verwijderd, of wanneer een repository wordt gemaakt op basis van een sjabloon.
+- **On files added** wordt geactiveerd wanneer nieuwe commits nieuwe bestanden bevatten. Het geeft de paden naar alle toegevoegde bestanden terug.
+- **On files modified** wordt geactiveerd wanneer nieuwe commits bestanden wijzigen. Het geeft paden naar alle gewijzigde bestanden terug.
+- **On files added or modified** wordt geactiveerd wanneer nieuwe commits nieuwe bestanden toevoegen of bestanden wijzigen. Het geeft paden naar al deze bestanden terug.
+- **On files removed** wordt geactiveerd wanneer nieuwe commits bestanden verwijderen. Het geeft paden naar alle verwijderde bestanden terug.
+
+Voor de bestandsspecifieke gebeurtenissen kan een padparameter worden opgegeven om de gebeurtenis te beperken tot alleen bestanden in specifieke mappen of bestanden met bepaalde extensies. Gebruik de forward slash '/' om de mapscheider weer te geven. Gebruik '\*' om wildcards in bestands- en mapnamen weer te geven. Gebruik '\*\*' om willekeurige mapdiepte weer te geven.
+
+Bijvoorbeeld: wanneer je een gebeurtenis wilt maken die alleen wordt geactiveerd wanneer .html-bestanden worden gewijzigd in een map met de naam _locales_. Dan moet het pad van de **On files added or modified** gebeurtenis zijn: _/locales/\*.html_
+
+![1705407685118](https://raw.githubusercontent.com/bb-io/GitLab/main/image/README/1705407685118.png)
+
+## Voorbeeld
+
+De volgende bird maakt een nieuw memoQ-project aan wanneer bestanden worden bijgewerkt of toegevoegd aan een specifieke map in een GitLab-repository.
+
+![1705408481146](https://raw.githubusercontent.com/bb-io/GitLab/main/image/README/1705408481146.png)
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

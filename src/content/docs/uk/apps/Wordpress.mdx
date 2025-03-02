@@ -1,0 +1,122 @@
+---
+  title: Wordpress
+  description: Додаток Blackbird для Wordpress
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/Wordpress" icon="github" />
+
+Wordpress — найпопулярніший у світі конструктор веб-сайтів. Цей додаток дозволяє підключити ваш веб-сайт Wordpress до Blackbird і створювати автоматизовані робочі процеси для перепрофілювання та перекладу контенту. Wordpress не має вбудованих функцій локалізації. Саме тому цей додаток підтримує популярний плагін [Polylang pro](https://polylang.pro/downloads/polylang-pro/). Усі відповідні дії та поля позначені (P), якщо для їх роботи потрібен цей плагін.
+
+## Перед налаштуванням
+
+Перш ніж підключитися, переконайтеся, що:
+
+- У вас є права адміністратора в середовищі Wordpress.
+- Ви створили пароль додатка. Це можна зробити в панелі адміністратора Wordpress -> Користувачі -> Профіль. Внизу цієї сторінки ви знайдете _Паролі додатків_. Дайте вашому новому паролю назву і натисніть _Додати новий пароль додатка_. Збережіть пароль, який з'явиться.
+- Якщо ви хочете використовувати функції локалізації, переконайтеся, що встановлено [Polylang pro](https://polylang.pro/downloads/polylang-pro/).
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть Wordpress. Якщо ви не можете знайти Wordpress, натисніть _Додати додаток_ у верхньому правому куті, виберіть Wordpress і додайте додаток до свого середовища Blackbird.
+2. Натисніть _Додати підключення_.
+3. Назвіть своє підключення для подальшого використання, наприклад, 'Моє нове підключення Wordpress'.
+4. Введіть URL-адресу вашого веб-сайту Wordpress.
+5. Введіть електронну пошту, яку ви використовуєте для входу в обліковий запис адміністратора Wordpress, у полі _Логін_.
+6. Введіть пароль додатка, який ви створили раніше.
+7. Натисніть _Підключити_.
+
+![1700486964991](https://raw.githubusercontent.com/bb-io/Wordpress/main/image/README/1700486964991.png)
+
+## Actions
+
+### Posts & pages
+
+Наступні дії застосовуються як до записів, так і до сторінок. Для зручності обидва надалі називаються записами.
+
+- **Search** записи за часом створення чи оновлення. Опціонально використовуйте вхідний параметр мови для фільтрації за мовою (з Polylang).
+- **Get** повертає всю інформацію про запис.
+- **Get missing translations (P)** повертає список мов, на які запис не перекладено. Потрібен Polylang.
+- **Get translation (P)** повертає запис, який є перекладом вибраного запису, за вказаною мовою. Потрібен Polylang.
+- **Get as HTML** повертає запис у форматі HTML, корисно для перекладу всієї сторінки запису як єдиного цілого.
+- **Delete** видаляє запис
+
+Усі дії створення та оновлення опціонально приймають вхідні параметри мови та "як переклад для". Обидва використовуються Polylang для призначення правильних мов і зв'язків з іншими записами.
+
+- **Create** новий запис
+- **Create from HTML** створює новий запис на основі HTML-файлу як вхідних даних.
+- **Update** запис
+- **Update from HTML** оновлює запис на основі HTML-файлу як вхідних даних.
+
+### Comments
+
+- **Add comment**
+- **Delete comment**
+
+### Media
+
+- **Get all media**
+- **Get media**
+- **Upload media**
+- **Delete media**
+
+### Users
+
+- **Get all users**
+- **Get user**
+- **Add user**
+
+### Other
+
+- **Get languages (P)** повертає всі налаштовані мови та додаткову інформацію про них. Потрібен Polylang.
+
+### HTML features
+
+Ми додаємо метадані до HTML-файлу, щоб включити `Post ID` та `Page ID`. Ці метадані використовуються для оновлення правильного запису чи сторінки. Метадані додаються як тег `meta` в `head` HTML-файлу. Атрибут `name` — це `blackbird-post-id` або `blackbird-page-id`, а атрибут `content` — це ID запису чи сторінки.
+
+```html
+<html>
+   <head>
+      <meta name="blackbird-page-id" content="2">
+      <title>Sample Page</title>
+   </head>
+   <body>
+      <p>This is an example page. It&#8217;s different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:</p>
+      <blockquote class="wp-block-quote">
+         <p>Hi there! I&#8217;m a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin&#8217; caught in the rain.)</p>
+      </blockquote>
+      <p>&#8230;or something like this:</p>
+      <blockquote class="wp-block-quote">
+         <p>The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.</p>
+      </blockquote>
+      <p>As a new WordPress user, you should go to <a href="https://dev-blackbird-test.pantheonsite.io/wp-admin/">your dashboard</a> to delete this page and create new pages for your content. Have fun!</p>
+   </body>
+</html>
+```
+
+Приклад того, як ми включаємо метадані в HTML-файл:
+## Відсутні функції
+
+У майбутньому ми додамо дії для:
+
+- Блоків
+- Категорій
+- Навігацій
+- Меню
+- Ревізій
+- Тегів
+
+Наші дії з записами та сторінками також можуть бути розширені для роботи з більшою кількістю властивостей, таких як статус, дати тощо.
+
+Повідомте нам, якщо ви зацікавлені!
+
+## Events
+
+- **On posts created** спрацьовує, коли створюються нові записи.
+- **On posts updated** спрацьовує, коли оновлюються будь-які записи.
+- **On pages created** спрацьовує, коли створюються нові сторінки.
+- **On pages updated** спрацьовує, коли оновлюються будь-які сторінки.
+
+## Зворотний зв'язок
+
+Ви хочете використовувати цей додаток або у вас є відгуки щодо нашої реалізації? Зв'яжіться з нами за допомогою [встановлених каналів](https://www.blackbird.io/) або створіть issue.

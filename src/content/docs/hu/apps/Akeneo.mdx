@@ -1,0 +1,92 @@
+---
+  title: Akeneo
+  description: Az Akeneo Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/Akeneo" icon="github" />
+
+Az Akeneo PIM (Termékinformáció-kezelési) megoldása úgy lett kialakítva, hogy betöltse, normalizálja, gazdagítsa és központosítsa a termékinformációkat. Vállalati szintű adatmodellezést, irányítást és munkafolyamatokat biztosít a következetes és kiváló minőségű termékadat-kezelés érdekében a különböző csatornákon keresztül.
+
+## Beállítás előtt
+
+Mielőtt csatlakoznál, győződj meg arról, hogy:
+
+- Rendelkezel egy aktív Akeneo példánnyal, és megfelelő jogosultságokkal rendelkezel alkalmazások hozzáadásához.
+- Lépj a _Connect_ -> _App Store_ menüpontba, és kattints a jobb felső sarokban található _Create an app_ gombra.
+- Adj nevet az alkalmazásodnak, például "Blackbird".
+- Az aktiválási URL a Blackbird számára nem releváns, megadhatod a Blackbird bejelentkezési URL-jét, például `https://de-1.blackbird.io`.
+- A visszahívási URL-nél add meg a `https://bridge.blackbird.io/api/AuthorizationCode` címet.
+- Kapsz egy `Client ID`-t és egy `Client Secret`-et. Másold és mentsd el ezeket az értékeket a következő lépésekhez.
+
+![1728308561748](https://raw.githubusercontent.com/bb-io/Akeneo/main/image/README/1728308561748.png)
+
+## Csatlakozás
+
+1.  Navigálj az Alkalmazások menüponthoz, és keresd meg az **Akeneo** alkalmazást. Használhatod a keresést a megtalálásához.
+2.  Kattints a _Add Connection_ gombra.
+3.  Nevezd el a kapcsolatot a későbbi hivatkozáshoz, például 'Az én Akeneo kapcsolatom'.
+4.  Töltsd ki az `Instance URL` mezőt az Akeneo példányod URL-jével.
+5.  Add meg a `Client ID` és `Client Secret` értékeket, amelyeket az előző részben másoltál az Akeneo-ból.
+6.  Kattints az _Authorize connection_ gombra, és kövesd az azonosítási folyamatot a felugró ablakban.
+  - Fogadd el az adatvédelmi irányelveket.
+  - Válaszd az _Own_ szintet, _Edit_ a nyelvekhez és _Edit_ az attribútum csoportokhoz.
+  - Erősítsd meg a kapcsolatot
+7.  Amikor visszatérsz a Blackbird-hez, ellenőrizd, hogy a kapcsolat megjelent-e, és a státusza _Connected_.
+
+![1728309237542](https://raw.githubusercontent.com/bb-io/Akeneo/main/image/README/1728309237542.png)
+
+## Actions
+
+### General
+
+- **Get all locales** visszaadja az ezen az Akeneo példányon elérhető nyelvkódok listáját. *Megjegyzés*: Az Akeneo-nak nincs alapértelmezett nyelve.
+
+### Products
+
+-   **Search products** visszaadja a termékek listáját a szűrési kritériumok alapján, például terméknév, kategóriák és frissítési dátum szerint.
+-   **Delete product** töröl egy adott terméket.
+-   **Get product info** visszaadja egy adott termék részleteit.
+-   **Update product info** frissíti egy adott termék részleteit.
+
+-   **Download product content** visszaadja az összes lokalizálható termékértéket egy megadott nyelven HTML formátumban (alapértelmezetten). Lefordítva ezt a fájlt a **Upload product content** művelet használható a fordítások Akeneo-ba való feltöltésére. Opcionálisan ez a módszer a termékstruktúra nyers json fájljait is képes kimenetet adni.
+-   **Upload product content** frissíti a terméktartalom értékeit egy lefordított vagy más módon feldolgozott fájlból, amely a fenti műveletből származik. Json fájlokat is elfogad.
+
+### Product models
+
+-   **Search product models** visszaadja a termékmodellek listáját a szűrési kritériumok alapján, például kód, kategóriák és frissítési dátum szerint.
+-   **Delete product model** töröl egy adott termékmodellt.
+-   **Get product model info** visszaadja egy adott termékmodell részleteit.
+-   **Update product model info** frissíti egy adott termékmodell részleteit.
+
+-   **Get product model as HTML** visszaadja az összes lokalizálható termékmodell értéket egy megadott nyelven HTML formátumban.
+-   **Update product model from HTML** frissíti a termékmodell tartalom értékeit egy megadott HTML fájlból.
+
+Minden termék és termékmodell információkat ad vissza a kategóriákról. Ezeket felhasználhatod részletes döntések meghozatalához a lokalizációs stratégiákról.
+
+## Events
+
+### Products
+
+-   **On products created or updated** akkor aktiválódik, amikor új termékek jönnek létre vagy frissülnek. Szűrhetsz nyelv és kategóriák szerint.
+-   **On product models created or updated** akkor aktiválódik, amikor bármilyen termékmodell létrejön vagy frissül. Szűrhetsz nyelv és kategóriák szerint.
+
+## Példa
+
+![image](https://github.com/user-attachments/assets/9eb04458-1d84-4b6f-9450-97b59b60c729)
+
+A fenti példa egy nagyon egyszerű, manuálisan indított folyamatot mutat, amely bizonyos termékeket fordít a DeepL segítségével.
+
+![1728312887298](https://raw.githubusercontent.com/bb-io/Akeneo/main/image/README/1728312887298.png)
+
+A fenti példában az új vagy frissített termékekre reagálunk, új memoQ projekteket hozunk létre számukra, és feltöltjük a fordítható fájlokat a memoQ-ba.
+
+## Hiányzó funkciók
+
+Az Akeneo egy hatalmas alkalmazás, rengeteg funkcióval. Ha ezek közül bármely funkció különösen érdekes számodra, jelezd nekünk!
+
+Különösen lokalizációs képességeket tudunk kínálni az Akeneo egyéb aspektusaihoz, például a Kategóriákhoz.
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy van visszajelzésed a megvalósításunkról? Vedd fel velünk a kapcsolatot a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozz létre egy hibajegyet.

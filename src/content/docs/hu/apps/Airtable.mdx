@@ -1,0 +1,75 @@
+---
+title: Airtable
+description: Az Airtable Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/Airtable" icon="github" />
+
+Az Airtable egy felhőalapú szoftverplatform, amely ötvözi a táblázatkezelő funkcionalitását egy adatbázis erejével. Lehetővé teszi a felhasználók számára, hogy adattáblákat hozzanak létre, szervezzenek és együttműködjenek rajtuk, hasonlóan egy táblázatkezelőhöz, de olyan további funkciókkal, mint testreszabható mezők, fejlett szűrési lehetőségek, táblák közötti kapcsolatok, mellékletek és még sok más.
+
+## Beállítás előtt
+
+Mielőtt csatlakozna, győződjön meg a következőkről:
+
+- Rendelkezik Airtable fiókkal.
+- Létrehozott egy alapot (adatbázist) az Airtable fiókjában.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá az Airtable-re. Ha nem találja az Airtable-t, kattintson a jobb felső sarokban található _Add App_ gombra, válassza ki az Airtable-t, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például: 'Az én Airtable kapcsolatom'.
+4. Töltse ki a Base ID mezőt azzal az adatbázissal, amelyhez az Airtable példányában csatlakozni szeretne. Az Airtable-ben minden adatbázist "base"-nek neveznek, és minden base-nek egyedi azonosítója van, amit "base ID"-nak hívnak. A base ID-t megtalálja az Airtable base URL-jében, amikor a böngészőben megtekinti. A base ID az az alfanumerikus karakterlánc, amely a "https://airtable.com/" után és a "/base" előtt jelenik meg.
+5. Kattintson az Authorize connection gombra.
+6. Kövesse az Airtable utasításait.
+7. Amikor visszatér a Blackbird-hez, ellenőrizze, hogy a kapcsolat megjelent-e, és hogy a státusza Connected.
+
+![AirtableBlackbirdConnection](https://raw.githubusercontent.com/bb-io/Airtable/main/image/README/AirtableBlackbirdConnection.png)
+
+## Actions
+
+### Records
+
+- **List records** Kilistázza a tábla összes rekordját.
+- **Search record** Keres egy bizonyos rekordot, ahol a mező értéke összehasonlításra kerül a megadott értékkel.
+- **Add new record** Új rekordot hoz létre a táblában, kitöltve az elsődleges mezőt. Használja az alábbi "Update value of field" műveleteket a többi mező kitöltéséhez.
+- **Delete record** Törli a rekordot a megadott rekord azonosító alapján.
+
+### Attachments
+
+- **Download files from attachment field** Fájlok letöltése egy csatolmány mezőből.
+
+### Fields
+
+- **Get value of boolean field** Lekéri egy logikai mező értékét (pl. jelölőnégyzet).
+- **Get value of date field** Lekéri egy dátum mező értékét.
+- **Get value of number field** Lekéri egy szám mező értékét (pl. szám, pénznem, százalék, értékelés).
+- **Get value of string field** Lekéri egy szöveges mező értékét (pl. egysoros szöveg, hosszú szöveg, telefonszám, e-mail, URL, egyetlen kiválasztás).
+- **Update value of boolean field** Frissíti egy logikai mező értékét (pl. jelölőnégyzet).
+- **Update value of date field** Frissíti egy dátum mező értékét.
+- **Update value of number field** Frissíti egy szám mező értékét (pl. szám, pénznem, százalék, értékelés).
+- **Update value of string field** Frissíti egy szöveges mező értékét (pl. egysoros szöveg, hosszú szöveg, telefonszám, e-mail, URL, egyetlen kiválasztás).
+
+## Events
+
+- **On data changed** Ez a webhook aktiválódik, amikor bármilyen adat hozzáadásra/frissítésre/eltávolításra kerül (a felhasználó által választott bemeneti paraméterektől függően).
+
+A meglévő Airtable webhookok tetejére extra logikát adtunk, hogy elkerüljük az események duplikálását. De még mindig fennáll az események duplikálódásának lehetősége.
+Az Airtable dokumentációja szerint:
+`Az értesítési pingek legalább egyszer történnek. Ez azt jelenti, hogy minden változás esetén egy értesítés generálódik, de téves értesítések (amikor nincsenek új változások) is előfordulhatnak.`
+[Airtable dokumentáció](https://airtable.com/developers/web/api/webhooks-overview)
+
+Fontos: Az Airtable egyszerre csak 2 webhookot engedélyez egy oauth kapcsolathoz. Ez azt jelenti, hogy egy Blackbird-ben lévő oauth kapcsolathoz csak 2 különböző bemeneti paraméterekkel rendelkező madarat (bird) hozhat létre webhookkal. Ha megpróbál létrehozni egy harmadik madarat különböző bemenetekkel az Airtable webhookhoz, akkor hibát fog kapni a közzététel során.
+
+## Példa
+
+Íme egy példa arra, hogyan használhatja az Airtable alkalmazást egy munkafolyamatban:
+
+![példa](https://raw.githubusercontent.com/bb-io/Airtable/main/image/README/example.png)
+
+Ebben a példában a munkafolyamat az **On data changed** eseménnyel kezdődik, amely akkor aktiválódik, amikor bármilyen adatot hozzáadnak egy adott táblához az Airtable-ben. A bemeneti paraméterek: Adattípus - "Table data", Változás típusa - "On add". Ezután a munkafolyamat a **Get value of text field** műveletet használja a szükséges mező szöveges tartalmának lekéréséhez. A következő lépésben lefordítjuk ezt a szöveget a `DeepL` segítségével, majd elküldjük a lefordított szöveget a Slack csatornára.
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzést szeretne adni a megvalósításunkról? Lépjen kapcsolatba velünk a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

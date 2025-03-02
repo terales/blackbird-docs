@@ -1,0 +1,54 @@
+---
+  title: Customer.io
+  description: Blackbird додаток Customer.io
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/Customer.io" icon="github" />
+
+Customer.io — це платформа, яка дозволяє бізнесу надсилати цільові та персоналізовані повідомлення своїм клієнтам через різні канали зв'язку, такі як електронна пошта, SMS та push-сповіщення. Вона дозволяє бізнесу створювати автоматизовані кампанії на основі поведінки користувачів, їхніх уподобань та взаємодії з веб-сайтом або додатком компанії.
+
+## Перед налаштуванням
+
+Перед тим, як підключитися, переконайтеся, що:
+
+- У вас є обліковий запис Customer.io і ви маєте права адміністратора або менеджера робочого простору.
+- У вас є API-ключ для вашого облікового запису Customer.io. Ви можете знайти свої облікові дані API в Customer.io в розділі _Experimental features_ > _Account Settings_ > _App API Keys_. Більше інформації про API-ключі можна знайти [тут](https://customer.io/docs/accounts-and-workspaces/managing-credentials/).
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть Customer.io. Якщо ви не можете знайти Customer.io, натисніть _Add App_ у верхньому правому куті, виберіть Customer.io та додайте додаток до вашого середовища Blackbird.
+2. Натисніть _Add Connection_.
+3. Назвіть ваше з'єднання для подальшого використання, наприклад, 'Моє з'єднання Customer.io'.
+4. Введіть API-ключ до екземпляра Customer.io, до якого ви хочете підключитися.
+7. Натисніть _Connect_.
+
+![CustomerioBlackbirdConnection](https://raw.githubusercontent.com/bb-io/Customer.io/main/image/README/CustomerioBlackbirdConnection.png)
+
+## Actions
+
+- **Get translation of a broadcast message** Отримання інформації про переклад повідомлення в розсилці
+- **Get translation of a newsletter** Отримання інформації про переклад окремого інформаційного бюлетеня. Також включає файл у форматі HTML-документа у виводі
+- **Get translation of a transactional message** Отримання інформації про переклад окремого транзакційного повідомлення
+- **List snippets** Список усіх фрагментів у робочому просторі
+- **Update a translation of a broadcast message** Оновлення перекладу конкретної дії розсилки
+- **Update snippet** Оновлення назви або значення фрагмента
+- **Update translation of a newsletter** Оновлення перекладу варіанту інформаційного бюлетеня
+- **Update translation of a transactional message** Оновлення тексту та інших даних варіанту конкретної мови для транзакційного повідомлення
+- **Get a translation of a campaign message** Отримання перекладу повідомлення кампанії
+- **Update a translation of a campaign message** Оновлення перекладу повідомлення кампанії
+
+### Unified
+- **Download Content**: Завантаження вмісту на основі вказаного ідентифікатора. Щоб використовувати цю дію, необхідно вказати тип вмісту, до якого призначений вміст. Наразі всі підтримувані типи вмісту: **Transactional Message, Broadcast Message, Campaign Message, and Newsletter**.
+- **Upload Content**: Завантаження вмісту на основі вказаного ідентифікатора. Ця дія використовується **в парі з `Download Content`** для завантаження перекладеного HTML-файлу та оновлення перекладу для вказаної мови.
+
+## Polling 
+
+- **On broadcast created or updated** Спрацьовує, коли створюється або оновлюється нова розсилка
+- **On newsletter created or updated** Спрацьовує, коли створюється або оновлюється інформаційний бюлетень
+- **On campaign message created or updated** Спрацьовує, коли створюється або оновлюється повідомлення кампанії
+- **On transactional message created or updated** Спрацьовує, коли створюється або оновлюється транзакційне повідомлення
+
+## Зворотній зв'язок
+
+Бажаєте використовувати цей додаток або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами за допомогою [встановлених каналів](https://www.blackbird.io/) або створіть проблему.

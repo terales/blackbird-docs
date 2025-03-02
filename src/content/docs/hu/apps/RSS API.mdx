@@ -1,0 +1,52 @@
+---
+  title: RSS API
+  description: A Blackbird RSS API alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/Rss" icon="github" />
+
+Az RSS API egy egyszerű alkalmazás, amely RSS-hírforrásokra iratkozik fel, és webhook eseményekké alakítja azokat. A Blackbird figyelheti ezeket az eseményeket, és ennek megfelelően munkafolyamatokat indíthat el.
+
+## Beállítás előtt
+
+Mielőtt csatlakozhatnál, győződj meg arról, hogy:
+
+- Rendelkezel RSS API fiókkal.
+
+## Csatlakozás
+
+1. Navigálj az alkalmazásokhoz és keress rá az RSS API-ra. Ha nem találod az RSS API-t, akkor kattints a jobb felső sarokban található _Add App_ gombra, válaszd ki az RSS API-t, és add hozzá az alkalmazást a Blackbird környezetedhez.
+2. Kattints az _Add Connection_ gombra.
+3. Nevezd el a kapcsolatot későbbi hivatkozáshoz, például: 'Saját hírcsatorna'.
+4. Az RSS API-ban hozz létre egy új alkalmazást, és másold ki az API kulcsot.
+5. Add meg az API kulcsot a kapcsolatodban.
+6. Kattints a _Connect_ gombra.
+
+![1711120596050](https://raw.githubusercontent.com/bb-io/Rss/main/image/README/1711120596050.png)
+
+### Actions
+
+- **Get feed** visszaadja bármely RSS-hírforrás aktuális állapotát, amelyre rámutatasz: az összes elemet és a hírforrás leírását.
+
+### Events
+
+- **On feed changed** akkor aktiválódik, amikor az RSS API változást észlel egy hírforrásban. Kimenetként megadja a hírforrás címét és leírását, valamint több új elemet.
+
+## Használat
+
+Az RSS API kicsit másképp működik, mint más Blackbird alkalmazások. A legfontosabb dolog, amit meg kell jegyezni, hogy **minden egyes bird esetében új alkalmazást kell létrehoznod az RSS API-ban és új kapcsolatot a Blackbird-ben**. Miután beállítottad az első bird-ödet, tetszőleges számú RSS-hírforrás URL-re feliratkozhatsz. A Blackbird automatikusan frissíti az RSS API alkalmazásodat az URL-ekkel, és összeköti a saját webhook URL-jét azzal.
+
+Ha új bird-öt hoznál létre ugyanazt a kapcsolatot használva, az új bird felülírja a régit, és a régi bird leáll. Ezért javasoljuk, hogy bird-önként egy kapcsolatot használj.
+
+## Példa
+
+![1711122025115](https://raw.githubusercontent.com/bb-io/Rss/main/image/README/1711122025115.png)
+
+Ez a példa egy olyan bird-öt mutat be, amely különböző hírforrásokra iratkozott fel, és akkor aktiválódik, amikor ezek a források új cikkeket tesznek közzé.
+
+Az új cikkek beérkezése után az _Extract content_ segédműveletet használjuk a weboldal tartalmának kinyeréséhez. Ezután az OpenAI segítségével összefoglalót készítünk a tartalomból, és ezt az összefoglalót elküldjük magunknak Slack-en.
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy van visszajelzésed a megvalósításunkról? Vedd fel velünk a kapcsolatot a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozz létre egy problémát (issue-t).

@@ -1,0 +1,58 @@
+---
+  title: Google Analytics
+  description: De Google Analytics Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/GoogleAnalytics" icon="github" />
+
+Google Analytics is een webanalysedienst van Google waarmee website-eigenaren verschillende aspecten van de prestaties en gebruikersinteractie van hun website kunnen volgen en analyseren. Het biedt waardevolle inzichten in hoe gebruikers omgaan met een website, waar ze vandaan komen en welke acties ze ondernemen tijdens hun bezoek. Google Analytics biedt een breed scala aan functies om website-eigenaren te helpen hun publiek te begrijpen, hun content te optimaliseren en hun online aanwezigheid te verbeteren.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een Google Analytics-account hebt en toegang hebt tot de Google Analytics-property waarvan je gegevens wilt ophalen.
+- Je de Property ID hebt van de digitale asset die je wilt bijhouden en analyseren met Google Analytics. Om je property ID te vinden, ga naar de Google Analytics-website, beheerpagina, selecteer de gewenste GA4-property uit de lijst. Klik in de middelste kolom op Property-instellingen en in de rechterbovenhoek zie je je Property ID.
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar Google Analytics. Als je Google Analytics niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Google Analytics en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn Google Analytics-verbinding'.
+4. Vul de Property ID in van de digitale asset waarover je gegevens wilt verkrijgen.
+5. Klik op _Sign in with Google_.
+6. Volg de instructies die Google je geeft in het nieuwe venster dat verschijnt.
+7. Wanneer je terugkeert naar Blackbird, controleer dan of de verbinding is verschenen en de status _Connected_ is.
+
+![GoogleAnalyticsConnection](https://raw.githubusercontent.com/bb-io/GoogleAnalytics/main/image/README/GoogleAnalyticsConnection.png)
+
+## Actions
+
+- **Get page data** Verkrijg metrics van een specifieke pagina van de afgelopen x dagen. Je kunt zowel de volledige URL van de pagina invoeren als alleen het pad. Je kunt de optionele input 'match type' gebruiken om aan te geven hoe de URL of padnaam moet worden behandeld. Als meerdere paden overeenkomen met het ingevoerde pad, dan zullen de resultaten een som zijn van elk van de overeenkomende paden.
+	- New users
+	- Total users
+	- Active users
+	- Conversion rate
+	- Transactions
+	- Sessions
+	- Scrolled users
+	- Conversions
+	- Bounce rate
+	- Summary (geeft een samenvatting van de gegevens in stringvorm)
+	- Matched paths (geeft een lijst van paden die overeenkwamen)
+
+
+## Voorbeeld
+
+Het onderstaande voorbeeld toont een bird die een Zendesk-artikel bijwerkt nadat het door machinevertaling is vertaald. Vervolgens wordt de bird twee weken vertraagd om voldoende gegevens te verzamelen. En op basis van Google Analytics' metrics over datzelfde Zendesk-artikel, in dit geval of er meer dan 1000 totale gebruikers het artikel hebben bezocht in de afgelopen 14 dagen, wordt een nieuw MemoQ-project aangemaakt en wordt het vertaalde artikel voor menselijke revisie verzonden.
+
+![AnalyticsExample](https://raw.githubusercontent.com/bb-io/GoogleAnalytics/main/image/README/AnalyticsExample.png)
+
+Hieronder staan enkele van de beschikbare Google Analytics-metrics die kunnen worden gekozen om datagestuurde beslissingen te nemen.
+
+![DataPointsAnalytics](https://raw.githubusercontent.com/bb-io/GoogleAnalytics/main/image/README/DataPointsAnalytics.png)
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

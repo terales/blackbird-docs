@@ -1,0 +1,87 @@
+---
+  title: Matecat
+  description: A Matecat Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/Matecat" icon="github" />
+
+A Matecat egy ingyenes online CAT eszköz a Translated-től.
+
+## Beállítás előtt
+
+A csatlakozás előtt győződjön meg a következőkről:
+
+- Rendelkezik Matecat API kulccsal. Tekintse meg [ezt a cikket](https://guides.matecat.com/obtaining-api-credentials) az API hitelesítő adatok megszerzéséről.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Matecat-re. Ha nem találja a Matecat-et, kattintson a jobb felső sarokban található _Add App_ gombra, válassza a Matecat-et, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például "Saját Matecat".
+4. Adja meg a Matecat [API kulcsát](https://guides.matecat.com/obtaining-api-credentials).
+5. Kattintson az _Authorize connection_ gombra.
+
+![connecting](https://raw.githubusercontent.com/bb-io/Matecat/main/image/README/1693310380983.png)
+
+## Actions
+
+A részletes magyarázatért minden műveletről lásd a [Matecat API dokumentációt](https://www.matecat.com/api/docs#/).
+
+### Projects
+
+- **Create project** új projektet hoz létre. Egyszerre kell minden fájlt, forrásnyelvet és célnyelveket megadnia. Később nem frissíthető. Ugyanazokat az információkat adja vissza, mint a _Get project_.
+> Kérjük, vegye figyelembe, hogy a 'Create project' művelethez küldött fájloknak angol nevűeknek kell lenniük, más nyelvi karakterek vagy speciális szimbólumok nélkül. Ellenkező esetben a Matecat nem egyértelmű hibát dobhat
+- **Get project** visszaadja a projekt információit. Ez magában foglalja a szószámokat is.
+- **Cancel project** törli a projektet.
+- **Archive project** archiválja a projektet.
+- **Activate project** aktiválja a projektet.
+
+### Jobs
+
+- **Download job translated files** visszaadja a feladat összes lefordított fájlját.
+- **Download job TMX** visszaadja az aktuális fordítási memóriát reprezentáló TMX fájlt.
+- **Get job segments comments** visszaadja az ebben a feladatban tett összes megjegyzés listáját.
+- **Get job** visszaadja az általános feladatinformációkat.
+- **Cancel job** törli a feladatot.
+- **Archive job** archiválja a feladatot.
+- **Activate job** aktiválja a feladatot.
+- **Assign job** hozzárendeli a feladatot egy fordítóhoz.
+
+> A Matecat nem rendelkezik olyan feladatállapottal, amely jelzi, hogy a fordítás folyamatban van, lefordított, lektorált stb. Ehelyett ezt a különböző feladat szószámokból kell levezetni. A kényelem érdekében hozzáadtunk egy "Derived status" tulajdonságot a feladat modellhez, amely a következő állapotokat veheti fel: NEW, IN_TRANSLATION, TRANSLATED, IN_REVISION, REVISED. Ezt a tulajdonságot a projekt modellhez is hozzáadtuk, amely az összes feladat összesített állapotának legalacsonyabb értékét adja vissza.
+
+### Translation issues
+
+- **Get translation issue**.
+- **Create translation issue**.
+- **Delete translation issue**.
+- **Get translation issue comments**.
+
+### Glossaries
+
+- **Import glossary**. A Matecat nem támogatja az országrész nélküli nyelvkódokat. Ha a szójegyzék ilyen nyelveket tartalmaz, a legmegfelelőbb Matecat által támogatott nyelvkód lesz kiválasztva (pl. az _es_ nyelvkódhoz az _es-ES_). A szójegyzékek csak privát TM-ként importálhatók a Matecat-be. A szójegyzék importálásának részleteiről a Matecat-ben [itt](https://guides.matecat.com/how-to-add-a-glossary) találhat további információkat.
+
+## Events
+
+- **On analysis completed** akkor aktiválódik, amikor egy projekt elemzése befejeződik vagy sikertelen. Használja ellenőrzőpontokkal kombinálva.
+- **On project status changed** akkor aktiválódik, amikor egy projekt megváltoztatja a származtatott állapotát. Például ha egy projekt összes feladatának állapota lefordítottra változik.
+- **On job status changed** akkor aktiválódik, amikor egy feladat megváltoztatja a származtatott állapotát. Például amikor egy feladat összes szegmense lefordításra kerül, az állapot lefordítottra változik.
+
+## Példa
+
+![1729768345607](https://raw.githubusercontent.com/bb-io/Matecat/main/image/README/1729768345607.png)
+
+Ebben a példában egy Slack üzenetből és annak mellékleteiből készülő fordítást láthatunk. Amikor a Matecat elemzés befejeződik, üzenetet küldünk a linkkel a Slack-re. Ezután, amikor minden fordítás elkészül, végigmegyünk az összes feladaton és letöltjük a fájlokat. Majd a lefordított fájlokat visszaküldjük a Slack-re.
+
+## Hiányzó funkciók
+
+- Fordítási verziók
+- Feladatok/darabok felosztása
+- Teljes minőségi jelentések
+- Projektek összevonása
+
+Tudassa velünk, ha érdeklik ezek a funkciók!
+
+## Visszajelzés
+
+A Matecat megvalósításunkkal kapcsolatos visszajelzéseket mindig nagyon szívesen fogadjuk. Keressen minket a [megszokott csatornákon](https://www.blackbird.io/), vagy hozzon létre egy problémát.

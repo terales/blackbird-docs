@@ -1,0 +1,113 @@
+---
+  title: ClickUp
+  description: Застосунок Blackbird для ClickUp
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/ClickUp" icon="github" />
+
+ClickUp - це програмне забезпечення для управління проєктами, яке дозволяє планувати, відстежувати та співпрацювати над будь-яким проєктом. Цей застосунок ClickUp переважно зосереджений на управлінні завданнями та командами.
+
+## Підключення
+
+1.  Перейдіть до застосунків і знайдіть ClickUp. Якщо ви не можете знайти ClickUp, натисніть _Add App_ у правому верхньому куті, виберіть ClickUp і додайте застосунок до свого середовища Blackbird.
+2.  Натисніть _Add Connection_.
+3.  Назвіть своє підключення для майбутнього використання, наприклад, 'Мій клієнт'.
+4.  Перейдіть до особистих налаштувань ClickUp і натисніть _Apps_.
+5.  Натисніть _Generate_ під міткою _API Token_
+6.  Скопіюйте API-токен і вставте його у відповідне поле в BlackBird
+7.  Натисніть _Connect_.
+8.  Переконайтеся, що з'явилося підключення і статус _Connected_.
+
+## Actions
+
+### Attachments
+
+- **Create attachment** завантажує файл до `task` як вкладення.
+
+### Folders
+
+- **Get folders** повертає всі папки вибраного `space`.
+- **Get/create/delete folder**.
+
+### Goals
+
+- **Get goals** повертає всі цілі вказаної `team`.
+- **Get/create/delete goal**.
+- **Create key result** додає `target` до цілі.
+
+### Lists
+
+- **Get lists from space** повертає всі списки в `space`, які не знаходяться в папці.
+- **Get lists from folder** повертає всі списки в зазначеній `folder`.
+- **Create space list** додає новий список у вказаний `space`.
+- **Create folder list** додає новий список до вказаної `folder`.
+- **Delete list** видаляє список.
+
+### Spaces
+
+- **Get spaces** повертає всі простори вказаної `team`.
+- **Get/create/update/delete space**
+
+### Tags
+
+- **List tags** повертає всі теги вказаного `space`.
+- **Create/delete tag**.
+
+### Tasks
+
+- **Get tasks** повертає всі завдання вказаного `list`.
+- **Get/create/delete task**.
+
+### Teams - Workspaces
+
+- **Get teams** повертає всі команди, доступні автентифікованому користувачу.
+
+### Teams - User Groups
+
+- **Get user groups** повертає всі групи користувачів у робочому просторі.
+- **Create/delete user group**.
+
+## Events
+
+- **On task created** спрацьовує при створенні нового завдання.
+- **On task updated** спрацьовує при оновленні завдання.
+- **On task deleted** спрацьовує при видаленні завдання.
+- **On task priority updated** спрацьовує при оновленні пріоритету завдання.
+- **On task status updated** спрацьовує при оновленні статусу завдання.
+- **On task assignee updated** спрацьовує, коли виконавець додається або видаляється із завдання.
+- **On task due date updated** спрацьовує при оновленні терміну виконання завдання.
+- **On task tag updated** спрацьовує, коли тег додається або видаляється із завдання.
+- **On task moved** спрацьовує, коли завдання переміщується до нового `list`.
+- **On task comment posted** спрацьовує, коли до завдання додається `comment`.
+- **On task comment updated** спрацьовує, коли оновлюється існуючий `comment` до завдання.
+- **On task time estimate updated** спрацьовує, коли до завдання додається або оновлюється оцінка часу.
+- **On task time tracked updated** спрацьовує, коли час, відстежуваний для завдання, додається, оновлюється або видаляється.
+- **On list created** спрацьовує при створенні нового списку.
+- **On list updated** спрацьовує при оновленні існуючого списку.
+- **On list deleted** спрацьовує при видаленні списку.
+- **On folder created** спрацьовує при створенні нової папки.
+- **On folder updated** спрацьовує при оновленні існуючої папки.
+- **On folder deleted** спрацьовує при видаленні папки.
+- **On space created** спрацьовує при створенні нового простору.
+- **On space updated** спрацьовує при оновленні існуючого простору.
+- **On space deleted** спрацьовує при видаленні простору.
+- **On goal created** спрацьовує при створенні нової цілі.
+- **On goal updated** спрацьовує при оновленні існуючої цілі.
+- **On goal deleted** спрацьовує при видаленні цілі.
+- **On key result created** спрацьовує при створенні нового цільового показника.
+- **On key result updated** спрацьовує при оновленні існуючого цільового показника.
+- **On key result deleted** спрацьовує при видаленні цільового показника.
+
+## Відсутні функції
+
+У майбутньому ми можемо додати дії для:
+
+- Users
+- Members
+- Custom fields
+- Comments
+
+## Зворотній зв'язок
+
+Відгуки щодо нашої реалізації ClickUp завжди дуже вітаються. Зв'яжіться з нами через встановлені канали зв'язку або створіть проблему.

@@ -1,0 +1,61 @@
+---
+  title: SFTP
+  description: De SFTP Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/SFTP" icon="github" />
+
+SFTP, of Secure File Transfer Protocol, is een beveiligd bestandsoverdrachtsprotocol dat secure shell-encryptie gebruikt om een hoog niveau van veiligheid te bieden voor het verzenden en ontvangen van bestandsoverdrachten.
+Om SFTP te gebruiken, moet je een SFTP-server hebben, waar bestanden kunnen worden geüpload, opgeslagen en opgehaald in een downloadbaar formaat. Een SFTP-server is het type opslaglocatie waar bestanden worden opgeslagen en opgehaald.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een SFTP-server hebt en de inloggegevens om deze te benaderen.
+
+## Verbinden
+
+1. Navigeer naar Apps en zoek de **SFTP** app. Je kunt de zoekfunctie gebruiken om het te vinden.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'SFTP verbinding'.
+4. Vul de **Host** van je SFTP-server in.
+5. Vul de **Port** van je SFTP-server in (meestal is dit 22).
+6. Vul de **Username** in van de gebruiker die toegang heeft tot de SFTP-server.
+7. Vul het **Password** in van de gebruiker die toegang heeft tot de SFTP-server.
+8. Klik op _Connect_.
+
+![connection](https://raw.githubusercontent.com/bb-io/SFTP/main/image/README/connection.png)
+
+## Actions
+
+- **Download file** Download bestand van de server via het opgegeven pad.
+- **Upload file** Upload bestanden naar de server via het opgegeven pad.
+- **Delete file** Verwijder een bestand van de server via het opgegeven pad.
+- **Create directory** Maak een nieuwe map aan via het opgegeven pad.
+- **Delete directory** Verwijder een map van de server via het opgegeven pad.
+- **List directory files** Toon bestanden (naam en volledig pad) via het opgegeven pad.
+- **Rename file** Hernoem een bestand via het opgegeven pad van oud naar nieuw.
+
+## Events
+
+- **On files created or updated** Deze polling-gebeurtenis wordt geactiveerd wanneer een bestand wordt aangemaakt of bijgewerkt op de server.
+- **On files deleted** Deze polling-gebeurtenis wordt geactiveerd wanneer een bestand wordt verwijderd van de server.
+- **On directories created** Deze polling-gebeurtenis wordt geactiveerd wanneer mappen binnen een bepaald tijdsinterval worden aangemaakt.
+
+## Voorbeeld
+
+Hier is een voorbeeld van hoe je de SFTP-app in een workflow kunt gebruiken:
+
+![example](https://raw.githubusercontent.com/bb-io/SFTP/main/image/README/example.png)
+
+In dit voorbeeld begint de workflow met de **On files created or updated** gebeurtenis, die wordt geactiveerd wanneer een bestand wordt toegevoegd of bijgewerkt op de SFTP-server. Vervolgens gebruikt de workflow de **Download file** actie om het bestand te downloaden dat is toegevoegd/bijgewerkt. In de volgende stap vertalen we het bestand via `DeepL` en uploaden we het vertaalde bestand naar een Slack-kanaal.
+
+## Eggs
+
+Bekijk downloadbare workflow-prototypes met deze app die je kunt importeren naar je Nests [hier](https://docs.blackbird.io/eggs/storage-to-mt/).
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

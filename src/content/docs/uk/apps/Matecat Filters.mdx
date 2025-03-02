@@ -1,0 +1,34 @@
+---
+  title: Фільтри Matecat
+  description: Додаток Blackbird для фільтрів Matecat
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/MatecatFilters" icon="github" />
+
+Легко вилучайте весь вміст, що потребує перекладу, з будь-якого формату файлів у зручний файл XLIFF. Перекладіть його та використовуйте Фільтри знову, щоб отримати повністю перекладений файл з ідеально збереженим форматуванням.
+
+## Перед налаштуванням
+
+Перш ніж підключитися, переконайтеся, що:
+
+- У вас є ключ RapidAPI для API фільтрів Matecat. Ви можете отримати ключ [тут](https://rapidapi.com/translated/api/matecat-filters/pricing).
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть фільтри Matecat.
+2. Натисніть _Add Connection_.
+3. Назвіть ваше підключення для подальшого використання, наприклад, 'Мої фільтри Matecat'.
+4. Введіть ваш [API ключ](https://rapidapi.com/translated/api/matecat-filters) для фільтрів Matecat.
+5. Натисніть _Connect_.
+
+## Actions
+
+- **Convert to XLIFF** Візьміть будь-який формат файлу, підтримуваний фільтрами Matecat, і конвертуйте його в XLIFF.
+  - Для файлів JSON ви можете вказати додатковий вхідний параметр "Do not translate keys", який дозволяє ігнорувати певні ключі JSON для перекладу
+- **Convert XLIFF to source file** Конвертуйте перекладений XLIFF назад у його оригінальний формат файлу.
+- **Convert XLIFF to target file** Конвертуйте перекладений XLIFF у перекладений файл.
+
+## Зворотній зв'язок
+
+Ви хочете використовувати цей додаток або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть запит.

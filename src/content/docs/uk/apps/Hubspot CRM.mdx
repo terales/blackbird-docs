@@ -1,0 +1,91 @@
+---
+  title: Hubspot CRM
+  description: Додаток Blackbird для Hubspot CRM
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/HubspotCRM" icon="github" />
+
+Hubspot CRM — це популярна та широко використовувана платформа для управління взаємовідносинами з клієнтами, розроблена для ефективнішого та організованішого керування продажами, маркетингом та обслуговуванням клієнтів. Цей додаток Hubspot CRM в основному зосереджений на управлінні компаніями, угодами, заявками, контактами та зв'язками між ними.
+
+## Підключення
+1. Перейдіть до додатків і знайдіть **Hubspot (CRM)**. Якщо ви не можете знайти Hubspot (CRM), натисніть _Add App_ у верхньому правому куті, виберіть Hubspot (CRM) і додайте додаток до вашого середовища Blackbird.
+2. Натисніть _Add Connection_.
+3. Назвіть ваше з'єднання для подальшого використання, наприклад, 'Моя організація'.
+4. Натисніть _Authorize connection_.
+5. Дотримуйтесь інструкцій від HubSpot CRM, авторизуючи Blackbird.io діяти від вашого імені.
+6. Після повернення до Blackbird переконайтеся, що з'єднання з'явилося і має статус _Connected_.
+
+## Actions
+
+### Associations
+
+-   **List associations** повертає список зазначених зв'язків між об'єктами.
+-   **List association definitions** повертає список зазначених визначень зв'язків між об'єктами.
+-   **Create association label** встановлює мітки зв'язків між двома записами.
+-   **Create/delete association**
+-   **Create/delete association definition**
+
+### Companies
+
+-  **Get all companies** повертає список усіх компаній.
+-  **Get company address** повертає повну адресу компанії.
+-  **Get company by custom property** повертає компанію за вказаною властивістю.
+-  **Get/create/delete company**
+-  **Get/set company property**
+
+### Contacts
+
+-  **Get all contacts** повертає список усіх контактів.
+-  **Get/create/delete contact**
+-  **Get/set contact property**
+
+### Deals 
+
+-  **Get all deals** повертає список усіх угод.
+-  **Get/create/delete deal**
+-  **Get/set deal property**
+
+### Quotes
+
+-  **Get all quotes** повертає список усіх цінових пропозицій.
+-  **Get/create/delete quote**
+-  **Get/set quote property**
+
+### Tickets
+
+-  **Get all tickets** повертає список усіх заявок.
+-  **Get/create/delete ticket**
+-  **Get/set ticket property**
+
+## Events
+
+-   **On company created/deleted/merged**
+-   **On company association/property changed**
+-   **On contact created/deleted/merged/restored**
+-   **On contact association/property changed**
+-   **On contact deleted for privacy**
+-   **On conversation created/deleted**
+-   **On conversation deleted for privacy**
+-   **On conversation new message**
+-   **On conversation property changed**
+-   **On deal created/deleted/merged/restored**
+-   **On deal association/property changed**
+-   **On line item created/deleted/merged/restored**
+-   **On line item association/property changed**
+-   **On product created/deleted/merged/restored**
+-   **On product property changed**
+-   **On ticket created/deleted/merged/restored**
+-   **On ticket association/property changed**
+
+## Відсутні функції
+
+У майбутньому ми можемо додати дії для:
+
+-   Податків
+-   Цілей
+-   Позицій у замовленні
+
+## Зворотний зв'язок
+
+Відгуки щодо нашої реалізації Hubspot CRM завжди дуже вітаються. Зв'яжіться з нами, використовуючи [встановлені канали](https://www.blackbird.io/), або створіть проблему на GitHub.

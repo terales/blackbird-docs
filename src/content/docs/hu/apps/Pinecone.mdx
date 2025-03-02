@@ -1,0 +1,63 @@
+---
+  title: Pinecone
+  description: A Pinecone Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/Pinecone" icon="github" />
+
+
+A Pinecone egy felhőalapú vektoradatbázis, amelyet nagy teljesítményű AI alkalmazásokhoz terveztek, és menedzselt megoldást kínál infrastruktúrális bonyodalmak nélkül. Vektorbeágyazások tárolására és gyors lekérdezésére specializálódott, amelyek hosszú távú memóriaként szolgálnak a nagy nyelvi modellekkel, generatív AI-val és szemantikus kereséssel kapcsolatos alkalmazásokhoz. A rendszer nagy méretekben is gyors és pontos lekérdezéseket biztosít, alacsony késleltetésű eredményekkel, amelyek valós idejű frissítéseket tükröznek, és testreszabási lehetőségeket kínál a teljesítmény javítására.
+
+## Beállítás előtt
+
+Mielőtt kapcsolódna, győződjön meg arról, hogy: 
+
+- Rendelkezik Pinecone fiókkal.
+- [Létrehozott egy projektet](https://docs.pinecone.io/docs/create-project).
+- Beszerezte az _API kulcs_ és _Környezet_ kapcsolódási paramétereket. Ezek megtalálásához nyissa meg a [Pinecone konzolt](https://app.pinecone.io/), válassza ki az Önt érdeklő projektet, és kattintson az _API Keys_ lehetőségre. Itt másolhatja a _Környezet_ és _API kulcs_ értékeket.
+
+![API kulcsok](https://raw.githubusercontent.com/bb-io/Pinecone/main/image/api_keys.png)
+
+## Kapcsolódás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Pinecone-ra. Ha nem találja a Pinecone-t, kattintson a jobb felső sarokban található _Add App_ gombra, válassza a Pinecone-t, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, pl. 'Saját adatbázis'.
+4. Töltse ki a korábban beszerzett _API kulcs_ és _Környezet_ mezőket.
+5. Kattintson a _Connect_ gombra.
+6. Ellenőrizze, hogy a kapcsolat megjelent-e és az állapota _Connected_.
+
+![Kapcsolódás](https://raw.githubusercontent.com/bb-io/Pinecone/main/image/connecting.png)
+
+## Actions
+
+### Indexes
+
+- **List indexes**.
+- **Create index**. Az indexekről és azok paramétereiről [itt](https://docs.pinecone.io/docs/indexes) olvashat. Ez a művelet elfogadja a _Source collection_ paramétert is, amely egy index statikus másolata. A gyűjteményekről [itt](https://docs.pinecone.io/docs/collections) olvashat többet.
+- **Describe index** visszaadja egy index leírását.
+- **Configure index** frissíti egy index pod típusát és/vagy replikáinak számát. Csak a pod méretét vagy a replikák számát növelheti.
+- **Delete index**.
+- **List collections**.
+- **Create collection** gyűjteményt hoz létre egy indexből.
+- **Describe collection** visszaadja egy gyűjtemény leírását.
+- **Delete collection**.
+
+### Vectors
+
+- **Query** visszaadja az indexben található, egy adott lekérdezési vektorhoz leginkább hasonló rekordokat.
+- **Fetch vector** lekér egy vektort az azonosítója alapján.
+- **Upsert vector** új vektort ír az indexbe.
+- **Delete vector**.
+- **Delete all vectors in namespace**.
+
+## Példa
+
+![Példa](https://raw.githubusercontent.com/bb-io/Pinecone/main/image/example.png)
+
+Ebben a példában egy bird lekéri az elmúlt 24 órában hozzáadott Zendesk cikkeket, beágyazást készít mindegyikhez, és eltárolja őket a Pinecone-ban.
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Lépjen kapcsolatba velünk a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

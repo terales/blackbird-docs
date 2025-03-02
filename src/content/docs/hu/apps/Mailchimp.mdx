@@ -1,0 +1,82 @@
+---
+  title: Mailchimp
+  description: A Mailchimp Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés GitHub-on" target="_blank" href="https://github.com/bb-io/Mailchimp" icon="github" />
+
+## Beállítás előtt
+
+Biztosítanod kell, hogy rendelkezz Mailchimp fiókkal és hozzáféréssel. Alkalmazásunk OAuth 2.0 hitelesítést használ, így nincs szükséged API kulcsok megadására. Átirányítunk a Mailchimp bejelentkezési oldalára az alkalmazás engedélyezéséhez. Fontos, hogy ez az alkalmazás a [Mailchimp Marketing API](https://mailchimp.com/developer/marketing/api) segítségével biztosít egyszerűsített élményt a marketing tevékenységeid kezeléséhez.
+
+## Csatlakozás
+
+1. Navigálj az Alkalmazások menüponthoz, és keresd meg a **Mailchimp** alkalmazást. Használhatod a keresőt a megtalálásához.
+2. Kattints az _Add Connection_ gombra.
+3. Nevezd el a kapcsolatot későbbi hivatkozáshoz, például 'Saját szervezetem'.
+4. Kattints az _Authorize connection_ gombra.
+5. Átirányítunk a Mailchimp bejelentkezési oldalára. Add meg hitelesítő adataidat és engedélyezd az alkalmazást.
+6. Ellenőrizd, hogy a kapcsolat megjelent-e és az állapota _Connected_.
+
+![Kapcsolat](https://raw.githubusercontent.com/bb-io/Mailchimp/main/image/README/connection.png)
+
+## Actions
+
+### Campaigns
+
+- **Search campaigns** - Kampányok keresése megadott kritériumok alapján.
+- **Get campaign** - Kampány lekérése a megadott azonosító alapján.
+- **Create campaign** - Kampány létrehozása a megadott adatokkal.
+- **Update campaign** - Kampány frissítése a megadott adatokkal.
+- **Delete campaign** - Kampány törlése a megadott azonosító alapján.
+
+### Campaign content
+
+- **Get campaign content** - Kampány tartalmának lekérése a megadott azonosító alapján.
+- **Update campaign content** - Kampány tartalmának frissítése a megadott adatokkal.
+- **Get campaign content as HTML** - Kampány tartalmának lekérése a megadott azonosító alapján HTML formátumban.
+- **Update campaign content from HTML** - Kampány tartalmának frissítése a megadott azonosító alapján HTML fájlból vagy opcionális bemenetből. Ez a művelet különösen hasznos a `Get campaign content as HTML` művelettel párosítva, amikor le szeretnéd kérni a kampány tartalmát HTML formátumban, majd lefordítani a dokumentumot.
+
+## Events
+
+- **On campaigns created** - Lekérdezési esemény. A megadott időintervallum után aktiválódik és visszaadja az új kampányokat. Ez az esemény a `since_create_time` lekérdezési paramétert használja a megadott idő után létrehozott kampányok szűréséhez.
+- **On campaigns updated** - Lekérdezési esemény. A megadott időintervallum után aktiválódik és visszaadja a frissített kampányokat. Ez az esemény tárolja a legutolsó 20 kampányt és azok hash értékeit (a HTML tartalomból) a memóriában. Amikor az esemény aktiválódik, összehasonlítja a tárolt kampányok hash értékeit a legújabb kampányok hash értékeivel. Ha a hash értékek különböznek, az esemény visszaadja a frissített kampányokat. A kulcsfontosságú momentum itt az, hogy csak 20 kampányt kér le a `create_time` szerint csökkenő sorrendben rendezve. Ezt a komplexitás és a teljesítménybeli problémák elkerülése érdekében teszi.
+
+## Hibakezelés
+
+Alkalmazásunk strukturált formátumban adja vissza a hibákat. Az alábbiakban találhatók a tipikus hibaválaszok, amelyekkel találkozhatsz:
+
+1. Általános hibaválasz
+   Az általános hibaválasz a következő mezőket tartalmazza:
+```
+Type: {Type}, Title: {Title}, Status: {Status}, Detail: {Detail}, Instance: {Instance}
+```
+
+- Type: A hiba típusa.
+- Title: Rövid cím, amely leírja a hibát.
+- Status: A hibához kapcsolódó HTTP állapotkód.
+- Detail: Részletes üzenet, amely elmagyarázza a hibát.
+- Instance: Egyedi azonosító ehhez a konkrét hibapéldányhoz.
+
+2. Összetett hibaválasz belső hibákkal
+
+Ha a hibaobjektum további belső hibákat tartalmaz, a válasz tartalmazni fog egy Errors mezőt több részlettel:
+
+```
+Type: {Type}, Title: {Title}, Status: {Status}, Detail: {Detail}, Instance: {Instance}, Errors: Field: {x.Field}, Message: {x.Message}, ...
+```
+
+- Errors: Belső hibák listája, mindegyik tartalmazza:
+  - Field: A hibához kapcsolódó konkrét mező. Például: `first_name`.
+  - Message: A mezőhöz tartozó hibát leíró üzenet.
+
+Ha hibával találkozol, ellenőrizd a hibaüzenetet, és próbáld megoldani a problémát. Ha további segítségre van szükséged, kérjük, vedd fel velünk a kapcsolatot.
+
+## Hiányzó funkciók
+
+A **Mailchimp** API nagyon kiterjedt, és dolgozunk azon, hogy több funkciót adjunk az alkalmazásunkhoz. Ha konkrét funkcióra van szükséged, kérjük, vedd fel velünk a kapcsolatot. Az API végpontokat és elérhető funkciókat a [Mailchimp API dokumentációban](https://mailchimp.com/developer/marketing/api/root/) ellenőrizheted.
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy visszajelzésed van az implementációnkról? Vedd fel velünk a kapcsolatot a [hivatalos csatornákon](https://www.blackbird.io/) keresztül vagy hozz létre egy problémát.

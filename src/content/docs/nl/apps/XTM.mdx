@@ -1,0 +1,111 @@
+---
+  title: XTM
+  description: De XTM Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/XTM" icon="github" />
+
+XTM Cloud is een vertaalbeheersysteem. Functies omvatten het maken van projecten en het uploaden van bestanden naar deze projecten om ze te vertalen.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je beschikt over een XTM Cloud-instantie met **API-toegang ingeschakeld**.
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar XTM. Als je XTM niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer XTM en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijvoorbeeld 'Mijn XTM'.
+4. Vul bij client je XTM-bedrijfsnaam in, ook aangeduid als client in de [XTM-documentatie](https://api.xtm-cloud.com/rest-api/#tag/XTM-Basic/operation/generateToken).
+5. Vul bij User ID je numerieke XTM-gebruikers-ID in. Opmerking: **Dit is niet je gebruikersnaam**. Een bekende manier om dit gebruikers-ID op te halen is door in te loggen op je XTM-portaal, over je avatar in de rechterbovenhoek te hoveren en met de rechtermuisknop te klikken op "open afbeelding in nieuw tabblad". In de URL van deze pagina vind je je gebruikers-ID.\*
+6. Vul je XTM-gebruikerswachtwoord in.
+7. Vul ten slotte de basis-URL van je XTM-instantie in. Bijvoorbeeld `https://xtm.mycompany.com`
+8. Klik op _Connect_.
+
+\* Ken je een betere manier om de User ID op te halen? Laat het ons weten!
+
+![connecting](https://raw.githubusercontent.com/bb-io/XTM/main/image/README/1693487780830.png)
+
+## Actions
+
+### Projects
+
+- **List projects**
+- **Get project**
+- **Create project**
+- **Create project from template**
+- **Clone project**
+- **Update project**
+- **Add project target languages**
+- **Delete project target languages**
+- **Reanalyze project**
+- **Delete project**
+- **Get project estimates**
+- **Get project metrics**
+
+### LQA
+
+- **Search LQA reports** Definieer de criteria om de LQA-rapporten op te halen die je nodig hebt. Optionele parameters zijn onder andere:
+	- Datum vanaf
+	- Datum tot
+	- Doeltalen
+	- LQA-type
+
+### Files
+
+- **Download source files**
+- **Download source files as ZIP**
+- **Download project file**
+- **Download all project files**
+- **Download translated files**
+- **Upload source file**
+- **Upload translation file**. Deze actie maakt gebruik van het `/files/translations/{fileId}/status` eindpunt om de status van het nieuw geüploade vertaalbestand te controleren. De actie wacht tot de vertaling is verwerkt en geeft de status van het vertaalbestand terug samen met de `File ID` en de `Project ID`.
+- **Generate files**
+
+### Translation memories
+
+- **Generate TM file**
+- **Download TM file**
+
+### Customers
+
+- **List customers**
+- **Create customer**
+- **Get customer**
+- **Update customer**
+- **Delete customer**
+
+## Events
+
+>Opmerking: XTM gebruikt callback-URL's die alleen kunnen worden ingesteld op het moment van projectcreatie. Dit betekent dat alleen projecten die via Blackbird zijn aangemaakt, werken met niet-polling Events. Om Birds te activeren op basis van Events met betrekking tot projecten die niet via Blackbird zijn gemaakt, gebruik je een [polling trigger](https://docs.blackbird.io/concepts/triggers/#polling) - hieronder geïdentificeerd als **polling**.
+
+- **On analysis finished**
+- **On workflow transition**
+- **On job finished**
+- **On project created**
+- **On project accepted**
+- **On project finished**
+- **On invoice status changed**
+- **On analysis finished (polling)**
+- **On projects created (polling)**
+- **On projects updated (polling)**
+- **On projects finished (polling)**
+- **On project status changed (polling)**
+
+## Ontbrekende functies
+
+De huidige implementatie dekt de basisacties. In de toekomst kunnen we echter ook ondersteuning bieden voor:
+
+- Projectanalyses
+- Aangepaste velden
+- Opdrachten
+- Externe gebruikers
+
+Laat het ons weten als je hierin geïnteresseerd bent!
+
+## Feedback
+
+Feedback op onze implementatie van XTM is altijd zeer welkom. Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

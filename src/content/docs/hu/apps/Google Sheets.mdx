@@ -1,0 +1,54 @@
+---
+  title: Google Sheets
+  description: A Google Sheets Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Github-on" target="_blank" href="https://github.com/bb-io/GoogleSheets" icon="github" />
+
+A Google Sheets egy felhőalapú táblázatkezelő eszköz, amely lehetővé teszi az adatok egyszerű létrehozását, szerkesztését és elemzését online módon. Valós idejű együttműködési funkciókkal és felhasználóbarát felülettel rendelkezik, sokoldalú platform az információk rendszerezésére, projektek kezelésére, valamint diagramok és grafikonok létrehozására.
+
+## Actions
+
+### Spreadsheet Actions
+
+- **Add new sheet row** Új sort ad hozzá a munkalap első üres sorához
+- **Create sheet** Munkalapot hoz létre
+- **Download sheet CSV file** CSV fájlt tölt le
+- **Download spreadsheet as PDF file** Adott táblázatot PDF formátumban tölt le
+- **Find sheet row** Egy oszlopcím és érték megadásával visszaadja annak a sornak a számát, ahol az adott érték található
+- **Get column** Oszlopértékeket kap meg
+- **Get range** Adott tartományt kap meg
+- **Get sheet cell** Cellát kap meg cím alapján
+- **Get sheet row** Munkalap sort kap meg cím alapján
+- **Get sheet used range** Használt tartományt kap meg
+- **Update sheet cell** Cellát frissít cím alapján
+- **Update sheet row** Sort frissít kezdőcím alapján
+- **Update sheet column** Oszlopot frissít kezdőcím alapján
+
+### Glossary Actions
+
+- **Import glossary** Szójegyzéket importál munkalapként
+- **Export glossary** Szójegyzéket exportál munkalapról
+
+A **Export glossary** művelet használatához győződjön meg arról, hogy a Google-táblázat tükrözi az **Import glossary** művelet eredményéből kapott struktúrát. Kövesse az alábbi irányelveket:
+
+- **Munkalap struktúra**:
+    - Az első sor oszlopnevekként szolgál, amelyek a szójegyzék entitás tulajdonságait képviselik: _ID_, _Definition_, _Subject field_, _Notes_, _Term (language code)_, _Variations (language code)_, _Notes (language code)_.
+    - Minden, a szójegyzékben szereplő nyelvhez tartozzon oszlop. Például, ha a szójegyzék angol és spanyol nyelvű, az oszlopnevek a következők lesznek: _ID_, _Definition_, _Subject field_, _Notes_, _Term (en)_, _Variations (en)_, _Notes (en)_, _Term (es)_, _Variations (es)_, _Notes (es)_.
+- **Opcionális mezők**:
+    - _Definition_, _Subject field_, _Notes_, _Variations (language code)_, _Notes (language code)_ opcionálisak és üresen hagyhatók.
+- **Fő kifejezés és szinonimák**:
+    - _Term (language code)_ a szójegyzék adott nyelvű elsődleges kifejezését jelöli.
+    - _Variations (language code)_ a kifejezés szinonim értékeit tartalmazza.
+- **Jegyzetek kezelése**:
+    - A _Notes_ oszlopban lévő jegyzeteket ';' jellel kell elválasztani, ha több jegyzet tartozik egy adott bejegyzéshez.
+- **Változatok kezelése**:
+    - A _Variations (language code)_ oszlopban lévő változatokat ';' jellel kell elválasztani, ha több változat tartozik egy adott kifejezéshez.
+- **Kifejezés jegyzetek formátuma**:
+    - A _Notes (language code)_ oszlopban minden jegyzetnek a következő struktúrát kell követnie: **Term or variation: note**.
+    - A kifejezésekhez tartozó jegyzeteket ';;' jellel kell elválasztani. Például, 'money: may refer to physical or banked currency;; cash: refers to physical currency.'
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzést szeretne adni a megvalósításunkról? Keresse fel csapatunkat a [megadott csatornákon](https://www.blackbird.io/) keresztül vagy hozzon létre egy problémát.

@@ -1,0 +1,43 @@
+---
+  title: ElevenLabs
+  description: Az ElevenLabs Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/ElevenLabs" icon="github" />
+ 
+  
+Az ElevenLabs egy csúcstechnológiás beszédszintézis és konverziós platform, amely fejlett eszközöket kínál szöveg-beszéd és beszéd-beszéd átalakításra. Kiváló minőségű hangképzési képességekkel rendelkezik, lehetővé téve a felhasználók számára, hogy realisztikus és testre szabható hangkimeneteket hozzanak létre különböző alkalmazásokhoz, beleértve a tartalomkészítést, akadálymentesítést és még sok mást.
+  
+## Csatlakozás
+
+1.  A Blackbirdben navigálj az 'Apps' menüponthoz és keress rá az ElevenLabsre.
+2.  Kattints az _Add Connection_ gombra.
+3.  Nevezd el a kapcsolatot későbbi hivatkozáshoz, pl. 'Az én ElevenLabs kapcsolatom'.
+4.  Az ElevenLabsben menj a `My account -> Profile + API key` menüpontba.
+5.  Másold ki az API kulcsot és illeszd be a megfelelő mezőbe a Blackbirdben.
+6.  Kattints a _Connect_ gombra.
+7.  Győződj meg róla, hogy a kapcsolat megjelent és az állapota _Connected_.
+  
+## Actions  
+  
+### Speech Conversion
+
+-   **Convert speech to speech** a megadott beszédet alakítja át beszéddé a kiválasztott beállításokkal
+-   **Convert text to speech** a megadott szöveget alakítja át beszéddé a kiválasztott beállításokkal
+  
+### Audio
+
+- **Generate sound** hangot generál a megadott szövegből.
+- **Isolate audio** eltávolítja a háttérzajt a hangfelvételből.
+
+
+## Példa  
+  
+A következő példa bemutatja, hogyan állítható be egy bird úgy, hogy amikor egy Slack alkalmazást említenek, az üzenetet az OpenAI-on keresztül feldolgozzuk, majd az ElevenLabs segítségével beszéddé alakítjuk, és válaszként visszaküldjük a Slackre.
+
+![Minta Bird](https://github.com/bb-io/ElevenLabs/assets/137277669/26345195-1715-4719-92a6-f41bd6bf60ac)
+  
+## Visszajelzés  
+  
+Szeretnéd használni ezt az alkalmazást, vagy visszajelzést adnál a megvalósításunkról? Vedd fel velünk a kapcsolatot a [létrehozott csatornákon](https://www.blackbird.io/) keresztül vagy hozz létre egy problémajegyet.

@@ -1,0 +1,43 @@
+---
+  title: Microsoft Forms
+  description: Додаток Blackbird для Microsoft Forms
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/MicrosoftForms" icon="github" />
+
+Microsoft Forms (раніше Office 365 Forms) - це онлайн-творець опитувань, частина Office 365. Випущений Microsoft у червні 2016 року, Forms дозволяє користувачам створювати опитування та тести з автоматичною перевіркою.
+
+## Перед налаштуванням
+
+Перш ніж підключитися, вам потрібно переконатися, що у вас є обліковий запис Microsoft 365.
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть Microsoft Forms.
+2. Натисніть _Add Connection_.
+3. Назвіть ваше підключення для подальшого використання, наприклад, 'Моя організація'.
+4. Натисніть _Authorize connection_.
+5. Дотримуйтесь інструкцій Microsoft, авторизуючи Blackbird.io для дій від вашого імені.
+6. Коли ви повернетесь до Blackbird, переконайтеся, що з'явилося підключення і статус _Connected_.
+
+![Підключення](https://raw.githubusercontent.com/bb-io/MicrosoftForms/main/image/README/connecting.png)
+
+## Actions
+
+- **List my forms** отримує список форм, створених мною.
+- **Get form info** отримує інформацію про конкретну форму.
+- **List questions** отримує список питань конкретної форми.
+- **List responses** отримує список відповідей на конкретну форму.
+- **Get answer from response** отримує відповідь на конкретне питання з конкретної відповіді у вигляді рядка
+- **Download responses as excel file** завантажує відповіді на конкретну форму як файл Excel
+
+## Events
+
+- **On responses received** спрацьовує, коли отримано нові відповіді з вказаної форми.
+
+## Приклад
+
+![приклад](https://raw.githubusercontent.com/bb-io/MicrosoftForms/main/image/README/example.png)
+
+Тут, коли отримано нові відповіді, ми надсилаємо відповідь на кожне питання кожної відповіді в Slack.

@@ -1,0 +1,54 @@
+---
+  title: Gmail
+  description: De Gmail Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Gmail" icon="github" />
+
+Gmail is de e-mailservice van Google. Gmail biedt een reeks tools en functies die het gemakkelijk maken om een systeem op te zetten dat je inbox georganiseerd houdt, je tijd bespaart en je vrijmaakt om je te concentreren op belangrijke zakelijke taken.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een **Gmail**-account hebt en over de inloggegevens beschikt om toegang te krijgen.
+
+## Verbinding maken
+
+1. Ga naar Apps en zoek de **Gmail**-app. Je kunt de zoekfunctie gebruiken om deze te vinden.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn Gmail-verbinding'.
+4. Klik op _Authorize connection_.
+5. Maak de Gmail-verbinding via OAuth.
+
+![connection](https://raw.githubusercontent.com/bb-io/Gmail/main/image/README/1725554354745.png)
+
+## Actions
+
+- **Search emails** Geeft een lijst met ID's terug die kunnen worden gebruikt in combinatie met 'Get email'. Voeg een optionele zoekopdracht toe om je zoekopdracht te verfijnen. Ondersteunt hetzelfde zoekformaat als het Gmail-zoekvak. Bijvoorbeeld: "from:someuser@example.com is:unread".
+- **Get email** Geeft e-mailmetadata, bericht en alle bijlagen terug.
+- **Send email** Verstuurt een e-mail, inclusief bijlagen.
+- **Trash email** Verplaatst een e-mail naar de prullenbak.
+
+## Events
+
+- **On emails received** Wordt geactiveerd wanneer nieuwe e-mails worden ontvangen. Je kunt optioneel een zoekopdracht instellen om de resultaten te verfijnen. Dezelfde zoeklogica als bij 'Search emails' wordt gebruikt. *Opmerking*: dit is een polling trigger, daarom moet je een polling-interval instellen en ontvang je meerdere e-mail-ID's. Gebruik "Get email" om informatie over elke e-mail te krijgen.
+
+## Voorbeelden
+
+Hier is een voorbeeld van een eenvoudige Gmail-workflow:
+
+![1725608752440](https://raw.githubusercontent.com/bb-io/Gmail/main/image/README/1725608752440.png)
+
+In dit voorbeeld begint de workflow wanneer een nieuwe batch e-mails wordt opgehaald. Alle e-mails worden doorlopen, de informatie en bijlagen voor elke e-mail worden opgehaald en vervolgens doorgestuurd naar Slack.
+
+Een complexer voorbeeld wordt hier getoond:
+
+![1725609061387](https://raw.githubusercontent.com/bb-io/Gmail/main/image/README/1725609061387.png)
+
+In deze workflow maken we een nieuwe Plunet-offerte aan voor elke e-mail die we ontvangen (natuurlijk kunnen we de ontvangen e-mails filteren op bepaalde criteria). Alle bijlagen worden automatisch toegevoegd aan de offerte. Vervolgens sturen we een bevestigingsmail terug naar de afzender.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

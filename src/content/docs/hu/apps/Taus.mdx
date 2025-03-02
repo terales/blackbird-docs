@@ -1,0 +1,58 @@
+---
+  title: Taus
+  description: A Taus Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/Taus" icon="github" />
+
+A TAUS Quality Estimate by Language Data Network segít a felhasználóknak értékelni a gépi fordítás minőségét, és tájékozott döntéseket hozni annak különböző célokra való alkalmasságáról.
+
+## Beállítás előtt
+
+Mielőtt csatlakozna, győződjön meg a következőkről:
+
+- Rendelkezik TAUS fiókkal.
+- Rendelkezik a TAUS fiókjához tartozó API kulccsal. Az API kulcsokat [itt](https://www.taus.net/user/services) találhatja meg.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz, és keressen rá a TAUS-ra.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot későbbi hivatkozás céljából, például 'Saját TAUS kapcsolat'.
+4. Töltse ki az alap URL-t a TAUS kapcsolatához. Ez valószínűleg `https://api.taus.net` vagy `https://api.sandbox.taus.net`
+5. Adja meg a TAUS fiókjához tartozó API kulcsot.
+6. Kattintson a _Connect_ gombra.
+
+![TAUSBlackbirdConnection](https://raw.githubusercontent.com/bb-io/Taus/main/image/README/1714471684106.png)
+
+## Actions
+
+### Segments
+
+- **Estimate** Minőségbecslési adatokat ad egy szegmenshez a következők megadásával: - Forrásnyelvi szöveg - Forrásnyelv - Célnyelvi szöveg - Célnyelv -
+  A támogatott nyelvek [itt](https://developer.taus.net/) találhatók. A TAUS homokozó környezete csak a következőket támogatja:
+
+- Angol (en)
+- Francia (fr)
+- Német (de)
+- Olasz (it)
+- Spanyol (es)
+
+### XLIFF files
+
+- **Estimate XLIFF** Minőségbecslési adatokat ad az XLIFF 1.2 fájlban található összes szegmenshez. A kötelező bemeneti adatok közé tartozik a lefordított XLIFF fájl, a forrás- és célnyelvi értékek. Kimenetként átlagos pontszámot ad, amely a fájlban lévő összes szegmens minőségi pontszámának átlaga. Ezen kívül minden fordítási egység kiegészül az egyéni pontszámával, amely az XLIFF fájl `extradata` attribútumához kerül hozzáadásra. Opcionálisan hozzáadhatja a Küszöbérték, Új célállapot és Feltétel bemeneti paramétereket a Blackbird művelethez, hogy módosítsa a kívánt kritériumoknak megfelelő szegmensek célállapotának értékét.
+
+Példák:
+
+Az opcionális bemeneti értékek alábbi képen látható beállítása eredményeként minden olyan szegmens, amelynek pontszáma 0,9 felett van, célállapot értéke "final"-ra frissül.
+
+![TAUSoptionalinput1](https://raw.githubusercontent.com/bb-io/Taus/main/image/README/TAUSoptionalinput1.png)
+
+Hasonlóképpen, az alábbi beállítás azt eredményezi, hogy minden olyan szegmens, amelynek minőségi pontszáma 0,6 vagy az alatt van, célállapot értéke "needs-review-translation"-re változik.
+
+![TAUSoptionalinput2](https://raw.githubusercontent.com/bb-io/Taus/main/image/README/TAUSoptionalinput2.png)
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzést szeretne adni a megvalósításunkról? Vegye fel velünk a kapcsolatot a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

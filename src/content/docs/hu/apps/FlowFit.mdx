@@ -1,0 +1,75 @@
+---
+  title: FlowFit
+  description: A FlowFit Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Github-on" target="_blank" href="https://github.com/bb-io/FlowFit" icon="github" />
+ 
+
+A Flowfit egy fordításkezelő rendszer, amely optimalizálja a feladatok kiosztását, megkönnyíti a különböző érdekeltek közötti távmunkát, és lehetővé teszi a projektmenedzserek számára, hogy tájékozott döntéseket hozzanak az elemző és statisztikai jelentések segítségével.
+
+## Beállítás előtt
+
+- Bizonyosodjon meg arról, hogy rendelkezik FlowFit fiókkal.
+- Rendelkeznie kell bejelentkezési adatokkal és jelszóval a FlowFit fiókjához.
+
+## Csatlakozás
+
+1. Navigáljon az Alkalmazásokhoz, és keresse meg a **FlowFit** alkalmazást. Használhatja a keresést a megtalálásához.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például: 'Saját kapcsolat'.
+6. Adja meg a FlowFit fiókjához tartozó bejelentkezési adatokat.
+7. Adja meg a FlowFit fiókjához tartozó jelszót.
+8. Kattintson a _Connect_ gombra.
+9. Ellenőrizze, hogy a kapcsolat megjelent-e és a státusza _Connected_.
+
+## Actions
+
+### Projects
+
+- **Get project** projekt információinak lekérése.
+- **Create project** új projekt létrehozása.
+- **Delete project** a megadott projekt törlése az összes kapcsolódó entitással együtt.
+
+### Project documents
+
+- **Get project document** projektdokumentum információinak lekérése.
+- **Download source documents** forrásdokumentumok letöltése egy projekthez.
+- **Download reference documents** referencia dokumentumok letöltése egy projekthez.
+- **Download deliverable documents** végleges dokumentumok letöltése egy projekthez.
+- **Download deliverable document** egy projekt végleges dokumentumának letöltése a projekt és feladat azonosítók alapján.
+- **Upload source document** forrásdokumentum feltöltése a megadott projekthez.
+
+### Tasks
+
+- **Get source document** A megadott projekt forrásdokumentumának információinak lekérése és letöltése.
+
+## Events
+
+- **On project documents delivered** visszaadja azokat a projektdokumentumokat, amelyeket az utolsó lekérdezési idő után szállítottak (lekérdezés alapú esemény).
+- **On projects status changed** visszaadja azokat a projekteket, amelyek állapota az utolsó lekérdezési idő után változott (lekérdezés alapú esemény).
+
+## Hiányzó funkciók
+
+- **Clients**
+- **Client Invoices**
+- **Client Contacts**
+- **Client Departments**
+- **Provider Invoices**
+- **Notes**
+- **Offices**
+- **Positions**
+- **Product Areas**
+- **Services**
+- **Service Units**
+- **Tools**
+- **Work Codes**
+- **Work Types**
+- **Charge Codes**
+
+A FlowFit API meglehetősen nagy, és folyamatosan dolgozunk azon, hogy további funkciókat adjunk ehhez az alkalmazáshoz. Ha bármilyen konkrét funkcióra van szüksége, kérjük, jelezze számunkra.
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Lépjen kapcsolatba velünk a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

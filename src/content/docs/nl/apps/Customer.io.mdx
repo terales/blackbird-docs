@@ -1,0 +1,54 @@
+---
+  title: Customer.io
+  description: De Customer.io Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Bekijk op Github" target="_blank" href="https://github.com/bb-io/Customer.io" icon="github" />
+
+Customer.io is een platform waarmee bedrijven gerichte en gepersonaliseerde berichten naar hun klanten kunnen sturen via verschillende communicatiekanalen zoals e-mail, sms en pushmeldingen. Het stelt bedrijven in staat om geautomatiseerde campagnes te maken op basis van gebruikersgedrag, voorkeuren en interacties met de website of app van het bedrijf.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een Customer.io-account hebt en beschikt over beheerdersrechten of werkruimtebeheerrechten.
+- Je een API-sleutel hebt voor je Customer.io-account. Je vindt je API-gegevens in Customer.io onder _Experimental features_ > _Account Settings_ > _App API Keys_. Meer informatie over API-sleutels vind je [hier](https://customer.io/docs/accounts-and-workspaces/managing-credentials/).
+
+## Verbinden
+
+1. Ga naar apps en zoek naar Customer.io. Als je Customer.io niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Customer.io en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn Customer.io-verbinding'.
+4. Vul de API-sleutel in voor de Customer.io-instantie waarmee je verbinding wilt maken.
+7. Klik op _Connect_.
+
+![CustomerioBlackbirdConnection](https://raw.githubusercontent.com/bb-io/Customer.io/main/image/README/CustomerioBlackbirdConnection.png)
+
+## Actions
+
+- **Get translation of a broadcast message** Haal informatie op over een vertaling van een bericht in een broadcast
+- **Get translation of a newsletter** Haal informatie op over een vertaling van een individuele nieuwsbrief. Bevat ook bestand als HTML-document in de output
+- **Get translation of a transactional message** Haal informatie op over een vertaling van een individueel transactioneel bericht
+- **List snippets** Lijst alle snippets in de werkruimte op
+- **Update a translation of a broadcast message** Werk een vertaling van een specifieke broadcast-actie bij
+- **Update snippet** Werk de naam of waarde van een snippet bij
+- **Update translation of a newsletter** Werk de vertaling van een nieuwsbriefvariant bij
+- **Update translation of a transactional message** Werk de body en andere gegevens bij van een specifieke taalvariant voor een transactioneel bericht
+- **Get a translation of a campaign message** Een vertaling van een campagnebericht ophalen
+- **Update a translation of a campaign message** Een vertaling van een campagnebericht bijwerken
+
+### Unified
+- **Download Content**: Download content op basis van de opgegeven ID. Om deze actie te gebruiken, moet je het contenttype specificeren waaraan de content is toegewezen. Momenteel zijn alle ondersteunde contenttypes: **Transactional Message, Broadcast Message, Campaign Message, en Newsletter**.
+- **Upload Content**: Upload content op basis van de opgegeven ID. Deze actie wordt **samen met `Download Content`** gebruikt om een vertaald HTML-bestand te uploaden en de vertaling voor de opgegeven taal bij te werken.
+
+## Polling 
+
+- **On broadcast created or updated** Wordt geactiveerd wanneer een nieuwe broadcast is gemaakt of bijgewerkt
+- **On newsletter created or updated** Wordt geactiveerd wanneer een nieuwsbrief is gemaakt of bijgewerkt
+- **On campaign message created or updated** Wordt geactiveerd wanneer een campagnebericht is gemaakt of bijgewerkt
+- **On transactional message created or updated** Wordt geactiveerd wanneer een transactioneel bericht is gemaakt of bijgewerkt
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

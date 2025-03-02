@@ -1,0 +1,49 @@
+---
+  title: GlobalLink Now
+  description: A GlobalLink Now Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/GlobalLinkNow" icon="github" />
+
+A GlobalLink NOW egy eseti neurális gépi fordítási megoldás, amely AI technológiát használ a kiváló minőségű tartalmak biztonságos és igény szerinti szolgáltatására.
+ 
+## A beállítás előtt
+
+A csatlakozás előtt győződjön meg a következőkről:
+
+- Rendelkezik egy GlobalLink NOW példánnyal.
+- Rendelkezik a HOST adatokkal és Api kulccsal a GlobalLink NOW példányához.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a GlobalLink NOW-ra. Ha nem találja a GlobalLink NOW-t, kattintson a jobb felső sarokban található _Add App_ gombra, válassza a GlobalLink NOW-t és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, pl. 'Saját kapcsolat'.
+4. Töltse ki a GlobalLink NOW példányának Host mezőjét.
+5. Töltse ki a GlobalLink NOW példányához tartozó Api kulcsot.
+6. Kattintson a _Connect_ gombra.
+
+![Kapcsolat hozzáadása](https://raw.githubusercontent.com/bb-io/GlobalLinkNow/main/image/README/GLN_AddConnection.png)
+
+## Actions
+
+- **Translate** Szöveg fordítása
+- **Translate Document** Fájl fordítása. 
+Bemenet:
+    - Fájl
+    - Célnyelv
+    - Forrásnyelv (opcionális)
+    - Domain (opcionális)
+    - Motor azonosító (opcionális)
+    - OCR (opcionális)
+
+## Példa
+
+Az alábbi képen látható madár egy olyan munkafolyamatot ábrázol, amelyben a tartalmat egy Wordpress oldalról HTML formátumban nyerjük ki, valamint az összes olyan nyelvi változatot, amelyekhez még nem készült fordítás ehhez az oldalhoz. Ezután végigmegyünk a nyelvi változatokon, lefordítjuk a HTML fájlt minden nyelvi változatra a GlobalLink NOW segítségével, és létrehozzuk a fordított oldalakat a Wordpressben a lefordított HTML fájlokból.
+
+![Wordpress + GlobalLink NOW](https://raw.githubusercontent.com/bb-io/GlobalLinkNow/main/image/README/WordpressGLN.png)
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Lépjen kapcsolatba velünk a [megszokott csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy hibajegyet.

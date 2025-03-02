@@ -1,0 +1,143 @@
+---
+  title: Jira
+  description: A Jira Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés Githubon" target="_blank" href="https://github.com/bb-io/Jira" icon="github" />
+
+A Jira egy széles körben használt projektmenedzsment és feladatkövetési eszköz, amelyet az Atlassian fejlesztett. Platformot biztosít a csapatoknak a feladatok, projektek és szoftverfejlesztési folyamatok tervezéséhez, nyomon követéséhez és kezeléséhez, segítve a együttműködés egyszerűsítését és a projekt átláthatóságának javítását. Ez a Jira alkalmazás elsősorban a problémák kezelésére összpontosít.
+
+## Beállítás előtt
+
+Mielőtt csatlakozhatna, győződjön meg arról, hogy:
+
+- Rendelkezik Atlassian fiókkal és [Jira webhellyel](https://support.atlassian.com/jira-work-management/docs/set-up-your-site/).
+- [Létrehozott egy projektet](https://support.atlassian.com/jira-software-cloud/docs/create-a-new-project/).
+- Rendelkezik a megfelelő [jogosultságokkal](https://support.atlassian.com/jira-cloud-administration/docs/permissions-for-company-managed-projects/#Issue-permissions).
+
+### Webhookok engedélyezése
+
+Ha Jira webhookokat szeretne használni:
+
+- Jelentkezzen be olyan felhasználóként, aki rendelkezik Jira adminisztrátori [globális jogosultsággal](https://support.atlassian.com/jira-cloud-administration/docs/manage-global-permissions/).
+- A jobb felső sarokban válassza a ![Beállítások](https://raw.githubusercontent.com/bb-io/Jira/main/Images/README/settings.png) > _Rendszer_ lehetőséget. A _Speciális_ alatt válassza a _WebHooks_ lehetőséget.
+- A jobb felső sarokban válassza a _WebHook létrehozása_ lehetőséget.
+- Az _URL_ mezőben adja meg: `https://bridge.blackbird.io/api/webhooks/jira`.
+- Győződjön meg arról, hogy az _Állapot_ _Engedélyezve_ van.
+- Válasszon ki mindent a _Problémához kapcsolódó események_ > _Probléma_ alatt.
+- Görgessen az oldal aljára és kattintson a _Létrehozás_ gombra.
+
+![Események kiválasztása](https://raw.githubusercontent.com/bb-io/Jira/main/Images/README/issue_related_events.png)
+
+### Egyéni mezők hozzáadása
+
+Egyéni mezők létrehozásához kövesse [ezt az útmutatót](https://confluence.atlassian.com/adminjiraserver/adding-custom-fields-1047552713.html). Miután létrehozta a szükséges egyéni mezőket:
+
+- Válassza a ![Beállítások](https://raw.githubusercontent.com/bb-io/Jira/main/Images/README/settings.png) > _Projektek_ lehetőséget a jobb felső sarokban.
+- Az önt érdeklő projektnél válassza a ![Továbbiak](https://raw.githubusercontent.com/bb-io/Jira/main/Images/README/more_button.png) > _Projektbeállítások_ lehetőséget.
+- Válassza a _Probléma típusok_ lehetőséget a bal oldali panelről.
+- Kattintson arra a probléma típusra, amelyhez hozzá szeretné adni a létrehozott egyéni mezőket.
+- Keresse meg a _Mezők keresése_ keresősávot a jobb oldali panelen.
+- Keressen rá az önt érdeklő mezőre, és húzza át a probléma mezőihez.
+- Kattintson a _Módosítások mentése_ gombra.
+
+Megjegyzés: ez az alkalmazás jelenleg csak rövid szöveges (csak egyszerű szöveges) egyéni mezőket támogat.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Jira-ra. Ha nem találja a Jira-t, kattintson a jobb felső sarokban található _Alkalmazás hozzáadása_ gombra, válassza a Jira-t, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson a _Kapcsolat hozzáadása_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például: 'Szervezetem'.
+4. Töltse ki a Jira webhely alapvető URL-címét, amelyhez csatlakozni szeretne. Az alapvető URL formája: `https://<szervezet neve>.atlassian.net`. Ezt az URL-részt általában kimásolhatja, amikor be van jelentkezve a Jira példányába.
+5. Kattintson a _Kapcsolat engedélyezése_ gombra.
+6. Kövesse a Jira utasításait, engedélyezve a Blackbird.io számára, hogy az Ön nevében eljárjon.
+7. Amikor visszatér a Blackbird-hez, ellenőrizze, hogy a kapcsolat megjelent-e, és az állapota _Csatlakoztatva_.
+
+![Csatlakozás](https://raw.githubusercontent.com/bb-io/Jira/main/Images/README/connection.png)
+
+## Actions
+
+### Issues
+
+- **Get issue** visszaadja egy probléma részleteit (összefoglaló, leírás, állapot, prioritás, felelős, projekt).
+- **List recently created issues** visszaadja az elmúlt órákban létrehozott problémákat egy adott projektben.
+- **List attachments** visszaadja egy problémához csatolt fájlok listáját.
+- **Download attachment** visszaadja egy melléklet tartalmát.
+- **Create issue**.
+- **Add attachment** mellékletet ad egy problémához.
+- **Update issue**. Csak a frissítést igénylő mezőket adja meg.
+- **Append to issue description** szöveget fűz egy probléma leírásához. Nem töri össze a formázást, hasznos szöveg hozzáadásához a leírás végéhez.
+- **Delete issue**.
+- **Add labels to issue** címkéket ad egy problémához. Visszaadja a frissített problémát.
+- **Move issues to sprint** Problémákat mozgat egy adott sprintbe
+
+### Issue custom fields
+
+- **Get custom text field value** visszaadja egy egyéni szövegmező (pl. egyszerű szöveg vagy URL) értékét egy adott problémához.
+- **Set custom text field value** beállítja egy egyéni szövegmező értékét egy adott problémához.
+- **Get custom dropdown field value** visszaadja egy egyéni legördülő mező értékét egy adott problémához.
+- **Set custom dropdown field value** beállítja egy egyéni legördülő mező értékét egy adott problémához.
+- **Get custom date field value** visszaadja egy egyéni dátummező értékét egy adott problémához.
+- **Set custom date field value** beállítja egy egyéni dátummező értékét egy adott problémához.
+- **Get custom multiselect field values** lekéri egy többszörös választási listamező kiválasztott értékeit egy adott problémához.
+- **Get custom number field value** lekéri egy egyéni számmező értékét
+- **Set custom number field value** beállítja egy egyéni számmező értékét
+- **Get custom multiselect field value** lekéri egy egyéni többszörös kiválasztási mező értékét
+- **Set custom multiselect field value** beállítja egy egyéni többszörös kiválasztási mező értékét
+
+### User Actions
+
+- **List users**: Előre meghatározott számú felhasználót (alapértelmezés szerint legfeljebb 20) listáz a Jira-ból.
+- **Get user**: Részletes információkat kér le egy adott felhasználóról a fiók azonosítója alapján.
+- **Delete user**: Töröl egy felhasználót a Jira-ból a fiók azonosítója alapján. Ez a művelet visszafordíthatatlan.
+- **Create user**: Új felhasználót hoz létre a Jira-ban a megadott adatokkal.
+- **Get groups**: Lekéri egy megadott felhasználóhoz tartozó csoportokat.
+- **Get user email**: Lekéri egy megadott felhasználó e-mail címét.
+- **Get user columns**: Lekéri egy megadott felhasználó oszlopkonfigurációját.
+- **Reset user default columns**: Visszaállítja az alapértelmezett oszlopkonfigurációt egy megadott felhasználónak.
+- **Set user columns**: Beállítja az oszlopkonfigurációt egy megadott felhasználónak.
+- **Bulk get users**: Információkat kér le felhasználók csoportjáról a fiók azonosítóik alapján.
+
+### Issue Comment Actions
+
+- **Get sssue comments**: Lekéri egy adott probléma megjegyzéseit. Több probléma megjegyzéseit is lekérheti, ha azok azonosítóit megadja.
+- **Get issue comment**: Lekér egy adott megjegyzést egy meghatározott problémából.
+- **Delete issue comment**: Töröl egy megjegyzést egy meghatározott problémából.
+- **Add issue comment**: Új megjegyzést ad egy meghatározott problémához.
+- **UpdateIssue comment**: Frissít egy meglévő megjegyzést egy meghatározott problémában.
+
+### Sprint Actions
+
+- **Get relevant sprint for date** lekéri a kiválasztott táblához tartozó, a megadott dátumnak megfelelő Sprintet
+
+
+### User Properties Actions
+
+- **Get user properties**: Lekéri egy megadott felhasználó összes tulajdonságát. Ez magában foglalhat különféle felhasználó-specifikus beállításokat és a Jira-ban tárolt adatokat.
+- **Get boolean user property**: Lekéri egy adott logikai tulajdonság értékét egy felhasználóhoz. Hasznos igaz/hamis felhasználói beállításokhoz.
+- **Get string user property**: Lekéri egy adott szövegtulajdonság értékét egy meghatározott felhasználóhoz. Ez magában foglalhat szöveg alapú felhasználói beállításokat vagy információkat.
+- **Get integer user property**: Lekéri egy adott egész szám tulajdonság értékét egy felhasználóhoz. Ideális számszerű felhasználói beállításokhoz, például korlátokhoz vagy küszöbértékekhez.
+- **Get dateuser property**: Lekéri egy adott dátum tulajdonság értékét egy felhasználóhoz. Hasznos a felhasználóhoz kapcsolódó dátum alapú beállításokhoz vagy mérföldkövekhez.
+- **GetArray user property**: Lekéri egy adott tömb tulajdonság értékeit egy felhasználóhoz. Ez használható felhasználói beállítások vagy preferenciák listáihoz, amelyeket tömbként tárolnak.
+- **Set user property**: Beállítja egy megadott tulajdonság értékét egy felhasználóhoz. Ez a módszer lehetővé teszi a felhasználói tulajdonságok dinamikus frissítését a megadott bemenet alapján.
+- **Delete user property**: Töröl egy megadott tulajdonságot egy felhasználótól. Ez a művelet eltávolítja a kiválasztott tulajdonságot a felhasználó profiljából a Jira-ban.
+
+## Events
+
+- **On issue updated** akkor aktiválódik, amikor egy problémát frissítenek. Ha azt szeretné, hogy a bird akkor induljon el, amikor egy adott problémát frissítenek, adja meg a probléma paramétert. Egyébként megadhatja a projekt paramétert, ha egy adott projekt problémái érdeklik.
+- **On issue created** akkor aktiválódik, amikor egy problémát létrehoznak. Ha azt szeretné, hogy a bird akkor induljon el, amikor egy adott projektben problémát hoznak létre, töltse ki a projekt paramétert.
+- **On issue assigned** akkor aktiválódik, amikor egy problémát egy adott felhasználóhoz rendelnek. Megadhatja a projekt paramétert, ha egy adott projekt érdekli.
+- **On issue with specific type created** akkor aktiválódik, amikor egy létrehozott probléma adott típusú (például hiba), vagy egy meglévő problémát frissítettek, hogy adott típusú legyen. Opcionálisan megadhatja a projekt paramétert.
+- **On issue with specific priority created** akkor aktiválódik, amikor egy létrehozott probléma a megadott prioritással rendelkezik, vagy egy meglévő problémát frissítettek, hogy a megadott prioritással rendelkezzen.
+- **On issue deleted** akkor aktiválódik, amikor egy problémát törölnek. Ha azt szeretné, hogy a bird akkor induljon el, amikor egy adott projektben problémát törölnek, töltse ki a projekt paramétert.
+- **On file attached to issue** akkor aktiválódik, amikor fájlt csatolnak egy problémához. Ha azt szeretné, hogy a bird akkor induljon el, amikor egy adott problémához fájlt csatolnak, adja meg a probléma paramétert. Egyébként megadhatja a projekt paramétert, ha egy adott projekt problémái érdeklik.
+- **On issue status changed** akkor aktiválódik, amikor egy probléma állapota megváltozik. Ha azt szeretné, hogy a bird akkor induljon el, amikor egy adott probléma állapota megváltozik, adja meg a probléma paramétert. Egyébként megadhatja a projekt paramétert, ha egy adott projekt problémái érdeklik. Az eseményt korlátozhatja arra is, hogy csak bizonyos állapotok esetén induljon el.
+
+## Opcionális bemenetek
+
+Két lehetőséget biztosíthatunk egy tulajdonság megadására az eredmények szűréséhez:
+
+1. **Kézi**:
+    - **Leírás**: Lehetővé teszi a felhasználó számára, hogy manuálisan adja meg az értéket legördülő lista segítsége nélkül.
+    - **Használati eset**: Ez az opció ideális, amikor a felhasználó pontosan tudja, milyen értéket szeretne használni, vagy amikor a legördülő lista nem lenne hatékony az API-n keresztül e

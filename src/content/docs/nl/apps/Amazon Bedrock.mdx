@@ -1,0 +1,87 @@
+---
+  title: Amazon Bedrock
+  description: De Amazon Bedrock Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Bekijk op Github" target="_blank" href="https://github.com/bb-io/AmazonBedrock" icon="github" />
+
+Amazon Bedrock is een volledig beheerde service die een keuze biedt uit krachtige basismodellen van toonaangevende AI-bedrijven zoals AI21 Labs, Anthropic, Cohere, Stability AI en Amazon met één enkele API, samen met een breed scala aan mogelijkheden die je nodig hebt om generatieve AI-toepassingen te bouwen, waardoor de ontwikkeling wordt vereenvoudigd met behoud van privacy en veiligheid.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een [AWS root gebruikersaccount](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) hebt of een [IAM-gebruiker](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_identity-management.html) die voor jou is aangemaakt door een root gebruiker.
+- Je een toegangssleutel en geheim hebt gegenereerd voor je IAM-gebruiker.
+- Je toegang hebt tot de modellen die je wilt gebruiken. Je moet toegang aanvragen tot een model voordat je het kunt gebruiken. Als je het model probeert te gebruiken voordat je toegang hebt aangevraagd, ontvang je een foutmelding.
+
+### IAM-gebruiker aanmaken
+
+- Ga naar [Identity and Access Management](https://console.aws.amazon.com/iamv2/home).
+- Selecteer _Users_ in de linker zijbalk.
+- Klik op _Create user_.
+- Voer een _User name_ in en klik op _Next_.
+- Selecteer de optie _Attach policies directly_ bij _Permissions options_.
+- Voeg de beleidsregels _AdministratorAccess_ en _AmazonEC2FullAccess_ toe en klik vervolgens op _Next_.
+- Bekijk de gebruikersgegevens en rechten en klik op _Create user_.
+
+![IAM-gebruiker aanmaken](https://raw.githubusercontent.com/bb-io/AmazonBedrock/main/image/README/iam_user_creation.png)
+
+### Toegangssleutel genereren
+
+- Ga naar [Identity and Access Management](https://console.aws.amazon.com/iamv2/home).
+- Selecteer _Users_ in de linker zijbalk.
+- Selecteer de gebruiker voor wie je een toegangssleutel wilt genereren.
+- Ga naar het tabblad _Security credentials_.
+- Scrol naar beneden naar de sectie _Access keys_ en klik op _Create access key_.
+- Selecteer _Use case_ en klik op _Next_.
+- Voer een _Description tag value_ in en klik op _Create access key_.
+- Bewaar de waarden van _Access key_ en _Secret access key_ om via Blackbird verbinding te kunnen maken met Amazon Bedrock.
+
+### Modeltoegang toevoegen
+
+- Open de [Amazon Bedrock console](https://console.aws.amazon.com/bedrock).
+- Verander de regio naar _US East (N. Virginia)_ in de rechterbovenhoek.
+
+![Regio wijzigen](https://raw.githubusercontent.com/bb-io/AmazonBedrock/main/image/README/region.png)
+
+- Selecteer _Model access_ in de linker zijbalk en klik op _Edit_.
+- Selecteer de modellen waartoe je toegang wilt hebben en klik op _Save changes_.
+- Modellen tonen _Access granted_ onder _Access status_ als toegang is verleend.
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar Amazon Bedrock. Als je Amazon Bedrock niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Amazon Bedrock en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijvoorbeeld 'Mijn organisatie'.
+4. Vul de toegangssleutel en het geheim in die je in de vorige sectie hebt verkregen.
+5. Klik op _Connect_.
+6. Bevestig dat de verbinding is verschenen en dat de status _Connected_ is.
+
+![Verbinding maken](https://raw.githubusercontent.com/bb-io/AmazonBedrock/main/image/README/connecting.png)
+
+## Actions
+
+### Text
+
+- **Generate text with AI21 Labs Jurassic-2** genereert tekst met het AI21 Labs Jurassic-2 model of een aangepast model dat gebaseerd is op het AI21 Labs Jurassic-2 model.
+- **Generate text with Meta Llama 2** genereert tekst met het Meta Llama 2 model of een aangepast model dat gebaseerd is op het Meta Llama 2 model.
+- **Generate text with Anthropic Claude** genereert tekst met het Anthropic Claude model of een aangepast model dat gebaseerd is op het Anthropic Claude model.
+- **Generate text with Cohere Command** genereert tekst met het Cohere Command model of een aangepast model dat gebaseerd is op het Cohere Command model.
+- **Generate text with Amazon Titan** genereert tekst met het Amazon Titan model of een aangepast model dat gebaseerd is op het Amazon Titan model.
+
+### Image
+
+- **Generate image with Stability.ai Diffusion** genereert tekst met het Stability.ai Diffusion model of een aangepast model dat gebaseerd is op het Stability.ai Diffusion model.
+- **Generate or edit image with Amazon Titan Image** genereert of bewerkt een afbeelding met het Amazon Titan Image model of een aangepast model dat gebaseerd is op het Amazon Titan Image model. Als je van plan bent om een afbeelding te genereren, laat dan de parameter _Image_ ongespecificeerd. Als je een bestaande afbeelding bewerkt, specificeer dan de parameter _Image_ met het juiste afbeeldingsbestand. Houd er rekening mee dat de maximale invoertekenslimiet 1024 is, en voor taken voor het genereren van afbeeldingen is de toegestane maximale afbeeldingsgrootte 4.096 x 4.096 pixels. Meer informatie over de beperkingen van het Amazon Titan Image Generator G1 model vind je [hier](https://docs.aws.amazon.com/bedrock/latest/userguide/titan-image-models.html).
+
+### Embedding
+
+- **Generate embedding** genereert een embedding vector voor een opgegeven tekst. Een embedding is een lijst met floating point getallen die semantische informatie vastlegt over de tekst die deze vertegenwoordigt. Embeddings kunnen worden gebruikt om gegevens op te slaan in vectordatabases (zoals Pinecone).
+
+Binnen zowel de secties **Text** als **Image** bevat elke actie een optionele invoerparameter genaamd _Is Blackbird prompt_. Het instellen van deze parameter op _True_ geeft aan dat de opgegeven prompt het resultaat is van een van de acties van de AI Utilities app, en staat standaard op _False_.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bekende kanalen](https://www.blackbird.io/) of maak een issue aan.

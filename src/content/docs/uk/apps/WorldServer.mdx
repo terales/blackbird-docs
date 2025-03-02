@@ -1,0 +1,65 @@
+---
+  title: WorldServer
+  description: Додаток Blackbird WorldServer
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/WorldServer" icon="github" />
+
+WorldServer — це система управління перекладами (TMS) корпоративного рівня, розроблена RWS. Вона призначена для оптимізації та керування процесами локалізації та перекладу великомасштабних проектів. WorldServer дозволяє організаціям автоматизувати робочі процеси перекладу, керувати пам'яттю перекладів і термінологією, а також співпрацювати з кількома постачальниками перекладу.
+
+## Підключення
+
+1. Перейдіть до Додатків і знайдіть додаток **WorldServer**. Для пошуку можна скористатися функцією пошуку.
+2. Натисніть _Add Connection_.
+3. Назвіть своє підключення для подальшого використання, наприклад, 'Моє підключення до WorldServer'.
+4. Заповніть необхідні поля: 
+	- URL екземпляра
+	- Ім'я користувача
+	- Пароль
+5. Натисніть **Connect**.
+6. Переконайтеся, що підключення було успішно додано.
+
+![connection](https://raw.githubusercontent.com/bb-io/WorldServer/develop/./image/README/connecting.png)
+
+## Actions
+
+### Tasks
+
+- **Search tasks** Пошук завдань
+- **Assign task** Призначити завдання
+- **Claim task** Прийняти завдання
+- **Complete task step** Завершити етап завдання
+- **Export task** Експортувати завдання
+- **Get task** Отримати завдання
+- **Import task** Імпортувати завдання
+- **Unclaim task** Скасувати прийняття завдання
+- **Update task** Оновити завдання
+- **Export all project tasks** Ця дія дозволяє завантажити всі завдання з обраного проекту у файлі `.zip`, де потрібні такі вхідні дані, як `Project ID` та `File type`.
+
+### Projects
+
+- **Complete project step** Завершити етап проекту
+- **Get project** Отримати проект
+- **Search projects** Пошук проектів
+- **Update project** Оновити проект
+
+### Project groups
+
+- **Create project group** Створити групу проектів
+- **Get project group** Отримати групу проектів
+- **Search project groups** Пошук груп проектів
+
+### Events
+- **On project created** Спрацьовує, коли створюється новий проект
+- **On project completed** Спрацьовує, коли проект завершено
+- **On task completed** Спрацьовує, коли завдання завершено
+
+### Files
+
+- **Download file** Завантажити файл завдання
+- **Upload file** Завантажити файл
+
+## Зворотній зв'язок
+
+Бажаєте використовувати цей додаток або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть проблему.

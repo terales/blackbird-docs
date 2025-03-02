@@ -1,0 +1,58 @@
+---
+  title: Google Analytics
+  description: A Google Analytics Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/GoogleAnalytics" icon="github" />
+
+A Google Analytics a Google által biztosított webanalitikai szolgáltatás, amely lehetővé teszi a weboldaltulajdonosok számára, hogy nyomon kövessék és elemezzék webhelyük teljesítményének és a felhasználói interakcióknak különböző aspektusait. Értékes betekintést nyújt abba, hogyan lépnek kapcsolatba a felhasználók a weboldallal, honnan érkeznek, és milyen műveleteket hajtanak végre a weboldalon. A Google Analytics széles körű funkciókat kínál, amelyek segítenek a weboldaltulajdonosoknak megérteni közönségüket, optimalizálni a tartalmukat és javítani online jelenlétüket.
+
+## Beállítás előtt
+
+Mielőtt csatlakozna, győződjön meg a következőkről:
+
+- Rendelkezik Google Analytics fiókkal és hozzáféréssel ahhoz a Google Analytics tulajdonhoz, amelyből adatokat szeretne lekérni.
+- Rendelkezik azon digitális eszköz Tulajdon azonosítójával (Property ID), amelyet a Google Analytics segítségével szeretne nyomon követni és elemezni. A tulajdon azonosító megtalálásához nyissa meg a Google Analytics weboldalt, az adminisztrációs oldalt, válassza ki a kívánt GA4 tulajdont a listából. A középső oszlopból kattintson a Tulajdon beállításokra, és a jobb felső sarokban láthatja a Tulajdon azonosítóját.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Google Analytics-re. Ha nem találja a Google Analytics-et, kattintson a jobb felső sarokban lévő _Add App_ gombra, válassza a Google Analytics-et, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, pl. 'Saját Google Analytics kapcsolat'.
+4. Töltse ki annak a digitális eszköznek a Tulajdon azonosítóját, amelyről adatokat szeretne kapni.
+5. Kattintson a _Sign in with Google_ gombra.
+6. Amikor egy új ablak felugrik, kövesse a Google által adott utasításokat.
+7. Amikor visszatér a Blackbird felületére, ellenőrizze, hogy a kapcsolat megjelent-e és az állapota _Connected_.
+
+![GoogleAnalyticsConnection](https://raw.githubusercontent.com/bb-io/GoogleAnalytics/main/image/README/GoogleAnalyticsConnection.png)
+
+## Actions
+
+- **Get page data** Az elmúlt x nap adott oldalának metrikáinak lekérdezése. Megadhatja az oldal teljes URL-jét vagy csak az útvonalnevét. A 'match type' opcionális beviteli mezővel meghatározhatja, hogyan kezelje a rendszer az URL-t vagy az útvonalnevet. Ha több útvonal is megegyezik a bevitt útvonallal, akkor az eredmények az egyező útvonalak összegét fogják mutatni.
+	- New users
+	- Total users
+	- Active users
+	- Conversion rate
+	- Transactions
+	- Sessions
+	- Scrolled users
+	- Conversions
+	- Bounce rate
+	- Summary (az adatok összefoglalását adja vissza szöveges formában)
+	- Matched paths (a talált egyező útvonalak listáját adja vissza)
+
+
+## Példa
+
+Az alábbi példa egy olyan madarat (bird) mutat, amely frissít egy Zendesk cikket, miután azt gépi fordítás készítette. Ezután a madár (bird) két hétig várakozik, hogy elég adatot gyűjtsön. És a Google Analytics metrikái alapján ugyanarra a Zendesk cikkre vonatkozóan, ebben az esetben attól függően, hogy az elmúlt 14 napban több mint 1000 felhasználó látogatta-e az adott cikket, létrejön egy új MemoQ projekt, és a lefordított cikket emberi felülvizsgálatra küldik.
+
+![AnalyticsExample](https://raw.githubusercontent.com/bb-io/GoogleAnalytics/main/image/README/AnalyticsExample.png)
+
+Alább látható néhány elérhető Google Analytics metrika, amelyek közül választhat az adatvezérelt döntések meghozatalához.
+
+![DataPointsAnalytics](https://raw.githubusercontent.com/bb-io/GoogleAnalytics/main/image/README/DataPointsAnalytics.png)
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Vegye fel velünk a kapcsolatot a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát (issue).

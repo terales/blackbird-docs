@@ -1,0 +1,53 @@
+---
+  title: MemoQ CMS
+  description: A MemoQ CMS Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/MemoQCMS" icon="github" />
+
+A MemoQ CMS egy olyan platform, amely optimalizálja a munkafolyamatokat hatékony feladatbeküldés, -feldolgozás és -kézbesítés biztosításával a memoQ Server környezetben, javítva az általános fordításkezelési képességeket.
+
+## Beállítás előtt
+
+Mielőtt csatlakozhatna, győződjön meg a következőkről:
+
+- [Telepítette a memoQ-t](https://www.memoq.com/downloads).
+- Létrehozott egy kapcsolatot és megszerezte az _Alap URL_ és _Kapcsolati kulcs_ adatokat. A kapcsolat létrehozásáról információt a [_memoQ Server CMS API dokumentációban_](https://docs.memoq.com/current/api-docs/cmsapi/CMS%20Gateway%20REST%20API%20v2.00.pdf?_gl=1*nqna0h*_ga*ODg3NDQ5Njc0LjE3MDExNjIwMjY.*_ga_HHK0YX9VVW*MTcwMTI0MzUxMS4zLjAuMTcwMTI0MzUxMS4wLjAuMA..*_ga_TVK7MSKW78*MTcwMTI0MzUxMS4zLjAuMTcwMTI0MzUyMC4wLjAuMA..*_gcl_au*MTM3Njk1OTc2NC4xNzAxMTYyMDI1#page=13&zoom=100,90,94) talál a _2.3.1. CMS connection lifecycle_ és _2.3.2. CMS connection management_ fejezetekben.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a memoQ CMS-re. Ha nem találja a memoQ CMS-t, kattintson az _Add App_ gombra a jobb felső sarokban, válassza ki a memoQ CMS-t, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Adjon nevet a kapcsolatnak a későbbi hivatkozáshoz, például "Szervezetem".
+4. Töltse ki a korábban megszerzett alap URL-t és kapcsolati kulcsot. A kapcsolati információkat másolhatja is. Ehhez navigáljon a _Server Administrator_ -> _CMS connections_ menüponthoz, és kattintson a _Copy client configuration information to the clipboard_ opcióra.
+5. Kattintson a _Connect_ gombra.
+6. Ellenőrizze, hogy a kapcsolat megjelent-e, és az állapota _Connected_.
+
+![Csatlakozás](https://raw.githubusercontent.com/bb-io/MemoQCMS/main/image/connecting.png)
+
+## Actions
+
+### Orders
+
+- **List orders**. A megrendelések opcionálisan szűrhetők a bemeneti paraméterek használatával.
+- **Get order**.
+- **Create order**. Hagyja üresen a _Callback URL_ paramétert, ha a **On job completed** és/vagy **On job cancelled** eseményeket kívánja használni.
+- **Commit order** a megrendelés állapotát _Committed_ státuszra változtatja, ami azt jelenti, hogy a megrendelés összes munkája be lett nyújtva.
+
+### Jobs
+
+- **List jobs** visszaadja a megadott megrendelés fordítási munkáit.
+- **Get job**.
+- **Create job** új fordítási munkát hoz létre a megadott megrendelésben. Vegye figyelembe, hogy nem adhat új munkát egy _Committed_ állapotú megrendeléshez.
+- **Download translation** letölti a megadott munka fordítását. A munkának _In Delivery_ vagy _Delivered_ állapotban kell lennie, mielőtt a fordítást le lehet tölteni.
+- **Deliver job** a munka állapotát _Delivered_ státuszra változtatja.
+
+## Events
+
+- **On job completed** és **On job completed (manual)** akkor aktiválódnak, amikor egy munka befejeződik, jelezve, hogy a fordítás kész és letölthető.
+- **On job cancelled** és **On job cancelled (manual)** akkor aktiválódnak, amikor egy munka törlésre kerül.
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Lépjen kapcsolatba velünk a [kialakított csatornákon](https://www.blackbird.io/) keresztül vagy hozzon létre egy hibajegyet.

@@ -1,0 +1,61 @@
+---
+  title: SFTP
+  description: Az SFTP Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Github-on" target="_blank" href="https://github.com/bb-io/SFTP" icon="github" />
+
+Az SFTP, vagy Secure File Transfer Protocol, egy biztonságos fájlátviteli protokoll, amely secure shell titkosítást használ a fájlátvitelek küldésének és fogadásának magas szintű biztonságának biztosítására.
+Az SFTP használatához szükséged van egy SFTP szerverre, ahová a fájlok feltölthetők, tárolhatók és letölthető formátumban lekérhetők. Az SFTP szerver olyan tárolóhely, ahol a fájlokat tárolják és lekérik.
+
+## Beállítás előtt
+
+Mielőtt csatlakoznál, győződj meg arról, hogy:
+
+- Van SFTP szervered és rendelkezel a hozzáféréshez szükséges adatokkal.
+
+## Csatlakozás
+
+1. Navigálj az Alkalmazások menüponthoz, és keresd meg az **SFTP** alkalmazást. Használhatod a keresést is a megtalálásához.
+2. Kattints az _Add Connection_ gombra.
+3. Nevezd el a kapcsolatot későbbi hivatkozáshoz, pl. 'SFTP kapcsolat'.
+4. Add meg az SFTP szervered **Host** címét.
+5. Add meg az SFTP szervered **Port** számát (általában 22).
+6. Add meg annak a felhasználónak a **Username** nevét, akinek hozzáférése van az SFTP szerverhez.
+7. Add meg annak a felhasználónak a **Password** jelszavát, akinek hozzáférése van az SFTP szerverhez.
+8. Kattints a _Connect_ gombra.
+
+![connection](https://raw.githubusercontent.com/bb-io/SFTP/main/image/README/connection.png)
+
+## Actions
+
+- **Download file** Fájl letöltése a szerverről az útvonal alapján.
+- **Upload file** Fájlok feltöltése a szerverre a megadott útvonalon.
+- **Delete file** Fájl törlése a szerverről a megadott útvonalon.
+- **Create directory** Új könyvtár létrehozása a megadott útvonalon.
+- **Delete directory** Könyvtár törlése a szerverről a megadott útvonalon.
+- **List directory files** Fájlok listázása (név és teljes útvonal) a megadott útvonalon.
+- **Rename file** Fájl átnevezése a megadott útvonalon a régiről az újra.
+
+## Events
+
+- **On files created or updated** Ez a lekérdezési esemény akkor aktiválódik, amikor a szerveren fájlt hoznak létre vagy frissítenek.
+- **On files deleted** Ez a lekérdezési esemény akkor aktiválódik, amikor fájlt törölnek a szerverről.
+- **On directories created** Ez a lekérdezési esemény akkor aktiválódik, amikor könyvtárakat hoznak létre a megadott időintervallumon belül.
+
+## Példa
+
+Íme egy példa arra, hogyan használhatod az SFTP alkalmazást egy munkafolyamatban:
+
+![example](https://raw.githubusercontent.com/bb-io/SFTP/main/image/README/example.png)
+
+Ebben a példában a munkafolyamat az **On files created or updated** eseménnyel kezdődik, amely akkor aktiválódik, amikor bármilyen fájlt hozzáadnak vagy frissítenek az SFTP szerveren. Ezután a munkafolyamat a **Download file** műveletet használja a hozzáadott/frissített fájl letöltéséhez. A következő lépésben a `DeepL` segítségével lefordítjuk a fájlt, majd feltöltjük a lefordított fájlt a Slack csatornára.
+
+## Eggs
+
+Itt találhatsz letölthető munkafolyamat prototípusokat, amelyek ezt az alkalmazást használják, és importálhatod őket a Nests-edbe [itt](https://docs.blackbird.io/eggs/storage-to-mt/).
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy visszajelzést adnál a megvalósításunkról? Vedd fel velünk a kapcsolatot a [megszokott csatornákon](https://www.blackbird.io/) vagy hozz létre egy problémát.

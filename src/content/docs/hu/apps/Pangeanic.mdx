@@ -1,0 +1,77 @@
+---
+  title: Pangeanic
+  description: A Pangeanic Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/Pangeanic" icon="github" />
+
+A Pangeanic egyedi AI modelleket készít, amelyekkel létrehozhatja saját generatív mesterséges intelligenciáját (GenAI) anélkül, hogy adatokat harmadik félnek továbbítana.
+
+## Beállítás előtt
+
+A csatlakozás előtt győződjön meg a következőkről:
+
+- Rendelkeznie kell API kulccsal a Pangeanic szolgáltatásokhoz
+
+Ha nem rendelkezik API kulccsal, vegye fel a kapcsolatot a [Pangeanic](https://pangeanic.com/translation-technology/translate-easy) céggel.
+
+## Csatlakozás 
+
+1. Navigáljon az Alkalmazásokhoz, és keresse meg a **Pangeanic** alkalmazást. Használhatja a keresőt is.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például: 'Saját ügyfél'.
+4. Az _API Key_ mezőbe írja be az API kulcsát.
+5. Az _URL_ mezőbe írja be az API URL-jét. Például: http://prod.pangeamt.com:8080/
+5. Kattintson a _Connect_ gombra.
+6. Ellenőrizze, hogy a kapcsolat megjelent és az állapota _Connected_.
+
+![PangeanicConnection](https://raw.githubusercontent.com/bb-io/Pangeanic/main/image/README/PangeanicConnection.png)
+
+## Actions
+
+### Text
+
+- **Process text**: Szöveget küld feldolgozásra és fordításra egyetlen szövegláncként
+
+- **Process text as array**: Szöveget küld feldolgozásra és fordításra szövegláncok tömbjeként
+
+A szövegfeldolgozási műveleteknél lehetősége van az anonimizálási beállítások megadására, beleértve az érzékenységet, típust és címkéket.
+
+### File
+
+- **Process file**: Fájlt küld az API-nak feldolgozásra és fordításra, majd lekéri a Fájl azonosítót tartalmazó választ
+
+- **Download file**: Lefordított fájl letöltése a fájl azonosító alapján
+
+## Events
+
+### Translations
+
+- **On file translation status updated**: A fájlfordítások frissítéseinek ellenőrzése. Alapértelmezés szerint a befejezett fordításokat ellenőrzi. Meghatározhatja, hogy milyen állapotot ellenőrizzen
+
+## Példák
+
+Ezzel az alkalmazással a következő madarak építhetők:
+
+- Első madár: 
+
+![PangeanicExample1](https://raw.githubusercontent.com/bb-io/Pangeanic/main/image/README/PangeanicExample1.png)
+
+- Második madár:
+
+![PangeanicExample2](https://raw.githubusercontent.com/bb-io/Pangeanic/main/image/README/PangeanicExample2.png)
+
+Röviden, ezek a madarak lehetővé teszik, hogy fájlokat töltsön fel a Google Drive-ra, lefordítsa azokat a Pangeanic segítségével, és miután a fájl lefordításra került, feltöltse bárhová, ahová szeretné (ebben az esetben a Dropboxra).
+
+Fontos megjegyezni, hogy a Pangeanic 'On file translation status updated' esemény használatához közzé kell tennie azt, majd másolnia kell a 'Webhook URL' címet:
+
+![Pangeanic-callback-url](https://raw.githubusercontent.com/bb-io/Pangeanic/main/image/README/Pangeanic-callback-url.png)
+
+Illessze be ezt az URL-t a 'Process file' művelet 'Callback URL' opcionális mezőjébe:
+
+![Pangeanic-callback-url2](https://raw.githubusercontent.com/bb-io/Pangeanic/main/image/README/Pangeanic-callback-url2.png)
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van az implementációnkkal kapcsolatban? Vegye fel velünk a kapcsolatot a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

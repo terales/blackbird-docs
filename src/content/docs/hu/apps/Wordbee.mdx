@@ -1,0 +1,66 @@
+---
+  title: Wordbee
+  description: A Wordbee Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/Wordbee" icon="github" />
+
+A Wordbee egy hatékony, felhőalapú fordításkezelő rendszer (TMS), amelyet vállalatok, nyelvi szolgáltatók (LSP-k) és szabadúszók számára terveztek. Átfogó eszközkészletet kínál a teljes fordítási és lokalizációs munkafolyamat kezeléséhez, a projekt létrehozásától és kiosztásától kezdve a fordításon, ellenőrzésen át egészen a kézbesítésig.
+
+## Csatlakozás
+
+1.  Navigálj az Alkalmazásokhoz, és keresd meg a **Wordbee** alkalmazást. Használhatod a keresőt a megtalálásához.
+2.  Kattints az _Add Connection_ gombra.
+3.  Nevezd el a kapcsolatot későbbi hivatkozáshoz, például: 'Szervezetem'.
+4. A Wordbee példányodban menj a `My account` -> `API` részhez, hogy megkapd az összes API hitelesítő adatot.
+5.  Töltsd ki az `URL` mezőt a példányod API url-jével.
+6. Töltsd ki az `Account ID` mezőt a beállításokban található Account tulajdonság értékével.
+7. Töltsd ki az `API key` mezőt a példányod API kulcsával.
+8.  Amikor visszatérsz a Blackbirdhez, győződj meg arról, hogy a kapcsolat megjelent és az állapota _Connected_.
+
+## Actions
+
+### Documents 
+
+-   **Confirm delivery** megerősíti egy adott dokumentum kézbesítését.
+-   **Download translated file** letölti a lefordított fájlt a munkafolyamatból.
+-   **Submit new file** új fájlt tölt fel egy meglévő projekthez.
+
+### Orders
+
+-   **Create order** új megrendelést hoz létre fájllal. A szükséges fájlformátum `.zip`
+-   **Delete order** töröl egy adott megrendelést.
+-   **Download order files** letölti az összes megrendelési fájlt ZIP archívumként.
+-   **Get order** visszaadja egy adott megrendelés részleteit.
+-   **Search orders** szűrési feltételek használatával több megrendelés listáját adja vissza.
+
+### Jobs
+
+-   **Get job** visszaadja egy adott munka részleteit.
+
+### Projects
+
+-   **Get project** visszaadja egy adott projekt részleteit.
+-   **Search projects** szűrési feltételekkel visszaadja a munkaterület összes projektjének listáját.
+
+## Webhookok beállítása
+
+A madár közzététele után kapsz egy callback URL-t. Másold ki, majd menj a `Settings` részhez, görgess le az aljára, aztán válaszd a `Developer API Webhooks` -> `Configure` -> `Add new webhook` lehetőséget, és válaszd ki a megfelelő webhook típust. Az URL mezőbe írd be a Blackbirdből korábban kimásolt URL-t. A Blackbird az alapértelmezett adattartalmak használatára van konfigurálva, így ha ott bármit módosítasz, figyelj arra, hogy a webhookok esetleg nem a várt módon működhetnek. Az egyetlen dolog, amire itt figyelni kell, hogy az adattartalomban lévő összes Wordbee változót idézőjelbe teheted, hogy a webhookok stabilabbak legyenek. Miután minden beállítást kitöltöttél, kattints a `Save new` gombra.
+
+## Events
+
+-   **On order message** akkor aktiválódik, amikor bármilyen üzenetet hozzáadnak a megrendeléshez.
+-   **On order status changed** akkor aktiválódik, amikor bármely megrendelés állapota megváltozik.
+-   **On project status changed** akkor aktiválódik, amikor bármely projekt állapota megváltozik.
+-   **On document workflow finished** akkor aktiválódik, amikor egy adott dokumentum munkafolyamata befejeződik.
+-   **On order created** akkor aktiválódik, amikor új megrendelést adnak hozzá.
+-   **On job status changed** akkor aktiválódik, amikor egy adott munka állapota megváltozik.
+
+## Hiányzó funkciók
+
+A Wordbee egy hatalmas alkalmazás rengeteg funkcióval. Ha ezen funkciók bármelyike különösen érdekel téged, jelezd nekünk!
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy van visszajelzésed a megvalósításunkról? Vedd fel velünk a kapcsolatot a [megszokott csatornákon](https://www.blackbird.io/) keresztül vagy hozz létre egy problémajegyet.

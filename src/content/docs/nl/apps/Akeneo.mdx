@@ -1,0 +1,92 @@
+---
+  title: Akeneo
+  description: De Akeneo Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Akeneo" icon="github" />
+
+De PIM-oplossing (Product Information Management) van Akeneo is ontworpen om productinformatie te verzamelen, normaliseren, verrijken en centraliseren. Het biedt datamodellering, governance en workflows van enterprise-niveau om consistente en hoogwaardige productgegevensbeheer te garanderen via verschillende kanalen.
+
+## Voordat je begint met instellen
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een actieve Akeneo-instantie hebt en voldoende rechten om er apps aan toe te voegen.
+- Ga naar _Connect_ -> _App Store_ en klik rechtsboven op _Create an app_.
+- Geef je app een naam, bijvoorbeeld "Blackbird".
+- De activerings-URL is niet relevant voor Blackbird, je kunt de Blackbird login URL invullen zoals `https://de-1.blackbird.io`.
+- Voor de callback-URL vul je `https://bridge.blackbird.io/api/AuthorizationCode` in.
+- Je ontvangt een `Client ID` en een `Client Secret`. Kopieer en bewaar deze waarden voor de volgende stappen.
+
+![1728308561748](https://raw.githubusercontent.com/bb-io/Akeneo/main/image/README/1728308561748.png)
+
+## Verbinding maken
+
+1.  Navigeer naar Apps en zoek de **Akeneo** app. Je kunt de zoekfunctie gebruiken om het te vinden.
+2.  Klik op _Add Connection_.
+3.  Geef je verbinding een naam voor toekomstige referentie, bijv. 'Mijn Akeneo-verbinding'.
+4.  Vul het veld `Instance URL` in met de URL van je Akeneo-instantie.
+5.  Vul de `Client ID` en `Client Secret` in die je in de vorige sectie van Akeneo hebt gekopieerd.
+6.  Klik op _Authorize connection_ en doorloop het authenticatieproces in het pop-upvenster.
+  - Ga akkoord met het privacybeleid.
+  - Selecteer het niveau _Own_, _Edit_ voor locales en _Edit_ voor attribuutgroepen.
+  - Bevestig de verbinding
+7.  Wanneer je terugkeert naar Blackbird, controleer dan of de verbinding is verschenen en de status _Connected_ is.
+
+![1728309237542](https://raw.githubusercontent.com/bb-io/Akeneo/main/image/README/1728309237542.png)
+
+## Actions
+
+### General
+
+- **Get all locales** geeft een lijst van localecodes terug die beschikbaar zijn op deze Akeneo-instantie. *Opmerking*: Akeneo heeft geen standaardlocale.
+
+### Products
+
+-   **Search products** geeft een lijst van producten terug op basis van filtercriteria, bijvoorbeeld productnaam, categorieën en bijwerkdatum.
+-   **Delete product** verwijdert een specifiek product.
+-   **Get product info** geeft details over een specifiek product.
+-   **Update product info** werkt details van een specifiek product bij.
+
+-   **Download product content** geeft alle lokaliseerbare productwaarden voor een gespecificeerde locale terug in HTML-formaat (standaard). Na vertaling kan dit bestand worden gebruikt door de actie **Upload product content** om vertalingen naar Akeneo te uploaden. Optioneel kan deze methode ook ruwe JSON-bestanden van de productstructuur uitvoeren.
+-   **Upload product content** werkt de inhoud van productwaarden bij vanuit een vertaald of anderszins verwerkt bestand dat afkomstig is van de bovenstaande actie. Accepteert ook JSON-bestanden.
+
+### Product models
+
+-   **Search product models** geeft een lijst van productmodellen terug op basis van filtercriteria, bijvoorbeeld code, categorieën en bijwerkdatum.
+-   **Delete product model** verwijdert een specifiek productmodel.
+-   **Get product model info** geeft details over een specifiek productmodel.
+-   **Update product model info** werkt details van een specifiek productmodel bij.
+
+-   **Get product model as HTML** geeft alle lokaliseerbare productmodelwaarden voor een gespecificeerde locale terug in HTML-formaat.
+-   **Update product model from HTML** werkt de inhoud van productmodelwaarden bij vanuit een aangeleverd HTML-bestand.
+
+Alle producten en productmodellen geven informatie over categorieën. Je kunt dit gebruiken om gedetailleerde beslissingen te nemen over lokalisatiestrategieën.
+
+## Events
+
+### Products
+
+-   **On products created or updated** wordt geactiveerd wanneer nieuwe producten worden aangemaakt of bijgewerkt. Je kunt filteren op locale en categorieën.
+-   **On product models created or updated** wordt geactiveerd wanneer productmodellen worden aangemaakt of bijgewerkt. Je kunt filteren op locale en categorieën.
+
+## Voorbeeld
+
+![image](https://github.com/user-attachments/assets/9eb04458-1d84-4b6f-9450-97b59b60c729)
+
+Het bovenstaande voorbeeld toont een zeer eenvoudige handmatig geactiveerde bird die bepaalde producten vertaalt met behulp van DeepL.
+
+![1728312887298](https://raw.githubusercontent.com/bb-io/Akeneo/main/image/README/1728312887298.png)
+
+In het bovenstaande voorbeeld reageren we op nieuwe producten die worden bijgewerkt of aangemaakt, waarbij we nieuwe memoQ-projecten voor hen creëren en de vertaalbare bestanden naar memoQ uploaden.
+
+## Ontbrekende functies
+
+Akeneo is een enorme app met veel functies. Als een van deze functies bijzonder interessant voor je is, laat het ons weten!
+
+In het bijzonder kunnen we lokalisatiemogelijkheden bieden voor andere aspecten van Akeneo, zoals Categorieën.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

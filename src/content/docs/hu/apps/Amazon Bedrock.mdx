@@ -1,0 +1,87 @@
+---
+  title: Amazon Bedrock
+  description: Az Amazon Bedrock Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/AmazonBedrock" icon="github" />
+
+Az Amazon Bedrock egy teljesen menedzselt szolgáltatás, amely egyetlen API-n keresztül kínál választási lehetőséget a vezető mesterséges intelligencia cégek, mint az AI21 Labs, Anthropic, Cohere, Stability AI és az Amazon nagy teljesítményű alapmodelljei között, valamint a generatív AI-alkalmazások fejlesztéséhez szükséges képességeket, egyszerűsítve a fejlesztést, miközben megőrzi az adatvédelmet és a biztonságot.
+
+## Beállítás előtt
+
+Mielőtt csatlakozhatna, győződjön meg arról, hogy:
+
+- Rendelkezik egy [AWS root felhasználói fiókkal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) vagy [IAM felhasználóval](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_identity-management.html), amelyet a root felhasználó hozott létre az Ön számára.
+- Van hozzáférési kulcsa és titkos kulcsa az IAM felhasználójához.
+- Hozzáféréssel rendelkezik a használni kívánt modellekhez. Kérnie kell hozzáférést egy modellhez, mielőtt használhatná azt. Ha a modellt a hozzáférés kérése előtt próbálja használni, hibaüzenetet kap.
+
+### IAM felhasználó létrehozása
+
+- Lépjen az [Identity and Access Management](https://console.aws.amazon.com/iamv2/home) oldalra.
+- Válassza a bal oldali menüben a _Users_ (Felhasználók) lehetőséget.
+- Kattintson a _Create user_ (Felhasználó létrehozása) gombra.
+- Adja meg a _User name_ (Felhasználónév) mezőt, majd kattintson a _Next_ (Tovább) gombra.
+- Válassza az _Attach policies directly_ (Házirendek közvetlen csatolása) opciót a _Permissions options_ (Engedély opciók) közül.
+- Adja hozzá az _AdministratorAccess_ és _AmazonEC2FullAccess_ házirendeket, majd kattintson a _Next_ (Tovább) gombra.
+- Tekintse át a felhasználói adatokat és engedélyeket, majd kattintson a _Create user_ (Felhasználó létrehozása) gombra.
+
+![IAM felhasználó létrehozása](https://raw.githubusercontent.com/bb-io/AmazonBedrock/main/image/README/iam_user_creation.png)
+
+### Hozzáférési kulcs generálása
+
+- Lépjen az [Identity and Access Management](https://console.aws.amazon.com/iamv2/home) oldalra.
+- Válassza a bal oldali menüben a _Users_ (Felhasználók) lehetőséget.
+- Válassza ki azt a felhasználót, akinek hozzáférési kulcsot szeretne generálni.
+- Lépjen a _Security credentials_ (Biztonsági hitelesítő adatok) fülre.
+- Görgessen le az _Access keys_ (Hozzáférési kulcsok) szakaszhoz és kattintson a _Create access key_ (Hozzáférési kulcs létrehozása) gombra.
+- Válassza ki a _Use case_ (Felhasználási eset) opciót és kattintson a _Next_ (Tovább) gombra.
+- Adja meg a _Description tag value_ (Leírás címke értéke) mezőt és kattintson a _Create access key_ (Hozzáférési kulcs létrehozása) gombra.
+- Mentse el az _Access key_ (Hozzáférési kulcs) és _Secret access key_ (Titkos hozzáférési kulcs) értékeket, hogy csatlakozni tudjon az Amazon Bedrockhoz a Blackbird segítségével.
+
+### Modell hozzáférés hozzáadása
+
+- Nyissa meg az [Amazon Bedrock konzolt](https://console.aws.amazon.com/bedrock).
+- Módosítsa a régiót _US East (N. Virginia)_ értékre a jobb felső sarokban.
+
+![Régió módosítása](https://raw.githubusercontent.com/bb-io/AmazonBedrock/main/image/README/region.png)
+
+- Válassza a bal oldali menüből a _Model access_ (Modell hozzáférés) lehetőséget és kattintson az _Edit_ (Szerkesztés) gombra.
+- Válassza ki a használni kívánt modelleket, majd kattintson a _Save changes_ (Változtatások mentése) gombra.
+- A modellek az _Access status_ (Hozzáférési állapot) alatt _Access granted_ (Hozzáférés megadva) jelzést mutatnak, ha a hozzáférés megadásra került.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá az Amazon Bedrockra. Ha nem találja az Amazon Bedrockot, kattintson a jobb felső sarokban található _Add App_ (Alkalmazás hozzáadása) gombra, válassza az Amazon Bedrockot és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ (Kapcsolat hozzáadása) gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például "Szervezetem".
+4. Töltse ki az előző szakaszban megszerzett hozzáférési kulcsot és titkos kulcsot.
+5. Kattintson a _Connect_ (Csatlakozás) gombra.
+6. Ellenőrizze, hogy a kapcsolat megjelent-e és az állapota _Connected_ (Csatlakoztatva).
+
+![Csatlakozás](https://raw.githubusercontent.com/bb-io/AmazonBedrock/main/image/README/connecting.png)
+
+## Actions
+
+### Text
+
+- **Generate text with AI21 Labs Jurassic-2** szöveget generál az AI21 Labs Jurassic-2 modellel vagy bármely egyéni modellel, amely az AI21 Labs Jurassic-2 modellen alapul.
+- **Generate text with Meta Llama 2** szöveget generál a Meta Llama 2 modellel vagy bármely egyéni modellel, amely a Meta Llama 2 modellen alapul.
+- **Generate text with Anthropic Claude** szöveget generál az Anthropic Claude modellel vagy bármely egyéni modellel, amely az Anthropic Claude modellen alapul.
+- **Generate text with Cohere Command** szöveget generál a Cohere Command modellel vagy bármely egyéni modellel, amely a Cohere Command modellen alapul.
+- **Generate text with Amazon Titan** szöveget generál az Amazon Titan modellel vagy bármely egyéni modellel, amely az Amazon Titan modellen alapul.
+
+### Image
+
+- **Generate image with Stability.ai Diffusion** képet generál a Stability.ai Diffusion modellel vagy bármely egyéni modellel, amely a Stability.ai Diffusion modellen alapul.
+- **Generate or edit image with Amazon Titan Image** képet generál vagy szerkeszt az Amazon Titan Image modellel vagy bármely egyéni modellel, amely az Amazon Titan Image modellen alapul. Ha képet szeretne generálni, hagyja üresen a _Image_ paramétert. Ellenkező esetben, ha egy meglévő képet szerkeszt, adja meg a _Image_ paramétert a megfelelő képfájllal. Kérjük, vegye figyelembe, hogy a maximális bemeneti karakterszám 1024, és a képgenerálási feladatokhoz az engedélyezett maximális képméret 4096 x 4096 pixel. További információkat az Amazon Titan Image Generator G1 modell korlátairól [itt](https://docs.aws.amazon.com/bedrock/latest/userguide/titan-image-models.html) talál.
+
+### Embedding
+
+- **Generate embedding** beágyazási vektort generál a megadott szöveghez. A beágyazás olyan lebegőpontos számok listája, amely szemantikai információkat tartalmaz az általa reprezentált szövegről. A beágyazások vektor adatbázisokban (például Pinecone) tárolhatók.
+
+Mind a **Text**, mind az **Image** részekben minden művelet tartalmaz egy opcionális bemeneti paramétert, amelynek neve _Is Blackbird prompt_. Ha ezt a paramétert _True_ értékre állítja, az azt jelzi, hogy a megadott prompt az AI Utilities alkalmazás egyik műveletének eredménye, és az alapértelmezett érték _False_.
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy van visszajelzése a megvalósításunkról? Keressen meg minket a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

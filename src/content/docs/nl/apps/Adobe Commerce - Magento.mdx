@@ -1,0 +1,108 @@
+---
+  title: Adobe Commerce - Magento
+  description: De Adobe Commerce - Magento Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Magento" icon="github" />
+
+## Voordat je begint
+
+- Zorg ervoor dat je admin-toegang hebt tot Magento.
+- Je kunt de `Base URL` van je Magento URL vinden. Deze kan er uitzien als `https://magento.testing.organization.com/`
+- Om de `Consumer key`, `Consumer secret`, `Access token` en `Access token secret` te ontvangen, moet je een nieuwe integratie in je Magento-account aanmaken. Volg de onderstaande instructies.
+
+## Een integratie aanmaken
+
+1. Ga naar `System` -> `Extensions` -> `Integrations`. Klik op `Add new integration`.
+
+![1724846646011](https://raw.githubusercontent.com/bb-io/Magento/main/image/README/1724846646011.png)
+
+2. Voer de naam van de integratie in. Klik op `API` en selecteer bij resourcetoegang `All`*. Let op: je hoeft geen waarden in te vullen voor de velden `Callback URL` en `Identity link URL`.
+3. Klik op opslaan.
+4. Op het integratie-overzichtsscherm klik je op `Activate`.
+
+![1724846707099](https://raw.githubusercontent.com/bb-io/Magento/main/image/README/1724846707099.png)
+
+5. Klik in de rechterbovenhoek op `Allow`.
+6. Je ontvangt de `Consumer key`, `Consumer secret`, `Access token` en `Access token secret`.
+
+> *Je kunt alle beschikbare resources voor de integratie selecteren om problemen met rechten te voorkomen. Of selecteer alleen de resources die je nodig hebt voor jouw specifieke gebruik. Zie hieronder in de documentatie de huidige beschikbare functionaliteit van de app.
+
+## Verbinden
+
+1. Navigeer naar Apps en zoek de **Magento** app. Je kunt de zoekfunctie gebruiken om deze te vinden.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn organisatie'.
+4. Vul alle verplichte velden in:
+    - `Base URL` 
+    - `Consumer key`
+    - `Consumer secret`
+    - `Access token`
+    - `Access token secret`
+5. Klik op _Connect_.
+6. Controleer of de verbinding is verschenen en de status _Connected_ aangeeft.
+
+![Connection](https://raw.githubusercontent.com/bb-io/Magento/main/image/README/connection.png)
+
+## Actions
+
+### Blocks
+
+- **Search blocks** - Haal alle blokken op die voldoen aan de opgegeven zoekcriteria.
+- **Get block** - Haal een blok op via een specifieke ID.
+- **Get block as HTML** - Haal een blok op als HTML via een specifieke ID.
+- **Create block** - Maak een blok aan met specifieke gegevens.
+- **Update block** - Werk een blok bij met specifieke gegevens.
+- **Update block from HTML** - Werk een blok bij via een specifieke ID vanuit HTML. Deze actie is handig in combinatie met de `Get block as HTML` actie wanneer je de blokinhoud als HTML wilt ophalen en vervolgens het document wilt vertalen.
+- **Delete block** - Verwijder een blok via een specifieke ID.
+
+### Pages
+
+- **Search pages** - Haal alle pagina's op die voldoen aan de opgegeven zoekcriteria.
+- **Get page** - Haal een pagina op via een specifieke ID.
+- **Get page as HTML** - Haal een pagina op als HTML via een specifieke ID.
+- **Create page** - Maak een pagina aan met specifieke gegevens.
+- **Update page** - Werk een pagina bij met specifieke gegevens.
+- **Update page from HTML** - Werk een pagina bij via een specifieke ID vanuit HTML. Deze actie is handig in combinatie met de `Get page as HTML` actie wanneer je de pagina-inhoud als HTML wilt ophalen en vervolgens het document wilt vertalen.
+- **Delete page** - Verwijder een pagina via een specifieke ID.
+
+### Products
+
+- **Search products** - Haal alle producten op die voldoen aan de opgegeven zoekcriteria.
+- **Get product** - Haal een product op via een specifieke SKU.
+- **Get product as HTML** - Haal een product op als HTML via een specifieke SKU. Met optionele parameters kun je `Custom attributes` specificeren die je in de HTML wilt opnemen.
+- **Create product** - Maak een product aan met specifieke gegevens.
+- **Update product** - Werk een product bij met specifieke gegevens.
+- **Update product from HTML** - Werk een product bij via een specifieke SKU vanuit HTML. Deze actie is handig in combinatie met de `Get product as HTML` actie wanneer je de productinhoud als HTML wilt ophalen en vervolgens het document wilt vertalen.
+- **Delete product** - Verwijder een product via een specifieke SKU.
+- **Add custom attribute** - Hiermee kun je een aangepast attribuut toevoegen aan een specifiek product.
+
+> De meeste acties hebben ook een optionele store view invoer. Je kunt dit gebruiken om te bepalen in welke store view een actie moet worden uitgevoerd.
+
+### Categories
+
+- **Get all categories** - Haal alle categorieën op.
+- **Get category** - Haal een categorie op via een specifieke ID.
+- **Get categories for product** - Haal categorieën op voor een product via een specifieke SKU.
+
+## Events
+
+- **On products created** - Wordt geactiveerd wanneer nieuwe producten worden aangemaakt.
+- **On products updated** - Wordt geactiveerd wanneer producten worden bijgewerkt.
+- **On blocks created** - Wordt geactiveerd wanneer nieuwe blokken worden aangemaakt.
+- **On blocks updated** - Wordt geactiveerd wanneer blokken worden bijgewerkt.
+- **On pages created** - Wordt geactiveerd wanneer nieuwe pagina's worden aangemaakt.
+- **On pages updated** - Wordt geactiveerd wanneer pagina's worden bijgewerkt.
+
+> Events zijn gebaseerd op een polling-mechanisme en worden periodiek geactiveerd. Het interval kan worden ingesteld in de bird editor. Het interval moet tussen 5 minuten en 7 dagen liggen.
+
+## Voorbeeld
+
+![1724849643171](https://raw.githubusercontent.com/bb-io/Magento/main/image/README/1724849643171.png)
+
+In het bovenstaande voorbeeld zie je hoe je een bird kunt maken die nieuw aangemaakte producten automatisch vertaalt met behulp van NMT.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [bekende kanalen](https://www.blackbird.io/) of maak een issue aan.

@@ -1,0 +1,122 @@
+---
+  title: Remote
+  description: De Remote Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Remote" icon="github" />
+
+**Remote** is een wereldwijd HR-platform dat bedrijven helpt bij het aannemen, beheren en betalen van hun volledige team — en effectiever te concurreren in de moderne wereldeconomie door middel van onze uitgebreide set kernoplossingen, waaronder HRIS, salarisadministratie, internationale tewerkstelling, beheer van opdrachtnemers en meer.
+
+Bekijk ook ondersteuningsdocumenten van Remote.com [hier](https://support.remote.com/hc/en-us/articles/30035877720973-Blackbird-Remote-Connector).
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een Remote-instantie hebt
+- Je een Remote API-token hebt. Je vindt een gedetailleerde handleiding over hoe je die kunt krijgen [hier](https://remote.com/resources/api/auth-and-authorization).
+
+## Verbinden
+
+1. Navigeer naar Apps en zoek de **Remote** app. Je kunt de zoekfunctie gebruiken om het te vinden.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijvoorbeeld 'Mijn Remote-verbinding'.
+4. Vul het veld `Base URL` in. Als je de productieomgeving gebruikt, moet je `https://gateway.remote.com` gebruiken. Als je de sandbox-omgeving gebruikt, moet je `https://gateway.remote-sandbox.com` gebruiken.
+5. Vul de `API token` in die je van Remote hebt gekregen.
+6. Klik op **Connect**.
+7. Zorg ervoor dat de verbinding succesvol is toegevoegd.
+
+![connection](https://raw.githubusercontent.com/bb-io/Remote/main/./image/README/connecting.png)
+
+## Actions
+
+### Employees
+
+- **Search employments** Zoek dienstverbanden op basis van specifieke criteria.
+- **Get employment** Haal dienstverband op via ID.
+- **Create employment** Maak een dienstverband aan met specifieke gegevens.
+- **Invite employment** Nodig dienstverband uit via ID om de zelfinschrijving te starten.
+- **Get employment custom field** Haal aangepaste veldwaarde van dienstverband op via ID.
+- **Update employment custom field** Werk aangepaste veldwaarde van dienstverband bij via ID met specifieke gegevens.
+- **Update employment** Werk dienstverband bij via ID met specifieke gegevens. Met deze actie kun je details van een dienstverband bijwerken via ID met de opgegeven gegevens. Let bij het werken met contractdetails op dat de vereiste eigenschappen kunnen variëren op basis van het land van de werknemer.
+
+Stappen:
+
+1. Landcode: Geef de landcode op voor de werknemer. Dit is cruciaal omdat elk land verschillende contractdetails kan vereisen.
+2. Contractdetails sleutels (Optionele invoer): Na het selecteren van een landcode verschijnt er een dynamische dropdown waarmee je relevante contractdetails sleutels kunt selecteren.
+3. Contractdetails waarden (Optionele invoer): Naast de sleutels moet je de waarden opgeven die bij elke sleutel horen. De volgorde van sleutels en waarden moet exact overeenkomen, aangezien ze in de code zullen worden samengevoegd tot een object.
+
+Voorbeeld:
+
+![example](https://raw.githubusercontent.com/bb-io/Remote/main/./image/README/UpdateEmploymentExample.png)
+
+Bekijk meer voorbeelden en blueprints in onze handleiding [hier](https://docs.blackbird.io/eggs/remote/).
+
+### Invoices
+
+- **Search invoices** Zoek facturen op basis van specifieke criteria.
+- **Get invoice** Haal factuur op via ID.
+
+### Invoice schedules
+
+- **Search invoice schedules** Zoek facturatieschema's van opdrachtnemers op basis van specifieke criteria.
+- **Get invoice schedule** Haal facturatieschema van opdrachtnemer op via ID.
+- **Create invoice schedule** Maak facturatieschema van opdrachtnemer aan met specifieke gegevens.
+- **Update invoice schedule** Werk facturatieschema van opdrachtnemer bij via ID met specifieke gegevens.
+- **Import invoice schedule** Importeer facturatieschema's van opdrachtnemers uit een JSON-bestand. Je kunt dit bestand bijvoorbeeld exporteren vanuit de `Plunet` app.
+
+De Remote API verwerkt bedragen in centen in plaats van in het standaard valutaformaat. Dit betekent dat elk bedrag dat door de API wordt geretourneerd, in centen zal zijn. Een bedrag van $800 zal bijvoorbeeld worden weergegeven als 80.000 cent in de API-outputs.
+
+
+### Time offs
+
+- **Get time off** geeft details van een specifiek verlof.
+- **Create time off** maakt een nieuw verlof aan voor de werknemer.
+- **Get time off balance** geeft het verlofsaldo van de werknemer.
+
+### Expenses
+
+- **Get expenses** geeft alle onkosten.
+- **Get expense** geeft details van een specifieke onkost.
+- **Create expense** maakt een nieuwe onkost aan.
+- **Download receipt** downloadt een betalingsbewijs voor een onkost.
+
+## Events
+
+### Employments
+
+- **On employment activated** Deze gebeurtenis wordt geactiveerd wanneer een dienstverbandgebruiker wordt bijgewerkt naar de actieve status.
+- **On employment onboarding completed** Deze gebeurtenis wordt geactiveerd wanneer een dienstverbandgebruiker de onboarding heeft voltooid.
+- **On employment details updated** Deze gebeurtenis wordt geactiveerd wanneer de details van een dienstverbandgebruiker worden bijgewerkt.
+- **On employment personal information updated** Deze gebeurtenis wordt geactiveerd wanneer de persoonlijke informatie van een dienstverbandgebruiker wordt bijgewerkt.
+- **On employment status deactivated** Deze gebeurtenis wordt geactiveerd wanneer de status van een dienstverbandgebruiker wordt bijgewerkt naar inactief.
+
+### Time offs
+
+- **On time off canceled** Wordt geactiveerd wanneer een verlof wordt geannuleerd.
+- **On time off declined** Wordt geactiveerd wanneer een verlof wordt afgewezen.
+- **On time off requested** Wordt geactiveerd wanneer een verlof wordt aangevraagd.
+- **On time off date changed** Wordt geactiveerd wanneer de datum van een verlof wordt gewijzigd.
+- **On time off approved** Wordt geactiveerd wanneer een verlof wordt goedgekeurd.
+
+### Custom fields
+
+- **On custom field value updated** Deze gebeurtenis wordt geactiveerd wanneer een aangepaste veldwaarde wordt bijgewerkt.
+
+### Invoices
+
+- **On invoices status changed** Deze gebeurtenis retourneert facturen waarvan de status is gewijzigd sinds de laatste polling-tijd.
+- **On contractor invoice added** Deze gebeurtenis wordt geactiveerd wanneer een nieuwe factuur van een opdrachtnemer wordt toegevoegd.
+
+Opmerking: Factuurgebeurtenissen zijn gebaseerd op polling. Dit betekent dat de gebeurtenis wordt geactiveerd op basis van het polling-interval dat je instelt in de gebeurtenisconfiguratie.
+
+## Ontbrekende functies
+
+De Remote API is vrij uitgebreid en we werken aan het toevoegen van meer functies aan de app. Als je een functie mist, laat het ons dan weten.
+
+Je kunt controleren welke functies worden ondersteund door de Remote API [hier](https://remote.com/resources/api/reference#section/Authentication).
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

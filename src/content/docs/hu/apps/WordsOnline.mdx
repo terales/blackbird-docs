@@ -1,0 +1,54 @@
+---
+  title: WordsOnline
+  description: A WordsOnline Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Github-on" target="_blank" href="https://github.com/bb-io/WordsOnline" icon="github" />
+
+A **WordsOnline** mesterséges intelligencia által támogatott platformot kínál, amely neurális gépi fordítási technológiát használ emberi szakértelemmel kombinálva, hogy vállalati ügyfeleink számára költséghatékony, gyors átfutású nyelvi szolgáltatásokat nyújtson optimális minőségben.
+
+## Beállítás előtt
+
+A csatlakozás előtt győződjön meg arról, hogy:
+
+- Rendelkezik WordsOnline példánnyal
+- Van WordsOnline `API key`-e
+- Van WordsOnline `Project GUID`-ja
+
+Mind az `API key`-t, mind a `Project GUID`-ot a WordsOnline ügyfélszolgálatától szerezheti be.
+
+## Csatlakozás
+
+1. Navigáljon az Alkalmazásokhoz, és keresse meg a **WordsOnline** alkalmazást. A keresés funkcióval megtalálhatja.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el kapcsolatát a későbbi hivatkozáshoz, például: 'My WordsOnline connection'.
+4. Töltse ki az `API key` és a `Project GUID` mezőket a WordsOnline-tól kapott adatokkal.
+5. Kattintson a **Connect** gombra.
+6. Győződjön meg arról, hogy a kapcsolat sikeresen létrejött.
+
+![kapcsolat](https://raw.githubusercontent.com/bb-io/WordsOnline/main//image/README/connection.png)
+
+## Actions
+
+### Requests 
+
+- **Search requests**: Kérések keresése a megadott szűrők alapján
+- **Get request**: Kérés részleteinek lekérése a megadott kérés GUID alapján
+- **Update request status**: Egy kérés státuszának frissítése a megadott GUID alapján
+- **Create request**: Új fordítási kérés létrehozása a megadott paraméterek alapján. A kérés automatikus jóváhagyása opcionális, de alapértelmezetten `true` értékre van állítva.
+- **Download files**: Fájlok letöltése a kérésből. Alapértelmezetten a kézbesített fájlokat fogja letölteni. De megadhat egy zip-et, amely tartalmazza a letölteni kívánt fájlokat.
+- **Upload files**: Fájlok feltöltése a kéréshez a megadott kérés GUID alapján
+- **Submit request**: Kérés benyújtása fordításra a megadott kérés GUID alapján
+
+### Quotes
+- **Get quote**: Árajánlat lekérése a megadott kérés-azonosító alapján
+- **Approve quote**: Árajánlat jóváhagyása a megadott kérés-azonosító alapján
+
+## Events
+
+- **On request delivered**: Akkor aktiválódik, amikor a kérés kézbesítésre kerül. Alapértelmezetten eltávolítja a forrásfájlt, de beállíthatja annak megtartását is. A fájlokat szűrheti célnyelv szerint is.
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást vagy visszajelzést adni a megvalósításunkról? Keressen meg bennünket a [megszokott csatornákon](https://www.blackbird.io/) keresztül vagy hozzon létre egy hibajegyet.

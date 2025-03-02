@@ -1,0 +1,51 @@
+---
+  title: Cohere
+  description: De Cohere Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Cohere" icon="github" />
+
+Cohere is een bedrijf gespecialiseerd in kunstmatige intelligentie dat zich richt op grote taalmodellen (LLM's) die zijn getraind op enorme hoeveelheden tekstgegevens. Deze LLM's helpen bedrijven bij het bouwen van software die tekst kan doorzoeken, begrijpen, genereren en samenvatten.
+
+## Voordat u begint
+
+Voordat u verbinding kunt maken, moet u ervoor zorgen dat:
+
+- U een Cohere-account heeft.
+- U een API-sleutel heeft voor uw Cohere-account. Meer informatie over Cohere's API-sleutels vindt u [hier](https://docs.cohere.com/reference/create-an-api-key%20).
+
+## Verbinding maken
+
+1. Ga naar apps en zoek naar Cohere. Als u Cohere niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Cohere en voeg de app toe aan uw Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef uw verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn Cohere-verbinding'.
+4. Vul de API-sleutel in voor uw Cohere-account.
+7. Klik op _Connect_.
+
+![CohereBlackbirdConnection](https://raw.githubusercontent.com/bb-io/Cohere/main/image/README/CohereBlackbirdConnection.png)
+
+## Actions
+
+- **Analyze text** Analyseer tekst om informatie over stijl, stemming en toon te verkrijgen.
+- **Calculate similarity of two texts** Bereken de overeenkomst tussen de opgegeven teksten. Het resultaat van deze actie is een overeenkomstpercentage. Hoe hoger de score, hoe meer de teksten op elkaar lijken.
+- **Classify text** Classificeer tekstinvoer. Deze actie vereist voorbeelden en bijbehorende labels. Elk uniek label vereist minimaal twee bijbehorende voorbeelden.
+- **Classify text with examples as a file** Classificeer tekstinvoer. Deze actie vereist een csv-bestand met voorbeelden en bijbehorende labels. Elke regel in het bestand moet de vorm 'voorbeeld, label' hebben. Elk uniek label vereist minimaal twee bijbehorende voorbeelden.
+- **Detect language** Detecteer de taal van de opgegeven tekst.
+- **Detect locale** Detecteer de locale van de opgegeven tekst.
+- **Edit text** Bewerk de invoertekst op basis van een instructieprompt (bijv. maak het beknopter of vriendelijker).
+- **Extract entity from text** Haal specifieke informatie uit tekst. Geef aan welke entiteit u uit de tekst wilt halen (bijv. producttitel).
+- **Generate embedding** Genereer tekstembedding. Een embedding is een lijst met floating point-getallen die semantische informatie over de tekst vastlegt.
+- **Generate text** Genereer realistische tekst op basis van een gegeven input.
+- **Perform grammar and spelling check** Voer een grammatica- en spellingcontrole uit op de opgegeven tekst.
+- **Rerank texts** Deze actie neemt een zoekopdracht en een lijst met teksten en produceert een geordende lijst waarbij aan elke tekst een relevantiescore is toegekend.
+- **Rerank texts provided in a file** Deze actie neemt een zoekopdracht en een txt-bestand met een lijst teksten en produceert een tekst samengesteld uit de meest relevante teksten. Elke tekst in het bestand moet op een nieuwe regel beginnen.
+- **Reshape text** Herstructureer de tekst. Geef informatie over de gewenste stijl, stemming en toon.
+- **Summarise text analyses** Vat informatie samen over stijlen, stemmingen en tonen van verschillende teksten om gemeenschappelijke patronen te vinden.
+- **Summarize text** Vat de opgegeven tekst samen.
+- **Tokenize text** Tokeniseer tekst. Specificeer het model om ervoor te zorgen dat de tokenisatie de tokenizer gebruikt die bij het specifieke model hoort.
+
+
+## Feedback
+
+Wilt u deze app gebruiken of heeft u feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

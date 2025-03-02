@@ -1,0 +1,49 @@
+---
+  title: RePurpose
+  description: De RePurpose Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/RePurpose" icon="github" />
+
+Met de RePurpose app kun je content hergebruiken met behulp van elk van de ondersteunde LLM-modellen. De momenteel ondersteunde modellen zijn Anthropic en OpenAI.
+
+## Voordat je begint
+
+Als je verbinding maakt met OpenAI, zorg dan voor het volgende:
+
+- Je hebt een [OpenAI account](https://platform.openai.com/signup).
+- Je hebt een nieuwe API-sleutel gegenereerd in het gedeelte [API keys](https://platform.openai.com/account/api-keys), die programmatische toegang verleent tot OpenAI-modellen op basis van 'pay-as-you-go'. Hiermee betaal je alleen voor je daadwerkelijke gebruik, wat [begint bij $0,002 per 1.000 tokens](https://openai.com/pricing) voor het snelste chatmodel. Houd er rekening mee dat het ChatGPT Plus abonnement hiervoor niet geschikt is; het biedt alleen toegang tot de beperkte webinterface op chat.openai.com en bevat geen OpenAI API-toegang. Zorg ervoor dat je de volledige API-sleutel kopieert, die eenmalig wordt getoond bij het aanmaken, en niet een verkorte versie. De API-sleutel heeft de vorm `sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.
+- Je API-account heeft een betaalmethode en een positief saldo van minimaal $5. Je kunt dit instellen in het gedeelte [Billing settings](https://platform.openai.com/account/billing/overview).
+
+**Opmerking**: Blackbird gebruikt standaard de nieuwste modellen in zijn acties. Als je abonnement deze modellen niet ondersteunt, moet je de modellen die je kunt gebruiken toevoegen aan elke Blackbird-actie.
+
+Als je verbinding maakt met Anthropic, zorg dan voor het volgende:
+
+- Je hebt een [Anthropic account](https://console.anthropic.com) en hebt toegang tot de API-sleutels.
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar RePurpose.
+2. Klik op _Add Connection_.
+3. Kies het model waarmee je verbinding wilt maken.
+4. Vul je eerder verkregen API-sleutel in.
+5. Klik op _Connect_.
+
+![1733228702795](https://raw.githubusercontent.com/bb-io/RePurpose/main/image/README/1733228702795.png)
+
+## Actions
+
+- **Repurpose content** hergebruikt content voor een specifieke doelgroep.
+- **Repurpose file** hergebruikt de inhoud van het bestand en geeft een hergebruikt bestand terug. *Opmerking*: het kan alleen platte tekstbestanden verwerken zoals txt, html of csv.
+
+Repurpose content gebruikt de volgende parameters:
+- **Original content** de originele content in platte tekst.
+- **Style guide** hoe de content moet worden hergebruikt. Bijv. doelgroep, toon, woordenschat, lengte, etc.
+- **Model** (optioneel) het LLM-model dat moet worden gebruikt. Als er geen model is geselecteerd, gebruikt Open AI gpt4-o en Anthropic gebruikt Claude 3.5 Sonnet.
+- **Language** (optioneel) de doeltaal waarin de content moet worden gemaakt.
+- **Glossary** (optioneel) een woordenlijst die zal worden gebruikt voor het hergebruik.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

@@ -1,0 +1,47 @@
+---
+  title: Smartcat
+  description: A Smartcat Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés GitHubon" target="_blank" href="https://github.com/bb-io/Smartcat" icon="github" />
+
+A Smartcat egy felhőalapú fordítási és lokalizációs platform, amelyet a fordítási folyamat egyszerűsítésére és automatizálására terveztek. Egyesíti a fordításkezelő rendszert (TMS), a számítógéppel támogatott fordítási (CAT) eszközt, és egy piacteret fordítók és nyelvészek számára.
+
+## Actions
+
+### Projects
+
+- **Create project**  Új projekt létrehozása
+- **Delete project**  Adott projekt törlése
+- **Get project** Adott projekt lekérése
+- **Get project statistics**  A megadott projekt statisztikáinak lekérése
+- **List projects** A fiókban lévő összes projekt listázása
+- **List files in a project** A projektben lévő összes fájl listázása
+- **Update project**  Projekt információinak frissítése
+
+### Tasks
+
+- **Get task**  Adott projekt feladat lekérése
+- **List project tasks**  Az összes projektfeladat listázása
+
+### Files
+
+- **Download file** Adott projektfájl letöltése
+- **Upload file** Fájl hozzáadása a projekt fájljaihoz
+- **Update file from XLIFF** A megadott fájl frissítése lefordított XLIFF-ből
+
+## Events
+
+- **On document status changed** Akkor aktiválódik, amikor egy adott dokumentum állapota megváltozik
+- **On project status changed** Akkor aktiválódik, amikor egy adott projekt állapota megváltozik
+- **On translation XLIFF import completed** Akkor aktiválódik, amikor egy adott dokumentum XLIFF fordítása befejeződik
+- **On project created** Akkor aktiválódik, amikor új projekt jön létre
+
+## Translation memories
+- **Import TMX file to TM** TMX fájl importálása fordítási memóriába
+- **Export TMX from TM** TMX exportálása fordítási memóriából
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy van visszajelzése a megvalósításunkról? Lépjen kapcsolatba velünk a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémajegyet.

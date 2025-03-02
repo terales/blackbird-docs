@@ -1,0 +1,145 @@
+---
+  title: Trados
+  description: Програма Blackbird для Trados
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/LanguageCloud" icon="github" />
+
+Trados - це система управління перекладами (TMS), розроблена компанією RWS, світовим лідером у сфері мовних послуг та технологічних рішень. Trados пропонує повний набір інструментів та послуг для ефективного управління проєктами перекладу та локалізації. Вона надає такі можливості, як управління проєктами, пам'ять перекладів, управління термінологією, забезпечення якості та автоматизацію робочих процесів.
+
+## Перед налаштуванням
+
+Перед підключенням переконайтеся, що:
+
+- У вас є доступ до екземпляра Trados і ви маєте права адміністратора для цього екземпляра.
+- У вас створений сервісний користувач для вашого екземпляра. (Це можна зробити через веб-інтерфейс RWS Trados Enterprise: вгорі виберіть "Users", на вкладці нижче виберіть "Service users", у верхньому правому куті натисніть _New Service User_. Заповніть усі поля та натисніть "Create".)
+- У вас є ідентифікатор клієнта (Client ID) та секретний ключ клієнта (Client Secret) для Trados. (Це можна отримати з веб-інтерфейсу RWS Trados Enterprise: у верхньому правому куті виберіть свій профіль, а потім "Integrations" > вкладка "Applications". Створіть новий додаток, якщо у вас його немає, потім відкрийте його, перейдіть до _API access_ і скопіюйте потрібні значення.)
+- У вас є ідентифікатор орендаря Trados (Tenant ID). (Це можна отримати з веб-інтерфейсу RWS Trados Enterprise: у верхньому правому куті виберіть свій профіль, а потім "Manage Account" > вкладка "Account Information", перевірте значення "Trados Account ID".)
+
+## Підключення
+
+1. Перейдіть до розділу "Apps" та знайдіть Trados.
+2. Натисніть _Add Connection_.
+3. Назвіть ваше з'єднання для подальшого використання, наприклад, 'Моє з'єднання з Trados'.
+4. Введіть Client ID вашого додатка автентифікації Trados.
+5. Введіть Client Secret вашого додатка автентифікації Trados.
+6. Введіть Tenant ID вашого екземпляра Trados.
+7. Натисніть _Connect_.
+
+![TradosNewConnection](https://raw.githubusercontent.com/bb-io/LanguageCloud/main/image/README/TradosNewConnection.png)
+
+## Actions
+
+### Customers 
+
+- **Get customer** Отримати клієнта за ідентифікатором клієнта
+- **Search customers** Пошук клієнтів, опціонально за місцезнаходженням
+
+### Files 
+
+- **Upload source file** Завантажити вихідний файл до проєкту
+- **Attach source file to project** Прикріпити вихідний файл до проєкту
+- **Download target file** Завантажити цільовий файл за ідентифікатором. Формат файлу можна вказати як необов'язковий вхідний параметр.
+- **Get source file info** Отримати інформацію про вихідний файл
+- **Get target file info** Отримати інформацію про цільовий файл
+- **Search project source files** Пошук вихідних файлів проєкту
+- **Search project target files** Пошук цільових файлів проєкту
+- **Upload zip archive** Завантажити zip-архів з вихідними файлами
+- **Update target file from SDLXLIFF** Створити нову версію цільового файлу
+
+### Glossaries 
+
+- **Export glossary** Експортувати глосарій
+- **Import glossary** Імпортувати глосарій
+
+### Groups 
+
+- **Get group** Отримати групу за ідентифікатором групи
+- **Search groups** Пошук груп, опціонально за місцезнаходженням
+
+### Projects 
+
+- **Get project** Отримати проєкт за ідентифікатором проєкту
+- **Complete project** Завершити проєкт
+- **Create project** Створити проєкт
+- **Create project from template** Створити проєкт з шаблону
+- **Edit project** Редагувати проєкт
+- **Search projects** Пошук проєктів за певними фільтрами
+- **Start project** Запустити проєкт за ідентифікатором
+- **Delete project** Видалити проєкт
+
+### Reports 
+
+- **Download quote report** Завантажити звіт про розцінки для проєкту
+
+### Tasks 
+
+- **Accept task** Прийняти завдання за ідентифікатором
+- **Assign task** Призначити завдання за ідентифікатором
+- **Complete task** Завершити завдання за ідентифікатором
+- **Get task** Отримати завдання за ідентифікатором
+- **Get project tasks** Отримати всі завдання, що містяться в проєкті
+- **Reclaim task** Повернути завдання за ідентифікатором
+- **Reject task** Відхилити завдання за ідентифікатором
+- **Release task** Звільнити завдання за ідентифікатором
+
+### Translation Memories 
+
+- **Create translation memory** Створити пам'ять перекладів
+- **Get translation memory** Отримати пам'ять перекладів
+- **Import TMX file** Імпортувати TMX-файл
+- **List translation memories** Перелік пам'ятей перекладів
+
+## Events
+
+Щоб увімкнути вебхуки, вам потрібно:
+- Створити сервісного користувача у вашому екземплярі Trados
+- Створити додаток на основі згаданого сервісного користувача (це можна зробити, розгорнувши меню облікового запису у верхньому правому куті веб-інтерфейсу RWS Trados Enterprise, вибравши Integrations > Applications.)
+- Отримати URL вебхука з вашого Bird, після публікації, в Blackbird, і використовувати його як URL вебхука в розділі Webhooks вашого додатка Trados. Вам також потрібно вибрати, які дії будуть ініціювати події до введеної URL-адреси кінцевої точки.
+Більше інформації про налаштування вебхуків Trados можна знайти [тут](https://languagecloud.sdl.com/lc/api-docs/webhooks-setup).
+
+![WebhookURLinBlackbird](https://raw.githubusercontent.com/bb-io/LanguageCloud/main/image/README/WebhookURL.png)
+
+![TradosWebhookURLsetup](https://raw.githubusercontent.com/bb-io/LanguageCloud/main/image/README/TradosWebhookURL.png)
+
+### File 
+
+- **On source file created**
+- **On source file deleted**
+- **On source file updated**
+- **On target file created**
+- **On target file deleted**
+- **On target file updated**
+
+### Group Project 
+
+- **On group project membership changed**
+
+### Project 
+
+- **On project created**
+- **On project deleted**
+- **On project updated**
+
+### Project Template 
+- **On project template deleted**
+- **On project template updated**
+- **On project template created**
+
+### Task 
+- **On task updated**
+- **On task accepted**
+- **On task completed**
+- **On task created**
+- **On task deleted**
+
+### Error Task 
+
+- **On error task created**
+- **On error task deleted**
+- **On error task updated**
+
+## Зворотній зв'язок
+
+Бажаєте використовувати цю програму або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами через [наявні канали](https://www.blackbird.io/) або створіть проблему.

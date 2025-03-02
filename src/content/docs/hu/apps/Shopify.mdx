@@ -1,0 +1,97 @@
+---
+  title: Shopify
+  description: A Shopify Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Shopify" icon="github" />
+
+A Shopify egy felhőalapú e-kereskedelmi platform, amely lehetővé teszi a felhasználók számára, hogy online boltokat hozzanak létre, testreszabjanak és kezeljenek. Számos funkciót és eszközt biztosít a vállalkozások számára termékek és szolgáltatások online értékesítéséhez, beleértve a webhelysablonokat, a fizetési feldolgozást, a készletgazdálkodást és a marketingeszközöket. A Shopify lehetővé teszi a felhasználók számára, hogy különböző csatornákon keresztül érjék el az ügyfeleket, beleértve a webet, a mobileszközöket, a közösségi médiát és a piactereket, így sokoldalú megoldást nyújt egyének, vállalkozók és vállalatok számára online jelenlétük kialakításához és növeléséhez.
+
+## Csatlakozás
+
+1. A Blackbird-ben navigálj az 'Apps' menüponthoz, és keress rá a Shopify-ra.
+2. Kattints az _Add Connection_ gombra.
+3. Nevezd el a kapcsolatodat a későbbi hivatkozáshoz, például 'Saját Shopify kapcsolat'.
+4. A Shopify-ban menj a `Store settings -> Apps and sales channels -> Develop apps` menüpontba.
+5. Hozz létre egy fejlesztői alkalmazást.
+6. Kattints a `Configure Admin API scopes` opcióra, hogy kiválaszd azokat a hozzáférési jogosultságokat, amelyeket a Blackbird számára biztosítani szeretnél. Mindenképpen add meg a `read_locales` hozzáférési jogosultságot. Egyéb szükséges jogosultságok a kívánt műveletektől függően: `write_products`, `read_products`, `write_publications`, `read_publications`, `write_translations`, `read_translations`, `read_themes`, `read_content`.
+7. A jogosultságok kiválasztása után kattints a `Save` gombra, majd lépj az `API credentials` menüpontba és telepítsd az újonnan létrehozott alkalmazást.
+8. Ez létrehozza az `Admin API access token`-t, amelyet másolnod kell és be kell illesztened a Blackbird megfelelő mezőjébe.
+9. Ezután az áruház beállításaiban kattints a `Domains` opcióra, és másold ki az áruház nevét a domainből, majd illeszd be a Blackbird megfelelő mezőjébe. Például ha a domain `mystore.myshopify.com`, akkor a `mystore` részt kell kivenned.
+10. Kattints a _Connect_ gombra.
+11. Ellenőrizd, hogy a kapcsolat megjelent-e, és az állapota _Connected_.
+
+## Actions
+
+### Store
+- **Get store locales information** Az áruházban beállított elsődleges és egyéb területi beállítások lekérése
+- **Get store resources content as HTML** Az összes áruház erőforrástípus elem tartalmát adja vissza HTML formátumban.
+- **Update store resources content from HTML** Az összes áruház erőforrástípus elem tartalmát frissíti egy HTML fájlból.
+- **Get store content as HTML** Az áruház tartalmát adja vissza HTML formátumban. Meg kell adnod, hogy mely erőforrásokat szeretnéd exportálni: téma, menü, bolt vagy bolt szabályzat.
+- **Update store content from HTML** Az áruház tartalmát frissíti egy HTML fájlból.
+
+### Articles
+
+- **List online store articles** Az online áruházban található összes cikk listázása
+- **Get online store article translation as HTML** Egy adott online áruházi cikk tartalmát adja vissza HTML formátumban
+- **Update online store article content from HTML** Egy adott online áruházi cikk tartalmát frissíti egy HTML fájlból
+
+### Blogs
+
+- **List online store blogs** Az online áruházban található összes blog listázása
+- **Get online store blog content as HTML** Egy adott online áruházi blog tartalmát adja vissza HTML formátumban. Az `Include articles` paramétert True értékre állítva exportálhatod a blogbejegyzések cikkeit is.
+- **Update online store blog content from HTML** Egy adott online áruházi blog tartalmát frissíti egy HTML fájlból
+
+### Pages
+
+- **List online store pages** Az online áruházban található összes oldal listázása
+- **Get online store page content as HTML** Egy adott online áruházi oldal tartalmát adja vissza HTML formátumban
+- **Update online store page content from HTML** Egy adott online áruházi oldal tartalmát frissíti egy HTML fájlból
+
+### Products
+
+- **Search products** Termékek keresése a megadott kritériumok alapján
+- **Get product content as HTML** Egy adott termék tartalmát adja vissza HTML formátumban. Opcionálisan további exportálandó entitásokat is megadhatsz, pl. metaadatok, opciók, opció értékek.
+- **Update product content from HTML** Egy adott termék tartalmát frissíti egy HTML fájlból
+
+### Metafields
+
+- **Get metafield content as HTML** A termék metaadatainak tartalmát adja vissza HTML formátumban
+- **Update metafield content from HTML** A termék metaadatainak tartalmát frissíti egy HTML fájlból
+- **Get metafield** Egy adott termék metaadatainak részleteit adja vissza
+- **Update metafield** Egy adott termék metaadatainak értékét frissíti
+
+### Themes
+
+- **Get online store theme content as HTML** Egy adott téma tartalmát adja vissza HTML formátumban
+- **Update online store theme content from HTML** Egy adott téma tartalmát frissíti egy HTML fájlból
+
+### General
+
+- **Update content from HTML** Egy adott tartalom frissítése HTML fájlból. Az opcionális bemenettel manuálisan meghatározhatod a tartalomtípust.
+
+## Events
+
+- **On product created**
+- **On product deleted**
+- **On product updated**
+- **On product publications added**
+- **On product publications deleted**
+- **On locale created**
+- **On locale updated**
+- **On articles created**
+- **On articles updated**
+- **On pages created**
+- **On pages updated**
+- **On content created or updated** (cikkekhez és oldalakhoz)
+
+## Példa
+
+A következő példa bemutatja, hogyan lehet beállítani egy automatizálást, hogy amikor egy Shopify termék frissül, lekérjük az online áruház nyelvi beállításait, letöltjük a frissített termék forrástartalmat HTML fájlként, lefordítjuk a fájlt az összes célnyelvre a GlobalLink NOW MT megoldással, majd frissítjük az összes célterméket.
+
+![Sample Bird](https://raw.githubusercontent.com/bb-io/Shopify/main/image/README/ShopifySampleBird.png)
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy visszajelzésed van a megvalósításunkról? Keress minket a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozz létre egy problémát.

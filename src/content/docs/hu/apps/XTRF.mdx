@@ -1,0 +1,166 @@
+---
+  title: XTRF
+  description: Az XTRF Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/XTRF" icon="github" />
+
+Az XTRF egy átfogó fordításkezelő rendszer, amely egyszerűsíti és automatizálja a fordítási munkafolyamatokat a nyelvi szolgáltatók és a vállalati fordítórészlegek számára. Robusztus projektmenedzsment, együttműködési és automatizálási funkciókat kínál a fordítási folyamatok hatékonyságának növelése érdekében.
+
+## Actions
+
+### Classic - Job 
+
+- **Get job** Információk lekérése a munkáról
+- **Update job** Munka frissítése, csak a frissítendő mezők megadásával
+- **Upload output file for job** Kimeneti fájl feltöltése egy munkához
+
+### Classic - Project 
+
+- **Create language combination for project** Új nyelvkombináció létrehozása egy klasszikus projekthez feladat létrehozása nélkül
+- **Create new project** Új klasszikus projekt létrehozása
+- **Delete project** Klasszikus projekt törlése
+- **Download file** Egy adott fájl tartalmának letöltése egy klasszikus projektben
+- **Get checkbox custom field for project** Jelölőnégyzet (logikai) egyedi mező lekérése klasszikus projekthez
+- **Get date custom field for project** Dátum/dátum és idő egyedi mező lekérése klasszikus projekthez
+- **Get multiple selection custom field for project** Többszörös választás (lista) egyedi mező lekérése klasszikus projekthez
+- **Get number custom field for project** Szám egyedi mező lekérése klasszikus projekthez
+- **Get project details** Információk lekérése klasszikus projektről
+- **Get text or selection custom field for project** Szöveg vagy választás egyedi mező lekérése klasszikus projekthez
+- **List custom fields for project** Egyedi mezők listázása klasszikus projekthez, visszaadva azokat a mezőket, amelyek a projekthez rendelhetők, értékük nélkül. A mező értékének megszerzéséhez használja a mezőtípusnak megfelelő "Get custom field for project" műveletet
+- **Update checkbox custom field for project** Jelölőnégyzet (logikai) egyedi mező frissítése klasszikus projekthez
+- **Update date custom field for project** Dátum/dátum és idő egyedi mező frissítése klasszikus projekthez
+- **Update multiple selection custom field for project** Többszörös választás (lista) egyedi mező frissítése klasszikus projekthez
+- **Update number custom field for project** Szám egyedi mező frissítése klasszikus projekthez
+- **Update project** Klasszikus projekt frissítése, csak a frissítendő mezők megadásával
+- **Update text or selection custom field for project** Szöveg vagy választás egyedi mező frissítése klasszikus projekthez
+- **Create payable for project** Fizetendő létrehozása klasszikus projekthez
+- **Create receivable for project** Követelés létrehozása klasszikus projekthez
+
+### Classic - Quote
+
+- **Create language combination for quote** Új nyelvkombináció létrehozása klasszikus árajánlathoz feladat létrehozása nélkül
+- **Delete quote** Árajánlat törlése
+- **Get checkbox custom field for quote** Jelölőnégyzet (logikai) egyedi mező lekérése klasszikus árajánlathoz
+- **Get date custom field for quote** Dátum/dátum és idő egyedi mező lekérése klasszikus árajánlathoz
+- **Get multiple selection custom field for quote** Többszörös választás (lista) egyedi mező lekérése klasszikus árajánlathoz
+- **Get number custom field for quote** Szám egyedi mező lekérése klasszikus árajánlathoz
+- **Get quote** Információk lekérése klasszikus árajánlatról
+- **Get text or selection custom field for quote** Szöveg vagy választás egyedi mező lekérése klasszikus árajánlathoz
+- **List custom fields for quote** Egyedi mezők listázása klasszikus árajánlathoz, visszaadva azokat a mezőket, amelyek az árajánlathoz rendelhetők, értékük nélkül. A mező értékének megszerzéséhez használja a mezőtípusnak megfelelő "Get custom field for quote" műveletet
+- **Send quote for customer confirmation** Árajánlat küldése ügyfél jóváhagyására, megváltoztatva az árajánlat státuszát "Elküldve" állapotra
+- **Start quote** Klasszikus árajánlat indítása
+- **Update checkbox custom field for quote** Jelölőnégyzet (logikai) egyedi mező frissítése klasszikus árajánlathoz
+- **Update date custom field for quote** Dátum/dátum és idő egyedi mező frissítése klasszikus árajánlathoz
+- **Update multiple selection custom field for quote** Többszörös választás (lista) egyedi mező frissítése klasszikus árajánlathoz
+- **Update number custom field for quote** Szám egyedi mező frissítése klasszikus árajánlathoz
+- **Update quote instructions** Adott árajánlat utasításainak frissítése, csak a frissítendő mezők megadásával
+- **Update text or selection custom field for quote** Szöveg vagy választás egyedi mező frissítése klasszikus árajánlathoz
+- **Create quote** Új klasszikus árajánlat létrehozása a megadott adatok alapján
+
+### Classic - Task
+
+- **Create task for project** Új feladat létrehozása egy adott klasszikus projekthez
+- **Create task for quote** Új feladat létrehozása egy adott klasszikus árajánlathoz
+- **Delete task** Feladat törlése
+- **Get task in project** Információk lekérése egy projekten belüli feladatról
+- **Get task in quote** Információk lekérése egy árajánlaton belüli feladatról
+- **Get task progress** Adott feladat előrehaladásának lekérése, amely tartalmazza a feladat állapotára (pl. megnyitva vagy kész) és aktuális fázisára (pl. fordítás) vonatkozó információkat
+- **List task's files** Bemeneti (munkafájlok, fordítási memória, terminológia, referencia és naplófájlok) és kimeneti fájlok listázása
+- **Start task** Feladat indítása
+- **Update task in project** Projekten belüli feladat frissítése, csak a frissítendő mezők megadásával
+- **Update task in quote** Árajánlaton belüli feladat frissítése, csak a frissítendő mezők megadásával
+- **Upload file for task** Fájl feltöltése feladathoz
+
+### Customer
+
+- **Create customer contact** Új kapcsolattartó létrehozása egy ügyfélhez
+- **Create customer** Új ügyfél létrehozása
+- **Delete customer** Adott ügyfél törlése
+- **Get checkbox custom field for customer** Jelölőnégyzet (logikai) egyedi mező lekérése egy ügyfélhez
+- **Get customer details** Információk lekérése adott ügyfélről
+- **Get customers** Az összes ügyfél lekérése ezen az XTRF példányon
+- **Get date custom field for customer** Dátum/dátum és idő egyedi mező lekérése egy ügyfélhez
+- **Get multiple selection custom field for customer** Többszörös választás (lista) egyedi mező lekérése egy ügyfélhez
+- **Get number custom field for customer** Szám egyedi mező lekérése egy ügyfélhez
+- **Get text or selection custom field for customer** Szöveg vagy választás egyedi mező lekérése egy ügyfélhez
+- **List custom fields for customer** Egyedi mezők listázása ügyfélhez, visszaadva azokat a mezőket, amelyek az ügyfélhez rendelhetők, értékük nélkül. A mező értékének megszerzéséhez használja a mezőtípusnak megfelelő "Get custom field for customer" műveletet
+- **Update checkbox custom field for customer** Jelölőnégyzet (logikai) egyedi mező frissítése egy ügyfélhez
+- **Update customer contact** Ügyfél kapcsolattartójának frissítése, csak a frissítendő mezők megadásával
+- **Update customer** Ügyfél frissítése, csak a frissítendő mezők megadásával
+- **Update date custom field for customer** Dátum/dátum és idő egyedi mező frissítése egy ügyfélhez
+- **Update multiple selection custom field for customer** Többszörös választás (lista) egyedi mező frissítése egy ügyfélhez
+- **Update number custom field for customer** Szám egyedi mező frissítése egy ügyfélhez
+- **Update text or selection custom field for customer** Szöveg vagy választás egyedi mező frissítése egy ügyfélhez
+
+### Provider
+
+- **Search providers** Szolgáltatók keresése a megadott kritériumok alapján
+- **Get provider** Információk lekérése egy adott szolgáltatóról
+- **Delete provider** A megadott azonosítójú szolgáltató törlése
+- **Send invitation to provider** Meghívó küldése a megadott azonosítójú szolgáltatónak
+
+### Provider invoice
+
+- **Search provider invoices** Szolgáltatói számlák keresése a megadott kritériumok alapján
+- **Get provider invoice** Szolgáltatói számla lekérése azonosító alapján
+- **Create provider invoice** Szolgáltatói számla létrehozása
+- **Update provider invoice** Szolgáltatói számla frissítése azonosító alapján
+- **Send provider invoice** Szolgáltatói számla küldése a megadott azonosító alapján
+- **Download provider invoice** Szolgáltatói számla dokumentum (PDF) generálása
+- **Delete provider invoice** Szolgáltatói számla törlése azonosító alapján
+
+### Customer Invoice
+
+- **Search customer invoices** Ügyfélszámlák keresése a megadott kritériumok alapján
+- **Get customer invoice** Ügyfélszámla lekérése azonosító alapján
+- **Create customer invoice** Ügyfélszámla létrehozása
+- **Delete customer invoice** Ügyfélszámla törlése azonosító alapján
+- **Download customer invoice** Ügyfélszámla dokumentum (PDF) letöltése azonosító alapján
+- **Send reminder for customer invoice** Emlékeztető küldése ügyfélszámlához a megadott azonosító alapján
+- **Duplicate customer invoice** Ügyfélszámla duplikálása a megadott azonosító alapján
+- **Export customer invoice** Ügyfélszámla exportálása azonosító alapján json fájlba, hogy külső rendszerbe importálható legyen
+
+### Provider person
+
+- **Search provider persons** Szolgáltatói személyek keresése a megadott kritériumok alapján
+- **Get provider person** Szolgáltatói személy lekérése azonosító alapján
+- **Remove provider person** Szolgáltatói személy eltávolítása azonosító alapján
+- **Send invitation to provider person** Meghívó küldése szolgáltatói személynek azonosító alapján
+
+### Smart - File 
+
+- **Download file** Egy adott fájl tartalmának letöltése
+- **List deliverable files for source file** Kézbesítésre kész fájlok listázása, amelyek neve megegyezik a megadott forrásfájléval egy smart projektben
+
+### Smart - Job
+
+- **Get delivered files in job** Kézbesített fájlok lekérése egy smart munkában
+- **Get job details** Információk lekérése egy smart munkáról
+- **Get reference files shared with job** Egy smart munkával megosztott referenciafájlok lekérése
+- **Get work files shared with job** Egy smart munkával megosztott munkafájlok lekérése
+- **Share file as reference file with job** Fájl megosztása referenciafájlként egy smart munkával. Mind a fájlnak, mind a munkának ugyanahhoz a projekthez kell tartoznia
+- **Share file as work file with job** Fájl megosztása munkafájlként egy smart munkával. Mind a fájlnak, mind a munkának ugyanahhoz a projekthez kell tartoznia
+- **Stop sharing file with job** Fájl megosztásának megszüntetése egy smart munkával
+- **Update job** Smart munka frissítése, csak a frissítendő mezők megadásával
+- **Upload delivered file to job** Kézbesített fájl feltöltése egy smart munkához
+
+### Smart - Project
+
+- **Add target languages to project** További célnyelvek hozzáadása egy smart projekthez
+- **Create new project** Új smart projekt létrehozása
+- **Delete payable for project** Fizetendő törlése egy smart projektből
+- **Delete receivable for project** Követelés törlése egy smart projektből
+- **Get checkbox custom field for project** Jelölőnégyzet (logikai) egyedi mező lekérése smart projekthez
+- **Get date custom field for project** Dátum/dátum és idő egyedi mező lekérése smart projekthez
+- **Get multiple selection custom field for project** Többszörös választás (lista) egyedi mező lekérése smart projekthez
+- **Get number custom field for project** Szám egyedi mező lekérése smart projekthez
+- **Get project details** Információk lekérése egy smart projektről. Ha ügyfél-kapcsolattartókat, pénzügyi információkat, folyamatazonosítót szeretne lekérni, vagy ellenőrizni, hogy a projekt létrehozása megtörtént-e a CAT eszközben vagy a létrehozás sorban áll-e, állítsa a megfelelő opcionális paramétert 'True' értékre
+- **Get project file details** Információk lekérése egy adott fájlról egy smart projektben
+- **Get text or selection custom field for project** Szöveg vagy választás egyedi mező lekérése smart projekthez
+- **List custom fields for project** Egyedi mezők listázása smart projekthez, visszaadva azokat a mezőket, amelyek a projekthez rendelhetők, értékük nélkül. A mező értékének megszerzéséhez használja a mezőtípusnak megfelelő "Get custom field for project" műveletet
+- **List files in project** Az összes fájl listázása egy smart projektben
+- **List jobs in project** Az összes munka listázása egy smart projektben
+- **Update checkbox custom field for project** Jelölőnégyzet (logikai) egyedi mező frissítése smart projekthez
+- **Update date custom field for project** Dátum/dátum és idő egyedi mező frissítése

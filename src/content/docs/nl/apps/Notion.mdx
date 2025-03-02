@@ -1,0 +1,128 @@
+---
+  title: Notion
+  description: De Notion Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Notion" icon="github" />
+ 
+  
+Notion is een platform voor het maken van aantekeningen en het organiseren van ideeën. Deze Notion-applicatie richt zich voornamelijk op het beheer van pagina's en databases.  
+  
+ ## Voordat je begint
+ Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+ - Je een Notion-account hebt
+ - Je voldoende rechten hebt in de workspace die je met Blackbird wilt verbinden.
+ 
+## Verbinding maken  
+  
+1. Navigeer naar apps en zoek naar Notion. 
+2. Klik op _Add Connection_.  
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn Notion-verbinding'.  
+4. Klik op _Authorize connection_.
+5. Selecteer in de popup de workspace waarmee je verbinding wilt maken in de rechterbovenhoek.
+6. Klik op _Select pages_
+7. Selecteer handmatig alle pagina's waartoe je Blackbird toegang wilt geven.
+8. Klik op _Allow access_
+9. Bevestig dat de verbinding is verschenen en dat de status _Connected_ is.  
+  
+> Als je Blackbird later toegang wilt geven tot andere pagina's, kun je dit handmatig doen via de pagina-opties in Notion.
+
+## Actions  
+  
+### Blocks  
+  
+- **Search block's children** geeft alle onderliggende elementen van een specifiek blok terug. In plaats van een blok kun je een ID van een `Page` invoeren, zodat alle blokken die bij die pagina horen worden teruggegeven.  
+- **Get/Delete block** 
+
+### Comments
+
+- **Search comments** geeft een lijst met opmerkingen terug die aan het opgegeven `Block` zijn toegevoegd.
+- **Add comment** voegt een opmerking toe aan een specifieke `Page` of `Discussion`.
+
+### Databases
+
+- **Search databases** geeft een lijst van alle databases in de workspace terug. Je kunt de lijst filteren op aanmaak-/bewerkingstijd.
+- **Search pages in database** geeft een lijst van alle onderliggende `Pages` in de database terug. Je kunt de lijst filteren op aanmaak-/bewerkingstijd. 
+- **Create/Get database**
+
+### Pages
+
+- **Search pages** geeft een lijst van alle pagina's in de workspace terug. Je kunt de lijst filteren op aanmaak-/bewerkingstijd.
+- **Get page as HTML** geeft de inhoud van de opgegeven pagina terug als HTML-bestand.
+- **Create/Update page from HTML** maakt/werkt een pagina bij op basis van een HTML-bestand. We raden aan om de actie 'Create page from HTML' te gebruiken, omdat deze geen invloed heeft op bestaande inhoud. Daarentegen heeft de actie 'Update page from HTML' wel invloed op bestaande inhoud. Aangezien Notion het direct bijwerken van blokken niet toestaat, zal het eerst alle inhoud van de pagina verwijderen en vervolgens toevoegen vanuit het HTML-bestand.
+- **Get page string/number/date/boolean/files/multiple property** geeft de waarde terug van een eigenschap van een specifiek type van een database-item.
+- **Set page string/number/boolean/files/multiple property** werkt de waarde bij van een eigenschap van een specifiek type van een database-item.
+- **Set page property as empty**
+- **Create/Get/Archive page**
+
+> Voor de acties 'Create page' en 'Create page from HTML' moet je de bovenliggende pagina of database opgeven waar de nieuwe pagina zal worden aangemaakt. Als dit niet is opgegeven, zal de actie mislukken met een foutmelding.
+
+### Users
+
+- **Search users** geeft een lijst van gebruikers terug die bij de workspace horen.
+- **Get users** geeft details terug over de opgegeven gebruiker.
+
+## Events
+
+### Pages
+
+- **On pages created** Monitort pagina's die binnen een opgegeven tijdsbestek zijn aangemaakt. Om Blackbird toegang te geven tot de nieuw aangemaakte pagina's, moet je dit handmatig doen via de pagina-opties in Notion
+- **On pages updated** Monitort pagina's die binnen een opgegeven tijdsbestek zijn bijgewerkt.
+- **On pages status changed** Monitort een database op pagina's waarvan de status binnen een opgegeven tijdsbestek is gewijzigd naar de gewenste waarde.
+- **On button clicked** wordt geactiveerd wanneer een gebruiker op een knop in Notion klikt. Zie hieronder de instructies voor het instellen.
+
+## Triggeren bij het klikken op een knop
+
+1. Maak een Bird die begint met het event *On button clicked*
+2. Configureer de Bird en publiceer deze.
+
+![1737728505623](https://raw.githubusercontent.com/bb-io/Notion/main/image/README/1737728505623.png)
+
+3. Kopieer de Webhook URL onderaan het event-paneel.
+4. Maak een knop in Notion. Je kunt dit doen in de pagina-inhoud of als een pagina-eigenschap.
+
+![1737728586269](https://raw.githubusercontent.com/bb-io/Notion/main/image/README/1737728586269.png)
+
+5. Klik op *Edit automation*. Klik vervolgens op *+ New action* en selecteer *Send webhook*
+
+![1737728711506](https://raw.githubusercontent.com/bb-io/Notion/main/image/README/1737728711506.png)
+
+6. Plak de URL die je van Blackbird hebt gekopieerd in het URL-veld en klik op *Done*.
+
+![1737728748357](https://raw.githubusercontent.com/bb-io/Notion/main/image/README/1737728748357.png)
+
+7. Test de knop door erop te klikken!
+
+## HTML-conversie
+
+Blackbird kan de inhoud van een `Page` naar een HTML-bestand converteren en terug, waardoor automatische vertaling van Notion-inhoud via Blackbird mogelijk is. Je kunt bijvoorbeeld een workflow opzetten zoals: "Notion: Get page as HTML" → "DeepL: Translate" → "Notion: Update page from HTML."
+
+Niet-vertaalbare inhoud wordt ook overgedragen, met enkele uitzonderingen. Deze omvatten:
+
+- **Link preview**
+- **Notion-hosted files** (zoals PDF's, audio, video of afbeeldingen; externe URL's werken echter prima)
+
+Voorlopig worden deze typen niet overgedragen. We werken voortdurend aan de verbetering van dit proces.
+
+> Het vertalen van onderliggende pagina's en databases wordt volledig ondersteund. Je kunt onderliggende pagina's en/of databases vertalen door de optionele inputs 'Include child pages' en 'Include child databases' in te stellen op true voor de actie 'Get page as HTML'. Als deze inputs niet zijn ingesteld of op false zijn gezet, zullen we geen onderliggende pagina's/databases extraheren of vertalen, en de nieuwe (of bijgewerkte) pagina zal deze onderliggende pagina's/databases niet bevatten.
+
+> Houd er rekening mee dat de Notion API alleen het aanmaken van pagina's of databases toestaat als hun bovenliggende element een **pagina of een database** is. Dit betekent dat als je een subpagina of database in een kolom (of een ander blok) nestelt, de operatie zal mislukken met een fout zoals:  
+> `Pages and databases cannot be nested inside other blocks. Page or database ('Page name or ID') has parent type 'block_id'. Please move it to the root level.`  
+> Om dit probleem op te lossen, zorg ervoor dat alle subpagina's en sub-databases op het hoofdniveau worden geplaatst en niet genest zijn binnen andere blokken.
+
+### Beperkingen
+
+Tijdens het verbeteren van de Notion-app, het oplossen van problemen en het verbeteren van foutmeldingen, hebben we verschillende API-beperkingen geïdentificeerd die de functionaliteit beïnvloeden:
+
+1. **Databases met `status`-eigenschappen kunnen niet worden aangemaakt via de Notion API** ([Referentie](https://developers.notion.com/reference/create-a-database)). Bovendien staat de API niet toe om status-eigenschappen in een pagina op te slaan. Als gevolg hiervan zullen kolommen van het type 'status' na hernieuwde aanmaak verloren gaan.
+
+2. **Alleen de tabelweergave van een database is toegankelijk via de API.** De API maakt geen onderscheid tussen een bordweergave-element en een database, en het geeft geen informatie over verschillende weergaven binnen een database. Als gevolg hiervan kunnen weergaven niet opnieuw worden aangemaakt, en is alleen de tabelweergave beschikbaar.
+
+3. **Pagina's en databases kunnen alleen worden aangemaakt onder een bestaande pagina of database.** De API staat niet toe om een subpagina of database in een kolom of een ander blok te plaatsen. Subpagina's en databases moeten direct onder een pagina of database worden aangemaakt en kunnen niet genest worden binnen andere inhoudsblokken ([Referentie](https://developers.notion.com/reference/post-page)).
+
+4. **Onmogelijk om Notion-hosted bestanden opnieuw toe te voegen**
+
+## Feedback  
+  
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [gevestigde kanalen](https://www.blackbird.io/) of maak een issue aan.

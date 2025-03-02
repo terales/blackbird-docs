@@ -1,0 +1,122 @@
+---
+  title: Wordpress
+  description: A Wordpress Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Github-on" target="_blank" href="https://github.com/bb-io/Wordpress" icon="github" />
+
+A Wordpress a világ legnépszerűbb weboldalkészítő rendszere. Ez az alkalmazás lehetővé teszi, hogy összekapcsold a Wordpress weboldaladat a Blackbird-del, és automatizált tartalomátalakítási és fordítási munkafolyamatokat építs. A Wordpress alapértelmezetten nem rendelkezik lokalizációs funkciókkal. Ezért ez az alkalmazás támogatja a népszerű [Polylang pro](https://polylang.pro/downloads/polylang-pro/) bővítményt. Minden érintett művelet és mező (P) jelöléssel van ellátva, ha működéséhez szükség van erre a bővítményre.
+
+## Beállítás előtt
+
+Mielőtt csatlakozhatnál, győződj meg a következőkről:
+
+- Rendszergazdai hozzáféréssel rendelkezel egy Wordpress környezethez.
+- Létrehoztál egy alkalmazásjelszót. Ezt a Wordpress admin panelen teheted meg -> Felhasználók -> Profil. Az oldal alján találhatod az _Alkalmazásjelszavak_ részt. Adj nevet az új jelszónak, majd kattints az _Új alkalmazásjelszó hozzáadása_ gombra. Mentsd el a megjelenő jelszót.
+- Opcionálisan, ha használni szeretnéd a lokalizációs funkciókat, győződj meg róla, hogy a [Polylang pro](https://polylang.pro/downloads/polylang-pro/) telepítve van.
+
+## Csatlakozás
+
+1. Navigálj az alkalmazásokhoz és keress rá a Wordpress-re. Ha nem találod a Wordpress-t, kattints a jobb felső sarokban található _Alkalmazás hozzáadása_ gombra, válaszd a Wordpress-t, és add hozzá az alkalmazást a Blackbird környezetedhez.
+2. Kattints a _Kapcsolat hozzáadása_ gombra.
+3. Nevezd el a kapcsolatot a későbbi hivatkozáshoz, például 'Új Wordpress kapcsolatom'.
+4. Add meg a Wordpress weboldalad URL-címét.
+5. Add meg az e-mail címet, amelyet a Wordpress admin fiókodba való bejelentkezéshez használsz a _Bejelentkezés_ mezőben.
+6. Add meg a korábban létrehozott alkalmazásjelszót.
+7. Kattints a _Csatlakozás_ gombra.
+
+![1700486964991](https://raw.githubusercontent.com/bb-io/Wordpress/main/image/README/1700486964991.png)
+
+## Actions
+
+### Posts & pages
+
+A következő műveletek mind bejegyzésekre, mind oldalakra alkalmazhatók. Az egyszerűség kedvéért ezentúl mindkettőre bejegyzésként hivatkozunk.
+
+- **Search** bejegyzések keresése létrehozási vagy frissítési idő alapján. Opcionálisan használhatod a nyelv bemenetét nyelv szerinti szűréshez (Polylang-gal).
+- **Get** visszaadja a bejegyzés összes információját.
+- **Get missing translations (P)** visszaadja azon nyelvek listáját, amelyekre a bejegyzés nincs lefordítva. Polylang szükséges.
+- **Get translation (P)** visszaadja a kiválasztott bejegyzés fordítását az adott nyelven. Polylang szükséges.
+- **Get as HTML** a bejegyzést HTML formátumban adja vissza, hasznos a teljes bejegyzés oldalának egy egységként történő fordításához.
+- **Delete** törli a bejegyzést
+
+Minden létrehozási és frissítési művelet opcionálisan elfogad nyelvi és "fordításként ehhez" bemenetet. Mindkettőt a Polylang használja a megfelelő nyelvek és más bejegyzésekkel való kapcsolatok hozzárendeléséhez.
+
+- **Create** új bejegyzés létrehozása
+- **Create from HTML** új bejegyzés létrehozása egy HTML fájl bemenetével.
+- **Update** bejegyzés frissítése
+- **Update from HTML** bejegyzés frissítése egy HTML fájl bemenetével.
+
+### Comments
+
+- **Add comment**
+- **Delete comment**
+
+### Media
+
+- **Get all media**
+- **Get media**
+- **Upload media**
+- **Delete media**
+
+### Users
+
+- **Get all users**
+- **Get user**
+- **Add user**
+
+### Other
+
+- **Get languages (P)** visszaadja az összes konfigurált nyelvet és azok további információit. Polylang szükséges.
+
+### HTML funkciók
+
+Metaadatokat adunk a HTML fájlhoz, hogy tartalmazza a `Post ID` és `Page ID` értékeket. Ezeket a metaadatokat a rendszer a megfelelő bejegyzés vagy oldal frissítéséhez használja. A metaadatokat `meta` címkeként adjuk hozzá a HTML fájl `head` részéhez. A `name` attribútum `blackbird-post-id` vagy `blackbird-page-id`, a `content` attribútum pedig a bejegyzés vagy oldal azonosítója.
+
+```html
+<html>
+   <head>
+      <meta name="blackbird-page-id" content="2">
+      <title>Sample Page</title>
+   </head>
+   <body>
+      <p>This is an example page. It&#8217;s different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:</p>
+      <blockquote class="wp-block-quote">
+         <p>Hi there! I&#8217;m a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin&#8217; caught in the rain.)</p>
+      </blockquote>
+      <p>&#8230;or something like this:</p>
+      <blockquote class="wp-block-quote">
+         <p>The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.</p>
+      </blockquote>
+      <p>As a new WordPress user, you should go to <a href="https://dev-blackbird-test.pantheonsite.io/wp-admin/">your dashboard</a> to delete this page and create new pages for your content. Have fun!</p>
+   </body>
+</html>
+```
+
+Példa arra, hogyan adunk metaadatokat a HTML fájlhoz:
+## Hiányzó funkciók
+
+A jövőben új műveleteket adunk hozzá a következőkhöz:
+
+- Blocks
+- Categories
+- Navigations
+- Menus
+- Revisions
+- Tags
+
+A bejegyzés és oldal műveleteink is bővíthetők további tulajdonságokkal, mint például állapot, dátumok stb.
+
+Jelezd, ha érdekel!
+
+## Events
+
+- **On posts created** akkor aktiválódik, amikor új bejegyzések jönnek létre.
+- **On posts updated** akkor aktiválódik, amikor bármely bejegyzés frissül.
+- **On pages created** akkor aktiválódik, amikor új oldalak jönnek létre.
+- **On pages updated** akkor aktiválódik, amikor bármely oldal frissül.
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy van visszajelzésed a megvalósításunkról? Vedd fel velünk a kapcsolatot a [megszokott csatornákon](https://www.blackbird.io/) keresztül, vagy hozz létre egy hibajegyet.

@@ -1,0 +1,77 @@
+---
+  title: Pangeanic
+  description: Додаток Blackbird Pangeanic
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Pangeanic" icon="github" />
+
+Pangeanic створює спеціалізовані моделі штучного інтелекту, щоб ви могли створити власний генеративний ШІ (GenAI) без передачі даних третім сторонам.
+
+## Перед налаштуванням
+
+Перш ніж підключитися, переконайтеся, що:
+
+- У вас є API-ключ для сервісів Pangeanic
+
+Якщо у вас немає API-ключа, ви можете зв'язатися з [Pangeanic](https://pangeanic.com/translation-technology/translate-easy).
+
+## Підключення 
+
+1. Перейдіть до розділу Додатки та знайдіть додаток **Pangeanic**. Для пошуку можна використовувати пошукову функцію.
+2. Натисніть _Add Connection_.
+3. Назвіть ваше з'єднання для майбутнього використання, наприклад, 'Мій клієнт'.
+4. У полі _API Key_ введіть ваш API-ключ.
+5. У полі _URL_ введіть URL вашого API. Наприклад: http://prod.pangeamt.com:8080/
+5. Натисніть _Connect_.
+6. Переконайтеся, що з'єднання з'явилося і його статус _Connected_.
+
+![PangeanicConnection](https://raw.githubusercontent.com/bb-io/Pangeanic/main/image/README/PangeanicConnection.png)
+
+## Actions
+
+### Text
+
+- **Process text**: Надсилає текст для обробки та перекладу як єдиний рядок
+
+- **Process text as array**: Надсилає текст для обробки та перекладу як масив рядків
+
+У діях обробки тексту ви маєте можливість вказати налаштування анонімізації, включаючи чутливість, тип і теги.
+
+### File
+
+- **Process file**: Надсилає файл до API для обробки та перекладу, а потім отримує відповідь, що містить ID файлу
+
+- **Download file**: Завантажує перекладений файл на основі ID файлу
+
+## Events
+
+### Translations
+
+- **On file translation status updated**: Перевіряє оновлення статусу перекладу файлів. За замовчуванням перевіряє завершені переклади. Ви можете вказати статус для перевірки
+
+## Приклади
+
+За допомогою цього додатку ви можете створити такі птахи:
+
+- Перший птах: 
+
+![PangeanicExample1](https://raw.githubusercontent.com/bb-io/Pangeanic/main/image/README/PangeanicExample1.png)
+
+- Другий птах:
+
+![PangeanicExample2](https://raw.githubusercontent.com/bb-io/Pangeanic/main/image/README/PangeanicExample2.png)
+
+Загалом, ці птахи дозволяють вам завантажувати файли на Google Drive, перекладати їх за допомогою Pangeanic, і після завершення перекладу завантажувати їх куди завгодно (у цьому випадку, Dropbox).
+
+Також зверніть увагу, що для використання події Pangeanic 'On file translation status updated' вам слід опублікувати її та скопіювати 'Webhook URL':
+
+![Pangeanic-callback-url](https://raw.githubusercontent.com/bb-io/Pangeanic/main/image/README/Pangeanic-callback-url.png)
+
+Вставте цю URL-адресу в поле необов'язкового вводу 'Callback URL' дії 'Process file':
+
+![Pangeanic-callback-url2](https://raw.githubusercontent.com/bb-io/Pangeanic/main/image/README/Pangeanic-callback-url2.png)
+
+## Зворотний зв'язок
+
+Хочете використовувати цей додаток або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть issue.

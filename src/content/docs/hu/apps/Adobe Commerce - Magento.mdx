@@ -1,0 +1,108 @@
+---
+  title: Adobe Commerce - Magento
+  description: Az Adobe Commerce - Magento Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/Magento" icon="github" />
+
+## Beállítás előtt
+
+- Győződjön meg róla, hogy adminisztrátori szintű hozzáféréssel rendelkezik a Magentóhoz.
+- Megtalálhatja a Magento URL-jének `Base URL` címét. Ez valahogy így nézhet ki: `https://magento.testing.organization.com/`
+- A `Consumer key`, `Consumer secret`, `Access token` és `Access token secret` megszerzéséhez új integrációt kell létrehoznia a Magento fiókjában. Kövesse az alábbi utasításokat.
+
+## Integráció létrehozása
+
+1. Lépjen a `System` -> `Extensions` -> `Integrations` menüpontba. Kattintson az `Add new integration` gombra.
+
+![1724846646011](https://raw.githubusercontent.com/bb-io/Magento/main/image/README/1724846646011.png)
+
+2. Adja meg az integráció nevét. Kattintson az `API` gombra, és válassza ki az `All`* erőforrás-hozzáférést. Megjegyzés: nem kell megadnia semmilyen értéket a `Callback URL` és az `Identity link URL` mezőkben.
+3. Kattintson a mentésre.
+4. Az integráció áttekintő képernyőjén kattintson az `Activate` gombra.
+
+![1724846707099](https://raw.githubusercontent.com/bb-io/Magento/main/image/README/1724846707099.png)
+
+5. A jobb felső sarokban kattintson az `Allow` gombra.
+6. Megkapja a `Consumer key`, `Consumer secret`, `Access token` és `Access token secret` adatokat.
+
+> *Kiválaszthatja az összes elérhető erőforrást az integrációhoz, hogy elkerülje a jogosultságokkal kapcsolatos problémákat. Vagy kiválaszthatja az adott felhasználási esethez szükséges erőforrásokat. Az alkalmazás jelenleg elérhető funkcióit alább láthatja a dokumentációban.
+
+## Csatlakozás
+
+1. Navigáljon az Alkalmazásokhoz, és keresse meg a **Magento** alkalmazást. A keresést használhatja a megtalálásához.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, pl. 'Saját szervezet'.
+4. Töltse ki az összes kötelező mezőt:
+    - `Base URL` 
+    - `Consumer key`
+    - `Consumer secret`
+    - `Access token`
+    - `Access token secret`
+5. Kattintson a _Connect_ gombra.
+6. Ellenőrizze, hogy a kapcsolat megjelent, és az állapota _Connected_.
+
+![Connection](https://raw.githubusercontent.com/bb-io/Magento/main/image/README/connection.png)
+
+## Actions
+
+### Blocks
+
+- **Search blocks** - Lekérdezi az összes olyan blokkot, amely megfelel a megadott keresési feltételeknek.
+- **Get block** - Blokk lekérése a megadott ID alapján.
+- **Get block as HTML** - Blokk lekérése a megadott ID alapján HTML formátumban.
+- **Create block** - Blokk létrehozása a megadott adatokkal.
+- **Update block** - Blokk frissítése a megadott adatokkal.
+- **Update block from HTML** - A megadott ID-val rendelkező blokk frissítése HTML-ből. Ez a művelet hasznos a `Get block as HTML` művelettel együtt, amikor szüksége van a blokk tartalmára HTML formátumban, majd le kell fordítania a dokumentumot.
+- **Delete block** - Blokk törlése a megadott ID alapján.
+
+### Pages
+
+- **Search pages** - Lekérdezi az összes olyan oldalt, amely megfelel a megadott keresési feltételeknek.
+- **Get page** - Oldal lekérése a megadott ID alapján.
+- **Get page as HTML** - Oldal lekérése a megadott ID alapján HTML formátumban.
+- **Create page** - Oldal létrehozása a megadott adatokkal.
+- **Update page** - Oldal frissítése a megadott adatokkal.
+- **Update page from HTML** - A megadott ID-val rendelkező oldal frissítése HTML-ből. Ez a művelet hasznos a `Get page as HTML` művelettel együtt, amikor szüksége van az oldal tartalmára HTML formátumban, majd le kell fordítania a dokumentumot.
+- **Delete page** - Oldal törlése a megadott ID alapján.
+
+### Products
+
+- **Search products** - Lekérdezi az összes olyan terméket, amely megfelel a megadott keresési feltételeknek.
+- **Get product** - Termék lekérése a megadott SKU alapján.
+- **Get product as HTML** - Termék lekérése a megadott SKU alapján HTML formátumban. Az opcionális paraméterek segítségével megadhatja a `Custom attributes` attribútumokat, amelyeket be szeretne illeszteni a HTML-be.
+- **Create product** - Termék létrehozása a megadott adatokkal.
+- **Update product** - Termék frissítése a megadott adatokkal.
+- **Update product from HTML** - A megadott SKU-val rendelkező termék frissítése HTML-ből. Ez a művelet hasznos a `Get product as HTML` művelettel együtt, amikor szüksége van a termék tartalmára HTML formátumban, majd le kell fordítania a dokumentumot.
+- **Delete product** - Termék törlése a megadott SKU alapján.
+- **Add custom attribute** - Lehetővé teszi egyéni attribútum hozzáadását egy adott termékhez.
+
+> A legtöbb műveletnek van egy opcionális áruháznézet bemenete is. Ezt használhatja annak meghatározására, hogy melyik áruháznézetben hajtsa végre a műveletet.
+
+### Categories
+
+- **Get all categories** - Az összes kategória lekérése.
+- **Get category** - Kategória lekérése a megadott ID alapján.
+- **Get categories for product** - Termék kategóriáinak lekérése a megadott SKU alapján.
+
+## Events
+
+- **On products created** - Akkor aktiválódik, amikor új termékeket hoznak létre.
+- **On products updated** - Akkor aktiválódik, amikor termékeket frissítenek.
+- **On blocks created** - Akkor aktiválódik, amikor új blokkokat hoznak létre.
+- **On blocks updated** - Akkor aktiválódik, amikor blokkokat frissítenek.
+- **On pages created** - Akkor aktiválódik, amikor új oldalakat hoznak létre.
+- **On pages updated** - Akkor aktiválódik, amikor oldalakat frissítenek.
+
+> Az események lekérdezési mechanizmuson alapulnak és rendszeres időközönként aktiválódnak. Az időköz a madár szerkesztőben állítható be. Az időköznek 5 perc és 7 nap között kell lennie.
+
+## Példa
+
+![1724849643171](https://raw.githubusercontent.com/bb-io/Magento/main/image/README/1724849643171.png)
+
+A fenti példában látható, hogyan hozhat létre egy madarat, amely újonnan létrehozott termékeket vesz és automatikusan lefordítja őket NMT segítségével.
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzést szeretne adni a megvalósításunkról? Vegye fel velünk a kapcsolatot a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

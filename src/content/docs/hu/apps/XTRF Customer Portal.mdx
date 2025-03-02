@@ -1,0 +1,69 @@
+---
+  title: XTRF Customer Portal
+  description: Az XTRF Customer Portal Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Github-on" target="_blank" href="https://github.com/bb-io/XTRF-Customer-portal" icon="github" />
+
+Az Ügyfélportál lehetővé teszi ügyfeleinek, hogy munkát vagy árajánlatot kérjenek a nap 24 órájában, ahelyett, hogy irodai nyitvatartási időre kellene várniuk. Végül is, amikor árajánlatról van szó, a gyorsaság a legfontosabb. Választhatja, hogy automatizált árajánlattal válaszol, vagy manuálisan kezeli az árajánlat folyamatát.
+
+## Beállítás előtt
+
+A kapcsolódás előtt győződjön meg arról, hogy:
+
+- Rendelkezik XTRF fiókkal.
+- Van olyan XTRF ügyféle, amelynek alapján sikeresen be tud jelentkezni az XTRF Customer Portal-ba.
+- Rendelkezik `Felhasználónévvel` és `Jelszóval` az XTRF ügyfélhez.
+- Ismeri az XTRF Customer Portal `Kiszolgálóját`. Például: `organization.xtrf.eu`, ez az a domain, amelyet az XTRF Customer Portal-ba való bejelentkezéshez használ.
+
+Az XTRF Customer Portal URL-je általában `https://[your-xtrf-host.com]/customers`. Vegye figyelembe, hogy az XTRF Customer Portal-hoz ugyanazt a kiszolgálót használja, mint a közös XTRF rendszerhez; az egyetlen különbség az elérési út.
+
+## Az XTRF ügyfél beállítása az XTRF Customer Portal-hoz
+
+1. Hozzon létre egy új ügyfelet az XTRF-ben vagy használjon egy meglévőt.
+2. Menjen a "Main Data" fülre és válassza a "System Accounts" fület.
+3. Módosítsa a "Access Rights" beállítást `Active` értékre.
+4. Jelölje be a "Client Portal Access Allowed" jelölőnégyzetet.
+5. Állítsa be az ügyfél jelszavát a "Send Welcome E-mail" vagy a "Send Password Reset E-mail" gombra kattintva. Ez küld egy e-mailt az ügyfélnek a jelszó beállításához szükséges lépésekkel.
+6. A "Sign in as this Partner" opcióval bejelentkezhet és ellenőrizheti az ügyfél hozzáférését az XTRF Customer Portal-hoz.
+
+![setup](https://raw.githubusercontent.com/bb-io/XTRF-Customer-portal/main//image/README/setup.png)
+
+## Csatlakozás
+
+1. Navigáljon az Alkalmazásokhoz, és keresse meg az **XTRF Customer Portal** alkalmazást. A keresést használhatja annak megtalálásához.
+2. Kattintson a _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot későbbi hivatkozáshoz, például "Saját Szervezet Kapcsolat".
+4. Töltse ki a `Host`, `Username` és `Password` mezőket.
+5. Kattintson a _Connect_ gombra.
+6. Győződjön meg arról, hogy a kapcsolat sikeresen létrejött.
+
+![connection](https://raw.githubusercontent.com/bb-io/XTRF-Customer-portal/main//image/README/connection.png)
+
+## Actions
+
+### Invoice
+
+- **Search invoices** - Számlák keresése a megadott kritériumok alapján.
+- **Get invoice** - Egy adott számla lekérése azonosító alapján.
+- **Download invoice** - Egy adott számla letöltése PDF formátumban.
+
+### Project
+
+- **Search projects** - Projektek keresése keresési kritériumok alapján.
+- **Get project** - Projekt lekérése projekt azonosító alapján.
+- **Create project** - Új projekt létrehozása.
+- **Download project files** - Projekt fordítási fájlok letöltése.
+
+### Quote
+
+- **Search quotes** - Árajánlatok keresése a megadott kritériumok alapján.
+- **Get quote** - Egy adott árajánlat lekérése Árajánlat azonosító alapján.
+- **Create quote** - Új árajánlat létrehozása a megadott adatok alapján.
+- **Accept quote** - Egy adott árajánlat elfogadása Árajánlat azonosító alapján (csak Elküldött státuszú Árajánlatok fogadhatók el)
+- **Reject quote** - Egy adott árajánlat elutasítása Árajánlat azonosító alapján
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Keressen minket a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

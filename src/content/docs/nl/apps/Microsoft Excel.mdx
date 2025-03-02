@@ -1,0 +1,58 @@
+---
+  title: Microsoft Excel
+  description: De Blackbird-app voor Microsoft Excel
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Bekijk op Github" target="_blank" href="https://github.com/bb-io/MicrosoftExcel" icon="github" />
+
+Microsoft 365 Excel is een spreadsheet-software waarmee gebruikers gegevens kunnen organiseren, analyseren en visualiseren met behulp van tabelrasters. Het biedt een reeks functies, waaronder formules, grafieken en opmaakopties, waardoor het een veelzijdig hulpmiddel is voor verschillende gegevensgerichte taken en bedrijfstoepassingen.
+
+## Acties
+
+- **Add new sheet row**   Voegt een nieuwe rij toe aan de eerste lege regel van het werkblad
+- **Add new table row**   Nieuwe tabelrij toevoegen
+- **Create table**    Tabel maken
+- **Create worksheet**    Werkblad maken
+- **Download sheet CSV file**  CSV-bestand downloaden
+- **Export glossary**  Woordenlijst exporteren vanuit Excel-werkblad
+- **Find sheet row**  Door een kolomadres en een waarde te verstrekken, wordt het rijnummer teruggegeven waar die waarde zich bevindt
+- **Get sheet cell**  Cel ophalen op basis van adres
+- **Get sheet range**  Een specifiek bereik van rijen en kolommen in een werkblad ophalen
+- **Get sheet row**   Rij ophalen op basis van adres
+- **Get sheet used range**    Gebruikt bereik in een werkblad ophalen
+- **Get table row**   Tabelrij ophalen
+- **Import glossary**  Woordenlijst importeren als Excel-werkblad
+- **List table rows**  Tabelrijen weergeven
+- **Update sheet cell**   Cel bijwerken op basis van adres
+- **Update sheet row**    Rij bijwerken vanaf startadres
+- **Update table row**    Tabelrij bijwerken
+
+## Woordenlijsten exporteren
+
+Om de actie **Export glossary** te gebruiken, moet u ervoor zorgen dat het Excel-werkblad de structuur weerspiegelt die u krijgt uit het resultaat van de actie **Import glossary**. Volg deze richtlijnen:
+
+- **Werkbladstructuur**:
+   - De eerste rij dient als kolomnamen, die de eigenschappen van de woordenlijstentiteit vertegenwoordigen: _ID_, _Definition_, _Subject field_, _Notes_, _Term (language code)_, _Variations (language code)_, _Notes (language code)_.
+   - Voeg kolommen toe voor elke taal die in de woordenlijst aanwezig is. Als de woordenlijst bijvoorbeeld Engels en Spaans bevat, zijn de kolomnamen: _ID_, _Definition_, _Subject field_, _Notes_, _Term (en)_, _Variations (en)_, _Notes (en)_, _Term (es)_, _Variations (es)_, _Notes (es)_.
+- **Optionele velden**:
+    - _Definition_, _Subject field_, _Notes_, _Variations (language code)_, _Notes (language code)_ zijn optioneel en kunnen leeg worden gelaten.
+- **Hoofdterm en synoniemen**:
+    - _Term (language code)_ vertegenwoordigt de primaire term in de opgegeven taal voor de woordenlijst.
+    - _Variations (language code)_ bevat synonieme waarden voor de term.
+- **Verwerking van notities**:
+    - Notities in de kolom _Notes_ moeten worden gescheiden door ';' als er meerdere notities zijn voor een bepaalde invoer.
+- **Verwerking van variaties**:
+    - Variaties in de kolom _Variations (language code)_ moeten worden gescheiden door ';' als er meerdere variaties zijn voor een bepaalde term.
+- **Opmaak van termnotities**:
+    - Elke notitie in de kolom _Notes (language code)_ moet deze structuur volgen: **Term of variatie: notitie**.
+    - Notities voor termen moeten worden gescheiden door ';;'. Bijvoorbeeld: 'money: may refer to physical or banked currency;; cash: refers to physical currency.'
+
+## Ondersteuning voor SharePoint-documenten
+In alle acties kunt u de optionele invoerparameter "SharePoint site name" specificeren om Excel-bestanden van een SharePoint-site te gebruiken in de vervolgkeuzelijst "Workbook".
+
+![SharePointSupport1](https://raw.githubusercontent.com/bb-io/MicrosoftExcel/main//image/README/SharePointSupport1.png) ![SharePointSupport2](https://raw.githubusercontent.com/bb-io/MicrosoftExcel/main//image/README/SharePointSupport2.png)
+
+## Feedback
+
+Wilt u deze app gebruiken of heeft u feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

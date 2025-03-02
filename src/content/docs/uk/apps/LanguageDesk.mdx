@@ -1,0 +1,47 @@
+---
+  title: LanguageDesk
+  description: Додаток Blackbird для LanguageDesk
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/LanguageDesk" icon="github" />
+
+[LanguageDesk](https://www.milengo.com/languagedesk/) дозволяє клієнтам легко відстежувати прогрес своїх проєктів від початку до кінця, надаючи централізований огляд усіх проєктів з перекладу та локалізації, їхнього статусу, пов'язаних файлів, витрат та історії комунікації.
+
+## Перед налаштуванням
+
+Перш ніж ви зможете підключитися, переконайтеся, що:
+
+- У вас є обліковий запис LanguageDesk
+- У вас є API-токен. Ви можете знайти цей токен у LanguageDesk в розділі _settings_ -> _API & Ftp servers_.
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть LanguageDesk. Якщо ви не можете знайти Jira, натисніть _Add App_ у верхньому правому куті, виберіть LanguageDesk і додайте додаток до свого середовища Blackbird.
+2. Натисніть _Add Connection_.
+3. Назвіть ваше підключення для подальшого використання, наприклад, 'Моя організація'.
+4. Заповніть базову URL-адресу вашого екземпляра LanguageDesk. Базова URL-адреса має вигляд `https://<environment>.languagedesk.com`. Зазвичай ви можете скопіювати цю частину URL, коли ви увійшли до свого екземпляра LanguageDesk.
+5. Введіть свій API-токен.
+6. Натисніть _Connect_.
+
+![1705078067846](https://raw.githubusercontent.com/bb-io/LanguageDesk/main/image/README/1705078067846.png)
+
+## Actions
+
+- **Create project** створює новий проєкт LanguageDesk із різними комбінаціями мов джерела/цілі серед інших параметрів. Примітка: використовуйте поле Callback URL для активації подій (див. нижче).
+- **Get project** повертає всю доступну інформацію про конкретний проєкт
+- **Change project status** змінює статус існуючого проєкту
+- **Download delivery files** отримує перекладений файл у ZIP-архіві.
+- **Download invoice** отримує рахунок-фактуру в форматі PDF.
+
+## Events
+
+- **On project status changed** спрацьовує, коли проєкт змінює свій статус. Створюючи схему з цим тригером, скопіюйте URL, який генерує Blackbird, і додайте його як поле Callback URL в дії _Create project_. (Див. знімки екрана нижче)
+
+![1705078296613](https://raw.githubusercontent.com/bb-io/LanguageDesk/main/image/README/1705078296613.png)
+
+![1705078347912](https://raw.githubusercontent.com/bb-io/LanguageDesk/main/image/README/1705078347912.png)
+
+## Зворотній зв'язок
+
+Хочете використовувати цей додаток або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть проблему.

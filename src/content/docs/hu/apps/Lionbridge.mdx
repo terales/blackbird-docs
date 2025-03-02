@@ -1,0 +1,123 @@
+---
+  title: Lionbridge
+  description: A Lionbridge Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Lionbridge" icon="github" />
+
+A Lionbridge Technologies, Inc. egy amerikai vállalat, amely fordítási és lokalizációs szolgáltatásokat nyújt. A Lionbridge Content API egy nyílt API, amely támogatja az összes fordítási minőségi szintet és a tartalmak széles körét. A Lionbridge ügyfelei kihasználhatják ezt az alkalmazást minden fordítási igényükhöz. A Lionbridge Content API integrálható több mint 100 alkalmazással a Blackbird platformon, beleértve az Amazon S3, Contentful, Contentstack, Customer.io, Github, HubSpot, Adobe Marketo, Microsoft Sharepoint, Notion, Salesforce, Shopify, Sitecore, Storyblok, Wordpress és Zendesk rendszereket.
+
+## Beállítás előtt
+
+A csatlakozás előtt győződjön meg a következőkről:
+
+- Rendelkeznie kell **Client ID** és **Client Secret** adatokkal
+- Legalább egy szolgáltatóval kell rendelkeznie a Lionbridge munkafolyamat létrehozásához
+
+## Csatlakozás 
+
+1. Navigáljon az alkalmazásokhoz és keresse meg a Lionbridge-et.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, pl. 'Az ügyfelem'.
+4. Az _API Key_ mezőbe írja be az API kulcsát
+5. A _Client secret_ mezőbe írja be a kliens titkos kulcsát
+6. Kattintson a _Connect_ gombra.
+7. Ellenőrizze, hogy a kapcsolat megjelent és az állapota _Connected_.
+
+![Lionbridge-connection](https://raw.githubusercontent.com/bb-io/Lionbridge/main/image/README/Lionbridge-connection.png)
+
+## Actions
+
+### Jobs
+
+- **Create job**: Új munka létrehozása a munka nevének, leírásának, szolgáltató azonosítójának és egyéb metaadatainak megadásával. Ez a művelet egy új munkát indít el a rendszerben, előkészítve azt további műveletekhez, például beküldéshez vagy frissítéshez.
+
+- **Delete job**: Meglévő munka eltávolítása a rendszerből az egyedi munka azonosító segítségével. Ez a művelet visszafordíthatatlan, és akkor kell használni, ha egy munkára már nincs szükség, vagy tévedésből hozták létre.
+
+- **Get job**: Egy adott munka részleteinek lekérése az azonosítója alapján. Ez magában foglalja a munkához kapcsolódó összes információt, például a jelenlegi állapotát, szolgáltató adatait és a kapcsolódó fájlokat vagy kéréseket.
+
+- **Update job**: Meglévő munka részleteinek módosítása. Ez magában foglalhatja a munka nevének, leírásának, szolgáltatójának vagy állapotának megváltoztatását. Itt kezelhetők a munka befejezésére vagy „Fordítás alatt" állapotba való áthelyezésére vonatkozó speciális utasítások is.
+
+- **Submit job**: Egy munka továbbítása a kiválasztott szolgáltatónak fordításra. Ez a művelet egy meglévő munkát vesz és hivatalosan elindítja a fordítási folyamatot a megadott szolgáltatóval.
+
+- **Archive job**: Egy munka archiválása, amely a befejezett vagy inaktív, de nyilvántartási célból megőrizendő munkákra vonatkozik.
+
+- **Unarchive job**: Egy munka archiválásának visszavonása, aktív állapotba való visszahelyezése. Akkor használatos, amikor egy archivált munkát újra meg kell vizsgálni vagy újra kell aktiválni.
+
+- **Get job extended metadata**: Bővített metaadat érték lekérése egy adott kulcshoz.
+
+- **Complete job**: Jelzés a Lionbridge felé, hogy a munka elkészült.
+
+- **Un-complete job**: Jelzés a Lionbridge felé, hogy a munka mégsem készült el.
+
+### Requests
+
+- **Search requests**: Fordítási kérések listájának megtekintése. Ez a módszer lehetővé teszi a felhasználók számára, hogy összefoglalót kapjanak egy munkához kapcsolódó összes fordítási kérésről. Azt is visszaadja, hogy minden kérés *In review* állapotban van-e, és így készen áll-e a letöltésre.
+
+- **Create file request**: Új kérés indítása dokumentum fordítására dokumentumfájl feltöltésével. Ha a 'Request name' vagy 'Source native ID' nincs megadva, a rendszer egyedi azonosítókat (GUID) generál ezek számára.
+
+- **Get request**: Adott fordítási kérés részleteinek megtekintése. Ez a művelet részletes információkat kér le egy fordítási kérésről, beleértve annak jelenlegi állapotát, forrás- és célnyelvét, valamint a hozzá kapcsolódó metaadatokat.
+
+- **Delete request**: Már nem szükséges fordítási kérés eltávolítása. Ha egy fordítási kérésre már nincs szükség, ez a módszer használható a rendszerből való törléséhez, így az aktív kérések listája tiszta és kezelhető marad.
+
+- **Approve requests**: Lefordított tartalom jóváhagyása adott kérésekhez. Jelzés a Lionbridge felé, hogy a kéréseket jóváhagyták.
+
+- **Reject requests**: Fordítási kérések elutasítása. Ha egy fordítási kérés helytelennek bizonyul, elutasítható.
+
+- **Update request details**: Meglévő fordítási kérés részleteinek módosítása. Ez a módszer lehetővé teszi a felhasználók számára egy fordítási kérés tartalmának vagy paramétereinek módosítását, például a dokumentum frissítését vagy a célnyelv megváltoztatását.
+
+- **Get request extended metadata**: Bővített metaadat érték lekérése egy adott kulcshoz.
+
+### Source file
+
+- **Retrieve file**: Dokumentum letöltése egy adott kérésből. Ez a módszer lehetővé teszi egy fordítási kéréshez kapcsolódó fájl lekérését. Ellenőrzi, hogy a feltöltött fájl üres-e, és kivételt dob, ha igen. Ha a fájlnak nincs konkrét neve, alapértelmezés szerint a kérés nevét használja .xml kiterjesztéssel, jelezve, hogy a kérést valószínűleg forrástartalomból hozták létre. Ez a megközelítés biztosítja, hogy minden dokumentum, akár eredetileg elnevezett, akár nem, lekérhető és megfelelően azonosítható a rendszeren belül.
+
+### Support assets
+
+- **Get support asset**: Egy munkához kapcsolódó adott támogató eszköz részleteinek lekérése. Ez a művelet alapvető fontosságú a támogató eszközök tulajdonságainak és információinak eléréséhez, amelyek olyan kiegészítő erőforrások vagy dokumentumok, amelyek egy fordítási munkához kapcsolódnak, hogy segítsék a fordítási folyamatot.
+
+- **Delete support asset**: Támogató eszköz eltávolítása egy munkából. Ez a funkció kulcsfontosságú a munkához kapcsolódó támogató eszközök relevanciájának és pontosságának fenntartásához, lehetővé téve a felhasználók számára olyan eszközök törlését, amelyekre már nincs szükség, vagy tévedésből adták hozzá.
+
+- **Add support asset**: Új támogató eszköz csatolása egy munkához. Ez a folyamat magában foglalja egy fájl feltöltését, amelyet támogató eszközként használnak, további kontextust vagy információt biztosítva a fordításhoz. Ha a fájlkezelő rendszer azonosítója (FMS fájl azonosító) hiányzik, kivételt dob a rendszer, biztosítva, hogy minden támogató eszközt megfelelően nyomon követnek és kezelnek a rendszeren belül. A módszer kezeli a támogató eszköz metaadatainak létrehozását is, tovább gazdagítva az eszköz adatait a fordítás során történő felhasználáshoz.
+
+### Translation content
+
+- **Get translation content**: Hozzáférés az eredeti, fordításra benyújtott tartalomhoz egy munkában. Ez a művelet lehetővé teszi a felhasználók számára a fordításra szolgáltatott forrásmaterial lekérését, lehetővé téve a tartalom ellenőrzését vagy igazolását a fordítási folyamat előtt vagy után.
+
+- **Update translation content**: A fordításra benyújtott eredeti tartalom frissítése. Ez a módszer megkönnyíti a forrástartalomnak a módosítását egy fordítási munkában, lehetővé téve a javításokat, frissítéseket vagy finomításokat a fordítási kimenet pontosságának és relevanciájának biztosítása érdekében.
+
+- **Retrieve source content**: A lefordított tartalom letöltése egy vagy több fordítási kéréshez
+
+### Translation memory
+
+- **Add translation memory**: Fordítási memória fájl beépítése egy munkába.
+
+- **Get translation memory**: Egy munkához kapcsolódó adott fordítási memória részleteinek lekérése.
+
+## Events
+
+- **Job status updated**: Ez az esemény értesíti Önt, amikor egy munka állapota megváltozik, például amikor befejeződik vagy törlik. Ha nincs meghatározva konkrét állapotkód, alapértelmezés szerint csak az "IN_TRANSLATION" állapotú munkáknál aktiválódik. Az esemény különböző feltételeket értékel, például a munka azonosító egyezését, archiválási állapotot, törlési állapotot, és összehasonlítja a jelenlegi állapotot a várt állapotkódokkal. Ha a feltételek teljesülnek, részletes információk jelennek meg a munkáról, beleértve annak jelenlegi állapotát.
+
+- **On request status updated**: A munka állapotfrissítésekhez hasonlóan ez az esemény figyelmeztet, amikor egy fordítási kérés elér egy bizonyos mérföldkövet, például befejeződik vagy törlik. Alapértelmezés szerint a "REVIEW_TRANSLATION" állapotú kérések esetén aktiválódik, hacsak másképp nem határozzák meg. A webhook értékeli a kérés megfelelését az előre meghatározott feltételeknek, például állapotkódoknak, munka azonosító relevanciájának, és hogy a kérés azonosítók megfelelnek-e a várt értékeknek. A sikeres érvényesítés eredményeként részletes jelentés készül a munkáról és az érintett kérésekről, biztosítva, hogy mindig naprakész legyen a fordítási projektek előrehaladásáról.
+
+- **On all requests in review**: Csak egy munka azonosítót igényel. Ez az esemény akkor aktiválódik, amikor az adott munkához tartozó összes kérés *In review* állapotban van. Ezzel az állapottal a Lionbridge jelzi, hogy letöltheti a célfájlokat és jóváhagyhatja vagy elutasíthatja azokat. Használja ezt egy ellenőrzési pontban, hogy megvárja, amíg minden kérés készen áll, majd ezután letöltse az összes fájlt.
+
+## Példa
+
+Ezek a madarak bemutatják a Lionbridge alkalmazásban található általános munkafolyamatot.
+Az első madár elindít egy munkát és kéréseket hoz létre a Google Drive-ra feltöltött fájlok alapján, majd elküldi azt a Lionbridge szolgáltatónak a 'Submit Job' művelet segítségével.
+
+![Lionbridge-example-1](https://raw.githubusercontent.com/bb-io/Lionbridge/main/image/README/Lionbridge-example-1.png)
+
+A második madár akkor aktiválódik, amikor a szolgáltató feldolgozta a fájlunkat (vagy fájljainkat), ezután feltöltjük azt vissza a felhőtárhelyre (ebben a példában a Google Drive-ra). Végül egyszerűen archiváljuk a munkát.
+
+![Lionbridge-example-2](https://raw.githubusercontent.com/bb-io/Lionbridge/main/image/README/Lionbridge-example-2.png)
+
+Ha inkább egy madarat szeretne használni 2 helyett, használhatja az **On all requests in review** eseményt a következőképpen:
+
+![Lionbridge-example-3](https://raw.githubusercontent.com/bb-io/Lionbridge/main/image/README/1738156311174.png)
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzést szeretne adni a megvalósításunkról? Lépjen kapcsolatba velünk a [megadott csatornákon](https://www.blackbird.io/) keresztül vagy hozzon létre egy problémát.

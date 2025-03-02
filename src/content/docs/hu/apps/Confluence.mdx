@@ -1,0 +1,56 @@
+---
+  title: Confluence
+  description: A Confluence Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Github-on" target="_blank" href="https://github.com/bb-io/Confluence" icon="github" />
+
+Hozzon létre, működjön együtt és szervezze meg minden munkáját egy helyen. A Confluence egy csapatmunkára alkalmas felület, ahol a tudás és az együttműködés találkozik. A dinamikus oldalak lehetőséget adnak csapatának, hogy létrehozzon, rögzítsen és együttműködjön bármely projekten vagy ötleten.
+
+## Beállítás előtt
+
+Gondoskodnia kell arról, hogy rendelkezzen Confluence fiókkal és hozzáféréssel. Alkalmazásunk OAuth 2.0-t használ hitelesítéshez, így nem kell API kulcsokat megadnia. Át lesz irányítva a Confluence bejelentkezési oldalára az alkalmazás engedélyezéséhez. Megjegyzés: ez az alkalmazás a [Confluence Cloud REST API](https://developer.atlassian.com/cloud/confluence/rest/v1/intro/#about) használatával biztosít egyszerűsített élményt a tartalom kezeléséhez.
+
+## Csatlakozás
+
+1. Navigáljon az Alkalmazásokhoz, és keresse meg a **Confluence** alkalmazást. Keresést is használhat a megtalálásához.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a jövőbeli hivatkozáshoz, például "Szervezetem".
+4. Kattintson az _Authorize connection_ gombra.
+5. Átirányítják a Confluence bejelentkezési oldalára. Adja meg hitelesítő adatait és engedélyezze az alkalmazást.
+6. Ellenőrizze, hogy a kapcsolat megjelent-e és a státusza _Connected_.
+
+![Kapcsolat](https://raw.githubusercontent.com/bb-io/Confluence/main/image/README/connection.png)
+
+## Actions
+
+### Content
+
+- **Search content** - Visszaadja a keresési feltételeknek megfelelő tartalomlistát.
+- **Get content** - Visszaad egy tartalomobjektumot a tartalmi azonosító alapján.
+- **Get content as HTML** - Visszaad egy HTML tartalmat a tartalmi azonosító alapján.
+- **Update content from HTML** - Frissít egy tartalmat HTML fájlból.
+- **Create content from HTML** - Létrehoz egy tartalmat HTML fájlból.
+- **Create content** - Új tartalmat hoz létre a megadott adatokkal.
+- **Delete content** - Törli a tartalmi azonosítóval megadott tartalmat.
+
+## Events
+
+- **On content created** - Lekérdezési esemény. Meghatározott időközönként aktiválódik és visszaadja az új tartalmat.
+- **On content updated** - Lekérdezési esemény. Meghatározott időközönként aktiválódik és visszaadja a frissített tartalmat.
+
+## Hibakezelés
+
+Alkalmazásunk strukturált formátumban adja vissza a hibákat. Az alábbiakban láthatók a tipikus hibaüzenetek, amelyekkel találkozhat:
+
+`Status code: {Státuszkód}, Message: {Üzenet}`
+
+- Státuszkód: A hibához kapcsolódó HTTP státuszkód.
+- Üzenet: Rövid üzenet, amely leírja a hibát, amelyet a Confluence API-tól kapunk.
+
+Ha hibába ütközik, kérjük, próbálja megoldani a hibaüzenetben található információk segítségével. Ha nem tudja megoldani a hibát, kérjük, vegye fel velünk a kapcsolatot további segítségért.
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy van visszajelzése a megvalósításunkról? Lépjen kapcsolatba velünk a [megszokott csatornákon](https://www.blackbird.io/) keresztül vagy hozzon létre egy hibajegyet.

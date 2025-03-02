@@ -1,0 +1,107 @@
+---
+title: Sanity
+description: A Sanity Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Sanity" icon="github" />
+
+A Sanity egy headless CMS (Tartalomkezelő Rendszer), amelyet rugalmasság és komponálhatóság jellemez. Strukturált tartalmat használ, lehetővé téve a vállalkozások számára, hogy a tartalmakat különböző csatornákon újrahasznosítsák. Komponálható megközelítése segíti a szervezeteket a harmadik féltől származó technológiákkal, adatforrásokkal és frontend keretrendszerekkel való kapcsolódásban.
+
+## Beállítás előtt
+
+Az integráció beállítása előtt győződjön meg arról, hogy hozzáféréssel rendelkezik egy Sanity projekthez.
+
+1. Látogasson el a [Sanity.io](https://www.sanity.io/manage/personal) oldalra, és hozzon létre egy új projektet vagy használjon egy meglévőt.
+2. Azonosítsa a **Project ID**-t, amely a Sanity projekt irányítópultján a projektnevének alatt található.
+3. Hozzon létre egy **API tokent** (vagy használjon egy meglévőt). Új tokent generálhat a Sanity projekt **API** fülén. Az alkalmazás **Editor** jogosultságokat igényel az összes funkció eléréséhez. A létrehozás után másolja le a tokent későbbi használatra.
+
+![API_token.png](https://raw.githubusercontent.com/bb-io/Sanity/main/image/README/API_token.png)
+
+## Csatlakozás a Sanity-hez
+
+1. Navigáljon az **Apps** szekcióba és keresse meg a **Sanity** alkalmazást (kereshet rá).
+2. Kattintson az **Add Connection** gombra.
+3. Nevezze el a kapcsolatot későbbi hivatkozás céljából (pl. 'Szervezetem').
+4. Írja be a **Project ID**-t a megfelelő mezőbe.
+5. Írja be az **API tokent** a megfelelő mezőbe.
+6. Kattintson az **Authorize connection** gombra.
+7. Ellenőrizze, hogy a kapcsolat létrejött, és az állapot **Connected**-et mutat.
+
+![Connection](https://raw.githubusercontent.com/bb-io/Sanity/main/image/README/connection.png)
+
+## Actions
+
+- **Search content**: Tartalom keresése egy adott adatkészleten belül. Ha nincs megadva adatkészlet, alapértelmezés szerint a production adatkészlet kerül használatra.
+- **Get content**: Tartalmi objektum lekérése egy adott adatkészletből a tartalom azonosítója alapján.
+- **Get content as HTML**: Lokalizálható tartalmi mezők lekérése HTML fájlként.
+- **Update content from HTML**: Lokalizálható tartalmi mezők frissítése HTML fájl használatával.
+- **Create content**: Tartalmi objektum létrehozása annak típusa és paraméterei alapján.
+- **Delete content**: Tartalmi objektum eltávolítása egy adatkészletből a tartalom azonosítója alapján.
+
+## HTML konverzió
+
+Kérjük, vegye figyelembe, hogy ez az alkalmazás jelenleg a [sanity-plugin-internationalized-array](https://github.com/sanity-io/sanity-plugin-internationalized-array) pluginnal működik. Ez azt jelenti, hogy az alkalmazás csak az **'internationalizedArrayStringValue'** vagy **'internationalizedArray'** típusú mezőket támogatja. Nem fogja felismerni vagy frissíteni a normál string típusú tartalmakat. Csak ezek a mezőtípusok támogatottak.
+
+Íme egy példa a támogatott mezőkre:
+
+```ts
+defineField({
+    name: 'firstName',
+    description: 'Test description',
+    type: 'internationalizedArrayString',
+}),
+defineField({
+    name: 'lastName',
+    type: 'internationalizedArrayString',
+}),
+defineField({
+    name: 'experience',
+    type: 'internationalizedArrayString'
+})
+```
+
+A jövőben tervezzük további lokalizációs pluginek támogatását, mint például a [document-internationalization plugin](https://github.com/sanity-io/document-internationalization), amely dokumentum szinten működik.
+
+> Ha normál tartalomtípusokat (például string vagy rich text blokkok) szeretne fordítani, kérjük, vegye fel velünk a kapcsolatot, és megvizsgálunk egy megoldást.
+
+## Events
+
+### Webhook konfiguráció
+
+A webhookok engedélyezéséhez menjen a projektoldalára a Sanity.io-n. Válassza az **API** fület, majd kattintson a **Create new webhook** gombra. Nevezze el a webhookot (pl. Blackbird), adjon hozzá leírást, és írja be a következő URL-t: `https://bridge.blackbird.io/api/webhooks/sanity`. Válassza ki azokat a dokumentum műveleteket, amelyek elindítják a webhookot (javasoljuk az összes kiválasztását: create, update, delete). Hagyja a többi beállítást az alapértelmezett értékeiken. Kattintson a **Save** gombra. Valami ilyesmit kell látnia:
+
+![webhook_configuration](https://raw.githubusercontent.com/bb-io/Sanity/main/image/README/webhook_configuration.png)
+
+### Event lista
+
+- **On content created**: Akkor aktiválódik, amikor új tartalom jön létre.
+- **On content updated**: Akkor aktiválódik, amikor meglévő tartalom frissül.
+
+> Ha az **On content updated** eseményt használja, legyen óvatos a potenciális végtelen hurok kialakulásával kapcsolatban. Ha a munkafolyamat elindítja ezt az eseményt, és az akció során frissíti a tartalmat, ez újra elindíthatja az eseményt. Ennek elkerülése érdekében két opcionális szűrő paramétert használhat:
+>
+> 1. **Trigger if all language fields are not present**: Ha engedélyezve van, az esemény csak akkor aktiválódik, ha a megadott "Translation language" hiányzik a tartalomból.
+> 2. **Translation language**: Csak akkor alkalmazható, ha az első szűrő engedélyezve van. Állítsa be a célzott fordítási nyelvet. Az esemény csak akkor aktiválódik, ha az adott nyelv összes lokalizációs mezője hiányzik a tartalomból.
+
+## Korlátozások
+
+- A Sanity-ben a lokalizáció egy plugin segítségével érhető el, ami azt jelenti, hogy a felhasználó kód írásával (beleértve a területi beállításokat is) hozza létre saját tartalmi modelljeit. Mivel ez egy plugin, nem biztosít közvetlen API végpontokat a területi beállítások vagy egyéb információk lekérdezésére a pluginból.
+
+```ts
+plugins: [
+  structureTool(), 
+  visionTool(),
+  internationalizedArray({
+    languages: [
+      {id: 'en', title: 'English'},
+      {id: 'fr', title: 'French'}
+    ],
+    defaultLanguages: ['en'],
+    fieldTypes: ['string', 'artist']
+  })
+]
+```
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Keressen minket a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

@@ -1,0 +1,47 @@
+---
+  title: LanguageDesk
+  description: A LanguageDesk Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/LanguageDesk" icon="github" />
+
+A [LanguageDesk](https://www.milengo.com/languagedesk/) lehetővé teszi az ügyfelek számára, hogy könnyen nyomon követhessék projektjeik előrehaladását a kezdetektől a befejezésig, központosított áttekintést nyújtva minden fordítási és lokalizációs projektről, azok állapotáról, kapcsolódó fájlokról, költségekről és kommunikációs előzményekről.
+
+## Beállítás előtt
+
+A kapcsolódás előtt győződjön meg arról, hogy:
+
+- Rendelkezik LanguageDesk fiókkal
+- Van API tokenje. Ezt a tokent a LanguageDesk-ben a _settings_ -> _API & Ftp servers_ alatt találhatja meg.
+
+## Kapcsolódás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a LanguageDesk-re. Ha nem találja, kattintson a jobb felső sarokban található _Add App_ gombra, válassza ki a LanguageDesk-et, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például: 'Szervezetem'.
+4. Töltse ki a LanguageDesk példány alap URL-jét. Az alap URL formája: `https://<environment>.languagedesk.com`. Ezt az URL részt általában lemásolhatja, amikor be van jelentkezve a LanguageDesk fiókjába.
+5. Adja meg az API tokenjét.
+6. Kattintson a _Connect_ gombra.
+
+![1705078067846](https://raw.githubusercontent.com/bb-io/LanguageDesk/main/image/README/1705078067846.png)
+
+## Actions
+
+- **Create project** új LanguageDesk projektet hoz létre változtatható forrás/célnyelv kombinációkkal és egyéb bemeneti adatokkal. Megjegyzés: használja a Callback URL mezőt az események engedélyezéséhez (lásd alább).
+- **Get project** visszaadja az összes elérhető információt egy adott projektről
+- **Change project status** megváltoztatja egy meglévő projekt állapotát
+- **Download delivery files** letölti a lefordított fájlt egy zip fájlban.
+- **Download invoice** letölti a számlát PDF formátumban.
+
+## Events
+
+- **On project status changed** akkor aktiválódik, amikor egy projekt állapota megváltozik. Amikor ilyen eseményindítóval hoz létre egy madarat (bird), másolja ki az URL-t, amelyet a Blackbird generál, és adja hozzá Callback URL mezőként a _Create project_ műveletekben. (Lásd az alábbi képernyőképeket)
+
+![1705078296613](https://raw.githubusercontent.com/bb-io/LanguageDesk/main/image/README/1705078296613.png)
+
+![1705078347912](https://raw.githubusercontent.com/bb-io/LanguageDesk/main/image/README/1705078347912.png)
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy van visszajelzése a megvalósításunkról? Vegye fel velünk a kapcsolatot a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy hibajegyet.

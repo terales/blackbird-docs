@@ -1,0 +1,53 @@
+---
+  title: MemoQ CMS
+  description: Застосунок Blackbird MemoQ CMS
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/MemoQCMS" icon="github" />
+
+MemoQ CMS — це платформа, яка оптимізує робочі процеси, забезпечуючи ефективне надсилання, обробку та доставку завдань у середовищі memoQ Server, покращуючи загальні можливості управління перекладами.
+
+## Перед налаштуванням
+
+Перш ніж ви зможете підключитися, вам потрібно переконатися, що:
+
+- У вас [встановлено memoQ](https://www.memoq.com/downloads).
+- Ви створили підключення та отримали свій _Base URL_ і _Connection key_. Інформацію про встановлення підключення можна знайти в [_документації memoQ Server CMS API_](https://docs.memoq.com/current/api-docs/cmsapi/CMS%20Gateway%20REST%20API%20v2.00.pdf?_gl=1*nqna0h*_ga*ODg3NDQ5Njc0LjE3MDExNjIwMjY.*_ga_HHK0YX9VVW*MTcwMTI0MzUxMS4zLjAuMTcwMTI0MzUxMS4wLjAuMA..*_ga_TVK7MSKW78*MTcwMTI0MzUxMS4zLjAuMTcwMTI0MzUyMC4wLjAuMA..*_gcl_au*MTM3Njk1OTc2NC4xNzAxMTYyMDI1#page=13&zoom=100,90,94) у розділах _2.3.1. CMS connection lifecycle_ та _2.3.2. CMS connection management_.
+
+## Підключення
+
+1. Перейдіть до застосунків та знайдіть memoQ CMS. Якщо ви не можете знайти memoQ CMS, натисніть _Add App_ у верхньому правому куті, виберіть memoQ CMS та додайте застосунок до вашого середовища Blackbird.
+2. Натисніть _Add Connection_.
+3. Назвіть ваше підключення для подальшого використання, наприклад, 'Моя організація'.
+4. Заповніть базову URL-адресу та ключ підключення, які ви отримали раніше. Ви також можете скопіювати інформацію про підключення. Для цього перейдіть до _Server Administrator_ -> _CMS connections_ і натисніть _Copy client configuration information to the clipboard_.
+5. Натисніть _Connect_.
+6. Підтвердіть, що підключення з'явилося, і статус є _Connected_.
+
+![Підключення](https://raw.githubusercontent.com/bb-io/MemoQCMS/main/image/connecting.png)
+
+## Actions
+
+### Orders
+
+- **List orders**. Замовлення можна додатково фільтрувати за допомогою вхідних параметрів.
+- **Get order**.
+- **Create order**. Залиште параметр _Callback URL_ не вказаним, якщо ви плануєте використовувати події **On job completed** та/або **On job cancelled**.
+- **Commit order** змінює статус замовлення на _Committed_, що означає, що всі завдання замовлення були надіслані.
+
+### Jobs
+
+- **List jobs** повертає завдання перекладу для вказаного замовлення.
+- **Get job**.
+- **Create job** створює нове завдання перекладу у вказаному замовленні. Зауважте, що ви не можете додати нове завдання до замовлення зі статусом _Committed_.
+- **Download translation** завантажує переклад для вказаного завдання. Завдання повинно бути у стані _In Delivery_ або _Delivered_, перш ніж переклад можна буде завантажити.
+- **Deliver job** змінює статус завдання на _Delivered_.
+
+## Events
+
+- **On job completed** та **On job completed (manual)** спрацьовують, коли завдання завершено, що означає, що переклад готовий і його можна завантажити.
+- **On job cancelled** та **On job cancelled (manual)** спрацьовують, коли завдання скасовано.
+
+## Відгуки
+
+Бажаєте використовувати цей застосунок або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть проблему.

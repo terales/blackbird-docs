@@ -1,0 +1,63 @@
+---
+  title: Pinecone
+  description: De Pinecone Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Pinecone" icon="github" />
+
+
+Pinecone is een cloud-native vectordatabase ontworpen voor hoogwaardige AI-toepassingen, die een beheerde oplossing biedt zonder infrastructurele complexiteiten. Het is gespecialiseerd in het opslaan en snel opvragen van vectorembeddings, die dienen als langetermijngeheugen voor toepassingen met grote taalmodellen, generatieve AI en semantisch zoeken. Het systeem zorgt voor snelle en nauwkeurige zoekopdrachten op schaal, met resultaten met lage latentie die realtime updates weerspiegelen en aanpassingsopties bieden voor verbeterde prestaties.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een Pinecone-account hebt.
+- Je een [project hebt aangemaakt](https://docs.pinecone.io/docs/create-project).
+- Je de verbindingsparameters _API key_ en _Environment_ hebt verkregen. Om deze te vinden, open je de [Pinecone console](https://app.pinecone.io/), selecteer je het project waarin je geïnteresseerd bent en klik je op _API Keys_. Hier kun je de waarden voor _Environment_ en _API key_ kopiëren.
+
+![API keys](https://raw.githubusercontent.com/bb-io/Pinecone/main/image/api_keys.png)
+
+## Verbinding maken
+
+1. Ga naar apps en zoek naar Pinecone. Als je Pinecone niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Pinecone en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn database'.
+4. Vul de eerder verkregen _API key_ en _Environment_ in.
+5. Klik op _Connect_.
+6. Controleer of de verbinding is verschenen en de status _Connected_ is.
+
+![Connecting](https://raw.githubusercontent.com/bb-io/Pinecone/main/image/connecting.png)
+
+## Actions
+
+### Indexes
+
+- **List indexes**.
+- **Create index**. Je kunt meer lezen over indexes en hun parameters [hier](https://docs.pinecone.io/docs/indexes). Deze actie accepteert ook de parameter _Source collection_, wat een statische kopie van een index is. Je kunt meer lezen over collections [hier](https://docs.pinecone.io/docs/collections).
+- **Describe index** geeft een beschrijving van een index.
+- **Configure index** werkt het podtype en/of het aantal replica's voor een index bij. Je kunt alleen de podgrootte of het aantal replica's verhogen.
+- **Delete index**.
+- **List collections**.
+- **Create collection** maakt een verzameling van een index.
+- **Describe collection** geeft een beschrijving van een verzameling.
+- **Delete collection**.
+
+### Vectors
+
+- **Query** haalt de records op in de index die het meest lijken op een gegeven queryvector.
+- **Fetch vector** haalt een vector op op basis van zijn ID.
+- **Upsert vector** schrijft een nieuwe vector in de index.
+- **Delete vector**.
+- **Delete all vectors in namespace**.
+
+## Voorbeeld
+
+![Example](https://raw.githubusercontent.com/bb-io/Pinecone/main/image/example.png)
+
+In dit voorbeeld haalt een bird Zendesk-artikelen op die in de afgelopen 24 uur zijn toegevoegd, maakt een embedding voor elk van hen en slaat ze op in Pinecone.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

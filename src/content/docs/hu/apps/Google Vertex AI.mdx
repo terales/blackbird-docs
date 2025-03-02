@@ -1,0 +1,82 @@
+---
+  title: Google Vertex AI
+  description: A Google Vertex AI Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/GoogleVertexAI" icon="github" />
+
+A Vertex AI egy átfogó platform, amely hozzáférést biztosít olyan erőteljes multimodális modellekhez, mint a Google Gemini, lehetővé téve a fejlesztők számára, hogy zökkenőmentesen kombinálják a különböző bemeneteket, mint szöveg, kép, videó vagy kód. A modellek széles választékával a Vertex AI megkönnyíti a testreszabást és integrációt, lehetővé téve az AI alkalmazások fejlesztését és telepítését. A platform generatív AI modelleket, teljesen menedzselt eszközöket és célzott MLOps megoldásokat kínál a gépi tanulási életciklus teljes körű kezeléséhez — a betanítástól és finomhangolástól kezdve a telepítésig és monitorozásig.
+
+## Beállítás előtt
+
+A kapcsolódás előtt győződjön meg a következőkről:
+
+- Kiválasztott vagy létrehozott egy [Cloud Platform projektet](https://console.cloud.google.com/project).
+- [Engedélyezte a számlázást](https://cloud.google.com/billing/docs/how-to/modify-project) a projekthez.
+- [Engedélyezte a Vertex AI API-t](https://console.cloud.google.com/flows/enableapi?apiid=aiplatform.googleapis.com).
+- Létrehozott egy szolgáltatási fiókot és generált JSON kulcsokat.
+
+### Szolgáltatási fiók létrehozása és JSON kulcsok generálása
+
+1. Navigáljon a kiválasztott vagy létrehozott [Cloud Platform projekthez](https://console.cloud.google.com/project).
+2. Menjen az _IAM & Admin_ részhez.
+3. A bal oldali menüben válassza a _Service accounts_ opciót.
+4. Kattintson a _Create service account_ gombra.
+5. Adjon meg egy szolgáltatásifiók-nevet és opcionálisan egy leírást. Kattintson a _Create and continue_ gombra. Válassza a _Vertex AI Administrator_ vagy _Vertex AI User_ szerepkört a szolgáltatási fiókhoz és kattintson a _Continue_ gombra. 
+![Szolgáltatási fiók létrehozása](https://raw.githubusercontent.com/bb-io/GoogleVertexAI/main/image/README/access.png)
+6. Kattintson a _Done_ gombra.
+7. A szolgáltatási fiókok listájából válassza ki az újonnan létrehozott szolgáltatási fiókot és navigáljon a _Keys_ részhez.
+8. Kattintson az _Add key_ => _Create new key_ opcióra. Válassza a _JSON_ kulcstípust és kattintson a _Create_ gombra.
+9. Nyissa meg a letöltött JSON fájlt és másolja annak tartalmát, amelyet a _Service account configuration string_ kapcsolódási paraméterként fog használni.
+
+## Kapcsolódás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Google Vertex AI-ra. Ha nem találja a Google Vertex AI-t, kattintson a jobb felső sarokban található _Add App_ gombra, válassza a Google Vertex AI-t és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot későbbi hivatkozáshoz, pl. 'Saját szervezet'.
+4. Töltse ki a JSON konfigurációs karakterláncot, amelyet az előző lépésben szerzett.
+5. Kattintson a _Connect_ gombra.
+6. Ellenőrizze, hogy a kapcsolat megjelent és a státusza _Connected_.
+
+![Kapcsolódás](https://raw.githubusercontent.com/bb-io/GoogleVertexAI/main/image/README/connecting.png)
+
+> Megjegyzés: Jelenleg az alkalmazás a *us-west1* helyen tárolt modellekkel működik. Ha más követelményei vannak, kérjük, tudassa velünk!
+
+## Actions
+
+- **Generate text with Gemini** szöveget generál a Gemini modell használatával. Ha a szöveggenerálás egyetlen prompton alapul, akkor a gemini-1.0-pro modellel kerül végrehajtásra. Opcionálisan megadhat egy képet vagy videót a gemini-1.0-pro-vision modellel történő generáláshoz. Mind a kép, mind a videó méretkorláta 20 MB. Ha már van kép, akkor videó nem adható meg és fordítva. A támogatott képformátumok a PNG és JPEG, míg a videóformátumok a MOV, MPEG, MP4, MPG, AVI, WMV, MPEGPS és FLV. Opcionálisan állítsa az _Is Blackbird prompt_ értéket _True_-ra, jelezve, hogy az akciónak adott prompt az AI Utilities alkalmazás egyik akciójának eredménye. Megadhat biztonsági kategóriákat is a _Safety categories_ bemeneti paraméterben és a hozzájuk tartozó küszöbértékeket a _Thresholds for safety categories_ bemeneti paraméterben. Ha az egyik lista több elemet tartalmaz, mint a másik, a feleslegesek figyelmen kívül maradnak.
+
+- **Get Quality Scores for XLIFF file** XLIFF fájlokhoz szegmens- és fájlszintű minőségi pontszámokat ad. Opcionálisan hozzáadhatja a Threshold, New Target State és Condition bemeneti paramétereket a Blackbird művelethez, hogy megváltoztassa azon szegmensek célállapot-értékét, amelyek megfelelnek a kívánt feltételeknek (mindháromnak kitöltve kell lennie).
+
+    Opcionális bemenetek:
+	- Prompt: Adja meg a kritériumokat minden forrás-cél pár értékeléséhez. Ha nincs megadva, helyette az _"accuracy, fluency, consistency, style, grammar and spelling"_ kerül használatra.
+	- Bucket size: Az ugyanabban a kérésben feldolgozandó fordítási egységek mennyisége. (Lásd a dedikált szekciót)
+	- Source and Target languages: Alapértelmezés szerint ezeket az értékeket az XLIFF fejlécből vesszük. Megadhat különböző értékeket, nincs szükség specifikus formátumra.
+	- Threshold: 0-10 közötti érték.
+	- Condition: Kritériumok azon szegmensek szűréséhez, amelyek célállapota módosításra kerül.
+	- New Target State: érték, amelyre a szűrt fordítási egységek célállapotát frissíti.
+
+    Kimenet:
+	- Average Score: az összes szegmensszintű pontszám összesített értéke.
+	- Updated XLIFF file: szegmensszintű pontszám hozzáadva az extradata attribútumhoz és frissített célállapot, ha utasítva lett.
+
+- **Post-edit XLIFF file** Frissíti az XLIFF fájl célszövegeit
+
+	Opcionális bemenetek:
+	- Prompt: Adja meg a nyelvészeti kritériumokat a célszövegek utószerkesztéséhez.
+	- Bucket size: Az ugyanabban a kérésben feldolgozandó fordítási egységek mennyisége. (Lásd a dedikált szekciót)
+	- Source and Target languages: Alapértelmezés szerint ezeket az értékeket az XLIFF fejlécből vesszük. Megadhat különböző értékeket, nincs szükség specifikus formátumra.
+	- Glossary
+
+- **Process XLIFF file** egy XLIFF fájl esetén feldolgozza az egyes fordítási egységeket a megadott utasítások szerint (alapértelmezés szerint lefordítja a forráscímkéket) és frissíti az egyes egységek célszövegét.
+
+Megjegyzendő, hogy minden XLIFF művelet támogatja az XLIFF formátum 1.2-es és 2.1-es verzióit, mivel ezek a leggyakrabban használt verziók az iparágban. Ha más verziója van, kérjük, jelezze nekünk, és fontolóra vesszük a támogatás hozzáadását.
+
+### Bucket méret, teljesítmény és költség
+
+Az XLIFF fájlok sok szegmenst tartalmazhatnak. Minden művelet veszi a szegmenseket és elküldi őket az AI alkalmazásnak feldolgozásra. Előfordulhat, hogy a szegmensek száma olyan magas, hogy a prompt meghaladja a modell kontextusablakát, vagy a modell hosszabb ideig tart, mint amennyi ideig a Blackbird műveleteknek megengedett. Ezért vezettük be a bucket méret paramétert. A bucket méret paraméter beállításával meghatározhatja, hány szegmenst küldjön egyszerre az AI modellnek. Ez lehetővé teszi a munkaterhelés felosztását különböző API-hívásokra. A kompromisszum az, hogy ugyanazt a kontextus promptot minden kéréssel el kell küldeni (ami növeli a felhasznált tokenek számát). Kísérleteink alapján azt találtuk, hogy 1500-as bucket méret elegendő az olyan modellekhez, mint a gpt-4o. Ezért 1500 az alapértelmezett bucket méret, azonban más modellek eltérő bucket méreteket igényelhetnek.
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Lépjen kapcsolatba velünk a [bevált csatornákon](https://www.blackbird.io/) keresztül vagy hozzon létre egy problémát.

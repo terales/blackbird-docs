@@ -1,0 +1,104 @@
+---
+  title: GitLab
+  description: Додаток Blackbird для GitLab
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/GitLab" icon="github" />
+
+GitLab — це платформа для розробників, яка дозволяє створювати, зберігати та керувати своїм кодом. Цей додаток GitLab зосереджується на підключенні подій GitLab та дій з файлами до екосистеми Blackbird.
+
+## Перед налаштуванням
+
+Перш ніж підключитися, вам потрібно переконатися, що:
+
+- У вас є обліковий запис GitLab.
+- У вас є права власника на репозиторій, для якого ви хочете налаштувати автоматизацію.
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть GitLab. Якщо ви не можете знайти GitLab, натисніть _Add App_ у правому верхньому куті, виберіть GitLab і додайте його до свого середовища Blackbird.
+2. Натисніть _Add Connection_.
+3. Назвіть своє підключення для подальшого використання, наприклад, "Моє підключення до GitLab".
+4. Натисніть _Authorize connection_.
+5. Дотримуйтесь інструкцій, наданих GitLab, щоб авторизувати Blackbird.io діяти від вашого імені.
+6. Коли ви повернетеся до Blackbird, переконайтеся, що з'явилося підключення і його статус _Connected_.
+
+![1705402013379](https://raw.githubusercontent.com/bb-io/GitLab/main/image/README/1705402013379.png)
+
+## Actions
+
+### Repositories
+
+- **List repositories**
+- **Create new repository**
+- **Get repository**
+- **Get repository issues**
+- **List repository folder content**
+
+### Branches
+
+- **List branches**
+- **Get branch**
+
+### Commits
+
+- **List commits**
+- **Get commit**
+
+### Merge requests
+
+- **Create merge request**
+- **List merge requests**
+- **Get merge request**
+- **Get repository merge requests**
+- **Complete merge request**
+
+### Files
+
+- **Get repository file**
+- **Get all files in folder**
+- **Get files by filepaths**
+- **Delete file**
+- **Push file**
+- **Update file**
+
+### Users
+
+- **Get my user data**
+- **Get user**
+- **Get user by username**
+
+### Utility
+
+- **Is file in folder**
+
+## Events
+
+### Pulls
+
+= **On pull request action** відбувається, коли є активність у запиті на витягування. Дивіться [цю сторінку](https://docs.GitLab.com/en/webhooks/webhook-events-and-payloads#pull_request) для отримання додаткової інформації.
+
+### Pushes
+
+- **On commit pushed** відбувається, коли є push до гілки репозиторію. Це включає випадки, коли надсилається коміт, коли надсилається тег коміту, коли видаляється гілка, коли видаляється тег або коли репозиторій створюється за шаблоном.
+- **On files added** запускається, коли нові коміти мають нові файли. Повертає шляхи до всіх доданих файлів.
+- **On files modified** запускається, коли нові коміти змінюють файли. Повертає шляхи до всіх змінених файлів.
+- **On files added or modified** запускається, коли нові коміти додають нові файли або змінюють файли. Повертає шляхи до всіх цих файлів.
+- **On files removed** запускається, коли нові коміти видаляють файли. Повертає шляхи до всіх видалених файлів.
+
+Для подій, специфічних для файлів, можна вказати параметр шляху, щоб обмежити подію лише файлами у певних папках або файлами, що мають певні розширення. Використовуйте пряму косу риску '/' для позначення роздільника каталогів. Використовуйте '\*' для представлення символів-замінників у назвах файлів і каталогів. Використовуйте '\*\*' для позначення довільної глибини каталогу.
+
+Наприклад: якщо ви хочете створити подію, яка спрацьовує лише тоді, коли файли .html змінюються в папці під назвою _locales_. Тоді шлях події **On files added or modified** повинен бути: _/locales/\*.html_
+
+![1705407685118](https://raw.githubusercontent.com/bb-io/GitLab/main/image/README/1705407685118.png)
+
+## Приклад
+
+Наступний bird створює новий проект memoQ щоразу, коли файли оновлюються або додаються до певної папки в репозиторії GitLab.
+
+![1705408481146](https://raw.githubusercontent.com/bb-io/GitLab/main/image/README/1705408481146.png)
+
+## Зворотній зв'язок
+
+Хочете використовувати цей додаток або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть issue.

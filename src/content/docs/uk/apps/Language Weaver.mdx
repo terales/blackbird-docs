@@ -1,0 +1,83 @@
+---
+  title: Language Weaver
+  description: Додаток Blackbird Language Weaver
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/LanguageWeaver" icon="github" />
+
+Language Weaver — це технологія машинного перекладу та бренд компанії RWS. Це безпечний, адаптивний, хмарний API для корпоративного машинного перекладу та портал для компаній, яким потрібно швидко та ефективно обробляти великі обсяги багатомовного контенту.
+
+## Перед налаштуванням
+
+Перш ніж підключитися, вам потрібно переконатися, що:
+
+- У вас є обліковий запис Language Weaver з обліковими даними адміністратора.
+- Ви налаштували облікові дані API у своєму [порталі Language Weaver](https://portal.languageweaver.com/settings/api-credentials). Під час створення нових облікових даних обов'язково збережіть секретний ключ клієнта (Client secret).
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть Language Weaver. Якщо ви не можете знайти Language Weaver, натисніть _Add App_ у верхньому правому куті, виберіть Language Weaver і додайте додаток до свого середовища Blackbird.
+2. Натисніть _Add Connection_.
+3. Назвіть своє підключення для подальшого використання, наприклад, "My Language Weaver".
+4. Заповніть свій ідентифікатор клієнта (Client ID) та секретний ключ клієнта (Client secret), які ви скопіювали з [порталу Language Weaver](https://portal.languageweaver.com/settings/api-credentials)
+5. Натисніть _Connect_.
+
+![Connecting](https://raw.githubusercontent.com/bb-io/LanguageWeaver/main/image/README/1697473360187.png)
+
+## Actions
+
+### Translation
+
+- **Translate text** перекладає текстовий ввід.
+- **Translate file** перекладає файловий ввід. Підтримувані формати файлів можна знайти [тут](https://developers.languageweaver.com/api/lw/common/input-formats.html).
+
+Усі кінцеві точки перекладу можуть мати режим "quality" або "speed".
+
+- **Translate text with QE**.
+- **Translate file with QE** обидві дії застосовують оцінку якості до перекладеного контенту. Мова оригіналу обов'язкова і не може бути вгадана. Ці дії мають обмежені мовні комбінації, і вам слід перевірити доступні моделі у своєму обліковому записі Language Weaver для підтримуваних мовних комбінацій.
+
+Оцінка якості та конвертація PDF через ABBYY мають бути увімкнені для вашого облікового запису в налаштуваннях Language Weaver.
+
+### Identification
+
+- **Identify text language** визначає мову текстового вводу.
+- **Identify file language** визначає мову файлового вводу.
+
+### Content insights
+
+- **Get file content insights** створює та одразу повертає аналітику контенту для файлу, включаючи кількість слів/символів, мову оригіналу та оцінку для кожного сегмента.
+
+### Dictionary management
+
+- **Get dictionary** повертає інформацію про словник.
+- **Create dictionary**.
+- **Delete dictionary**.
+- **Import glossary** дозволяє імпортувати глосарій до існуючого або нового словника. Для нових словників вкажіть мови оригіналу та перекладу, з можливістю додати назву та опис. При імпорті в існуючий словник використовуйте додатковий параметр _Dictionary ID_. Опція _Overwrite duplicate terms_ дозволяє контролювати оновлення існуючих значень при імпорті. Якщо у імпортованому глосарії немає вказаних у словнику мов, обираються найбільш відповідні альтернативи. Наприклад, якщо словник містить _English_, але глосарій має лише _English (United States)_, терміни останнього будуть включені до словника.
+- **Export glossary** дозволяє експортувати словник з можливістю вказати назву глосарія та опис джерела.
+
+## Examples
+
+![First example](https://raw.githubusercontent.com/bb-io/LanguageWeaver/main/image/README/1697474172103.png)
+Цей базовий приклад показує, як можна використовувати Language Weaver для перекладу повідомлень Microsoft Teams.
+
+![Second example](https://raw.githubusercontent.com/bb-io/LanguageWeaver/main/image/README/Example2.png)
+Тут, щоразу, коли PDF-файли завантажуються в SharePoint Documents, кожен файл завантажується, перекладається за допомогою Language Weaver і розміщується у відповідному каталозі на основі оцінки якості перекладу.
+
+## Відсутні функції
+
+У майбутньому ми можемо підтримувати та додавати дії для:
+
+- Оновлення словників
+- Управління термінами словника
+- Управління брендами
+- Управління мітками
+- Управління групами
+- Управління відгуками
+- Адаптація
+
+Повідомте нам, якщо вас це цікавить!
+
+## Зворотній зв'язок
+
+Відгуки щодо нашої реалізації Language Weaver завжди дуже вітаються. Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть запит.

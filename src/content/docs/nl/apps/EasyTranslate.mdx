@@ -1,0 +1,110 @@
+---
+  title: EasyTranslate
+  description: De EasyTranslate Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/EasyTranslate" icon="github" />
+
+EasyTranslate is een SaaS-bedrijf dat vertaalbeheer, geavanceerde generatieve AI en toegang tot freelance vertalers/redacteuren biedt - allemaal in één software.
+
+Of je nu op zoek bent naar het maken van content vanaf nul, het vertalen van je website, webshop, CMS of meer - wij hebben alle tools die je nodig hebt om te slagen. Integreer met onze vele no-code plugins en automatiseer je volledige vertaal- en contentcreatieprocessen.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, zorg ervoor dat je de volgende stappen hebt voltooid:
+
+1. Maak een account aan in het EasyTranslate systeem
+2. Stel een integratie in met de **EasyTranslate API** om je Client ID en Client Secret te verkrijgen
+
+Om je Client ID en Client Secret te verkrijgen, ga naar de pagina 'Integrations' en zoek de sectie **EasyTranslate API**
+
+![integration](https://raw.githubusercontent.com/bb-io/EasyTranslate/main/image/README/integration-1.png)
+
+3. Ken je teamnaam. Standaard kun je deze vinden door linksonder te klikken en deze zal zich onder je e-mail bevinden
+
+## Verbinding maken
+
+Volg deze stappen om verbinding te maken met EasyTranslate:
+
+1. Ga naar de sectie "Apps" en zoek naar "EasyTranslate".
+2. Klik op "Add Connection".
+3. Geef je verbinding een naam voor toekomstig gebruik, bijv. "EasyTranslate".
+4. Vul het veld "Host" in met je host. Het moet er ongeveer zo uitzien: api.platform.sandbox.easytranslate.com.
+5. Vul het veld "Client ID" in.
+6. Vul het veld "Client Secret" in.
+7. Vul het veld "Username" in met de gebruikersnaam of e-mail van de gebruiker die de acties zal uitvoeren.
+8. Vul het veld "Password" in met het wachtwoord van de gebruiker die de acties zal uitvoeren.
+9. Vul het veld "Teamname" in (moet met underscores). Let op dat het veld teamnaam niet wordt gevalideerd, dus zorg ervoor dat je de juiste invult om toekomstige fouten te voorkomen.
+10. Klik op "Connect".
+
+![connection](https://raw.githubusercontent.com/bb-io/EasyTranslate/main/image/README/connection.png)
+
+## Actions
+
+### Library
+
+- **Get all libraries**: Verkrijg alle bibliotheken voor een team
+- **Get library**: Verkrijg een bibliotheek voor een team
+- **Create library**: Maak een bibliotheek voor een team
+- **Delete library**: Verwijder een bibliotheek voor een team
+- **Start library automation**: Start bibliotheekautomatisering voor een team
+- **Add target languages to library**: Voeg doeltalen toe aan een bibliotheek voor een team
+- **Remove target languages from library**: Verwijder doeltalen uit een bibliotheek voor een team
+- **Download library**: Download een bibliotheek voor een team
+
+### Project
+
+- **Get all projects**: Verkrijg alle projecten voor een team
+- **Create a project**: Maak een project aan via een formulier
+- **Create project with file**: Maak een project aan van het geüploade bestand
+- **Get project**: Verkrijg een project op ID
+- **Download source file**: Download bronbestand van een project
+
+### Task
+
+- **Get all tasks**: Verkrijg alle taken voor een specifiek project
+- **Get task by ID**: Verkrijg taak van project op ID
+
+### Translation key
+
+- **Get translation keys**: Verkrijg vertaalsleutels voor een specifieke bibliotheek
+- **Get translation key**: Verkrijg vertaalsleutel voor een specifieke bibliotheek
+- **Create translation keys**: Maak vertaalsleutels voor een specifieke bibliotheek
+- **Create translation key**: Maak vertaalsleutel voor een specifieke bibliotheek
+- **Delete translation key**: Verwijder vertaalsleutel voor een specifieke bibliotheek
+
+### Translation string
+
+- **Get translation strings**: Verkrijg alle vertaalstrings voor een specifieke bibliotheek. Deze actie haalt alle vertaalstrings op die bij een bepaalde bibliotheek horen. Het kan nuttig zijn om alle beschikbare vertalingen voor een bepaalde bibliotheek op te halen.
+- **Get translation string**: Verkrijg een specifieke vertaalstring voor een bibliotheek. Deze actie haalt een enkele vertaalstring op op basis van de opgegeven bibliotheek ID en vertaalstring ID. Het kan worden gebruikt om een specifieke vertaalstring op te halen voor verdere verwerking of wijziging.
+- **Update translation string**: Werk een vertaalstring bij voor een specifieke bibliotheek. Met deze actie kun je de tekst van een vertaalstring in een bibliotheek bijwerken. Het vereist de bibliotheek ID, vertaalstring ID en de bijgewerkte tekst als invoer.
+- **Update translation strings**: Werk meerdere vertaalstrings bij voor een specifieke bibliotheek. Met deze actie kun je meerdere vertaalstrings in een bibliotheek tegelijk bijwerken. Het vereist de bibliotheek ID, een lijst met vertaalstring ID's en de bijbehorende bijgewerkte teksten als invoer.
+
+### Folder
+
+- **Get all folders**: Verkrijg alle mappen voor een team
+- **Get folder**: Verkrijg een map voor een team
+- **Create folder**: Maak een map voor een team
+- **Update folder**: Werk een map bij voor een team
+
+### Content
+
+- **Download content**: Download bron- of doelinhoud op basis van opgegeven URL
+
+### Content generation
+
+- **Create content**: Maak content op basis van opgegeven prompt en instellingen
+
+## Events
+
+- **On task updated**: Wordt geactiveerd wanneer een taak wordt bijgewerkt
+- **On project price accepted**: Wordt geactiveerd wanneer een projectprijs wordt geaccepteerd
+- **On string key updated**: Wordt geactiveerd wanneer een stringsleutel wordt bijgewerkt
+- **On project approval needed**: Wordt geactiveerd wanneer projectgoedkeuring nodig is
+- **On project price declined**: Wordt geactiveerd wanneer een projectprijs wordt afgewezen
+- **On project cancelled**: Wordt geactiveerd wanneer een project wordt geannuleerd door de klant
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

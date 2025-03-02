@@ -1,0 +1,65 @@
+---
+  title: WorldServer
+  description: A WorldServer Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/WorldServer" icon="github" />
+
+A WorldServer egy vállalati fordításkezelő rendszer (TMS), amelyet az RWS fejlesztett ki. Úgy tervezték, hogy streamlineolhatóvá tegye és kezelje a nagy léptékű projektek lokalizációs és fordítási folyamatait. A WorldServer lehetővé teszi a szervezetek számára a fordítási munkafolyamatok automatizálását, a fordítási memória és terminológia kezelését, valamint az együttműködést több fordítási szolgáltatóval.
+
+## Csatlakozás
+
+1. Navigáljon az Alkalmazásokhoz, és keresse meg a **WorldServer** alkalmazást. A keresést használhatja a megtalálásához.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például: 'My WorldServer connection'.
+4. Töltse ki a szükséges mezőket: 
+	- Példány URL
+	- Felhasználónév
+	- Jelszó
+5. Kattintson a **Connect** gombra.
+6. Győződjön meg arról, hogy a kapcsolat sikeresen létrejött.
+
+![kapcsolat](https://raw.githubusercontent.com/bb-io/WorldServer/develop/./image/README/connecting.png)
+
+## Actions
+
+### Tasks
+
+- **Search tasks** Search tasks
+- **Assign task** Assign task
+- **Claim task** Claim task
+- **Complete task step** Complete task step
+- **Export task** Export task
+- **Get task** Get task
+- **Import task** Import task
+- **Unclaim task** Unclaim task
+- **Update task** Update task
+- **Export all project tasks** Ez a művelet lehetővé teszi a kiválasztott projektből az összes feladat letöltését `.zip` fájlként, ahol a bemeneti adatok, mint a `Project ID` és a `File type` kötelezően megadandók.
+
+### Projects
+
+- **Complete project step** Complete project step
+- **Get project** Get project
+- **Search projects** Search projects
+- **Update project** Update project
+
+### Project groups
+
+- **Create project group** Create project group
+- **Get project group** Get project group
+- **Search project groups** Search project groups
+
+### Events
+- **On project created**  Akkor aktiválódik, amikor új projekt jön létre
+- **On project completed** Akkor aktiválódik, amikor egy projekt befejeződik
+- **On task completed** Akkor aktiválódik, amikor a feladatok befejeződnek
+
+### Files
+
+- **Download file** Download task file
+- **Upload file** Upload file
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy van visszajelzése a megvalósításunkról? Lépjen kapcsolatba velünk a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy hibajegyet.

@@ -1,0 +1,56 @@
+---
+  title: Confluence
+  description: De Confluence Blackbird-app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Bekijk op Github" target="_blank" href="https://github.com/bb-io/Confluence" icon="github" />
+
+Creëer, werk samen en organiseer al uw werk op één plek. Confluence is een teamwerkruimte waar kennis en samenwerking samenkomen. Dynamische pagina's geven uw team een plek om te creëren, vast te leggen en samen te werken aan elk project of idee.
+
+## Voordat u begint
+
+U moet ervoor zorgen dat u een Confluence-account heeft en daar toegang toe heeft. Onze app gebruikt OAuth 2.0 voor authenticatie, dus u hoeft geen API-sleutels te verstrekken. U wordt doorgestuurd naar de Confluence-inlogpagina om de app te autoriseren. Merk op dat deze app gebruik maakt van de [Confluence Cloud REST API](https://developer.atlassian.com/cloud/confluence/rest/v1/intro/#about) om een gestroomlijnde ervaring te bieden voor het beheren van uw content.
+
+## Verbinding maken
+
+1. Navigeer naar Apps en zoek de **Confluence** app. U kunt de zoekfunctie gebruiken om deze te vinden.
+2. Klik op _Add Connection_.
+3. Geef uw verbinding een naam voor toekomstige referentie, bijvoorbeeld 'Mijn organisatie'.
+4. Klik op _Authorize connection_.
+5. U wordt doorgestuurd naar de Confluence-inlogpagina. Voer uw inloggegevens in en autoriseer de app.
+6. Bevestig dat de verbinding is verschenen en dat de status _Connected_ is.
+
+![Verbinding](https://raw.githubusercontent.com/bb-io/Confluence/main/image/README/connection.png)
+
+## Actions
+
+### Content
+
+- **Search content** - Geeft een lijst terug van content die overeenkomt met de zoekcriteria.
+- **Get content** - Geeft een enkel content-object terug gespecificeerd door de content-ID.
+- **Get content as HTML** - Geeft een enkele content-HTML terug gespecificeerd door de content-ID.
+- **Update content from HTML** - Werkt een content bij vanuit een HTML-bestand.
+- **Create content from HTML** - Maakt een content aan vanuit een HTML-bestand.
+- **Create content** - Maakt nieuwe content aan met gespecificeerde gegevens.
+- **Delete content** - Verwijdert een content gespecificeerd door de content-ID.
+
+## Events
+
+- **On content created** - Polling-gebeurtenis. Wordt geactiveerd na een specifiek tijdsinterval en geeft nieuwe content terug.
+- **On content updated** - Polling-gebeurtenis. Wordt geactiveerd na een specifiek tijdsinterval en geeft bijgewerkte content terug.
+
+## Foutafhandeling
+
+Onze app retourneert fouten in een gestructureerd formaat. Hieronder staan de typische foutmeldingen die u kunt tegenkomen:
+
+`Status code: {Status code}, Message: {Message}`
+
+- Status code: De HTTP-statuscode geassocieerd met de fout.
+- Message: Een korte beschrijving van de fout die we krijgen van de Confluence API.
+
+Als u een fout tegenkomt, probeer deze dan op te lossen met behulp van de informatie in de foutmelding. Als u de fout niet kunt oplossen, neem dan contact met ons op voor verdere hulp.
+
+## Feedback
+
+Wilt u deze app gebruiken of heeft u feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

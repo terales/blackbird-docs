@@ -1,0 +1,145 @@
+---
+  title: Trados
+  description: A Trados Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés Githubon" target="_blank" href="https://github.com/bb-io/LanguageCloud" icon="github" />
+
+A Trados egy fordításkezelő rendszer (TMS), amelyet az RWS fejlesztett ki, a nyelvi szolgáltatások és technológiai megoldások globális vezetője. A Trados átfogó eszköz- és szolgáltatáscsomagot kínál a fordítási és lokalizációs projektek hatékony kezeléséhez. Olyan képességeket biztosít, mint a projektmenedzsment, fordítási memória, terminológiakezelés, minőségbiztosítás és munkafolyamat-automatizálás.
+
+## Beállítás előtt
+
+Mielőtt csatlakozna, győződjön meg a következőkről:
+
+- Hozzáféréssel rendelkezik egy Trados példányhoz, és adminisztrátori jogai vannak ezen a példányon.
+- Létrehozott egy szolgáltatási felhasználót a példányához. (Ez lekérhető az RWS Trados Enterprise webes felületén: felül válassza a Felhasználók lehetőséget, az alatta lévő fülön válassza a Szolgáltatási felhasználók lehetőséget, a jobb felső sarokban kattintson az _Új szolgáltatási felhasználó_ gombra. Töltse ki az összes mezőt, majd kattintson a Létrehozás gombra.)
+- Rendelkezik a Trados ügyfél-azonosítóval és ügyféltitokkal (Ez lekérhető az RWS Trados Enterprise webes felületén: a jobb felső sarokban válassza ki a profilját, majd válassza az Integrációk > Alkalmazások fület. Hozzon létre egy új alkalmazást, ha még nincs, majd nyissa meg, lépjen az _API hozzáférés_ részhez, és másolja ki a kért értékeket.)
+- Rendelkezik a Trados bérlői azonosítóval (Tenant ID). (Ez lekérhető az RWS Trados Enterprise webes felületén: a jobb felső sarokban válassza ki a profilját, majd válassza a Fiók kezelése > Fiókadatok fület, ellenőrizze a Trados fiók azonosítójának értékét.)
+
+## Csatlakozás
+
+1. Navigáljon az Alkalmazásokhoz és keressen rá a Trados-ra.
+2. Kattintson a _Kapcsolat hozzáadása_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, pl. "Saját Trados kapcsolat".
+4. Adja meg a Trados példány hitelesítő alkalmazásának ügyfél-azonosítóját (Client ID).
+5. Adja meg a Trados példány hitelesítő alkalmazásának ügyféltitokját (Client secret).
+6. Adja meg a Trados példány bérlői azonosítóját (Tenant ID).
+7. Kattintson a _Kapcsolódás_ gombra.
+
+![TradosNewConnection](https://raw.githubusercontent.com/bb-io/LanguageCloud/main/image/README/TradosNewConnection.png)
+
+## Actions
+
+### Customers 
+
+- **Get customer** Ügyfél lekérése ügyfél-azonosító alapján
+- **Search customers** Ügyfelek keresése, opcionálisan hely szerint
+
+### Files 
+
+- **Upload source file** Forrásfájl feltöltése projekthez
+- **Attach source file to project** Forrásfájl csatolása projekthez
+- **Download target file** Célnyelvi fájl letöltése azonosító alapján. A fájlformátum megadható opcionális bemenetként.
+- **Get source file info** Forrásfájl információk lekérése
+- **Get target file info** Célnyelvi fájl információk lekérése
+- **Search project source files** Projekt forrásfájlok keresése
+- **Search project target files** Projekt célnyelvi fájlok keresése
+- **Upload zip archive** ZIP archívum feltöltése forrásfájlokkal
+- **Update target file from SDLXLIFF** Célnyelvi fájl új verziójának létrehozása SDLXLIFF-ből
+
+### Glossaries 
+
+- **Export glossary** Szószedet exportálása
+- **Import glossary** Szószedet importálása
+
+### Groups 
+
+- **Get group** Csoport lekérése csoport-azonosító alapján
+- **Search groups** Csoportok keresése, opcionálisan hely szerint
+
+### Projects 
+
+- **Get project** Projekt lekérése projekt-azonosító alapján
+- **Complete project** Projekt befejezése
+- **Create project** Projekt létrehozása
+- **Create project from template** Projekt létrehozása sablonból
+- **Edit project** Projekt szerkesztése
+- **Search projects** Projektek keresése megadott szűrők alapján
+- **Start project** Projekt indítása azonosító alapján
+- **Delete project** Projekt törlése
+
+### Reports 
+
+- **Download quote report** Árajánlat jelentés letöltése projekthez
+
+### Tasks 
+
+- **Accept task** Feladat elfogadása azonosító alapján
+- **Assign task** Feladat hozzárendelése azonosító alapján
+- **Complete task** Feladat befejezése azonosító alapján
+- **Get task** Feladat lekérése azonosító alapján
+- **Get project tasks** Projekt összes feladatának lekérése
+- **Reclaim task** Feladat visszaigénylése azonosító alapján
+- **Reject task** Feladat elutasítása azonosító alapján
+- **Release task** Feladat felszabadítása azonosító alapján
+
+### Translation Memories 
+
+- **Create translation memory** Fordítási memória létrehozása
+- **Get translation memory** Fordítási memória lekérése
+- **Import TMX file** TMX fájl importálása
+- **List translation memories** Fordítási memóriák listázása
+
+## Events
+
+A webhookok engedélyezéséhez a következőkre van szüksége:
+- Létre kell hoznia egy szolgáltatási felhasználót a Trados példányában
+- Létre kell hoznia egy alkalmazást a fent említett szolgáltatási felhasználó alapján (ezt megteheti az RWS Trados Enterprise webes felületén a jobb felső sarokban lévő fiók menü kibontásával, az Integrációk > Alkalmazások kiválasztásával.)
+- Vegye fel a webhook URL-t a Birdjétől, miután közzétette a Blackbirdben, és használja ezt az URL-t a Trados alkalmazás Webhooks szekciójában. Azt is ki kell választania, hogy mely műveletek fognak eseményeket küldeni a megadott URL végpontra.
+A Trados webhookok beállításáról további információkat [itt](https://languagecloud.sdl.com/lc/api-docs/webhooks-setup) talál.
+
+![WebhookURLinBlackbird](https://raw.githubusercontent.com/bb-io/LanguageCloud/main/image/README/WebhookURL.png)
+
+![TradosWebhookURLsetup](https://raw.githubusercontent.com/bb-io/LanguageCloud/main/image/README/TradosWebhookURL.png)
+
+### File 
+
+- **On source file created**
+- **On source file deleted**
+- **On source file updated**
+- **On target file created**
+- **On target file deleted**
+- **On target file updated**
+
+### Group Project 
+
+- **On group project membership changed**
+
+### Project 
+
+- **On project created**
+- **On project deleted**
+- **On project updated**
+
+### Project Template 
+- **On project template deleted**
+- **On project template updated**
+- **On project template created**
+
+### Task 
+- **On task updated**
+- **On task accepted**
+- **On task completed**
+- **On task created**
+- **On task deleted**
+
+### Error Task 
+
+- **On error task created**
+- **On error task deleted**
+- **On error task updated**
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy van visszajelzése a megvalósításunkkal kapcsolatban? Keressen meg minket a [bevált csatornákon](https://www.blackbird.io/) keresztül vagy hozzon létre egy problémát.

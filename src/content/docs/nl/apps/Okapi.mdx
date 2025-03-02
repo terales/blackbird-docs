@@ -1,0 +1,45 @@
+---
+  title: Okapi
+  description: De Okapi Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Okapi" icon="github" />
+
+Longhorn is een servertoepassing waarmee je Batch Configuraties op afstand kunt uitvoeren op elke set invoerbestanden. Batch Configuraties, inclusief vooraf gedefinieerde pijplijnen en filterconfiguraties, kunnen worden geëxporteerd vanuit Rainbow.
+
+## Verbinden
+
+1. Navigeer naar apps en zoek naar Okapi Longhorn. Als je Okapi Longhorn niet kunt vinden, klik dan op **Add App** in de rechterbovenhoek, selecteer Okapi Longhorn en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op **Add Connection**.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn Client'.
+4. Ga naar je Okapi Longhorn server.
+5. Kopieer de URL, bijvoorbeeld: `http://28.216.252.148:88/okapi-longhorn`.
+6. Plak deze in het juiste veld in Blackbird.
+7. Klik op **Connect**.
+8. Controleer of de verbinding is verschenen en de status **Connected** is. Als deze stap mislukt, zorg er dan voor dat je geen firewall hebt die de verbinding blokkeert, of configureer je firewall om verkeer van de Blackbird-server toe te staan.
+
+## Actions
+
+### XLIFF conversion actions
+
+Deze combinatie van acties stelt je in staat om elk Okapi-compatibel bestand naar XLIFF en terug te converteren. Gebruik het in combinatie met andere Blackbird-apps die XLIFF-bestanden verwerken of wijzigen.
+
+- **Convert file to XLIFF** neemt elk Okapi-compatibel bestandsformaat en converteert het naar een XLIFF-bestand. Het levert zowel een XLIFF- als een 'package'-bestand op.
+- **Convert XLIFF to file** neemt een (gewijzigd) XLIFF-bestand en een package-bestand, en geeft het originele bestand terug.
+
+### Manual batchconfig actions
+
+Gebruik de volgende acties om volledige controle te hebben over batchconfig-uitvoeringen op één of meerdere bestanden
+
+- **Upload files**: Uploadt bestanden naar een specifiek project. Deze actie uploadt elk bestand dat in het verzoek is opgegeven en verwerkt ze op basis van hun bestandstypen, inclusief speciale verwerking voor ZIP-bestanden.
+- **Create project**: Maakt een nieuw project aan binnen het systeem, geeft de ID van het nieuw aangemaakte project terug en uploadt een batch configuratiebestand.
+- **Execute project**: Voert de batch configuratie uit op de geüploade invoerbestanden en geeft de uitvoerbestanden terug
+
+## Voorbeeld
+
+![okapi-example-bird](https://raw.githubusercontent.com/bb-io/Okapi/main/image/README/okapi-example-bird.png)
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

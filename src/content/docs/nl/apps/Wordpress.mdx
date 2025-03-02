@@ -1,0 +1,122 @@
+---
+  title: Wordpress
+  description: De Wordpress Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Wordpress" icon="github" />
+
+Wordpress is 's werelds populairste website bouwer. Met deze app kun je je Wordpress-website verbinden met Blackbird en geautomatiseerde workflows bouwen voor het hergebruiken en vertalen van content. Wordpress heeft van zichzelf geen lokalisatiefuncties. Daarom ondersteunt deze app de populaire [Polylang pro](https://polylang.pro/downloads/polylang-pro/) plugin. Alle betreffende acties en velden zijn gemarkeerd met (P) als ze deze plugin nodig hebben om te werken.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je zorgen dat:
+
+- Je beheerders toegang hebt tot een Wordpress-omgeving.
+- Je een applicatiewachtwoord hebt aangemaakt. Je kunt dit doen in je Wordpress-beheerderspaneel -> Gebruikers -> Profiel. Onderaan deze pagina vind je _Application Passwords_. Geef je nieuwe wachtwoord een naam en klik op _Add New Application Password_. Bewaar het wachtwoord dat verschijnt.
+- Optioneel, als je de lokalisatiefuncties wilt gebruiken, zorg er dan voor dat [Polylang pro](https://polylang.pro/downloads/polylang-pro/) is geïnstalleerd.
+
+## Verbinding maken
+
+1. Ga naar apps en zoek naar Wordpress. Als je Wordpress niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Wordpress en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn nieuwe Wordpress-verbinding'.
+4. Vul de URL in van je Wordpress-website.
+5. Vul bij _Login_ het e-mailadres in dat je gebruikt om in te loggen op je Wordpress-beheerdersaccount.
+6. Vul het eerder aangemaakte applicatiewachtwoord in.
+7. Klik op _Connect_.
+
+![1700486964991](https://raw.githubusercontent.com/bb-io/Wordpress/main/image/README/1700486964991.png)
+
+## Actions
+
+### Posts & pages
+
+De volgende acties zijn van toepassing op zowel berichten als pagina's. Voor het gemak worden beide vanaf nu aangeduid als berichten.
+
+- **Search** berichten op basis van aanmaak- of updatedatums. Optioneel kun je de taalinvoer gebruiken om te filteren op taal (met Polylang).
+- **Get** retourneert alle informatie van het bericht.
+- **Get missing translations (P)** retourneert een lijst met talen waarin het bericht niet is vertaald. Polylang vereist.
+- **Get translation (P)** retourneert het bericht dat de vertaling is van het geselecteerde bericht, op basis van de opgegeven taal. Polylang vereist.
+- **Get as HTML** retourneert het bericht in HTML-formaat, handig voor het vertalen van de hele berichtpagina als één geheel.
+- **Delete** verwijdert het bericht
+
+Alle aanmaak- en update-acties hebben optioneel een taal- en "as translation of"-invoer. Beide worden gebruikt door Polylang om de juiste talen en relaties met andere berichten toe te wijzen.
+
+- **Create** een nieuw bericht
+- **Create from HTML** maakt een nieuw bericht aan op basis van een HTML-bestand als invoer.
+- **Update** een bericht
+- **Update from HTML** werkt een bericht bij op basis van een HTML-bestand als invoer.
+
+### Comments
+
+- **Add comment**
+- **Delete comment**
+
+### Media
+
+- **Get all media**
+- **Get media**
+- **Upload media**
+- **Delete media**
+
+### Users
+
+- **Get all users**
+- **Get user**
+- **Add user**
+
+### Other
+
+- **Get languages (P)** retourneert alle geconfigureerde talen en hun aanvullende informatie. Polylang vereist.
+
+### HTML features
+
+We voegen metadata toe aan het HTML-bestand om `Post ID` en `Page ID` op te nemen. Deze metadata wordt gebruikt om het juiste bericht of de juiste pagina bij te werken. De metadata wordt toegevoegd als een `meta`-tag in de `head` van het HTML-bestand. Het `name`-attribuut is `blackbird-post-id` of `blackbird-page-id` en het `content`-attribuut is de ID van het bericht of de pagina.
+
+```html
+<html>
+   <head>
+      <meta name="blackbird-page-id" content="2">
+      <title>Sample Page</title>
+   </head>
+   <body>
+      <p>This is an example page. It&#8217;s different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:</p>
+      <blockquote class="wp-block-quote">
+         <p>Hi there! I&#8217;m a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin&#8217; caught in the rain.)</p>
+      </blockquote>
+      <p>&#8230;or something like this:</p>
+      <blockquote class="wp-block-quote">
+         <p>The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.</p>
+      </blockquote>
+      <p>As a new WordPress user, you should go to <a href="https://dev-blackbird-test.pantheonsite.io/wp-admin/">your dashboard</a> to delete this page and create new pages for your content. Have fun!</p>
+   </body>
+</html>
+```
+
+Voorbeeld van hoe we metadata in het HTML-bestand opnemen:
+## Ontbrekende functies
+
+In de toekomst zullen we acties toevoegen voor:
+
+- Blocks
+- Categories
+- Navigations
+- Menus
+- Revisions
+- Tags
+
+Onze acties voor berichten & pagina's kunnen ook worden uitgebreid om meer eigenschappen zoals status, datums, enz. te verwerken.
+
+Laat het ons weten als je hierin geïnteresseerd bent!
+
+## Events
+
+- **On posts created** wordt geactiveerd wanneer nieuwe berichten worden aangemaakt.
+- **On posts updated** wordt geactiveerd wanneer berichten worden bijgewerkt.
+- **On pages created** wordt geactiveerd wanneer nieuwe pagina's worden aangemaakt.
+- **On pages updated** wordt geactiveerd wanneer pagina's worden bijgewerkt.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

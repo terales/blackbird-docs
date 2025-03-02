@@ -1,0 +1,113 @@
+---
+  title: ClickUp
+  description: De ClickUp Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/ClickUp" icon="github" />
+
+ClickUp is projectmanagementsoftware waarmee je elk project kunt plannen, volgen en eraan kunt samenwerken. Deze ClickUp-applicatie richt zich voornamelijk op taak- en teambeheer.
+
+## Verbinden
+
+1.  Navigeer naar apps en zoek naar ClickUp. Als je ClickUp niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer ClickUp en voeg de app toe aan je Blackbird-omgeving.
+2.  Klik op _Add Connection_.
+3.  Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn klant'.
+4.  Ga naar de persoonlijke instellingen van ClickUp en klik op _Apps_.
+5.  Klik op _Generate_ onder het label _API Token_
+6.  Kopieer de API-token en plak deze in het juiste veld in Blackbird
+7.  Klik op _Connect_.
+8.  Bevestig dat de verbinding is verschenen en dat de status _Connected_ is.
+
+## Actions
+
+### Attachments
+
+- **Create attachment** uploadt een bestand naar een `task` als bijlage.
+
+### Folders
+
+- **Get folders** geeft alle mappen van een gekozen `space` terug.
+- **Get/create/delete folder**.
+
+### Goals
+
+- **Get goals** geeft alle doelen van het gespecificeerde `team` terug.
+- **Get/create/delete goal**.
+- **Create key result** voegt een `target` toe aan een doel.
+
+### Lists
+
+- **Get lists from space** geeft alle lijsten in een `space` terug die zich niet in een map bevinden.
+- **Get lists from folder** geeft alle lijsten binnen een gespecificeerde `folder` terug.
+- **Create space list** voegt een nieuwe lijst toe in een gespecificeerde `space`.
+- **Create folder list** voegt een nieuwe lijst toe aan een gespecificeerde `folder`.
+- **Delete list** verwijdert een lijst.
+
+### Spaces
+
+- **Get spaces** geeft alle spaces van het gespecificeerde `team` terug.
+- **Get/create/update/delete space**
+
+### Tags
+
+- **List tags** geeft alle tags van de gespecificeerde `space` terug.
+- **Create/delete tag**.
+
+### Tasks
+
+- **Get tasks** geeft alle taken van de gespecificeerde `list` terug.
+- **Get/create/delete task**.
+
+### Teams - Workspaces
+
+- **Get teams** geeft alle teams terug die beschikbaar zijn voor de geauthenticeerde gebruiker.
+
+### Teams - User Groups
+
+- **Get user groups** geeft alle gebruikersgroepen in de workspace terug.
+- **Create/delete user group**.
+
+## Events
+
+- **On task created** wordt geactiveerd wanneer een nieuwe taak wordt aangemaakt.
+- **On task updated** wordt geactiveerd wanneer een taak wordt bijgewerkt.
+- **On task deleted** wordt geactiveerd wanneer een taak wordt verwijderd.
+- **On task priority updated** wordt geactiveerd wanneer de prioriteit van een taak wordt bijgewerkt.
+- **On task status updated** wordt geactiveerd wanneer de status van een taak wordt bijgewerkt.
+- **On task assignee updated** wordt geactiveerd wanneer een toegewezen persoon wordt toegevoegd of verwijderd van een taak.
+- **On task due date updated** wordt geactiveerd wanneer de vervaldatum van een taak wordt bijgewerkt.
+- **On task tag updated** wordt geactiveerd wanneer een tag wordt toegevoegd of verwijderd van een taak.
+- **On task moved** wordt geactiveerd wanneer een taak naar een nieuwe `list` wordt verplaatst.
+- **On task comment posted** wordt geactiveerd wanneer een `comment` aan een taak wordt toegevoegd.
+- **On task comment updated** wordt geactiveerd wanneer een bestaande `comment` op een taak wordt bijgewerkt.
+- **On task time estimate updated** wordt geactiveerd wanneer de tijdschatting van een taak wordt toegevoegd of bijgewerkt.
+- **On task time tracked updated** wordt geactiveerd wanneer de bijgehouden tijd van een taak wordt toegevoegd, bijgewerkt of verwijderd.
+- **On list created** wordt geactiveerd wanneer een nieuwe lijst wordt aangemaakt.
+- **On list updated** wordt geactiveerd wanneer een bestaande lijst wordt bijgewerkt.
+- **On list deleted** wordt geactiveerd wanneer een lijst wordt verwijderd.
+- **On folder created** wordt geactiveerd wanneer een nieuwe map wordt aangemaakt.
+- **On folder updated** wordt geactiveerd wanneer een bestaande map wordt bijgewerkt.
+- **On folder deleted** wordt geactiveerd wanneer een map wordt verwijderd.
+- **On space created** wordt geactiveerd wanneer een nieuwe space wordt aangemaakt.
+- **On space updated** wordt geactiveerd wanneer een bestaande space wordt bijgewerkt.
+- **On space deleted** wordt geactiveerd wanneer een space wordt verwijderd.
+- **On goal created** wordt geactiveerd wanneer een nieuw doel wordt aangemaakt.
+- **On goal updated** wordt geactiveerd wanneer een bestaand doel wordt bijgewerkt.
+- **On goal deleted** wordt geactiveerd wanneer een doel wordt verwijderd.
+- **On key result created** wordt geactiveerd wanneer een nieuwe target wordt aangemaakt.
+- **On key result updated** wordt geactiveerd wanneer een bestaande target wordt bijgewerkt.
+- **On key result deleted** wordt geactiveerd wanneer een target wordt verwijderd.
+
+## Ontbrekende functies
+
+In de toekomst kunnen we acties toevoegen voor:
+
+- Users
+- Members
+- Custom fields
+- Comments
+
+## Feedback
+
+Feedback op onze implementatie van ClickUp is altijd zeer welkom. Neem contact met ons op via de bestaande kanalen of maak een issue aan.
