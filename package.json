@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "generate": "node --experimental-modules scripts/generate.mjs",
-    "bin": "node --experimental-modules scripts/bin.mjs"
+    "bin": "node --experimental-modules scripts/bin.mjs",
+    "translate": "node --experimental-modules scripts/translate.mjs"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.25.1",
@@ -18,6 +19,7 @@
     "starlight-openapi": "^0.6.4"
   },
   "devDependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
     "dotenv": "^16.4.5",
     "octokit": "^4.0.2"
   }

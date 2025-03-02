@@ -11,6 +11,10 @@ Build with Astro starlight. [Read the reference documentation](https://starlight
 
 ```
 GITHUB_ACCESS_TOKEN=<token here>
+
+# add if you need to do bulk translations
+ANTHROPIC_API_KEY=<key here>
+ANTHROPIC_TRANSLATION_MODEL=claude-3-7-sonnet-latest
 ```
 
 ## Project Structure
