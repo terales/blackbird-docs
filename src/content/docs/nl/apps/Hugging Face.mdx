@@ -1,0 +1,75 @@
+---
+  title: Hugging Face
+  description: De Hugging Face Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/HuggingFace" icon="github" />
+
+Hugging Face is een platform dat tools biedt voor het bouwen, trainen en implementeren van machine learning-modellen. Het biedt een uitgebreide verzameling vooraf getrainde modellen en gebruiksvriendelijke tools, waardoor ontwikkelaars en onderzoekers efficiënt geavanceerde ML-modellen kunnen creëren en optimaliseren voor verschillende taken, met name op het gebied van natuurlijke taalverwerking.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je:
+
+- Een [Hugging Face account](https://huggingface.co/join) aanmaken.
+- Een [Toegangstoken](https://huggingface.co/settings/tokens) verkrijgen: 
+    * Klik op _New token_.
+    * Voer een _Name_ in voor het token en selecteer de _Role_ uit de dropdown.
+    * Klik op de knop _Generate a token_.
+    * Klik naast het gegenereerde token op het pictogram _Copy token to clipboard_.
+
+### Een model trainen of finetunen met aangepaste gegevens
+
+Hugging Face biedt een tool voor het trainen van ML-modellen die kan worden gebruikt om beter aan je behoeften te voldoen. Je kunt meer lezen over AutoTrain [hier](https://huggingface.co/docs/autotrain/index). Zodra het model is getraind op jouw gegevens, kun je het via Blackbird gebruiken zoals elk ander model.
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar Hugging Face. Als je Hugging Face niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Hugging Face en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn organisatie'.
+4. Vul het API-token in dat je in de vorige sectie hebt verkregen.
+5. Klik op _Connect_. 
+6. Controleer of de verbinding is verschenen en de status _Connected_ is.
+
+![Verbinding maken](https://raw.githubusercontent.com/bb-io/HuggingFace/main/image/README/connecting.png)
+
+## Actions
+
+### Text
+
+- **Summarize text** vat langere tekst samen tot kortere tekst.
+- **Answer question** beantwoordt de vraag op basis van een context. Context is een tekst waarin het antwoord gevonden kan worden.
+- **Answer question with table** beantwoordt de vraag op basis van een Excel-tabel met .xlsx-extensie waarin het antwoord gevonden kan worden.
+- **Classify text** voert tekstclassificatie uit. Mogelijke labels variëren afhankelijk van het gebruikte model. Kan nuttig zijn voor sentimentanalyse.
+- **Classify text according to candidate labels** voert tekstclassificatie uit en, in tegenstelling tot de actie **Classify text**, gebruikt het de opgegeven labels voor voorspelling.
+- **Translate text**. Bron- en doeltaal kunnen niet worden gespecificeerd. Het wordt aanbevolen om modellen te gebruiken die zijn getraind om tussen één talenpaar te vertalen. Kijk bijvoorbeeld naar [Helsinki-NLP modellen](https://huggingface.co/Helsinki-NLP).
+- **Fill mask** vult een gat of gaten met ontbrekende woorden en retourneert tekst met gevulde gaten. Gebruik het maskertoken om de plaats aan te geven die moet worden ingevuld. Het maskertoken kan verschillen afhankelijk van het gebruikte model, maar de meest gebruikte tokens zijn [MASK] of &lt;mask>. Je moet het maskertoken dat door een specifiek model wordt gebruikt controleren op de [Hugging Face-pagina](https://huggingface.co/models?pipeline_tag=fill-mask&sort=trending).
+- **Calculate semantic similarity** berekent semantische overeenkomst tussen twee teksten en geeft een overeenkomstscore in het bereik van 0 tot 1.
+- **Generate text** vervolgt tekst vanuit een prompt.
+- **Chat** voert conversationele taken uit. Om context te geven, kun je eerdere gebruikersinvoer en eerder gegenereerde antwoorden opgeven, die dezelfde lengte moeten hebben.
+- **Classify tokens** voert tokenclassificatie uit. Wordt meestal gebruikt voor het extraheren van trefwoorden of grammaticale zinsontleding. Je kunt modelgebruik en entiteitsgroepen (tags) controleren op de betreffende [Hugging Face-pagina](https://huggingface.co/models?pipeline_tag=token-classification&sort=trending) van het model. 
+- **Generate embedding** genereert tekstembedding - een lijst met floating point-getallen die semantische informatie vastlegt over de tekst die het vertegenwoordigt. Embeddings kunnen worden gebruikt om gegevens op te slaan in vectordatabases (zoals Pinecone).
+
+### Audio
+
+- **Create transcription** genereert een transcriptie van een audiobestand (Flac, Wav, Mp3, Ogg etc.).
+- **Classify audio** voert audioclassificatie uit. Mogelijke labels variëren afhankelijk van het gebruikte model.
+
+### Image
+
+- **Generate image** genereert een afbeelding op basis van een tekstbeschrijving van de afbeelding.
+- **Classify image** voert beeldclassificatie uit. Mogelijke labels variëren afhankelijk van het gebruikte model.
+- **Convert image to text** genereert een tekstbeschrijving voor een gegeven afbeelding.
+- **Answer question based on image** voert visuele vraagbeantwoording uit op basis van een gegeven afbeelding.
+
+Opmerking: veel acties hebben een optionele invoerparameter _Use cache_. Standaard is deze ingesteld op true, wat betekent dat als het model dezelfde invoer al eerder heeft gezien, het het eerder verkregen resultaat zal teruggeven. Je kunt dit gebruiken om ervoor te zorgen dat je deterministische resultaten krijgt. Als je niet wilt dat het model exact dezelfde resultaten teruggeeft voor query's die het eerder heeft gezien, kun je _Use cache_ instellen op _false_.
+
+## Ontbrekende functies
+
+In de toekomst kunnen we acties toevoegen voor:
+
+- Beelddetectie
+- Beeldsegmentatie
+
+Laat het ons weten als je hierin geïnteresseerd bent!

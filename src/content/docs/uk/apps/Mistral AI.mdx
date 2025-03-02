@@ -1,0 +1,91 @@
+---
+  title: Mistral AI
+  description: Додаток Mistral AI для Blackbird
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/MistralAI" icon="github" />
+
+Швидкі, відкриті та безпечні мовні моделі. Полегшена спеціалізація моделей для бізнес-завдань із використанням приватних даних та зворотного зв'язку від користувачів.
+
+## Перед налаштуванням
+
+Перш ніж підключитися, переконайтеся, що:
+
+- Ви маєте [доступ до консолі Mistral AI](https://console.mistral.ai/).
+- Створили [API-ключ](https://console.mistral.ai/api-keys/).
+- Зберегли цей ключ для подальшого використання.
+
+Ви можете переглянути [повний посібник](https://docs.mindmac.app/how-to.../add-api-key/create-mistral-ai-api-key) щодо створення API-ключа Mistral AI з процесом реєстрації.
+
+## Підключення 
+
+1. Перейдіть до додатків і знайдіть Mistral. Якщо ви не можете знайти Mistral, натисніть _Add App_ у верхньому правому куті, виберіть Contentstack і додайте додаток до свого середовища Blackbird.
+2. Натисніть _Add Connection_.
+3. Назвіть ваше підключення для подальшого використання, наприклад, 'Мій клієнт'.
+4. У полі _API Key_ введіть ваш API-ключ. Ви можете отримати його [тут](https://console.mistral.ai/api-keys/).
+5. Натисніть _Connect_.
+6. Переконайтеся, що з'явилося підключення, і статус показує _Connected_.
+
+![MistralAIConnection](https://raw.githubusercontent.com/bb-io/MistralAI/main/image/README/MistralAIConnection.png)
+
+## Actions
+
+### Chat
+
+- **Send prompt**: Ця дія дозволяє відправити запит до моделі штучного інтелекту та отримати відповідь. Коли ви надсилаєте повідомлення, воно обробляється та передається до ШІ через нашу систему. Потім ШІ генерує відповідь на основі вашого запиту. Якщо у вас була історія розмови, вона зберігається та включається разом з новою відповіддю ШІ у поверненій інформації.
+
+### XLIFF
+
+Усі дії з XLIFF підтримують версії 1.2 та 2.1 формату XLIFF, оскільки це найпоширеніші версії в галузі. Якщо вам потрібна підтримка інших версій, зв'яжіться з нами, і ми розглянемо можливість додавання підтримки для них.
+
+- **Get Quality Scores for XLIFF file** Отримує показники якості на рівні сегментів і файлів для XLIFF-файлів. Додатково ви можете додати параметри Threshold, New Target State та Condition до дії Blackbird, щоб змінити значення цільового стану сегментів, що відповідають бажаним критеріям (усі три повинні бути заповнені).
+
+  Опціональні параметри:
+    - Prompt: Додайте свої критерії для оцінки кожної пари джерело-ціль. Якщо не вказано, використовується: _"accuracy, fluency, consistency, style, grammar and spelling"_.
+    - Bucket size: Кількість одиниць перекладу для обробки в одному запиті. (Дивіться окремий розділ)
+    - Threshold: значення від 0 до 10.
+    - Condition: Критерії для фільтрування сегментів, цільовий стан яких буде змінено.
+    - New Target State: значення для оновлення цільового стану для відфільтрованих одиниць перекладу.
+
+  Результат:
+    - Average Score: сукупна оцінка всіх оцінок на рівні сегментів.
+    - Updated XLIFF file: оцінка на рівні сегментів додана до атрибуту extradata та оновлений цільовий стан, коли це вказано.
+
+- **Post-edit XLIFF file** Оновлює цілі у XLIFF-файлах
+
+Опціональні параметри:
+- Prompt: Додайте свої лінгвістичні критерії для постредагування цілей.
+- Bucket size: Кількість одиниць перекладу для обробки в одному запиті. (Дивіться окремий розділ)
+- Glossary
+- Add missing trailing tags: Якщо встановлено true, відсутні кінцеві теги будуть додані до цільового сегмента.
+
+> Запит, який використовується в цих діях: "Your input consists of sentences in `source` language with their translations into `target language`. Review and edit the translated target text as necessary to ensure it is a correct and accurate translation of the source text. If you encounter XML tags in the source also include them in the target text, don't delete or modify them." При використанні опціонального параметра "Prompt", ваші інструкції будуть додані до запиту.
+
+- **Process XLIFF file** для наданого XLIFF-файлу обробляє кожну одиницю перекладу відповідно до інструкцій, вказаних в опціональному параметрі "Prompt" (якщо Prompt не надано, вихідні тексти будуть перекладені) та оновлює цільовий текст для кожної одиниці.
+
+> Коли Glossary додається як опціональний параметр для будь-якої з вищеописаних дій, використовується запит: "Enhance the target text by incorporating relevant terms from our glossary where applicable. Ensure that the translation aligns with the glossary entries for the respective languages. If a term has variations or synonyms, consider them and choose the most appropriate translation to maintain consistency and precision."
+
+## Приклад
+
+За допомогою нашого додатку ви можете створити такий bird:
+
+![MistralAIExample](https://raw.githubusercontent.com/bb-io/MistralAI/main/image/README/MistralAIExample.png)
+
+Перша дія:
+
+![MistralAIExample](https://raw.githubusercontent.com/bb-io/MistralAI/main/image/README/MistralAIExample-1-action.png)
+
+Друга дія:
+
+![MistralAIExample](https://raw.githubusercontent.com/bb-io/MistralAI/main/image/README/MistralAIExample-2-action.png)
+
+Третя дія:
+
+![MistralAIExample](https://raw.githubusercontent.com/bb-io/MistralAI/main/image/README/MistralAIExample-3-action.png)
+
+Як бачите, ви можете вказати історію повідомлень, щоб зберегти контекст розмови
+
+## Зворотний зв'язок
+
+Бажаєте використовувати цей додаток або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть запит.

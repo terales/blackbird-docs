@@ -1,0 +1,52 @@
+---
+  title: RSS API
+  description: De RSS API Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Rss" icon="github" />
+
+RSS API is een eenvoudige applicatie die zich abonneert op RSS-feeds en deze omzet in webhook-gebeurtenissen. Blackbird kan naar deze gebeurtenissen luisteren en dienovereenkomstig workflows voor u activeren.
+
+## Voordat u begint
+
+Voordat u verbinding kunt maken, moet u ervoor zorgen dat:
+
+- U een RSS API-account heeft.
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar RSS API. Als u RSS API niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer RSS API en voeg de app toe aan uw Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef uw verbinding een naam voor toekomstige referentie, bijvoorbeeld 'Mijn feed'.
+4. Maak in RSS API een nieuwe toepassing aan en kopieer de API-sleutel.
+5. Vul de API-sleutel in bij uw verbinding.
+6. Klik op _Connect_.
+
+![1711120596050](https://raw.githubusercontent.com/bb-io/Rss/main/image/README/1711120596050.png)
+
+### Actions
+
+- **Get feed** geeft de huidige status van elke RSS-feed waar u naar verwijst: alle items en een beschrijving van de feed.
+
+### Events
+
+- **On feed changed** wordt geactiveerd wanneer RSS API een wijziging in een feed detecteert. Het geeft de feed-titel en -beschrijving weer, evenals meerdere nieuwe items.
+
+## Gebruik
+
+RSS API werkt iets anders dan andere Blackbird-apps. Het belangrijkste om op te merken is dat **u voor elke bird een nieuwe toepassing in RSS API en een verbinding in Blackbird moet maken**. Zodra u uw eerste bird heeft ingesteld, kunt u een willekeurig aantal RSS-feed-URL's opgeven waarop u zich wilt abonneren. Blackbird zal automatisch uw RSS API-toepassing bijwerken met de URL's en zijn eigen webhook-URL ermee verbinden.
+
+Als u een nieuwe bird zou maken met dezelfde verbinding, zal de nieuwe bird de oude bird overschrijven en zal de oude bird niet meer werken. Daarom raden we u aan om één verbinding per bird te gebruiken.
+
+## Voorbeeld
+
+![1711122025115](https://raw.githubusercontent.com/bb-io/Rss/main/image/README/1711122025115.png)
+
+Dit voorbeeld toont een bird die is geabonneerd op verschillende nieuwsbronnen en die wordt geactiveerd wanneer deze bronnen nieuwe artikelen publiceren.
+
+Na het ontvangen van nieuwe artikelen gebruiken we de actie _Extract content_ van de hulpprogramma's om de inhoud van de webpagina te halen. Vervolgens gebruiken we OpenAI om een samenvatting van de inhoud te maken en sturen we deze samenvatting naar onszelf op Slack.
+
+## Feedback
+
+Wilt u deze app gebruiken of heeft u feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

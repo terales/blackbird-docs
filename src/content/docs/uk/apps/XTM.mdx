@@ -1,0 +1,111 @@
+---
+  title: XTM
+  description: Додаток XTM для Blackbird
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/XTM" icon="github" />
+
+XTM Cloud - це система управління перекладами. Функції включають створення проєктів та завантаження файлів до цих проєктів для їх перекладу.
+
+## Перед налаштуванням
+
+Перш ніж підключитися, переконайтеся, що:
+
+- У вас є екземпляр XTM Cloud з **увімкненим API доступом**.
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть XTM. Якщо ви не можете знайти XTM, натисніть _Add App_ у верхньому правому куті, виберіть XTM і додайте додаток до вашого середовища Blackbird.
+2. Натисніть _Add Connection_.
+3. Назвіть ваше підключення для подальшого використання, наприклад, 'My XTM'.
+4. У полі клієнта введіть назву вашої компанії XTM, яка також позначена як клієнт у [документації XTM](https://api.xtm-cloud.com/rest-api/#tag/XTM-Basic/operation/generateToken).
+5. Для ID користувача введіть ваш числовий ID користувача XTM. Примітка: **Це не ваше ім'я користувача**. Відомий спосіб отримати цей ID користувача - увійти в портал XTM, навести курсор на ваш аватар у верхньому правому куті та натиснути правою кнопкою миші "відкрити зображення в новій вкладці". Потім в URL цієї сторінки ви знайдете свій ID користувача.\*
+6. Введіть ваш пароль користувача XTM.
+7. Нарешті, введіть базову URL-адресу вашого екземпляра XTM. Наприклад, `https://xtm.mycompany.com`
+8. Натисніть _Connect_.
+
+\* Ви знаєте кращий спосіб отримати ID користувача? Повідомте нам!
+
+![connecting](https://raw.githubusercontent.com/bb-io/XTM/main/image/README/1693487780830.png)
+
+## Actions
+
+### Projects
+
+- **List projects**
+- **Get project**
+- **Create project**
+- **Create project from template**
+- **Clone project**
+- **Update project**
+- **Add project target languages**
+- **Delete project target languages**
+- **Reanalyze project**
+- **Delete project**
+- **Get project estimates**
+- **Get project metrics**
+
+### LQA
+
+- **Search LQA reports** Визначте критерії для отримання потрібних звітів LQA. Опціональні параметри включають:
+	- Дата від
+	- Дата до
+	- Цільові мови
+	- Тип LQA
+
+### Files
+
+- **Download source files**
+- **Download source files as ZIP**
+- **Download project file**
+- **Download all project files**
+- **Download translated files**
+- **Upload source file**
+- **Upload translation file**. Ця дія використовує кінцеву точку `/files/translations/{fileId}/status` для перевірки статусу щойно завантаженого файлу перекладу. Дія очікуватиме на обробку перекладу та поверне статус файлу перекладу разом з `File ID` та `Project ID`.
+- **Generate files**
+
+### Translation memories
+
+- **Generate TM file**
+- **Download TM file**
+
+### Customers
+
+- **List customers**
+- **Create customer**
+- **Get customer**
+- **Update customer**
+- **Delete customer**
+
+## Events
+
+>Примітка: XTM використовує URL-адреси зворотного виклику, які можна встановити лише під час створення проєкту, це означає, що лише проєкти, створені через Blackbird, працюватимуть з неопитувальними подіями. Щоб запускати Birds на основі подій щодо проєктів, які не були створені через Blackbird, використовуйте [опитувальний тригер](https://docs.blackbird.io/concepts/triggers/#polling) - ідентифікований нижче як **polling**.
+
+- **On analysis finished**
+- **On workflow transition**
+- **On job finished**
+- **On project created**
+- **On project accepted**
+- **On project finished**
+- **On invoice status changed**
+- **On analysis finished (polling)**
+- **On projects created (polling)**
+- **On projects updated (polling)**
+- **On projects finished (polling)**
+- **On project status changed (polling)**
+
+## Відсутні функції
+
+Поточна реалізація охоплює основні дії. Однак у майбутньому ми також можемо підтримувати:
+
+- Аналітику проєктів
+- Користувацькі поля
+- Завдання
+- Зовнішніх користувачів
+
+Повідомте нам, якщо вас це цікавить!
+
+## Зворотній зв'язок
+
+Відгуки щодо нашої реалізації XTM завжди дуже вітаються. Зв'яжіться з нами за допомогою [встановлених каналів](https://www.blackbird.io/) або створіть проблему.

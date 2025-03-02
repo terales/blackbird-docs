@@ -1,0 +1,54 @@
+---
+  title: WordsOnline
+  description: De WordsOnline Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Bekijk op Github" target="_blank" href="https://github.com/bb-io/WordsOnline" icon="github" />
+
+**WordsOnline** biedt een AI-gestuurd platform, dat Neural Machine Translation technologie combineert met menselijke expertise om onze zakelijke klanten kosteneffectieve, snelle taalservices van optimale kwaliteit te bieden.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een WordsOnline instantie hebt
+- Je een WordsOnline `API key` hebt
+- Je een WordsOnline `Project GUID` hebt
+
+Zowel de `API key` als de `Project GUID` kun je verkrijgen door contact op te nemen met de klantenservice van WordsOnline.
+
+## Verbinding maken
+
+1. Navigeer naar Apps en zoek de **WordsOnline** app. Je kunt de zoekfunctie gebruiken om deze te vinden.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn WordsOnline verbinding'.
+4. Vul de `API key` en de `Project GUID` in die je van WordsOnline hebt gekregen.
+5. Klik op **Connect**.
+6. Controleer of de verbinding succesvol is toegevoegd.
+
+![connection](https://raw.githubusercontent.com/bb-io/WordsOnline/main//image/README/connection.png)
+
+## Actions
+
+### Requests 
+
+- **Search requests**: Zoekt naar verzoeken op basis van de opgegeven filters
+- **Get request**: Haalt verzoekdetails op basis van de opgegeven verzoek-GUID
+- **Update request status**: Werkt de status van een verzoek bij op basis van de opgegeven GUID
+- **Create request**: Maakt een nieuw vertaalverzoek op basis van de opgegeven parameters. Automatische goedkeuring van het verzoek is optioneel, maar staat standaard op `true`.
+- **Download files**: Download de bestanden van het verzoek. Standaard worden de afgeleverde bestanden gedownload. Maar je kunt een zip specificeren die de bestanden bevat die je wilt downloaden.
+- **Upload files**: Upload bestanden naar het verzoek op basis van de opgegeven verzoek-GUID
+- **Submit request**: Dient het verzoek in voor vertaling op basis van de opgegeven verzoek-GUID
+
+### Quotes
+- **Get quote**: Haalt een offerte op basis van de opgegeven verzoek-ID
+- **Approve quote**: Keurt een offerte goed op basis van de opgegeven verzoek-ID
+
+## Events
+
+- **On request delivered**: Wordt geactiveerd wanneer een verzoek is afgeleverd. Standaard wordt het bronbestand verwijderd, maar je kunt aangeven om het te behouden. Je kunt bestanden ook filteren op doeltaal.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

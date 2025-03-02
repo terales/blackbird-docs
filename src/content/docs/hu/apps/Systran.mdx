@@ -1,0 +1,56 @@
+---
+  title: Systran
+  description: A Blackbird Systran alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Systran" icon="github" />
+
+A Systran Translate API egy RESTful API köré épül, és bármilyen típusú alkalmazásban használható.
+Ez az API referencia olyan fejlesztőknek szól, akik olyan alkalmazásokat szeretnének írni, amelyek képesek a SYSTRAN Translate API-val kommunikálni.
+Fordítási technológiánkat közvetlenül integrálhatja belső vagy külső alkalmazásaiba, hogy többnyelvűvé tegye azokat, vagy szövegeket és fájlokat fordítson a SYSTRAN Translate API segítségével.
+
+## Teendők beállítás előtt
+
+Mielőtt csatlakozna, győződjön meg arról, hogy:
+- Rendelkezik Systran fiókkal és [beállította fiókját](https://spns-dev-web.systran.us/en/authentication)
+- Létrehozta az API kulcsot a `fiókom -> beállítások -> API kulcsok` menüpontban
+
+## Csatlakozás
+1. Navigáljon az alkalmazásokhoz és keressen rá a Systran-ra
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, pl. 'Saját Systran kapcsolat'.
+4. Töltse ki a korábban megszerzett API kulcsot.
+5. Adja meg az Instance URL-t.
+6. Kattintson a _Connect_ gombra.
+
+## Actions
+
+### Corpus
+
+- **Export corpus** Corpus fájl exportálása `.tmx` formátumban azonosító alapján
+- **Import corpus from TMX file** Új corpus hozzáadása `.tmx` fájlból.
+
+### Dictionary
+
+- **Create dictionary** Szótár létrehozása és feltöltése `.tbx` fájl használatával
+- **Export dictionary** Szótár exportálása TBX fájlként
+- **Update dictionary from TBX file** Meglévő szótár frissítése bejegyzések importálásával `.tbx` fájlból
+
+### File
+
+- **Translate file** Fájl fordítása forrásnyelvről célnyelvre
+- **Translate file (Async)** Fájl fordítása forrásnyelvről célnyelvre
+- **Download translated file** Lefordított fájl letöltése kérés azonosító alapján
+
+### Text
+
+- **Translate text** Szöveg fordítása
+
+## Events
+
+- **On translation finished** Akkor aktiválódik, amikor a fordítás állapota befejeződött
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy észrevétele van a megvalósításunkkal kapcsolatban? Keressen minket a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy hibajegyet.

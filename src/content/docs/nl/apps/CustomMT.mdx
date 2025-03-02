@@ -1,0 +1,41 @@
+---
+  title: CustomMT
+  description: De Blackbird-app CustomMT
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Bekijk op Github" target="_blank" href="https://github.com/bb-io/CustomMT" icon="github" />
+
+[Custom.MT](https://custom.mt/) biedt fijnafgestemde taalmodellen voor vertaling. Het stelt je in staat om sjablonen voor machinevertaling te maken en deze te gebruiken voor geautomatiseerde vertaling. In Blackbird kun je de sjablonen van Custom.MT in je lokalisatieworkflows gebruiken voor het vertalen van teksten.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je zorgen dat:
+
+- Je een [Custom.MT-account](https://console.custom.mt/) hebt.
+- Je een API-sleutel voor Custom.MT hebt, die je [hier](https://console.custom.mt/credentials/) kunt ophalen.
+- Je ten minste één sjabloon hebt gemaakt [hier](https://console.custom.mt/templates/).
+
+## Verbinden
+
+1. Ga naar apps en zoek naar Custom.MT. Als je Custom.MT niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Custom.MT en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn Custom MT-verbinding'.
+4. Kopieer je API-sleutel uit de Custom.MT-console naar het veld API Token.
+5. Klik op _Connect_
+
+![connecting](https://raw.githubusercontent.com/bb-io/CustomMT/main/image/README/1692783524226.png)
+
+## Actions
+
+- **Translate text**: Geef een dynamische sjabloonidentificatie of selecteer je sjabloon uit de lijst met bestaande sjablonen. Voeg de te vertalen tekst toe in het tekstveld. Deze actie geeft de vertaling van de tekst terug met behulp van het opgegeven sjabloon.
+- **Translate multiple texts**: Hetzelfde als hierboven, maar met meerdere teksten als invoer.
+
+## Voorbeeld
+
+![example](https://raw.githubusercontent.com/bb-io/CustomMT/main/image/README/1692783915834.png)
+Dit voorbeeld toont een zeer eenvoudige workflow waarbij elke binnenkomende vermelding op een bepaald kanaal wordt vertaald met behulp van het gespecificeerde sjabloon _EnToHu_ en wordt teruggestuurd naar hetzelfde kanaal als reactie.
+
+## Feedback
+
+Feedback op onze implementatie van Custom.MT is altijd zeer welkom. Neem contact met ons op via de bestaande kanalen of maak een issue aan.

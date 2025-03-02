@@ -1,0 +1,43 @@
+---
+  title: ElevenLabs
+  description: De ElevenLabs Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/ElevenLabs" icon="github" />
+ 
+  
+ElevenLabs is een geavanceerd platform voor spraaksynthese en -conversie dat geavanceerde tools biedt voor het omzetten van tekst naar spraak en spraak naar spraak. Het biedt hoogwaardige mogelijkheden voor spraakgeneratie, waardoor gebruikers realistische en aanpasbare spraakuitvoer kunnen creëren voor verschillende toepassingen, waaronder contentcreatie, toegankelijkheid en meer.
+  
+## Verbinding maken
+
+1.  Navigeer in Blackbird naar 'Apps' en zoek naar ElevenLabs.
+2.  Klik op _Add Connection_.
+3.  Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn ElevenLabs verbinding'.
+4.  Ga in ElevenLabs naar `My account -> Profile + API key`.
+5.  Kopieer de API-sleutel en plak deze in het juiste veld in Blackbird.
+6.  Klik op _Connect_.
+7.  Controleer of de verbinding is verschenen en de status _Connected_ is.
+  
+## Actions  
+  
+### Speech Conversion
+
+-   **Convert speech to speech** zet aangeleverde spraak om naar spraak met geselecteerde instellingen
+-   **Convert text to speech** zet aangeleverde tekst om naar spraak met geselecteerde instellingen
+  
+### Audio
+
+- **Generate sound** genereert een geluid van de opgegeven tekst.
+- **Isolate audio** verwijdert achtergrondgeluid uit audio.
+
+
+## Voorbeeld  
+  
+Het volgende voorbeeld toont hoe een bird kan worden ingesteld zodat wanneer een Slack-app wordt genoemd, het bericht via OpenAI wordt verwerkt, daarna wordt omgezet in spraak via ElevenLabs en vervolgens als antwoord terug naar Slack wordt gestuurd.
+
+![Sample Bird](https://github.com/bb-io/ElevenLabs/assets/137277669/26345195-1715-4719-92a6-f41bd6bf60ac)
+  
+## Feedback  
+  
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

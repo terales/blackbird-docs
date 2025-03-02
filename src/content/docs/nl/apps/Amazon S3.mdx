@@ -1,0 +1,75 @@
+---
+  title: Amazon S3
+  description: De Amazon S3 Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/AmazonS3" icon="github" />
+
+Amazon S3 of Amazon Simple Storage Service is een dienst aangeboden door Amazon Web Services die objectopslag biedt via een webservice-interface. Amazon S3 gebruikt dezelfde schaalbare opslaginfrastructuur die Amazon.com gebruikt voor zijn e-commercenetwerk. Amazon S3 kan elk type object opslaan, wat toepassingen mogelijk maakt zoals opslag voor internetapplicaties, back-ups, noodherstel, dataarchivering, gegevensmeren voor analyses en hybride cloudopslag.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een **Amazon S3** account hebt en over de inloggegevens beschikt om er toegang toe te krijgen.
+- Je de `Access key` en `Access secret` voor je Amazon S3 account hebt.
+- Je de `Region` voor je Amazon S3 account kent.
+
+Hier kun je vinden hoe je de `Access key` en `Access secret` kunt verkrijgen [hier](https://support.promax.com/knowledge/amazon-s3).
+
+## Verbinding maken
+
+1. Ga naar Apps en zoek de **Amazon S3** app. Je kunt de zoekfunctie gebruiken om deze te vinden.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn X verbinding'.
+4. Voer de `Access key`, `Access secret` in en selecteer je `Region` voor je Amazon S3 account.
+5. Klik op _Connect_.
+6. Controleer of de verbinding succesvol is toegevoegd.
+
+![connection](https://raw.githubusercontent.com/bb-io/AmazonS3/main/image/README/connection.png)
+
+## Actions
+
+### Bucket actions
+
+- **Create bucket**: Maakt een nieuwe bucket aan in je Amazon S3 account.
+- **Delete bucket**: Verwijdert een bucket uit je Amazon S3 account.
+
+### Object actions
+
+- **Search files in bucket**: Haalt een lijst met bestanden op uit een specifieke bucket. Optioneel zoeken op prefix, bijv. om bestanden te vinden in de map `/example/folder` voer je dat pad in als prefix.
+- **Download file**: Haalt een specifiek bestand op uit een bucket.
+- **Upload file**: Upload een nieuw bestand naar een specifieke bucket. Gebruik de optionele key input om je bestand in een mapstructuur te plaatsen, bijv. `/example/folder/<je bestandsnaam met extensie>`.
+- **Delete file**: Verwijdert een bestand uit een bucket.
+
+## Events
+
+- **On object created**: Deze gebeurtenis wordt geactiveerd wanneer een object wordt aangemaakt in je buckets.
+- **On object delete marker created**: Deze gebeurtenis wordt geactiveerd wanneer een verwijderingsmarkering wordt aangemaakt voor specifieke objecten in je buckets.
+- **On object deleted**: Deze gebeurtenis wordt geactiveerd wanneer een object permanent wordt verwijderd uit je buckets.
+- **On object restore completed**: Deze gebeurtenis wordt geactiveerd wanneer het herstel van een specifiek object is voltooid.
+- **On object restore expired**: Deze gebeurtenis wordt geactiveerd wanneer het herstel van een specifiek object is verlopen.
+- **On object restore initiated**: Deze gebeurtenis wordt geactiveerd wanneer het herstel van een specifiek object wordt gestart.
+- **On object tag added**: Deze gebeurtenis wordt geactiveerd wanneer een tag wordt toegevoegd aan een specifiek object.
+- **On object tag removed**: Deze gebeurtenis wordt geactiveerd wanneer een tag wordt verwijderd van een specifiek object.
+
+## Veelvoorkomende problemen
+
+- **Access Denied**: Deze fout treedt op wanneer de gebruiker niet de benodigde rechten heeft om toegang te krijgen tot de gespecificeerde bron. Zorg ervoor dat de gebruiker de vereiste rechten heeft om de actie uit te voeren. De typische operaties die we in de app gebruiken zijn: `Get bucket location`, `List objects in bucket`, `Get object`, `Upload object`, `Create a bucket`, `Delete a bucket`, `Delete object`. Het hangt af van de actie die je probeert uit te voeren.
+
+## Voorbeeld
+
+Hier is een voorbeeld van hoe je de Amazon S3 app kunt gebruiken in een workflow:
+
+![example](https://raw.githubusercontent.com/bb-io/AmazonS3/main/image/README/example.png)
+
+In dit voorbeeld begint de workflow met de **On object created** gebeurtenis, die wordt geactiveerd wanneer een object wordt aangemaakt in je buckets. Vervolgens gebruikt de workflow de **Get object** actie om het object op te halen dat is aangemaakt. In de volgende stap vertalen we het object via `DeepL` en uploaden we het vertaalde object terug naar de Amazon S3 bucket.
+
+## Eggs
+
+Bekijk downloadbare workflow prototypes met deze app die je kunt importeren naar je Nests [hier](https://docs.blackbird.io/eggs/storage-to-mt/).
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

@@ -1,0 +1,43 @@
+---
+  title: TranslationOS
+  description: De TranslationOS Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/TranslationOS" icon="github" />
+
+TranslationOS API stelt je in staat om je content programmatisch te lokaliseren in meer dan 200+ talen met behulp van Translated services.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een TranslationOS hebt.
+- Je een TranslationOS API-sleutel hebt aangevraagd. Bekijk het gedeelte [authenticatie](https://api-sandbox.translated.com/v2#section/Authentication) in de TranslationOS documentatie.
+
+## Verbinding maken
+
+1. Ga naar apps en zoek naar TranslationOS. Als je TranslationOS niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer TranslationOS en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn TranslationOS'.
+4. Voer je TranslationOS [API-sleutel](https://api-sandbox.translated.com/v2#section/Authentication) in.
+5. Klik op _Authorize connection_.
+
+![connecting](https://raw.githubusercontent.com/bb-io/TranslationOS/main/image/README/1693309042281.png)
+
+## Actions
+
+### Translation
+
+- **Create text translation** maakt een vertaling op basis van een gegeven tekst. De vertaling wordt in de wachtrij geplaatst en zal door Translated worden verwerkt. Voor een gedetailleerde uitleg van alle opties, zie de [TranslationOS documentatie](https://api-sandbox.translated.com/v2#tag/Translate/operation/translate).
+- **Create file translation** werkt hetzelfde als een tekstvertaling, maar met een bestandsinvoer.
+- **Update translation** werkt een bestaand vertaalverzoek bij
+- **Cancel translation** annuleert een bestaand vertaalverzoek
+
+## Events
+
+- **On translation finished** wordt geactiveerd wanneer een vertaling is voltooid. Bij het instellen van deze gebeurtenis in een bird krijg je een Callback URL te zien. Kopieer deze URL en gebruik deze in vertaalacties in Blackbird om deze vertalingen naar deze bird te leiden.
+
+## Feedback
+
+Feedback op onze implementatie van TranslationOS is altijd zeer welkom. Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/), of maak een issue aan.

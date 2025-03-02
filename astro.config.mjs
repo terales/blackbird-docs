@@ -2,17 +2,8 @@ import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import starlightOpenAPI, { openAPISidebarGroups } from "starlight-openapi";
 
-import en from "./i18n-labels/en.json";
-import nlNL from "./i18n-labels/nl-NL.json";
-import huHU from "./i18n-labels/hu-HU.json";
-import ukUA from "./i18n-labels/uk-UA.json";
 
-const labels = {
-  en,
-  nlNL: { ...en, ...nlNL },
-  huHU: { ...en, ...huHU },
-  ukUA: { ...en, ...ukUA },
-};
+import { labels, locales } from "./i18n.config.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -27,24 +18,7 @@ export default defineConfig({
         'uk-UA': labels.ukUA.title,
       },
       defaultLocale: 'root',
-      locales: {
-        root: {
-          label: labels.en.locale_name,
-          lang: 'en',
-        },
-        'nl': {
-          label: labels.nlNL.locale_name,
-          lang: 'nl-NL',
-        },
-        'hu': {
-          label: labels.huHU.locale_name,
-          lang: 'hu-HU',
-        },
-        'uk': {
-          label: labels.ukUA.locale_name,
-          lang: 'uk-UA',
-        },
-      },
+      locales: locales,
       customCss: ["./src/styles/custom.css"],
       logo: {
         light: "./src/assets/light-logo.svg",

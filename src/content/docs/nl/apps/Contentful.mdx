@@ -1,0 +1,204 @@
+---
+title: Contentful
+description: De Contentful Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Contentful" icon="github" />
+
+Contentful is een headless CMS dat bedrijven in staat stelt om digitale content te creëren, beheren en te leveren via verschillende platforms en apparaten. Het wordt voornamelijk gebruikt voor efficiënte organisatie en distributie van content, met functies zoals contentmodellering, versiebeheer en API-gestuurde contentlevering.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een Contentful-account hebt met een space waarmee je verbinding wilt maken.
+- Je Contentful-account de juiste machtigingen heeft in de space. Je kunt meer lezen over space-rollen en -machtigingen [hier](https://www.contentful.com/help/space-roles-and-permissions/).
+- Je je eigen [OAuth-applicatie](https://app.contentful.com/account/profile/developers/applications) hebt gemaakt.
+
+## OAuth-applicatie aanmaken
+
+1. Ga naar de pagina [OAuth-applicaties](https://app.contentful.com/account/profile/developers/applications) en klik op _New Application_.
+2. Voer een _Name_ en _Description_ in. Specificeer in het veld _Redirect URI_ `https://bridge.blackbird.io/api/ImplicitGrant`. Dit is de URL waar Blackbird de autorisatiecode zal ontvangen.
+3. Selecteer onder _Redirect URI_ de optie _Content management manage_.
+4. Klik op _Create Application_.
+5. Nadat de applicatie is gemaakt, wordt een _Client ID_ gegenereerd. _Client ID_ is vereist om via Blackbird verbinding te maken met Contentful.
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar Contentful.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijv. 'Mijn klant'.
+4. Vul de eerder verkregen _Client ID_ in.
+5. Vul de _Space ID_ in van de Contentful-space waarmee je verbinding wilt maken. Volg [deze instructies](https://www.contentful.com/help/find-space-id/) om de space-ID te vinden.
+6. Basis-URL: Standaard is de basis-URL ingesteld op https://api.contentful.com. Als je in de EU werkt, moet je dit wijzigen naar https://api.eu.contentful.com.
+7. Klik op Authorize connection.
+8. Volg de instructies die Contentful geeft en autoriseer Blackbird.io om namens jou te handelen.
+9. Wanneer je terugkeert naar Blackbird, controleer dan of de verbinding is verschenen en de status Connected is.
+
+![connecting](https://raw.githubusercontent.com/bb-io/Contentful/main/image/README/connecting.png)
+
+## Werken met vertalingen
+
+Volg [deze handleiding](https://www.contentful.com/help/working-with-translations/) om met vertalingen in Contentful te kunnen werken.
+
+## Actions
+
+### Entries
+
+- **Get locales** geeft de standaardtalen en een lijst met andere talen terug, allemaal in codevorm om gemakkelijk te gebruiken in combinatie met de convert-operator.
+- **Get entry's text/rich text field** geeft de inhoud van een korte tekst, lange tekst of rich text veld van de entry terug als een string.
+- **Get text/rich text field as HTML file** geeft de inhoud van een korte tekst, lange tekst of rich text veld van de entry terug als een HTML-bestand.
+- **Set entry's text/rich text field** stelt de inhoud van een korte tekst, lange tekst of rich text veld van de entry in vanuit een string.
+- **Set text/rich text field from HTML file** stelt de inhoud van een korte tekst, lange tekst of rich text veld van de entry in vanuit een HTML-bestand. Voor korte/lange tekst wordt alleen de tekst uit het bestand in het veld geplaatst. Voor rich text wordt de volledige HTML-structuur behouden.
+- **Get entry's number field** geeft de waarde van het numerieke veld van de entry terug.
+- **Set entry's number field** stelt de waarde van het numerieke veld van de entry in.
+- **Get entry's boolean field** geeft de waarde van het booleaanse veld van de entry terug.
+- **Set entry's boolean field** stelt de waarde van het booleaanse veld van de entry in.
+- **Get entry's media content** geeft de identifier van het asset terug dat aan het mediaveld van de entry is gekoppeld.
+- **Set entry's media field** stelt het mediaveld van de entry in met het gespecificeerde asset.
+- **Search entries** geeft een lijst met entries terug. Optioneel filteren op contentmodel, omgeving, tags en de laatste bijwerkdatum.
+- **Get entry** Haal details op van een specifieke entry
+- **Add new entry** maakt een nieuwe entry aan met het gespecificeerde contentmodel.
+- **Find entry by field value** Op basis van een veld en een gewenste waarde voor het veld wordt de eerste overeenkomende entry geretourneerd.
+- **Delete entry**.
+- **Publish entry**.
+- **Unpublish entry**.
+- **List missing locales for a field** geeft een lijst met ontbrekende vertalingen voor het gespecificeerde veld.
+- **List missing locales for entry** geeft een lijst met ontbrekende vertalingen voor de gespecificeerde entry.
+- **Get entry as HTML file** geeft alle lokaliseerbare velden van de gespecificeerde entry terug als HTML-bestand (zie meer informatie hieronder).
+- **Update entry from HTML file** werkt alle lokaliseerbare velden van de gespecificeerde entry bij.
+
+**Get entry as HTML file** en **Update entry from HTML file** zijn bedoeld om samen te worden gebruikt in een typische vertaalworkflow: je kunt de lokaliseerbare velden van een entry ophalen als HTML-bestand, het in een TMS plaatsen, vervolgens een vertaald HTML-bestand ophalen en het terug in de Contentful-entry plaatsen. **Update entry from HTML file** verwacht dezelfde HTML-structuur als de structuur van het bestand dat is opgehaald met **Get entry as HTML file**.
+
+**Belangrijke opmerking**: zorg ervoor dat je entry velden heeft met **lokalisatie ingeschakeld**. Je moet deze eigenschap expliciet instellen voor elk veld (zie afbeeldingen hieronder).
+
+![1707747998688](https://raw.githubusercontent.com/bb-io/Contentful/main/image/README/1707747998688.png)
+![1707748006274](https://raw.githubusercontent.com/bb-io/Contentful/main/image/README/1707748006274.png)
+
+Met de actie **Get entry as HTML file** kun je ook definiëren of je content (voor vertaling) recursief wilt insluiten van gekoppelde entries.
+
+Er zijn 4 typen gekoppelde entries:
+- Referentieveldtypen uit het contentmodel
+- Hyperlinks die verwijzen naar een entry in 'Rich text'-velden
+- Inline ingesloten entries in 'Rich text'-velden
+- Block ingesloten entries in 'Rich text'-velden
+
+In de actie kun je precies selecteren welk type gekoppelde entry je wilt opnemen in het geëxporteerde HTML-bestand. Als je bijvoorbeeld 'Hyperlinks' en 'Inline embedded entries' selecteert, zullen we recursief door alle 'Rich text'-velden zoeken en alle content van deze ingesloten entries ophalen. Voor deze ingesloten entries doen we hetzelfde en halen we ook alle hyperlinks en ingesloten inline entries op, enzovoort.
+
+> Opmerking: je kunt ook aangeven of je het lokalisatieaspect van referentievelden wilt negeren. Als deze optionele input true is, en 'Include referenced entries' is true, dan worden alle gerefereerde entries opgenomen, ongeacht de lokalisatie-instelling.
+
+Ten slotte kun je een lijst met Field ID's specificeren die altijd genegeerd worden en niet aan het geproduceerde HTML-bestand worden toegevoegd.
+
+> Voor meer informatie over CMS-lokalisatie. Bekijk [deze handleiding](https://docs.blackbird.io/guides/cms-contentful/).
+
+### Assets
+
+- **Get asset** geeft titel, beschrijving en een bestand terug dat aan het asset is gekoppeld.
+- **Create and upload asset**.
+- **Update asset file**.
+- **Delete asset** Verwijder het gespecificeerde asset.
+- **Publish asset**.
+- **Unpublish asset**.
+- **Is asset locale present** controleert of de gespecificeerde bestandsvertaling aanwezig is voor het asset.
+- **List missing locales for an asset** geeft een lijst terug van alle ontbrekende vertalingen voor het asset.
+- **Add asset tag** Voeg een nieuwe tag toe aan het gespecificeerde asset
+- **Remove asset tag** Verwijder een specifieke tag van het asset
+
+### Content models
+
+- **List all content models** geeft alle contentmodellen terug die beschikbaar zijn in de space.
+- **Get content model** Haal details op van een specifiek contentmodel.
+
+### Tag
+- **List tags** Lijst alle content-tags in een space
+- **Create tag** Maak een nieuwe content-tag aan
+- **Get tag** Haal details op van een specifieke tag
+- **Delete tag** Verwijder specifieke content-tag
+- **Add tag to entry** Voeg specifieke tag toe aan een entry
+- **Remove tag from entry** Verwijder specifieke tag van een entry
+
+### Content types
+- **List all content types** geeft alle content types terug die beschikbaar zijn in de space.
+
+### Entry tasks
+
+- **Search entry tasks** geeft een lijst met taken terug op basis van de gespecificeerde filters.
+- **Get entry task** geeft details terug van een specifieke taak.
+- **Update entry task** werkt een entry-taak bij met nieuwe details.
+
+Let op, om de **Entry tasks** acties te gebruiken, moet je de `Workflows`-app (ontwikkeld door Contentful) in je Contentful-space installeren.
+
+### Workflows
+
+- **Get workflow** geeft details terug van een specifieke workflow op basis van de workflow-ID.
+- **Get workflow definition** geeft details terug van een specifieke workflowdefinitie op basis van de workflowdefinitie-ID.
+- **Update workflow step** verplaatst een workflow naar een specifieke stap.
+- **Complete workflow** voltooit een workflow.
+- **Cancel workflow** annuleert een workflow.
+
+## Events
+
+- **On entry published** en **On asset published** zijn de meest nuttige events. Ze worden geactiveerd wanneer een entry/asset wordt gepubliceerd en kunnen de perfecte trigger zijn om de entry/asset voor vertaling te verzenden op basis van de ontbrekende vertalingen (zie voorbeeld). Je kunt deze events optioneel ook filteren op tags. Als je dit doet, wordt het event alleen geactiveerd als alle tags die je invoert aanwezig zijn op de entry.
+- **On entry task created** en **On entry task saved** zijn nuttig als je liever werkt met de 'Workflows'-extensie van Blackbird. Je kunt de extensie gebruiken om een entry toe te wijzen aan een workflow en een taak te creëren. Deze events kunnen zelfs filteren op basis van toegewezen gebruikers-ID en taakbeschrijving. Zie het onderstaande voorbeeld.
+- **On workflow updated** wordt geactiveerd wanneer een workflow wordt bijgewerkt of gemaakt. Wordt ook geactiveerd wanneer een workflow van stap verandert.
+- **On workflow completed** wordt geactiveerd wanneer een workflow is voltooid.
+
+### Andere events:
+
+- **On entry created**
+- **On entry saved**
+- **On entry auto saved**
+- **On entry unpublished**
+- **On entry archived**
+- **On entry unarchived**
+- **On entry deleted**
+- **On asset created**
+- **On asset saved**
+- **On asset auto saved**
+- **On asset unpublished**
+- **On asset archived**
+- **On asset unarchived**
+- **On asset deleted**
+
+## Voorbeelden
+
+![example](https://raw.githubusercontent.com/bb-io/Contentful/main/image/README/example.png)
+
+In dit voorbeeld halen we, wanneer een entry wordt gepubliceerd, de lokaliseerbare velden op als een HTML-bestand en halen we de ontbrekende vertalingen op. Vervolgens maken we een nieuw Phrase-project aan met de ontbrekende talen als doeltalen en maken we een nieuwe Phrase-taak aan voor het bestand.
+
+![example2](https://raw.githubusercontent.com/bb-io/Contentful/main/image/README/1727786768856.png)
+
+In dit voorbeeld halen we, wanneer een entry wordt gepubliceerd, alle lokaliseerbare velden op als een HTML-bestand. We sturen het bestand vervolgens naar DeepL voor vertaling en werken de vertaalde content onmiddellijk bij. Daarnaast nemen we een woordenlijst van XTM en gebruiken die in onze DeepL-vertaling.
+
+![example3](https://raw.githubusercontent.com/bb-io/Contentful/main/image/README/1727786944492.png)
+
+In dit voorbeeld gebruiken we de 'Workflows'-functie in Contentful. Wanneer een nieuwe taak wordt gemaakt (we kunnen aanvullend filteren op taakinhoud en toegewezen gebruiker), zullen we de entry die gerelateerd is aan deze taak ophalen als een HTML-bestand, vertalen met DeepL en de vertaling bijwerken in Contentful. Daarnaast werken we de status van de taak bij om deze als opgelost te markeren.
+
+![example4](https://raw.githubusercontent.com/bb-io/Contentful/main/image/README/workflow-example.png)
+
+In dit voorbeeld gebruiken we ook de 'Workflows'-functie in Contentful, maar in dit geval werken we niet met taken. In plaats daarvan gebruiken we de workflow zelf. Wanneer een workflow van stap verandert, controleren we of de stap 'Ready for translation' is. Als dat zo is, halen we de entry op als een HTML-bestand, vertalen we deze met DeepL en werken we de vertaling bij in Contentful. Vervolgens verplaatsen we de workflow naar de volgende stap of, als er geen volgende stap is, voltooien we de workflow.
+
+## HTML-functies
+
+We voegen metadata toe aan het HTML-bestand om `Entry ID` en `Field ID` op te nemen. Deze metadata wordt gebruikt om de entry-content bij te werken vanuit het HTML-bestand. Deze tags worden gebruikt om de content in `Contentful` te identificeren, waardoor het niet nodig is om ID's elders op te slaan.
+
+Voorbeeld van hoe we metadata opnemen in het HTML-bestand:
+
+```html
+<html>
+<head>
+    <meta name="blackbird-entry-id" content="example-entry-id">
+    <meta name="blackbird-field-id" content="example-field-id">
+</head>
+<body>
+    <p>Toothbrush</p>
+</body>
+</html>
+```
+
+## Ontbrekende functies
+
+De meeste content-gerelateerde acties bestaan al. In de toekomst kunnen we echter acties toevoegen voor meer veldtypen. Laat het ons weten als je hierin geïnteresseerd bent!
+
+Als je een meer gebruiksvri

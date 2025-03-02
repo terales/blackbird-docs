@@ -1,0 +1,66 @@
+---
+  title: Wordbee
+  description: De Wordbee Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Wordbee" icon="github" />
+
+Wordbee is een krachtig, cloud-gebaseerd vertaalbeheersysteem (TMS) ontworpen voor bedrijven, taaldienstverleners (LSP's) en freelancers. Het biedt een uitgebreide set tools voor het beheren van de volledige vertaal- en lokalisatieworkflow, van projectcreatie en -toewijzing tot vertaling, beoordeling en levering.
+
+## Verbinden
+
+1.  Navigeer naar Apps en zoek de **Wordbee** app. Je kunt de zoekfunctie gebruiken om het te vinden.
+2.  Klik op _Add Connection_.
+3.  Geef je verbinding een naam voor toekomstige referentie, bijv. 'Mijn organisatie'.
+4. Ga in je Wordbee-instantie naar `My account` -> `API` om alle API-inloggegevens te verkrijgen.
+5.  Vul het veld `URL` in met de API-url van je instantie.
+6. Vul het veld `Account ID` in met de Account-eigenschap uit de instellingen.
+7. Vul het veld `API key` in met de API-sleutel van je instantie.
+8.  Wanneer je terugkeert naar Blackbird, controleer of de verbinding is verschenen en de status _Connected_ is.
+
+## Actions
+
+### Documents 
+
+-   **Confirm delivery** bevestigt de levering van een specifiek document.
+-   **Download translated file** downloadt een vertaald bestand uit de workflow.
+-   **Submit new file** uploadt een nieuw bestand naar een bestaand project.
+
+### Orders
+
+-   **Create order** maakt een nieuwe bestelling met bestand aan. Vereist bestandsformaat `.zip`
+-   **Delete order** verwijdert een specifieke bestelling.
+-   **Download order files** downloadt alle bestellingsbestanden als een ZIP-archief.
+-   **Get order** geeft details van een specifieke bestelling terug.
+-   **Search orders** geeft een lijst met meerdere bestellingen terug met behulp van filtercriteria.
+
+### Jobs
+
+-   **Get job** geeft details van een specifieke taak terug.
+
+### Projects
+
+-   **Get project** geeft details van een specifiek project terug.
+-   **Search projects** geeft een lijst van alle projecten in de werkruimte terug met behulp van filtercriteria.
+
+## De webhooks instellen
+
+Na het publiceren van de bird ontvang je een callback URL. Kopieer deze, ga vervolgens naar `Settings`, scroll naar beneden en ga naar `Developer API Webhooks` -> `Configure` -> `Add new webhook` en selecteer het juiste webhook-type. Voer in het URL-veld de URL in die je eerder van Blackbird hebt gekopieerd. Blackbird is geconfigureerd om de standaardpayloads te gebruiken, dus als je hier iets wijzigt, let er dan op dat webhooks mogelijk niet naar verwachting werken. Het enige wat hier van belang is, is dat je alle Wordbee-variabelen in de payload tussen aanhalingstekens kunt zetten, zodat webhooks stabieler worden. Nadat alle instellingen zijn ingevuld, klik je op `Save new`.
+
+## Events
+
+-   **On order message** wordt geactiveerd wanneer een bericht aan de bestelling wordt toegevoegd.
+-   **On order status changed** wordt geactiveerd wanneer de status van een bestelling verandert.
+-   **On project status changed** wordt geactiveerd wanneer de status van een project verandert.
+-   **On document workflow finished** wordt geactiveerd wanneer de workflow van een specifiek document is voltooid.
+-   **On order created** wordt geactiveerd wanneer een nieuwe bestelling wordt toegevoegd.
+-   **On job status changed** wordt geactiveerd wanneer de status van een specifieke taak is gewijzigd.
+
+## Ontbrekende functies
+
+Wordbee is een enorme app met veel functies. Als een van deze functies voor jou bijzonder interessant is, laat het ons weten!
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

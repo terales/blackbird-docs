@@ -1,0 +1,82 @@
+---
+  title: Mailchimp
+  description: De Mailchimp Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Mailchimp" icon="github" />
+
+## Voordat je begint
+
+Je moet ervoor zorgen dat je een Mailchimp-account hebt en toegang daartoe. Onze app gebruikt OAuth 2.0 voor authenticatie, dus je hoeft geen API-sleutels te verstrekken. Je wordt doorgestuurd naar de Mailchimp-inlogpagina om de app te autoriseren. Let op, deze app maakt gebruik van de [Mailchimp Marketing API](https://mailchimp.com/developer/marketing/api) om een gestroomlijnde ervaring te bieden voor het beheren van je marketinginspanningen.
+
+## Verbinden
+
+1. Navigeer naar Apps en zoek de **Mailchimp** app. Je kunt de zoekfunctie gebruiken om deze te vinden.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijvoorbeeld 'Mijn organisatie'.
+4. Klik op _Authorize connection_.
+5. Je wordt doorgestuurd naar de Mailchimp-inlogpagina. Voer je inloggegevens in en autoriseer de app.
+6. Bevestig dat de verbinding is verschenen en dat de status _Connected_ is.
+
+![Connection](https://raw.githubusercontent.com/bb-io/Mailchimp/main/image/README/connection.png)
+
+## Actions
+
+### Campaigns
+
+- **Search campaigns** - Campagnes zoeken op basis van specifieke criteria.
+- **Get campaign** - Campagne ophalen op basis van specifieke ID.
+- **Create campaign** - Campagne maken met specifieke gegevens.
+- **Update campaign** - Campagne bijwerken met specifieke gegevens.
+- **Delete campaign** - Campagne verwijderen op basis van specifieke ID.
+
+### Campaign content
+
+- **Get campaign content** - Campagne-inhoud ophalen op basis van specifieke ID.
+- **Update campaign content** - Campagne-inhoud bijwerken met specifieke gegevens.
+- **Get campaign content as HTML** - Campagne-inhoud ophalen op basis van specifieke ID als HTML.
+- **Update campaign content from HTML** - Campagne-inhoud bijwerken met specifieke ID vanuit HTML-bestand of optionele invoer. Deze actie is nuttig in combinatie met de `Get campaign content as HTML` actie wanneer je de campagne-inhoud als HTML moet ophalen en vervolgens het document wilt vertalen.
+
+## Events
+
+- **On campaigns created** - Polling event. Wordt na een bepaald tijdsinterval geactiveerd en retourneert nieuwe campagnes. Dit event gebruikt de parameter `since_create_time` om campagnes te filteren die na de opgegeven tijd zijn gemaakt.
+- **On campaigns updated** - Polling event. Wordt na een bepaald tijdsinterval geactiveerd en retourneert bijgewerkte campagnes. Dit event slaat de laatste 20 campagnes en hun hashwaarden (van HTML-inhoud) op in het geheugen. Wanneer het event wordt geactiveerd, vergelijkt het de hashwaarden van de opgeslagen campagnes met de hashwaarden van de nieuwste campagnes. Als de hashwaarden verschillen, retourneert het event de bijgewerkte campagnes. Het belangrijkste moment hier is het ophalen van slechts 20 campagnes gesorteerd op `create_time` in aflopende volgorde. Dit wordt gedaan om complexiteit en prestatieproblemen te voorkomen.
+
+## Foutafhandeling
+
+Onze app retourneert fouten in een gestructureerd formaat. Hieronder staan de typische foutmeldingen die je kunt tegenkomen:
+
+1. Standaard foutrespons
+   Een standaard foutrespons bevat de volgende velden:
+```
+Type: {Type}, Title: {Title}, Status: {Status}, Detail: {Detail}, Instance: {Instance}
+```
+
+- Type: Het type fout.
+- Title: Een korte titel die de fout beschrijft.
+- Status: De HTTP-statuscode die bij de fout hoort.
+- Detail: Een gedetailleerd bericht dat de fout uitlegt.
+- Instance: Een unieke identificatie voor deze specifieke foutinstantie.
+
+2. Complexe foutrespons met interne fouten
+
+Als het foutobject aanvullende interne fouten bevat, zal de respons een Errors-veld bevatten met meer details:
+
+```
+Type: {Type}, Title: {Title}, Status: {Status}, Detail: {Detail}, Instance: {Instance}, Errors: Field: {x.Field}, Message: {x.Message}, ...
+```
+
+- Errors: Een lijst met interne fouten, elk bevat:
+  - Field: Het specifieke veld gerelateerd aan de fout. Bijvoorbeeld `first_name`.
+  - Message: Een bericht dat de fout voor dat veld beschrijft.
+
+Als je een fout tegenkomt, controleer dan de foutmelding en probeer het probleem op te lossen. Als je meer hulp nodig hebt, neem dan contact met ons op.
+
+## Ontbrekende functies
+
+De **Mailchimp** API is zeer uitgebreid en we werken eraan om meer functies aan onze app toe te voegen. Als je een specifieke functie nodig hebt, neem dan contact met ons op. Je kunt API-eindpunten en beschikbare functies bekijken in de [Mailchimp API-documentatie](https://mailchimp.com/developer/marketing/api/root/).
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

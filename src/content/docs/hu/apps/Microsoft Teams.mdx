@@ -1,0 +1,99 @@
+---
+  title: Microsoft Teams
+  description: A Microsoft Teams Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés Githubon" target="_blank" href="https://github.com/bb-io/MicrosoftTeams" icon="github" />
+
+A Microsoft 365 Teams egy kollaboratív kommunikációs platform, amely egyesíti a csevegést, videokonferenciát és fájlmegosztást, így biztosítva központi platformot a csapatok zökkenőmentes együttműködéséhez. Lehetővé teszi a szervezetek számára a hatékony kapcsolattartást, együttműködést és kommunikációt, akár távoli, akár irodai környezetben.
+
+## Beállítás előtt
+
+Mielőtt csatlakozna, győződjön meg arról, hogy van Microsoft 365 fiókja.
+
+### Webhookok és műveletek használata csatorna üzenetekhez
+
+Ha webhookokokat és/vagy műveleteket szeretne használni csatorna üzenetekhez, szüksége van a szervezet adminisztrátorának jóváhagyására. Az adminisztrátori jóváhagyás megadására két mód kínálkozik.
+
+Az első mód a bérlői szintű adminisztrátori jóváhagyás megadása a Blackbird alkalmazás számára:
+
+- Jelentkezzen be a [Microsoft Entra adminisztrációs központba](https://entra.microsoft.com/) [globális adminisztrátorként](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference#global-administrator), [kiemelt szerepkörű adminisztrátorként](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference#privileged-role-administrator) vagy olyan felhasználóként, aki [jogosult engedélyeket adni alkalmazásoknak](https://learn.microsoft.com/en-us/azure/active-directory/roles/custom-consent-permissions).
+- Navigáljon az _Identitás_ > _Alkalmazások_ > _Vállalati alkalmazások_ > _Összes alkalmazás_ menüponthoz.
+- Írja be a _Blackbird_ nevet a keresőmezőbe, majd válassza ki a Blackbird alkalmazást a keresési eredmények közül.
+- Navigáljon a _Biztonság_ > _Engedélyek_ menüponthoz.
+- Kattintson a _Rendszergazdai hozzájárulás megadása a Blackbird.io International LLC-nek_ gombra.
+
+![Blackbird alkalmazás keresése](https://raw.githubusercontent.com/bb-io/MicrosoftTeams/main/image/README/searching_for_app.png)
+
+A második mód az adminisztrátori jóváhagyási munkafolyamat konfigurálása:
+
+- Jelentkezzen be a [Microsoft Entra adminisztrációs központba](https://entra.microsoft.com/) [globális adminisztrátorként](https://learn.microsoft.com/en-us/azure/active-directory/roles/permissions-reference#global-administrator).
+- Navigáljon az _Identitás_ > _Alkalmazások_ > _Vállalati alkalmazások_ > _Hozzájárulás és engedélyek_ > _Adminisztrátori hozzájárulás beállításai_ menüponthoz.
+- Az _Adminisztrátori hozzájárulási kérelmek_ alatt válassza az _Igen_ opciót a _Felhasználók kérhetnek adminisztrátori hozzájárulást olyan alkalmazásokhoz, amelyekhez nem tudnak hozzájárulni_ beállításnál.
+- Konfigurálja a következő beállításokat:
+    * _Ki vizsgálhatja felül az adminisztrátori hozzájárulási kérelmeket_ - válassza ki azokat a felhasználókat, csoportokat vagy szerepköröket, akik az adminisztrátori hozzájárulási kérelmek felülvizsgálóiként vannak kijelölve. A felülvizsgálók megtekinthetik, blokkolhatják vagy elutasíthatják az adminisztrátori hozzájárulási kérelmeket, de csak a globális adminisztrátorok hagyhatják jóvá azokat. A kérelmek jóváhagyásához a felülvizsgálónak rendelkeznie kell a [szükséges engedélyekkel](https://learn.microsoft.com/en-us/azure/active-directory/roles/custom-consent-permissions) az alkalmazás adminisztrátori jóváhagyásához. A felülvizsgálóként kijelölt személyek a _Függőben lévő kérelmeim_ fülön láthatják a beérkező kérelmeket, miután felülvizsgálóként lettek beállítva. Az új felülvizsgálók nem tudnak meglévő vagy lejárt adminisztrátori hozzájárulási kérelmekkel foglalkozni.
+    * _A kiválasztott felhasználók e-mail értesítést kapnak a kérelmekről_ - e-mail értesítések engedélyezése vagy letiltása a felülvizsgálók számára, amikor kérelmet küldenek.
+    * _A kiválasztott felhasználók emlékeztetőket kapnak a kérelem lejáratáról_ - emlékeztető e-mail értesítések engedélyezése vagy letiltása a felülvizsgálók számára, amikor egy kérelem hamarosan lejár.
+    * _A hozzájárulási kérelem lejár ennyi nap után_ - adja meg, hogy a kérelmek meddig maradnak érvényesek.
+- Kattintson a _Mentés_ gombra.
+
+![Adminisztrátori hozzájárulási munkafolyamat engedélyezése](https://raw.githubusercontent.com/bb-io/MicrosoftTeams/main/image/README/enable-admin-consent-workflow.png)
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Microsoft 365 Teams-re.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például "Szervezetem".
+4. A _Channel messages scope required_ alatt adja meg, hogy _Yes_, ha webhookokat és/vagy műveleteket szeretne használni csatorna üzenetekhez, vagy _No_, ha nem. Az engedélyezési kérelemhez különböző hatókörök adódnak hozzá ennek a kapcsolati paraméternek az értéke alapján.
+5. Kattintson az _Authorize connection_ gombra.
+6. Kövesse a Microsoft által megadott utasításokat, engedélyezve a Blackbird.io számára, hogy az Ön nevében eljárjon.
+7. Amikor visszatér a Blackbird-hez, ellenőrizze, hogy a kapcsolat megjelent-e és az állapota _Connected_.
+
+![Csatlakozás](https://raw.githubusercontent.com/bb-io/MicrosoftTeams/main/image/README/connecting.png)
+
+## Actions
+
+### Chat
+
+- **List chats** visszaadja azon csevegések listáját, amelyekben a felhasználó részt vesz.
+- **Get chat message** lekér egy üzenetet vagy válaszüzenetet egy csevegésből.
+- **Download files attached to chat message**.
+- **Get the most recent chat messages**.
+- **Send message to chat** új üzenetet küld a megadott csevegésbe. Opcionálisan csatolhat fájlt a OneDrive-ról és/vagy az előző művelet eredményeként kapott fájlt.
+- **Delete message from chat**.
+
+### Channel
+
+- **Get channel message** lekér egy üzenetet vagy válaszüzenetet egy csatornából.
+- **Download files attached to channel message**.
+- **Send message to channel** új üzenetet küld a megadott csatornába. Opcionálisan csatolhat fájlt a OneDrive-ról és/vagy az előző művelet eredményeként kapott fájlt.
+- **Reply to message in channel** választ küld egy üzenetre a megadott csatornába. Opcionálisan csatolhat fájlt a OneDrive-ról és/vagy az előző művelet eredményeként kapott fájlt.
+
+### Users
+
+- **Get my user information** lekéri az aktuális fiók információit.
+- **List all users** visszaadja a szervezet felhasználóinak listáját.
+- **Get user**.
+- **Get chat members** felsorolja egy csevegés összes résztvevőjét.
+
+## Events
+
+- **On message sent to chat** akkor aktiválódik, amikor új üzenetet küldenek a csevegésbe.
+- **On message with attachments sent to chat** akkor aktiválódik, amikor új üzenetet küldenek csatolmányokkal a csevegésbe.
+- **On user mentioned in chat** akkor aktiválódik, amikor új üzenetet küldenek a csevegésbe, amelyben megemlítik a megadott felhasználót.
+- **On message sent to channel** akkor aktiválódik, amikor új üzenetet küldenek a csatornába.
+- **On message with attachment sent to channel** akkor aktiválódik, amikor új üzenetet küldenek csatolmányokkal a csatornába.
+- **On user mentioned in channel** akkor aktiválódik, amikor új üzenetet küldenek a csatornába, amelyben megemlítik a megadott felhasználót.
+
+## Hiányzó funkciók
+
+A jövőben hozzáadhatjuk:
+
+- Webhookok online értekezletek felvételeihez és átirataihoz
+- Webhookok csevegés/csatorna tagokhoz
+- További műveletek csapatokhoz, csatornákhoz, csevegésekhez
+- Online értekezlet műveletek
+- Műszakbeosztás és ütemezés műveletek
+
+Tudassa velünk, ha érdekli!

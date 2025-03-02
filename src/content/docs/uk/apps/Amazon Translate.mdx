@@ -1,0 +1,56 @@
+---
+  title: Amazon Translate
+  description: Додаток Blackbird для Amazon Translate
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/AmazonTranslate" icon="github" />
+
+Amazon Translate — це нейронна служба машинного перекладу, яка забезпечує швидкий, високоякісний переклад для різних застосувань. Вона підтримує десятки мов, що дозволяє бізнесу легко та ефективно перекладати великі обсяги тексту та інтегрувати переклад у реальному часі у свої веб-сайти, додатки та робочі процеси створення контенту. Служба зазвичай використовується для перекладу комунікацій з клієнтами, локалізації веб-сайтів та багатомовної обробки даних.
+
+## Перед налаштуванням
+
+Перш ніж підключитися, переконайтеся, що:
+
+- У вас є обліковий запис **Amazon** і у вас є облікові дані для доступу до нього.
+- У вас є `Access key` і `Access secret` для вашого облікового запису Amazon Translate.
+
+Ви можете дізнатися, як отримати `Access key` та `Access secret` [тут](https://support.promax.com/knowledge/amazon-s3).
+
+## Підключення
+
+1. Перейдіть до розділу Додатки та знайдіть додаток **Amazon Translate**. Ви можете скористатися пошуком, щоб знайти його.
+2. Натисніть _Add Connection_.
+3. Назвіть своє підключення для майбутнього використання, наприклад, 'Моє підключення X'.
+4. Введіть `Access key`, `Access secret` та виберіть `Region` для вашого облікового запису Amazon Translate.
+5. Натисніть _Connect_.
+6. Переконайтеся, що підключення було успішно додано.
+
+![1738861751328](https://raw.githubusercontent.com/bb-io/AmazonTranslate/main/image/README/1738861751328.png)
+
+## Actions
+
+### Job
+- **Start job** Start a translation job
+- **Get translation job** Describe a specific translation job
+- **Stop translation job** Stop a specific translation job
+
+### ParallelData
+- **Create parallel data** Creates a parallel data resource in Amazon Translate
+- **Get parallel data** Provides information about a parallel data resource
+- **Update parallel data** Updates a previously created parallel data resource
+- **Delete parallel data** Deletes a parallel data resource in Amazon Translate
+
+### Terminology
+- **Import terminology** Creates or updates a custom terminology
+- **Import glossary** Creates or updates a custom terminology
+- **Export glossary** Export a custom terminology
+- **Delete terminology** Retrieves a custom terminology
+
+### Translate
+- **Translate** Translate a simple text string
+- **Translate document** Translate a file
+
+## Відгуки
+
+Бажаєте використовувати цей додаток або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть проблему.

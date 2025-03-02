@@ -1,0 +1,107 @@
+---
+  title: Sanity
+  description: De Sanity Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Sanity" icon="github" />
+
+Sanity is een headless CMS (Content Management System) ontworpen voor flexibiliteit en samenstelbaarheid. Het gebruikt gestructureerde content, waardoor bedrijven content kunnen hergebruiken via verschillende kanalen. De modulaire aanpak helpt organisaties verbinding te maken met externe technologieën, databronnen en frontend frameworks.
+
+## Voordat je begint
+
+Voordat je de integratie instelt, zorg ervoor dat je toegang hebt tot een Sanity-project.
+
+1. Bezoek [Sanity.io](https://www.sanity.io/manage/personal) en maak een nieuw project aan of gebruik een bestaand project.
+2. Identificeer je **Project ID**, die je kunt vinden onder de naam van je project in het Sanity-projectdashboard.
+3. Genereer een **API-token** (of gebruik een bestaande). Je kunt een nieuw token genereren in het tabblad **API** van je Sanity-project. De app vereist **Editor**-rechten om toegang te krijgen tot alle functies. Kopieer na het genereren het token voor toekomstig gebruik.
+
+![API_token.png](https://raw.githubusercontent.com/bb-io/Sanity/main/image/README/API_token.png)
+
+## Verbinden met Sanity
+
+1. Navigeer naar de sectie **Apps** en zoek de **Sanity**-app (je kunt ernaar zoeken).
+2. Klik op **Add Connection**.
+3. Geef je verbinding een naam voor toekomstige referentie (bijvoorbeeld 'Mijn Organisatie').
+4. Voer de **Project ID** in het corresponderende veld in.
+5. Voer je **API-token** in het juiste veld in.
+6. Klik op **Authorize connection**.
+7. Bevestig dat de verbinding tot stand is gebracht en dat de status **Connected** weergeeft.
+
+![Connection](https://raw.githubusercontent.com/bb-io/Sanity/main/image/README/connection.png)
+
+## Actions
+
+- **Search content**: Zoek naar content binnen een specifieke dataset. Als er geen dataset is opgegeven, wordt standaard de productiedataset gebruikt.
+- **Get content**: Haal een content-object op uit een specifieke dataset met behulp van de content-identifier.
+- **Get content as HTML**: Haal lokaliseerbare contentvelden op als een HTML-bestand.
+- **Update content from HTML**: Werk lokaliseerbare contentvelden bij met behulp van een HTML-bestand.
+- **Create content**: Maak een content-object aan op basis van het type en parameters.
+- **Delete content**: Verwijder een content-object uit een dataset met behulp van de content-identifier.
+
+## HTML-conversie
+
+Let op: deze app werkt momenteel met de [sanity-plugin-internationalized-array](https://github.com/sanity-io/sanity-plugin-internationalized-array). Dit betekent dat de app alleen velden van de types **'internationalizedArrayStringValue'** of **'internationalizedArray'** ondersteunt. Het zal geen content met een regulier stringtype oppikken of bijwerken. Alleen deze veldtypes worden ondersteund.
+
+Hier is een voorbeeld van ondersteunde velden:
+
+```ts
+defineField({
+    name: 'firstName',
+    description: 'Test description',
+    type: 'internationalizedArrayString',
+}),
+defineField({
+    name: 'lastName',
+    type: 'internationalizedArrayString',
+}),
+defineField({
+    name: 'experience',
+    type: 'internationalizedArrayString'
+})
+```
+
+In de toekomst zijn we van plan om aanvullende lokalisatieplugins te ondersteunen, zoals de [document-internationalization plugin](https://github.com/sanity-io/document-internationalization), die werkt op documentniveau.
+
+> Als je reguliere contenttypes (zoals string of rijke tekstblokken) moet vertalen, neem dan contact met ons op, dan zullen we een oplossing onderzoeken.
+
+## Events
+
+### Webhook-configuratie
+
+Om webhooks in te schakelen, ga naar je projectpagina in Sanity.io. Selecteer het tabblad **API** en klik op **Create new webhook**. Geef de webhook een naam (bijvoorbeeld Blackbird), voeg een beschrijving toe en voer de volgende URL in: `https://bridge.blackbird.io/api/webhooks/sanity`. Selecteer de documentacties die de webhook zullen activeren (we raden aan om alles te selecteren: create, update, delete). Laat de andere instellingen op hun standaardwaarden staan. Klik op **Save**. Je zou iets als dit moeten zien:
+
+![webhook_configuration](https://raw.githubusercontent.com/bb-io/Sanity/main/image/README/webhook_configuration.png)
+
+### Event list
+
+- **On content created**: Geactiveerd wanneer nieuwe content wordt aangemaakt.
+- **On content updated**: Geactiveerd wanneer bestaande content wordt bijgewerkt.
+
+> Als je het event **On content updated** gebruikt, wees dan voorzichtig met de mogelijkheid van een oneindige lus. Als je workflow dit event activeert en tijdens de actie de content bijwerkt, kan dit opnieuw het event activeren. Om dit te voorkomen, kun je twee optionele filterparameters gebruiken:
+>
+> 1. **Trigger if all language fields are not present**: Indien ingeschakeld, wordt het event alleen geactiveerd als de opgegeven "Translation language" ontbreekt in de content.
+> 2. **Translation language**: Geldt alleen als het eerste filter is ingeschakeld. Stel de doeltaal in die je wilt gebruiken. Het event wordt alleen geactiveerd als alle lokalisatievelden voor die taal ontbreken in de content.
+
+## Beperkingen
+
+- In Sanity is lokalisatie beschikbaar via een plugin, wat betekent dat de gebruiker zijn eigen contentmodellen zal maken door code te schrijven (inclusief talen). Omdat het een plugin is, biedt het geen API-eindpunten voor het direct ophalen van talen of andere informatie uit de plugin.
+
+```ts
+plugins: [
+  structureTool(), 
+  visionTool(),
+  internationalizedArray({
+    languages: [
+      {id: 'en', title: 'English'},
+      {id: 'fr', title: 'French'}
+    ],
+    defaultLanguages: ['en'],
+    fieldTypes: ['string', 'artist']
+  })
+]
+```
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [gebruikelijke kanalen](https://www.blackbird.io/) of maak een issue aan.

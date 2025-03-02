@@ -1,0 +1,27 @@
+---
+  title: Аналіз зображень Azure
+  description: Blackbird-додаток для аналізу зображень Azure
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/MicrosoftImageAnalysis" icon="github" />
+
+Azure AI Vision — це універсальний сервіс, що пропонує розширені можливості комп'ютерного зору. Він забезпечує можливість аналізувати зображення, розпізнавати текст та виявляти обличчя, пропонуючи готові рішення для тегування зображень та вилучення тексту за допомогою оптичного розпізнавання символів (OCR).
+
+## Actions
+
+### Image analysis
+
+- **Analyze image tags** Аналізує теги вказаного зображення
+- **Analyze image people** Аналізує людей на вказаному зображенні
+- **Analyze image objects** Аналізує об'єкти на вказаному зображенні
+- **Get image description** Аналізує зображення та отримує його текстовий опис
+- **Get dense image descriptions** Отримує детальний аналіз опису зображення
+
+### OCR (Optical Character Recognition)
+
+- **Recognize text** Розпізнавання тексту на вказаному зображенні або документі. Ця дія підтримує кілька мов і може розпізнавати рукописний текст. Зауважте, що ви можете вказати мову тексту для розпізнавання. Ви можете отримати список підтримуваних мов [тут](https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/language-support#optical-character-recognition-ocr).
+
+## Зворотний зв'язок
+
+Хочете використовувати цей додаток або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами через [офіційні канали](https://www.blackbird.io/) або створіть запит.

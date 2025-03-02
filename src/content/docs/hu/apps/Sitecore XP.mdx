@@ -1,0 +1,85 @@
+---
+  title: Sitecore XP
+  description: A Sitecore XP Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/Sitecore" icon="github" />
+
+A Sitecore az egyik vezető vállalati szintű tartalomkezelő rendszer, amely lehetővé teszi a webes tartalomszerkesztők és marketingesek számára, hogy teljes ellenőrzést gyakoroljanak weboldaluk minden aspektusa felett, a közösségi média integrációtól és blogbejegyzésektől kezdve a fejlett személyre szabásig, e-kereskedelemig és még sok másig. Ez az alkalmazás a Sitecore elemek, nyelvek és a Blackbird ökoszisztéma többi része közötti integrációra összpontosít. A többi Blackbird alkalmazással ellentétben, a működéshez egy egyedi fejlesztésű bővítményt kell telepítenie a Sitecore példányára.
+
+Ez az alkalmazás a Sitecore XP-hez készült. A Sitecore XM Cloud esetében lásd [ezt az útmutatót](https://docs.blackbird.io/apps/sitecore-xm-cloud/).
+
+## Beállítás előtt
+
+Mielőtt csatlakozhatna, győződjön meg a következőkről:
+
+- Hozzáféréssel rendelkezik egy Sitecore XP példányhoz.
+- Elegendő adminisztrátori jogosultsággal rendelkezik a Sitecore-ban a bővítmény telepítéséhez.
+- Letöltötte a legújabb Blackbird Sitecore bővítménycsomagot [innen](https://docs.blackbird.io/sitecore/package.zip).
+
+## A bővítmény telepítése
+
+1. Az 'Asztalon' navigáljon a telepítő varázslóhoz.
+
+![1706110503246](https://raw.githubusercontent.com/bb-io/Sitecore/main/image/README/1706110503246.png)
+
+2. Töltse fel a Blackbirdtől kapott bővítménycsomagot.
+
+![1706110550965](https://raw.githubusercontent.com/bb-io/Sitecore/main/image/README/1706110550965.png)
+
+3. Kattintson a _Next_ gombra.
+4. Kattintson az _Install_ gombra.
+5. Kattintson a _Close_ gombra.
+
+## API kulcs létrehozása
+
+1. Lépjen a _Content Editor_ menüpontba.
+2. Navigáljon a _System -> Settings -> Services -> API Keys_ útvonalra.
+3. Hozzon létre egy új API kulcs elemet.
+
+![1706110975432](https://raw.githubusercontent.com/bb-io/Sitecore/main/image/README/1706110975432.png)
+
+4. Töltse ki a következő mezőket:
+   - Allowed controllers: állítsa be _\*_ értékre vagy válasszon kontrollereket.
+   - Impersonation User: a kérés ezen felhasználóként lesz végrehajtva. A Sitecore rendszergazda létrehozhat felhasználókat bizonyos korlátozásokkal, ha szükséges. Az anonim felhasználók ezen felhasználóként lesznek megszemélyesítve, ha a mező értéke üres.
+5. Tegye közzé az elemet.
+
+![1706111272004](https://raw.githubusercontent.com/bb-io/Sitecore/main/image/README/1706111272004.png)
+
+6. Másolja ki az Item ID-t (a zárójelekkel együtt) - ez lesz a kulcsa, amelyet a következő lépésekben használhat.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Sitecore XP-re.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, pl. 'Saját Sitecore kapcsolat'.
+4. Adja meg a Sitecore példánya URL-címét.
+5. Adja meg az előző szakaszból származó API kulcsot.
+6. Kattintson a _Connect_ gombra.
+
+![1706111666447](https://raw.githubusercontent.com/bb-io/Sitecore/main/image/README/1706111666447.png)
+
+## Actions
+
+- **Search items** elemeket keres a keresési kritériumok alapján, beleértve az utolsó frissítést, létrehozást, nyelvet, útvonalat stb.
+- **Get all configured languages** visszaadja az összes nyelvet, amely ebben a Sitecore példányban konfigurálva van.
+- **Get item content as HTML** lekéri egy elem tartalmát HTML formátumban, hogy feldolgozható legyen NMT vagy TMS által. Megadhatja, hogy melyik verzió/nyelv kerüljön lekérésre.
+- **Update item content from HTML** frissíti egy adott verzió/nyelv tartalmát. Ezenkívül választhatja azt is, hogy mindig új verziót hozzon létre.
+- **Delete item content** töröl egy elemet.
+- **Get Item ID from HTML** lekéri az elem azonosítóját a HTML tartalomból. Amikor lefordított HTML tartalmat kap, az Item ID-t hozzáadjuk a HTML fájl fejlécéhez, ez a művelet lehetővé teszi, hogy megkapja az Item ID-t a HTML dokumentumból.
+
+## Events
+
+- **On items created** akkor aktiválódik, amikor új elemeket hoznak létre.
+- **On items updated** akkor aktiválódik, amikor bármely elemet frissítenek.
+
+## Példa
+
+Ez a példa bemutatja, hogyan lehet elemek egy részhalmazát lekérni egyéni kritériumok alapján, letölteni ezen elemek HTML fájljait, lefordítani őket bármely NMT szolgáltatóval, majd frissíteni a fordításokat.
+
+![1706274178376](https://raw.githubusercontent.com/bb-io/Sitecore/main/image/README/1706274178376.png)
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Keressen meg minket a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

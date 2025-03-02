@@ -1,0 +1,46 @@
+---
+  title: ModelFront
+  description: A ModelFront Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Github-on" target="_blank" href="https://github.com/bb-io/ModelFront" icon="github" />
+
+A ModelFront a gépi fordítás (MT) minőségének javítására szakosodott megoldásokat kínál. Elsődleges céljuk, hogy vállalkozások és szervezetek jobb fordítási eredményeket érjenek el a szoftverplatformjuk segítségével. A ModelFront olyan szolgáltatásokat nyújt, mint az adatértékelés, modellteljesítmény-figyelés és minőségellenőrzés, hogy a gépi fordítórendszerek pontos és megbízható eredményeket biztosítsanak.
+
+## Beállítás előtt
+
+Mielőtt csatlakozna, győződjön meg arról, hogy:
+
+- Rendelkezik Modelfront fiókkal.
+- Rendelkezik a Modelfront fiókjához tartozó API tokennel.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Modelfront-ra. Ha nem találja a Modelfront-ot, kattintson a jobb felső sarokban található _Add App_ gombra, válassza ki a Modelfront-ot, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot későbbi hivatkozás céljából, például 'Saját Modelfront kapcsolat'.
+4. Töltse ki a Modelfront fiókjához tartozó API tokent.
+7. Kattintson a _Connect_ gombra.
+
+![ModelfrontBlackbirdConnection](https://raw.githubusercontent.com/bb-io/ModelFront/main/image/README/ModelfrontBlackbirdConnection.png)
+
+## Actions
+
+- **Predict** Get prediction data for a single segment
+- **Predict multiple** Get prediction data for multiple segments
+- **Predict XLIFF** Get quality and risk prediction data for all segments in an XLIFF 1.2 file. Mandatory input data include the translated XLIFF file, source and target language values. As an output, Average Quality and Average Risk scores are provided, which are the average of the quality and risk scores for all segments in the file. Additionally, all translation units get appended with their individual quality score which is added to the `extradata` attribute in the XLIFF file. Optionally, you can add Threshold, New Target State and Condition input parameters to the Blackbird action to change the target state value of segments meeting the desired criteria.
+
+Példák:
+
+Ha az opcionális bemeneti értékeket az alábbi képen látható módon állítja be, akkor minden olyan szegmens, amelynek minőségi pontszáma 0,9 felett van, a célállapot értéke "final"-ra fog frissülni.
+
+![Modelfrontoptionalinput1](https://raw.githubusercontent.com/bb-io/ModelFront/main/image/README/Modelfrontoptionalinput1.png)
+
+Hasonlóképpen, az alábbi beállítás miatt minden olyan szegmens, amelynek minőségi pontszáma 0,6 vagy az alatt van, a célállapot értéke "needs-review-translation"-re fog változni.
+
+![Modelfrontoptionalinput2](https://raw.githubusercontent.com/bb-io/ModelFront/main/image/README/Modelfrontoptionalinput2.png)
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Keressen meg minket a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémajegyet.

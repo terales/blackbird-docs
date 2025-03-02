@@ -1,0 +1,136 @@
+---
+  title: Github
+  description: A Github Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés Githubon" target="_blank" href="https://github.com/bb-io/Github" icon="github" />
+
+A GitHub egy fejlesztői platform, amely lehetővé teszi a fejlesztők számára a kód létrehozását, tárolását és kezelését. Ez a Github alkalmazás a Github-események és fájlműveletek Blackbird ökoszisztémába való integrálására összpontosít.
+
+## Beállítás előtt
+
+Mielőtt csatlakozna, győződjön meg arról, hogy:
+
+- Rendelkezik Github fiókkal.
+- Tulajdonosi jogosultságokkal rendelkezik azon a tárolón, amelyre automatizálni szeretne.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Githubra. Ha nem találja a Githubot, kattintson a jobb felső sarokban az _Add App_ gombra, válassza a Githubot, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, pl. 'My Github connection'.
+4. Kattintson az _Authorize connection_ gombra.
+5. Kövesse a Github által adott utasításokat, engedélyezve a Blackbird.io számára, hogy az Ön nevében cselekedjen.
+6. Amikor visszatér a Blackbirdhez, ellenőrizze, hogy a kapcsolat megjelent-e és az állapota _Connected_.
+
+![1705402013379](https://raw.githubusercontent.com/bb-io/Github/main/image/README/1705402013379.png)
+
+## Események beállítása
+
+Ahhoz, hogy reagálhasson a Githubban történő eseményekre, telepítenie kell az alkalmazásunkat a tárolójában.
+
+1. Menjen a [Blackbird alkalmazás oldalára](https://github.com/apps/blackbird-io) a Githubon.
+2. Kattintson a _Configure_ gombra.
+3. Válassza ki azt a szervezetet, ahol telepíteni szeretné a Blackbirdet.
+4. Válassza vagy az _All repositories_ opciót, vagy a _Only select repositories_ opciót, ha korlátozni szeretné a tárolókat, amelyekhez a Blackbird hozzáfér.
+
+![1705402262423](https://raw.githubusercontent.com/bb-io/Github/main/image/README/1705402262423.png)
+
+## Actions
+
+### Repositories
+
+- **List repositories**
+- **Create new repository**
+- **Get repository**
+- **Get repository issues**
+- **List all repository content**
+- **List repository folder content**
+- **File exists** 
+
+### Branches
+
+- **List branches**
+- **Get branch**
+- **Merge branch**
+
+### Commits
+
+- **List commits**
+- **Get commit**
+
+### Pull requests
+
+- **Create pull request**
+- **List pull requests**
+- **List pull request commits**
+- **Get pull request**
+- **Get repository pull requests**
+- **Is pull request merged**
+- **List pull request files**
+- **Merge pull request**
+
+### Files
+
+- **Get repository file**
+- **Get all files in folder**
+- **Get files by filepaths**
+- **Delete file**
+- **Create or update file**
+- **Update file**
+- **List added or modified files in X hours** 
+  Bemeneti paraméterek:
+  - "Repository ID"
+  - "Last X hours" lekéri az X utolsó órában hozzáadott vagy módosított fájlokat
+  - "Authors" fájlok szűrése a hozzáadó/módosító szerzők szerint
+  - "Exclude by authors" - állítsa "true" értékre, ha ki szeretné zárni az "Authors" mezőben kiválasztott felhasználók által végzett módosításokat
+  - "Exclude merge commits" - állítsa "true" értékre, ha ki szeretné zárni a merge commit által hozzáadott/módosított fájlokat
+- **Download added or modified files in X hours as zip**
+  Ugyanazok a bemeneti paraméterek, mint a "List added or modified files in X hours" esetében. De ez a művelet egy ZIP-archívumot ad vissza a tényleges fájlokkal. A mappaszerkezet ugyanaz marad, mint a tárolóban.
+- **Upload files in zip archive**
+  Művelet a fájlok visszatöltésére a tárolóba. A "Download added or modified files in X hours as zip" funkcióval együtt működik. A ZIP-archívumban lévő mappaszerkezet megjelenik a tárolóban. Létező fájlok esetén a tartalom frissül.
+
+### Users
+
+- **Get my user data**
+- **Get user**
+- **Get user by username**
+
+### Utility
+
+- **Is file in folder**
+
+## Events
+
+### Pulls
+
+- **On pull request action** akkor következik be, amikor egy pull request-en aktivitás történik. További információkért lásd [ezt az oldalt](https://docs.github.com/en/webhooks/webhook-events-and-payloads#pull_request).
+
+### Pushes
+
+- **On commit pushed** akkor következik be, amikor egy tároló ágra push történik. Ez magában foglalja, amikor egy commit-ot push-olnak, amikor egy commit tag-et push-olnak, amikor egy ágat törölnek, amikor egy tag-et törölnek, vagy amikor egy tárolót sablonból hoznak létre.
+- **On files added** akkor aktiválódik, amikor új commit-okban új fájlok vannak. Visszaadja az összes hozzáadott fájl elérési útját.
+- **On files modified** akkor aktiválódik, amikor új commit-ok módosítanak fájlokat. Visszaadja az összes módosított fájl elérési útját.
+- **On files added or modified** akkor aktiválódik, amikor új commit-ok új fájlokat adnak hozzá vagy módosítanak fájlokat. Visszaadja az összes ilyen fájl elérési útját.
+- **On files removed** akkor aktiválódik, amikor új commit-ok eltávolítanak fájlokat. Visszaadja az összes törölt fájl elérési útját.
+
+A fájlspecifikus eseményeknél megadható egy útvonal paraméter, hogy az eseményt csak bizonyos mappákban lévő fájlokra vagy bizonyos kiterjesztésű fájlokra szűkítsük. Használja a '/' jelet a könyvtárelválasztó jelölésére. Használja a '\*' jelet a fájl- és könyvtárnevekben lévő helyettesítő karakterekhez. Használja a '\*\*' jelet a tetszőleges könyvtármélység jelölésére.
+
+Például: ha olyan eseményt szeretne létrehozni, amely csak akkor aktiválódik, amikor .html fájlok módosulnak a _locales_ nevű mappában. Akkor az **On files added or modified** esemény útvonala: _/locales/\*.html_ kell, hogy legyen.
+
+![1705407685118](https://raw.githubusercontent.com/bb-io/Github/main/image/README/1705407685118.png)
+
+## Példa
+
+A következő bird egy új memoQ projektet hoz létre, amikor fájlokat frissítenek vagy adnak hozzá egy Github tároló egy adott mappájához.
+
+![1705408481146](https://raw.githubusercontent.com/bb-io/Github/main/image/README/1705408481146.png)
+
+## Hiányzó funkciók
+
+Lehetőségünk van bármely, [ebben a listában](https://docs.github.com/en/webhooks/webhook-events-and-payloads) meghatározott eseményre reagálni. Ha igénye van ezekre, kérjük, jelezze nekünk.
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzést szeretne adni a megvalósításunkról? Vegye fel velünk a kapcsolatot a [megszokott csatornákon](https://www.blackbird.io/) keresztül vagy hozzon létre egy problémát.

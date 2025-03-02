@@ -1,0 +1,56 @@
+---
+  title: Systran
+  description: De Systran Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Systran" icon="github" />
+
+De Systran Translate API is gebouwd rond een RESTful API en kan worden gebruikt in alle soorten toepassingen.
+Deze API-referentie is bedoeld voor ontwikkelaars die applicaties willen schrijven die kunnen communiceren met de SYSTRAN Translate API. 
+U kunt onze vertaaltechnologie direct integreren in uw interne of externe applicaties om ze meertalig te maken of teksten en bestanden te vertalen met behulp van de SYSTRAN Translate API.
+
+## Voordat u begint
+
+Voordat u verbinding kunt maken, moet u ervoor zorgen dat:
+- U een Systran-account heeft en [uw account heeft ingesteld](https://spns-dev-web.systran.us/en/authentication)
+- U de API-sleutel heeft aangemaakt in `my account -> setting -> API keys`
+
+## Verbinding maken
+1. Navigeer naar apps en zoek naar Systran
+2. Klik op _Add Connection_.
+3. Geef uw verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn Systran-verbinding'.
+4. Vul uw eerder verkregen API-sleutel in.
+5. Vul uw Instance URL in.
+6. Klik op _Connect_.
+
+## Actions
+
+### Corpus
+
+- **Export corpus** Exporteer een corpusbestand in `.tmx`-formaat op basis van zijn ID
+- **Import corpus from TMX file** Voeg een nieuw corpus toe vanuit een `.tmx`-bestand.
+
+### Dictionary
+
+- **Create dictionary** Maak een woordenboek aan en vul het met een `.tbx`-bestand
+- **Export dictionary** Exporteer woordenboek als TBX-bestand
+- **Update dictionary from TBX file** Werk een bestaand woordenboek bij door items te importeren uit een `.tbx`-bestand
+
+### File
+
+- **Translate file** Vertaal een bestand van brontaal naar doeltaal
+- **Translate file (Async)** Vertaal een bestand van brontaal naar doeltaal
+- **Download translated file** Download een vertaald bestand via aanvraag-ID
+
+### Text
+
+- **Translate text** Vertaal tekst
+
+## Events
+
+- **On translation finished** Wordt geactiveerd wanneer de vertaalstatus is voltooid
+
+## Feedback
+
+Wilt u deze app gebruiken of heeft u feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

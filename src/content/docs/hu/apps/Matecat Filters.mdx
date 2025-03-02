@@ -1,0 +1,34 @@
+---
+  title: Matecat Filters
+  description: A Matecat Filters Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/MatecatFilters" icon="github" />
+
+Könnyedén kinyerheti az összes fordítható tartalmat bármilyen fájlformátumból egy kényelmes XLIFF fájlba. Fordítsa le, majd használja újra a Filters alkalmazást, hogy visszakapja a tökéletesen fordított fájlt, amelyben a formázás hibátlanul megmarad.
+
+## Beállítás előtt
+
+Mielőtt kapcsolódna, győződjön meg arról, hogy:
+
+- Rendelkezik RapidAPI kulccsal a Matecat filters API-hoz. Itt szerezhet kulcsot: [itt](https://rapidapi.com/translated/api/matecat-filters/pricing).
+
+## Kapcsolódás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Matecat filters-re.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például: 'My Matecat filters'.
+4. Adja meg a Matecat Filters [API kulcsát](https://rapidapi.com/translated/api/matecat-filters).
+5. Kattintson a _Connect_ gombra.
+
+## Actions
+
+- **Convert to XLIFF** Bármilyen, a Matecat Filters által támogatott fájlformátumot XLIFF-fé alakít.
+  - JSON fájlok esetében megadhatja az opcionális "Do not translate keys" bemeneti paramétert, amely lehetővé teszi, hogy figyelmen kívül hagyjon bizonyos JSON kulcsokat a fordítás során
+- **Convert XLIFF to source file** Egy lefordított XLIFF fájlt visszaalakít az eredeti fájlformátumába.
+- **Convert XLIFF to target file** Egy lefordított XLIFF fájlt lefordított fájllá alakít.
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Lépjen kapcsolatba velünk a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémajegyet.

@@ -1,0 +1,85 @@
+---
+  title: Contentstack
+  description: De Contentstack Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Contentstack" icon="github" />
+ 
+
+Contentstack is een headless CMS-technologie samengesteld uit een reeks van de beste oplossingen. Deze Contentstack-applicatie richt zich voornamelijk op het beheer van items en assets.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een Contentstack _Stack API key_ hebt: Ga naar je Contentstack _Stack-instellingen_ en kopieer de API-sleutel uit de sectie _API Credentials_
+- Je een Contentstack _Management token_ hebt: Ga op de instellingenpagina naar _Tokens_, selecteer de sectie _Management Tokens_ en genereer een API-managementtoken met de parameters die je nodig hebt.
+
+## Verbinden
+
+1. Navigeer naar apps en zoek naar Contentstack.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijv. 'Mijn Contentstack-verbinding'.
+4. Selecteer in het veld _Host region_ je Contentstack-regio.
+5. Vul de _Stack API key_ en _Management token_ in
+6. Klik op _Connect_.
+7. Bevestig dat de verbinding is verschenen en dat de status _Connected_ is.
+
+![1733749434672](https://raw.githubusercontent.com/bb-io/Contentstack/main/image/README/1733749434672.png)
+
+## Actions
+
+### Assets
+
+- **Download/Upload asset** downloadt of uploadt content voor het asset.
+
+### Content types
+
+- **List content types**
+
+### Entries
+
+- **Get entry** geeft details van het specifieke item terug.
+- **Get entry string/number/date/boolean property** haalt gegevens op van de opgegeven eigenschap van het item.
+- **Set entry string/number/date/boolean property** stelt gegevens in voor de opgegeven eigenschap van het item.
+- **Search entries** geeft een lijst met items terug op basis van opgegeven filtercriteria.
+- **Get entry content as HTML** geeft itemcontent terug geconverteerd naar een HTML-bestand.
+- **Update entry content from HTML** werkt itemcontent bij vanuit een HTML-bestand.
+- **Get IDs from HTML** haalt content type en item-ID's uit een HTML-bestand
+- **Publish entry** publiceert een specifiek item op basis van ID
+
+## Events
+
+-   **On asset deleted**
+-   **On asset published**
+-   **On asset unpublished**
+-   **On entry created**
+-   **On entry deleted**
+-   **On entry published**
+-   **On entry unpublished**
+-   **On entry updated**
+
+
+## HTML-functies
+
+We voegen metadata toe aan het HTML-bestand om `Entry ID` en `Content Type ID` op te nemen. Deze metadata wordt gebruikt om de itemcontent vanuit het HTML-bestand bij te werken. Deze tags worden gebruikt om de content in `Contentstack` te identificeren, waardoor het niet nodig is om ID's elders op te slaan.
+
+Hier is een voorbeeld van hoe we metadata in het HTML-bestand opnemen:
+
+```html
+<html>
+    <head>
+        <meta name="blackbird-content-type-id" content="your-content-type">
+        <meta name="blackbird-entry-id" content="your-entry-id">
+    </head>
+    <body>
+        <div path="title">Example HTML page</div>
+        <div path="description">Blackbird is the new automation backbone for the language technology industry.</div>
+    </body>
+</html>
+```
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

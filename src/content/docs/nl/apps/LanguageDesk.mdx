@@ -1,0 +1,47 @@
+---
+  title: LanguageDesk
+  description: De LanguageDesk Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Bekijk op Github" target="_blank" href="https://github.com/bb-io/LanguageDesk" icon="github" />
+
+[LanguageDesk](https://www.milengo.com/languagedesk/) stelt klanten in staat om de voortgang van hun projecten van begin tot eind eenvoudig te volgen door een gecentraliseerd overzicht te bieden van alle vertaal- en lokalisatieprojecten, hun status, bijbehorende bestanden, kosten en communicatiegeschiedenis.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een LanguageDesk account hebt
+- Je een API-token hebt. Je kunt dit token vinden in LanguageDesk onder _settings_ -> _API & Ftp servers_.
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar LanguageDesk. Als je Jira niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer LanguageDesk en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijvoorbeeld 'Mijn organisatie'.
+4. Vul de basis-URL van je LanguageDesk-instantie in. De basis-URL heeft de vorm `https://<environment>.languagedesk.com`. Je kunt dit deel van de URL meestal kopiëren wanneer je bent ingelogd in je LanguageDesk-instantie.
+5. Vul je API-token in.
+6. Klik op _Connect_.
+
+![1705078067846](https://raw.githubusercontent.com/bb-io/LanguageDesk/main/image/README/1705078067846.png)
+
+## Actions
+
+- **Create project** maakt een nieuw LanguageDesk-project aan met variabele bron-/doeltaalcombinaties en andere invoer. Opmerking: gebruik de Callback URL-invoer om gebeurtenissen in te schakelen (zie hieronder).
+- **Get project** geeft alle beschikbare informatie over een specifiek project terug
+- **Change project status** wijzigt de status van een bestaand project
+- **Download delivery files** haalt het vertaalde bestand op in een zip-bestand.
+- **Download invoice** haalt de factuur op in PDF-formaat.
+
+## Events
+
+- **On project status changed** wordt geactiveerd wanneer een project van status verandert. Bij het maken van een bird met deze trigger, kopieer je de URL die Blackbird genereert en voeg je deze toe als het Callback URL-veld in _Create project_ acties. (Zie onderstaande schermafbeeldingen)
+
+![1705078296613](https://raw.githubusercontent.com/bb-io/LanguageDesk/main/image/README/1705078296613.png)
+
+![1705078347912](https://raw.githubusercontent.com/bb-io/LanguageDesk/main/image/README/1705078347912.png)
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

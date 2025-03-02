@@ -1,0 +1,139 @@
+---
+  title: MemoQ
+  description: De MemoQ Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/MemoQ" icon="github" />
+
+
+memoQ biedt flexibele vertaal- en lokalisatiebeheeroplossingen op maat voor bedrijven, taaldienstverleners en vertalers. Deze memoQ-applicatie richt zich voornamelijk op project- en bestandsbeheer.
+
+## Voor het instellen
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je toegang hebt tot een memoQ-instantie.
+- Je memoQ-instantie de WS API heeft ingeschakeld en je een API-sleutel hebt.
+- Als je memoQ-instantie whitelisting vereist, vraag ons dan naar onze Blackbird _sandbox_ IP-adressen.
+
+Je kunt meer lezen over het instellen van je WS API [hier](https://docs.memoq.com/current/en/memoQ-server-deployment-tool/deptool-install-memoq-server.html) onder het gedeelte 'Secure the Web Service API'.
+
+## Verbinden
+
+1.  Navigeer naar apps en zoek naar memoQ. Als je memoQ niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer memoQ en voeg de app toe aan je Blackbird-omgeving.
+2.  Klik op _Add Connection_.
+3.  Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn memoQ'.
+4.  Voeg de URL toe die verwijst naar je memoQ-instantie API. Meestal is dit je instantie-URL, poort met toegevoegde `/memoqservices`, maar dit kan verschillen (zie afbeelding hieronder).
+5.  Voeg je API-sleutel toe. Als je memoQ-service geen API-sleutel vereist, kun je 'NONE' invoeren. We zullen dit achter de schermen verwerken en uitsluiten van verzoeken.
+6.  Klik op _Connect_.
+7.  Bevestig dat de verbinding is verschenen en de status _Connected_ is.
+
+![1695644590394](https://raw.githubusercontent.com/bb-io/MemoQ/main/image/README/1695644590394.png)
+
+## Actions
+
+### Analyses
+
+- **Get file/project analysis**.
+
+### Files
+
+- **Search project files** geeft de bestanden terug die momenteel in een project staan.
+- **Slice file** verdeelt een bestand op basis van de opgegeven opties.
+- **Assign file to user** wijst het bestand toe aan een specifieke gebruiker.
+- **Get/delete/overwrite/deliver file**.
+- **Upload/Download file** uploadt/downloadt bestand naar het project. Zorg ervoor dat je bestandsnaam een extensie bevat, anders zal de actie mislukken. Heeft ook optionele inputs voor externe bestand-ID, filterconfiguratie, preview-creatie en het importeren van ingesloten afbeeldingen en objecten.
+- **Apply translated content to updated source**.
+- **File exists** controleert of een bestand met de opgegeven eigenschappen bestaat in het project.
+
+### XLIFFs
+
+- **Download XLIFF file**: Exporteert en downloadt een XLIFF-bestand. Als je de optionele input 'Use MQXLIFF' instelt op true, wordt een mqxliff-bestand geretourneerd; als het is ingesteld op false, wordt een XLIFF 1.2-versiebestand geretourneerd. Standaard is het ingesteld op false.
+
+- **Upload XLIFF file**: Uploadt en importeert een XLIFF-bestand naar een project. XLIFF is de standaard voor het uitwisselen van lokalisatiegegevens. Momenteel ondersteunt het XLIFF-versies 1.2 en 2.1, en je kunt ook mqxliff-bestanden importeren.
+	- 'Re-import file ID': De unieke identificatie van het originele bestand dat je wilt overschrijven. Dit is vereist als je een bestand opnieuw wilt importeren. Indien gespecificeerd, zal de actie proberen het bestand opnieuw te importeren in plaats van een eenvoudige import.
+
+	- 'Update segment statuses': Een optionele input die aangeeft of segmentstatussen moeten worden bijgewerkt tijdens de importbewerking. Als dit is ingesteld op false, zal het alleen het bestaande bestand opnieuw importeren; als het is ingesteld op true, zal het de ID's van segmenten matchen en de segmentstatus bijwerken naar 'Edited' als de doelwaarde van het segment anders is, en ook de doeltekst van het segment bijwerken.
+
+	- 'Path to set as import path': Een optionele input die het pad vertegenwoordigt dat als importpad moet worden ingesteld. Als je het bestand opnieuw wilt importeren, is dit vereist. Je kunt dit pad vinden via de actie **Download XLIFF file** door een specifiek bestand te exporteren, en je kunt de eigenschap 'Export path' hier gebruiken (het ziet er zo uit: '\\en-uk_ukr.xliff')
+
+- **Update file from XLIFF file**: Werkt een projectbestand bij vanuit een XLIFF-bestand. Als optionele input kun je kiezen of vergrendelde of bevestigde segmenten moeten worden bijgewerkt. Standaard worden alle segmenten met wijzigingen bijgewerkt.
+
+### Packages
+
+- **Create delivery package** maakt een nieuw afleveringspakket van bestand-ID's.
+- **Deliver package** levert een specifiek pakket af.
+
+### Projects
+
+- **Search projects** Zoek door je memoQ-projecten.
+- **Get/create/delete/distribute project**.
+- **Create project from package/template** maakt een nieuw project op basis van een gespecificeerde sjabloon/pakket.
+- **Update project** werkt details van een gespecificeerd project bij.
+- **Add target language to project** voegt doeltaal toe aan een specifiek project.
+- **Get resources assigned to project** geeft een lijst terug van alle bronnen die aan een project zijn toegewezen. Je specificeert het type bron waarnaar je op zoek bent, bijvoorbeeld MT-engine of TM.
+- **Add resource to project** voeg een nieuwe bron toe aan een project.
+- **Add glossary to project** voeg termbase toe aan een specifiek project per ID.
+- **Pretranslate files** Met deze actie kun je bestanden in een specifiek project voorvertalen. Voorvertaling is een proces waarbij het systeem automatisch de vertalingen voor segmenten in een bestand invult op basis van bepaalde criteria. Dit kan het vertaalproces aanzienlijk versnellen. Parameters:  
+	- 'File IDs': Deze parameter wordt gebruikt om de unieke identificatiecodes van de bestanden die je wilt voorvertalen te specificeren. Als je geen bestand-ID opgeeft, zal de actie alle bestanden in het project voorvertalen.
+	- 'Target languages': Deze parameter wordt gebruikt om de doeltalen voor voorvertaling te specificeren. Als je geen doeltalen opgeeft, zal de actie alle doeltalen in het project voorvertalen.
+	- 'Lock': Deze optionele parameter, indien ingesteld op true, vergrendelt de voorvertaalde segmenten om verdere bewerking te voorkomen. Standaard is dit ingesteld op true.
+	- 'Confirm lock pretranslated': Deze optionele parameter bepaalt de status van segmenten die moeten worden bevestigd en vergrendeld tijdens voorvertaling. Standaard is dit ingesteld op 'ExactMatch'.
+	- 'Pretranslate lookup behavior': Deze optionele parameter bepaalt het gedrag van het voorvertaal-lookupproces.  
+	- 'Use MT': Deze optionele parameter, indien ingesteld op true, maakt het gebruik van Machine Translation (MT) tijdens voorvertaling mogelijk.  
+	- 'Translation memories IDs': Deze optionele parameter wordt gebruikt om de unieke identificatiecodes van de vertaalgeheugens te specificeren die tijdens voorvertaling moeten worden gebruikt.  
+	- 'Include numbers': Deze optionele parameter, indien ingesteld op true, neemt getallen op in de voorvertaling. Standaard is dit ingesteld op true.  
+	- 'Change case': Deze optionele parameter, indien ingesteld op true, wijzigt de hoofdletters/kleine letters van de voorvertaalde tekst. Standaard is dit ingesteld op false.  
+	- 'Include auto translations': Deze optionele parameter, indien ingesteld op true, neemt automatische vertalingen op in de voorvertaling. Standaard is dit ingesteld op true.  
+	- 'Include fragments': Deze optionele parameter, indien ingesteld op true, neemt fragmenten op in de voorvertaling. Standaard is dit ingesteld op true.  
+	- 'Include non-translatables': Deze optionele parameter, indien ingesteld op true, neemt niet-vertaalbare tekst op in de voorvertaling. Standaard is dit ingesteld op true.  
+	- 'Include term bases': Deze optionele parameter, indien ingesteld op true, neemt terminologiedatabases op in de voorvertaling. Standaard is dit ingesteld op true.  
+	- 'Minimum coverage': Deze optionele parameter wordt gebruikt om de minimale dekking voor voorvertaling te specificeren. Standaard is dit ingesteld op 50.  
+	- 'Coverage type': Deze optionele parameter wordt gebruikt om het type dekking voor voorvertaling te specificeren. Standaard is dit ingesteld op 'Not full'.  
+	- 'Only unambiguous matches': Deze optionele parameter, indien ingesteld op true, neemt alleen eenduidige matches op in de voorvertaling. Standaard is dit ingesteld op true.
+	- 'Final translation state': Deze optionele parameter wordt gebruikt om de uiteindelijke vertaalstatus voor voorvertaalde segmenten te specificeren. Standaard is dit ingesteld op 'No change'.
+
+### Project custom fields
+- **Get project custom fields** Haalt alle aangepaste metadatavelden op voor een specifiek project
+- **Get custom field value** Haalt de waarde op van een specifiek aangepast metadataveld
+- **Set custom field value** Stelt de waarde in van een specifiek aangepast metadataveld
+- **Add new custom field** Voegt een aangepast metadataveld toe aan het opgegeven project
+
+### Translation memories
+
+- **Search translation memories** geeft alle vertaalgeheugens terug op basis van bepaalde filters.
+- **Get/create/update/delete**.
+- **Import TMX file** importeert TMX-bestand naar het vertaalgeheugen.
+- **Import translation memory scheme from XML** importeert vertaalgeheugen metadataschema vanuit een XML-bestand.
+
+### Term bases
+
+- **Get term bases assigned to project** Haalt een lijst op van termbases die zijn toegewezen aan een project voor een specifieke doeltaal.
+- **Import or update glossary** Met deze actie kun je een '.tbx'-bestand importeren om de termbase bij te werken of te maken. Bij het maken van een termbase zijn de volgende velden vereist: `Glossary file`, `Glossary name`. Bij het bijwerken van de termbase zijn de volgende velden vereist: `Glossary file`, `Existing termbase ID`.
+- **Export glossary** exporteert een bestaande termbase. Deze actie accepteert een optionele inputparameter genaamd _Include forbidden terms_ die standaard op _False_ staat. Wanneer ingesteld op _False_, worden termen met de status _Forbidden_ uitgesloten van de resulterende export.
+- **Update existing glossary** werkt een bestaande termbase bij met een nieuwe. Er zijn optionele inputs `AllowAddNewLanguages` (waar je toestemming kunt geven om nieuwe talen toe te voegen, standaard is `true`) en `OverwriteEntiesWithSameId` (waar je entiteiten met dezelfde ID kunt overschrijven, standaard is `false`) 
+
+**Import glossary** en **Export glossary** ondersteunen zowel reguliere termbases als QTerm. Het is belangrijk op te merken dat de huidige implementatie alleen basisimports/exports faciliteert, waarbij fundamentele informatie zoals termen, talen en definities wordt behandeld. Extra details zoals domein, gebruiksvoorbeelden, klant, project en andere details worden echter niet opgenomen in de glossaria.
+
+Een andere belangrijke overweging is dat onze glossaria-implementatie zich houdt aan de ISO 639-1 standaard taalcodes, in tegenstelling tot memoQ. Als er geen overeenkomstige ISO 639-1 taalcode is voor een taal die door memoQ wordt ondersteund, zullen onze glossaria de ISO 639-3 taalcode van memoQ gebruiken. Dit kan resulteren in incompatibiliteit met andere systemen als dergelijke talen aanwezig zijn in een glossarium. Het is echter vermeldenswaard dat je deze glossaria nog steeds binnen memoQ kunt manipuleren.
+
+### Users
+
+- **Get/create/delete user**.
+
+## Events
+
+- **On file delivered** wordt geactiveerd wanneer een projectbestand is afgeleverd.
+- **On projects created** wordt geactiveerd wanneer nieuwe projecten worden gemaakt.
+- **On project status changed** wordt geactiveerd wanneer de status van een specifiek project is veranderd.
+
+## Ontbrekende functies
+
+In de toekomst kunnen we acties toevoegen voor:
+
+- Taken
+
+## Feedback
+
+Feedback op onze implementatie van memoQ is altijd zeer welkom. Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/), of maak een issue aan.

@@ -1,0 +1,69 @@
+---
+  title: XTRF Customer Portal
+  description: De XTRF Customer Portal Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/XTRF-Customer-portal" icon="github" />
+
+Het Client Portal stelt uw klanten in staat om 24/7 een opdracht of offerteaanvraag in te dienen, in plaats van te moeten wachten tot uw kantoor open is. Als het op offertes aankomt, draait alles immers om snelheid. U kunt ervoor kiezen om te reageren met een geautomatiseerde offerte of het offerteproces handmatig houden.
+
+## Voordat u begint
+
+Voordat u verbinding kunt maken, moet u ervoor zorgen dat:
+
+- U een XTRF-account heeft.
+- U een XTRF-klant heeft, waarmee u met succes kunt inloggen op het XTRF Customer Portal.
+- U een `Username` en `Password` heeft voor de XTRF-klant.
+- U de `Host` voor het XTRF Customer Portal heeft. Bijv. `organization.xtrf.eu`, dit is het domein dat u gebruikt om in te loggen op het XTRF Customer Portal.
+
+Doorgaans is de URL voor het XTRF Customer Portal `https://[your-xtrf-host.com]/customers`. Merk op dat u voor het XTRF Customer Portal dezelfde host gebruikt als voor het gewone XTRF-systeem; het enige verschil is het pad.
+
+## De XTRF-klant instellen voor het XTRF Customer Portal
+
+1. Maak een nieuwe klant aan in XTRF of gebruik een bestaande.
+2. Ga naar het tabblad 'Main Data' en selecteer het tabblad 'System Accounts'.
+3. Wijzig 'Access Rights' naar `Active`.
+4. Vink het vakje 'Client Portal Access Allowed' aan.
+5. Stel het wachtwoord voor de klant in door op de knop 'Send Welcome E-mail' of 'Send Password Reset E-mail' te klikken. Hiermee wordt een e-mail naar de klant gestuurd met stappen om het wachtwoord in te stellen.
+6. U kunt ook 'Sign in as this Partner' gebruiken om in te loggen en de toegang van de klant tot het XTRF Customer Portal te valideren.
+
+![setup](https://raw.githubusercontent.com/bb-io/XTRF-Customer-portal/main//image/README/setup.png)
+
+## Verbinding maken
+
+1. Navigeer naar Apps en zoek de **XTRF Customer Portal** app. U kunt de zoekfunctie gebruiken om deze te vinden.
+2. Klik op _Add Connection_.
+3. Geef uw verbinding een naam voor toekomstig gebruik, bijv. 'Mijn Organisatie Verbinding'.
+4. Vul de velden `Host`, `Username` en `Password` in.
+5. Klik op _Connect_.
+6. Zorg ervoor dat de verbinding succesvol tot stand is gebracht.
+
+![connection](https://raw.githubusercontent.com/bb-io/XTRF-Customer-portal/main//image/README/connection.png)
+
+## Actions
+
+### Invoice
+
+- **Search invoices** - Zoek facturen op basis van de opgegeven criteria.
+- **Get invoice** - Haal een specifieke factuur op via ID.
+- **Download invoice** - Download een specifieke factuur als PDF.
+
+### Project
+
+- **Search projects** - Zoek projecten op basis van zoekcriteria.
+- **Get project** - Haal een project op basis van project-ID.
+- **Create project** - Maak een nieuw project aan.
+- **Download project files** - Download projectvertalingsbestanden.
+
+### Quote
+
+- **Search quotes** - Zoek offertes op basis van de opgegeven criteria.
+- **Get quote** - Haal een specifieke offerte op via offerte-ID.
+- **Create quote** - Maak een nieuwe offerte aan op basis van de verstrekte gegevens.
+- **Accept quote** - Accepteer een specifieke offerte via offerte-ID (alleen offertes met status Sent kunnen worden geaccepteerd)
+- **Reject quote** - Wijs een specifieke offerte af via offerte-ID
+
+## Feedback
+
+Wilt u deze app gebruiken of heeft u feedback op onze implementatie? Neem contact met ons op via de [gevestigde kanalen](https://www.blackbird.io/) of maak een issue aan.

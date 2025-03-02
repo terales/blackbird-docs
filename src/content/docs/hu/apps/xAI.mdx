@@ -1,0 +1,54 @@
+---
+  title: xAI
+  description: A xAI Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/X.AI" icon="github" />
+A xAI alkalmazás lehetővé teszi a felhasználók számára, hogy AI-vezérelt kiegészítő és beszélgetési képességeket integráljanak munkafolyamataikba. Akár ismétlődő feladatokat automatizál, akár meglátásokat generál, ez az alkalmazás hozzáférhetővé teszi a fejlett AI eszközöket.
+
+## Beállítás előtt
+
+Mielőtt csatlakozni tudna és elkezdené használni a xAI-t, győződjön meg a következőkről:
+1. Rendelkezik aktív [xAI fiókkal](https://x.ai/) és API kulccsal. További részletekért látogassa meg a xAI API dokumentációt.
+2. Be van jelentkezve Blackbird.io környezetébe.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a xAI-ra. Ha nem találja a xAI-t, kattintson a jobb felső sarokban található Alkalmazás hozzáadása gombra, válassza ki a xAI-t, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson a Kapcsolat hozzáadása gombra az integráció beállításához.
+3. Nevezze el a kapcsolatot későbbi hivatkozáshoz, pl. 'Saját xAI kapcsolat'.
+4. Adja meg az API kulcsát. Létrehozhat egyet a xAI fiókbeállításaiban.
+Formátum: `xai-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`.
+5. Kattintson a Csatlakozás gombra a beállítás befejezéséhez.
+
+## Actions
+
+**1. Create Completion**
+Bemeneti paraméterek:
+- Model: Válassza ki a modellt.
+- Prompt: Szöveges bemenet a modell irányításához.
+- Max Tokens: Korlátozza a válasz hosszát. (Opcionális)
+- Temperature: Beállítja a véletlenszerűséget a kimenetben (0 = determinisztikus, 1 = kreatív). (Opcionális)
+- Top P: Szabályozza a nucleus sampling-et. (Opcionális)
+- Stop Sequences: Meghatározza azokat a sorozatokat, amelyeknél a kiegészítés leáll. (Opcionális)
+  
+**Felhasználási eset:** Kreatív tartalom generálása, szöveg összefoglalása vagy kérdések megválaszolása.
+
+**2. Create Chat Completion**
+Bemeneti paraméterek:
+- Model: Válassza ki a kívánt modellt.
+- Input: Adjon meg beszélgetési üzeneteket.
+- Max Tokens: Adja meg a válasz hosszát. (Opcionális)
+- Temperature: Beállítja a véletlenszerűséget a kimenetben (0 = determinisztikus, 1 = kreatív). (Opcionális)
+- Top P: Szabályozza a nucleus sampling-et. (Opcionális)
+- Stop Sequences: Meghatározza azokat a sorozatokat, amelyeknél a kiegészítés leáll. (Opcionális)
+- Presence Penalty: Magasabb értékek arra ösztönzik a modellt, hogy új témákat fedezzen fel és csökkentse az ismétlődést. (Opcionális)
+- Frequency Penalty: Magasabb értékek eltérítik a modellt attól, hogy ugyanazokat a szavakat vagy kifejezéseket többször ismételje ugyanabban a válaszban. (Opcionális)
+  
+**Felhasználási eset:** Chatbotok, virtuális asszisztensek vagy beszélgetési AI.
+
+A műveletekkel kapcsolatos mélyebb információkért tekintse meg a xAI [API referenciát](https://docs.x.ai/api).
+
+## Visszajelzés
+Szeretné használni ezt az alkalmazást, vagy van visszajelzése az implementációnkról? Keressen minket a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

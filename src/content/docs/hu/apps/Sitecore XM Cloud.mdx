@@ -1,0 +1,94 @@
+---
+  title: Sitecore XM Cloud
+  description: A Sitecore XM Cloud Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/SitecoreXmCloud" icon="github" />
+
+A Sitecore az egyik vezető vállalati szintű tartalomkezelő rendszer, amely lehetővé teszi a webes tartalomszerkesztők és marketingesek számára, hogy teljes irányítást gyakoroljanak a webhelyük minden aspektusa felett, a közösségi média integráció és blogbejegyzések, a fejlett személyre szabás, e-kereskedelem és még sok más funkció révén. Ez az alkalmazás a Sitecore elemek, nyelvek és a Blackbird ökoszisztéma többi része közötti integrációra összpontosít. A többi Blackbird alkalmazással ellentétben, a használathoz telepítenie kell egy egyedileg készített bővítményt a Sitecore példányára.
+
+Ez az alkalmazás a Sitecore XP számára készült. A Sitecore XM Cloud esetében lásd [ezt az útmutatót](https://docs.blackbird.io/apps/sitecore-xp/).
+
+## A beállítás előtt
+
+Mielőtt csatlakozna, győződjön meg arról, hogy:
+
+- Hozzáféréssel rendelkezik az XM Cloud Deploy-hoz, annak hitelesítő adatainak kezeléséhez és egy aktív Sitecore projekthez.
+- Hozzáféréssel rendelkezik egy Sitecore projekt forráskód-tárolójához (Github), és lehetősége van új bővítmények konfigurálására.
+- Letöltötte a legújabb Blackbird Sitecore bővítménycsomagot [innen](https://docs.blackbird.io/sitecore/package.zip).
+
+## A bővítmény telepítése
+
+Feltételezve, hogy a forrástartalom-tárolóját ebből a [tárolóból](https://github.com/sitecorelabs/xmcloud-foundation-head) forkolták.
+
+1. Csomagolja ki a fájlokat a [package.zip](https://docs.blackbird.io/sitecore/package.zip) fájlból
+2. Másolja a 2 konfigurációs fájlt a csomag `package\files\App_Config\Include\BlackBird` mappájából a forráskód-tároló `authoring\platform\App_Config\Include\` mappájába.
+3. Másolja a 2 dll fájlt a csomag `package\files\bin` mappájából a forráskód-tároló `authoring\platform\_dlls` mappájába.
+4. Nyissa meg az `XmCloudAuthoring.sln` fájlt a Visual Studio-ban (vagy bármely más .NET-kompatibilis IDE-ben), és adjon hozzá hivatkozásokat a hozzáadott .dll fájlokra a Platform projektben.
+5. Adjon hozzá fájlhivatkozásokat a 2 konfigurációs fájlra is.
+
+A megoldásnak most valahogy így kell kinéznie:
+
+![1738074666500](https://raw.githubusercontent.com/bb-io/SitecoreXmCloud/main/image/README/1738074666500.png)
+
+6. Fordítsa le és/vagy küldje el a kódot, hogy újratelepítés induljon el.
+
+## API kulcs létrehozása
+
+1. Lépjen a _Content Editor_ menüpontra.
+2. Navigáljon a _System -> Settings -> Services -> API Keys_ útvonalra.
+3. Szúrjon be egy új API kulcs elemet.
+
+![1706110975432](https://raw.githubusercontent.com/bb-io/SitecoreXmCloud/main/image/README/1706110975432.png)
+
+4. Töltse ki a következő mezőket:
+   - Allowed controllers: állítsa _\*_ értékre vagy válasszon vezérlőket.
+   - Impersonation User: a kérés ezen felhasználóként fog végrehajtódni. A Sitecore adminisztrátor létrehozhat felhasználókat bizonyos korlátozásokkal, ha szükséges. Az anonim felhasználók ez a felhasználóként lesznek megszemélyesítve, ha a mező értéke üres.
+5. Tegye közzé az elemet.
+
+![1706111272004](https://raw.githubusercontent.com/bb-io/SitecoreXmCloud/main/image/README/1706111272004.png)
+
+6. Másolja ki az elem azonosítóját (a zárójelekkel együtt) - ez az Ön kulcsa, és a következő lépésekben használható.
+
+## XM Cloud kliens létrehozása
+
+1. Az XM Cloud-ban navigáljon a [hitelesítési adatok lapra](https://deploy.sitecorecloud.io/credentials).
+2. Kattintson a _Create credentials_ gombra, és adjon hozzá egy felismerhető címkét.
+3. Másolja ki a _Client ID_ és _Client Secret_ értékeket a következő lépésekhez.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz, és keresse meg a Sitecore XM Cloud-ot.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el kapcsolatát a jövőbeli hivatkozásokhoz, pl. 'My Sitecore connection'.
+4. Töltse ki a Sitecore példány alap URL-jét.
+5. Töltse ki az API kulcsot az _API kulcs létrehozása_ részből.
+6. Töltse ki a Client ID és Client Secret értékeket az _XM Cloud kliens létrehozása_ részből.
+7. Kattintson a _Connect_ gombra.
+
+![1738074896204](https://raw.githubusercontent.com/bb-io/SitecoreXmCloud/main/image/README/1738074896204.png)
+
+## Actions
+
+- **Search items** elemeket keres a keresési kritériumok alapján, beleértve az utoljára frissítettet, létrehozottat, nyelvet, útvonalat stb.
+- **Get all configured languages** visszaadja az összes nyelvet, amely ebben a Sitecore példányban konfigurálva van.
+- **Get item content as HTML** lekéri egy elem tartalmát HTML fájlként, hogy azt NMT vagy TMS feldolgozhassa. Megadhatja, hogy melyik verzió/nyelv kerüljön lekérésre.
+- **Update item content from HTML** frissíti egy adott verzió/nyelv tartalmát. Emellett választhatja azt is, hogy mindig új verziót hoz létre.
+- **Delete item content** töröl egy elemet.
+- **Get Item ID from HTML** lekéri az elem azonosítóját a HTML tartalomból. Amikor lefordított HTML tartalmat kap, az elem azonosítóját hozzáadjuk a HTML fájl fejlécéhez, ez a művelet lehetővé teszi az elem azonosítójának kinyerését a HTML dokumentumból.
+
+## Events
+
+- **On items created** akkor aktiválódik, amikor új elemek jönnek létre.
+- **On items updated** akkor aktiválódik, amikor bármely elem frissül.
+
+## Példa
+
+Ez a példa bemutatja, hogyan lehet lekérni elemek egy részhalmazát egyéni kritériumok alapján, letölteni ezeket az elemeket HTML fájlokként, lefordítani őket bármely NMT szolgáltatóval és frissíteni a fordításokat.
+
+![1706274178376](https://raw.githubusercontent.com/bb-io/SitecoreXmCloud/main/image/README/1706274178376.png)
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy van visszajelzése a megvalósításunkról? Lépjen kapcsolatba velünk a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémajegyet.

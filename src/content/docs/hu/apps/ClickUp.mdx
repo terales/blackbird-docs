@@ -1,0 +1,113 @@
+---
+  title: ClickUp
+  description: A ClickUp Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/ClickUp" icon="github" />
+
+A ClickUp projektmenedzsment szoftver, amely lehetővé teszi bármilyen projekt tervezését, nyomon követését és a projekteken való együttműködést. Ez a ClickUp alkalmazás elsősorban a feladat- és csapatkezelésre összpontosít.
+
+## Csatlakozás
+
+1.  Navigálj az alkalmazásokhoz és keress rá a ClickUp-ra. Ha nem találod a ClickUp-ot, kattints a jobb felső sarokban lévő _Add App_ gombra, válaszd ki a ClickUp-ot, és add hozzá az alkalmazást a Blackbird környezetedhez.
+2.  Kattints az _Add Connection_ gombra.
+3.  Nevezd el a kapcsolatot a későbbi hivatkozásokhoz, pl. 'Ügyfelem'.
+4.  Menj a ClickUp személyes beállításaiba és kattints az _Apps_ gombra.
+5.  Kattints a _Generate_ gombra az _API Token_ címke alatt.
+6.  Másold ki az API tokent és illeszd be a megfelelő mezőbe a BlackBird-ben.
+7.  Kattints a _Connect_ gombra.
+8.  Ellenőrizd, hogy a kapcsolat megjelent és az állapota _Connected_.
+
+## Actions
+
+### Attachments
+
+- **Create attachment** feltölt egy fájlt egy `task`-hoz mellékletként.
+
+### Folders
+
+- **Get folders** visszaadja a kiválasztott `space` összes mappáját.
+- **Get/create/delete folder**.
+
+### Goals
+
+- **Get goals** visszaadja a megadott `team` összes célját.
+- **Get/create/delete goal**.
+- **Create key result** hozzáad egy `target`-et egy célhoz.
+
+### Lists
+
+- **Get lists from space** visszaadja a `space` összes olyan listáját, amelyek nem mappában találhatók.
+- **Get lists from folder** visszaadja a megadott `folder` összes listáját.
+- **Create space list** új listát ad hozzá a megadott `space`-hez.
+- **Create folder list** új listát ad hozzá a megadott `folder`-hez.
+- **Delete list** törli a listát.
+
+### Spaces
+
+- **Get spaces** visszaadja a megadott `team` összes space-ét.
+- **Get/create/update/delete space**
+
+### Tags
+
+- **List tags** visszaadja a megadott `space` összes címkéjét.
+- **Create/delete tag**.
+
+### Tasks
+
+- **Get tasks** visszaadja a megadott `list` összes feladatát.
+- **Get/create/delete task**.
+
+### Teams - Workspaces
+
+- **Get teams** visszaadja az összes, a hitelesített felhasználó számára elérhető csapatot.
+
+### Teams - User Groups
+
+- **Get user groups** visszaadja a munkaterület összes felhasználói csoportját.
+- **Create/delete user group**.
+
+## Events
+
+- **On task created** akkor aktiválódik, amikor új feladat jön létre.
+- **On task updated** akkor aktiválódik, amikor egy feladat frissül.
+- **On task deleted** akkor aktiválódik, amikor egy feladatot törölnek.
+- **On task priority updated** akkor aktiválódik, amikor egy feladat prioritása frissül.
+- **On task status updated** akkor aktiválódik, amikor egy feladat állapota frissül.
+- **On task assignee updated** akkor aktiválódik, amikor egy felelőst hozzáadnak vagy eltávolítanak egy feladattól.
+- **On task due date updated** akkor aktiválódik, amikor egy feladat határideje frissül.
+- **On task tag updated** akkor aktiválódik, amikor egy címkét hozzáadnak vagy eltávolítanak egy feladattól.
+- **On task moved** akkor aktiválódik, amikor egy feladatot áthelyeznek egy új `list`-be.
+- **On task comment posted** akkor aktiválódik, amikor egy `comment`-et hozzáadnak egy feladathoz.
+- **On task comment updated** akkor aktiválódik, amikor egy feladathoz tartozó meglévő `comment` frissül.
+- **On task time estimate updated** akkor aktiválódik, amikor egy feladatra vonatkozó időbecslést hozzáadnak vagy frissítenek.
+- **On task time tracked updated** akkor aktiválódik, amikor egy feladatra vonatkozó időkövetést hozzáadnak, frissítenek vagy törölnek.
+- **On list created** akkor aktiválódik, amikor új lista jön létre.
+- **On list updated** akkor aktiválódik, amikor egy meglévő lista frissül.
+- **On list deleted** akkor aktiválódik, amikor egy listát törölnek.
+- **On folder created** akkor aktiválódik, amikor új mappa jön létre.
+- **On folder updated** akkor aktiválódik, amikor egy meglévő mappa frissül.
+- **On folder deleted** akkor aktiválódik, amikor egy mappát törölnek.
+- **On space created** akkor aktiválódik, amikor új space jön létre.
+- **On space updated** akkor aktiválódik, amikor egy meglévő space frissül.
+- **On space deleted** akkor aktiválódik, amikor egy space-t törölnek.
+- **On goal created** akkor aktiválódik, amikor új cél jön létre.
+- **On goal updated** akkor aktiválódik, amikor egy meglévő cél frissül.
+- **On goal deleted** akkor aktiválódik, amikor egy célt törölnek.
+- **On key result created** akkor aktiválódik, amikor új célérték jön létre.
+- **On key result updated** akkor aktiválódik, amikor egy meglévő célérték frissül.
+- **On key result deleted** akkor aktiválódik, amikor egy célértéket törölnek.
+
+## Hiányzó funkciók
+
+A jövőben hozzáadhatunk műveleteket a következőkhöz:
+
+- Users
+- Members
+- Custom fields
+- Comments
+
+## Visszajelzés
+
+A ClickUp implementációnkkal kapcsolatos visszajelzéseket mindig szívesen fogadjuk. Keress minket a már kialakított csatornákon keresztül vagy hozz létre egy hibajegyet.

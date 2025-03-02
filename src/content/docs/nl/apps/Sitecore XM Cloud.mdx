@@ -1,0 +1,94 @@
+---
+  title: Sitecore XM Cloud
+  description: De Sitecore XM Cloud Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/SitecoreXmCloud" icon="github" />
+
+Sitecore is een van de toonaangevende contentmanagementsystemen op ondernemingsniveau, waarmee webredacteuren en marketeers volledige controle hebben over alle aspecten van hun website, van sociale integratie en blogberichten tot geavanceerde personalisatie, e-commerce en meer. Deze app richt zich op de integratie tussen Sitecore-items, talen en de rest van het Blackbird-ecosysteem. In tegenstelling tot andere Blackbird-apps moet je voor het gebruik een speciaal gebouwde plugin op je Sitecore-instantie installeren.
+
+Deze app is gebouwd voor Sitecore XP. Voor Sitecore XM Cloud, raadpleeg [deze handleiding](https://docs.blackbird.io/apps/sitecore-xp/) in plaats daarvan.
+
+## Vóór het instellen
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je toegang hebt tot XM Cloud Deploy, het beheer van inloggegevens en een actief Sitecore-project.
+- Je toegang hebt tot de broncoderepositorium (Github) van een Sitecore-project en de mogelijkheid hebt om nieuwe plugins te configureren.
+- Je het nieuwste Blackbird Sitecore plugin-pakket hebt gedownload van [hier](https://docs.blackbird.io/sitecore/package.zip).
+
+## De plugin installeren
+
+Aangenomen dat je content-repository is geforkt van deze [repo](https://github.com/sitecorelabs/xmcloud-foundation-head).
+
+1. Pak de bestanden uit van [package.zip](https://docs.blackbird.io/sitecore/package.zip)
+2. Kopieer de 2 configuratiebestanden uit `package\files\App_Config\Include\BlackBird` in het pakket naar `authoring\platform\App_Config\Include\` in de broncoderepositorium.
+3. Kopieer de 2 dll-bestanden uit `package\files\bin` in het pakket naar `authoring\platform\_dlls` in de broncoderepositorium.
+4. Open de `XmCloudAuthoring.sln` in Visual Studio (of een andere .NET-compatibele IDE) en voeg verwijzingen toe naar de toegevoegde .dll-bestanden in het Platform-project.
+5. Voeg ook bestandsverwijzingen toe naar de 2 configuratiebestanden.
+
+Je oplossing zou er nu ongeveer zo uit moeten zien:
+
+![1738074666500](https://raw.githubusercontent.com/bb-io/SitecoreXmCloud/main/image/README/1738074666500.png)
+
+6. Bouw en/of push je code zodat een hernieuwde implementatie wordt geactiveerd.
+
+## Een API-sleutel aanmaken
+
+1. Ga naar _Content Editor_.
+2. Navigeer naar _System -> Settings -> Services -> API Keys_.
+3. Voeg een nieuwe API-sleutel in.
+
+![1706110975432](https://raw.githubusercontent.com/bb-io/SitecoreXmCloud/main/image/README/1706110975432.png)
+
+4. Vul de volgende velden in:
+   - Allowed controllers: stel in op _\*_ of kies controllers.
+   - Impersonation User: het verzoek wordt uitgevoerd als deze gebruiker. Sitecore-beheerders kunnen gebruikers maken met bepaalde beperkingen indien nodig. Anonieme gebruikers worden als deze gebruiker geïmpersoneerd als het veld leeg is.
+5. Publiceer het item.
+
+![1706111272004](https://raw.githubusercontent.com/bb-io/SitecoreXmCloud/main/image/README/1706111272004.png)
+
+6. Kopieer de Item ID (inclusief de haakjes) - dit is je sleutel en kan in de volgende stappen worden gebruikt.
+
+## Een XM Cloud Client maken
+
+1. Ga in XM Cloud naar het [credentials-tabblad](https://deploy.sitecorecloud.io/credentials).
+2. Klik op _Create credentials_ en voeg een herkenbaar label toe.
+3. Kopieer de _Client ID_ en _Client Secret_ voor de volgende stappen.
+
+## Verbinden
+
+1. Navigeer naar apps en zoek naar Sitecore XM Cloud.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijv. 'Mijn Sitecore-verbinding'.
+4. Vul de basis-URL in naar je Sitecore-instantie.
+5. Vul de API-sleutel in uit het gedeelte _Een API-sleutel aanmaken_.
+6. Vul de Client ID en Client Secret in uit het gedeelte _Een XM Cloud Client maken_.
+7. Klik op _Connect_.
+
+![1738074896204](https://raw.githubusercontent.com/bb-io/SitecoreXmCloud/main/image/README/1738074896204.png)
+
+## Actions
+
+- **Search items** vindt items op basis van je zoekcriteria, waaronder laatst bijgewerkt, aangemaakt, taal, pad, etc.
+- **Get all configured languages** geeft alle talen terug die zijn geconfigureerd in deze Sitecore-instantie.
+- **Get item content as HTML** haalt de inhoud van een item op, weergegeven als een HTML-bestand, zodat het kan worden verwerkt door NMT of TMS. Je kunt specificeren welke versie/taal moet worden opgehaald.
+- **Update item content from HTML** werkt de inhoud van een specifieke versie/taal bij. Daarnaast kun je ervoor kiezen om altijd een nieuwe versie aan te maken.
+- **Delete item content** verwijdert een item.
+- **Get Item ID from HTML** haalt de item-ID op uit de HTML-inhoud. Wanneer je vertaalde HTML-inhoud ontvangt, voegen we de Item-ID toe aan de header van het HTML-bestand; met deze actie kun je de Item-ID uit het HTML-document ophalen.
+
+## Events
+
+- **On items created** wordt geactiveerd wanneer nieuwe items worden aangemaakt.
+- **On items updated** wordt geactiveerd wanneer een item wordt bijgewerkt.
+
+## Voorbeeld
+
+Dit voorbeeld laat zien hoe je een subset van items kunt ophalen op basis van aangepaste criteria, deze items als HTML-bestanden kunt downloaden, ze kunt vertalen met een NMT-provider en de vertalingen kunt bijwerken.
+
+![1706274178376](https://raw.githubusercontent.com/bb-io/SitecoreXmCloud/main/image/README/1706274178376.png)
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [gevestigde kanalen](https://www.blackbird.io/) of maak een issue aan.

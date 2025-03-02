@@ -1,0 +1,199 @@
+---
+  title: Crowdin Enterprise
+  description: De Crowdin Enterprise Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Bekijk op Github" target="_blank" href="https://github.com/bb-io/CrowdinEnterprise" icon="github" />
+
+Crowdin Enterprise is een geavanceerde versie van het Crowdin lokalisatieplatform, op maat gemaakt voor grotere organisaties en ondernemingen met complexe lokalisatiebehoeften. Het biedt extra functies, aanpassingsmogelijkheden, verbeterde beveiliging en schaalbaarheid om te voldoen aan de eisen van grootschalige lokalisatieprojecten binnen bedrijfsomgevingen.
+
+> Let op, de Crowdin Enterprise app is verouderd. We hebben momenteel de twee Crowdin apps samengevoegd tot één [Crowdin app](https://docs.blackbird.io/apps/crowdin/), en we raden sterk aan om de Crowdin app te gebruiken in plaats van Crowdin Enterprise.
+
+## Verbinden
+
+1. Navigeer naar apps en zoek naar Crowdin Enterprise. Als je Crowdin Enterprise niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Crowdin Enterprise en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijvoorbeeld 'Mijn Crowdin Enterprise verbinding'.
+4. Klik op _Authorize connection_.
+5. Wanneer er een nieuw venster verschijnt, volg de instructies van Crowdin.
+6. Wanneer je terugkeert naar Blackbird, controleer dan of de verbinding is verschenen en de status _Connected_ is.
+
+## Actions
+
+### Comment 
+
+- **Add string comment** Add new string comment
+- **Delete string comment** Delete specific string comment
+- **Get string comment** Get specific string comment
+- **List comments** List string comments for a project
+
+### Directory
+
+- **Add directory** Add a new directory
+- **Get directory by ID** Get a specific directory by ID
+- **Get directory by path** Get a specific directory by path
+- **List directories** List all directories
+
+### File
+
+- **Add file** Add new file
+- **Delete file** Delete specific file
+- **Download file** Download specific file
+- **Get file** Get specific file info
+- **List files** List project files
+- **Update file** Update specific file
+
+### Glossary
+
+- **Import glossary** Import glossary from TBX file
+- **Export glossary** Export glossary as TBX file
+
+### Machine Translation
+
+- **List machine translation engines** List all machine translation engines
+- **Translate lines via machine translation engine** Translate multiple text lines via machine translation engine
+- **Translate via machine translation engine** Translate text via machine translation engine
+
+### Project
+
+- **Add project** Add new project
+- **Build project** Build project translation
+- **Delete project** Delete specific project
+- **Get project** Get specific project
+- **List projects** List all projects
+
+### Project Group
+
+- **Add project group** Add a new project group
+- **Delete project group** Delete specific project group
+- **Get project group** Get specific project group
+- **List project groups** List all project groups
+
+### Reviewed File
+
+- **Build reviewed source files** Build reviewed source files of specific project
+- **Download reviewed source files as ZIP** Download reviewed source files of specific build as ZIP
+- **Download reviewed source files** Download reviewed source files of specific build
+- **Get reviewed source files build** Get specific reviewed source files build
+- **List reviewed source files builds** List all reviewed source files builds of specific project
+
+### Source String
+
+- **Add source string** Add new source string
+- **Delete source string** Delete specific source string
+- **Get source string** Get specific source string
+- **List strings** List all project source strings
+
+### Storage
+
+- **Add storage** Add new storage
+- **Delete storage** Delete specific storage
+- **Get storage** Get specific storage
+- **List storages** List all storages
+
+### Task
+
+- **Add task** Add new task
+- **Delete task** Delete specific task
+- **Download task strings as XLIFF** Download specific task strings as XLIFF
+- **Get task** Get specific task
+- **List tasks** List all tasks
+
+### Team
+
+- **Add team** Add a new team
+- **Delete team** Delete specific team
+- **Get team** Get specific team
+- **List teams** List all teams
+
+### Translation 
+
+- **Add translation** Add new translation
+- **Apply pre-translation** Apply pre-translation to chosen files
+- **Delete translation** Delete specific translation
+- **Download translations as ZIP** Download project translations as ZIP
+- **Download translations** Download project translations
+- **Get translation** Get specific translation
+- **List language translations** List project language translations
+- **List string translations** List project string translations
+
+### Translation Memory
+
+- **Add translation memory segment** Add new segment to the translation memory
+- **Add translation memory** Add new translation memory
+- **Delete translation memory** Delete specific translation memory
+- **Download translation memory** Download specific translation memory
+- **Export translation memory** Export specific translation memory
+- **Get translation memory** Get specific translation memory
+- **List translation memories** List all translation memories
+
+### User
+
+- **Delete user** Delete specific user
+- **Get user** Get specific user
+- **Invite user** Add a new user
+- **List users** List all users
+
+### Workflow
+
+- **List workflow steps** List all workflow steps of project
+
+## Events
+
+### File
+
+- **On file added** On file added
+- **On file approved** On file approved
+- **On file deleted** On file deleted
+- **On file reverted** On file reverted
+- **On file translated** On file fully translated
+- **On file updated** On file updated
+
+### Group
+
+- **On group created** On group created
+- **On group deleted** On group deleted
+
+### Project
+
+- **On project approved** On project approved
+- **On project built** On project built
+- **On project created** On project created
+- **On project deleted** On project deleted
+- **On project translated** On project translated
+
+### String 
+
+- **On string added** On string added
+- **On string deleted** On string deleted
+- **On string updated** On string updated
+
+### String Comment
+
+- **On string comment created** On string comment created
+- **On string comment deleted** On string comment deleted
+- **On string comment restored** On string comment restored
+- **On string comment updated** On string comment updated
+
+### Suggestion
+
+- **On suggestion added** On suggestion added
+- **On suggestion approved** On suggestion approved
+- **On suggestion deleted** On suggestion deleted
+- **On suggestion disapproved** On suggestion disapproved
+- **On suggestion updated** On suggestion updated
+
+### Task
+
+- **On task added** On task added
+- **On task deleted** On task deleted
+- **On task status changed** On task status changed
+
+### Translation
+
+- **On translation updated** On translation updated
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [gevestigde kanalen](https://www.blackbird.io/) of maak een issue aan.

@@ -1,0 +1,51 @@
+---
+  title: Wise
+  description: Додаток Blackbird для Wise
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Wise" icon="github" />
+
+Wise забезпечує швидкі міжнародні грошові перекази з низькою комісією та пропонує мультивалютний рахунок для зберігання, надсилання, отримання та використання грошей у понад 50 валютах. Сервіс відрізняється прозорими комісіями, швидкими переказами та дебетовою карткою Wise для витрат за кордоном з низькими комісіями за конвертацію.
+
+## Actions
+
+### Balance
+- **List balances** Перелік усіх балансів для профілю
+- **Get balance** Отримання деталей конкретного балансу
+- **Create balance** Створення нового балансу
+- **Delete balance** Видалення конкретного балансу
+
+### BatchGroup
+- **Create batch group** Створення нової групи пакетів
+- **Create batch group transfer** Створення нового переказу для групи пакетів
+
+### Card
+- **List cards** Перелік усіх карток профілю
+
+### Profile
+- **List profiles** Перелік усіх профілів користувача
+
+### Transaction
+- **List transactions** Перелік усіх транзакцій за карткою
+- **Get transaction** Отримання деталей конкретної транзакції
+
+### Transfer
+- **List transfers** Перелік усієї інформації про перекази
+- **Create transfer** Створення нового переказу
+- **Get transfer** Отримання деталей конкретного переказу
+- **Cancel transfer** Скасування конкретного переказу
+- **Get transfer receipt as PDF** Отримання квитанції конкретного переказу у форматі PDF
+
+## Events
+- **On account credited** При зарахуванні коштів на мультивалютний рахунок
+- **On balance updated** При оновленні конкретного балансу
+- **On payment initiations state changed** При зміні стану ініціювання платежу групового пакетного платежу
+- **On SWIFT message received and a credit deposited** При отриманні SWIFT-повідомлення та зарахуванні кредиту на рахунок балансу
+- **On transfer status updated** При оновленні статусу конкретного переказу
+- **On transfer active cases updated** При оновленні списку активних випадків переказу
+- **On transfer payout failed** При невдалій виплаті конкретного переказу
+
+## Зворотний зв'язок
+
+Бажаєте використовувати цей додаток або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть запит.

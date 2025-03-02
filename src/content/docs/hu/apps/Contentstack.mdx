@@ -1,0 +1,85 @@
+---
+  title: Contentstack
+  description: A Contentstack Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Contentstack" icon="github" />
+ 
+
+A Contentstack egy headless CMS technológia, amely a legjobb megoldások sorozatából áll össze. Ez a Contentstack alkalmazás elsősorban a bejegyzés- és eszközkezelésre összpontosít.
+
+## Beállítás előtt
+
+Mielőtt kapcsolódhat, győződjön meg arról, hogy:
+
+- Rendelkezik Contentstack _Stack API kulccsal_: Lépjen a Contentstack _Stack beállításokhoz_ és másolja ki az API kulcsot az _API hitelesítő adatok_ szakaszból
+- Rendelkezik Contentstack _Kezelési tokennel_: A beállítások oldalon lépjen a _Tokenek_ menüpontra, válassza a _Kezelési Tokenek_ részt, és generáljon egy API kezelési tokent az Ön által igényelt paraméterekkel.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Contentstack-re.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például 'Saját contentstack kapcsolatom'.
+4. A _Host region_ mezőben válassza ki a Contentstack régióját.
+5. Töltse ki a _Stack API key_ és _Management token_ mezőket
+6. Kattintson a _Connect_ gombra.
+7. Ellenőrizze, hogy a kapcsolat megjelent és az állapota _Connected_.
+
+![1733749434672](https://raw.githubusercontent.com/bb-io/Contentstack/main/image/README/1733749434672.png)
+
+## Actions
+
+### Assets
+
+- **Download/Upload asset** letölti vagy feltölti az eszköz tartalmát.
+
+### Content types
+
+- **List content types**
+
+### Entries
+
+- **Get entry** visszaadja az adott bejegyzés részleteit.
+- **Get entry string/number/date/boolean property** lekéri a megadott bejegyzés tulajdonságának adatait.
+- **Set entry string/number/date/boolean property** beállítja a megadott bejegyzés tulajdonságának adatait.
+- **Search entries** visszaadja a bejegyzések listáját a megadott szűrési feltételek alapján.
+- **Get entry content as HTML** a bejegyzés tartalmát HTML fájllá konvertálva adja vissza.
+- **Update entry content from HTML** frissíti a bejegyzés tartalmát HTML fájlból.
+- **Get IDs from HTML** kivonja a tartalomtípus és a bejegyzés azonosítóit a HTML fájlból
+- **Publish entry** közzétesz egy adott bejegyzést azonosító alapján
+
+## Events
+
+-   **On asset deleted**
+-   **On asset published**
+-   **On asset unpublished**
+-   **On entry created**
+-   **On entry deleted**
+-   **On entry published**
+-   **On entry unpublished**
+-   **On entry updated**
+
+
+## HTML funkciók
+
+Metaadatokat adunk a HTML fájlhoz, hogy tartalmazza az `Entry ID` és `Content Type ID` információkat. Ezeket a metaadatokat használjuk a bejegyzés tartalmának HTML fájlból történő frissítéséhez. Ezeket a címkéket a `Contentstack`-ben lévő tartalom azonosítására használjuk, így nincs szükség az azonosítók máshol történő tárolására.
+
+Íme egy példa arra, hogyan illesztünk metaadatokat a HTML fájlba:
+
+```html
+<html>
+    <head>
+        <meta name="blackbird-content-type-id" content="your-content-type">
+        <meta name="blackbird-entry-id" content="your-entry-id">
+    </head>
+    <body>
+        <div path="title">Example HTML page</div>
+        <div path="description">Blackbird is the new automation backbone for the language technology industry.</div>
+    </body>
+</html>
+```
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzést szeretne adni a megvalósításunkról? Keressen minket a [megszokott csatornákon](https://www.blackbird.io/) vagy hozzon létre egy hibajelentést.

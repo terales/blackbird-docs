@@ -1,0 +1,87 @@
+---
+  title: Amazon Bedrock
+  description: Додаток Blackbird для Amazon Bedrock
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/AmazonBedrock" icon="github" />
+
+Amazon Bedrock — це повністю керований сервіс, який пропонує вибір високопродуктивних базових моделей від провідних компаній у галузі штучного інтелекту, таких як AI21 Labs, Anthropic, Cohere, Stability AI та Amazon, з єдиним API, разом із широким набором можливостей, необхідних для створення генеративних додатків штучного інтелекту, спрощуючи розробку при збереженні конфіденційності та безпеки.
+
+## Перед налаштуванням
+
+Перед підключенням потрібно переконатися, що:
+
+- У вас є [корінний обліковий запис AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) або [користувач IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_identity-management.html), створений для вас корінним користувачем.
+- У вас є ключ доступу та секрет, згенеровані для вашого користувача IAM.
+- У вас є доступ до моделей, які ви хочете використовувати. Перед використанням моделі ви повинні запросити доступ до неї. Якщо ви спробуєте використовувати модель, не запросивши доступ до неї, ви отримаєте помилку.
+
+### Створення користувача IAM
+
+- Перейдіть до [Identity and Access Management](https://console.aws.amazon.com/iamv2/home).
+- Виберіть _Users_ на лівій бічній панелі.
+- Натисніть _Create user_.
+- Введіть _User name_ і натисніть _Next_.
+- Виберіть опцію _Attach policies directly_ з _Permissions options_.
+- Додайте політики _AdministratorAccess_ та _AmazonEC2FullAccess_, потім натисніть _Next_.
+- Перевірте деталі користувача та дозволи, потім натисніть _Create user_.
+
+![Створення користувача IAM](https://raw.githubusercontent.com/bb-io/AmazonBedrock/main/image/README/iam_user_creation.png)
+
+### Генерування ключа доступу
+
+- Перейдіть до [Identity and Access Management](https://console.aws.amazon.com/iamv2/home).
+- Виберіть _Users_ на лівій бічній панелі.
+- Виберіть користувача, для якого ви хочете згенерувати ключ доступу.
+- Перейдіть до вкладки _Security credentials_.
+- Прокрутіть до розділу _Access keys_ і натисніть _Create access key_.
+- Виберіть _Use case_ і натисніть _Next_.
+- Введіть _Description tag value_ і натисніть _Create access key_.
+- Збережіть значення _Access key_ та _Secret access key_, щоб мати можливість підключитися до Amazon Bedrock через Blackbird.
+
+### Додавання доступу до моделей
+
+- Відкрийте [консоль Amazon Bedrock](https://console.aws.amazon.com/bedrock).
+- Змініть регіон на _US East (N. Virginia)_ у верхньому правому куті.
+
+![Зміна регіону](https://raw.githubusercontent.com/bb-io/AmazonBedrock/main/image/README/region.png)
+
+- Виберіть _Model access_ на лівій бічній панелі та натисніть _Edit_.
+- Виберіть моделі, до яких ви хочете мати доступ, і натисніть _Save changes_.
+- Моделі відображатимуться як _Access granted_ у розділі _Access status_, якщо доступ надано.
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть Amazon Bedrock. Якщо ви не можете знайти Amazon Bedrock, натисніть _Add App_ у верхньому правому куті, виберіть Amazon Bedrock і додайте додаток до свого середовища Blackbird.
+2. Натисніть _Add Connection_.
+3. Назвіть ваше підключення для подальшого використання, наприклад, 'Моя організація'.
+4. Введіть ключ доступу та секрет, отримані в попередньому розділі.
+5. Натисніть _Connect_.
+6. Підтвердіть, що з'явилося підключення і статус - _Connected_.
+
+![Підключення](https://raw.githubusercontent.com/bb-io/AmazonBedrock/main/image/README/connecting.png)
+
+## Actions
+
+### Text
+
+- **Generate text with AI21 Labs Jurassic-2** генерує текст за допомогою моделі AI21 Labs Jurassic-2 або будь-якої іншої користувацької моделі, яка базується на моделі AI21 Labs Jurassic-2.
+- **Generate text with Meta Llama 2** генерує текст за допомогою моделі Meta Llama 2 або будь-якої іншої користувацької моделі, яка базується на моделі Meta Llama 2.
+- **Generate text with Anthropic Claude** генерує текст за допомогою моделі Anthropic Claude або будь-якої іншої користувацької моделі, яка базується на моделі Anthropic Claude.
+- **Generate text with Cohere Command** генерує текст за допомогою моделі Cohere Command або будь-якої іншої користувацької моделі, яка базується на моделі Cohere Command.
+- **Generate text with Amazon Titan** генерує текст за допомогою моделі Amazon Titan або будь-якої іншої користувацької моделі, яка базується на моделі Amazon Titan.
+
+### Image
+
+- **Generate image with Stability.ai Diffusion** генерує текст за допомогою моделі Stability.ai Diffusion або будь-якої іншої користувацької моделі, яка базується на моделі Stability.ai Diffusion.
+- **Generate or edit image with Amazon Titan Image** генерує або редагує зображення за допомогою моделі Amazon Titan Image або будь-якої іншої користувацької моделі, яка базується на моделі Amazon Titan Image. Якщо ви плануєте генерувати зображення, залиште параметр _Image_ невизначеним. В іншому випадку, якщо ви редагуєте наявне зображення, вкажіть параметр _Image_ з відповідним файлом зображення. Зверніть увагу, що максимальний ліміт вхідних символів становить 1024, а для завдань генерації зображень максимально дозволений розмір зображення — 4096 x 4096 пікселів. Дізнайтеся більше про обмеження моделі Amazon Titan Image Generator G1 [тут](https://docs.aws.amazon.com/bedrock/latest/userguide/titan-image-models.html).
+
+### Embedding
+
+- **Generate embedding** генерує вектор вкладень для наданого тексту. Вкладення — це список чисел з плаваючою точкою, що фіксує семантичну інформацію про текст, який він представляє. Вкладення можна використовувати для зберігання даних у векторних базах даних (як-от Pinecone).
+
+У розділах **Text** і **Image** кожна дія включає необов'язковий вхідний параметр під назвою _Is Blackbird prompt_. Встановлення цього параметра на _True_ вказує, що наданий запит є результатом однієї з дій програми AI Utilities, і за замовчуванням це значення встановлено на _False_.
+
+## Зворотній зв'язок
+
+Хочете використовувати цей додаток або маєте відгуки про нашу реалізацію? Зв'яжіться з нами, використовуючи [встановлені канали](https://www.blackbird.io/) або створіть проблему.

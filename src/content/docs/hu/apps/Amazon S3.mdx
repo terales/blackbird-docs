@@ -1,0 +1,75 @@
+---
+  title: Amazon S3
+  description: Az Amazon S3 Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/AmazonS3" icon="github" />
+
+Az Amazon S3 vagy Amazon Simple Storage Service egy olyan szolgáltatás, amelyet az Amazon Web Services kínál, és amely objektumtárolást biztosít webes szolgáltatási interfészen keresztül. Az Amazon S3 ugyanazt a skálázható tárolási infrastruktúrát használja, amelyet az Amazon.com az e-kereskedelmi hálózata működtetéséhez használ. Az Amazon S3 bármilyen típusú objektumot képes tárolni, ami lehetővé teszi olyan felhasználási területeket, mint az internetes alkalmazások tárolása, biztonsági mentések, katasztrófa utáni helyreállítás, adatarchiválás, adattavak elemzéshez és hibrid felhő tárolás.
+
+## Beállítás előtt
+
+Mielőtt csatlakozna, győződjön meg a következőkről:
+
+- Rendelkezik **Amazon S3** fiókkal és rendelkezik a hozzáféréshez szükséges hitelesítő adatokkal.
+- Rendelkezik az Amazon S3 fiókjához tartozó `Access key` és `Access secret` adatokkal.
+- Ismeri az Amazon S3 fiókjához tartozó `Region` (régió) beállítást.
+
+Az `Access key` és `Access secret` megszerzéséről [itt](https://support.promax.com/knowledge/amazon-s3) talál információt.
+
+## Csatlakozás
+
+1. Navigáljon az Alkalmazásokhoz, és keresse meg az **Amazon S3** alkalmazást. Használhatja a keresőt a megtalálásához.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például: 'Saját X kapcsolat'.
+4. Adja meg az `Access key`, `Access secret` adatokat, és válassza ki a `Region` beállítást az Amazon S3 fiókjához.
+5. Kattintson a _Connect_ gombra.
+6. Ellenőrizze, hogy a kapcsolat sikeresen létrejött.
+
+![kapcsolat](https://raw.githubusercontent.com/bb-io/AmazonS3/main/image/README/connection.png)
+
+## Actions
+
+### Bucket actions
+
+- **Create bucket**: Új bucket létrehozása az Amazon S3 fiókjában.
+- **Delete bucket**: Bucket eltávolítása az Amazon S3 fiókjából.
+
+### Object actions
+
+- **Search files in bucket**: Fájlok listájának lekérése egy megadott bucketből. Opcionálisan kereshet előtag alapján, például a `/example/folder` mappában lévő fájlok megtalálásához adja meg ezt az útvonalat előtagként.
+- **Download file**: Egy adott fájl lekérése egy bucketből.
+- **Upload file**: Új fájl feltöltése egy megadott bucketbe. Használja az opcionális key bemenetet a fájl mappastruktúrába helyezéséhez, például: `/example/folder/<fájlnév kiterjesztéssel>`.
+- **Delete file**: Fájl eltávolítása egy bucketből.
+
+## Events
+
+- **On object created**: Ez az esemény akkor aktiválódik, amikor bármilyen objektum létrejön a bucketekben.
+- **On object delete marker created**: Ez az esemény akkor aktiválódik, amikor törlési jelölő jön létre bizonyos objektumokhoz a bucketekben.
+- **On object deleted**: Ez az esemény akkor aktiválódik, amikor bármilyen objektum véglegesen törlődik a bucketekből.
+- **On object restore completed**: Ez az esemény akkor aktiválódik, amikor egy adott objektum visszaállítása befejeződik.
+- **On object restore expired**: Ez az esemény akkor aktiválódik, amikor egy adott objektum visszaállítása lejárt.
+- **On object restore initiated**: Ez az esemény akkor aktiválódik, amikor egy adott objektum visszaállítása kezdeményezve lett.
+- **On object tag added**: Ez az esemény akkor aktiválódik, amikor egy címkét adnak hozzá egy adott objektumhoz.
+- **On object tag removed**: Ez az esemény akkor aktiválódik, amikor egy címkét eltávolítanak egy adott objektumról.
+
+## Gyakori problémák
+
+- **Access Denied**: Ez a hiba akkor fordul elő, amikor a felhasználó nem rendelkezik a szükséges jogosultságokkal a megadott erőforrás eléréséhez. Győződjön meg arról, hogy a felhasználó rendelkezik a művelet végrehajtásához szükséges jogosultságokkal. Az alkalmazásban tipikusan használt műveletek a következők: `Get bucket location`, `List objects in bucket`, `Get object`, `Upload object`, `Create a bucket`, `Delete a bucket`, `Delete object`. A szükséges jogosultságok attól függnek, milyen műveletet próbál végrehajtani.
+
+## Példa
+
+Íme egy példa arra, hogyan használhatja az Amazon S3 alkalmazást egy munkafolyamatban:
+
+![példa](https://raw.githubusercontent.com/bb-io/AmazonS3/main/image/README/example.png)
+
+Ebben a példában a munkafolyamat az **On object created** eseménnyel kezdődik, amely akkor aktiválódik, amikor bármilyen objektum létrejön a bucketekben. Ezután a munkafolyamat a **Get object** műveletet használja a létrehozott objektum lekéréséhez. A következő lépésben lefordítjuk az objektumot a `DeepL` segítségével, majd feltöltjük a lefordított objektumot vissza az Amazon S3 bucketbe.
+
+## Eggs
+
+Ellenőrizze a letölthető munkafolyamat-prototípusokat, amelyek ezt az alkalmazást tartalmazzák, és amelyeket importálhat a Nestjeibe [itt](https://docs.blackbird.io/eggs/storage-to-mt/).
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy van visszajelzése a megvalósításunkról? Lépjen kapcsolatba velünk a [megszokott csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

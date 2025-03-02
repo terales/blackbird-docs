@@ -1,0 +1,61 @@
+---
+  title: Unbabel
+  description: Az Unbabel Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/Unbabel" icon="github" />
+ 
+
+Az Unbabel egy nyelvi fordítási platform, amely a mesterséges intelligenciát emberi szerkesztéssel kombinálja. Ez az Unbabel alkalmazás elsősorban a szöveg/fájl fordítására és a projekt/fájl kezelésre összpontosít.
+
+## Csatlakozás
+
+1. Navigálj az alkalmazásokhoz és keress rá az Unbabel-re.
+2. Kattints az _Add Connection_ gombra.
+3. Nevezd el a kapcsolatot a későbbi hivatkozáshoz, pl. 'Saját ügyfél'.
+4. Másold át az API hitelesítő adataidat és illeszd be a megfelelő mezőkbe a Blackbird-ben.
+5. Kattints a _Connect_ gombra.
+6. Ellenőrizd, hogy a kapcsolat megjelent és az állapota _Connected_.
+
+## Actions
+
+### Translations
+
+- **(T) Translate text** benyújt egy egyszerű szöveget fordításra, és visszaadja az eredményeket, amikor azok elkészülnek.
+- **(T) Translate file** benyújt egy fájlt fordításra, és visszaadja a lefordított fájlt, amikor az elkészül. A szolgáltatás csak txt, html és xliff fájlformátumokat támogat.
+
+### Projects
+
+- **(P) Search projects** visszaadja a megadott bemeneteknek megfelelő projektek listáját.
+- **(P) Cancel project** megszakít egy előzetesen benyújtott projektet, amely még nem került beküldésre.
+- **(P) Submit project** benyújt egy projektet fordításra. Ezt követően már nem frissíthető vagy törölhető.
+- **(P) Create project** létrehoz egy új projektet. Itt megadhatod a kívánt munkafolyamatokat.
+- **(P) Get project** lekéri egy projekt információit és jelenlegi állapotát.
+- **(P) Search project completed files** visszaadja az összes befejezett fájl listáját. Minden elem tartalmaz egy bemeneti fájl azonosítót és egy kimeneti fájl azonosítót. Használd a kimeneti fájl azonosítóját a "Downlaod file" funkcióval a lefordított fájl letöltéséhez.
+
+### Files
+
+- **(P) Upload file** új fájl feltöltése egy létrehozott profilhoz a beküldés előtt.
+- **(P) Download file** a fájl letöltése az azonosító alapján. Használd a "Search project completed files" funkcióval együtt a befejezett fájlok letöltéséhez.
+
+### Quality intelligence
+
+- **(QI) Evaluate XLIFF** jelentést ad a minőségi értékelésekről szó, mondat és dokumentum szinten az XLIFF fájlhoz.
+- **(QI) Evaluate segment** jelentést ad a minőségi értékelésekről szó, mondat és dokumentum szinten a szegmenshez.
+- **(QI) Explain XLIFF** automatikus értékelést ad a fordításról magyarázattal együtt az XLIFF fájlhoz.
+- **(QI) Explain segment** automatikus értékelést ad a fordításról magyarázattal együtt a szegmenshez.
+
+## Events
+
+- **(P) On project status changed** akkor aktiválódik, amikor egy projekt állapota megváltozik. Kiegészítésképpen hozzáadhatod azt az állapotot, amelyre figyelni szeretnél, például hogy csak akkor folytasd az ellenőrzőpontot, amikor a projekt kiszállításra került.
+
+## Példa
+
+![1729784592233](https://raw.githubusercontent.com/bb-io/Unbabel/main/image/README/1729784592233.png)
+
+A fenti példa bemutatja, hogyan használhatók az Unbabel projektek az ellenőrzőpontokkal együtt.
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást vagy van visszajelzésed a megvalósításunkról? Vedd fel velünk a kapcsolatot a [megszokott csatornákon](https://www.blackbird.io/) keresztül vagy hozz létre egy hibajegyet.

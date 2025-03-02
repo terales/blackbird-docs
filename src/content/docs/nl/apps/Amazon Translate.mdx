@@ -1,0 +1,56 @@
+---
+  title: Amazon Translate
+  description: De Amazon Translate Blackbird-app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Bekijk op Github" target="_blank" href="https://github.com/bb-io/AmazonTranslate" icon="github" />
+
+Amazon Translate is een neurale machinevertaaldienst die snelle, hoogwaardige vertalingen biedt voor verschillende toepassingen. Het ondersteunt tientallen talen, waardoor bedrijven eenvoudig grote hoeveelheden tekst efficiënt kunnen vertalen en realtime vertalingen kunnen integreren in hun websites, applicaties en contentworkflows. De service wordt vaak gebruikt voor het vertalen van klantcommunicatie, websitelokalisatie en meertalige gegevensverwerking.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een **Amazon**-account hebt en over de inloggegevens beschikt om er toegang toe te krijgen.
+- Je de `Access key` en `Access secret` voor je Amazon Translate-account hebt.
+
+Hier kun je vinden hoe je de `Access key` en `Access secret` kunt verkrijgen: [hier](https://support.promax.com/knowledge/amazon-s3).
+
+## Verbinding maken
+
+1. Ga naar Apps en zoek de **Amazon Translate**-app. Je kunt de zoekfunctie gebruiken om deze te vinden.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn X-verbinding'.
+4. Voer de `Access key`, `Access secret` in en selecteer een `Region` voor je Amazon Translate-account.
+5. Klik op _Connect_.
+6. Controleer of de verbinding succesvol is toegevoegd.
+
+![1738861751328](https://raw.githubusercontent.com/bb-io/AmazonTranslate/main/image/README/1738861751328.png)
+
+## Actions
+
+### Job
+- **Start job** Start a translation job
+- **Get translation job** Describe a specific translation job
+- **Stop translation job** Stop a specific translation job
+
+### ParallelData
+- **Create parallel data** Creates a parallel data resource in Amazon Translate
+- **Get parallel data** Provides information about a parallel data resource
+- **Update parallel data** Updates a previously created parallel data resource
+- **Delete parallel data** Deletes a parallel data resource in Amazon Translate
+
+### Terminology
+- **Import terminology** Creates or updates a custom terminology
+- **Import glossary** Creates or updates a custom terminology
+- **Export glossary** Export a custom terminology
+- **Delete terminology** Retrieves a custom terminology
+
+### Translate
+- **Translate** Translate a simple text string
+- **Translate document** Translate a file
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

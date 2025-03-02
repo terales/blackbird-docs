@@ -1,0 +1,80 @@
+---
+  title: Bureau Works
+  description: A Bureau Works Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Github-on" target="_blank" href="https://github.com/bb-io/BureauWorks" icon="github" />
+
+A Bureau Works egy élvonalbeli fordítószoftver, amely segíti felhasználóit a gyorsabb fordításban és a fokozott szerzői kontrollban.
+
+## Beállítás előtt
+
+A kapcsolódás előtt győződjön meg a következőkről:
+
+- Rendelkezik Bureau Works fiókkal azon a példányon, amelyhez csatlakozni szeretne.
+- A Bureau Works felületén navigáljon a Profil > Biztonság menüponthoz, és kattintson a _Generate_ gombra az API Token szekcióban.
+- Másolja ki az _Access key_ és _Secret_ értékeket a későbbi használathoz.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Bureau Works-re.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot későbbi hivatkozáshoz, pl. 'Saját Bureau Works kapcsolat'.
+4. Töltse ki az _Access key_ és _Secret_ mezőket a Bureau Works-ből korábban kimásolt adatokkal.
+5. Kattintson az _Authorize connection_ gombra.
+
+![connectionsetup](https://raw.githubusercontent.com/bb-io/BureauWorks/main/image/README/connectionsetup.png)
+
+## Események beállítása
+
+1. Hozzon létre egy madarat (bird) a Bureau Works alkalmazás eseményindítójával, majd tegye közzé
+2. Másolja ki a "Webhook URL" címet a közzétett madár eseményindítójából
+3. Menjen a [Webhooks oldalra](https://app.bwx.io/settings/account-settings/webhooks) a Bureau Works-ben.
+4. Illessze be a "Webhook URL" címet az url mezőbe, és hagyja üresen a "Secret" mezőt
+5. Válassza ki ugyanazt a webhook típust, amit az 1. lépésben választott a Blackbirdben (Például ha a "On project status changed" opciót választotta a Blackbirdben - válassza a "Project status changed" webhook típust a Bureau Works-ben).
+6. Kattintson a "Save webhook" gombra
+
+![eventsetup0](https://raw.githubusercontent.com/bb-io/BureauWorks/main/image/README/eventsetup0.png)
+
+![eventsetup1](https://raw.githubusercontent.com/bb-io/BureauWorks/main/image/README/eventsetup1.png)
+
+## Actions
+
+### Project
+
+- **Create project**
+- **Change project status**
+- **Download translated files**
+- **Get project**
+- **Search projects**
+- **Upload file to project**
+
+### Glossary
+
+- **Create glossary**
+- **Export glossary**
+- **Import glossary**
+
+## Events
+
+### Project
+
+- **On empty project created**
+- **On new organization created**
+- **On new organization unit created**
+- **On new project created**
+- **On work unit status changed**
+- **On new user created**
+- **On project status changed**
+- **On project translation finished**
+- **On task assigned**
+- **On task status changed**
+
+## Hiányzó funkciók
+
+Nem minden API végpont van lefedve. Jelezze számunkra, ha hiányol bizonyos funkciókat vagy ha egyéb fejlesztési javaslatai vannak!
+
+## Visszajelzés
+
+A Bureau Works implementációnkkal kapcsolatos visszajelzéseket mindig szívesen fogadjuk. Vegye fel velünk a kapcsolatot a [bevett csatornákon](https://www.blackbird.io/) keresztül vagy hozzon létre egy hibajegyet.

@@ -1,0 +1,49 @@
+---
+  title: RePurpose
+  description: A RePurpose Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/RePurpose" icon="github" />
+
+A RePurpose alkalmazás lehetővé teszi tartalmak újrahasznosítását bármely támogatott LLM modell segítségével. Jelenleg támogatott modellek: Anthropic és OpenAI.
+
+## Beállítás előtt
+
+Ha OpenAI-hoz csatlakozik, győződjön meg arról, hogy:
+
+- Rendelkezik [OpenAI fiókkal](https://platform.openai.com/signup).
+- Az [API kulcsok](https://platform.openai.com/account/api-keys) részben létrehozott egy új API kulcsot, amely programozott hozzáférést biztosít az OpenAI modellekhez "fizess, amennyit használsz" alapon. Ezzel csak a tényleges használatért fizet, amely [1000 tokenenként 0,002 dollártól kezdődik](https://openai.com/pricing) a leggyorsabb chat modell esetében. Vegye figyelembe, hogy a ChatGPT Plus előfizetési csomag erre nem alkalmazható; az csak a chat.openai.com korlátozott webes felületéhez biztosít hozzáférést, és nem tartalmazza az OpenAI API hozzáférést. Ügyeljen arra, hogy a teljes API kulcsot másolja le, amely létrehozáskor jelenik meg, ne pedig egy rövidített verziót. Az API kulcs formája: `sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.
+- API-fiókjához van fizetési módszer és pozitív egyenleg, legalább 5 dollár értékben. Ezt a [Számlázási beállítások](https://platform.openai.com/account/billing/overview) részben állíthatja be.
+
+**Megjegyzés**: A Blackbird alapértelmezés szerint a legújabb modelleket használja műveleteiben. Ha előfizetése nem támogatja ezeket a modelleket, akkor minden Blackbird műveletben hozzá kell adnia a használható modelleket.
+
+Ha Anthropic-hoz csatlakozik, győződjön meg arról, hogy:
+
+- Rendelkezik [Anthropic fiókkal](https://console.anthropic.com) és hozzáféréssel az API kulcsokhoz.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a RePurpose-ra.
+2. Kattintson az _Add Connection_ gombra.
+3. Válassza ki a csatlakoztatni kívánt modellt.
+4. Adja meg a korábban megszerzett API kulcsot.
+5. Kattintson a _Connect_ gombra.
+
+![1733228702795](https://raw.githubusercontent.com/bb-io/RePurpose/main/image/README/1733228702795.png)
+
+## Actions
+
+- **Repurpose content** újrahasznosítja a tartalmat egy adott célközönség számára.
+- **Repurpose file** újrahasznosítja a fájl tartalmát és visszaadja az újrahasznosított fájlt. *Megjegyzés*: csak egyszerű szöveges fájltípusokat (txt, html vagy csv) tud kezelni.
+
+A Repurpose content a következő paramétereket veszi figyelembe:
+- **Original content** az eredeti tartalom egyszerű szövegként.
+- **Style guide** hogyan kell a tartalmat újrahasznosítani. Pl. célközönség, hangnem, szókincs, hosszúság stb.
+- **Model** (opcionális) a használni kívánt LLM modell. Ha nincs kiválasztva modell, az Open AI a gpt4-o-t, az Anthropic pedig a Claude 3.5 Sonnet-et használja.
+- **Language** (opcionális) a célnyelv, amelyen a tartalmat létre kell hozni.
+- **Glossary** (opcionális) szószedet, amely az újrahasznosítás során használható.
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy van visszajelzése a megvalósításunkról? Lépjen kapcsolatba velünk a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

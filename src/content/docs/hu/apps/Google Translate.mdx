@@ -1,0 +1,43 @@
+---
+  title: Google Translate
+  description: A Google Translate Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/GoogleTranslate" icon="github" />
+
+A Google Translate egy többnyelvű neurális gépi fordítási szolgáltatás, amelyet a Google fejlesztett ki szövegek, dokumentumok és weboldalak fordítására egyik nyelvről a másikra.
+
+## Beállítás előtt
+
+Mielőtt csatlakozna, győződjön meg a következőkről:
+
+- Rendelkezik egy `Service account configuration string`-gel a Google Cloud projektjéhez. Létrehozhat egy szolgáltatásfiókot vagy használhat egy meglévőt a Google Cloud Console-ban (IAM & Admin -> Service accounts), és generálhat hozzá egy kulcsot. A kulcs egy JSON fájl lesz, amely tartalmazza a szolgáltatásfiók konfigurációs karakterláncát. Másolja ki a JSON fájl tartalmát, és illessze be a `Service account configuration string` mezőbe.
+
+## Csatlakozás
+
+1. Navigáljon az Apps menüpontra, és keresse meg a Google Translate alkalmazást. A keresés funkciót is használhatja a megtalálásához.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például "Saját Google Translate kapcsolat".
+4. Töltse ki a "Service account configuration string" mezőt.
+5. Kattintson a _Connect_ gombra.
+
+![connection.png](https://raw.githubusercontent.com/bb-io/GoogleTranslate/main//image/README/Connection.png)
+
+## Actions 
+
+- **Translate** - Szöveget fordít egy megadott nyelvre. Az akció támogatja a szójegyzéket és az adaptív adatkészleteket is.
+- **Detect language** - Felismeri a bevitt szöveg nyelvét
+- **Translate document** - Dokumentumot fordít egy megadott nyelvre
+  - Támogatott bemeneti dokumentumformátumok:
+    - DOC application/msword
+    - DOCX application/vnd.openxmlformats-officedocument.wordprocessingml.document
+    - PDF application/pdf
+    - PPT application/vnd.ms-powerpoint
+    - PPTX application/vnd.openxmlformats-officedocument.presentationml.presentation
+    - XLS application/vnd.ms-excel
+    - XLSX application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Keressen meg minket a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

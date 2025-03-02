@@ -1,0 +1,68 @@
+---
+  title: Dropbox
+  description: Додаток Blackbird для Dropbox
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/Dropbox" icon="github" />
+
+Dropbox — це хмарний сервіс зберігання файлів, який дозволяє користувачам зберігати, ділитися та синхронізувати файли на різних пристроях і платформах. Він надає користувачам доступ до їхніх файлів звідусіль, де є інтернет-підключення, роблячи його зручним рішенням для окремих користувачів, команд та підприємств для спільної роботи з документами, фотографіями, відео та іншими типами файлів.
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть Dropbox. Якщо ви не можете знайти Dropbox, натисніть _Add App_ у верхньому правому куті, виберіть Dropbox і додайте його до свого середовища Blackbird.
+2. Натисніть _Add Connection_.
+3. Назвіть своє підключення для майбутнього використання, наприклад, 'Моє підключення до Dropbox'.
+4. Натисніть _Authorize connection_.
+5. Коли відкриється нове вікно, дотримуйтесь інструкцій від Dropbox.
+6. Після повернення до Blackbird, переконайтеся, що підключення з'явилося і його статус _Connected_.
+
+## Actions
+
+### Storage
+
+- **Create file request** Create file request for current user
+- **Copy file** Copy file from one directory to another
+- **Create folder** Create folder with a given name
+- **Delete file** Delete specified file
+- **Delete folder** Delete specified folder
+- **Download file** Download specified file
+- **Get files list by path** Get files list by specified path
+- **Get folders list by path** Get folders list by specified path
+- **Get link for file download** Get temporary link for download of a file
+- **Move file** Move file from one directory to another
+- **Share folder** Share given folder
+- **Upload file** Upload file
+
+### Team
+
+- **Create group** Creates a new, empty group
+- **Delete group** Deletes a group
+- **Get group info** Retrieves information about a group
+- **Get team info** Retrieves information about a team
+- **List groups** Lists groups on a team
+- **List member devices** Lists all device sessions of a team's member
+- **List member linked apps** Lists all linked applications of the team member
+- **List members devices** Lists all device sessions of a team
+- **List members** Lists members of a team
+- **List namespaces** Lists all team-accessible namespaces.
+- **List sharing allowlist** Lists Approve List entries for given team
+
+## Polling events
+
+- **On files created or updated** This polling event is triggered when files are created or updated.
+    - As an optional input, you can specify the parent folder to monitor so that your Birds are only triggered if files are created or updated within that one folder.
+- **On files deleted** This polling event is triggered when file(s) are deleted.
+
+## Приклади
+
+![Підключення](https://raw.githubusercontent.com/bb-io/Dropbox/main/image/README/example_bird.png)
+Цей bird отримує нові або оновлені файли з Dropbox, перекладає їх за допомогою DeepL, а потім надсилає до каналу Slack
+
+## Eggs
+
+Перегляньте готові прототипи робочих процесів із цим додатком, які ви можете імпортувати до своїх Nests [тут](https://docs.blackbird.io/eggs/storage-to-mt/). 
+
+## Зворотній зв'язок
+
+Бажаєте використовувати цей додаток або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть запит.

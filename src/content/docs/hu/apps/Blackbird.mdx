@@ -1,0 +1,89 @@
+---
+  title: Blackbird
+  description: A Blackbird Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/Blackbird" icon="github" />
+
+Ez a Blackbird alkalmazás a Blackbird számára. Hallani véljük, ahogy gondolkozol: nem túl sok ez a Blackbird-ception? Ellenkezőleg! A Blackbird alkalmazással olyan munkafolyamatokat szervezhetsz, amelyekben maga a Blackbird is részt vesz. Gyakori felhasználási területek a járatnapló vezetése, a hibakezelés és a felhasználókezelés.
+
+A Blackbird alkalmazással _bármely_ Blackbird példányhoz csatlakozhatsz, függetlenül a tárhelykörnyezettől vagy szervezettől. Ez azt jelenti, hogy nem korlátozódsz kizárólag a saját szervezetedre.
+
+## Beállítás előtt
+
+Mielőtt csatlakozhatnál, győződj meg arról, hogy:
+
+- Rendszergazdai jogosultságokkal rendelkezel azon a Blackbird példányon, amelyhez csatlakozni szeretnél.
+
+## API kulcs beszerzése
+
+- Miközben be vagy jelentkezve a Blackbird szervezetedbe, kattints a jobb felső sarokban található felhasználói ikonra, és válaszd a _Szervezetkezelés_ lehetőséget.
+- Kattints az _API Tokenek_ opcióra a bal oldali panelen.
+- Kattints a _Generálás_ gombra.
+- Másold ki az imént létrehozott tokent a _Kezelés_ alatt található másolás gombra kattintva.
+
+![1721139522720](https://raw.githubusercontent.com/bb-io/Blackbird/main/image/README/1721139522720.png)
+
+## Csatlakozás
+
+1. Navigálj az alkalmazásokhoz és keress rá a Blackbirdre. Válaszd ki a Blackbird alkalmazást.
+2. Kattints a _Kapcsolat hozzáadása_ gombra.
+3. Adj nevet a kapcsolatodnak.
+4. Az URL mezőbe írd be a Blackbird példányod alap URL-jét. Például: _https://de-1.blackbird.io_.
+5. Az API token mezőbe írd be az imént létrehozott API tokent.
+6. Kattints a _Csatlakozás_ gombra.
+
+![1721139685169](https://raw.githubusercontent.com/bb-io/Blackbird/main/image/README/1721139685169.png)
+
+## Actions
+
+### Users
+- **Search users** visszaadja a csatlakoztatott szervezet összes felhasználóját.
+- **Get user** információkat ad vissza egy adott felhasználóról.
+- **Add user to nest** hozzáadja a felhasználót egy fészekhez.
+- **Remove user from nest** eltávolítja a felhasználót az adott fészekből.
+
+### Nests
+- **Search nests** visszaadja a csatlakoztatott szervezet összes fészkét.
+- **Get nest** információkat ad vissza egy adott fészekről.
+
+### Birds
+- **Search birds** visszaadja az összes madarat egy adott fészekben. Opcionálisan szűrhetsz a madár állapota és az indítási típus szerint.
+- **Get bird** információkat ad vissza egy adott madárról.
+- **Start bird** új repülést indít ennél a madárnál. Megjegyzés: ez jelenleg csak a kézi indítású madaraknál működik.
+
+### Flights
+- **Search flights** visszaadja egy adott madár összes repülését. Opcionálisan szűrhetsz egy adott időkereten belüli repülésekre. Szűrhetsz a repülés állapota szerint is.
+- **Get flight** információkat ad vissza egy adott repülésről.
+
+## Events
+
+### Birds
+- **On bird activated** akkor aktiválódik, amikor egy madár aktiválódik (állapot megváltozik _felfüggesztett_-ről _aktív_-ra)
+- **On bird published** akkor aktiválódik, amikor egy madár új verziója kerül közzétételre
+- **On bird suspended** akkor aktiválódik, amikor egy madár felfüggesztésre kerül (állapot megváltozik _aktív_-ról _felfüggesztett_-re)
+
+### Flights
+- **On flight started** akkor aktiválódik, amikor egy repülés elindul.
+- **On flight succeeded** akkor aktiválódik, amikor egy repülés sikeresen befejeződik.
+- **On flight failed** akkor aktiválódik, amikor egy repülés sikertelen. Lásd a lenti példát.
+
+A madár és repülés eseményeknél opcionálisan kiválaszthatod, melyik fészket szeretnéd figyelni. Fontos, hogy a madár és repülési események nem indíthatják önmagukat. Ezért nem kell aggódnod a végtelen hurkok miatt.
+
+### Nests
+- **On nest created** akkor aktiválódik, amikor új fészek jön létre
+- **On nest deleted** akkor aktiválódik, amikor egy fészek törlésre kerül
+- **On user added to nest** akkor aktiválódik, amikor egy felhasználót hozzáadnak egy fészekhez.
+- **On user removed from nest** akkor aktiválódik, amikor egy felhasználót eltávolítanak egy fészekből.
+
+## Példák
+
+### Hibakezelés
+![1721141187211](https://raw.githubusercontent.com/bb-io/Blackbird/main/image/README/1721141187211.png)
+
+Ez az egyszerű madár értesítést küld Slacken, amikor bármely repülés sikertelen. Ez hasznos lehet az emberek figyelmeztetésére az esetleges problémákról. A Slack melletti alternatív vagy kiegészítő művelet lehet például egy jegy rögzítése a Jira-ban.
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy van visszajelzésed a megvalósításunkról? Keress minket a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozz létre egy problémajegyet.

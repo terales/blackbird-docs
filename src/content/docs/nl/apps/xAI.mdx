@@ -1,0 +1,54 @@
+---
+  title: xAI
+  description: De xAI Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Bekijk op Github" target="_blank" href="https://github.com/bb-io/X.AI" icon="github" />
+De xAI-applicatie stelt gebruikers in staat om door AI aangedreven voltooiings- en chatmogelijkheden in hun workflows te integreren. Of je nu repetitieve taken automatiseert of inzichten genereert, deze app maakt geavanceerde AI-tools toegankelijk.
+
+## Voordat je begint
+
+Voordat je xAI kunt verbinden en gebruiken, zorg ervoor dat:
+1. Je een actief [xAI-account](https://x.ai/) en API-sleutel hebt. Bezoek de xAI API-documentatie voor meer details.
+2. Je bent ingelogd in je Blackbird.io-omgeving.
+
+## Verbinden
+
+1. Navigeer naar apps en zoek naar xAI. Als je xAI niet kunt vinden, klik dan op App Toevoegen in de rechterbovenhoek, selecteer xAI en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op Verbinding Toevoegen om de integratie in te stellen.
+3. Geef je verbinding een naam voor toekomstige referentie, bijvoorbeeld 'Mijn xAI-verbinding'.
+4. Voer je API-sleutel in. Je kunt er een genereren in je xAI-accountinstellingen.
+Formaat: `xai-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`.
+5. Klik op Verbinden om de installatie te voltooien.
+
+## Actions
+
+**1. Create Completion**
+Invoerparameters:
+- Model: Kies het model.
+- Prompt: Tekstinvoer om het model te sturen.
+- Max Tokens: Beperk de lengte van het antwoord. (Optioneel)
+- Temperature: Pas willekeurigheid in de uitvoer aan (0 = deterministisch, 1 = creatief). (Optioneel)
+- Top P: Controleert nucleus sampling. (Optioneel)
+- Stop Sequences: Specificeer sequenties om de voltooiing te stoppen. (Optioneel)
+  
+**Gebruikssituatie:** Genereer creatieve content, vat tekst samen of beantwoord vragen.
+
+**2. Create Chat Completion**
+Invoerparameters:
+- Model: Kies het gewenste model.
+- Input: Lever conversatieberichten aan.
+- Max Tokens: Specificeer de antwoordlengte. (Optioneel)
+- Temperature: Pas willekeurigheid in de uitvoer aan (0 = deterministisch, 1 = creatief). (Optioneel)
+- Top P: Controleert nucleus sampling. (Optioneel)
+- Stop Sequences: Specificeer sequenties om de voltooiing te stoppen. (Optioneel)
+- Presence Penalty: Hogere waarden moedigen het model aan om nieuwe onderwerpen te verkennen en herhaling te verminderen. (Optioneel)
+- Frequency Penalty: Hogere waarden ontmoedigen het model om dezelfde woorden of zinnen meerdere keren in hetzelfde antwoord te herhalen. (Optioneel)
+  
+**Gebruikssituatie:** Chatbots, virtuele assistenten of conversatie-AI.
+
+Voor meer diepgaande informatie over acties raadpleeg de xAI [API-referentie](https://docs.x.ai/api).
+
+## Feedback
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [gevestigde kanalen](https://www.blackbird.io/) of maak een issue aan.

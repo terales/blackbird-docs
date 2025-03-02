@@ -1,0 +1,87 @@
+---
+  title: Matecat
+  description: De Matecat Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Matecat" icon="github" />
+
+Matecat is een gratis online CAT-tool van Translated.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je zorgen dat:
+
+- Je een Matecat API-sleutel hebt. Zie [dit artikel](https://guides.matecat.com/obtaining-api-credentials) over hoe je API-inloggegevens kunt verkrijgen.
+
+## Verbinding maken
+
+1. Ga naar apps en zoek naar Matecat. Als je Matecat niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Matecat en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn Matecat'.
+4. Voer je Matecat [API-sleutel](https://guides.matecat.com/obtaining-api-credentials) in.
+5. Klik op _Authorize connection_.
+
+![connecting](https://raw.githubusercontent.com/bb-io/Matecat/main/image/README/1693310380983.png)
+
+## Actions
+
+Zie de [Matecat API-documentatie](https://www.matecat.com/api/docs#/) voor een gedetailleerde uitleg van elke actie.
+
+### Projects
+
+- **Create project** maakt een nieuw project aan. Je moet alle bestanden, brontaal en doeltalen in één keer toevoegen. Dit kan later niet worden bijgewerkt. Het geeft dezelfde informatie terug als _Get project_.
+> Let op: de bestanden die je naar de 'Create project'-actie stuurt, moeten Engelse namen hebben, zonder andere taaltekens of speciale symbolen. Anders kan Matecat een onduidelijke foutmelding geven
+- **Get project** geeft informatie over het project terug. Dit omvat ook woordtellingen.
+- **Cancel project** annuleert het project.
+- **Archive project** archiveert het project.
+- **Activate project** activeert het project.
+
+### Jobs
+
+- **Download job translated files** geeft alle vertaalde bestanden van deze opdracht terug.
+- **Download job TMX** geeft het TMX-bestand terug dat het huidige vertaalgeheugen vertegenwoordigt.
+- **Get job segments comments** geeft een lijst terug van alle opmerkingen die bij deze opdracht zijn gemaakt.
+- **Get job** geeft algemene opdrachtinformatie terug.
+- **Cancel job** annuleert de opdracht.
+- **Archive job** archiveert de opdracht.
+- **Activate job** activeert de opdracht.
+- **Assign job** wijst de opdracht toe aan een vertaler.
+
+> Matecat heeft geen opdrachtstatus die aangeeft of deze vertaald, gereviseerd, etc. is. In plaats daarvan moet dit worden afgeleid uit de verschillende woordtellingen van de opdracht. Voor het gemak hebben we een "Derived status" toegevoegd aan het opdrachtmodel dat de volgende statussen kan hebben: NEW, IN_TRANSLATION, TRANSLATED, IN_REVISION, REVISED. We hebben deze eigenschap ook toegevoegd aan het projectmodel, dat de laagste van alle geaccumuleerde statussen van alle opdrachten teruggeeft.
+
+### Translation issues
+
+- **Get translation issue**.
+- **Create translation issue**.
+- **Delete translation issue**.
+- **Get translation issue comments**.
+
+### Glossaries
+
+- **Import glossary**. Matecat ondersteunt geen taalcodes zonder landgedeelte. Als de woordenlijst dergelijke talen bevat, wordt de meest geschikte door Matecat ondersteunde taalcode geselecteerd (bijv. _es-ES_ voor de taalcode _es_). Woordenlijsten kunnen in Matecat alleen als privé TM's worden geïmporteerd. Meer details over de specifieke kenmerken van het importeren van woordenlijsten in Matecat zijn [hier](https://guides.matecat.com/how-to-add-a-glossary) te vinden.
+
+## Events
+
+- **On analysis completed** wordt geactiveerd wanneer een projectanalyse is voltooid of wanneer deze mislukt. Gebruik in combinatie met checkpoints.
+- **On project status changed** wordt geactiveerd wanneer een project zijn afgeleide status wijzigt. Bijvoorbeeld als alle opdrachten in een project hun status wijzigen naar vertaald.
+- **On job status changed** wordt geactiveerd wanneer een opdracht zijn afgeleide status wijzigt. Bijvoorbeeld wanneer alle segmenten in een opdracht zijn vertaald, verandert de status naar vertaald.
+
+## Voorbeeld
+
+![1729768345607](https://raw.githubusercontent.com/bb-io/Matecat/main/image/README/1729768345607.png)
+
+In dit voorbeeld zien we dat er een vertaling wordt gemaakt van een Slack-bericht en de bijlagen. Wanneer de Matecat-analyse is voltooid, sturen we een bericht met de link naar Slack. Vervolgens, wanneer alle vertalingen zijn voltooid, doorlopen we alle opdrachten en downloaden we de bestanden. We sturen de vertaalde bestanden vervolgens terug naar Slack.
+
+## Ontbrekende functies
+
+- Vertaalversies
+- Opgesplitste opdrachten / chunks
+- Volledige kwaliteitsrapporten
+- Projectsamenvoegingen
+
+Laat het ons weten als je geïnteresseerd bent in deze functies!
+
+## Feedback
+
+Feedback op onze implementatie van Matecat is altijd zeer welkom. Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/), of maak een issue aan.

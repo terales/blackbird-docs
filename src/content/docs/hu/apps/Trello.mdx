@@ -1,0 +1,106 @@
+---
+  title: Trello
+  description: A Trello Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés GitHubon" target="_blank" href="https://github.com/bb-io/Trello" icon="github" />
+
+A Trello egy webalapú projektmenedzsment és együttműködési eszköz, amely vizuális táblákba rendezi a feladatokat. Lehetővé teszi a felhasználók számára, hogy különböző projektekhez vagy feladatokhoz táblákat hozzanak létre, és minden táblán belül listákat készíthetnek a szakaszok vagy kategóriák reprezentálására, valamint kártyákat az egyes feladatok vagy elemek megjelenítésére. A felhasználók áthelyezhetik a kártyákat a listák között a folyamat követéséhez, hozzáadhatnak leírásokat, ellenőrzőlistákat, határidőket, mellékleteket, és kioszthatják őket a csapattagoknak. A Trello intuitív és rugalmas felületéről ismert, ami népszerűvé teszi egyének, csapatok és szervezetek körében különböző típusú projektek kezeléséhez, a szoftverfejlesztéstől az eseményszervezésig és a személyes feladatkezelésig.
+
+## Beállítás előtt
+
+Mielőtt csatlakozna, győződjön meg arról, hogy:
+
+- Ön Adminisztrátor abban a Trello példányban, amelyhez csatlakozni szeretne.
+- Rendelkezik API kulccsal és felhasználói tokennel a Trello példányához.
+
+Az API kulcs és felhasználói token megszerzéséhez:
+
+1. Jelentkezzen be Trello fiókjába, majd navigáljon a [https://trello.com/app-key]() > `Power-Up Admin Portal` oldalra. Itt új integrációt hozhat létre a jobb felső sarokban található `New` gombra kattintva.
+
+![Trello_Integrations](https://raw.githubusercontent.com/bb-io/Trello/main/image/README/Trello_Integrations_1.png)
+
+2. Ezután töltse ki a kötelező mezőket (New Power-Up or Integration, Workspace, Email, Support contact, Author) és kattintson a `Create` gombra.
+3. Kattintson az `API key` > `Generate a new API key` lehetőségre.
+4. Másolja ki az API kulcsot, mivel ez az egyik szükséges információ.
+5. Az API kulcs jobb oldalán kattintson a `Token` lehetőségre a Trello felhasználói token generálásához.
+
+![Trello Token Generation](https://raw.githubusercontent.com/bb-io/Trello/main/image/README/Trello_Token_2.png)
+
+6. Másolja ki a tokent, ez az utolsó információ, amelyre szüksége van a Trello példányának a Blackbird-hez való csatlakoztatásához.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Trello-ra. Ha nem találja a Trello-t, kattintson a jobb felső sarokban található _Add App_ gombra, válassza a Trello-t, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot későbbi hivatkozáshoz, pl. 'Saját Trello kapcsolat'.
+4. Töltse ki a Trello példány API kulcsát.
+5. Töltse ki a Trello példány felhasználói tokenjét.
+6. Kattintson a _Connect_ gombra.
+
+![Kapcsolat hozzáadása](https://raw.githubusercontent.com/bb-io/Trello/main/image/README/Trello_Connection_3.png)
+
+## Actions
+
+### Boards
+
+- **Create board** Új tábla létrehozása
+- **Delete board** Adott tábla törlése
+- **Get board** Tábla részleteinek lekérése
+- **List boards** Összes felhasználói tábla listázása
+- **List starred boards** A felhasználó által kedvelt összes tábla listázása
+
+### Cards
+
+- **Create card** Kártya létrehozása táblán
+- **Copy card** Új kártya létrehozása egy másik alapján. Válassza ki a táblát, a másolandó kártyát és a listát, ahová az új kártyát helyezni szeretné, és opcionálisan, hogy mely elemeket másolja az új kártyába (mellékletek, ellenőrzőlisták, matricák stb.)
+- **Delete card** Adott kártya törlése
+- **Get card** Adott kártya részleteinek lekérése
+- **Search cards** Opcionális szűrők hozzáadásával a táblán lévő megfelelő kártyák keresése
+- **Find card** Első egyező kártya keresése név vagy URL alapján
+- **List assigned cards** A felhasználóhoz rendelt összes kártya listázása
+- **List cards** Összes tábla kártya listázása
+- **Update card** Adott kártya frissítése
+- **Add reaction to comment** Reagálás egy kártya adott megjegyzésére emoji használatával
+
+### Lists
+
+- **Create list** Lista létrehozása táblán
+- **Get lists** Tábla összes listájának lekérése
+
+### Checklists
+
+- **Get card checklist** Egy adott ellenőrzőlista lekérése egy kártyáról
+- **List card checklists** Egy kártya összes ellenőrzőlistájának listázása
+- **Find card checklist** Az első olyan ellenőrzőlista lekérése egy kártyáról, amely megfelel a megadott névnek
+- **Find checklist item** Egy adott ellenőrzőlista-elem lekérése egy kártyáról
+- **Update checklist item** Ellenőrzőlista elem frissítése
+
+### Custom Fields
+
+- **List card custom fields** Egy adott kártya összes egyéni mezőjének részleteinek lekérése szövegként
+- **Get date custom field value** Egy adott egyéni mező dátum-idő értékének lekérése egy kártyán
+- **Get number custom field value** Egy adott egyéni mező numerikus értékének lekérése egy kártyán
+- **Get text custom field value** Egy adott egyéni mező szövegértékének lekérése egy kártyán
+- **Set card date custom field** Egy kártya egyéni mezőjének dátumértékének frissítése
+- **Set card dropdown custom field** Egy kártya egyéni mezőjének legördülő értékének frissítése
+- **Set card number custom field** Egy kártya egyéni mezőjének numerikus értékének frissítése
+- **Set card text custom field** Egy kártya szöveges egyéni mezőjének értékének frissítése
+
+## Events
+
+- **On card comment added** Egy adott kártyához hozzáadott megjegyzés esetén
+- **On card created** Új kártya létrehozásakor
+- **On card moved from board** Egy adott kártya táblából való áthelyezésekor
+- **On card moved to board** Egy adott kártya táblához való áthelyezésekor
+- **On card moved to list** Egy adott kártya másik listához való áthelyezésekor
+- **On card renamed** Egy adott kártya átnevezésekor
+- **On list created** Új lista létrehozásakor
+- **On member added to card** Új tag kártyához adásakor
+- **On member left card** Tag kártyáról való eltávolításakor
+- **On cards comments added** Lekérdezési esemény. Meghatározott időközönként aktiválódik és az új megjegyzéseket adja vissza. A különbség ezen esemény és az `On card comment added` között az, hogy ez az esemény az összes megjegyzést visszaadja, még akkor is, ha azokat más felhasználó adta hozzá.
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást vagy visszajelzést adna a megvalósításunkról? Keressen meg minket a [megszokott csatornákon](https://www.blackbird.io/) keresztül vagy hozzon létre egy hibajegyet.

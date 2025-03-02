@@ -1,0 +1,89 @@
+---
+  title: Blackbird
+  description: De Blackbird Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Blackbird" icon="github" />
+
+Dit is de Blackbird app voor Blackbird. We horen je al denken, is dat niet een beetje te veel Blackbird-ception? Integendeel! Met de Blackbird app kun je workflows orkestreren die Blackbird zelf omvatten. Veelvoorkomende toepassingen zijn het loggen van flights, foutafhandeling en gebruikersbeheer.
+
+Met de Blackbird app kun je verbinding maken met _elke_ Blackbird instantie, onafhankelijk van de hostingomgeving of organisatie. Dit betekent dat je niet beperkt bent tot je eigen organisatie.
+
+## Voor het instellen
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je beheerdersrechten hebt op de Blackbird instantie waarmee je verbinding wilt maken.
+
+## Een API-sleutel verkrijgen
+
+- Terwijl je bent ingelogd bij je Blackbird organisatie, klik je op het gebruikerspictogram rechtsboven en selecteer je _Organization management_.
+- Klik op _API Tokens_ in het paneel aan de linkerkant.
+- Klik op _Generate_
+- Kopieer de token die je zojuist hebt gegenereerd door op de kopieerknop onder _Manage_ te klikken.
+
+![1721139522720](https://raw.githubusercontent.com/bb-io/Blackbird/main/image/README/1721139522720.png)
+
+## Verbinden
+
+1. Navigeer naar apps en zoek naar Blackbird. Selecteer de Blackbird app.
+2. Klik op _Add connection_
+3. Geef je verbinding een naam.
+4. Vul bij URL de basis-URL van je Blackbird instantie in. Bijvoorbeeld _https://de-1.blackbird.io_.
+5. Vul bij API token de API-token in die je zojuist hebt aangemaakt.
+6. Klik op _Connect_.
+
+![1721139685169](https://raw.githubusercontent.com/bb-io/Blackbird/main/image/README/1721139685169.png)
+
+## Actions
+
+### Users
+- **Search users** geeft alle gebruikers van de verbonden organisatie terug.
+- **Get user** geeft informatie over een specifieke gebruiker.
+- **Add user to nest** voegt de gebruiker toe aan een nest.
+- **Remove user from nest** verwijdert de gebruiker uit het genoemde nest.
+
+### Nests
+- **Search nests** geeft alle nests van de verbonden organisatie terug.
+- **Get nest** geeft informatie over een bepaald nest.
+
+### Birds
+- **Search birds** geeft alle birds binnen een bepaald nest terug. Je kunt optioneel filteren op bird status en triggertype.
+- **Get bird** geeft informatie over een specifieke bird.
+- **Start bird** start een nieuwe flight van deze bird. Opmerking: dit werkt momenteel alleen voor birds met handmatige triggers.
+
+### Flights
+- **Search flights** geeft alle flights van een bepaalde bird terug. Je kunt optioneel filteren op flights binnen een specifiek tijdsbestek. Je kunt ook filteren op flight status.
+- **Get flight** geeft informatie over een specifieke flight.
+
+## Events
+
+### Birds
+- **On bird activated** wordt getriggerd wanneer een bird wordt geactiveerd (status verandert van _suspended_ naar _active_)
+- **On bird published** wordt getriggerd wanneer een nieuwe versie van een bird wordt gepubliceerd
+- **On bird suspended** wordt getriggerd wanneer een bird wordt opgeschort (status verandert van _active_ naar _suspended_)
+
+### Flights
+- **On flight started** wordt getriggerd wanneer een flight is gestart.
+- **On flight succeeded** wordt getriggerd wanneer een flight succesvol wordt voltooid.
+- **On flight failed** wordt getriggerd wanneer een flight is mislukt. Zie onderstaand voorbeeld.
+
+Bij bird- en flight-events kun je optioneel het nest selecteren dat je wilt volgen. Merk op dat bird- en flight-events zichzelf niet kunnen triggeren. Je hoeft je dus geen zorgen te maken over oneindige loops.
+
+### Nests
+- **On nest created** wordt getriggerd wanneer een nieuw nest wordt aangemaakt
+- **On nest deleted** wordt getriggerd wanneer een nest wordt verwijderd
+- **On user added to nest** wordt getriggerd wanneer een gebruiker aan een nest wordt toegevoegd.
+- **On user removed from nest** wordt getriggerd wanneer een gebruiker uit een nest wordt verwijderd.
+
+## Voorbeelden
+
+### Foutafhandeling
+![1721141187211](https://raw.githubusercontent.com/bb-io/Blackbird/main/image/README/1721141187211.png)
+
+Deze ongelooflijk eenvoudige bird stuurt een melding in Slack wanneer een flight mislukt. Dit kan nuttig zijn om mensen te waarschuwen voor mogelijke problemen. Een alternatieve of aanvullende actie naast Slack zou het loggen van een ticket in bijvoorbeeld Jira kunnen zijn.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

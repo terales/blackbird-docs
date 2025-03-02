@@ -1,0 +1,141 @@
+---
+  title: QuickBooks Online
+  description: A QuickBooks Online Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/QuickBooks-Online" icon="github" />
+
+A QuickBooks egy könyvelési szoftvercsomag, amelyet az Intuit fejlesztett és forgalmaz. A QuickBooks termékeket, amelyeket először 1992-ben vezettek be, főként kis- és középvállalkozások számára készítették, és helyszínen telepíthető könyvelési alkalmazásokat, valamint felhőalapú verziókat kínálnak, amelyek üzleti fizetéseket fogadnak, kezelik és fizetik a számlákat, valamint bérszámfejtési funkciókat nyújtanak.
+
+## Beállítás előtt 
+
+A kapcsolat létrehozása előtt győződjön meg a következőkről:
+
+- Rendelkezik QuickBooks Online fiókkal
+- Van szervezete a QuickBooks Online-ban és ismeri a szervezet azonosítóját
+
+## Csatlakozás
+
+1. Navigáljon az Alkalmazások menüponthoz, és keresse meg a QuickBooks Online alkalmazást. A keresést használhatja a megtalálásához.
+2. Kattintson a _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például: 'Saját QuickBooks Online kapcsolat'.
+4. Töltse ki az 'API url' mezőt, például `https://sandbox-quickbooks.api.intuit.com` vagy `https://quickbooks.api.intuit.com`.
+5. Töltse ki a 'Company ID' mezőt a QuickBooks Online szervezet azonosítójával.
+6. Töltse ki a 'Minor version' mezőt a használni kívánt QuickBooks Online API alverzió számával. Jelenleg a legújabb verzió a `70` (és kezdődhet `1`-től).
+7. Kattintson a _Connect_ gombra.
+
+## Actions
+
+### Class
+
+- **Get all classes**: Összes osztály lekérése.
+- **Get class by ID**: Osztály lekérése azonosító alapján.
+- **Create class**: Osztály létrehozása, opcionálisan szülő osztály hivatkozással.
+- **Update class**: Osztály frissítése, opcionálisan új névvel, aktív státusszal, alosztály státusszal, szinkronizálási tokennel, tartománnyal és teljes névvel.
+
+### Customer
+
+- **Get all customers**: Összes ügyfél lekérése.
+- **Find customer**: Az első egyező ügyfél lekérése a megadott feltételek alapján.
+- **Get customer by ID**: Ügyfél lekérése azonosító alapján.
+- **Create customer**: Ügyfél létrehozása.
+- **Update customer**: Ügyfél frissítése.
+
+### Invoice
+
+- **Get all invoices**: Összes számla lekérése.
+- **Get invoice by ID**: Számla lekérése azonosító alapján.
+- **Create invoice**: Számla létrehozása ügyféllel és tételekkel.
+- **Update invoice**: Számla frissítése új esedékességi dátummal és osztály hivatkozással.
+- **Delete invoice**: Számla törlése.
+- **Send invoice**: Számla küldése a számlázási e-mail címre vagy a kérésben megadott e-mail címre.
+- **Void invoice**: Számla érvénytelenítése osztály hivatkozással és szinkronizálási tokennel.
+- **Import invoice**: Számla importálása ügyféllel és tételekkel. Ez a művelet JSON formátumú fájlt használ, amely exportálható más Blackbird alkalmazásokból. Ha megadja a 'Invoice ID' opcionális bemenetet, az alkalmazás megpróbálja frissíteni a számlát ezzel az azonosítóval. Ha nem adja meg, az alkalmazás új számlát hoz létre. A következő egyéni mezők támogatottak: 'class_id' - a számla 'ClassRef' mezőjéhez kerül hozzárendelésre, de ha az opcionális bemenetből Class ID van megadva, akkor azt részesítjük előnyben
+
+Kérjük, vegye figyelembe, hogy az osztály hivatkozás használatához a számlában a `Preferences.AccountingInfoPrefs.ClassTrackingPerTxn` értékét true-ra kell állítani. Ha false értékre van állítva, nem kap hibaüzenetet, de az osztály hivatkozás nem kerül mentésre.
+
+### Item
+
+- **Get all items**: Összes tétel lekérése.
+- **Get item by ID**: Tétel lekérése azonosító alapján.
+
+### Payment
+
+- **Get all payments**: Összes fizetés lekérése.
+- **Get payment by ID**: Fizetés lekérése azonosító alapján.
+- **Create payment**: Fizetés létrehozása ügyfél hivatkozással és számla hivatkozással.
+- **Update payment**: Fizetés frissítése új összeggel és osztály hivatkozással.
+- **Delete payment**: Fizetés törlése.
+- **Void payment**: Fizetés érvénytelenítése osztály hivatkozással és szinkronizálási tokennel.
+- **Send payment**: Fizetés küldése a kérésben megadott e-mail címre vagy a számlázási e-mail címre.
+
+### Vendor
+
+- **Get all vendors**: Összes szállító lekérése.
+- **Get vendor by ID**: Szállító lekérése azonosító alapján.
+- **Update vendor**: Meglévő szállító frissítése a megadott adatokkal.
+- **Create vendor**: Új szállító regisztrálása a megadott adatokkal.
+
+### Attachment
+
+- **Get all attachments**: Összes melléklet lekérése.
+- **Get attachment**: Melléklet lekérése azonosító alapján.
+- **Create attachment**: Melléklet létrehozása fájllal vagy jegyzettel.
+- **Update attachment**: Melléklet frissítése azonosító alapján.
+- **Delete attachment**: Melléklet törlése azonosító alapján.
+- **Download attachment**: Melléklet letöltése azonosító alapján.
+
+## Events
+
+### Class Events
+
+- **On classes created:** Ez az esemény akkor aktiválódik, amikor egy vagy több osztály létrejön.
+- **On classes updated:** Ez az esemény akkor aktiválódik, amikor egy vagy több osztály frissül.
+- **On classes deleted:** Ez az esemény akkor aktiválódik, amikor egy vagy több osztály törlődik.
+
+### Vendor Events
+
+- **On vendors created:** Ez az esemény akkor aktiválódik, amikor egy vagy több szállító létrejön.
+- **On vendors updated:** Ez az esemény akkor aktiválódik, amikor egy vagy több szállító frissül.
+- **On vendors merged:** Ez az esemény akkor aktiválódik, amikor egy vagy több szállító összevonásra kerül.
+- **On vendors deleted:** Ez az esemény akkor aktiválódik, amikor egy vagy több szállító törlődik.
+
+### Customer Events
+
+- **On customers created:** Ez az esemény akkor aktiválódik, amikor egy vagy több ügyfél létrejön.
+- **On customers updated:** Ez az esemény akkor aktiválódik, amikor egy vagy több ügyfél frissül.
+- **On customers merged:** Ez az esemény akkor aktiválódik, amikor egy vagy több ügyfél összevonásra kerül.
+- **On customers deleted:** Ez az esemény akkor aktiválódik, amikor egy vagy több ügyfél törlődik.
+
+### Invoice Events
+
+- **On invoices created:** Ez az esemény akkor aktiválódik, amikor egy vagy több számla létrejön.
+- **On invoices updated:** Ez az esemény akkor aktiválódik, amikor egy vagy több számla frissül.
+- **On invoices voided:** Ez az esemény akkor aktiválódik, amikor egy vagy több számla érvénytelenítésre kerül.
+- **On invoices deleted:** Ez az esemény akkor aktiválódik, amikor egy vagy több számla törlődik.
+
+### Payment Events
+
+- **On payments created:** Ez az esemény akkor aktiválódik, amikor egy vagy több fizetés létrejön.
+- **On payments updated:** Ez az esemény akkor aktiválódik, amikor egy vagy több fizetés frissül.
+- **On payments voided:** Ez az esemény akkor aktiválódik, amikor egy vagy több fizetés érvénytelenítésre kerül.
+- **On payments deleted:** Ez az esemény akkor aktiválódik, amikor egy vagy több fizetés törlődik.
+
+## Példák
+
+### QuickBooks Online számlák szinkronizálása Plunet számlákkal
+
+Ez a példa bemutatja, hogyan szinkronizálhatók a QuickBooks Online-ból származó számlák a Plunet számlákkal. Először megkapjuk a szövegmodult a Plunet számlából, és ellenőrizzük, hogy üres-e. Ha üres, új számlát hozunk létre a QuickBooks Online-ban, és a szövegmodult beállítjuk az újonnan létrehozott számla azonosítójára. Ha nem üres, frissítjük a meglévő számlát a QuickBooks Online-ban ugyanazzal a szövegmodullal.
+
+![Example-invoices](https://raw.githubusercontent.com/bb-io/QuickBooks-Online/main/image/README/Example-invoices.png)
+
+Ez a madár az `Export invoice` és `Import invoice` műveletek köré épült. Az Export invoice művelet lekéri a számlát a Plunet-ből, míg az Import invoice művelet létrehozza vagy frissíti a számlát a QuickBooks Online-ban. A háttérben adatokat kapunk a Plunet-ből, JSON formátumba alakítjuk, elküldjük a QuickBooks Online alkalmazásnak, értelmezzük, majd létrehozzuk vagy frissítjük a számlát.
+
+## Nem támogatott funkciók
+
+A Quickbooks Online API meglehetősen kiterjedt, és dolgozunk további funkciók hozzáadásán. Ha egy adott funkcióra van szüksége, kérjük, vegye fel velünk a kapcsolatot.
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Vegye fel velünk a kapcsolatot a [bevett csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy hibajegyet.

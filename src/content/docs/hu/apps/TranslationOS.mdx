@@ -1,0 +1,43 @@
+---
+  title: TranslationOS
+  description: A TranslationOS Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/TranslationOS" icon="github" />
+
+A TranslationOS API lehetővé teszi, hogy programozottan lokalizálja tartalmait több mint 200 nyelven a Translated szolgáltatások segítségével.
+
+## Beállítás előtt
+
+Mielőtt csatlakozna, győződjön meg a következőkről:
+
+- Rendelkezik TranslationOS-szel.
+- Igényelt egy TranslationOS API kulcsot. Lásd a TranslationOS dokumentáció [hitelesítés](https://api-sandbox.translated.com/v2#section/Authentication) szakaszát.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a TranslationOS-re. Ha nem találja a TranslationOS-t, kattintson a jobb felső sarokban található _Add App_ gombra, válassza a TranslationOS-t, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például: 'Saját TranslationOS'.
+4. Adja meg a TranslationOS [API kulcsát](https://api-sandbox.translated.com/v2#section/Authentication).
+5. Kattintson az _Authorize connection_ gombra.
+
+![connecting](https://raw.githubusercontent.com/bb-io/TranslationOS/main/image/README/1693309042281.png)
+
+## Actions
+
+### Translation
+
+- **Create text translation** fordítást hoz létre egy adott szöveg alapján. A fordítás sorba kerül és a Translated feldolgozza. Az összes lehetőség részletes magyarázatáért lásd a [TranslationOS dokumentációt](https://api-sandbox.translated.com/v2#tag/Translate/operation/translate).
+- **Create file translation** ugyanúgy működik, mint a szöveges fordítás, de fájl bemenettel.
+- **Update translation** frissít egy meglévő fordítási kérelmet
+- **Cancel translation** törli a meglévő fordítási kérelmet
+
+## Events
+
+- **On translation finished** akkor aktiválódik, amikor egy fordítás elkészül. Amikor ezt az eseményt beállítja egy birdben, egy Callback URL jelenik meg. Másolja ezt az URL-t és használja a Blackbird fordításkészítő műveleteiben, hogy ezeket a fordításokat ehhez a birdhez irányítsa.
+
+## Visszajelzés
+
+A TranslationOS megvalósításával kapcsolatos visszajelzéseket mindig szívesen fogadjuk. Vegye fel velünk a kapcsolatot a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

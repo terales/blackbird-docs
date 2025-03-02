@@ -1,0 +1,83 @@
+---
+  title: Microsoft SharePoint
+  description: A Microsoft SharePoint Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/MicrosoftSharePoint" icon="github" />
+
+A SharePoint egy Microsoft által fejlesztett platform, amely központi felületként szolgál a szervezeteken belüli együttműködéshez, dokumentumkezeléshez és tartalommegosztáshoz. Lehetővé teszi a felhasználók számára dokumentumok létrehozását, tárolását és elérését, valamint projektek közös megvalósítását egy biztonságos és rendezett online környezetben.
+
+## Beállítás előtt
+
+A kapcsolódás előtt győződjön meg arról, hogy:
+
+- Rendelkezik Microsoft 365 fiókkal.
+- Van [létrehozott SharePoint webhelye](https://support.microsoft.com/en-gb/office/create-a-site-in-sharepoint-4d1e11bf-8ddc-499d-b889-2b48d10b1ce8).
+
+### Hogyan találhatja meg a webhely nevét
+
+A webhely nevét megtalálhatja:
+
+- A SharePoint kezdőoldalán.
+![Kezdőoldal](https://raw.githubusercontent.com/bb-io/MicrosoftSharePoint/main/image/README/sharepoint-start-page.png)
+
+- VAGY a _Saját webhelyek_ fülre kattintva.
+![Saját webhelyek](https://raw.githubusercontent.com/bb-io/MicrosoftSharePoint/main/image/README/my-sites.png)
+
+Innen megtekintheti webhelyeit és kiválaszthatja azt, amelyikkel dolgozni szeretne.
+
+Másolja ki a webhely nevét. Például, ha a webhely neve "My communication site", másolja ki ezt.
+
+## Kapcsolódás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Microsoft SharePointra. Ha nem találja a Microsoft SharePointot, kattintson az _Add App_ gombra a jobb felső sarokban, válassza a Microsoft SharePointot, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot későbbi hivatkozáshoz, pl. 'Szervezetem'.
+4. Töltse ki a webhely megjelenítési nevét, pl. 'My communication site'.
+5. Kattintson az _Authorize connection_ gombra.
+6. Kövesse a Microsoft utasításait, és engedélyezze a Blackbird.io számára, hogy az Ön nevében eljárjon.
+7. Amikor visszatér a Blackbirdhez, ellenőrizze, hogy a kapcsolat megjelent-e, és az állapota _Connected_.
+
+Megjegyzés: ha most hozott létre egy webhelyet, várjon néhány percet a kapcsolódás megkísérlése előtt.
+
+![Kapcsolódás](https://raw.githubusercontent.com/bb-io/MicrosoftSharePoint/main/image/README/connecting.png)
+
+## Actions
+
+### Documents
+
+- **Get file metadata** lekéri egy fájl metaadatait a webhely dokumentumaiból.
+- **List changed files** visszaadja az összes olyan fájl listáját, amelyet az elmúlt órákban hoztak létre vagy módosítottak. Ha az órák száma nincs megadva, az elmúlt 24 órában módosított fájlok lesznek listázva.
+- **Download file**.
+- **Upload file to folder**.
+- **Delete file**.
+- **Get folder metadata** lekéri egy mappa metaadatait.
+- **List files in folder** lekéri a mappában található fájlok metaadatait.
+- **Create folder in parent folder**.
+- **Delete folder**.
+
+## Events
+
+- **On files updated or created** akkor aktiválódik, amikor fájlokat frissítenek vagy hoznak létre.
+- **On folders updated or created** akkor aktiválódik, amikor mappákat frissítenek vagy hoznak létre.
+- **On pages created or updated** ez a lekérdezéses esemény akkor aktiválódik, amikor oldalakat frissítenek vagy hoznak létre.
+- **On pages deleted** ez a lekérdezéses esemény akkor aktiválódik, amikor oldalakat törölnek.
+
+## Példa
+1. példa
+![Példa](https://raw.githubusercontent.com/bb-io/MicrosoftSharePoint/main/image/README/example.png)
+
+Itt, amikor PDF-fájlokat töltenek fel a SharePoint Dokumentumokba, minden egyes fájl letöltésre kerül, a Language Weaverrel lefordítják, majd a fordítás minőségi értékelése alapján a megfelelő mappába helyezik.
+
+2. példa
+![Példa](https://raw.githubusercontent.com/bb-io/MicrosoftSharePoint/main/image/README/example2.png)
+Ebben a példában a munkafolyamat az **On pages created or updated** eseménnyel kezdődik. Ezután a munkafolyamat a **Get page as HTML** műveletet használja a frissített/létrehozott oldal html tartalmának lekéréséhez. A következő lépésben lefordítjuk ezt a tartalmat a DeepL segítségével, majd elküldjük a lefordított oldalt egy Slack csatornára.
+
+## Eggs
+
+Ellenőrizze a letölthető munkafolyamat-prototípusokat, amelyek ezt az alkalmazást tartalmazzák, és importálhatók a Nestjeibe [itt](https://docs.blackbird.io/eggs/storage-to-mt/).
+
+## Hiányzó funkciók
+
+A jövőben listákhoz adhatunk műveleteket. Jelezze, ha érdekli!

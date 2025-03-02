@@ -1,0 +1,75 @@
+---
+  title: Airtable
+  description: De Airtable Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Airtable" icon="github" />
+
+Airtable is een cloud-gebaseerd softwareplatform dat de functionaliteit van een spreadsheet combineert met de kracht van een database. Gebruikers kunnen tabellen met gegevens maken, organiseren en eraan samenwerken, vergelijkbaar met een spreadsheet, maar met extra functies zoals aanpasbare velden, geavanceerd filteren, koppelingen tussen tabellen, bijlagen en meer.
+
+## Voordat je begint
+
+Voordat je een verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een Airtable-account hebt.
+- Je een base (database) hebt aangemaakt in je Airtable-account.
+
+## Verbinden
+
+1. Ga naar apps en zoek naar Airtable. Als je Airtable niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Airtable en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn Airtable-verbinding'.
+4. Vul de Base ID in van de base waarmee je wilt verbinden in je Airtable-instantie. In Airtable wordt elke database een "base" genoemd, en elke base heeft een unieke identificatie, de "base ID". Je kunt de base ID vinden in de URL van je Airtable-base wanneer je deze in de browser bekijkt. De base ID is de alfanumerieke reeks die verschijnt na "https://airtable.com/" en voor "/base".
+5. Klik op Authorize connection.
+6. Volg de instructies van Airtable.
+7. Wanneer je terugkeert naar Blackbird, controleer dan of de verbinding is verschenen en de status Verbonden is.
+
+![AirtableBlackbirdConnection](https://raw.githubusercontent.com/bb-io/Airtable/main/image/README/AirtableBlackbirdConnection.png)
+
+## Actions
+
+### Records
+
+- **List records** Lijst alle records in de tabel op.
+- **Search record** Zoek naar een specifiek record waarbij de veldwaarde wordt vergeleken met de waarde die je invoert.
+- **Add new record** Maakt een nieuw record aan in de tabel met het primaire veld ingevuld. Gebruik de "Update value of field" acties hieronder om de andere velden in te vullen.
+- **Delete record** Verwijdert een record op basis van de record ID.
+
+### Attachments
+
+- **Download files from attachment field** Download bestanden van een bijlageveld.
+
+### Fields
+
+- **Get value of boolean field** Haal de waarde op van een booleaans veld (bijv. checkbox).
+- **Get value of date field** Haal de waarde op van een datumveld.
+- **Get value of number field** Haal de waarde op van een numeriek veld (bijv. nummer, valuta, percentage, waardering).
+- **Get value of string field** Haal de waarde op van een tekstveld (bijv. enkele regel tekst, lange tekst, telefoonnummer, e-mail, URL, enkele selectie).
+- **Update value of boolean field** Werk de waarde bij van een booleaans veld (bijv. checkbox).
+- **Update value of date field** Werk de waarde bij van een datumveld.
+- **Update value of number field** Werk de waarde bij van een numeriek veld (bijv. nummer, valuta, percentage, waardering).
+- **Update value of string field** Werk de waarde bij van een tekstveld (bijv. enkele regel tekst, lange tekst, telefoonnummer, e-mail, URL, enkele selectie).
+
+## Events
+
+- **On data changed** Deze webhook wordt geactiveerd wanneer gegevens worden toegevoegd/bijgewerkt/verwijderd (afhankelijk van de invoerparameters die de gebruiker kiest).
+
+We hebben extra logica toegevoegd bovenop de bestaande Airtable-webhooks om duplicatie van events te voorkomen. Maar er bestaat nog steeds de mogelijkheid van gedupliceerde events.
+Volgens de Airtable-documentatie:
+`Notification pings are at-least-once. That is, we guarantee that for every change, one notification will be generated, but spurious notifications (when there are no new changes) are also possible.`
+[Airtable documentation](https://airtable.com/developers/web/api/webhooks-overview)
+
+Belangrijk: Airtable staat slechts 2 webhooks toe voor één oauth-verbinding tegelijkertijd. Dit betekent dat je voor één oauth-verbinding in Blackbird slechts 2 birds kunt maken met webhooks met verschillende invoerparameters. Als je een derde bird probeert te maken met verschillende inputs in de Airtable-webhook, krijg je een foutmelding tijdens het publiceren.
+
+## Voorbeeld
+
+Hier is een voorbeeld van hoe je de Airtable-app kunt gebruiken in een workflow:
+
+![example](https://raw.githubusercontent.com/bb-io/Airtable/main/image/README/example.png)
+
+In dit voorbeeld begint de workflow met het **On data changed** event, dat wordt geactiveerd wanneer er gegevens worden toegevoegd aan een specifieke tabel in Airtable. De invoerparameters zijn: Gegevenstype - "Table data", Wijzigingstype - "On add". Vervolgens gebruikt de workflow de actie **Get value of text field** om de tekstinhoud van het benodigde veld op te halen. In de volgende stap vertalen we deze tekst via `DeepL` en sturen we de vertaalde tekst naar een Slack-kanaal.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

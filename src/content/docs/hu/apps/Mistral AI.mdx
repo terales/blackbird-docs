@@ -1,0 +1,91 @@
+---
+  title: Mistral AI
+  description: A Mistral AI Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/MistralAI" icon="github" />
+
+Gyors, nyílt forráskódú és biztonságos nyelvi modellek. Segíti a modellek üzleti használatra történő specializálását, kihasználva a privát adatokat és a használati visszajelzéseket.
+
+## Beállítás előtt
+
+A csatlakozás előtt győződj meg arról, hogy:
+
+- [Hozzáféréssel rendelkezel a Mistral AI konzolhoz](https://console.mistral.ai/).
+- Létrehoztad az [API kulcsodat](https://console.mistral.ai/api-keys/).
+- Elmentetted ezt a kulcsot későbbi használatra.
+
+A Mistral AI API Kulcs létrehozásáról és a regisztrációs folyamatról [teljes útmutatót](https://docs.mindmac.app/how-to.../add-api-key/create-mistral-ai-api-key) találsz.
+
+## Csatlakozás 
+
+1. Navigálj az alkalmazásokhoz és keress rá a Mistral-ra. Ha nem találod a Mistral-t, kattints a jobb felső sarokban található _Add App_ gombra, válaszd a Contentstack lehetőséget, és add hozzá az alkalmazást a Blackbird környezetedhez.
+2. Kattints az _Add Connection_ gombra.
+3. Nevezd el a kapcsolatot a későbbi hivatkozáshoz, például 'Az ügyfelem'.
+4. Az _API Key_ mezőbe írd be az API Kulcsodat. Ezt [innen](https://console.mistral.ai/api-keys/) szerezheted meg.
+5. Kattints a _Connect_ gombra.
+6. Ellenőrizd, hogy a kapcsolat megjelent és az állapota _Connected_.
+
+![MistralAIConnection](https://raw.githubusercontent.com/bb-io/MistralAI/main/image/README/MistralAIConnection.png)
+
+## Actions
+
+### Chat
+
+- **Send prompt**: Ez a művelet lehetővé teszi, hogy promptot küldj egy AI modellnek és megkapd a válaszát. Amikor elküldöd az üzenetedet, a rendszerünk feldolgozza és továbbítja az AI-nak. Az AI ezután választ generál a bemeneted alapján. Ha volt beszélgetési előzmény, azt megőrizzük, és az új AI válasszal együtt szerepel a visszaküldött részletekben
+
+### XLIFF
+
+Minden XLIFF művelet támogatja az XLIFF formátum 1.2 és 2.1 verzióit, mivel ezek a leggyakrabban használt verziók az iparágban, de ha más verziókra van szükséged, kérjük, jelezd nekünk, és fontolóra vesszük a támogatás hozzáadását.
+
+- **Get Quality Scores for XLIFF file** XLIFF fájlokhoz szegmens és fájlszintű minőségi pontszámokat ad. Opcionálisan hozzáadhatod a Threshold, New Target State és Condition bemeneti paramétereket a Blackbird művelethez, hogy megváltoztasd a kívánt feltételeknek megfelelő szegmensek célállapot értékét (mindháromnak kitöltve kell lennie).
+
+  Opcionális bemenetek:
+    - Prompt: Add meg a kritériumaidat minden forrás-cél pár értékeléséhez. Ha nincs megadva, ezt helyettesíti: _"accuracy, fluency, consistency, style, grammar and spelling"_.
+    - Bucket size: Egy kérésben feldolgozandó fordítási egységek mennyisége. (Lásd a dedikált részt)
+    - Threshold: 0-10 közötti érték.
+    - Condition: Feltételek azon szegmensek szűréséhez, amelyek célállapota módosításra kerül.
+    - New Target State: értékfrissítés a szűrt fordítási egységek célállapotához.
+
+  Kimenet:
+    - Average Score: az összes szegmensszintű pontszám összesített értéke.
+    - Updated XLIFF file: szegmensszintű pontszám hozzáadva az extradata attribútumhoz és frissített célállapot, ha meg van adva.
+
+- **Post-edit XLIFF file** Frissíti az XLIFF fájlok céljait
+
+Opcionális bemenetek:
+- Prompt: Add meg a nyelvészeti kritériumaidat a célok utószerkesztéséhez.
+- Bucket size: Egy kérésben feldolgozandó fordítási egységek mennyisége. (Lásd a dedikált részt)
+- Glossary
+- Add missing trailing tags: Ha igaz, a hiányzó záró címkék hozzáadásra kerülnek a célszegmenshez.
+
+> Az ebben a műveletben használt Prompt: "Your input consists of sentences in `source` language with their translations into `target language`. Review and edit the translated target text as necessary to ensure it is a correct and accurate translation of the source text. If you encounter XML tags in the source also include them in the target text, don't delete or modify them." A "Prompt" opcionális bemenet használatával utasításaid hozzáadódnak a prompthoz.
+
+- **Process XLIFF file** egy adott XLIFF fájl esetén minden fordítási egységet az opcionális "Prompt" bemenetben megadott utasítások szerint dolgoz fel (ha nincs Prompt megadva, a forrásszövegek lefordításra kerülnek) és frissíti az egyes egységek célszövegét.
+
+> Ha bármelyik fent leírt művelethez Glossary-t adunk hozzá opcionális bemenetként, a használt Prompt: "Enhance the target text by incorporating relevant terms from our glossary where applicable. Ensure that the translation aligns with the glossary entries for the respective languages. If a term has variations or synonyms, consider them and choose the most appropriate translation to maintain consistency and precision."
+
+## Példa
+
+Az alkalmazásunkkal a következő madarat építheted fel:
+
+![MistralAIExample](https://raw.githubusercontent.com/bb-io/MistralAI/main/image/README/MistralAIExample.png)
+
+Első művelet:
+
+![MistralAIExample](https://raw.githubusercontent.com/bb-io/MistralAI/main/image/README/MistralAIExample-1-action.png)
+
+Második művelet:
+
+![MistralAIExample](https://raw.githubusercontent.com/bb-io/MistralAI/main/image/README/MistralAIExample-2-action.png)
+
+Harmadik művelet:
+
+![MistralAIExample](https://raw.githubusercontent.com/bb-io/MistralAI/main/image/README/MistralAIExample-3-action.png)
+
+Ahogy láthatod, megadhatsz üzenetelőzményeket a beszélgetés kontextusának fenntartásához
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy visszajelzésed van a megvalósításunkról? Keress minket a [kialakított csatornákon](https://www.blackbird.io/) keresztül vagy hozz létre egy problémát.

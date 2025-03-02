@@ -1,0 +1,128 @@
+---
+  title: Hubspot CMS
+  description: De Hubspot CMS Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Hubspot" icon="github" />
+
+
+HubSpot CMS is een gebruiksvriendelijk platform ontworpen om het proces van het creëren, beheren en optimaliseren van digitale content voor websites te stroomlijnen. Het biedt een reeks tools waarmee bedrijven hun online aanwezigheid kunnen opbouwen en aanpassen zonder dat hiervoor uitgebreide technische expertise vereist is. De intuïtieve drag-and-drop interface van het platform vergemakkelijkt moeiteloze contentcreatie en -bewerking, en het legt de nadruk op inbound marketingstrategieën. Dit maakt HubSpot CMS een waardevolle oplossing voor bedrijven die hun online aanwezigheid willen verbeteren, hun publiek willen betrekken en betekenisvolle conversies willen stimuleren.
+
+Met meertalig contentbeheer, wereldwijde contentmodules en contentpersonalisatiefuncties maakt HubSpot CMS het gemakkelijk om digitale content aan te passen voor verschillende talen en regio's. Nu, met een naadloze verbinding van Blackbird.io, kunnen bedrijven moeiteloos hun content, gegevens en marketingstrategieën synchroniseren en beheren over verschillende platforms. Bereik hogere niveaus van operationele efficiëntie, verminder handmatige inspanningen en zorg voor consistente merkboodschappen in diverse markten.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je hebt een HubSpot CMS-account en [je HubSpot-account hebt ingesteld](https://knowledge.hubspot.com/get-started/set-up-your-account).
+- Je hebt een [project aangemaakt](https://app.hubspot.com/academy/43682681/lessons/1054824/5082).
+- Na het aanmaken van je account word je automatisch ingelogd. [Lees meer over inloggen](https://knowledge.hubspot.com/account/why-can-t-i-log-into-hubspot) in HubSpot en [het oplossen van wachtwoordproblemen](https://knowledge.hubspot.com/account/reset-user-passwords).
+- Je account heeft voldoende rechten. Zie hieronder.
+
+## Vereiste Hubspot-rechten
+
+De app maakt gebruik van de `content`- en `forms`-OAuth-scopes. Je account moet toegang hebben tot deze scopes. Je account heeft voldoende rechten als je een superadmin bent _of_ als je account **alle** volgende rechten heeft:
+
+- Marketing
+   - Forms
+   - Marketing email (bekijken/bewerken/publiceren)
+   - Blog, landing pages, website pages (bekijken/bewerken/publiceren)
+   - Design tools
+   - Content staging
+- Account > Settings access
+   - App marketplace access
+   - Website settings
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar **Hubspot (CMS)**.
+2. Klik op _Add Connection_.
+   ![Add Connection](https://raw.githubusercontent.com/bb-io/Hubspot/main/image/README/connection.png)
+3. Geef je verbinding een naam voor toekomstige referentie, bijvoorbeeld 'Mijn organisatie'.
+4. Klik op _Authorize connection_.
+5. Volg de instructies die HubSpot CMS je geeft en autoriseer Blackbird.io om namens jou te handelen.
+6. In de laatste fase zal Hubspot je hoogstwaarschijnlijk naar onze service doorverwijzen zonder dat je op de knop 'Connect app' hoeft te drukken. <b>Wacht alsjeblieft een paar seconden tot dit gebeurt en vermijd het drukken op de knop</b>, aangezien dit het verzoek dat Hubspot al heeft verzonden zou dupliceren en een UI-bug op de verbindingspagina zou kunnen veroorzaken. De nieuwe verbinding kan verschijnen als 'Not Connected', maar na het vernieuwen van de app-pagina zal de status veranderen naar 'Connected'. Als Hubspot je niet binnen 5-7 seconden naar onze service doorverwijst, kun je handmatig op de knop 'Connect app' klikken
+![connect-app-button.png](https://raw.githubusercontent.com/bb-io/Hubspot/main/image/README/connect-app-button.png)
+7. Wanneer je terugkeert naar Blackbird, bevestig dat de verbinding is verschenen en de status _Connected_ is.
+   ![Connected](https://raw.githubusercontent.com/bb-io/Hubspot/main/image/README/connected.png)
+
+## Actions
+
+### Content actions
+
+> "Content" verwijst naar alle inhoudstypen die beschikbaar zijn in onze app, waaronder Landing & pages, blogberichten, marketingmails en marketingformulieren. Deze objecten zijn verenigd onder één contentklasse die de volgende eigenschappen omvat: Content ID, Titel, Taal, Aangemaakt op, Bijgewerkt op en Inhoudstype (blog, landing_page, site_page, email of form).
+
+- **Search content**: Zoek naar elk type content.
+- **Get content**: Haal metadata op voor een specifiek inhoudstype op basis van de ID.
+- **Download content**: Download content als HTML voor een specifiek inhoudstype op basis van de ID.
+- **Update content from HTML**: Werk content bij vanuit een HTML-bestand.
+- **Update content**: Werk content bij op basis van specifieke criteria met behulp van de ID.
+- **Delete content**: Verwijder content op basis van de ID.
+
+### Landing & site pages
+
+> Opmerking: de acties voor landing- en sitepagina's zijn dezelfde, maar hebben aparte acties voor elk. Het is aan te raden om de content-acties te gebruiken zoals hierboven beschreven, aangezien deze bedoeld zijn om de onderstaande individuele acties te vervangen.
+
+Een sitepagina is een meer algemene en veelzijdige pagina op de Hubspot CMS-website die verschillende soorten inhoud kan bevatten en deel uitmaakt van de algehele navigatie en structuur van je site. Een landingspagina in HubSpot CMS is een op zichzelf staande pagina die meestal is ontworpen voor een specifieke marketingcampagne, met een duidelijke call-to-action (CTA) om leads te genereren.
+
+- **Get a landing/site page** Haal informatie op van een specifieke pagina op je website door deze te selecteren uit een dynamische vervolgkeuzelijst als invoerwaarde.
+- **Search landing/site pages** zoekt naar landing/sitepagina's die aan bepaalde criteria voldoen. Een van die criteria is _Not translated in language_ dat je kunt gebruiken om pagina's te filteren waarvoor vertalingen ontbreken.
+- **Get a landing/site page as HTML file** Krijg webpaginadetails en een HTML-bestand van de inhoud voor eenvoudige vertaling en integratie met behoud van opmaak en lay-out.
+- **Translate a landing/site page from HTML file** Maak een nieuwe vertaling voor een landing/sitepagina op basis van een HTML-bestandsinvoer. Het maakt naadloze integratie van extern vertaalde inhoud terug naar de website mogelijk met behoud van de HTML-structuur. Opmerking: als je deze actie gebruikt met een landing/sitepagina die nog geen vertalingen heeft, moet je de primaire taal opgeven.
+- **Schedule a landing/site page for publishing** Automatiseer webpaginapublicatie om vertaalde inhoud op het juiste moment vrij te geven voor een betere gebruikerservaring.
+
+### Blog posts
+
+- **Search blog posts** zoekt naar blogberichten die aan bepaalde criteria voldoen. Een van die criteria is _Not translated in language_ dat je kunt gebruiken om pagina's te filteren waarvoor vertalingen ontbreken.
+- **Get blog post** Krijg informatie over een blogbericht.
+- **Create blog post** Maak een nieuw blogbericht. Deze actie maakt het mogelijk om verse, gelokaliseerde inhoud te genereren om wereldwijd publiek te betrekken en het bereik van je blog of website te vergroten, wat internationale groei en gebruikersbetrokkenheid bevordert.
+- **Delete blog post** Verwijder een blogbericht
+- **Get blog post as HTML file** Krijg blogbericht als HTML-bestand.
+- **Translate blog post from HTML file** Vertaal blogbericht vanuit HTML-bestand.
+- **Update blog post** Werk de informatie van een blogbericht bij.
+- **Schedule a blog post page for publishing** Automatiseer de publicatie van blogberichten om vertaalde inhoud op het juiste moment vrij te geven voor een betere gebruikerservaring.
+
+### Marketing emails
+
+Opmerking: de Hubspot API markeert deze eindpunten in de bètafase.
+
+- **Search marketing emails** zoekt naar marketingmails op basis van bepaalde criteria.
+- **Create marketing email** maakt een nieuwe marketingmail.
+- **Get marketing email content as HTML** geeft de inhoud van een marketingmail terug uit een (vertaald) HTML-bestand. Veld `Marketing Email ID` is vereist 
+- **Update marketing email content from HTML** werkt de inhoud van een marketingmail bij vanuit een (vertaald) HTML-bestand. Velden `File` en `Marketing Email ID` zijn vereist.
+- **Create marketing email from HTML** maakt een marketingmail door inhoud te extraheren uit een geüpload HTML-bestand
+
+### Marketing forms
+
+Opmerking: de Hubspot API markeert deze eindpunten in de bètafase.
+
+- **Search marketing forms** zoekt naar marketingformulieren op basis van bepaalde criteria.
+- **Get marketing form** haalt een marketingformulier op.
+- **Get marketing form as HTML** geeft een marketingformulier terug als een HTML-bestand voor gemakkelijke vertaling.
+- **Update marketing form from HTML** werkt een marketingformulier bij vanuit een (vertaald) HTML-bestand.
+- **Create marketing form** maakt een nieuw marketingformulier.
+- **Create marketing form from HTML** maakt een marketingformulier van HTML-bestandsinhoud, met behulp van metadata-ID's: `name`, `type`, `language`, `archived`. Als er geen specifieke metadata is, dan zoekt het naar HTML-tag-ID's: `name`, `type`, `language`, `archived`.
+
+## Events
+
+- **On content created or updated** (polling): Wordt geactiveerd op gespecificeerde tijdsintervallen en geeft alle blogberichten, landingspagina's, sitepagina's, e-mails en formulieren terug die werden bijgewerkt of gemaakt tijdens het gespecificeerde tijdsinterval.
+- **On blog posts created or updated** (polling): Wordt geactiveerd op gespecificeerde tijdsintervallen en geeft alle blogberichten terug die werden gemaakt of bijgewerkt.
+- **On landing pages created or updated** (polling): Wordt geactiveerd op gespecificeerde tijdsintervallen en geeft alle landingspagina's terug die werden gemaakt of bijgewerkt.
+- **On site pages created or updated** (polling): Wordt geactiveerd op gespecificeerde tijdsintervallen en geeft alle sitepagina's terug die werden gemaakt of bijgewerkt.
+
+> Deze events werken op polling-mechanisme, dus je wordt niet onmiddellijk op de hoogte gebracht van de wijzigingen. Je kunt het polling-interval configureren vanaf 5 minuten tot 7 dagen.
+
+## Nuttige tips
+
+Alle acties die werken met HTML-bestanden zullen een meta-tag toevoegen aan de HTML. Deze meta-tag heet `blackbird-reference-id`. Deze tag wordt gebruikt om de inhoud in de Hubspot CMS te identificeren, waardoor het niet nodig is om ID's elders op te slaan
+
+## Voorbeelden
+
+![Example](https://raw.githubusercontent.com/bb-io/Hubspot/main/image/README/Event-example.png)
+
+Dit voorbeeld gebruikt een polling-event om te controleren op nieuwe blogberichten. Wanneer een nieuw blogbericht wordt gemaakt, wordt het event geactiveerd en wordt het blogbericht vertaald naar een andere taal.
+
+![Generic example](https://raw.githubusercontent.com/bb-io/Hubspot/main/image/README/generic-bird.png)
+
+Dit voorbeeld laat zien hoe je op een generieke manier kunt werken met de `Hubspot CMS`-app. Deze bird zal alle bijgewerkte of gemaakte content binnen een bepaald tijdsinterval oppikken en het vertalen naar een specifieke taal. Met deze aanpak hoef je geen vijf verschillende birds te maken; je kunt er gewoon één maken voor dit doel

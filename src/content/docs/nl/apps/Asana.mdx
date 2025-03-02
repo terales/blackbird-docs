@@ -1,0 +1,159 @@
+---
+  title: Asana
+  description: De Asana Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Asana" icon="github" />
+
+Asana is een platform voor projectmanagement en teamcollaboratie. Het biedt functies zoals taakbeheer, teamcommunicatie, projectplanningtools en een Tijdlijnweergave. Deze Asana-applicatie richt zich voornamelijk op project- en taakbeheer.
+
+## Verbinden
+
+1.  Ga naar apps en zoek naar Asana. Als je Asana niet kunt vinden, klik dan rechtsboven op _Add App_, selecteer Asana en voeg de app toe aan je Blackbird-omgeving.
+2.  Klik op _Add Connection_.
+3.  Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn klant'.
+4.  Ga naar de Asana-ontwikkelaarsconsole (https://app.asana.com/0/my-apps) en klik op _Create token_.
+5.  Voer de naam in, ga akkoord met de voorwaarden van Asana
+6.  Kopieer de API-token en plak deze in het juiste veld in Blackbird
+7.  Klik op _Connect_.
+8.  Controleer of de verbinding is verschenen en de status _Connected_ is.
+
+## Actions
+
+### Attachments
+
+- **List attachments** geeft alle bijlagen van het gespecificeerde object weer. Object ID kan staan voor een ID van een `Project`, `Project brief` of `Task`.
+- **Get/upload/delete attachment**.
+
+### Custom fields
+
+- **Get text/date/enum custom field** geeft de waarde van een aangepast veld met tekst/datum/enum-type voor een specifieke taak.
+- **Update text/date/enum custom field** stelt de waarde in van een aangepast veld met tekst/datum/enum-type voor een specifieke taak.
+
+### Projects
+
+- **List projects** geeft alle projecten weer. Je kunt ook `Workspace` of `Team` specificeren om projecten van een specifieke werkruimte of team op te halen. Ook kun je de variabele `Archived` gebruiken om alleen gearchiveerde projecten op te halen of vice versa.
+- **Get/create/update/delete project**.
+- **Get project sections** geeft alle secties in het gespecificeerde project weer.
+- **Get project status** geeft een volledig record voor een enkele statusupdate
+- **Get project status updates** geeft statusupdate-records voor alle updates op het project
+
+### Sections
+
+- **List sections** geeft alle secties van het gespecificeerde project weer.
+- **Get/create/update/delete section**.
+
+### Tags
+
+- **List tags** geeft alle tags weer. Je kunt ook `Workspace` specificeren om tags van een specifieke werkruimte op te halen.
+- **Get/create/update/delete tag**.
+
+### Tasks
+
+- **List tasks** geeft alle taken weer van de gespecificeerde `Workspace`, `Project`, `Tag`, `Section` of `User task list`.
+- **Get/create/update/delete task**.
+- **Get tasks from a user task list** geeft een lijst van taken in de Mijn Taken-lijst van een gebruiker.
+- **Get tasks by tag** geeft alle taken met de opgegeven tag weer.
+- **Assign tag to task** voegt een tag toe aan een taak.
+
+### Users
+
+- **List users** geeft alle gebruikers weer. Je kunt ook `Workspace` of `Team` specificeren om gebruikers van een specifieke werkruimte of team op te halen.
+- **Get user** geeft details van een gespecificeerde gebruiker.
+- **Get user's task list** geeft een volledig record voor de takenlijst van een gebruiker.
+- **Get user's teams** geeft alle teams weer waaraan de opgegeven gebruiker is toegewezen.
+
+### Workspaces
+
+- **List workspaces** geeft alle werkruimtes weer die zichtbaar zijn voor de geautoriseerde gebruiker.
+- **Get workspace** geeft details van een gespecificeerde werkruimte
+
+## Events
+
+### Projects 
+- **On projects added** wordt geactiveerd wanneer projecten worden toegevoegd.
+- **On projects changed** wordt geactiveerd wanneer projecten worden gewijzigd.
+- **On projects deleted** wordt geactiveerd wanneer projecten worden verwijderd.
+- **On projects removed** wordt geactiveerd wanneer projecten worden verwijderd.
+- **On projects undeleted** wordt geactiveerd wanneer projecten worden hersteld.
+
+### Tasks
+
+- **On tasks added** wordt geactiveerd wanneer taken worden toegevoegd.
+- **On tasks changed** wordt geactiveerd wanneer taken worden gewijzigd.
+- **On tasks deleted** wordt geactiveerd wanneer taken worden verwijderd.
+- **On tasks removed** wordt geactiveerd wanneer taken worden verwijderd.
+- **On tasks undeleted** wordt geactiveerd wanneer taken worden hersteld.
+
+### Tags
+
+- **On tags added** wordt geactiveerd wanneer tags worden toegevoegd.
+- **On tags changed** wordt geactiveerd wanneer tags worden gewijzigd.
+- **On tags deleted** wordt geactiveerd wanneer tags worden verwijderd.
+- **On tags undeleted** wordt geactiveerd wanneer tags worden hersteld.
+
+### Sections
+
+- **On sections added** wordt geactiveerd wanneer secties worden toegevoegd.
+- **On sections changed** wordt geactiveerd wanneer secties worden gewijzigd.
+- **On sections deleted** wordt geactiveerd wanneer secties worden verwijderd.
+- **On sections undeleted** wordt geactiveerd wanneer secties worden hersteld.
+
+### Stories
+
+- **On stories added** wordt geactiveerd wanneer verhalen worden toegevoegd.
+- **On stories removed** wordt geactiveerd wanneer verhalen worden verwijderd.
+- **On stories undeleted** wordt geactiveerd wanneer verhalen worden hersteld.
+- **On stories comments added** wordt geactiveerd wanneer opmerkingen aan verhalen worden toegevoegd.
+- **On stories comments changed** wordt geactiveerd wanneer opmerkingen op verhalen worden gewijzigd.
+- **On stories comments removed** wordt geactiveerd wanneer opmerkingen van verhalen worden verwijderd.
+- **On stories comments undeleted** wordt geactiveerd wanneer opmerkingen op verhalen worden hersteld.
+
+### Workspaces
+
+- **On workspaces changed** wordt geactiveerd wanneer er wijzigingen worden aangebracht in werkruimtes.
+
+### Goals
+
+- **On goals added** wordt geactiveerd wanneer doelen worden toegevoegd.
+- **On goals changed** wordt geactiveerd wanneer doelen worden gewijzigd.
+- **On goals removed** wordt geactiveerd wanneer doelen worden verwijderd.
+- **On goals deleted** wordt geactiveerd wanneer doelen worden verwijderd.
+- **On goals undeleted** wordt geactiveerd wanneer doelen worden hersteld.
+
+### Project memberships
+
+- **On project memberships added** wordt geactiveerd wanneer projectlidmaatschappen worden toegevoegd.
+- **On project memberships removed** wordt geactiveerd wanneer projectlidmaatschappen worden verwijderd.
+
+### Teams
+
+- **On teams added** wordt geactiveerd wanneer teams worden toegevoegd.
+- **On teams changed** wordt geactiveerd wanneer teams worden gewijzigd.
+- **On teams deleted** wordt geactiveerd wanneer teams worden verwijderd.
+- **On team memberships added** wordt geactiveerd wanneer teamlidmaatschappen worden toegevoegd.
+- **On team memberships removed** wordt geactiveerd wanneer teamlidmaatschappen worden verwijderd.
+
+### Workspace memberships
+
+- **On workspace memberships added** wordt geactiveerd wanneer werkruimtelidmaatschappen worden toegevoegd.
+- **On workspace memberships removed** wordt geactiveerd wanneer werkruimtelidmaatschappen worden verwijderd.
+
+## Voorbeeld
+
+![Asana example](https://raw.githubusercontent.com/bb-io/Asana/main//README/images/example.png)
+
+In dit voorbeeld hebben we een workflow die wordt geactiveerd wanneer taken aan een project worden toegevoegd. De workflow haalt vervolgens de taakdetails op en stuurt ze naar een Slack-kanaal.
+
+## Ontbrekende functies
+
+In de toekomst kunnen we acties toevoegen voor:
+
+- Portfolios
+- Project briefs
+- Teams
+
+## Feedback
+
+Feedback op onze implementatie van Asana is altijd zeer welkom. Neem contact met ons op via de bestaande kanalen of maak een issue aan.

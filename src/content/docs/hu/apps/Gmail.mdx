@@ -1,0 +1,54 @@
+---
+  title: Gmail
+  description: A Gmail Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Github-on" target="_blank" href="https://github.com/bb-io/Gmail" icon="github" />
+
+A Gmail a Google által biztosított e-mail szolgáltatás. A Gmail eszközök és funkciók sorát kínálja, amelyek megkönnyítik egy olyan rendszer létrehozását, amely rendben tartja a postafiókját, időt takarít meg, és lehetővé teszi, hogy a fontos üzleti feladatokra összpontosítson.
+
+## Beállítás előtt
+
+Mielőtt kapcsolódna, győződjön meg a következőkről:
+
+- Van **Gmail** fiókja és rendelkezik a hozzáféréshez szükséges hitelesítő adatokkal.
+
+## Csatlakozás
+
+1. Navigáljon az Alkalmazásokhoz, és keresse meg a **Gmail** alkalmazást. A keresés használatával megtalálhatja.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot későbbi hivatkozáshoz, például 'Saját Gmail kapcsolat'.
+4. Kattintson az _Authorize connection_ gombra.
+5. Hozza létre a Gmail kapcsolatot OAuth-on keresztül.
+
+![kapcsolat](https://raw.githubusercontent.com/bb-io/Gmail/main/image/README/1725554354745.png)
+
+## Actions
+
+- **Search emails** Azonosítók listáját adja vissza, amelyek a 'Get email' művelettel együtt használhatók. Opcionális keresési kifejezést adhat meg a keresés szűkítéséhez. Ugyanazt a keresési formátumot támogatja, mint a Gmail keresőmezője. Például: "from:someuser@example.com is:unread".
+- **Get email** Visszaadja az e-mail metaadatait, üzenetét és minden mellékletét.
+- **Send email** E-mailt küld, beleértve a mellékleteket is.
+- **Trash email** Áthelyezi az e-mailt a kuka mappába.
+
+## Events
+
+- **On emails received** Akkor aktiválódik, amikor új e-mailek érkeznek. Opcionálisan beállíthat egy keresési kifejezést a keresés finomítására. Ugyanazt a keresési logikát használja, mint a 'Search emails'. *Megjegyzés*: ez egy lekérdezéses trigger, ezért be kell állítania egy lekérdezési időközt, és több e-mail azonosítót fog kapni. Használja a "Get email" műveletet, hogy információkat kapjon minden egyes e-mailről.
+
+## Példák
+
+Íme egy példa egy egyszerű Gmail munkafolyamatra:
+
+![1725608752440](https://raw.githubusercontent.com/bb-io/Gmail/main/image/README/1725608752440.png)
+
+Ebben a példában a munkafolyamat akkor indul, amikor egy új e-mail csomag lekérdezésre kerül. Minden e-mailt végignézünk, lekérjük az információkat és mellékleteket minden e-mailhez, majd továbbítjuk őket a Slack-re.
+
+Egy bonyolultabb példa itt látható:
+
+![1725609061387](https://raw.githubusercontent.com/bb-io/Gmail/main/image/README/1725609061387.png)
+
+Ebben a munkafolyamatban minden beérkező e-mailre új Plunet árajánlatot hozunk létre (természetesen szűrhetjük a beérkező e-maileket bizonyos kritériumok szerint). Minden melléklet automatikusan hozzáadódik az árajánlathoz. Ezután visszaküldünk egy megerősítő e-mailt a feladónak.
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Keressen minket a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

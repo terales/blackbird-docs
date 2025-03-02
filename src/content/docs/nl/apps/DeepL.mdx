@@ -1,0 +1,57 @@
+---
+  title: DeepL
+  description: De DeepL Blackbird-app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/DeepL" icon="github" />
+
+DeepL is een bedrijf gespecialiseerd in kunstmatige intelligentie (AI) dat zich richt op vertaaldiensten. Het biedt een neurale machinevertaal (NMT) engine die hoogwaardige vertalingen in meerdere talen kan leveren. DeepL's vertaalengine staat bekend om zijn nauwkeurigheid, natuurlijk klinkende vertalingen en het vermogen om context te begrijpen.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een DeepL-account hebt.
+- Je een API-sleutel hebt voor je DeepL-account. Deze kun je vinden onder _account settings_ in DeepL.
+- **Belangrijk**: Als je een API-sleutel voor CAT-tools gebruikt, zal deze niet werken voor de openbare API. In plaats daarvan moet je de authenticatiesleutel voor DeepL API gebruiken. Je kunt [hier](https://youtu.be/WTt3UuiDAf4?t=79) instructies vinden over waar deze zich bevindt. Voor meer details kun je ook deze [discussie](https://github.com/DeepLcom/deepl-python/issues/106) raadplegen, waar een vergelijkbaar probleem werd opgelost.
+
+## Verbinding maken
+
+1. Navigeer naar Apps en zoek de DeepL-app. Je kunt de zoekfunctie gebruiken om het te vinden.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn DeepL-verbinding'.
+4. Vul de API-sleutel van je DeepL-account in.
+5. Klik op _Connect_.
+
+![DeepLBlackbirdConnection](https://raw.githubusercontent.com/bb-io/DeepL/main/image/README/DeepLBlackbirdConnection.png)
+
+## Actions
+
+### Translation 
+
+- **Translate text** Translate text inputs.
+- **Translate document** Translate a document, including XLIFF files (1.2 or 2.1 version)
+
+### Write
+- **Improve text** improve a text using DeepL Write, set writing style or tone. Currently only supports some of the languages. Can also be used to change locale from f.e. American English to British English. For more details see [DeepL's write documentation](https://developers.deepl.com/docs/api-reference/improve-text).
+
+### Glossaries 
+
+- **Export glossary** Export glossary 
+- **Import glossary** Import glossary (.tbx, .csv & .tsv) 
+- **Get glossary** Get details of a specific glossary 
+- **Get glossary entries** Get glossary entries in a TSV format 
+- **List glossaries** List all glossaries
+- **List glossary language pairs** List supported glossary language pairs
+- **Delete glossary** Delete a glossary
+
+## Voorbeeld
+
+![DeepLExample](https://raw.githubusercontent.com/bb-io/DeepL/main/image/README/DeepLExample.png)
+
+Het bovenstaande voorbeeld toont een bird die wordt geactiveerd zodra er een artikel in Zendesk wordt gepubliceerd. Dit artikel wordt vervolgens geëxporteerd als HTML-document en vertaald via DeepL voordat het terug wordt geïmporteerd in Zendesk. De DeepL-vertaling houdt ook rekening met een woordenlijst die is geëxporteerd uit Microsoft Excel, die als leidraad dient.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [gebruikelijke kanalen](https://www.blackbird.io/) of maak een issue aan.

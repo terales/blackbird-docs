@@ -1,0 +1,104 @@
+---
+  title: Segédprogramok
+  description: A Utilities Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Github-on" target="_blank" href="https://github.com/bb-io/Utilities" icon="github" />
+
+Ez az ingyenes alkalmazás általános segédprogramokat biztosít, amelyek bármely madárban hasznosak lehetnek. Dátumokkal és fájlokkal kapcsolatos segédprogramokat tartalmaz.
+
+## Csatlakozás
+
+1. Navigálj az alkalmazásokhoz és keress rá a Utilities-re.
+2. Kattints az _Add Connection_ gombra.
+3. Nevezd el a kapcsolatot a későbbi hivatkozáshoz, például "Saját segédprogramok".
+4. Kattints a _Connect_ gombra.
+
+![1700129917822](https://raw.githubusercontent.com/bb-io/Utilities/main/image/README/1700129917822.png)
+
+## Actions
+
+### Dates
+
+- **Generate date** létrehozza a dátumot és időt a _végrehajtás_ pillanatában. Opcionálisan hozzáadhatsz vagy kivonhatsz napokat, órákat és perceket. Hasznos jövőbeli határidők beállításához vagy időintervallumok generálásához adatlekérdezésekhez. Opcionálisan saját dátumértéket is megadhatsz. Az új generált dátum ehhez a dátumhoz viszonyítva lesz relatív.
+- **Format date** egy dátumot formáz emberek számára olvasható formátumúvá. A választható formátumok dokumentációja [itt](https://ss64.com/ps/syntax-dateformats.html) található. Opcionálisan kultúra (helyi beállítás) is hozzáadható.
+- **Get date difference** visszaadja a két megadott nap közötti különbséget másodpercekben, percekben, órákban és napokban.
+- **Convert text to date** Szöveges bemenetet dátummá alakít. Opcionálisan megadható a kultúra (helyi beállítás).
+- **Get first day of previous month** Létrehoz egy dátumot, amely az előző hónap első napjának felel meg.
+- **Get last day of previous month** Létrehoz egy dátumot, amely az előző hónap utolsó napjának felel meg.
+
+### Files
+
+- **Get file character count** visszaadja a fájlban található karakterek számát (támogatott fájltípusok: doc, docx, txt, pdf).
+- **Get file word count** visszaadja a fájlban található szavak számát (támogatott fájltípusok: doc, docx, txt, pdf, html).
+- **Get files word count** visszaadja a fájlokban található szavak számát (támogatott fájltípusok: doc, docx, txt, pdf, html).
+- **Get file name information** visszaadja egy fájl nevét, kiterjesztéssel vagy anélkül, valamint a kiterjesztést.
+- **Change file name** átvesz egy fájlt és egy szöveges bemenetet. A fájlnév (kiterjesztés nélkül) átnevezésre kerül, és a fájl kimenetként visszaadásra kerül.
+- **Sanitize file name** eltávolítja a meghatározott karaktereket egy fájlnévből (kiterjesztés nélkül).
+- **Get file size** visszaadja egy fájl méretét bájtokban.
+- **Replace using Regex in document** csak szöveges alapú fájlokkal működik (txt, html stb.). Ez a művelet hasonló a 'Replace using Regex'-hez, de fájlokkal működik.
+- **Extract using Regex from document** szöveget nyer ki egy dokumentumból Regex használatával. Ez csak szöveges alapú fájlokkal működik (txt, html stb.), és hasonló az 'Extract using Regex'-hez, de fájlokkal működik.
+- **Unzip files** fogad egy ZIP archívumot és kibontja a benne lévő fájlokat több fájlba a Blackbird-ben.
+
+### XML Files
+
+- **Bump version string** Verzió sztring növelése.
+- **Get XML file property** XML fájl tulajdonság lekérése.
+- **Change XML file property** XML fájl tulajdonság módosítása.
+- **Replace XLIFF source with target** XLIFF forrás cseréje célra.
+
+### Texts
+
+- **Count characters in text** visszaadja a szövegben található karakterek számát.
+- **Count words in text** visszaadja a szövegben található szavak számát.
+- **Sanitize text** eltávolítja a meghatározott karaktereket egy szövegből.
+- **Extract using Regex** visszaadja az első egyezést a megadott szövegből Reguláris Kifejezés bemenetként való használatával.
+- **Extract many using Regex** visszaadja az összes egyezést a megadott szövegből Reguláris Kifejezés bemenetként való használatával.
+- **Replace using Regex** Reguláris Kifejezések használata szövegen belüli kereséshez és cseréhez.
+- **Convert text to document** Szöveget konvertál txt, doc vagy docx dokumentummá.
+- **Convert document to text** Kivonja a dokumentum szövegét. A dokumentumnak docx/doc, pdf vagy txt formátumban kell lennie.
+- **Calculate BLEU Score** Metrika, amely a gépi fordított szöveg minőségének értékeléséhez használatos, összehasonlítva egy referencia szöveggel.
+- **Split string into array** Egy karakterláncot tömbbé bont a megadott elválasztó karakter használatával.
+- **Count words in texts** Visszaadja a szavak számát a tömbben lévő szövegekben.
+  
+### JSON
+
+- **Get JSON property value** JSON tulajdonság értékének lekérése.
+- **Change JSON property value** JSON tulajdonság értékének módosítása.
+
+### Arrays
+
+- **Array contains** ellenőrzi, hogy egy tömb tartalmaz-e egy bizonyos bejegyzést.
+- **Deduplicate Array** Csak egyedi elemeket ad vissza.
+- **Array count** megszámolja a tömb elemeinek számát.
+- **Remove entry from array** visszaadja a tömböt a megadott bejegyzés nélkül.
+- **Get first entry from array** visszaadja a tömb első elemét.
+- **Get last entry from array** visszaadja a tömb utolsó elemét.
+- **Get entry by position** visszaadja a megadott pozícióban lévő elemet a tömbben. A kezdő pozíció 1.
+- **Retain specified entries in array** visszaadja az eredeti tömböt azon bejegyzések nélkül, amelyek nem voltak jelen a megadott kontrollcsoportban (megtartandó bejegyzések).
+
+### Numbers
+
+- **Generate Range** Tartományt generál a kezdő és záró számok megadásával.
+- **Convert text to number** Módosítja az adattípust.
+- **Convert text to numbers** Numerikus karakterláncok listáját számok listájává alakítja. Kivételt dob, ha bármelyik érték nem érvényes szám.
+
+### Scraping
+
+- **Extract web page content** Nyers és formázatlan tartalmat kap egy URL-ből szövegként.
+- **Extract HTML content** Nyers és formázatlan tartalmat kap egy HTML fájlból.
+
+### Context
+
+- **Get flight context** lehetővé teszi a repülési kontextus adatainak lekérését. Ez magában foglalja a Flight ID-t és URL-t, Bird ID-t és nevet, valamint a Nest ID-t és nevet.
+
+## Events
+
+### Rss
+
+- **On RSS feed changed** akkor aktiválódik, amikor a megadott RSS-csatorna új frissítéseket kap.
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy visszajelzésed van a megvalósításunkról? Vedd fel velünk a kapcsolatot a [megszokott csatornákon](https://www.blackbird.io/) vagy hozz létre egy problémát.

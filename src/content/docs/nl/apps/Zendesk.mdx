@@ -1,0 +1,96 @@
+---
+  title: Zendesk
+  description: De Zendesk Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Zendesk" icon="github" />
+
+Zendesk is een leverancier van klantenserviceoplossingen. De functieset omvat ticketing, chat, helpdesk-artikelen en een Sales CRM. Deze Zendesk-app richt zich voornamelijk op helpdesk-artikelen en de lokalisatiefuncties. Het bevat ook acties voor tickets.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een Zendesk-account hebt op de instantie waarmee je verbinding wilt maken.
+- Je Zendesk-account de juiste machtigingen heeft. Het wordt aanbevolen dat je de **admin role for Zendesk guide** hebt. Als je bovendien eventtriggers wilt instellen, heb je ofwel de **admin role for Zendesk support** nodig, of een [aangepaste rol](https://support.zendesk.com/hc/en-us/articles/4408882153882-Creating-custom-roles-and-assigning-agents#topic_cxn_hig_bd) met toestemming om webhooks te beheren.
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar Zendesk.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn klant'.
+4. Vul de basis-URL in van de Zendesk-instantie waarmee je verbinding wilt maken. De basis-URL heeft de vorm `https://<instantienaam>.zendesk.com`. Je kunt dit gedeelte van de URL meestal kopiëren wanneer je bent ingelogd op je Zendesk-instantie. Opmerking: voor verschillende merken zie disclaimer hieronder.
+5. Klik op _Authorize connection_.
+6. Volg de instructies die Zendesk je geeft en autoriseer Blackbird.io om namens jou te handelen.
+7. Wanneer je terugkeert naar Blackbird, controleer dan of de verbinding is verschenen en de status _Connected_ is.
+
+![Connecting](https://raw.githubusercontent.com/bb-io/Zendesk/main/image/README/1692612174111.png)
+
+> **Verbinding maken met verschillende merken**: Als je Zendesk meerdere merken heeft, moet je voor elk afzonderlijk merk een andere verbinding maken. Merken worden onderscheiden door hun basis-URL. Je kunt de basis-URL vinden door naar *Settings > Account > Brand management > Brands* te gaan en het attribuut *Subdomain* van elk merk te bekijken. Gebruik het Subdomain-attribuut in het invoerveld voor de basis-URL van de verbinding.
+
+![1738163882548](https://raw.githubusercontent.com/bb-io/Zendesk/main/image/README/1738163882548.png)
+
+## Actions
+
+### General
+
+- **Search helpcenter locales** retourneert zowel de standaardtaal van het helpcenter als de lijst met talen die in Zendesk zijn geconfigureerd. Je kunt deze instellingen vinden in het Zendesk-helpcentrum > Settings > Language settings.
+
+### Articles
+
+- **Search articles** zoek artikelen met behulp van verschillende filterparameters
+- **Get/create/update/archive article (metadata)** gebruikt om metadatavariabelen te configureren zoals sectie, auteur, positie, toestemmingsgroep, gebruikerssegment, enz.
+- **Search article missing locales** retourneert een lijst met talen die in Zendesk zijn geconfigureerd maar niet voor dit artikel aanwezig zijn. Het kan worden gebruikt om de ontbrekende vertalingen te maken.
+- **Download article content** downloadt de vertaalbare inhoud van een artikel als een bestand. Gebruik deze actie in combinatie met een vertaalapp en 'Upload article content'.
+- **Upload article content** werkt de vertaling voor een artikel bij, maakt een nieuwe vertaling als er geen is. Neemt een vertaald bestand (HTML) als invoer. Aangezien de artikel-ID is opgenomen in de kop van het HTML-bestand, wordt het juiste artikel bijgewerkt, maar je kunt ook de `Article ID` in de actie specificeren.
+- **Add label to article** in een professional of enterprise plan wordt een label aan een artikel toegevoegd.
+- **Delete label from article** in een professional of enterprise plan wordt een label uit een artikel verwijderd.
+
+![HTML articles](https://raw.githubusercontent.com/bb-io/Zendesk/main/image/README/1692613846802.png)
+
+### Categories
+
+- **Get all categories** retourneert alle categorieën op deze Zendesk-instantie. Je kunt ook de variabele _Missing translation in_ specificeren, in welk geval deze actie alleen categorieën retourneert die daadwerkelijk vertalingen in die taal missen.
+- **Get category articles** retourneert alle artikelen in deze categorie.
+- **Create/update/delete category**.
+- **Get category missing translations** retourneert een lijst met talen die in Zendesk zijn geconfigureerd maar niet voor deze categorie aanwezig zijn. Het kan worden gebruikt om de ontbrekende vertalingen te maken.
+- **Update category translation** maakt een vertaling als er geen is, of werkt de vertaling bij als deze al bestaat.
+
+### Sections
+
+- **Get all sections** retourneert alle secties op deze Zendesk-instantie. Optioneel kun je ook de categorie specificeren, wat de zoekopdracht beperkt tot die specifieke categorie. Je kunt ook de variabele _Missing translation in_ specificeren, in welk geval deze actie alleen secties retourneert die daadwerkelijk vertalingen in die taal missen.
+- **Create/update/delete section**.
+- **Get section missing translations** retourneert een lijst met talen die in Zendesk zijn geconfigureerd maar niet voor deze sectie aanwezig zijn. Het kan worden gebruikt om de ontbrekende vertalingen te maken.
+- **Update section translation** maakt een vertaling als er geen is, of werkt de vertaling bij als deze al bestaat.
+
+### Tickets
+
+- **Create/update/delete ticket**.
+
+## Events
+
+- **On article published** is het meest nuttige event. Dit event wordt geactiveerd wanneer een artikel wordt gepubliceerd en kan de perfecte trigger zijn voor het versturen van het artikel voor vertaling op basis van de ontbrekende vertalingen (zie voorbeeld). Het heeft een optionele parameter _Only source articles_ die, indien waar, de bird alleen activeert als de brontaal van het artikel wordt gepubliceerd. Dit is handig om oneindige publicatielussen van vertalingen te voorkomen.
+- **Other** events voor artikelcommentaren, abonnementen, stemmen en gebruikersevents.
+
+## Voorbeeld
+
+![example](https://raw.githubusercontent.com/bb-io/Zendesk/main/image/README/1692615904702.png)
+Dit voorbeeld toont een van de vele use cases. Hier halen we, wanneer een artikel wordt gepubliceerd, de ontbrekende vertalingen op en halen we het artikel op als een HTML-bestand. Vervolgens maken we een nieuw Lokalise-project aan met de ontbrekende talen als doeltalen en uploaden we het artikel. Daarna sturen we een Slack-bericht om de projectmanager op de hoogte te stellen.
+
+## Ontbrekende functies
+
+De meeste content-gerelateerde acties bestaan al. In de toekomst kunnen we echter acties toevoegen voor:
+
+- Artikelbijlagen
+- Onderwerpen en berichten
+- Opmerkingen
+- Abonnementen
+- Stemmen
+- Gedetailleerde tickets
+
+Laat het ons weten als je interesse hebt!
+
+## Feedback
+
+Feedback op onze implementatie van Zendesk is altijd zeer welkom. Neem contact met ons op via de bestaande kanalen of maak een issue aan.

@@ -1,0 +1,234 @@
+---
+  title: Phrase
+  description: De Phrase Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Phrase-TMS" icon="github" />
+
+Phrase (voorheen Memsource) is een software as a service platform ontworpen om het vertalen en lokaliseren van digitale producten, zoals web- of mobiele apps, websites, marketingcontent, etc. voor internationale markten te automatiseren en te stroomlijnen.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een Phrase-account hebt op de instantie waarmee je verbinding wilt maken.
+- Je toestemming hebt om geregistreerde OAuth-apps te maken en te wijzigen.
+- In Phrase ga je naar Instellingen > Geregistreerde OAuth-apps en klik je op _Nieuw_.
+- Vul een willekeurige naam en beschrijving in. Voor Redirect URI vul je in: `https://bridge.blackbird.io/api/AuthorizationCode` en klik je op _Opslaan_.
+- Kopieer de _Client ID_ van de nieuw gemaakte OAuth-app.
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar Phrase. Als je Phrase niet kunt vinden, klik dan op _App toevoegen_ in de rechterbovenhoek, selecteer Phrase en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Verbinding toevoegen_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijvoorbeeld 'Mijn Phrase-verbinding'.
+4. Vul de _Client ID_ in die je van Phrase hebt gekopieerd.
+5. Selecteer de Basis-URL naar de Phrase-instantie waarmee je verbinding wilt maken op basis van de locatie van je Phrase-datacentrum (dezelfde die je gebruikt om in te loggen bij Phrase).
+6. Klik op _Verbinding autoriseren_.
+7. Volg de instructies die Phrase je geeft om Blackbird.io te autoriseren om namens jou te handelen.
+8. Wanneer je terugkeert naar Blackbird, controleer dan of de verbinding is verschenen en de status _Verbonden_ is.
+
+![1695994786183](https://raw.githubusercontent.com/bb-io/Phrase-TMS/main/image/README/1695994786183.png)
+
+## Actions
+
+### Analysis
+
+- **List analyses**
+- **Get analysis**
+- **Create analysis**
+- **Download analysis file**
+
+### Clients
+
+- **List clients**
+- **Get client**
+- **Add client**
+- **Update client**
+- **Delete client**
+
+### Connector
+
+- **List connector**
+- **Get connector**
+
+### Custom fields
+
+- **Get date custom field value**
+- **Get numeric custom field value**
+- **Get single select custom field value**
+- **Get multi select custom field value**
+- **Get text custom field value**
+- **Set date custom field value**
+- **Set numeric custom field value**
+- **Set single select custom field value**
+- **Set text custom field value**
+
+> Als een aangepast veld niet aanwezig is in een project, wordt het toegevoegd als onderdeel van de `Set`-actie.
+
+### File
+
+- **List all files**
+- **Get file**
+- **Upload file**
+
+### Glossary
+
+- **Create new glossary**
+- **Export glossary**
+- **Import glossary**
+
+### Job
+
+- **Search jobs**
+- **Get job**
+- **Create job**
+- **Delete job**
+- **Get segments**
+- **Edit job**
+- **Download target file**
+- **Download bilingual file**
+- **Upload bilingual file**
+- **Pre-translate job**
+- **Update job source**
+
+### Pricelist
+
+- **List price lists**
+
+### Project
+
+- **List projects**
+- **List project templates**
+- **Find project**
+- **Get project**
+- **Create project**
+  - **Propagate Translations: Propagate translations to lower workflows during update source**
+- **Create project from template**
+- **Add target language**
+- **Edit project**
+- **Delete project**
+- **Download project original files** 
+- **Download project target files**
+- **Assign providers from template**
+
+### Project reference file
+
+- **List reference files**
+- **Create reference files**
+- **Download reference file**
+- **Delete reference file**
+
+### Quality assurance
+
+- **Add ignored warning**
+- **List LQA profiles**
+- **Delete LQA profile**
+- **Run auto LQA**
+- **Download LQA assessment**
+- **Get LQA assessment**
+
+### Quote
+
+- **Get quote**
+- **Create quote**
+- **Delete quote**
+
+### Translation
+
+- **List translation settings**
+- **Translate with MT**
+- **Translate with MT by project**
+- **Delete all translations**
+
+### Translation memory
+
+- **List translation memories**
+- **Create translation memory**
+- **Get translation memory**
+- **Import TMX file**
+- **Export translation memory**
+- **Insert segment into memory**
+- **Delete translation memory**
+
+### User
+
+- **List users**
+- **Get user**
+- **Find user**
+- **Add user**
+- **Update user**
+- **Delete user**
+
+### Vendor
+
+- **Add vendor**
+- **List vendors**
+- **Get vendor**
+
+## Events
+
+### Project
+
+- **On project created**
+- **On project deleted**
+- **On project due date changed**
+- **On project metadata updated**
+- **On shared project assigned**
+- **On project status changed**
+- **Find project termbase** get the termbase linked to a project based on optional filters
+
+### Job
+
+- **On job created**
+- **On job deleted**
+- **On continuous job updated**
+- **On job assigned**
+- **On job due date changed**
+- **On job exported**
+- **On job source updated**
+- **On job status changed** Als je controlepunten gebruikt, vul dan alle optionele invoervelden in (inclusief Project ID). Het werkt ook zonder een gespecificeerd Project ID, maar het gebruik ervan stelt ons in staat om te controleren of de job al de opgegeven status heeft. De status "Completed by linguist" zal het evenement ook activeren als de optionele status "Completed" is ingesteld.
+- **On job target updated**
+- **On job unexported**
+- **On all jobs in workflow step reached status** Wordt geactiveerd wanneer alle jobs in een specifieke workflow-stap een bepaalde status bereiken. Retourneert alleen jobs in de gespecificeerde workflow-stap
+
+### Template
+
+- **On template created**
+- **On template deleted**
+- **On template updated**
+
+### Analysis
+
+- **On analysis created**
+
+### Quality assurance
+
+- **On LQA reports created** (Polling event)
+
+## Voorbeeld
+
+![1695995715372](https://raw.githubusercontent.com/bb-io/Phrase-TMS/main/image/README/1695995715372.png)
+
+Dit voorbeeld toont een van de vele gebruikssituaties. Hier halen we, wanneer een artikel wordt gepubliceerd, de ontbrekende vertalingen op en halen we het artikel op als een HTML-bestand. Vervolgens maken we een nieuw Phrase-project met de ontbrekende talen als doeltalen en uploaden we het artikel als jobs. Zodra de projectstatus is gewijzigd naar Voltooid, downloaden we de vertaalde HTML-artikelen en sturen we de vertalingen terug naar het CMS.
+
+## Analyse met andere systemen
+
+Onze app stelt je in staat om een analysebestand te exporteren (via de actie **Download analysis file**) en dit in je workflow te gebruiken wanneer je het nodig hebt. Je kunt ook het formaat specificeren waarin je het bestand wilt downloaden (zoals JSON, CSV of log), en het vervolgens importeren in de service van je keuze.
+
+Hier is een voorbeeld om deze functie tussen de Phrase- en XTRF-apps te demonstreren:
+
+![phrase-xtrf-1](https://raw.githubusercontent.com/bb-io/Phrase-TMS/main/image/README/phrase-xtrf-1.png)
+
+![phrase-xtrf-2](https://raw.githubusercontent.com/bb-io/Phrase-TMS/main/image/README/phrase-xtrf-2.png)
+
+![phrase-xtrf-2](https://raw.githubusercontent.com/bb-io/Phrase-TMS/main/image/README/phrase-xtrf-3.png)
+
+## Ontbrekende functies
+
+Niet alle API-eindpunten worden gedekt. Laat het ons weten als je functies mist of als je andere verbeteringen ziet!
+
+## Feedback
+
+Feedback op onze implementatie van Phrase is altijd zeer welkom. Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

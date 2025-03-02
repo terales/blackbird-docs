@@ -1,0 +1,80 @@
+---
+  title: Bureau Works
+  description: De Bureau Works Blackbird-app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/BureauWorks" icon="github" />
+
+Bureau Works is geavanceerde vertaalsoftware die gebruikers helpt om sneller te vertalen en met een verhoogd gevoel van auteurschap.
+
+## Vóór het instellen
+
+Voordat je verbinding kunt maken, moet je zorgen dat:
+
+- Je een Bureau Works-account hebt op de instantie waarmee je verbinding wilt maken.
+- Ga in Bureau Works naar Profiel > Beveiliging en klik op _Generate_ in de sectie API Token.
+- Kopieer _Access key_ en _Secret_ voor later gebruik
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar Bureau Works.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn Bureau Works-verbinding'.
+4. Vul de _Access key_ en _Secret_ in die je hebt gekopieerd van Bureau Works.
+5. Klik op _Authorize connection_.
+
+![connectionsetup](https://raw.githubusercontent.com/bb-io/BureauWorks/main/image/README/connectionsetup.png)
+
+## Evenementen instellen
+
+1. Maak een bird met een eventtrigger van de Bureau Works-app en publiceer deze
+2. Kopieer de "Webhook URL" van de eventtrigger van de gepubliceerde bird
+3. Ga naar de [Webhooks-pagina](https://app.bwx.io/settings/account-settings/webhooks) op Bureau Works.
+4. Plak de "Webhook URL" in het URL-veld en laat het veld "Secret" leeg
+5. Selecteer hetzelfde webhooktype als wat je in stap 1 in Blackbird hebt gekozen (bijvoorbeeld als je "On project status changed" in Blackbird hebt geselecteerd - selecteer dan "Project status changed" als webhooktype in Bureau Works).
+6. Klik op "Save webhook"
+
+![eventsetup0](https://raw.githubusercontent.com/bb-io/BureauWorks/main/image/README/eventsetup0.png)
+
+![eventsetup1](https://raw.githubusercontent.com/bb-io/BureauWorks/main/image/README/eventsetup1.png)
+
+## Actions
+
+### Project
+
+- **Create project**
+- **Change project status**
+- **Download translated files**
+- **Get project**
+- **Search projects**
+- **Upload file to project**
+
+### Glossary
+
+- **Create glossary**
+- **Export glossary**
+- **Import glossary**
+
+## Events
+
+### Project
+
+- **On empty project created**
+- **On new organization created**
+- **On new organization unit created**
+- **On new project created**
+- **On work unit status changed**
+- **On new user created**
+- **On project status changed**
+- **On project translation finished**
+- **On task assigned**
+- **On task status changed**
+
+## Ontbrekende functies
+
+Niet alle API-endpoints zijn gedekt. Laat het ons weten als je functies mist of als je andere verbeteringen ziet!
+
+## Feedback
+
+Feedback op onze implementatie van Bureau Works is altijd zeer welkom. Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

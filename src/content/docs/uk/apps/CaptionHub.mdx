@@ -1,0 +1,86 @@
+---
+  title: CaptionHub
+  description: Додаток Blackbird для CaptionHub
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/CaptionHub" icon="github" />
+
+CaptionHub — це хмарна платформа, що надає послуги, пов'язані з створенням субтитрів для відео. Цей додаток CaptionHub переважно зосереджений на управлінні проєктами та наборами субтитрів.
+
+## Підключення
+
+1.  Перейдіть до додатків і знайдіть CaptionHub. Якщо ви не можете знайти CaptionHub, натисніть _Add App_ у верхньому правому куті, виберіть CaptionHub і додайте додаток до свого середовища Blackbird.
+2.  Натисніть _Add Connection_.
+3.  Назвіть ваше з'єднання для майбутнього посилання, наприклад, 'Мій клієнт'.
+4.  Перейдіть до налаштувань команди CaptionHub і виберіть _API Keys_ з меню зліва.
+5.  Перейдіть до розділу _API Keys_ і натисніть _Create API Key_
+6.  Скопіюйте API-ключ і вставте його у відповідне поле в BlackBird
+7.  Натисніть _Connect_.
+8.  Переконайтеся, що з'єднання з'явилося і має статус _Connected_.
+
+## Actions
+
+### Activities
+
+- **List activities** повертає список усіх дій для `Team`, `Project` або `Caption set`.
+
+### Automations
+
+- **List automations** повертає список усіх автоматизацій, які можна застосувати до `Project` при його створенні.
+
+### Caption sets
+
+- **List caption sets** повертає список даних наборів субтитрів, які редагує користувач.
+- **Approve caption set** позначає всі сегменти в наборі субтитрів як затверджені.
+- **Make caption set reviewable** робить усі сегменти в наборі субтитрів доступними для перевірки.
+- **Make caption set claimable** робить усі сегменти в наборі субтитрів доступними для заявки.
+- **Create translated caption set** створює набір субтитрів, готовий для перекладу.
+- **Create original caption set** створює новий оригінальний набір субтитрів.
+- **Download original/translated captions** завантажує набір субтитрів у запитаному форматі.
+
+### Custom dictionaries
+
+- **Get custom dictionary** повертає деталі певного користувацького словника.
+- **List custom dictionaries** повертає список усіх користувацьких словників, що належать вашій команді.
+
+### Languages
+
+- **List languages** повертає список усіх доступних мов для вашої команди.
+
+### Projects
+
+- **Get/create/update/delete project**
+- **Replace the video for a project** замінює оригінальне відео для проєкту.
+
+### Renders
+
+- **Get render status** повертає статус рендеру.
+- **Create render** створює рендер для вказаного `Caption set`.
+- **Download render** завантажує завершений рендер.
+
+### Teams
+
+- **List teams** повертає список усіх команд, членом яких є користувач API.
+
+### Termbases
+
+- **List termbases** повертає список усіх термінологічних баз для вашої `Team`.
+
+### Users
+
+- **List users** повертає список усіх користувачів для вашої `Team`.
+
+### Workflow transitions
+
+- **List workflow transitions** повертає список усіх переходів робочого процесу для команди, проєкту або набору субтитрів.
+
+## Відсутні функції
+
+У майбутньому ми можемо додати дії для:
+
+- Робочих процесів команди
+
+## Зворотній зв'язок
+
+Відгуки про нашу реалізацію CaptionHub завжди дуже вітаються. Зв'яжіться з нами через встановлені канали або створіть запит.

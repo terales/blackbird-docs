@@ -1,0 +1,69 @@
+---
+  title: My Acclaro
+  description: De My Acclaro Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Bekijk op Github" target="_blank" href="https://github.com/bb-io/Acclaro" icon="github" />
+
+MyAcclaro is de portaalapp voor Acclaro, ontworpen om het vertaalproces voor hun klanten te vereenvoudigen. Via MyAcclaro kunnen gebruikers eenvoudig offertes aanmaken, projecten starten, bestanden uploaden en hun vertaalbehoeften efficiënt beheren.
+
+## Voordat je begint met instellen
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een MyAcclaro-account hebt.
+- Je een API-token hebt. Je kunt er een krijgen door contact op te nemen met je Acclaro-verkoop- of business development-vertegenwoordiger of door een e-mailverzoek te sturen naar portal@acclaro.com
+
+## Verbinden
+
+1. Navigeer naar Apps en zoek de MyAcclaro-app. Je kunt de zoekfunctie gebruiken om deze te vinden.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijvoorbeeld 'Mijn verbinding'.
+4. Vul de URL in van de MyAcclaro-instantie waarmee je verbinding wilt maken. Je kunt verbinding maken met een sandbox- of productieomgeving.
+5. Vul je API-token in. Tokens voor sandbox en productie zijn niet uitwisselbaar.
+7. Klik op _Connect_.
+
+## Actions
+
+###  File
+
+- **Upload file** Upload a file to an order
+- **Search order files** Search for files in an order depending on certain criteria
+- **Get file information** Get information of a file
+- **Download file** Download order file by ID
+- **Get source file** Get the source file that corresponds with a target file
+
+###  Order
+
+- **Create order** Create order
+- **Update order** UPdate order
+- **Search orders** Search through all orders
+- **Get order** Get order by ID
+- **Does order exist** Find out whether an order with a certain ID exists
+- **Delete order** Delete order
+- **Submit order** Submit order
+- **Add order comment** Add a new comment to an order
+- **Update order comment** Updates an exisitng order comment (note: changes comment ID)
+- **Get order comments** Get a list of all comments attached to an order
+
+###  Quote
+
+- **Request quote** Request a quote for an order
+- **Approve quote** Approve an order for which a quote was requested
+- **Decline quote** Decline an order for which a quote was requested
+
+###  String
+
+- **Get order strings** Get a list of all string of order
+- **Add strings to order** Add strings to an existing order. Note: order process type should be string.
+
+## Events
+
+- **On order updated**
+- **On order string updated**
+- **On order file updated**
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bekende kanalen](https://www.blackbird.io/) of maak een issue aan.

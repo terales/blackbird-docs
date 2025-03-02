@@ -1,0 +1,72 @@
+---
+  title: ContentQuo Evaluate
+  description: De ContentQuo Evaluate Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/ContentQuo" icon="github" />
+
+ContentQuo evaluate is een leveranciersonafhankelijke cloudsoftware voor het beheren en opschalen van taalbeoordelingsprogramma's (LQA) voor menselijke en automatische vertaling. Deze app richt zich op het maken van beoordelingen in ContentQuo evaluate en het exporteren van beoordelingen in rapporten of naar spreadsheets of databases.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een ContentQuo-account hebt op de instantie waarmee je verbinding wilt maken.
+- Je een publieke sleutel en geheime sleutel van ContentQuo hebt ontvangen.
+
+## Verbinding maken
+
+1. Ga naar apps en zoek naar ContentQuo. Als je ContentQuo niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer ContentQuo en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijv. 'Mijn ContentQuo-verbinding'.
+4. Vul de publieke en geheime sleutel in die je van ContentQuo hebt ontvangen.
+5. Klik op _Connect_.
+
+![1705419776657](https://raw.githubusercontent.com/bb-io/ContentQuo/main/image/README/1705419776657.png)
+
+## Actions
+
+### Evaluation
+
+- **Create evaluation**
+- **Start evaluation**
+- **Delete evaluation**
+- **Download evaluation report** levert een Excel-bestand op basis van de gehele evaluatie. Optioneel kun je een aangepaste rapport-ID gebruiken als die in je ContentQuo Evaluate-instantie is geconfigureerd.
+- **Get evaluation** geeft algemene informatie over de evaluatie plus:
+  - Een lijst met problemen.
+  - Kwaliteitsbeoordelingsmetriek met een _grade_ en een _quality score_.
+  - Een lijst met bestanden met bijbehorende informatie, waaronder _word count_ en _segment count_.
+
+### Files
+
+- **Download bilingual file**
+- **Upload bilingual file**
+- **Delete bilingual file**
+
+## Events
+
+- **On evaluations created**
+- **On evaluations finished**
+
+## Voorbeeld
+
+Maak een evaluatie van een memoQ-project:
+
+![1705420501260](https://raw.githubusercontent.com/bb-io/ContentQuo/main/image/README/1705420501260.png)
+
+Sla problemen op in een Excel-bestand:
+
+![1705420538988](https://raw.githubusercontent.com/bb-io/ContentQuo/main/image/README/1705420538988.png)
+
+Als de kwaliteitsscore van een evaluatie onder een bepaalde drempel ligt, download dan het evaluatierapport en stuur het door naar Slack. Anders, push de content.
+
+![1706109758396](https://raw.githubusercontent.com/bb-io/ContentQuo/main/image/README/1706109758396.png)
+
+## Ontbrekende functies
+
+Er zijn verschillende eindpunten in de ContentQuo-documentatie gelabeld als [not implemented yet]. Zodra deze beschikbaar zijn, kunnen ze als functies aan deze Blackbird-app worden toegevoegd.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

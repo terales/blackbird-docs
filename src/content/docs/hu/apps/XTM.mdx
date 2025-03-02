@@ -1,0 +1,111 @@
+---
+  title: XTM
+  description: Az XTM Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Github-on" target="_blank" href="https://github.com/bb-io/XTM" icon="github" />
+
+Az XTM Cloud egy fordításkezelő rendszer. Funkciói közé tartozik projektek létrehozása és fájlok feltöltése ezekhez a projektekhez fordítás céljából.
+
+## Beállítás előtt
+
+Mielőtt kapcsolódni tudna, győződjön meg arról, hogy:
+
+- Rendelkezik XTM Cloud példánnyal, amelyen az **API-hozzáférés engedélyezve van**.
+
+## Kapcsolódás
+
+1. Navigáljon az alkalmazásokhoz, és keressen rá az XTM-re. Ha nem találja az XTM-et, akkor kattintson a jobb felső sarokban található _Add App_ gombra, válassza az XTM-et, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például: 'My XTM'.
+4. A kliens mezőbe írja be az XTM cégnevet, amely a [XTM dokumentációban](https://api.xtm-cloud.com/rest-api/#tag/XTM-Basic/operation/generateToken) is kliensként van jelölve.
+5. A User ID mezőbe írja be numerikus XTM felhasználói azonosítóját. Megjegyzés: **Ez nem a felhasználónevét jelenti**. Az egyik ismert módszer ennek az azonosítónak a megszerzésére: jelentkezzen be az XTM portálra, vigye az egeret az avatar ikonra a jobb felső sarokban, és kattintson jobb gombbal a "kép megnyitása új lapon" opcióra. Ezután az oldal URL-jében megtalálja a felhasználói azonosítóját.\*
+6. Adja meg XTM felhasználói jelszavát.
+7. Végül adja meg az XTM példányának alap URL-jét. Például: `https://xtm.mycompany.com`
+8. Kattintson a _Connect_ gombra.
+
+\* Ismer jobb módszert a felhasználói azonosító megszerzésére? Tudassa velünk!
+
+![connecting](https://raw.githubusercontent.com/bb-io/XTM/main/image/README/1693487780830.png)
+
+## Actions
+
+### Projects
+
+- **List projects**
+- **Get project**
+- **Create project**
+- **Create project from template**
+- **Clone project**
+- **Update project**
+- **Add project target languages**
+- **Delete project target languages**
+- **Reanalyze project**
+- **Delete project**
+- **Get project estimates**
+- **Get project metrics**
+
+### LQA
+
+- **Search LQA reports** Határozza meg a kritériumokat a szükséges LQA jelentések lekéréséhez. Opcionális paraméterek:
+	- Dátumtól
+	- Dátumig
+	- Célnyelvek
+	- LQA típus
+
+### Files
+
+- **Download source files**
+- **Download source files as ZIP**
+- **Download project file**
+- **Download all project files**
+- **Download translated files**
+- **Upload source file**
+- **Upload translation file**. Ez a művelet a `/files/translations/{fileId}/status` végpontot használja az újonnan feltöltött fordítási fájl állapotának ellenőrzésére. A művelet megvárja, amíg a fordítás feldolgozásra kerül, és visszaadja a fordítási fájl állapotát a `File ID` és a `Project ID` értékekkel együtt.
+- **Generate files**
+
+### Translation memories
+
+- **Generate TM file**
+- **Download TM file**
+
+### Customers
+
+- **List customers**
+- **Create customer**
+- **Get customer**
+- **Update customer**
+- **Delete customer**
+
+## Events
+
+>Megjegyzés: Az XTM olyan callback URL-eket használ, amelyek csak a projekt létrehozásakor állíthatók be, ami azt jelenti, hogy csak a Blackbird-ön keresztül létrehozott projektek működnek a nem lekérdezéses eseményekkel. A Blackbird-ön kívül létrehozott projektekkel kapcsolatos eseményekre épülő madarak indításához használjon [lekérdezéses indítót](https://docs.blackbird.io/concepts/triggers/#polling) - ezeket alább **polling** jelzéssel azonosítjuk.
+
+- **On analysis finished**
+- **On workflow transition**
+- **On job finished**
+- **On project created**
+- **On project accepted**
+- **On project finished**
+- **On invoice status changed**
+- **On analysis finished (polling)**
+- **On projects created (polling)**
+- **On projects updated (polling)**
+- **On projects finished (polling)**
+- **On project status changed (polling)**
+
+## Hiányzó funkciók
+
+A jelenlegi implementáció az alapvető műveleteket fedi le. A jövőben azonban támogathatjuk a következőket is:
+
+- Projekt elemzés
+- Egyéni mezők
+- Munkák
+- Külső felhasználók
+
+Tudassa velünk, ha érdekli!
+
+## Visszajelzés
+
+Az XTM implementációnkkal kapcsolatos visszajelzéseket mindig szívesen fogadjuk. Keressen minket a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

@@ -1,0 +1,57 @@
+---
+  title: DeepL
+  description: A DeepL Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Github-on" target="_blank" href="https://github.com/bb-io/DeepL" icon="github" />
+
+A DeepL egy mesterséges intelligencia (AI) vállalat, amely nyelvi fordítási szolgáltatásokra specializálódott. Neurális gépi fordítási (NMT) motort kínál, amely képes magas minőségű fordításokat biztosítani több nyelven. A DeepL fordítómotorja ismert pontosságáról, a természetesen hangzó fordításokról és a kontextus megértésének képességéről.
+
+## Beállítás előtt
+
+Mielőtt csatlakozhatnál, győződj meg a következőkről:
+
+- Rendelkezel DeepL fiókkal.
+- Van API kulcsod a DeepL fiókodhoz. Ez megtalálható a DeepL _fiókbeállítások_ alatt.
+- **Fontos**: Ha CAT eszközökhöz való API kulcsot használsz, az nem fog működni a nyilvános API-val. Ehelyett a DeepL API-hoz szükséges hitelesítési kulcsot kell használnod. [Útmutatást](https://youtu.be/WTt3UuiDAf4?t=79) találhatsz ebben az útmutatóban arról, hol található. További részletekért hivatkozhatsz erre a [beszélgetésre](https://github.com/DeepLcom/deepl-python/issues/106), ahol hasonló probléma megoldása található.
+
+## Csatlakozás
+
+1. Navigálj az Alkalmazásokhoz, és keresd meg a DeepL alkalmazást. A keresést használhatod a megtalálásához.
+2. Kattints az _Add Connection_ gombra.
+3. Nevezd el a kapcsolatot későbbi hivatkozáshoz, például 'Saját DeepL kapcsolat'.
+4. Add meg a DeepL fiókodhoz tartozó API kulcsot.
+5. Kattints a _Connect_ gombra.
+
+![DeepLBlackbirdConnection](https://raw.githubusercontent.com/bb-io/DeepL/main/image/README/DeepLBlackbirdConnection.png)
+
+## Actions
+
+### Translation 
+
+- **Translate text** Szövegbemenetek fordítása.
+- **Translate document** Dokumentum fordítása, beleértve az XLIFF fájlokat (1.2 vagy 2.1 verzió)
+
+### Write
+- **Improve text** Szöveg javítása a DeepL Write használatával, írási stílus vagy hangnem beállításával. Jelenleg csak néhány nyelvet támogat. Használható a helyi változat módosítására is, például amerikai angol nyelvről brit angolra. További részletekért lásd a [DeepL írási dokumentációját](https://developers.deepl.com/docs/api-reference/improve-text).
+
+### Glossaries 
+
+- **Export glossary** Szószedet exportálása 
+- **Import glossary** Szószedet importálása (.tbx, .csv & .tsv) 
+- **Get glossary** Egy adott szószedet részleteinek lekérése 
+- **Get glossary entries** Szószedet bejegyzéseinek lekérése TSV formátumban 
+- **List glossaries** Összes szószedet felsorolása
+- **List glossary language pairs** Támogatott szószedet nyelvpárok felsorolása
+- **Delete glossary** Szószedet törlése
+
+## Példa
+
+![DeepLExample](https://raw.githubusercontent.com/bb-io/DeepL/main/image/README/DeepLExample.png)
+
+A fenti példa egy olyan madarat mutat, amely akkor aktiválódik, amikor egy cikket publikálnak a Zendesk-ben, majd ezt a cikket HTML dokumentumként exportálják és a DeepL segítségével lefordítják, mielőtt visszaimportálnák a Zendesk-be. A DeepL fordítás védőkorlátként figyelembe vesz egy szószedetet is, amelyet a Microsoft Excelből exportáltak.
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy visszajelzésed van a megvalósításunkról? Vedd fel velünk a kapcsolatot a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozz létre egy problémát.

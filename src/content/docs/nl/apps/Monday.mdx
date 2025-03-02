@@ -1,0 +1,75 @@
+---
+title: Monday
+description: De Monday Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Monday" icon="github" />
+
+Monday.com is een cloud-gebaseerd werkbesturingssysteem dat kan worden gebruikt voor verschillende behoeften, waaronder projectmanagement, samenwerking en planning.
+
+## Voordat je begint
+
+Voordat je de integratie instelt, zorg ervoor dat je toegang hebt tot een Monday.com account. Onze app vereist een toegangstoken voor authenticatie. Je kunt instructies vinden voor het verkrijgen van een toegangstoken [hier](https://developer.monday.com/api-reference/docs/authentication#developer-tab).
+
+Als je een lid of beheerder bent van een Monday.com account, volg dan deze stappen om je API-token te krijgen:
+
+1. Log in op je Monday.com account.
+2. Klik op je profielfoto in de rechterbovenhoek.
+3. Selecteer **Developers**. Dit opent het Developer Center in een ander tabblad.
+4. Ga naar **My Access Tokens** en klik op **Show**.
+5. Kopieer je persoonlijke token.
+
+**Opmerking**: Als je een nieuwe token genereert, verlopen alle vorige tokens.
+
+## Verbinden met Monday
+
+1. Navigeer naar de sectie **Apps** en zoek de **Monday** app (je kunt ernaar zoeken).
+2. Klik op **Add Connection**.
+3. Geef je verbinding een naam voor toekomstig gebruik (bijv. 'Mijn Organisatie').
+4. Voer de **API Token** in het overeenkomstige veld in.
+5. Klik op **Authorize connection**.
+6. Bevestig dat de verbinding tot stand is gebracht en dat de status **Connected** weergeeft.
+
+![Verbinden](https://raw.githubusercontent.com/bb-io/Monday/main/image/README/connecting.png)
+
+## Actions
+
+### Boards
+
+- **Search boards**: Haalt alle borden op gefilterd door de opgegeven parameters.
+- **Get board**: Haalt een bord op aan de hand van de opgegeven ID.
+
+### Items
+
+- **Search items**: Haalt alle items op van een specifiek bord.
+- **Get item**: Haalt een item op aan de hand van de opgegeven ID.
+- **Create item**: Maakt een item aan met de opgegeven parameters.
+- **Delete item**: Verwijdert een item aan de hand van de opgegeven ID.
+- **Archive item**: Archiveert een item aan de hand van de opgegeven ID.
+
+### Updates
+
+- **Get update**: Haalt een update op op basis van de opgegeven Item ID.
+- **Add update**: Maakt een update (opmerking) aan in een specifiek item op basis van de ID.
+- **Add attachment to update**: Voegt een bijlage (bestand) toe aan een update op basis van de opgegeven ID.
+- **Edit update**: Bewerkt een update (opmerking) op basis van de opgegeven ID.
+- **Delete update**: Verwijdert een update (opmerking) op basis van de opgegeven ID.
+
+## Events
+
+### Items
+
+- **On item created**: Deze gebeurtenis wordt geactiveerd wanneer een item wordt aangemaakt.
+- **On item changed**: Deze gebeurtenis wordt geactiveerd wanneer een item wordt gewijzigd.
+- **On item archived**: Deze gebeurtenis wordt geactiveerd wanneer een item wordt gearchiveerd.
+- **On item deleted**: Deze gebeurtenis wordt geactiveerd wanneer een item wordt verwijderd.
+
+### Updates
+
+- **On update created**: Deze gebeurtenis wordt geactiveerd wanneer een update wordt aangemaakt.
+- **On update edited**: Deze gebeurtenis wordt geactiveerd wanneer een update wordt bewerkt.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

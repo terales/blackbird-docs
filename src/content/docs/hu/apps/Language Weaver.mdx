@@ -1,0 +1,83 @@
+---
+  title: Language Weaver
+  description: A Language Weaver Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/LanguageWeaver" icon="github" />
+
+A Language Weaver az RWS gépi fordítási technológiája és márkája. Biztonságos, adaptálható, felhőalapú vállalati gépi fordítási API és portál olyan vállalkozások számára, amelyeknek nagy mennyiségű többnyelvű tartalmat kell gyorsan és hatékonyan feldolgozniuk.
+
+## Beállítás előtt
+
+A kapcsolódás előtt győződjön meg a következőkről:
+
+- Rendelkezik Language Weaver fiókkal adminisztrátori jogosultságokkal.
+- Beállította az API hitelesítő adatokat a [Language Weaver portálon](https://portal.languageweaver.com/settings/api-credentials). Új hitelesítő adatok létrehozásakor mindenképpen mentse el a kliens titkos kulcsot.
+
+## Kapcsolódás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Language Weaver-re. Ha nem találja a Language Weaver-t, kattintson a jobb felső sarokban található _Add App_ gombra, válassza a Language Weaver-t és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például 'Saját Language Weaver'.
+4. Töltse ki a Kliens azonosítót és a Kliens titkos kulcsot, amelyeket a [Language Weaver portálról](https://portal.languageweaver.com/settings/api-credentials) másolt.
+5. Kattintson a _Connect_ gombra.
+
+![Kapcsolódás](https://raw.githubusercontent.com/bb-io/LanguageWeaver/main/image/README/1697473360187.png)
+
+## Actions
+
+### Translation
+
+- **Translate text** szöveges bevitelt fordít.
+- **Translate file** fájl bevitelt fordít. A támogatott fájlformátumok [itt](https://developers.languageweaver.com/api/lw/common/input-formats.html) találhatók.
+
+Minden fordítási végpont "minőség" vagy "sebesség" módban működhet.
+
+- **Translate text with QE**.
+- **Translate file with QE** mindkettő minőségi becslést alkalmaz a lefordított tartalomra. A forrásnyelv megadása kötelező, nem találgatható. Ezek a műveletek korlátozott nyelvkombinációkat támogatnak, ellenőrizze a Language Weaver fiókjában elérhető modelleket a támogatott nyelvkombinációk tekintetében.
+
+A minőségi becslést és az ABBYY PDF konverziót engedélyezni kell fiókja számára a Language Weaver beállításaiban.
+
+### Identification
+
+- **Identify text language** azonosítja a szöveges bevitel nyelvét.
+- **Identify file language** azonosítja a fájl bevitel nyelvét.
+
+### Content insights
+
+- **Get file content insights** létrehozza és azonnal visszaadja a fájl tartalmával kapcsolatos információkat, beleértve a szó/karakter számot, a forrásnyelvet és a szegmensenkénti pontszámot.
+
+### Dictionary management
+
+- **Get dictionary** visszaadja egy szótár információit.
+- **Create dictionary**.
+- **Delete dictionary**.
+- **Import glossary** lehetővé teszi egy glosszárium importálását egy meglévő vagy új szótárba. Az új szótáraknál adja meg a forrás- és célnyelveket, opcionális címmel és leírással. Meglévő szótárba történő importáláskor használja az opcionális _Dictionary ID_ paramétert. Az _Overwrite duplicate terms_ opció lehetővé teszi a meglévő értékek frissítésének kezelését importáláskor. Ha az importált glosszárium nem tartalmazza a szótárban megadott nyelveket, a legmegfelelőbb alternatívákat választja. Például ha a szótár tartalmazza az _English_ nyelvet, de a glosszárium csak az _English (United States)_ nyelvet, akkor ez utóbbi kifejezései kerülnek be a szótárba.
+- **Export glossary** lehetővé teszi egy szótár exportálását, a glosszárium címének és forrásleírásának opcionális megadásával.
+
+## Példák
+
+![Első példa](https://raw.githubusercontent.com/bb-io/LanguageWeaver/main/image/README/1697474172103.png)
+Ez az alapvető példa azt mutatja, hogyan használhatja a Language Weaver-t Microsoft Teams üzenetek fordítására.
+
+![Második példa](https://raw.githubusercontent.com/bb-io/LanguageWeaver/main/image/README/Example2.png)
+Ebben a példában, amikor PDF fájlokat töltenek fel a SharePoint Dokumentumokba, minden fájl letöltésre kerül, a Language Weaver lefordítja, majd a fordítás minőségi értékelése alapján a megfelelő mappába helyezi.
+
+## Hiányzó funkciók
+
+A jövőben támogathatjuk és hozzáadhatjuk a következő műveleteket:
+
+- Szótár frissítések
+- Szótár kifejezések kezelése
+- Márka kezelés
+- Címkék kezelése
+- Csoport kezelés
+- Visszajelzés kezelés
+- Adaptáció
+
+Tudassa velünk, ha érdekli!
+
+## Visszajelzés
+
+A Language Weaver implementációnkkal kapcsolatos visszajelzéseket mindig nagyon szívesen fogadjuk. Keressen meg bennünket a [kialakított csatornákon](https://www.blackbird.io/) keresztül vagy hozzon létre egy problémát.

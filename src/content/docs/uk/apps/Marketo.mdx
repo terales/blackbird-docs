@@ -1,0 +1,125 @@
+---
+  title: Marketo
+  description: Додаток Blackbird для Marketo
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Marketo" icon="github" />
+
+
+Marketo — це програмне забезпечення для автоматизації маркетингу на основі Software-as-a-Service (SaaS), що належить Adobe і створене для допомоги організаціям автоматизувати та вимірювати маркетингові взаємодії, завдання та робочі процеси.
+
+## Перед налаштуванням
+
+Перш ніж підключитися, переконайтеся, що:
+
+- У вас є обліковий запис Marketo в екземплярі, до якого ви хочете підключитися.
+- Ваш обліковий запис Marketo має відповідні дозволи. Для налаштування підключення вам потрібен обліковий запис з роллю "API user".
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть Marketo. Якщо ви не можете знайти Marketo, натисніть _Add App_ у верхньому правому куті, виберіть Marketo і додайте програму до вашого середовища Blackbird.
+2. Натисніть _Add Connection_.
+3. Назвіть своє з'єднання для подальшого використання, наприклад, 'Мій клієнт'.
+4. Заповніть "Munchkin Account ID", "Client ID" та "Client secret" вашого екземпляра Marketo, до якого ви хочете підключитися. Ви можете знайти їх у налаштуваннях Marketo.
+5. Натисніть _Authorize connection_.
+
+## Actions
+
+### Emails
+
+- **Search emails**
+- **Get email info**
+- **Get email content**
+- **Delete email**
+- **Get email as HTML for translation**
+  <br/>Корисні вхідні параметри:
+  * "Include images" - якщо встановлено значення true, включатиме зображення до експортованого HTML (за замовчуванням - false)
+  * "Get only dynamic content" - якщо встановлено значення true, включатиме лише динамічний вміст із вашого електронного листа (інші типи вмісту будуть пропущені)
+  
+- **Translate email from HTML file**
+
+### Files
+
+- **List all files**
+- **Get file info**
+- **Download file**
+- **Upload file**
+
+### Folders
+
+- **List folders**
+- **Get folder info**
+- **Create folder**
+- **Delete folder**
+
+### Landing pages
+
+- **Search landing pages**
+- **Get landing page info**
+- **Create landing page**
+- **Delete landing page**
+- **Approve landing page draft**
+- **Discard landing page draft**
+- **Unapprove landing page (back to draft)**
+- **Get landing page full content**
+- **Get landing page as HTML for translation**
+- **Translate landing page from HTML file**
+
+**Get landing page as HTML for translation** та **Translate landing page from HTML file** призначені для спільного використання в процесі перекладу: ви можете отримати форму як HTML-файл, завантажити її в TMS, потім отримати перекладений HTML-файл і повернути його назад у Marketo. **Translate landing page from HTML file** очікує таку ж структуру HTML, як і структура файлу, отриманого за допомогою **Get landing page as HTML for translation**.
+
+
+### Forms
+
+- **Get form**
+- **Search forms created or updated in date range**
+- **Get form as HTML for translation**
+- **Create new form from translated HTML**
+
+**Get form as HTML for translation** та **Create new form from translated HTML** призначені для спільного використання в процесі перекладу: ви можете отримати форму як HTML-файл, завантажити її в TMS, потім отримати перекладений HTML-файл і повернути його назад у Marketo. **Create new form from translated HTML** очікує таку ж структуру HTML, як і структура файлу, отриманого за допомогою **Get form as HTML for translation**.
+
+### Translation functionality (dynamic content)
+- Функціональність перекладу базується на динамічному контенті в Marketo. Цей тип перекладу доступний для електронних листів і цільових сторінок (останні дві дії, зазначені в розділах електронних листів і цільових сторінок вище)
+- У вашому Marketo повинна бути сегментація, яка містить сегменти, названі мовними кодами або назвами мов (на ваш вибір). Обидві дії повинні використовувати однакову сегментацію, але різні сегменти (оскільки сегменти — це просто різні мови).
+- Blackbird автоматично перетворить усі текстові поля (HTML або форматований текст) на динамічний вміст під час дії перекладу. Якщо ви хочете запобігти цьому, ви можете встановити "Translate only dynamic content" у діях перекладу на "true", і тоді будуть змінені лише поля динамічного вмісту (статичний текстовий вміст залишиться незмінним). Не використовуйте цей прапорець, якщо ви хочете перекласти весь вміст.
+- Поля, сегментовані вручну з інтерфейсу користувача іншою сегментацією (не тою, яку ви вказали у вхідних даних дій), будуть проігноровані.
+- Якщо вам потрібен більший контроль над динамічним вмістом окремих секцій електронних листів і цільових сторінок - зв'яжіться з нами
+  
+![image](https://github.com/bb-io/Marketo/assets/127740895/ec77cf4a-9468-41b8-a5ee-3ca902183eeb)
+
+## Events
+
+- **On emails created or updated**
+- **On email templates created or updated**
+- **On snippets created or updated**
+- **On forms created or updated**
+- **On landing pages created or updated**
+
+## Особливості HTML
+
+Ми додаємо метадані до HTML-файлу, щоб включити ідентифікатори. Ці метадані використовуються для оновлення вмісту з HTML-файлу. Ці теги використовуються для ідентифікації вмісту в `Marketo`, усуваючи необхідність зберігати ідентифікатори в інших місцях.
+
+Приклад того, як ми включаємо метадані в HTML-файл:
+
+```html
+<html>
+<head>
+    <meta name="blackbird-email-id" content="1001">
+</head>
+<body>
+    <h1>Example title</h1>
+    <p>Example content</p>
+</body>
+</html>
+```
+
+## Відсутні функції
+
+- Smart lists/campaigns
+- Tags and tokens
+
+Повідомте нам, якщо вас це цікавить!
+
+## Відгуки
+
+Відгуки щодо нашої реалізації Marketo завжди дуже вітаються. Зв'яжіться з нами, використовуючи встановлені канали, або створіть проблему.

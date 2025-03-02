@@ -1,0 +1,51 @@
+---
+  title: Microsoft OneDrive
+  description: A Microsoft OneDrive Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/MicrosoftOneDrive" icon="github" />
+
+A OneDrive a Microsoft felhőszolgáltatása, amely összeköt téged az összes fájloddal. Lehetővé teszi a fájlok tárolását és védelmét, megosztásukat másokkal, valamint hozzáférést biztosít hozzájuk bárhonnan, minden eszközödről.
+
+## Csatlakozás
+
+1. Navigálj az alkalmazásokhoz és keress rá a Microsoft OneDrive-ra.
+2. Kattints az _Add Connection_ gombra.
+3. Nevezd el a kapcsolatot a későbbi hivatkozás céljából, például: 'Szervezetem'.
+4. Kattints az _Authorize connection_ gombra.
+5. Kövesd a Microsoft által megadott utasításokat, engedélyezve a Blackbird.io számára, hogy a nevedben eljárjon.
+6. Amikor visszatérsz a Blackbird felületére, ellenőrizd, hogy a kapcsolat megjelent-e és az állapota _Connected_.
+
+## Actions
+
+### Tárhely
+
+- **Upload file to folder** Fájl feltöltése a megadott mappába
+- **Download file** Megadott fájl letöltése
+- **List files in folder** Fájlok metaadatainak listázása a megadott mappában
+- **List changed files** Az utolsó megadott órákban módosított fájlok listázása
+- **Get folder metadata** Információk lekérése egy adott mappáról
+- **Get file metadata** Információk lekérése egy adott fájlról
+- **Create folder in parent folder** Új mappa létrehozása egy másik mappában
+- **Delete folder** Megadott mappa törlése
+- **Delete file** Megadott fájl törlése
+
+> Amikor fájlt töltesz fel egy mappába, a következő lehetőségek közül választhatsz ütközés esetén (ha már létezik azonos nevű fájl a megadott mappában):
+**Fail Uploading**: Ha létezik azonos nevű fájl, a feltöltés leáll, megőrizve az eredeti fájlt.
+**Replace File**: A meglévő fájlt felülírja az új feltöltés, lecserélve annak tartalmát.
+**Rename File**: Az új fájl egyedi névvel kerül mentésre, megőrizve mind az eredeti, mind a feltöltött fájlokat.
+
+## Polling events
+
+- **On files created or updated** Ez az eseményfigyelő akkor aktiválódik, amikor fájlok jönnek létre vagy frissülnek. Megadhatod a figyelni kívánt mappát és az `Include subfolders` opciót, hogy beleértsd az almappákban történő változásokat is (alapértelmezetten `false`).
+- **On folders created or updated** Ez az eseményfigyelő akkor aktiválódik, amikor mappák jönnek létre vagy frissülnek.
+
+## Példák
+
+![Connecting](https://raw.githubusercontent.com/bb-io/MicrosoftOneDrive/main/image/README/example_bird.png)
+Ez a madár új vagy frissített fájlokat tölt le a OneDrive-ról, lefordítja őket a DeepL segítségével, majd elküldi a Slack csatornára
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy visszajelzésed van a megvalósításunkról? Vedd fel velünk a kapcsolatot a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozz létre egy hibajegyet.

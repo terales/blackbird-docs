@@ -1,0 +1,61 @@
+---
+title: Unbabel
+description: De Unbabel Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Unbabel" icon="github" />
+ 
+
+Unbabel is een vertaalplatform dat kunstmatige intelligentie combineert met menselijke bewerking. Deze Unbabel-applicatie richt zich voornamelijk op tekst/bestandsvertalingen en project/bestandsbeheer.
+
+## Verbinden
+
+1. Navigeer naar apps en zoek naar Unbabel.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn klant'.
+4. Kopieer je API-inloggegevens en plak deze in de juiste velden in Blackbird.
+5. Klik op _Connect_.
+6. Bevestig dat de verbinding is verschenen en dat de status _Connected_ is.
+
+## Actions
+
+### Translations
+
+- **(T) Translate text** dient een eenvoudige tekst in voor vertaling en geeft de resultaten terug wanneer ze klaar zijn.
+- **(T) Translate file** dient een bestand in voor vertaling en geeft het vertaalde bestand terug wanneer het klaar is. De service ondersteunt alleen txt-, html- en xliff-bestandsformaten.
+
+### Projects
+
+- **(P) Search projects** geeft de lijst met projecten terug, gefilterd op basis van de opgegeven invoer.
+- **(P) Cancel project** annuleert een vooraf ingediend project dat nog niet is ingediend.
+- **(P) Submit project** dient een project in om te worden vertaald. Dit kan achteraf niet meer worden bijgewerkt of geannuleerd.
+- **(P) Create project** maakt een nieuw project aan. Je kunt hier je gewenste pipelines specificeren.
+- **(P) Get project** verkrijg informatie en de huidige status van een project.
+- **(P) Search project completed files** geeft een lijst van alle voltooide bestanden. Elk item heeft een invoerbestand-ID en een uitvoerbestand-ID. Gebruik het uitvoerbestand-ID met "Download file" om het vertaalde bestand te downloaden.
+
+### Files
+
+- **(P) Upload file** uploadt een nieuw bestand naar een aangemaakt profiel voordat het wordt ingediend.
+- **(P) Download file** downloadt het bestand-ID. Gebruik dit in combinatie met "Search project completed files" om voltooide bestanden te downloaden.
+
+### Quality intelligence
+
+- **(QI) Evaluate XLIFF** geeft een rapport met kwaliteitsevaluaties op woord-, zins- en documentniveau van het XLIFF-bestand.
+- **(QI) Evaluate segment** geeft een rapport met kwaliteitsevaluaties op woord-, zins- en documentniveau van het segment.
+- **(QI) Explain XLIFF** geeft automatische evaluatie van een vertaling vergezeld van een uitleg van het XLIFF-bestand.
+- **(QI) Explain segment** geeft automatische evaluatie van een vertaling vergezeld van een uitleg van het segment.
+
+## Events
+
+- **(P) On project status changed** wordt geactiveerd wanneer de status van een project verandert. Je kunt aanvullend de status toevoegen waar je naar wilt uitkijken, bijvoorbeeld om alleen een checkpoint voort te zetten wanneer het project is afgeleverd.
+
+## Voorbeeld
+
+![1729784592233](https://raw.githubusercontent.com/bb-io/Unbabel/main/image/README/1729784592233.png)
+
+Het bovenstaande voorbeeld toont hoe Unbabel-projecten kunnen worden gebruikt in combinatie met checkpoints.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [gebruikelijke kanalen](https://www.blackbird.io/) of maak een issue aan.

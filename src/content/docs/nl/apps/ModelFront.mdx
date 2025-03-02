@@ -1,0 +1,46 @@
+---
+  title: ModelFront
+  description: De ModelFront Blackbird-app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Bekijk op Github" target="_blank" href="https://github.com/bb-io/ModelFront" icon="github" />
+
+ModelFront is gespecialiseerd in het bieden van oplossingen voor het verbeteren van de kwaliteit van machinevertaling (MT). Hun primaire focus ligt op het helpen van bedrijven en organisaties om betere vertaalresultaten te bereiken via hun softwareplatform. ModelFront biedt diensten zoals data-evaluatie, monitoring van modelprestaties en kwaliteitsbeoordeling om ervoor te zorgen dat machinevertaalsystemen nauwkeurige en betrouwbare resultaten leveren.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een Modelfront-account hebt.
+- Je een API-token hebt dat correspondeert met je Modelfront-account.
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar Modelfront. Als je Modelfront niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Modelfront en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn Modelfront-verbinding'.
+4. Vul het API-token in voor je Modelfront-account.
+7. Klik op _Connect_.
+
+![ModelfrontBlackbirdConnection](https://raw.githubusercontent.com/bb-io/ModelFront/main/image/README/ModelfrontBlackbirdConnection.png)
+
+## Actions
+
+- **Predict** Get prediction data for a single segment
+- **Predict multiple** Get prediction data for multiple segments
+- **Predict XLIFF** Get quality and risk prediction data for all segments in an XLIFF 1.2 file. Mandatory input data include the translated XLIFF file, source and target language values. As an output, Average Quality and Average Risk scores are provided, which are the average of the quality and risk scores for all segments in the file. Additionally, all translation units get appended with their individual quality score which is added to the `extradata` attribute in the XLIFF file. Optionally, you can add Threshold, New Target State and Condition input parameters to the Blackbird action to change the target state value of segments meeting the desired criteria.
+
+Voorbeelden:
+
+Door de optionele invoerwaarden in te stellen zoals weergegeven in de onderstaande afbeelding, zullen alle segmenten met een kwaliteitsscore boven 0,9 hun doelstatus bijgewerkt krijgen naar "final".
+
+![Modelfrontoptionalinput1](https://raw.githubusercontent.com/bb-io/ModelFront/main/image/README/Modelfrontoptionalinput1.png)
+
+Op dezelfde manier zal de onderstaande instelling ervoor zorgen dat alle segmenten met een kwaliteitsscore lager dan of gelijk aan 0,6 hun doelstatuswaarde zien veranderen in "needs-review-translation".
+
+![Modelfrontoptionalinput2](https://raw.githubusercontent.com/bb-io/ModelFront/main/image/README/Modelfrontoptionalinput2.png)
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

@@ -1,0 +1,55 @@
+---
+  title: Customer.io
+  description: A Customer.io Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/Customer.io" icon="github" />
+
+A Customer.io egy olyan platform, amely lehetővé teszi a vállalkozások számára, hogy célzott és személyre szabott üzeneteket küldjenek ügyfeleiknek különböző kommunikációs csatornákon keresztül, mint például e-mail, SMS és push értesítések. A vállalkozások automatizált kampányokat hozhatnak létre a felhasználói viselkedés, preferenciák és a vállalat weboldalával vagy alkalmazásával való interakciók alapján.
+
+## A beállítás előtt
+
+Mielőtt csatlakozna, győződjön meg a következőkről:
+
+- Rendelkezik Customer.io fiókkal, és admin vagy workspace manager jogosultságokkal rendelkezik.
+- Van API kulcsa a Customer.io fiókjához. Az API hitelesítő adatait a Customer.io-ban a _Experimental features_ > _Account Settings_ > _App API Keys_ menüpontban találja. Az API kulcsokról további információkat [itt](https://customer.io/docs/accounts-and-workspaces/managing-credentials/) talál.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Customer.io-ra. Ha nem találja a Customer.io-t, kattintson a jobb felső sarokban található _Add App_ gombra, válassza a Customer.io-t, és adja hozzá az alkalmazást Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például 'Saját Customer.io kapcsolat'.
+4. Töltse ki az API kulcsot ahhoz a Customer.io példányhoz, amelyhez csatlakozni szeretne.
+7. Kattintson a _Connect_ gombra.
+
+![CustomerioBlackbirdConnection](https://raw.githubusercontent.com/bb-io/Customer.io/main/image/README/CustomerioBlackbirdConnection.png)
+
+## Actions
+
+- **Get translation of a broadcast message** Get information about a translation of message in a broadcast
+- **Get translation of a newsletter** Get information about a translation of an individual newsletter. Also includes file as HTML document in output
+- **Get translation of a transactional message** Get information about a translation of an individual transactional message
+- **List snippets** List all snippets in the workspace
+- **Update a translation of a broadcast message** Update a translation of a specific broadcast action
+- **Update snippet** Update the name or value of a snippet
+- **Update translation of a newsletter** Update the translation of a newsletter variant
+- **Update translation of a transactional message** Update the body and other data of a specific language variant for a transactional message
+- **Get a translation of a campaign message** Getting a translation of a campaign message
+- **Update a translation of a campaign message** Updating a translation of a campaign message
+
+### Unified
+- **Download Content**: Letölti a tartalmakat a megadott azonosító alapján. Ezen művelet használatához meg kell adnia azt a tartalomtípust, amelyhez a tartalom hozzá van rendelve. Jelenleg az összes támogatott tartalomtípus: **Transactional Message, Broadcast Message, Campaign Message, and Newsletter**.
+- **Upload Content**: Feltölti a tartalmakat a megadott azonosító alapján. Ez a művelet a **`Download Content` művelettel párosítva** használható a lefordított HTML fájl feltöltésére és a fordítás frissítésére a megadott nyelven.
+
+## Polling 
+
+- **On broadcast created or updated** Triggered when a new broadcast was created or updated
+- **On newsletter created or updated** Triggered when a newsletter is created or updated
+- **On campaign message created or updated** Triggered when a campaign message is created or updated
+- **On transactional message created or updated** Triggered when a transactional message is created or updated
+
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy van visszajelzése a megvalósításunkról? Lépjen kapcsolatba velünk a [meglévő csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

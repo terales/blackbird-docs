@@ -1,0 +1,54 @@
+---
+  title: Google Sheets
+  description: Додаток Blackbird для Google Sheets
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/GoogleSheets" icon="github" />
+
+Google Sheets — це хмарний інструмент для роботи з електронними таблицями, який забезпечує легку співпрацю під час створення, редагування та аналізу даних онлайн. Завдяки функціям співпраці в реальному часі та зручному інтерфейсу, це універсальна платформа для організації інформації, керування проектами та створення графіків і діаграм.
+
+## Actions
+
+### Spreadsheet Actions
+
+- **Add new sheet row** Додає новий рядок до першого порожнього рядка аркуша
+- **Create sheet** Створює аркуш
+- **Download sheet CSV file** Завантажує файл CSV
+- **Download spreadsheet as PDF file** Завантажує певну електронну таблицю у форматі PDF
+- **Find sheet row** При наданні адреси стовпця та значення, повертає номер рядка, де знаходиться вказане значення
+- **Get column** Отримує значення стовпця
+- **Get range** Отримує певний діапазон
+- **Get sheet cell** Отримує клітинку за адресою
+- **Get sheet row** Отримує рядок аркуша за адресою
+- **Get sheet used range** Отримує використовуваний діапазон
+- **Update sheet cell** Оновлює клітинку за адресою
+- **Update sheet row** Оновлює рядок за початковою адресою
+- **Update sheet column** Оновлює стовпець за початковою адресою
+
+### Glossary Actions
+
+- **Import glossary** Імпортує глосарій як аркуш
+- **Export glossary** Експортує глосарій з аркуша
+
+Щоб використовувати дію **Export glossary**, переконайтеся, що електронна таблиця Google відповідає структурі, отриманій в результаті дії **Import glossary**. Дотримуйтеся цих рекомендацій:
+
+- **Структура аркуша**:
+    - Перший рядок слугує назвами стовпців, що представляють властивості сутності глосарію: _ID_, _Definition_, _Subject field_, _Notes_, _Term (language code)_, _Variations (language code)_, _Notes (language code)_.
+    - Включіть стовпці для кожної мови, присутньої в глосарії. Наприклад, якщо глосарій включає англійську та іспанську мови, назви стовпців будуть такими: _ID_, _Definition_, _Subject field_, _Notes_, _Term (en)_, _Variations (en)_, _Notes (en)_, _Term (es)_, _Variations (es)_, _Notes (es)_.
+- **Необов'язкові поля**:
+    - _Definition_, _Subject field_, _Notes_, _Variations (language code)_, _Notes (language code)_ є необов'язковими і можуть бути порожніми.
+- **Основний термін та синоніми**:
+    - _Term (language code)_ представляє основний термін вказаною мовою для глосарію.
+    - _Variations (language code)_ містить синонімічні значення для терміну.
+- **Обробка приміток**:
+    - Примітки в стовпці _Notes_ мають бути розділені ';', якщо є кілька приміток для одного запису.
+- **Обробка варіацій**:
+    - Варіації в стовпці _Variations (language code)_ мають бути розділені ';', якщо є кілька варіацій для одного терміну.
+- **Формат приміток термінів**:
+    - Кожна примітка в стовпці _Notes (language code)_ повинна дотримуватися такої структури: **Term or variation: note**.
+    - Примітки для термінів повинні бути розділені ';;'. Наприклад, 'money: may refer to physical or banked currency;; cash: refers to physical currency.'
+
+## Зворотний зв'язок
+
+Ви хочете використовувати цей додаток або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами, використовуючи [встановлені канали](https://www.blackbird.io/) або створіть проблему.

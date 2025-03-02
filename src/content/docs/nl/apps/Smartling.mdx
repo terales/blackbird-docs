@@ -1,0 +1,129 @@
+---
+  title: Smartling
+  description: De Smartling Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Smartling" icon="github" />
+
+Smartling is een cloudgebaseerd vertaal- en lokalisatieplatform dat bedrijven in staat stelt om efficiënt vertalingen van content in verschillende talen te beheren en automatiseren. Met geavanceerde functies en intuïtieve tools zorgt Smartling voor consistente en effectieve wereldwijde communicatiestrategieën voor ondernemingen van elke omvang.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een Smartling-account hebt met [Account Owner](https://help.smartling.com/hc/en-us/articles/360056193134#h_01F5GM4FJ4Y57MYKZM0YDSM06Q) of [Project Manager](https://help.smartling.com/hc/en-us/articles/360056193134#h_01F5GM4MXQS34S0J9R10A5CNJP) rechten.
+- Je een project hebt aangemaakt (als je Account Owner-rechten hebt) of dat het project voor je is aangemaakt (als je Project Manager-rechten hebt).
+- Je API-inloggegevens voor het project hebt verkregen. Volg [de stappen om API v2-tokens te genereren](https://help.smartling.com/hc/en-us/articles/115004187694-API-Tokens-). Noteer vervolgens de waarden van **Project ID**, **User Identifier** en **User Secret**, aangezien deze zullen worden gebruikt om een verbinding met Smartling via Blackbird te maken.
+
+## Verbinding maken
+
+1. Navigeer naar apps en zoek naar Smartling. Als je Smartling niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Smartling en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn lokalisatieproject'.
+4. Vul de **Project ID**, **User identifier** en **User secret** in van je Smartling-instantie waarmee je verbinding wilt maken.
+5. Klik op _Connect_.
+
+![Verbinding maken](https://raw.githubusercontent.com/bb-io/Smartling/main/image/README/connecting.png)
+
+## Actions
+
+### Jobs
+
+- **Get job** haalt de details van een job op, zoals jobnaam, beschrijving, deadline en referentienummer.
+- **Search jobs** geeft een lijst van jobs die overeenkomen met de opgegeven filteropties. Als er geen parameters zijn opgegeven, worden alle jobs geretourneerd.
+- **Create job** maakt een nieuwe job aan. Laat de parameters _Callback URL_ en _Callback method_ leeg als je van plan bent om de events **On job completed** en/of **On job cancelled** te gebruiken.
+- **Add locale to job** voegt een taal toe aan een job. Stel de parameter _Sync content_ in op _false_ om alleen een taalplaatshouder aan de job toe te voegen zonder alle content van de job voor de nieuwe taal toe te voegen.
+- **Authorize job** autoriseert alle content binnen een job. Een job kan alleen worden geautoriseerd wanneer deze content bevat en zich in de status _Awaiting Authorization (AWAITING_AUTHORIZATION)_ bevindt. Je kunt doeltalen en workflow voor autorisatie specificeren. Ofwel moeten zowel de doeltalen als de workflow worden gespecificeerd, ofwel geen van beide. Als ze niet worden gespecificeerd, zal Smartling de job autoriseren voor de standaardworkflows voor het gegeven project.
+- **Close job** sluit een voltooide job. Om een job te kunnen sluiten, moet deze in een voltooide status zijn. Alle content van de job wordt verwijderd wanneer deze wordt gesloten. Het sluiten van een job garandeert dat er geen extra werk aan de job zal worden gedaan.
+- **Cancel job** annuleert een job. Alle content binnen de job zal worden verwijderd en de content zal worden gedeautoriseerd.
+- **Update job** werkt de attributen van de job bij, zoals jobnaam, beschrijving, deadline en referentienummer. Specificeer alleen attributen die moeten worden bijgewerkt. Een job kan alleen worden bewerkt in de statussen _Draft (DRAFT)_, _Awaiting Authorization (AWAITING_AUTHORIZATION)_, _In Progress (IN_PROGRESS)_, _Completed (COMPLETED)_. Laat de parameters _Callback URL_ en _Callback method_ leeg als je van plan bent om de events **On job completed** en/of **On job cancelled** te gebruiken.
+- **Delete job** verwijdert een job. Alleen een job in de status _Cancelled (CANCELLED)_ kan worden verwijderd.
+- **Get job word count** haalt het aantal woorden voor een job op. Het aantal woorden wordt berekend op basis van de content in de job.
+
+### Job files
+
+- **Upload source file to job** voegt alle niet-gepubliceerde strings van een bestand toe aan een job. Het bestand wordt toegevoegd voor alle talen van de job als de parameter _Target locales_ niet is opgegeven.
+- **List source files within job** geeft een lijst van alle bronbestanden binnen een job.
+- **Download source file**.
+- **Download translated file** downloadt vertaald bestand voor één taal.
+- **Download file translations** downloadt alle vertalingen voor het gevraagde bestand als afzonderlijke bestanden.
+- **Download file translations in ZIP archive**.
+- **Import translation** importeert een vertaald bestand. Deze actie ondersteunt een beperkt aantal bestandstypen. Je kunt informatie over ondersteunde bestandstypen en bestandsvoorbereiding [hier](https://help.smartling.com/hc/en-us/articles/360008031794-Importing-Translated-Files) vinden.
+
+### Job attachments
+
+- **List files attached to job**.
+- **Upload attachment to job**.
+- **Download file attached to job**.
+
+### Strings
+
+- **Add string to project** uploadt een string naar een project. Er zijn optionele parameters _Placeholder format_ en _Custom placeholder format (Java Regular Expression)_ die worden gebruikt om een standaard of aangepast placeholder formaat te specificeren. Placeholders zijn woorden in een string die niet moeten worden vertaald. Ze vertegenwoordigen dynamische variabele content. Je kunt meer lezen over placeholders [hier](https://help.smartling.com/hc/en-us/articles/360008143433). De optionele parameter _Namespace_ wordt gebruikt om de unieke hashcode voor een gegeven string te genereren. Als je twee versies van een string wilt hebben met dezelfde tekst en variantmetadata, kun je ze uniek houden door aan elke string een andere namespace toe te wijzen. De optionele parameter _Maximum character length_ kan worden gebruikt om de aanbevolen maximale tekenlengte voor deze string en zijn vertalingen in te stellen. Laat de parameters _Callback URL_ en _Callback method_ leeg als je van plan bent om het event **On string translation published** te gebruiken.
+- **Add string to job** voegt een string toe aan een job. Om een string aan een job te kunnen toevoegen, moet deze eerst aan het project worden toegevoegd via de actie **Add string to project**. Een string voor een taal kan slechts in één job zijn. Als de string die in het verzoek is geïdentificeerd al in een job voor een taal zit, wordt deze niet toegevoegd. Als je echter _Move enabled_ instelt op _True_, wordt de string verplaatst naar de opgegeven job.
+- **Remove string from job**.
+- **List all source strings for file**.
+- **Get source string by hashcode** haalt een enkele bronstring op met een opgegeven hashcode, wat de unieke identifier voor de string is.
+- **List strings in file**.
+- **List translations for strings in file**.
+- **List translations for string by hashcode**.
+
+**Opmerking**: Een string die is toegevoegd met de actie **Add string to project** kan worden geautoriseerd door een content-eigenaar in het Smartling Dashboard. Een andere manier om de string te autoriseren is door hem toe te voegen aan een job met de actie **Add string to job** en vervolgens de job te autoriseren met de actie **Authorize job**.
+
+### Issues
+
+- **Get issue** haalt gedetailleerde informatie op over een enkel probleem.
+- **Search issues** geeft een lijst van problemen die overeenkomen met de opgegeven filteropties. Als er geen parameters zijn opgegeven, worden alle problemen geretourneerd.
+- **Create issue** maakt een nieuw probleem aan voor een string. De maximale lengte van _Issue text_ is 4000 tekens. Parameter _Target language_ is vereist voor problemen van het type _Translation_. 
+- **Edit issue**. Specificeer alleen velden die moeten worden bijgewerkt. De maximale lengte van _Issue text_ is 4000 tekens. Parameter _Target language_ is vereist bij het bijwerken van een probleem naar het type _Translation_. Parameter _Issue subtype_ is vereist bij het bijwerken van _Issue type_.
+- **Open issue** stelt de status van een probleem in op _Opened_.
+- **Close issue** stelt de status van een probleem in op _Resolved_.
+
+### Glossaries
+
+- **Get glossary** haalt gedetailleerde informatie op over een enkele woordenlijst.
+- **Create glossary**.
+- **Update glossary** werkt een bestaande woordenlijst bij. Specificeer alleen velden die moeten worden bijgewerkt. Het specificeren van de parameter _Locales_ overschrijft de bestaande talen. Om eenvoudig meer talen aan de bestaande lijst toe te voegen, gebruik je de actie **Add locales to glossary**.
+- **Add locales to glossary**.
+- **Add fallback locale to glossary**. Je kunt over fallback-talen [hier](https://help.smartling.com/hc/en-us/articles/4408673919643) lezen.
+- **Import glossary** stelt je in staat om een woordenlijst te importeren, een nieuwe te maken of gegevens in een bestaande woordenlijst te importeren. Als je gegevens in een bestaande woordenlijst wilt importeren, moet je een optionele parameter _Glossary ID_ instellen. Deze actie overschrijft geen bestaande gegevens; in plaats daarvan voegt het nieuwe items toe aan de bestaande woordenlijst. Je kunt optioneel de parameter _Archive existing entries_ instellen op _True_ om items te archiveren die niet in het importbestand staan.
+- **Export glossary** stelt je in staat om een bestaande woordenlijst te exporteren. Je kunt optionele parameters toepassen om de items te filteren die in de export worden opgenomen.
+- **Get glossary entry**.
+- **Search glossary entries** geeft een lijst van woordenlijstitems die overeenkomen met de opgegeven filteropties. Als er geen parameters zijn opgegeven, worden alle woordenlijstitems geretourneerd.
+- **Create glossary entry** maakt een woordenlijstitem aan samen met de definitie en de oorspronkelijke term.
+- **Update glossary entry**. Specificeer alleen velden die moeten worden bijgewerkt.
+- **Add glossary entry translation** voegt een woordenlijstitemvertaling toe of werkt deze bij. Als er geen vertaling is voor de opgegeven _Locale_, wordt een nieuwe vertaling toegevoegd. Anders wordt de bestaande vertaling bijgewerkt, maar alleen met de opgegeven parameters; alle andere parameters blijven ongewijzigd.
+- **Remove glossary entry**.
+
+### Reports
+
+- **Get word count report**.
+- **Get word count report in CSV format**.
+
+### Contexts
+
+- **Search project context**.
+- **Add project context** uploadt contextbestand naar project en voert optioneel automatische contextmatching uit (wanneer de optionele inputparameter "Run automatic context matching" "true" is)
+- **Delete project context**.
+- **Download project context**.
+
+## Events
+
+- **On job completed** en **On job completed (manual)** worden geactiveerd wanneer een job is voltooid, wat aangeeft dat alle geautoriseerde content in een job, voor alle talen, de stap _Published_ van de workflow heeft bereikt.
+- **On job cancelled** en **On job cancelled (manual)** worden geactiveerd wanneer een job wordt geannuleerd.
+- **On string translation published** en **On string translation published (manual)** worden geactiveerd wanneer een stringvertaling wordt gepubliceerd voor een taal.
+
+## Ontbrekende functies
+
+- Issue comments
+- Issue webhooks
+- Tags
+- Translation quality checks
+- File Machine Translations
+- Custom fields
+
+Laat het ons weten als je hierin geïnteresseerd bent!
+
+## Feedback
+
+Feedback op onze implementatie van Smartling is altijd zeer welkom. Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

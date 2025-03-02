@@ -1,0 +1,54 @@
+---
+  title: Lexeri
+  description: A Lexeri Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Github-on" target="_blank" href="https://github.com/bb-io/Lexeri" icon="github" />
+
+A Lexeri egy felhőalapú terminológiakezelő rendszer. A Lexeri célja, hogy a terminológiát a vállalat minden osztályára kiterjessze, és ezt a használhatóságra és integrációra összpontosítva próbálja elérni. A Lexeri együttműködésen alapuló terminológiai munkafolyamatokat és ellenőrzéseket kínál dokumentumokhoz és szövegekhez különböző rendszerekben. További információk a [www.lexeri.com](https://www.lexeri.com) oldalon.
+
+## Csatlakozás
+
+1. Navigálj az alkalmazásokhoz és keress rá a Lexeri-re. Ha nem találod a Lexeri-t, kattints a jobb felső sarokban található 'Alkalmazás hozzáadása' gombra, válaszd ki a Lexeri-t és add hozzá az alkalmazást a Blackbird környezetedhez.
+2. Kattints az 'Add Connection' gombra.
+3. Nevezd el a kapcsolatot a későbbi hivatkozáshoz, pl. 'Lexeri kapcsolat'.
+4. Adj hozzá egy API tokent (ezt a Lexeri terminológiai adatbázis beállításaiban hozhatod létre, az 'API' fülön)
+5. Kattints a 'Connect' gombra
+
+![LexeriConnection](https://raw.githubusercontent.com/bb-io/Lexeri/main/image/README/connection.png)
+
+## Actions
+
+### Term checks
+
+- **Check text** Szöveg ellenőrzése egyező és tiltott kifejezések szempontjából
+
+## Terms and termbases
+
+- **Search terms** Kifejezések keresése kifejezésérték alapján
+- **Export termbase** A terminológiai adatbázis preferált és elfogadott kifejezéseinek exportálása tbx fájlként
+- **Get termbase info** A terminológiai adatbázis részleteinek lekérése
+
+### Terminology management
+
+- **Create term request** Kifejezéskérés létrehozása, amely kifejezéseket javasolhat a terminológiai adatbázishoz való hozzáadásra.
+- **Extract terms from document** Új kifejezéskinyerés létrehozása dokumentumból. A kifejezéskinyerés a feladattáblán lesz elérhető.
+- **Import terms** Importálás tbx, csv vagy xlsx fájlból. Az importálás a feladattáblán lesz elérhető további szerkesztéshez.
+
+## Events
+
+### Terminology management
+
+- **On term request created** - Akkor aktiválódik, amikor kifejezéskérés jött létre 
+- **On term request finished** - Akkor aktiválódik, amikor egy kifejezéskérés feldolgozása befejeződött, és a vázlatai közzétételre kerültek a terminológiai adatbázisban
+- **On import finished** - Akkor aktiválódik, amikor egy importálás feldolgozása befejeződött, és a vázlatai közzétételre kerültek a terminológiai adatbázisban
+- **On term extraction finished** - Akkor aktiválódik, amikor egy kifejezéskinyerés feldolgozása befejeződött, és a kifejezésjelöltjei közzétételre kerültek a terminológiai adatbázisban
+- **On task finished** - Akkor aktiválódik, amikor egy terminológiai feladat feldolgozása befejeződött, és a vázlatai közzétételre kerültek a terminológiai adatbázisban
+
+### Terms
+- **On term created** - Akkor aktiválódik, amikor egy kifejezés létrejött vagy frissült
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy visszajelzésed van a megvalósításunkkal kapcsolatban? Lépj kapcsolatba velünk a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozz létre egy problémát.

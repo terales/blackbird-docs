@@ -1,0 +1,234 @@
+---
+  title: Phrase
+  description: A Phrase Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Phrase-TMS" icon="github" />
+
+A Phrase (korábban Memsource) egy szoftver mint szolgáltatás platform, amelyet arra terveztek, hogy automatizálja és optimalizálja a digitális termékek, például web- vagy mobilalkalmazások, weboldalak, marketingtartalmak stb. fordítását és lokalizálását a nemzetközi piacok számára.
+
+## Beállítás előtt
+
+A csatlakozás előtt győződjön meg arról, hogy:
+
+- Van Phrase fiókja azon a példányon, amelyhez csatlakozni szeretne.
+- Jogosultsága van regisztrált OAuth alkalmazások létrehozásához és módosításához.
+- A Phrase-ben lépjen a Beállítások > Regisztrált OAuth alkalmazások menüpontra, és kattintson a _New_ gombra.
+- Töltsön ki bármilyen nevet és leírást. Az átirányítási URI-hoz adja meg: `https://bridge.blackbird.io/api/AuthorizationCode`, majd kattintson a _Save_ gombra.
+- Másolja ki az újonnan létrehozott OAuth alkalmazás _Client ID_ azonosítóját.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Phrase-re. Ha nem találja a Phrase-t, kattintson a jobb felső sarokban található _Add App_ gombra, válassza a Phrase-t, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, pl. 'Az én Phrase kapcsolatom'.
+4. Töltse ki a Phrase-ből kimásolt _Client ID_ mezőt.
+5. Válassza ki az alap URL-t a Phrase példányhoz, amelyhez csatlakozni szeretne, a Phrase adatközpontjának helye alapján (ugyanazt, amelyet a Phrase-be való bejelentkezéshez használ).
+6. Kattintson az _Authorize connection_ gombra.
+7. Kövesse a Phrase utasításait, és engedélyezze a Blackbird.io számára, hogy az Ön nevében eljárjon.
+8. Amikor visszatér a Blackbird-hez, győződjön meg arról, hogy a kapcsolat megjelent, és a státusza _Connected_.
+
+![1695994786183](https://raw.githubusercontent.com/bb-io/Phrase-TMS/main/image/README/1695994786183.png)
+
+## Actions
+
+### Analysis
+
+- **List analyses**
+- **Get analysis**
+- **Create analysis**
+- **Download analysis file**
+
+### Clients
+
+- **List clients**
+- **Get client**
+- **Add client**
+- **Update client**
+- **Delete client**
+
+### Connector
+
+- **List connector**
+- **Get connector**
+
+### Custom fields
+
+- **Get date custom field value**
+- **Get numeric custom field value**
+- **Get single select custom field value**
+- **Get multi select custom field value**
+- **Get text custom field value**
+- **Set date custom field value**
+- **Set numeric custom field value**
+- **Set single select custom field value**
+- **Set text custom field value**
+
+> Ha egy egyéni mező nem található a projektben, az a `Set` művelet részeként hozzáadásra kerül.
+
+### File
+
+- **List all files**
+- **Get file**
+- **Upload file**
+
+### Glossary
+
+- **Create new glossary**
+- **Export glossary**
+- **Import glossary**
+
+### Job
+
+- **Search jobs**
+- **Get job**
+- **Create job**
+- **Delete job**
+- **Get segments**
+- **Edit job**
+- **Download target file**
+- **Download bilingual file**
+- **Upload bilingual file**
+- **Pre-translate job**
+- **Update job source**
+
+### Pricelist
+
+- **List price lists**
+
+### Project
+
+- **List projects**
+- **List project templates**
+- **Find project**
+- **Get project**
+- **Create project**
+  - **Propagate Translations: Propagate translations to lower workflows during update source**
+- **Create project from template**
+- **Add target language**
+- **Edit project**
+- **Delete project**
+- **Download project original files** 
+- **Download project target files**
+- **Assign providers from template**
+
+### Project reference file
+
+- **List reference files**
+- **Create reference files**
+- **Download reference file**
+- **Delete reference file**
+
+### Quality assurance
+
+- **Add ignored warning**
+- **List LQA profiles**
+- **Delete LQA profile**
+- **Run auto LQA**
+- **Download LQA assessment**
+- **Get LQA assessment**
+
+### Quote
+
+- **Get quote**
+- **Create quote**
+- **Delete quote**
+
+### Translation
+
+- **List translation settings**
+- **Translate with MT**
+- **Translate with MT by project**
+- **Delete all translations**
+
+### Translation memory
+
+- **List translation memories**
+- **Create translation memory**
+- **Get translation memory**
+- **Import TMX file**
+- **Export translation memory**
+- **Insert segment into memory**
+- **Delete translation memory**
+
+### User
+
+- **List users**
+- **Get user**
+- **Find user**
+- **Add user**
+- **Update user**
+- **Delete user**
+
+### Vendor
+
+- **Add vendor**
+- **List vendors**
+- **Get vendor**
+
+## Events
+
+### Project
+
+- **On project created**
+- **On project deleted**
+- **On project due date changed**
+- **On project metadata updated**
+- **On shared project assigned**
+- **On project status changed**
+- **Find project termbase** a projekthez kapcsolódó terminológiai adatbázis lekérdezése opcionális szűrők alapján
+
+### Job
+
+- **On job created**
+- **On job deleted**
+- **On continuous job updated**
+- **On job assigned**
+- **On job due date changed**
+- **On job exported**
+- **On job source updated**
+- **On job status changed** Ha ellenőrzőpontokat használ, kérjük, töltse ki az összes opcionális mezőt (beleértve a Projekt azonosítót is). Projekt azonosító megadása nélkül is működik, de annak használata lehetővé teszi számunkra annak ellenőrzését, hogy a munkafeladat már rendelkezik-e a megadott állapottal. A "Completed by linguist" állapot akkor is kiváltja az eseményt, ha az opcionális "Completed" állapot be van állítva.
+- **On job target updated**
+- **On job unexported**
+- **On all jobs in workflow step reached status** Akkor aktiválódik, amikor egy adott munkafolyamat lépésben minden feladat elér egy meghatározott állapotot. Csak a megadott munkafolyamat lépésben lévő feladatokat adja vissza
+
+### Template
+
+- **On template created**
+- **On template deleted**
+- **On template updated**
+
+### Analysis
+
+- **On analysis created**
+
+### Quality assurance
+
+- **On LQA reports created** (Lekérdezéses esemény)
+
+## Példa
+
+![1695995715372](https://raw.githubusercontent.com/bb-io/Phrase-TMS/main/image/README/1695995715372.png)
+
+Ez a példa a számos felhasználási eset egyikét mutatja be. Itt, amikor egy cikket közzétesznek, lekérjük a hiányzó fordításokat és a cikket HTML fájlként. Ezután létrehozunk egy új Phrase projektet a hiányzó nyelvekkel mint célnyelvekkel, és feltöltjük a cikket feladatként. Amint a projekt állapota Befejezett lesz, letöltjük a lefordított HTML cikkeket, és visszaküldjük a fordításokat a CMS-be.
+
+## Elemzés más rendszerekkel
+
+Alkalmazásunk lehetővé teszi az elemzési fájl exportálását (a **Download analysis file** művelet segítségével), és annak felhasználását a munkafolyamatban, amikor szükséges. Megadhatja azt a formátumot is, amelyben le szeretné tölteni a fájlt (például JSON, CSV vagy napló), majd importálhatja a választott szolgáltatásba.
+
+Íme egy példa ennek a funkciónak a bemutatására a Phrase és az XTRF alkalmazások között:
+
+![phrase-xtrf-1](https://raw.githubusercontent.com/bb-io/Phrase-TMS/main/image/README/phrase-xtrf-1.png)
+
+![phrase-xtrf-2](https://raw.githubusercontent.com/bb-io/Phrase-TMS/main/image/README/phrase-xtrf-2.png)
+
+![phrase-xtrf-2](https://raw.githubusercontent.com/bb-io/Phrase-TMS/main/image/README/phrase-xtrf-3.png)
+
+## Hiányzó funkciók
+
+Nem minden API végpont van lefedve, tudassa velünk, ha hiányoznak funkciók vagy ha egyéb fejlesztéseket lát!
+
+## Visszajelzés
+
+A Phrase implementációnkkal kapcsolatos visszajelzések mindig nagyon szívesen fogadottak. Keresse meg csapatunkat a [bevált csatornákon](https://www.blackbird.io/) keresztül vagy hozzon létre egy problémajegyet.

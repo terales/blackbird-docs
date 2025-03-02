@@ -1,0 +1,145 @@
+---
+  title: Trados
+  description: De Trados Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/LanguageCloud" icon="github" />
+
+Trados is een vertaalmanagementsysteem (TMS) ontwikkeld door RWS, een wereldleider in taaldiensten en technologische oplossingen. Trados biedt een uitgebreide reeks tools en diensten voor het efficiënt beheren van vertaal- en lokalisatieprojecten. Het biedt mogelijkheden zoals projectmanagement, vertaalgeheugen, terminologiebeheer, kwaliteitscontrole en werkstroomautomatisering.
+
+## Voor het instellen
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je toegang hebt tot een Trados-instantie en beheerdersrechten hebt op deze instantie.
+- Je een servicegebruiker hebt aangemaakt voor je instantie. (Dit kan worden opgehaald uit de RWS Trados Enterprise webinterface, selecteer bovenin Gebruikers, selecteer in het tabblad eronder Servicegebruikers, klik rechtsboven op _New Service User_. Vul alle velden in en klik op Aanmaken.
+- Je de Trados client ID en client secret hebt (Deze kunnen worden opgehaald uit de RWS Trados Enterprise webinterface, selecteer rechtsboven je profiel en vervolgens Integraties > tabblad Applicaties. Maak een nieuwe applicatie aan als je er nog geen hebt, open deze vervolgens, ga naar _API access_ en kopieer de gevraagde waarden.
+- Je de Trados Tenant ID hebt. (Deze kan worden opgehaald uit de RWS Trados Enterprise webinterface, selecteer rechtsboven je profiel en vervolgens Accountbeheer > tabblad Accountinformatie, controleer de waarde voor Trados Account ID.)
+
+## Verbinding maken
+
+1. Navigeer naar Apps en zoek naar Trados.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijv. 'Mijn Trados-verbinding'.
+4. Vul de Client ID van je Trados-instantie auth app in.
+5. Vul de Client secret van je Trados-instantie auth app in.
+6. Vul de Tenant ID van je Trados-instantie in.
+7. Klik op _Connect_.
+
+![TradosNewConnection](https://raw.githubusercontent.com/bb-io/LanguageCloud/main/image/README/TradosNewConnection.png)
+
+## Actions
+
+### Customers 
+
+- **Get customer** Get customer by a customer ID
+- **Search customers** Search for customers, optionally by location
+
+### Files 
+
+- **Upload source file** Upload source file to project
+- **Attach source file to project** Attach source file to project
+- **Download target file** Download target file by id. File format can be specified as optional input.
+- **Get source file info** Get source file info
+- **Get target file info** Get target file info
+- **Search project source files** Search project source files
+- **Search project target files** Search target source files
+- **Upload zip archive** Upload zip archive with source files
+- **Update target file from SDLXLIFF** Creates a new version of a target file
+
+### Glossaries 
+
+- **Export glossary** Export glossary
+- **Import glossary** Import glossary
+
+### Groups 
+
+- **Get group** Get group by groupID
+- **Search groups** Search for groups, optionally by location
+
+### Projects 
+
+- **Get project** Get project by project ID
+- **Complete project** Complete project
+- **Create project** Create project
+- **Create project from template** Create project from template
+- **Edit project** Edit project
+- **Search projects** Search for projects given certain filters
+- **Start project** Start project by Id
+- **Delete project** Delete project
+
+### Reports 
+
+- **Download quote report** Download quote report for project
+
+### Tasks 
+
+- **Accept task** Accept task by Id
+- **Assign task** Assign task by Id
+- **Complete task** Complete task by Id
+- **Get task** Get task by Id
+- **Get project tasks** Retrieves all the tasks contained in a project
+- **Reclaim task** Reclaim task by Id
+- **Reject task** Reject task by Id
+- **Release task** Release task by Id
+
+### Translation Memories 
+
+- **Create translation memory** Create translation memory
+- **Get translation memory** Get translation memory
+- **Import TMX file** Import TMX file
+- **List translation memories** List translation memories
+
+## Events
+
+Om webhooks in te schakelen, moet je:
+- Een servicegebruiker hebben aangemaakt in je Trados-instantie
+- Een applicatie hebben aangemaakt op basis van de eerder genoemde servicegebruiker (dit kan worden gedaan door het accountmenu rechtsboven in de RWS Trados Enterprise webinterface uit te vouwen en Integraties > Applicaties te selecteren.)
+- De webhook URL van je Bird oppakken, eenmaal gepubliceerd in Blackbird, en deze gebruiken als Webhook URL in de Webhooks-sectie van je Trados-applicatie. Je moet ook kiezen welke actie(s) gebeurtenissen zullen triggeren naar het ingevoerde URL-eindpunt.
+Meer informatie over het instellen van je Trados-webhooks kan [hier](https://languagecloud.sdl.com/lc/api-docs/webhooks-setup) worden gevonden.
+
+![WebhookURLinBlackbird](https://raw.githubusercontent.com/bb-io/LanguageCloud/main/image/README/WebhookURL.png)
+
+![TradosWebhookURLsetup](https://raw.githubusercontent.com/bb-io/LanguageCloud/main/image/README/TradosWebhookURL.png)
+
+### File 
+
+- **On source file created**
+- **On source file deleted**
+- **On source file updated**
+- **On target file created**
+- **On target file deleted**
+- **On target file updated**
+
+### Group Project 
+
+- **On group project membership changed**
+
+### Project 
+
+- **On project created**
+- **On project deleted**
+- **On project updated**
+
+### Project Template 
+- **On project template deleted**
+- **On project template updated**
+- **On project template created**
+
+### Task 
+- **On task updated**
+- **On task accepted**
+- **On task completed**
+- **On task created**
+- **On task deleted**
+
+### Error Task 
+
+- **On error task created**
+- **On error task deleted**
+- **On error task updated**
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

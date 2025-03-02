@@ -1,0 +1,274 @@
+---
+  title: Plunet
+  description: De Plunet Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Plunet" icon="github" />
+
+
+Plunet is een softwareoplossing voor vertaalbedrijfsbeheer. De functies omvatten het maken van offertes, orders, het toewijzen van middelen aan taken en facturering. Deze Plunet-app stelt u in staat om veel van de arbeidsintensieve taken te automatiseren.
+
+## Voordat u begint
+
+Voordat u verbinding kunt maken, moet u ervoor zorgen dat:
+
+- U een Plunet-instantie heeft en voldoende beheerdersrechten heeft op deze instantie.
+- U een Plunet API-gebruiker heeft aangemaakt.
+
+## Verbinding maken
+
+1. Navigeer naar Apps en zoek de **Plunet**-app. U kunt de zoekfunctie gebruiken om deze te vinden.
+2. Klik op _Add Connection_.
+3. Geef uw verbinding een naam voor toekomstige referentie, bijv. 'Mijn Plunet-verbinding'.
+4. Vul de URL in naar de Plunet-instantie waarmee u verbinding wilt maken. U kunt meestal dit deel van de URL kopiëren wanneer u bent ingelogd op uw Plunet-instantie.
+5. Vul de gebruikersnaam van uw Plunet API-gebruiker in.
+6. Vul het wachtwoord van uw Plunet API-gebruiker in.
+7. Klik op _Connect_.
+
+![1701864930160](https://raw.githubusercontent.com/bb-io/Plunet/main/image/README/1701864930160.png)
+
+### Probleemoplossing
+
+Als u geen verbinding kunt maken, controleer dan het volgende:
+1. De URL moet eruitzien als `https://plunet-friend.plunet.com`. Zonder /PlunetAPI aan het einde.
+2. U moet ervoor zorgen dat uw URL toegankelijk is vanaf onze servers. Om dit te controleren, kunt u proberen de URL te openen met '/PlunetAPI?wsdl' aan het einde in uw browser (u zou een XML-document moeten zien dat de API beschrijft).
+3. Zorg ervoor dat u geen firewall-regels heeft die de verbinding blokkeren of een whitelist van IP-adressen die verbinding mogen maken met uw Plunet-instantie (of als dat wel zo is, zorg ervoor dat u de Blackbird IP-adressen op de whitelist zet).
+
+## Actions
+
+### Contacts
+
+- **Get customer contacts** Toont alle contacten die gerelateerd zijn aan een klant
+- **Get contact** geeft de contactgegevens terug
+- **Get contact by external ID** vindt het contact op basis van het externe ID-veld
+- **Create contact** maakt een nieuw klantcontact aan
+- **Update contact** werkt een bestaand klantcontact bij
+
+### Customers
+
+- **Search customers** geeft een lijst van klanten terug op basis van talrijke optionele zoekparameters, waaronder:
+  - Customer type
+  - Email
+  - Source language
+  - Name 1 & Name 2
+  - Status
+- **Get customer**
+- **Delete customer**
+- **Create customer**
+- **Update customer**
+
+### Documents
+
+- **Upload file** uploadt een bestand naar een specifieke map van elke entiteit waaraan bestanden kunnen worden toegevoegd
+- **Download file** kan een bestand downloaden van elke entiteit waaraan bestanden kunnen worden toegevoegd
+- **Download all files in folder**
+- **Calculate word count** berekent het aantal woorden van documenten. Alleen tekstbestanden zoals .txt, .html, .xliff, .docx en .pdf worden ondersteund.
+
+### Items
+
+- **Search items** geeft een lijst van items terug op basis van de volgende criteria, optioneel kan de geretourneerde valuta ook worden ingesteld:
+  - Order or quote iD
+  - Item status
+  - Document status
+- **Get item**
+- **Create item**
+- **Delete item**
+- **Update item**
+- **Get item pricelines** geeft alle prijslijnen terug die aan dit item zijn gekoppeld
+- **Create item priceline** Maakt een nieuwe prijslijn voor dit item
+- **Delete item priceline** Verwijdert een prijslijn van een item
+- **Update item priceline** Werkt een prijslijn van een item bij
+
+Merk op dat bij het aanmaken/bijwerken van items, de bron- en doeltalen kunnen worden ingesteld (ze moeten beide worden opgegeven of geen van beide). Blackbird zal de juiste bestaande taalcombinatie aan het item toewijzen of, als de taalcombinatie niet bestaat, wordt de taalcombinatie eerst op de order of offerte aangemaakt.
+
+### Jobs
+
+- **Get item jobs** geeft een lijst van taken terug die aan een bepaald item zijn gekoppeld
+- **Get job**
+- **Create job**
+- **Delete job**
+- **Update job**
+- **Get job pricelines**
+- **Create job priceline**
+- **Delete job priceline**
+- **Update job priceline**
+
+### Orders
+
+- **Search orders** geeft een lijst van orders terug op basis van talrijke optionele zoekparameters, waaronder:
+  - Date from
+  - Date to
+  - Source language
+  - Target language
+  - Status
+  - Customer ID
+  - Name
+  - Description
+  - Type
+- **Get order**
+- **Create order**
+- **Delete order**
+- **Update order**
+- **Add language combination to order**
+
+![1701867033221](https://raw.githubusercontent.com/bb-io/Plunet/main/image/README/1701867033221.png)
+
+Een voorbeeld van de granulariteit waarmee orders (en andere entiteiten) kunnen worden geselecteerd.
+
+### Payables
+
+- **Search payables** geeft een lijst van crediteuren terug op basis van talrijke optionele zoekparameters, waaronder:
+- **Get payable**
+- **Export payable** exporteert een crediteur naar een JSON-formaat dat in andere apps kan worden gebruikt.
+- **Update payable**
+
+### Quotes
+
+- **Search quotes** geeft een lijst van offertes terug op basis van talrijke optionele zoekparameters, waaronder:
+  - Date from
+  - Date to
+  - Date refers to (invoice date, value date, due date, paid date)
+  - Exported
+  - Status
+  - Currency
+  - Resource ID
+- **Get quote**
+- **Get quote item target languages for source**
+- **Create quote**
+- **Delete quote**
+- **Update order**
+- **Add quote combination to quote**
+
+### Requests
+
+- **Search requests** geeft een lijst van aanvragen terug op basis van talrijke optionele zoekparameters, waaronder:
+  - Date from
+  - Date to
+  - Source language
+  - Target language
+  - Status
+  - Customer type
+  - Customer ID
+- **Get request**
+- **Create request**
+- **Delete request**
+- **Update request**
+- **Add language combination to request**
+- **Create quote from request**
+- **Create order from request**
+
+### Resources
+
+- **Search resources** geeft een lijst van resources terug op basis van talrijke optionele zoekparameters, waaronder:
+  - Contact ID
+  - Resource type
+  - Email
+  - Name 1 & Name 2
+  - Status
+  - Source language
+  - Target language
+  - Working status
+- **Get resource** Haal details op van een specifieke resource
+- **Find resource** Vind een specifieke resource op basis van specifieke criteria
+- **Find resource by text module** Zoek resources op tekstmodule
+- **Update resource** Werk een specifieke resource bij met nieuwe details
+- **Assign resource to job** wijst een resource toe aan een taak
+- **Create resource** maak een nieuwe lege resource-dataset aan
+
+### Custom properties
+
+- **Set property**
+- **Get property**
+- **Set text module value** stelt de waarde van een tekstmodule in als deze een enkele waarde vertegenwoordigt
+- **Get text module value** haalt de waarde van een tekstmodule op; als de tekstmodule meerdere waarden vertegenwoordigt, wordt de eerste geretourneerd.
+- **Get multiple text module values** geeft een lijst van waarden terug. Werkt als de tekstmodule meerdere waarden vertegenwoordigt.
+- **Set multiple text module values** stelt de lijst met waarden van de tekstmodule in als deze meerdere waarden vertegenwoordigt.
+
+Merk op dat bij tekstmodules u de Plunet _Flag_ moet specificeren, die kan worden gevonden door naar Admin > Document templates > Text modules te gaan. Flags worden meestal gemaakt tussen [vierkante haken].
+
+## Zoekbeperkingen
+
+De zoekacties hebben een limiet van 50 resultaten. Als u meer resultaten nodig heeft, kunt u de optionele parameter `Limit` gebruiken om de limiet te verhogen.
+
+We stellen deze limiet in om problemen te voorkomen die kunnen ontstaan bij het gelijktijdig uitvoeren van meerdere parallelle acties. Wanneer verschillende zoekacties tegelijkertijd worden uitgevoerd, zet dit een aanzienlijke belasting op de Plunet API. Dit kan timeouts en fouten veroorzaken, vooral bij het verwerken van een groot aantal resultaten. Door het aantal resultaten dat in elke zoekactie wordt geretourneerd te beperken, helpen we een stabielere en betrouwbaardere prestatie van de Plunet API te garanderen.
+
+## Events
+
+Alle webhooks retourneren alle gegevens voor de entiteit waarop ze werden aangeroepen. Alle _status changed_ events hebben een optioneel invoerveld _new status_ dat kan worden gebruikt om de nieuwe status na het event te onderscheiden.
+
+### Customers
+
+- **On customer deleted**
+- **On customer created**
+- **On customer status changed**
+
+### Items
+
+- **On item deleted**
+- **On item created**
+- **On item status changed**
+- **On item delivery date changed**
+
+### Jobs
+
+- **On job deleted**
+- **On job created**
+- **On job status changed**
+- **On job delivery date changed**
+- **On job start date changed**
+
+### Orders
+
+- **On order deleted**
+- **On order created**
+- **On order status changed**
+
+### Quotes
+
+- **On quote deleted**
+- **On quote created**
+- **On quote status changed**
+
+### Requests
+
+- **On request deleted**
+- **On request created**
+- **On request status changed**
+
+### Resources
+
+- **On resource deleted**
+- **On resource created**
+- **On resource status changed**
+
+### Payables
+
+- **On payable created**
+
+## Voorbeeld
+
+![1701866832560](https://raw.githubusercontent.com/bb-io/Plunet/main/image/README/1701866832560.png)
+
+Het volgende voorbeeld laat zien hoe een bird kan worden ingesteld die een nieuwe Wise batch-overschrijving aanmaakt voor alle crediteuren die zijn ingesteld op klaar voor betaling en waar de resources zich op het Wise-platform bevinden. Een bijbehorende bird zou de status van de crediteur bijwerken wanneer de betaling succesvol is gedaan in Wise.
+
+## Belangrijkste gebruikssituaties
+
+1. **Synchroniseer Plunet en CRM-gegevens** - Blackbird ondersteunt CRM-platforms zoals HubSpot, Notion, Salesforce en Pipedrive.
+2. **Maak Plunet-orders van binnenkomende TMS-taken met bucketing-batching** - We ondersteunen systemen zoals Bureau Works, Lokalise, Crowdin, Phrase, Smartling, XTM en nog veel meer.
+3. **Integreer CAT-tools met Plunet (bidirectionele integratie)**.
+4. **Betaal leveranciers met Wise** - Plunet-Wise betalingsintegratie.
+5. **Integreer met QuickBooks Online**.
+6. **Integreer met Outlook, Gmail, Teams en Slack** voor betere communicatie.
+7. **Synchroniseer gegevens met BI-tools**.
+8. **Plunet - Remote.com integratie** - Synchroniseer belangrijke gegevens tussen Plunet en Remote.
+
+Wilt u meer weten? [Boek een demo](https://www.blackbird.io/)
+
+## Ontbrekende functies
+
+Mist u een bepaalde functie? Laat het ons weten!
+
+## Feedback
+
+Wilt u deze app gebruiken of heeft u feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

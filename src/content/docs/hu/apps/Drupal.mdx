@@ -1,0 +1,71 @@
+---
+  title: Drupal
+  description: A Drupal Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/Drupal" icon="github" />
+
+A **Drupal** egy ingyenes, nyílt forráskódú tartalomkezelő rendszer (CMS), nagy és támogató közösséggel. Világszerte milliók használják weboldalak építésére és karbantartására.
+
+## [**TMGMT Blackbird**](https://git.drupalcode.org/project/tmgmt_blackbird) modul konfigurációja
+
+A **TMGMT Blackbird** modul integrációt biztosít a Blackbird platformmal. Lehetővé teszi fordítási munkák küldését és fogadását a Blackbird platformra és platformról. További információkat találhat a bővítményről a [Drupal TMGMT Blackbird bővítmény oldalán](https://git.drupalcode.org/project/tmgmt_blackbird).
+
+### Követelmények
+
+A modul a [Translation Management (TMGMT) modulra](https://www.drupal.org/project/tmgmt) épül.
+
+### Telepítés
+
+A modult ugyanúgy telepítse, mint bármely más külső Drupal modult. További információkért látogasson el a [Külső modulok telepítése](https://www.drupal.org/docs/8/extending-drupal-8/installing-contributed-modules) oldalra.
+
+### Konfiguráció
+
+Navigáljon a `/admin/tmgmt/translators` oldalra és konfigurálja a `Blackbird` bővítményt. A konfigurációs űrlapon a következő információkat kell megadnia:
+
+- API kulcs: A Blackbird által használt API kulcs a fordítási munkák feldolgozásához. Az API kulcsot át kell másolni a Blackbird platform beállításaiba az integráció befejezéséhez.
+- Annak elkerülése érdekében, hogy manuálisan kelljen elfogadni minden fordítást, engedélyezheti az `Elkészült fordítások automatikus elfogadása` beállítást. Ez automatikusan elfogad minden fordítást, amikor azok elkészülnek.
+
+### Fordítási munkák
+
+Új fordítási munka létrehozásakor kiválaszthatja a `Blackbird` fordítót a munka feldolgozásához. A Blackbird ezután automatikusan feldolgozza a munkát és visszaküldi a fordításokat, amikor elkészülnek. A modul a következő végpontokat biztosítja, amelyeken keresztül a `Blackbird` interakcióba léphet a fordítási munkákkal:
+
+## Beállítás előtt
+
+A kapcsolat létrehozása előtt győződjön meg arról, hogy:
+
+- Rendelkezik Drupal példánnyal
+- Rendelkezik Drupal API kulccsal.
+
+## Kapcsolódás
+
+1. Navigáljon az Alkalmazásokhoz, és keresse meg a **Drupal** alkalmazást. Használhatja a keresőt is a megtalálásához.
+2. Kattintson a _Kapcsolat hozzáadása_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, pl. 'Saját Drupal kapcsolat'.
+4. Töltse ki az `Alap URL` mezőt. Például: `https://your-drupal-site.com`.
+5. Adja meg a Drupaltól kapott `API kulcsot`.
+6. Kattintson a **Kapcsolódás** gombra.
+7. Győződjön meg arról, hogy a kapcsolat sikeresen létrejött.
+
+![kapcsolat](https://raw.githubusercontent.com/bb-io/Drupal/main/./image/README/connecting.png)
+
+## Actions
+
+- **Search jobs** - Munkák keresése megadott keresési paraméterek alapján.
+- **Get job as HTML** - HTML fájl lekérése a megadott munka azonosítójú munkából.
+- **Update job from HTML** - Munka frissítése HTML fájlból.
+
+## Events
+
+- **On translation jobs requested** - Lekérdezés alapú esemény. Visszaadja azokat a fordítási munkákat, amelyeket az utolsó lekérdezés óta kértek.
+
+## Hibakezelés
+
+Hiba esetén az alkalmazás hibaüzenetet ad vissza. A hibaüzenet tartalmazza a hibakódot és egy üzenetet, amely leírja a hibát. Ha hibába ütközik, kérjük, olvassa el a hibaüzenetet és a státuszkódot a probléma megértéséhez. Ha további segítségre van szüksége, kérjük, vegye fel a kapcsolatot ügyfélszolgálatunkkal.
+
+Példa hibaüzenet: `Státuszkód: 404, Hiba: Az oldal nem található | Blackbird Demo`
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Vegye fel velünk a kapcsolatot a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy hibajegyet.

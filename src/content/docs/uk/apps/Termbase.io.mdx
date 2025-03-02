@@ -1,0 +1,53 @@
+---
+title: Termbase.io
+description: Додаток Blackbird для Termbase.io
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Termbase.io" icon="github" />
+
+termbase.io - це повноцінне перекладацьке рішення для підприємств та постачальників лінгвістичних послуг, яке зосереджено на використанні штучного інтелекту та корпоративної мови для досягнення найкращої якості та результатів, перевірених людиною.
+
+## Перед налаштуванням
+
+Перш ніж ви зможете підключитися, вам потрібно:
+
+- Отримати персональний Auth-Token від команди termbase.io
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть LanguageWire
+2. Натисніть _Add Connection_
+3. Назвіть ваше підключення для подальшого використання, наприклад, 'termbase.io'
+4. Заповніть поле 'API token' вашим Auth токеном
+5. Натисніть _Connect_
+
+![connection](https://raw.githubusercontent.com/bb-io/Termbase.io/main/image/README/connection.png)
+
+## Actions
+
+### Language actions
+
+- **Get languages** - Отримати всі мови
+
+### Termbase actions
+
+- **Get termbases** - Отримати всі термінологічні бази
+- **Get termbase** - Отримати термінологічну базу за uuid
+- **Export termbase** - Експорт термінологічної бази у вказаному форматі (за замовчуванням експортується у tbx)
+
+### Term import actions
+
+- **Create term import** - Створити імпорт термінів та запустити його, за замовчуванням він буде імпортований у форматі xliff
+- **Get term import** - Отримати імпорт термінів за uuid
+- **Delete term import** - Видалити імпорт термінів за uuid
+- **Export termbase from term import** - Завантажити термінологічну базу з імпорту термінів у вказаному форматі (за замовчуванням експортується у tbx)
+
+## Webhooks
+
+- **On term changed** - Спрацьовує, коли термін змінюється
+- **On term import finished** - Спрацьовує, коли імпорт термінів завершується
+
+## Зворотний зв'язок
+
+Хочете використовувати цей додаток або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть запит.

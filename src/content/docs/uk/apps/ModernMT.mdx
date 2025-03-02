@@ -1,0 +1,77 @@
+---
+  title: ModernMT
+  description: Додаток Blackbird для ModernMT
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/ModernMT" icon="github" />
+
+ModernMT - це більш людський машинний переклад. Він покращується на основі виправлень та адаптується до контексту документа. Його функції включають переклад з використанням зважених перекладацьких пам'ятей, підказок та глосаріїв.
+
+## Перед налаштуванням
+
+Перш ніж підключитися, переконайтеся, що:
+
+- У вас є обліковий запис ModernMT.
+- Ваш обліковий запис ModernMT має [тарифний план](https://modernmt.com/dashboard), який дозволяє генерувати ліцензійний ключ.
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть ModernMT. Якщо ви не можете знайти ModernMT, натисніть _Add Connection_ у верхньому правому куті, виберіть ModernMT і додайте додаток до свого середовища Blackbird.
+2. Натисніть _Add Connection_.
+3. Назвіть своє підключення для подальшого використання, наприклад, 'Мій ModernMT'.
+4. Введіть свій [ліцензійний ключ](https://modernmt.com/dashboard) ModernMT.
+5. Натисніть _Authorize connection_.
+
+![connecting](https://raw.githubusercontent.com/bb-io/ModernMT/main/image/README/1693302180954.png)
+
+## Actions
+
+### Translation
+
+- **Translate** перекладає сегмент на задану мову. Опціонально може приймати аргументи для глосаріїв, контекстів, підказок тощо. Перегляньте [документацію ModernMT](https://www.modernmt.com/api/#translate-text) для всіх опцій.
+- **Translate multiple** працює так само, як translate, але з кількома сегментами, а не лише одним.
+- **Translate XLIFF** перекладає документ XLIFF 1.2 на вказану мову.
+
+### Quality estimation
+
+- **Estimate quality** приймає вихідний текст і переклад та повертає оцінку від 0 до 1, що вказує на якість машинного перекладу.
+- **Estimate XLIFF quality** надає дані оцінки якості для всіх сегментів у файлі XLIFF 1.2. Обов'язкові вхідні дані включають перекладений файл XLIFF, значення вихідної та цільової мови. Як результат, надається середня оцінка, яка є середнім значенням оцінок якості для всіх сегментів у файлі. Крім того, всі одиниці перекладу доповнюються індивідуальною оцінкою, яка додається до атрибуту `extradata` у файлі XLIFF. Додатково ви можете додати параметри _Threshold_, _New Target State_ та _Condition_ до дії Blackbird, щоб змінити стан цільових сегментів, що відповідають бажаним критеріям.
+
+
+Приклади:
+
+Встановлення додаткових вхідних значень, як показано на зображенні нижче, призведе до того, що всі сегменти з оцінкою вище 0,9 матимуть значення цільового стану оновлені до "final".
+
+![Optional inputs 1](https://raw.githubusercontent.com/bb-io/ModernMT/main/image/README/MMTOptionalInput1.png)
+
+Аналогічно, налаштування нижче призведе до того, що всі сегменти з оцінкою якості нижче або рівною 0,6 матимуть значення цільового стану змінене на "needs-review-translation".
+
+![Optional inputs 2](https://raw.githubusercontent.com/bb-io/ModernMT/main/image/README/MMTOptionalInput2.png)
+
+### Language detection
+
+- **Detect langauge** повертає код мови для заданого сегмента.
+- **Detect multiple languages** працює так само, як detect language, але для кількох сегментів.
+
+### Context Vectors
+
+- **Get context vector from text** повертає вектор контексту, який можна використовувати для дій перекладу. Детальніше про вектори контексту див. у [документації ModernMT](https://www.modernmt.com/api/#context-vector).
+
+### Memories
+
+- **Get memory**, **Create memory**, **Update memory**, **Delete memory** - це дії, які можна використовувати для управління існуючими пам'ятями та метаданими, такими як назва та опис.
+- **Add translation to memory** та **Update memory translation pair** можна використовувати для додавання/оновлення нових пар речення-переклад у існуючій пам'яті.
+- **Import memory from tmx** дозволяє додавати нові пари речення-переклад масово через існуючі файли TMX.
+
+## Приклад
+
+![example](https://raw.githubusercontent.com/bb-io/ModernMT/main/image/README/1693303412326.png)
+
+Цей приклад показує простого птаха, який перекладає вхідні повідомлення Slack, виконує оцінку якості, а потім надсилає переклад та оцінку якості разом як повідомлення Slack.
+
+![1693303512885](https://raw.githubusercontent.com/bb-io/ModernMT/main/image/README/1693303512885.png)
+
+## Відгуки
+
+Відгуки щодо нашої реалізації ModernMT завжди дуже вітаються. Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть проблему.

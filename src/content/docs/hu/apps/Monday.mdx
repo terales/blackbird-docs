@@ -1,0 +1,75 @@
+---
+  title: Monday
+  description: A Monday Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Github-on" target="_blank" href="https://github.com/bb-io/Monday" icon="github" />
+
+A Monday.com egy felhőalapú munkaműködtető rendszer, amely különféle célokra használható, beleértve a projektmenedzsmentet, az együttműködést és az ütemezést.
+
+## Mielőtt beállítaná
+
+Az integráció beállítása előtt győződjön meg arról, hogy hozzáféréssel rendelkezik egy Monday.com fiókhoz. Alkalmazásunk hitelesítéshez hozzáférési tokent igényel. Az elérési token megszerzésével kapcsolatos útmutatást [itt](https://developer.monday.com/api-reference/docs/authentication#developer-tab) találja.
+
+Ha Ön egy Monday.com fiók tagja vagy adminisztrátora, kövesse az alábbi lépéseket az API token eléréséhez:
+
+1. Jelentkezzen be a Monday.com fiókjába.
+2. Kattintson a profilképére a jobb felső sarokban.
+3. Válassza a **Developers** lehetőséget. Ez egy másik lapon megnyitja a Fejlesztői Központot.
+4. Menjen a **My Access Tokens** menüponthoz és kattintson a **Show** gombra.
+5. Másolja ki a személyes tokenjét.
+
+**Megjegyzés**: Ha új tokent hoz létre, minden korábbi token érvényét veszti.
+
+## Csatlakozás a Monday-hez
+
+1. Navigáljon az **Apps** részhez és keresse meg a **Monday** alkalmazást (kereshet rá).
+2. Kattintson az **Add Connection** gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz (pl. 'Szervezetem').
+4. Írja be az **API Token**-t a megfelelő mezőbe.
+5. Kattintson az **Authorize connection** gombra.
+6. Erősítse meg, hogy a kapcsolat létrejött és az állapot **Connected**-et mutat.
+
+![Csatlakozás](https://raw.githubusercontent.com/bb-io/Monday/main/image/README/connecting.png)
+
+## Actions
+
+### Boards
+
+- **Search boards**: Lekérdezi az összes táblát a megadott paraméterek szerint szűrve.
+- **Get board**: Lekérdez egy táblát a megadott azonosító alapján.
+
+### Items
+
+- **Search items**: Lekérdezi az összes elemet egy adott táblából.
+- **Get item**: Lekérdez egy elemet a megadott azonosító alapján.
+- **Create item**: Létrehoz egy elemet a megadott paraméterekkel.
+- **Delete item**: Töröl egy elemet a megadott azonosító alapján.
+- **Archive item**: Archivál egy elemet a megadott azonosító alapján.
+
+### Updates
+
+- **Get update**: Lekérdez egy frissítést a megadott elem azonosítója alapján.
+- **Add update**: Létrehoz egy frissítést (megjegyzést) egy adott elemhez az azonosítója alapján.
+- **Add attachment to update**: Hozzáad egy mellékletet (fájlt) egy frissítéshez a megadott azonosító alapján.
+- **Edit update**: Szerkeszt egy frissítést (megjegyzést) a megadott azonosító alapján.
+- **Delete update**: Töröl egy frissítést (megjegyzést) a megadott azonosító alapján.
+
+## Events
+
+### Items
+
+- **On item created**: Ez az esemény akkor aktiválódik, amikor egy elem létrejön.
+- **On item changed**: Ez az esemény akkor aktiválódik, amikor egy elem megváltozik.
+- **On item archived**: Ez az esemény akkor aktiválódik, amikor egy elemet archiválnak.
+- **On item deleted**: Ez az esemény akkor aktiválódik, amikor egy elemet törölnek.
+
+### Updates
+
+- **On update created**: Ez az esemény akkor aktiválódik, amikor egy frissítés létrejön.
+- **On update edited**: Ez az esemény akkor aktiválódik, amikor egy frissítést szerkesztenek.
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzést szeretne adni a megvalósításunkról? Keressen minket a [megadott csatornákon](https://www.blackbird.io/) keresztül vagy hozzon létre egy hibajegyet.

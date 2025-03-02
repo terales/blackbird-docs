@@ -1,0 +1,83 @@
+---
+  title: Language Weaver
+  description: De Language Weaver Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/LanguageWeaver" icon="github" />
+
+Language Weaver is de machinetranslatie-technologie en het merk van RWS. Het is een veilige, aanpasbare, cloud-gebaseerde enterprise machinetranslatie API en portal voor bedrijven die snel en effectief grote hoeveelheden meertalige content moeten verwerken.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een Language Weaver account hebt met beheerdersrechten.
+- Je API-inloggegevens hebt ingesteld in je [Language Weaver portal](https://portal.languageweaver.com/settings/api-credentials). Zorg ervoor dat je bij het aanmaken van nieuwe inloggegevens de Client secret bewaart.
+
+## Verbinding maken
+
+1. Ga naar apps en zoek naar Language Weaver. Als je Language Weaver niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Language Weaver en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn Language Weaver'.
+4. Vul je Client ID en Client secret in die je hebt gekopieerd uit de [Language Weaver portal](https://portal.languageweaver.com/settings/api-credentials)
+5. Klik op _Connect_.
+
+![Connecting](https://raw.githubusercontent.com/bb-io/LanguageWeaver/main/image/README/1697473360187.png)
+
+## Actions
+
+### Translation
+
+- **Translate text** vertaalt een tekstinvoer.
+- **Translate file** vertaalt een bestandsinvoer. Ondersteunde bestandsformaten zijn [hier](https://developers.languageweaver.com/api/lw/common/input-formats.html) te vinden.
+
+Alle vertaalendpoints kunnen een modus hebben van "quality" of "speed".
+
+- **Translate text with QE**.
+- **Translate file with QE** passen beide een kwaliteitsinschatting toe op de vertaalde inhoud. Brontaal is vereist en kan niet worden geraden. Deze acties hebben beperkte taalcombinaties beschikbaar en je moet beschikbare modellen in je Language Weaver-account controleren voor ondersteunde taalcombinaties.
+
+Kwaliteitsinschatting en ABBYY PDF-conversie moeten zijn ingeschakeld voor je account in de Language Weaver-instellingen.
+
+### Identification
+
+- **Identify text language** identificeert de taal van een tekstinvoer.
+- **Identify file language** identificeert de taal van een bestandsinvoer.
+
+### Content insights
+
+- **Get file content insights** maakt en retourneert direct inzichten over de inhoud van een bestand, waaronder woord-/karaktertellingen, brontaal en een score per segment.
+
+### Dictionary management
+
+- **Get dictionary** geeft informatie over een woordenboek.
+- **Create dictionary**.
+- **Delete dictionary**.
+- **Import glossary** maakt het mogelijk om een glossarium te importeren in een bestaand of nieuw woordenboek. Voor nieuwe woordenboeken, specificeer bron- en doeltalen, met optionele titel en beschrijving. Bij het importeren in een bestaand woordenboek, gebruik de optionele parameter _Dictionary ID_. De optie _Overwrite duplicate terms_ biedt controle over het bijwerken van bestaande waarden bij het importeren. Als het geïmporteerde glossarium niet de in het woordenboek gespecificeerde talen bevat, worden de meest relevante alternatieven gekozen. Als het woordenboek bijvoorbeeld _English_ bevat, maar het glossarium alleen _English (United States)_ heeft, worden de termen van deze laatste opgenomen in het woordenboek.
+- **Export glossary** maakt het mogelijk om een woordenboek te exporteren, met optionele specificaties voor de titel van het glossarium en de beschrijving van de bron.
+
+## Voorbeelden
+
+![First example](https://raw.githubusercontent.com/bb-io/LanguageWeaver/main/image/README/1697474172103.png)
+Dit eenvoudige voorbeeld laat zien hoe je Language Weaver kunt gebruiken om Microsoft Teams-berichten te vertalen.
+
+![Second example](https://raw.githubusercontent.com/bb-io/LanguageWeaver/main/image/README/Example2.png)
+Hier worden, wanneer PDF-bestanden worden geüpload naar SharePoint Documents, de bestanden gedownload, vertaald met Language Weaver en in de juiste map geplaatst op basis van de kwaliteitsbeoordeling van de vertaling.
+
+## Ontbrekende functies
+
+In de toekomst kunnen we de volgende acties ondersteunen en toevoegen:
+
+- Woordenboek-updates
+- Beheer van woordenboektermen
+- Merkbeheer
+- Labelbeheer
+- Groepsbeheer
+- Feedbackbeheer
+- Aanpassing
+
+Laat het ons weten als je hierin geïnteresseerd bent!
+
+## Feedback
+
+Feedback op onze implementatie van Language Weaver is altijd zeer welkom. Neem contact met ons op via de [gebruikelijke kanalen](https://www.blackbird.io/) of maak een issue aan.

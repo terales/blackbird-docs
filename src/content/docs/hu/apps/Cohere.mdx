@@ -1,0 +1,50 @@
+---
+  title: Cohere
+  description: A Cohere Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Github-on" target="_blank" href="https://github.com/bb-io/Cohere" icon="github" />
+
+A Cohere egy mesterséges intelligencia vállalat, amely nagy nyelvi modellekre (LLM) specializálódott, amelyeket hatalmas mennyiségű szöveges adaton képeztek ki. Ezek az LLM-ek segítik a vállalkozásokat olyan szoftverek létrehozásában, amelyek képesek keresni, megérteni, generálni és összefoglalni szövegeket.
+
+## Beállítás előtt
+
+Mielőtt kapcsolódnál, győződj meg arról, hogy:
+
+- Rendelkezel Cohere fiókkal.
+- Van API kulcsod a Cohere fiókodhoz. További információ a Cohere API kulcsokról [itt](https://docs.cohere.com/reference/create-an-api-key%20).
+
+## Csatlakozás
+
+1. Navigálj az alkalmazásokhoz és keress rá a Cohere-re. Ha nem találod a Cohere-t, kattints a jobb felső sarokban található _Add App_ gombra, válaszd ki a Cohere-t és add hozzá az alkalmazást a Blackbird környezetedhez.
+2. Kattints az _Add Connection_ gombra.
+3. Nevezd el a kapcsolatot a későbbi hivatkozáshoz, például 'Az én Cohere kapcsolatom'.
+4. Töltsd ki az API kulcsot a Cohere fiókodhoz.
+7. Kattints a _Connect_ gombra.
+
+![CohereBlackbirdConnection](https://raw.githubusercontent.com/bb-io/Cohere/main/image/README/CohereBlackbirdConnection.png)
+
+## Actions
+
+- **Analyze text** Szöveg elemzése a stílusára, hangulatára és tónusára vonatkozó információk kinyeréséhez.
+- **Calculate similarity of two texts** A megadott szövegek hasonlóságának kiszámítása. Ennek a műveletnek az eredménye egy százalékos hasonlósági pontszám. Minél magasabb a pontszám, annál hasonlóbbak a szövegek.
+- **Classify text** Szövegbemenet osztályozása. Ez a művelet megköveteli a példák és a hozzájuk tartozó címkék megadását. Minden egyedi címkéhez legalább két példa szükséges.
+- **Classify text with examples as a file** Szövegbemenet osztályozása. Ez a művelet egy csv fájlt igényel példákkal és a hozzájuk tartozó címkékkel. A fájl minden sorának 'példa, címke' formában kell lennie. Minden egyedi címkéhez legalább két példa szükséges.
+- **Detect language** A megadott szöveg nyelvének felismerése.
+- **Detect locale** A megadott szöveg területi beállításának felismerése.
+- **Edit text** A bemeneti szöveg szerkesztése utasítás prompttal (pl. tömörebbé tétel vagy barátságosabbá tétel).
+- **Extract entity from text** Információ kinyerése szövegből. Add meg az entitást, amelyet ki szeretnél nyerni a szövegből (pl. termék címe).
+- **Generate embedding** Szöveg embedding generálása. Az embedding egy lebegőpontos számok listája, amely a szöveg szemantikai információit rögzíti.
+- **Generate text** Realisztikus szöveg generálása egy adott bemenet alapján.
+- **Perform grammar and spelling check** A megadott szöveg nyelvtani és helyesírási ellenőrzése.
+- **Rerank texts** Ez a művelet egy keresést és szövegek listáját veszi át, és egy rendezett listát ad eredményül, ahol minden szöveghez relevancia pontszám van rendelve.
+- **Rerank texts provided in a file** Ez a művelet egy keresést és egy txt fájlt vesz át szövegek listájával, és a legrelevánsabb szövegekből kombinált szöveget ad eredményül. A fájlban minden szövegnek új sorban kell kezdődnie.
+- **Reshape text** Szöveg átalakítása. Add meg a célzott stílusra, hangulatra és tónusra vonatkozó információkat.
+- **Summarise text analyses** Különböző szövegek stílusáról, hangulatáról és tónusáról szóló információk összefoglalása a stílusokban, hangulatokban és tónusokban található közös minták megtalálása érdekében.
+- **Summarize text** A megadott szöveg összefoglalása.
+- **Tokenize text** Szöveg tokenizálása. Határozd meg a modellt, hogy a tokenizálás a specifikus modell által használt tokenizálót használja.
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy visszajelzésed van a megvalósításunkról? Vedd fel velünk a kapcsolatot a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozz létre egy problémát.

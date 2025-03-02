@@ -1,0 +1,57 @@
+---
+  title: Anthropic
+  description: Az Anthropic Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Github-on" target="_blank" href="https://github.com/bb-io/Anthropic" icon="github" />
+
+Következő generációs AI asszisztens feladataihoz, bármilyen léptékben
+
+## Beállítás előtt
+
+Mielőtt csatlakozna, győződjön meg arról, hogy:
+
+- Rendelkezik [Anthropic fiókkal](https://console.anthropic.com) és hozzáféréssel az API kulcsokhoz.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá az Anthropic-ra. Ha nem találja az Anthropic-ot, kattintson a jobb felső sarokban található _Add App_ gombra, válassza az Anthropic-ot, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozásokhoz, például: 'Saját Anthropic kapcsolat'.
+4. Töltse ki az API kulcsot. Új API kulcsot hozhat létre az [API kulcsok](https://console.anthropic.com/account/keys) alatt. Az API kulcs formátuma: `sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.
+5. Kattintson a _Connect_ gombra.
+
+## Actions
+
+### Chat actions
+
+- A **Create completion** műveletnek a következő bemeneti értékei vannak a generált válasz konfigurálásához:
+1. Model (Az összes aktuális és elérhető modell fel van sorolva a legördülő menüben)
+2. Prompt
+3. Max tokens to sample
+4. Temperature
+5. top_p
+6. top_k
+7. System prompt 
+8. Stop sequences
+
+A műveletekkel kapcsolatos részletesebb információkért tanulmányozza az [Anthropic API referenciát](https://docs.anthropic.com/claude/docs).
+
+### XLIFF actions
+
+- A **Process XLIFF** feldolgozza az XLIFF fájlt és visszaadja a frissített XLIFF-et a lefordított tartalommal. Alapértelmezés szerint lefordítja a forrást és a fordítást a célmezőbe helyezi. De módosíthatja a viselkedést egyedi `prompt` megadásával
+- A **Post-edit XLIFF file** művelet az XLIFF fájl utószerkesztésére szolgál.
+- A **Get Quality Scores for XLIFF file** művelet az XLIFF fájl minőségi pontszámainak lekérésére szolgál, a fájl fordítási egységéhez `extradata` attribútum hozzáadásával. Az alapértelmezett kritériumok a `fluency`, `grammar`, `terminology`, `style` és `punctuation`, de hozzáadhatja sajátjait a `prompt` opcionális bemenet kitöltésével.
+
+### Batch actions
+
+- A **(Batch) Process XLIFF file** aszinkron módon feldolgozza az XLIFF fájl minden fordítási egységét a megadott utasítások szerint (alapértelmezés szerint csak a forrás címkéket fordítja le), és frissíti az egyes egységek célszövegét.
+- A **(Batch) Post-edit XLIFF file** aszinkron módon utószerkeszti az XLIFF fájl minden fordítási egységének célszövegét a megadott utasítások szerint, és frissíti az egyes egységek célszövegét.
+- A **(Batch) Get Quality Scores for XLIFF file** aszinkron módon minőségi pontszámokat kap az XLIFF fájl minden fordítási egységéhez.
+- A **(Batch) Get XLIFF from the batch** lekéri a kötegelt feldolgozás eredményeit. Ez a művelet csak az XLIFF fájl feldolgozására és utószerkesztésére alkalmas, és az aszinkron folyamat befejezése után kell meghívni.
+- A **(Batch) Get XLIFF from the quality score batch** lekéri a kötegelt folyamat minőségi pontszámainak eredményeit. Ez a művelet csak az XLIFF fájl minőségi pontszámainak lekérésére alkalmas, és az aszinkron folyamat befejezése után kell meghívni.
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Lépjen kapcsolatba velünk a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy hibajegyet.

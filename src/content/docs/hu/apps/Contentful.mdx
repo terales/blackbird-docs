@@ -1,0 +1,172 @@
+---
+  title: Contentful
+  description: A Contentful Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Contentful" icon="github" />
+
+A Contentful egy headless CMS, amely lehetővé teszi a vállalkozások számára a digitális tartalmak létrehozását, kezelését és terjesztését különböző platformokon és eszközökön. Elsősorban a tartalmak hatékony szervezésére és terjesztésére használják, olyan funkciókat kínálva, mint a tartalommodellezés, verziószervezés és API-alapú tartalom továbbítás.
+
+## Beállítás előtt
+
+A kapcsolódás előtt győződjön meg arról, hogy:
+
+- Rendelkezik Contentful fiókkal és egy space-szel, amelyhez csatlakozni szeretne.
+- A Contentful fiókja megfelelő jogosultságokkal rendelkezik a space-ben. A space szerepkörökről és jogosultságokról bővebben [itt](https://www.contentful.com/help/space-roles-and-permissions/) olvashat.
+- Létrehozta saját [OAuth alkalmazását](https://app.contentful.com/account/profile/developers/applications).
+
+## OAuth alkalmazás létrehozása
+
+1. Navigáljon az [OAuth alkalmazások](https://app.contentful.com/account/profile/developers/applications) oldalra és kattintson a _New Application_ gombra.
+2. Adja meg az alkalmazás _Name_ és _Description_ adatait. A _Redirect URI_ mezőben adja meg a következőt: `https://bridge.blackbird.io/api/ImplicitGrant`. Ez az URL, ahol a Blackbird megkapja az engedélyezési kódot.
+3. A _Redirect URI_ alatt válassza ki a _Content management manage_ opciót.
+4. Kattintson a _Create Application_ gombra.
+5. Az alkalmazás létrehozása után a rendszer generál egy _Client ID_-t. A _Client ID_ szükséges a Blackbirden keresztüli Contentful kapcsolódáshoz.
+
+## Kapcsolódás
+
+1. Navigáljon az alkalmazásokhoz és keresse meg a Contentful-t.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot későbbi hivatkozás céljából, pl. 'Ügyfelem'.
+4. Töltse ki a korábban megszerzett _Client ID_-t.
+5. Töltse ki annak a Contentful space-nek a _Space ID_-ját, amelyhez csatlakozni szeretne. A space ID megtalálásához kövesse [ezeket az utasításokat](https://www.contentful.com/help/find-space-id/).
+6. Base URL: Alapértelmezetten állítsa a base URL-t https://api.contentful.com értékre. Ha az EU-ban működik, változtassa ezt https://api.eu.contentful.com értékre.
+7. Kattintson az Authorize connection gombra.
+8. Kövesse a Contentful által megadott utasításokat, és engedélyezze a Blackbird.io számára, hogy az Ön nevében eljárjon.
+9. Amikor visszatér a Blackbirdbe, ellenőrizze, hogy a kapcsolat megjelent-e és a státusza Connected.
+
+![connecting](https://raw.githubusercontent.com/bb-io/Contentful/main/image/README/connecting.png)
+
+## Munka fordításokkal
+
+Kövesse [ezt az útmutatót](https://www.contentful.com/help/working-with-translations/) a Contentful-ben történő fordításokkal való munkavégzéshez.
+
+## Actions
+
+### Entries
+
+- **Get locales** visszaadja az alapértelmezett nyelveket és más nyelvek listáját, mindet kódformában, hogy könnyen használható legyen a konvertáló operátorral.
+- **Get entry's text/rich text field** visszaadja a bejegyzés rövid szöveg, hosszú szöveg vagy rich text mezőjének tartalmát szövegként.
+- **Get text/rich text field as HTML file** visszaadja a bejegyzés rövid szöveg, hosszú szöveg vagy rich text mezőjének tartalmát HTML fájlként.
+- **Set entry's text/rich text field** beállítja a bejegyzés rövid szöveg, hosszú szöveg vagy rich text mezőjének tartalmát szövegből.
+- **Set text/rich text field from HTML file** beállítja a bejegyzés rövid szöveg, hosszú szöveg vagy rich text mezőjének tartalmát HTML fájlból. Rövid/hosszú szöveg esetén csak a fájlból kinyert szöveg kerül a mezőbe. Rich text esetén az összes HTML struktúra megmarad.
+- **Get entry's number field** visszaadja a bejegyzés szám mezőjének értékét.
+- **Set entry's number field** beállítja a bejegyzés szám mezőjének értékét.
+- **Get entry's boolean field** visszaadja a bejegyzés logikai mezőjének értékét.
+- **Set entry's boolean field** beállítja a bejegyzés logikai mezőjének értékét.
+- **Get entry's media content** visszaadja a bejegyzés média mezőjéhez csatolt eszköz azonosítóját.
+- **Set entry's media field** beállítja a bejegyzés média mezőjét a megadott eszközzel.
+- **Search entries** visszaadja a bejegyzések listáját. Opcionálisan szűrhet tartalommodell, környezet, címkék és utolsó frissítés dátuma szerint.
+- **Get entry** Egy adott bejegyzés részleteinek lekérése
+- **Add new entry** új bejegyzést hoz létre a megadott tartalommodellel.
+- **Find entry by field value** Egy adott mező és egy kívánt érték alapján visszaadja az első egyező bejegyzést.
+- **Delete entry**.
+- **Publish entry**.
+- **Unpublish entry**.
+- **List missing locales for a field** visszaadja a hiányzó fordítások listáját a megadott mezőhöz.
+- **List missing locales for entry** visszaadja a hiányzó fordítások listáját a megadott bejegyzéshez.
+- **Get entry as HTML file** visszaadja a megadott bejegyzés összes lokalizálható mezőjét HTML fájlként (lásd bővebb információ alább).
+- **Update entry from HTML file** frissíti a megadott bejegyzés összes lokalizálható mezőjét.
+
+A **Get entry as HTML file** és az **Update entry from HTML file** együttes használatra szánták egy tipikus fordítási folyamatban: lekérheti egy bejegyzés lokalizálható mezőit HTML fájlként, behelyezheti egy fordítórendszerbe, majd visszakaphatja a lefordított HTML fájlt és visszahelyezheti a Contentful bejegyzésébe. Az **Update entry from HTML file** ugyanazt a HTML struktúrát várja, mint a **Get entry as HTML file** segítségével lekért fájl struktúrája.
+
+**Fontos megjegyzés**: győződjön meg arról, hogy bejegyzésének vannak olyan mezői, amelyeknél a **lokalizáció engedélyezve van**. Ezt a tulajdonságot minden mezőnél explicit módon be kell állítani (lásd az alábbi képeket).
+
+![1707747998688](https://raw.githubusercontent.com/bb-io/Contentful/main/image/README/1707747998688.png)
+![1707748006274](https://raw.githubusercontent.com/bb-io/Contentful/main/image/README/1707748006274.png)
+
+A **Get entry as HTML file** művelet azt is lehetővé teszi, hogy meghatározza, rekurzívan szeretné-e beágyazni a kapcsolódó bejegyzések tartalmát (fordítás céljából).
+
+Négy típusa van a kapcsolódó bejegyzéseknek:
+- Hivatkozási mezőtípusok a tartalommodellből
+- Hivatkozások, amelyek egy bejegyzésre mutatnak a 'Rich text' mezőkben
+- Szövegközi beágyazott bejegyzések a 'Rich text' mezőkben
+- Blokk beágyazott bejegyzések a 'Rich text' mezőkben
+
+A műveletben kiválaszthatja pontosan, hogy a kapcsolódó bejegyzés mely típusát szeretné belevonni az exportált HTML fájlba. Ha például kiválasztja a 'Hyperlinks' és 'Inline embedded entries' opciókat, akkor rekurzívan keresünk az összes 'Rich text' mezőben, és lekérjük ezen beágyazott bejegyzések teljes tartalmát. Ezekkel a beágyazott bejegyzésekkel ugyanezt tesszük, és szintén lekérjük az összes hivatkozást és beágyazott szövegközi bejegyzést, és így tovább.
+
+> Megjegyzés: megadhatja azt is, hogy figyelmen kívül szeretné-e hagyni a hivatkozási mezők lokalizációs aspektusát. Ha ez az opcionális bemenet igaz, és az 'Include referenced entries' igaz, akkor minden hivatkozott bejegyzés bekerül, függetlenül a lokalizációs beállítástól.
+
+Végül megadhat egy Mező ID listát, amelyeket mindig figyelmen kívül hagy a rendszer, és nem kerülnek bele a létrehozott HTML fájlba.
+
+> A CMS lokalizációról bővebb információért tekintse meg [ezt az útmutatót](https://docs.blackbird.io/guides/cms-contentful/).
+
+### Assets
+
+- **Get asset** visszaadja az eszköz címét, leírását és a hozzá csatolt fájlt.
+- **Create and upload asset**.
+- **Update asset file**.
+- **Delete asset** A megadott eszköz törlése.
+- **Publish asset**.
+- **Unpublish asset**.
+- **Is asset locale present** ellenőrzi, hogy a megadott fájl fordítása elérhető-e az eszközhöz.
+- **List missing locales for an asset** visszaadja az eszköz összes hiányzó fordításának listáját.
+- **Add asset tag** Új címke hozzáadása a megadott eszközhöz
+- **Remove asset tag** Adott címke eltávolítása az eszközről
+
+### Content models
+
+- **List all content models** visszaadja a space-ben elérhető összes tartalommodellt.
+- **Get content model** Egy adott tartalommodell részleteinek lekérése.
+
+### Tag
+- **List tags** Listázza a space összes tartalom címkéjét
+- **Create tag** Új tartalom címke létrehozása
+- **Get tag** Egy adott címke részleteinek lekérése
+- **Delete tag** Adott tartalom címke törlése
+- **Add tag to entry** Adott címke hozzáadása egy bejegyzéshez
+- **Remove tag from entry** Adott címke eltávolítása egy bejegyzésről
+
+### Content types
+- **List all content types** visszaadja a space-ben elérhető összes tartalomtípust.
+
+### Entry tasks
+
+- **Search entry tasks** visszaadja a feladatok listáját a megadott szűrők alapján.
+- **Get entry task** visszaadja egy adott feladat részleteit.
+- **Update entry task** frissíti a bejegyzés feladatát új részletekkel.
+
+Megjegyzés: Az **Entry tasks** műveletek használatához telepítenie kell a `Workflows` alkalmazást (a Contentful fejlesztése) a Contentful space-ben.
+
+### Workflows
+
+- **Get workflow** visszaadja egy adott munkafolyamat részleteit a munkafolyamat ID alapján.
+- **Get workflow definition** visszaadja egy adott munkafolyamat-definíció részleteit a munkafolyamat-definíció ID alapján.
+- **Update workflow step** áthelyezi a munkafolyamatot egy adott lépésbe.
+- **Complete workflow** befejez egy munkafolyamatot.
+- **Cancel workflow** megszakít egy munkafolyamatot.
+
+## Events
+
+- **On entry published** és **On asset published** a leghasználhatóbb események. Ezek akkor aktiválódnak, amikor bármely bejegyzés/eszköz publikálásra kerül, és tökéletes kiindulópontot jelenthetnek a bejegyzés/eszköz fordításra küldéséhez a hiányzó fordítások alapján (lásd a példát). Opcionálisan szűrheti ezeket az eseményeket címkék szerint is. Ha így tesz, az esemény csak akkor aktiválódik, ha az Ön által megadott összes címke jelen van a bejegyzésen.
+- **On entry task created** és **On entry task saved** hasznosak, ha inkább a Blackbird 'Workflows' kiterjesztésével szeretne dolgozni. A kiterjesztést használhatja arra, hogy hozzárendeljen egy bejegyzést egy munkafolyamathoz, feladatot létrehozva. Ezek az események még szűrhetők is a hozzárendelt felhasználói azonosító és a feladat leírása alapján. Lásd az alábbi példát.
+- **On workflow updated** akkor aktiválódik, amikor egy munkafolyamat frissül vagy létrejön. Akkor is aktiválódik, amikor egy munkafolyamat megváltoztatja a lépését.
+- **On workflow completed** akkor aktiválódik, amikor egy munkafolyamat befejeződik.
+
+### Egyéb események:
+
+- **On entry created**
+- **On entry saved**
+- **On entry auto saved**
+- **On entry unpublished**
+- **On entry archived**
+- **On entry unarchived**
+- **On entry deleted**
+- **On asset created**
+- **On asset saved**
+- **On asset auto saved**
+- **On asset unpublished**
+- **On asset archived**
+- **On asset unarchived**
+- **On asset deleted**
+
+## Példák
+
+![example](https://raw.githubusercontent.com/bb-io/Contentful/main/image/README/example.png)
+
+Ebben a példában, amikor egy bejegyzés publikálásra kerül, lekérjük a lokalizálható mezőket HTML fájlként és lekérjük a hiányzó fordításokat. Ezután létrehozunk egy új Phrase projektet a hiányzó nyelvekkel mint célnyelvekkel, és létrehozunk egy új Phrase munkát a fájlhoz.
+
+![example2](https://raw.githubusercontent.com/bb-io/Contentful/main/image/README/1727786768856.png)
+
+Ebben a példában, amikor egy bejegyzés publikálásra kerül, lekér

@@ -1,0 +1,77 @@
+---
+  title: ModernMT
+  description: De ModernMT Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Bekijk op Github" target="_blank" href="https://github.com/bb-io/ModernMT" icon="github" />
+
+ModernMT is een meer menselijke machinevertaling. Het verbetert op basis van correcties en past zich aan de context van het document aan. De functies omvatten vertaling met gewogen vertaalgeheugens, hints en glossaria.
+
+## Voordat je begint
+
+Voordat je een verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een ModernMT-account hebt.
+- Je ModernMT-account een [abonnement](https://modernmt.com/dashboard) heeft waarmee je een licentiesleutel kunt genereren.
+
+## Verbinding maken
+
+1. Ga naar apps en zoek naar ModernMT. Als je ModernMT niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer ModernMT en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn ModernMT'.
+4. Voer je ModernMT [licentiesleutel](https://modernmt.com/dashboard) in.
+5. Klik op _Authorize connection_.
+
+![connecting](https://raw.githubusercontent.com/bb-io/ModernMT/main/image/README/1693302180954.png)
+
+## Actions
+
+### Translation
+
+- **Translate** vertaalt een segment naar een bepaalde taal. Het kan optioneel argumenten bevatten voor glossaria, contexten, hints en meer. Zie de [ModernMT-documentatie](https://www.modernmt.com/api/#translate-text) voor alle opties.
+- **Translate multiple** gedraagt zich hetzelfde als translate, maar met meerdere segmenten in plaats van slechts één.
+- **Translate XLIFF** vertaalt een XLIFF 1.2-document naar een opgegeven taal.
+
+### Quality estimation
+
+- **Estimate quality** neemt een bron en vertaling en geeft een score tussen 0 en 1 die de kwaliteit van de machinevertaling aangeeft.
+- **Estimate XLIFF quality** biedt kwaliteitsinschattingsgegevens voor alle segmenten in een XLIFF 1.2-bestand. Verplichte invoergegevens zijn het vertaalde XLIFF-bestand, bron- en doeltaalwaarden. Als uitvoer wordt een gemiddelde score gegeven, het gemiddelde van de kwaliteitsscores voor alle segmenten in het bestand. Bovendien worden alle vertaaleenheden aangevuld met hun individuele score die wordt toegevoegd aan het `extradata`-attribuut in het XLIFF-bestand. Optioneel kun je _Threshold_, _New Target State_ en _Condition_ invoerparameters toevoegen aan de Blackbird-actie om de doelstaatwaarde van segmenten die aan de gewenste criteria voldoen te wijzigen.
+
+
+Voorbeelden:
+
+Het instellen van de optionele invoerwaarden zoals weergegeven in de afbeelding hieronder zorgt ervoor dat alle segmenten met een score boven 0,9 hun doelstaatwaarden bijgewerkt krijgen naar "final".
+
+![Optional inputs 1](https://raw.githubusercontent.com/bb-io/ModernMT/main/image/README/MMTOptionalInput1.png)
+
+Op dezelfde manier zorgt de onderstaande instelling ervoor dat alle segmenten met een kwaliteitsscore lager dan of gelijk aan 0,6 hun doelstaatwaarde veranderd krijgen in "needs-review-translation".
+
+![Optional inputs 2](https://raw.githubusercontent.com/bb-io/ModernMT/main/image/README/MMTOptionalInput2.png)
+
+### Language detection
+
+- **Detect langauge** geeft een taalcode terug op basis van een segment.
+- **Detect multiple languages** gedraagt zich hetzelfde als detect language, maar dan voor meerdere segmenten.
+
+### Context Vectors
+
+- **Get context vector from text** geeft een contextvector terug die kan worden gebruikt voor vertaalacties. Voor details over contextvectoren zie de [ModernMT-documentatie](https://www.modernmt.com/api/#context-vector).
+
+### Memories
+
+- **Get memory**, **Create memory**, **Update memory**, **Delete memory** zijn acties die kunnen worden gebruikt om bestaande geheugens en metadata zoals naam en beschrijving te beheren.
+- **Add translation to memory** en **Update memory translation pair** kunnen worden gebruikt om nieuwe zin-vertaalparen toe te voegen/bij te werken in een bestaand geheugen.
+- **Import memory from tmx** stelt je in staat om nieuwe zin-vertaalparen in bulk toe te voegen via bestaande TMX-bestanden.
+
+## Voorbeeld
+
+![example](https://raw.githubusercontent.com/bb-io/ModernMT/main/image/README/1693303412326.png)
+
+Dit voorbeeld toont een eenvoudige bird die binnenkomende Slack-berichten vertaalt, een kwaliteitsinschatting uitvoert en vervolgens de vertaling en kwaliteitsinschatting samen terugstuurt als een Slack-bericht.
+
+![1693303512885](https://raw.githubusercontent.com/bb-io/ModernMT/main/image/README/1693303512885.png)
+
+## Feedback
+
+Feedback op onze implementatie van ModernMT is altijd zeer welkom. Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/), of maak een issue aan.

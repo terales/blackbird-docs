@@ -1,0 +1,189 @@
+---
+  title: XTRF
+  description: De Blackbird-app voor XTRF
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/XTRF" icon="github" />
+
+XTRF is een uitgebreid vertaalbeheersysteem dat vertaalworkflows stroomlijnt en automatiseert voor taaldienstverleners en bedrijfsvertaalafdelingen. Het biedt robuuste functies voor projectbeheer, samenwerking en automatisering om de efficiëntie van vertaalprocessen te verbeteren.
+
+## Acties
+
+### Classic - Job 
+
+- **Get job** Informatie over een job ophalen
+- **Update job** Een job bijwerken, waarbij alleen de velden worden gespecificeerd die bijgewerkt moeten worden
+- **Upload output file for job** Een outputbestand uploaden voor een job
+
+### Classic - Project 
+
+- **Create language combination for project** Een nieuwe taalcombinatie maken voor een klassiek project zonder een taak aan te maken
+- **Create new project** Een nieuw klassiek project aanmaken
+- **Delete project** Een klassiek project verwijderen
+- **Download file** De inhoud van een specifiek bestand in een klassiek project downloaden
+- **Get checkbox custom field for project** Een checkbox (boolean) aangepast veld voor een klassiek project ophalen
+- **Get date custom field for project** Een datum/datum en tijd aangepast veld voor een klassiek project ophalen
+- **Get multiple selection custom field for project** Een meervoudige selectie (lijst) aangepast veld voor een klassiek project ophalen
+- **Get number custom field for project** Een numeriek aangepast veld voor een klassiek project ophalen
+- **Get project details** Informatie over een klassiek project ophalen
+- **Get text or selection custom field for project** Een tekst of selectie aangepast veld voor een klassiek project ophalen
+- **List custom fields for project** De aangepaste velden voor een klassiek project weergeven, waarbij velden worden geretourneerd die aan het project kunnen worden toegewezen zonder hun waarden. Om de veldwaarde te verkrijgen, gebruik de actie "Get custom field for project" die overeenkomt met het veldtype
+- **Update checkbox custom field for project** Een checkbox (boolean) aangepast veld voor een klassiek project bijwerken
+- **Update date custom field for project** Een datum/datum en tijd aangepast veld voor een klassiek project bijwerken
+- **Update multiple selection custom field for project** Een meervoudige selectie (lijst) aangepast veld voor een klassiek project bijwerken
+- **Update number custom field for project** Een numeriek aangepast veld voor een klassiek project bijwerken
+- **Update project** Een klassiek project bijwerken, waarbij alleen de velden worden gespecificeerd die bijgewerkt moeten worden
+- **Update text or selection custom field for project** Een tekst of selectie aangepast veld voor een klassiek project bijwerken
+- **Create payable for project** Een te betalen bedrag maken voor een klassiek project
+- **Create receivable for project** Een te ontvangen bedrag maken voor een klassiek project
+
+### Classic - Quote
+
+- **Create language combination for quote** Een nieuwe taalcombinatie maken voor een klassieke offerte zonder een taak aan te maken
+- **Delete quote** Een offerte verwijderen
+- **Get checkbox custom field for quote** Een checkbox (boolean) aangepast veld voor een klassieke offerte ophalen
+- **Get date custom field for quote** Een datum/datum en tijd aangepast veld voor een klassieke offerte ophalen
+- **Get multiple selection custom field for quote** Een meervoudige selectie (lijst) aangepast veld voor een klassieke offerte ophalen
+- **Get number custom field for quote** Een numeriek aangepast veld voor een klassieke offerte ophalen
+- **Get quote** Informatie over een klassieke offerte ophalen
+- **Get text or selection custom field for quote** Een tekst of selectie aangepast veld voor een klassieke offerte ophalen
+- **List custom fields for quote** De aangepaste velden voor een klassieke offerte weergeven, waarbij velden worden geretourneerd die aan de offerte kunnen worden toegewezen zonder hun waarden. Om de veldwaarde te verkrijgen, gebruik de actie "Get custom field for quote" die overeenkomt met het veldtype
+- **Send quote for customer confirmation** Een offerte ter bevestiging naar de klant sturen, waarbij de offertestatus wordt gewijzigd naar "Verzonden"
+- **Start quote** Een klassieke offerte starten
+- **Update checkbox custom field for quote** Een checkbox (boolean) aangepast veld voor een klassieke offerte bijwerken
+- **Update date custom field for quote** Een datum/datum en tijd aangepast veld voor een klassieke offerte bijwerken
+- **Update multiple selection custom field for quote** Een meervoudige selectie (lijst) aangepast veld voor een klassieke offerte bijwerken
+- **Update number custom field for quote** Een numeriek aangepast veld voor een klassieke offerte bijwerken
+- **Update quote instructions** Instructies van een bepaalde offerte bijwerken, waarbij alleen de velden worden gespecificeerd die bijgewerkt moeten worden
+- **Update text or selection custom field for quote** Een tekst of selectie aangepast veld voor een klassieke offerte bijwerken
+- **Create quote** Een nieuwe klassieke offerte maken op basis van verstrekte gegevens
+
+### Classic - Task
+
+- **Create task for project** Maakt een nieuwe taak voor een bepaald klassiek project
+- **Create task for quote** Maakt een nieuwe taak voor een bepaalde klassieke offerte
+- **Delete task** Een taak verwijderen
+- **Get task in project** Informatie over een taak binnen het project ophalen
+- **Get task in quote** Informatie over een taak binnen de offerte ophalen
+- **Get task progress** Voortgang van een bepaalde taak ophalen, met informatie over de status van de taak (bijv. geopend of gereed) en huidige fase (bijv. vertaling)
+- **List task's files** Invoerbestanden (werkbestanden, vertaalgeheugen, terminologie, referentie- en logbestanden) en uitvoerbestanden weergeven
+- **Start task** Een taak starten
+- **Update task in project** Een taak binnen het project bijwerken, waarbij alleen de velden worden gespecificeerd die bijgewerkt moeten worden
+- **Update task in quote** Een taak binnen de offerte bijwerken, waarbij alleen de velden worden gespecificeerd die bijgewerkt moeten worden
+- **Upload file for task** Een bestand uploaden voor een taak
+
+### Customer
+
+- **Create customer contact** Een nieuwe contactpersoon voor een klant aanmaken
+- **Create customer** Een nieuwe klant aanmaken
+- **Delete customer** Specifieke klant verwijderen
+- **Get checkbox custom field for customer** Een checkbox (boolean) aangepast veld voor een klant ophalen
+- **Get customer details** Informatie over specifieke klant ophalen
+- **Get customers** Alle klanten op deze XTRF-instantie ophalen
+- **Get date custom field for customer** Een datum/datum en tijd aangepast veld voor een klant ophalen
+- **Get multiple selection custom field for customer** Een meervoudige selectie (lijst) aangepast veld voor een klant ophalen
+- **Get number custom field for customer** Een numeriek aangepast veld voor een klant ophalen
+- **Get text or selection custom field for customer** Een tekst of selectie aangepast veld voor een klant ophalen
+- **List custom fields for customer** De aangepaste velden voor een klant weergeven, waarbij velden worden geretourneerd die aan de klant kunnen worden toegewezen zonder hun waarden. Om de veldwaarde te verkrijgen, gebruik de actie "Get custom field for customer" die overeenkomt met het veldtype
+- **Update checkbox custom field for customer** Een checkbox (boolean) aangepast veld voor een klant bijwerken
+- **Update customer contact** Een contactpersoon voor een klant bijwerken, waarbij alleen de velden worden gespecificeerd die bijgewerkt moeten worden
+- **Update customer** Een klant bijwerken, waarbij alleen de velden worden gespecificeerd die bijgewerkt moeten worden
+- **Update date custom field for customer** Een datum/datum en tijd aangepast veld voor een klant bijwerken
+- **Update multiple selection custom field for customer** Een meervoudige selectie (lijst) aangepast veld voor een klant bijwerken
+- **Update number custom field for customer** Een numeriek aangepast veld voor een klant bijwerken
+- **Update text or selection custom field for customer** Een tekst of selectie aangepast veld voor een klant bijwerken
+
+### Provider
+
+- **Search providers** Zoeken naar leveranciers op basis van gegeven criteria
+- **Get provider** Informatie over een specifieke leverancier ophalen
+- **Delete provider** De leverancier met de gegeven ID verwijderen
+- **Send invitation to provider** Een uitnodiging sturen naar de leverancier met de gegeven ID
+
+### Provider invoice
+
+- **Search provider invoices** Zoeken naar leveranciersfacturen op basis van gegeven criteria
+- **Get provider invoice** Leveranciersfactuur ophalen op basis van ID
+- **Create provider invoice** Een leveranciersfactuur aanmaken
+- **Update provider invoice** Leveranciersfactuur bijwerken op basis van ID
+- **Send provider invoice** Leveranciersfactuur verzenden op basis van opgegeven ID
+- **Download provider invoice** Genereert leveranciersfactuurdocument (PDF)
+- **Delete provider invoice** Leveranciersfactuur verwijderen op basis van ID
+
+### Customer Invoice
+
+- **Search customer invoices** Zoeken naar klantfacturen op basis van gegeven criteria
+- **Get customer invoice** Klantfactuur ophalen op basis van ID
+- **Create customer invoice** Een klantfactuur aanmaken
+- **Delete customer invoice** Klantfactuur verwijderen op basis van ID
+- **Download customer invoice** Klantfactuurdocument (PDF) downloaden op basis van ID
+- **Send reminder for customer invoice** Een herinnering sturen voor klantfactuur op basis van opgegeven ID
+- **Duplicate customer invoice** Een klantfactuur dupliceren op basis van opgegeven ID
+- **Export customer invoice** Klantfactuur exporteren op basis van ID naar json-bestand voor import in extern systeem
+
+### Provider person
+
+- **Search provider persons** Zoeken naar leverancierspersonen op basis van gegeven criteria
+- **Get provider person** Leverancierspersoon ophalen op basis van ID
+- **Remove provider person** Leverancierspersoon verwijderen op basis van ID
+- **Send invitation to provider person** Uitnodiging naar leverancierspersoon sturen op basis van ID
+
+### Smart - File 
+
+- **Download file** De inhoud van een specifiek bestand downloaden
+- **List deliverable files for source file** Bestanden weergeven die klaar zijn voor levering met dezelfde naam als het gegeven bronbestand in een smart project
+
+### Smart - Job
+
+- **Get delivered files in job** Geleverde bestanden in een smart job ophalen
+- **Get job details** Informatie over een smart job ophalen
+- **Get reference files shared with job** Referentiebestanden ophalen die zijn gedeeld met een smart job
+- **Get work files shared with job** Werkbestanden ophalen die zijn gedeeld met een smart job
+- **Share file as reference file with job** Een bestand delen als referentiebestand met een smart job. Zowel het bestand als de job moeten tot hetzelfde project behoren
+- **Share file as work file with job** Een bestand delen als werkbestand met een smart job. Zowel het bestand als de job moeten tot hetzelfde project behoren
+- **Stop sharing file with job** Stoppen met het delen van een bestand met een smart job
+- **Update job** Een smart job bijwerken, waarbij alleen de velden worden gespecificeerd die bijgewerkt moeten worden
+- **Upload delivered file to job** Een geleverd bestand uploaden naar een smart job
+
+
+### Smart - Project
+
+- **Add target languages to project** Meer doeltalen toevoegen aan een smart project
+- **Create new project** Een nieuw smart project aanmaken
+- **Delete payable for project** Een te betalen bedrag verwijderen voor een smart project
+- **Delete receivable for project** Een te ontvangen bedrag verwijderen voor een smart project
+- **Get checkbox custom field for project** Een checkbox (boolean) aangepast veld voor een smart project ophalen
+- **Get date custom field for project** Een datum/datum en tijd aangepast veld voor een smart project ophalen
+- **Get multiple selection custom field for project** Een meervoudige selectie (lijst) aangepast veld voor een smart project ophalen
+- **Get number custom field for project** Een numeriek aangepast veld voor een smart project ophalen
+- **Get project details** Informatie over een smart project ophalen. Als je klantcontacten, financiële informatie, proces-ID wilt ophalen of wilt controleren of het project in de CAT-tool is aangemaakt of in de wachtrij staat, stel dan de respectievelijke optionele parameter in op 'True'
+- **Get project file details** Informatie over een specifiek bestand in een smart project ophalen
+- **Get text or selection custom field for project** Een tekst of selectie aangepast veld voor een smart project ophalen
+- **List custom fields for project** De aangepaste velden voor een smart project weergeven, waarbij velden worden geretourneerd die aan het project kunnen worden toegewezen zonder hun waarden. Om de veldwaarde te verkrijgen, gebruik de actie "Get custom field for project" die overeenkomt met het veldtype
+- **List files in project** Alle bestanden in een smart project weergeven
+- **List jobs in project** Alle jobs in een smart project weergeven
+- **Update checkbox custom field for project** Een checkbox (boolean) aangepast veld voor een smart project bijwerken
+- **Update date custom field for project** Een datum/datum en tijd aangepast veld voor een smart project bijwerken
+- **Update multiple selection custom field for project** Een meervoudige selectie (lijst) aangepast veld voor een smart project bijwerken
+- **Update number custom field for project** Een numeriek aangepast veld voor een smart project bijwerken
+- **Update project** Een smart project bijwerken, waarbij alleen de velden worden gespecificeerd die bijgewerkt moeten worden
+- **Update text or selection custom field for project** Een tekst of selectie aangepast veld voor een smart project bijwerken
+- **Upload file to project** Een bestand uploaden naar een smart project
+- **Create receivable for project** Een te ontvangen bedrag maken voor een smart project
+- **Create payable for project** Een te betalen bedrag maken voor een smart project
+
+### Smart - Quote
+
+- **Add target languages to quote** Meer doeltalen toevoegen aan een smart offerte
+- **Create new quote** Een nieuwe smart offerte aanmaken
+- **Delete payable for quote** Een te betalen bedrag verwijderen voor een smart offerte
+- **Delete receivable for quote** Een te ontvangen bedrag verwijderen voor een smart offerte
+- **Get checkbox custom field for quote** Een checkbox (boolean) aangepast veld voor een smart offerte ophalen
+- **Get date custom field for quote** Een datum/datum en tijd aangepast veld voor een smart offerte ophalen
+- **Get multiple selection custom field for quote** Een meervoudige selectie (lijst) aangepast veld voor een smart offerte ophalen
+- **Get number custom field for quote** Een numeriek aangepast veld voor een smart offerte ophalen
+- **Get quote details** Informatie over een smart offerte ophalen. Als je financiële informatie wilt ophalen, stel dan de respectievelijke optionele parameter in op 'True'
+- **Get quote file details** Informatie over een specifiek bestand in een smart offerte ophalen
+- **Get text or selection custom field for quote** Een tekst of selectie aangepast veld voor een smart offerte ophalen
+- **List custom fields for quote** De aangepaste velden

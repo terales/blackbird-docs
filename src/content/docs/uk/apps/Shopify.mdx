@@ -1,0 +1,97 @@
+---
+  title: Shopify
+  description: Blackbird додаток для Shopify
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Shopify" icon="github" />
+
+Shopify - це хмарна платформа електронної комерції, яка дозволяє користувачам створювати, налаштовувати та керувати онлайн-магазинами. Вона надає широкий спектр функцій та інструментів для бізнесу, щоб продавати товари та послуги онлайн, включаючи шаблони веб-сайтів, обробку платежів, управління запасами та маркетингові інструменти. Shopify дозволяє користувачам взаємодіяти з клієнтами через різні канали, включаючи веб, мобільні пристрої, соціальні мережі та торгові майданчики, що робить його універсальним рішенням для приватних осіб, підприємців та підприємств, які прагнуть встановити та розширити свою онлайн-присутність.
+
+## Підключення
+
+1. У Blackbird перейдіть до розділу 'Apps' та знайдіть Shopify.
+2. Натисніть _Add Connection_.
+3. Назвіть своє з'єднання для подальшого використання, наприклад, 'Моє з'єднання з Shopify'.
+4. У Shopify перейдіть до `Store settings -> Apps and sales channels -> Develop apps`.
+5. Створіть додаток для розробки.
+6. Натисніть `Configure Admin API scopes`, щоб вибрати доступи, які ви хочете надати Blackbird. Переконайтеся, що ви надали доступ `read_locales`. Інші доступи, які можуть знадобитися в залежності від бажаних дій: `write_products`, `read_products`, `write_publications`, `read_publications`, `write_translations`, `read_translations`, `read_themes`, `read_content`.
+7. Після вибору доступів натисніть `Save` і перейдіть до `API credentials` та встановіть щойно створений додаток.
+8. Це створить `Admin API access token`, який вам потрібно скопіювати та вставити у відповідне поле в Blackbird.
+9. Далі в налаштуваннях магазину натисніть `Domains` і скопіюйте назву магазину з домену та вставте її у відповідне поле в Blackbird. Наприклад, якщо ваш домен - `mystore.myshopify.com`, вам потрібно взяти `mystore`.
+10. Натисніть _Connect_.
+11. Переконайтеся, що з'єднання з'явилося і статус - _Connected_.
+
+## Actions
+
+### Store
+- **Get store locales information** Отримати інформацію про основну та інші локалі, налаштовані в магазині
+- **Get store resources content as HTML** Повертає вміст усіх ресурсів магазину у форматі HTML.
+- **Update store resources content from HTML** Оновлює вміст усіх ресурсів магазину з HTML-файлу.
+- **Get store content as HTML** Повертає вміст магазину у форматі HTML. Ви повинні вказати, які ресурси ви хочете експортувати: theme, menu, shop або shop policy.
+- **Update store content from HTML** Оновлює вміст магазину з HTML-файлу.
+
+### Articles
+
+- **List online store articles** Перелік усіх статей в онлайн-магазині
+- **Get online store article translation as HTML** Отримати вміст конкретної статті онлайн-магазину у форматі HTML
+- **Update online store article content from HTML** Оновити вміст конкретної статті онлайн-магазину з HTML-файлу
+
+### Blogs
+
+- **List online store blogs** Перелік усіх блогів в онлайн-магазині
+- **Get online store blog content as HTML** Отримати вміст конкретного блогу онлайн-магазину у форматі HTML. Ви також можете встановити `Include articles` на True, щоб експортувати всі статті блогу.
+- **Update online store blog content from HTML** Оновити вміст конкретного блогу онлайн-магазину з HTML-файлу
+
+### Pages
+
+- **List online store pages** Перелік усіх сторінок в онлайн-магазині
+- **Get online store page content as HTML** Отримати вміст конкретної сторінки онлайн-магазину у форматі HTML
+- **Update online store page content from HTML** Оновити вміст конкретної сторінки онлайн-магазину з HTML-файлу
+
+### Products
+
+- **Search products** Пошук товарів за заданими критеріями
+- **Get product content as HTML** Отримати вміст конкретного товару у форматі HTML. Ви також можете додатково вказати інші сутності для експорту, наприклад, metafields, options, option values.
+- **Update product content from HTML** Оновити вміст конкретного товару з HTML-файлу
+
+### Metafields
+
+- **Get metafield content as HTML** Повертає вміст метаполя товару у форматі HTML
+- **Update metafield content from HTML** Оновлює вміст метаполя товару з HTML-файлу
+- **Get metafield** Повертає деталі метаполя конкретного товару
+- **Update metafield** Оновлює значення метаполя конкретного товару
+
+### Themes
+
+- **Get online store theme content as HTML** Повертає вміст конкретної теми магазину у форматі HTML
+- **Update online store theme content from HTML** Оновлює вміст конкретної теми магазину з HTML-файлу
+
+### General
+
+- **Update content from HTML** Оновлює вміст конкретного контенту з HTML-файлу. Ви можете вручну вказати тип контенту, використовуючи додатковий ввід;
+
+## Events
+
+- **On product created**
+- **On product deleted**
+- **On product updated**
+- **On product publications added**
+- **On product publications deleted**
+- **On locale created**
+- **On locale updated**
+- **On articles created**
+- **On articles updated**
+- **On pages created**
+- **On pages updated**
+- **On content created or updated** (для статей та сторінок)
+
+## Приклад
+
+Наступний приклад показує, як можна налаштувати птаха (bird) так, щоб кожного разу, коли товар Shopify оновлюється, ми отримуємо налаштування локалі онлайн-магазину, завантажуємо вихідний вміст оновленого товару як HTML-файл, перекладаємо файл на всі цільові локалі за допомогою рішення GlobalLink NOW MT і оновлюємо всі цільові товари.
+
+![Sample Bird](https://raw.githubusercontent.com/bb-io/Shopify/main/image/README/ShopifySampleBird.png)
+
+## Відгуки
+
+Ви хочете використовувати цей додаток або у вас є відгуки щодо нашої реалізації? Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть issue.

@@ -1,0 +1,83 @@
+---
+  title: Microsoft SharePoint
+  description: Додаток Blackbird для Microsoft SharePoint
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/MicrosoftSharePoint" icon="github" />
+
+SharePoint — це платформа, розроблена Microsoft, яка служить центральним вузлом для співпраці, управління документами та обміну вмістом в організаціях. Вона дозволяє користувачам створювати, зберігати та отримувати доступ до документів, а також співпрацювати над проектами в безпечному та організованому онлайн-середовищі.
+
+## Перед налаштуванням
+
+Перш ніж підключитися, вам потрібно переконатися, що:
+
+- У вас є обліковий запис Microsoft 365.
+- У вас [створено сайт SharePoint](https://support.microsoft.com/en-gb/office/create-a-site-in-sharepoint-4d1e11bf-8ddc-499d-b889-2b48d10b1ce8).
+
+### Як знайти назву сайту
+
+Ви можете знайти назву сайту:
+
+- На стартовій сторінці SharePoint.
+![Стартова сторінка](https://raw.githubusercontent.com/bb-io/MicrosoftSharePoint/main/image/README/sharepoint-start-page.png)
+
+- АБО натиснувши на вкладку _My sites_.
+![My sites](https://raw.githubusercontent.com/bb-io/MicrosoftSharePoint/main/image/README/my-sites.png)
+
+Звідти ви можете переглянути свої сайти та вибрати той, з яким хочете працювати.
+
+Скопіюйте назву сайту. Наприклад, якщо назва сайту "My communication site", скопіюйте це.
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть Microsoft SharePoint. Якщо ви не можете знайти Microsoft SharePoint, натисніть _Add App_ у верхньому правому куті, виберіть Microsoft SharePoint і додайте додаток до свого середовища Blackbird.
+2. Натисніть _Add Connection_.
+3. Назвіть своє підключення для подальшого використання, наприклад, 'Моя організація'.
+4. Заповніть відображуване ім'я вашого сайту, наприклад, 'My communication site'.
+5. Натисніть _Authorize connection_.
+6. Дотримуйтесь інструкцій, які надає Microsoft, авторизуючи Blackbird.io діяти від вашого імені.
+7. Коли ви повернетеся до Blackbird, переконайтеся, що з'явилося підключення і статус _Connected_.
+
+Примітка: якщо ви щойно створили сайт, вам слід зачекати кілька хвилин, перш ніж намагатися підключитися.
+
+![Підключення](https://raw.githubusercontent.com/bb-io/MicrosoftSharePoint/main/image/README/connecting.png)
+
+## Actions
+
+### Documents
+
+- **Get file metadata** отримує метадані для файлу з документів сайту.
+- **List changed files** повертає список усіх файлів, які були створені або змінені протягом минулих годин. Якщо кількість годин не вказана, перераховуються файли, змінені протягом останніх 24 годин.
+- **Download file**.
+- **Upload file to folder**.
+- **Delete file**.
+- **Get folder metadata** отримує метадані для папки.
+- **List files in folder** отримує метадані для файлів, що містяться в папці.
+- **Create folder in parent folder**.
+- **Delete folder**.
+
+## Events
+
+- **On files updated or created** активується, коли файли оновлюються або створюються.
+- **On folders updated or created** активується, коли папки оновлюються або створюються.
+- **On pages created or updated** ця подія опитування активується, коли сторінки оновлюються або створюються.
+- **On pages deleted** ця подія опитування активується, коли сторінки видаляються.
+
+## Приклад
+Приклад 1
+![Приклад](https://raw.githubusercontent.com/bb-io/MicrosoftSharePoint/main/image/README/example.png)
+
+Тут, коли PDF-файли завантажуються в документи SharePoint, кожен файл завантажується, перекладається за допомогою Language Weaver і розміщується у відповідному каталозі на основі оцінки якості перекладу.
+
+Приклад 2
+![Приклад](https://raw.githubusercontent.com/bb-io/MicrosoftSharePoint/main/image/README/example2.png)
+У цьому прикладі робочий процес починається з **On pages created or updated**. Потім робочий процес використовує дію **Get page as HTML**, щоб отримати html-вміст оновленої/створеної сторінки. На наступному кроці ми перекладаємо цей вміст через DeepL, а потім надсилаємо перекладену сторінку до каналу Slack.
+
+## Eggs
+
+Перевірте завантажувані прототипи робочих процесів з цим додатком, які ви можете імпортувати до своїх Nests [тут](https://docs.blackbird.io/eggs/storage-to-mt/).
+
+## Відсутні функції
+
+У майбутньому ми можемо додати дії для списків. Повідомте нам, якщо вас це цікавить!

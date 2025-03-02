@@ -1,0 +1,66 @@
+---
+  title: Translate5
+  description: A Translate5 Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Translate5" icon="github" />
+
+Felhőalapú fordítási, véleményezési, utószerkesztési és terminológiai platform. A translate5 küldetése a nyelvipar nyílt forráskódú és felhőalapú fordításkezelő rendszerének közösségi vezérlésű és folyamatos fejlesztése.
+
+## Csatlakozás 
+
+1. Navigálj az alkalmazásokhoz és keress rá a Translate5-re. Ha nem találod a Translate5-öt, kattints a jobb felső sarokban az _Add App_ gombra, válaszd a Translate5-öt, és add hozzá az alkalmazást a Blackbird környezetedhez.
+2. Kattints az _Add Connection_ gombra.
+3. Nevezd el a kapcsolatot a későbbi hivatkozáshoz, pl. "Ügyfelem".
+4. Az _URL_ mezőbe írd be a szolgáltatás URL-jét (ennek a következő szerkezettel kell rendelkeznie: https://[domain]), például: https://translate5.net
+5. Az _API Key_ mezőbe írd be az API kulcsodat
+6. Kattints a _Connect_ gombra.
+7. Ellenőrizd, hogy a kapcsolat megjelent-e és az állapota _Connected_.
+
+## Actions
+
+### Comment
+
+- **List comments**: Ez a művelet lekéri az összes megjegyzést egy adott szegmenshez egy fordítási feladaton belül
+- **Create Comment**: Új megjegyzés létrehozása
+- **Delete Comment**: Adott megjegyzés törlése: Lehetővé teszi egy adott megjegyzés eltávolítását egy szegmensből
+
+### Segment
+
+- **List segments**: Lekéri az összes szegmenst, amely egy adott feladathoz kapcsolódik
+- **Get Segment**: Adott szegmens lekérése
+- **Search Segments**: Szegmensek keresése a feladatban. Keresést hajt végre egy feladat szegmensei között meghatározott kritériumok alapján, például szövegtartalom szerint
+- **Translate Segment**: Adott szegmens fordítása. Elindítja egy meghatározott szegmens fordítását.
+
+### Task
+
+- **List all tasks**: Lekéri a rendszerben található összes feladat átfogó listáját. Ez a funkció elengedhetetlen azon felhasználók számára, akiknek különböző feladatok között kell navigálniuk, átfogó képet nyújtva a folyamatban lévő és befejezett fordítási projektekről.
+- **Get Task**: Adott feladat lekérése: Részletes információkat kér le egy adott feladatról annak egyedi azonosítója segítségével. Ez a művelet lehetővé teszi a felhasználók számára, hogy egy feladat részleteibe mélyedjenek, betekintést nyújtva annak előrehaladásába, a kapcsolódó nyelvekbe és egyéb releváns részletekbe.
+- **Create Task**: Új feladat létrehozása: Új fordítási feladatot indít meghatározott paraméterekkel, beleértve a feladat nevét, forrás- és célnyelveket, valamint a kapcsolódó ügyfélinformációkat. Ez a funkció elengedhetetlen a konkrét igényekre és követelményekre szabott fordítási projektek beállításához.
+- **Change Task Name**: Feladat nevének módosítása: Frissíti egy meglévő feladat nevét. Ez a módosítási képesség fontos a relevancia és az egyértelműség fenntartásához, ahogy a projektek idővel fejlődnek.
+- **Delete Task**: Feladat törlése: Eltávolít egy feladatot a rendszerből. Ez a funkció létfontosságú a befejezett vagy elavult feladatok eltávolításához, biztosítva, hogy a munkaterület rendezett és fókuszált maradjon.
+- **Export Translated File**: Lefordított fájl exportálása feladat azonosító alapján: Lehetővé teszi egy adott feladathoz kapcsolódó lefordított tartalom letöltését. Ez a művelet kulcsfontosságú a végső fordítások lekéréséhez, megkönnyítve a felhasználók számára a lefordított dokumentumok elérését és használatát.
+- **Create Task from ZIP**: Feladat létrehozása ZIP-ből: Lehetővé teszi egy feladat létrehozását egy ZIP fájl feltöltésével, amely tartalmazza az összes szükséges dokumentumot és erőforrást a fordításhoz. Ez a módszer egyszerűsíti a fordítási projekt beállításának folyamatát a anyagok tömeges feltöltésének lehetővé tételével, ami rendkívül hatékony a nagy vagy összetett feladatok kezeléséhez.
+
+### Translations
+
+- **Translate Text**: Szöveg azonnali fordítása meghatározott forrás- és célnyelvek használatával, egy kiválasztott nyelvi erőforrással együtt.
+
+- **Translate File**: Teljes fájlok fordítása dokumentum feltöltésével és nyelvek megadásával. A Translate5 szolgáltatás elvégzi a fordítást és visszaad egy letölthető lefordított dokumentumot.
+
+- **Write Translation Memory**: Lefordított szegmensek integrálása az OpenTM2-be, növelve a fordítási memória gazdagságát és hasznosságát.
+
+### User
+
+- **List all users**: Összes felhasználó listázása
+
+## Webhooks
+
+- **On task import finished**: Ez a webhook akkor aktiválódik, amikor egy feladat importálási folyamata befejeződik
+
+- **On Task Finished**: A feladatimport webhookhoz hasonlóan, ez az értesítés akkor aktiválódik, amikor egy feladat eléri a befejezését
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy visszajelzésed van a megvalósításunkról? Vedd fel velünk a kapcsolatot a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozz létre egy problémát.

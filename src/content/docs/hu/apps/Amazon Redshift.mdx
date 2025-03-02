@@ -1,0 +1,64 @@
+---
+  title: Amazon Redshift
+  description: Az Amazon Redshift Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/AmazonRedshift" icon="github" />
+ 
+  
+Az Amazon Redshift egy teljesen menedzselt, petabyte léptékű adattárház szolgáltatás a felhőben, amelyet nagy teljesítményű elemzésekhez terveztek, standard SQL-lekérdezéseket használva. Ez az Amazon Redshift alkalmazás elsősorban az adatbázis-kezelésre összpontosít.  
+
+## Beállítás előtt
+
+Mielőtt csatlakozhatnál, győződj meg arról, hogy:
+
+- Rendelkezel [AWS root felhasználói fiókkal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html) vagy a root felhasználó által létrehozott [IAM felhasználóval](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_identity-management.html).
+- Rendelkezel hozzáférési kulccsal és titkos kulccsal, amelyet az IAM felhasználód számára generáltak.
+- Hozzáféréssel rendelkezel azokhoz a modellekhez, amelyeket használni szeretnél. Hozzáférést kell kérned egy modellhez, mielőtt használhatnád azt. Ha megpróbálsz egy modellt használni, mielőtt hozzáférést kértél volna, hibaüzenetet fogsz kapni.
+
+### IAM felhasználó létrehozása
+
+- Lépj az [Identity and Access Management](https://console.aws.amazon.com/iamv2/home) oldalra.
+- Válaszd a _Users_ lehetőséget a bal oldali menüből.
+- Kattints a _Create user_ gombra.
+- Add meg a _User name_ értéket, majd kattints a _Next_ gombra.
+- Válaszd az _Attach policies directly_ opciót a _Permissions options_ közül.
+- Add hozzá az _AdministratorAccess_ és _AmazonRedshiftFullAccess_ házirendeket, majd kattints a _Next_ gombra.
+- Ellenőrizd a felhasználói adatokat és jogosultságokat, majd kattints a _Create user_ gombra.
+
+### Hozzáférési kulcs generálása
+
+- Lépj az [Identity and Access Management](https://console.aws.amazon.com/iamv2/home) oldalra.
+- Válaszd a _Users_ lehetőséget a bal oldali menüből.
+- Válaszd ki azt a felhasználót, akinek hozzáférési kulcsot szeretnél generálni.
+- Lépj a _Security credentials_ fülre.
+- Görgess le az _Access keys_ részhez, és kattints a _Create access key_ gombra.
+- Válaszd ki a _Use case_ opciót, majd kattints a _Next_ gombra.
+- Add meg a _Description tag value_ értéket, majd kattints a _Create access key_ gombra.
+- Mentsd el az _Access key_ és _Secret access key_ értékeket, hogy csatlakozni tudj az Amazon Redshift szolgáltatáshoz a Blackbird segítségével.
+
+## Csatlakozás
+
+1. Navigálj az alkalmazásokhoz és keress rá az Amazon Redshift-re. Ha nem találod az Amazon Redshift-et, kattints a jobb felső sarokban található _Add App_ gombra, válaszd az Amazon Redshift-et, és add hozzá az alkalmazást a Blackbird környezetedhez.
+2. Kattints az _Add Connection_ gombra.
+3. Nevezd el a kapcsolatot a későbbi hivatkozáshoz, például 'Szervezetem'.
+4. Töltsd ki a hozzáférési kulcsot és titkos kulcsot, amelyeket az előző szakaszban szereztél.
+5. Kattints a _Connect_ gombra.
+6. Ellenőrizd, hogy a kapcsolat megjelent-e, és a státusza _Connected_.
+  
+## Actions  
+ 
+### Database
+
+- **Get entries** visszaadja a táblázat rekordok listáját a megadott szűrők alapján. Opcionálisan megadhatod a limit/offset értékeket vagy a _Where_ feltételt. A Where feltétel karakterláncként van meghatározva, például `age > 18`.
+- **Add entry** új rekordot ad a táblázathoz. Az értékek karakterláncok tömbjeként vannak megadva, ugyanabban a sorrendben, ahogy az oszlopok a táblázatban találhatók. Kevesebb értéket is megadhatsz, ha a többi oszlop nullázható vagy alapértelmezett értékkel rendelkezik.
+- **Update entries** frissíti a táblázat rekordjait a megadott szűrők alapján. A frissítés kritériumainak meghatározásához a _Where_ feltételt használhatod, hasonlóan a _Get Entries_ művelethez. A _Columns_ és _Values_ bemeneteknek ugyanolyan méretűnek kell lenniük, egymással a megfelelő pozíciók alapján összhangban. 
+
+	Például, ha a Columns bemenet: Name, Age, Gender; és a Values bemenet: Bob, 13, Non-binary; a táblázat frissíti a rekordot, beállítva a Bob értéket a Name mezőhöz, a 13-at az Age mezőhöz és a Non-binary-t a Gender mezőhöz. Ügyelj a Columns és Values bemenetek méretének következetességére a pontos és hatékony frissítésekhez.
+- **Delete entries** törli a rekordokat a megadott táblázatból. A frissítés kritériumainak meghatározásához a _Where_ feltételt használhatod, hasonlóan a _Get Entries_ művelethez.
+- **Query database** bármilyen nyers SQL lekérdezést végrehajt, és visszaadja az eredményeket, ha vannak.
+  
+## Visszajelzés  
+  
+Szeretnéd használni ezt az alkalmazást, vagy visszajelzést szeretnél adni a megvalósításunkról? Vedd fel velünk a kapcsolatot a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozz létre egy problémát.

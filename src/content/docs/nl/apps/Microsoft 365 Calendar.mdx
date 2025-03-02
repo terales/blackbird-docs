@@ -1,0 +1,53 @@
+---
+  title: Microsoft 365 Calendar
+  description: De Microsoft 365 Calendar Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Microsoft365Calendar" icon="github" />
+
+Microsoft 365 Calendar app waarmee je toegang krijgt tot en je agenda-afspraken kunt beheren.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat je een Microsoft 365-account hebt.
+
+## Verbinding maken
+
+1. Ga naar apps en zoek naar Microsoft 365 Calendar.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn organisatie'.
+4. Klik op _Authorize connection_.
+5. Volg de instructies van Microsoft om Blackbird.io toestemming te geven om namens jou te handelen.
+6. Wanneer je terugkeert naar Blackbird, controleer dan of de verbinding verschenen is en de status _Connected_ is.
+
+![Connecting](https://raw.githubusercontent.com/bb-io/Microsoft365Calendar/main/image/README/connecting.png)
+
+## Actions
+
+- **List calendars** geeft een lijst terug van de agenda's van de huidige gebruiker.
+- **Get calendar** haalt een agenda op. Als er geen agenda is gespecificeerd, wordt de standaardagenda teruggegeven.
+- **Create calendar**
+- **Get users' schedule information** geeft de beschikbaarheidsgegevens (vrij/bezet) voor een verzameling gebruikers in een bepaalde tijdsperiode.
+- **Rename calendar** hernoemt een agenda. Als er geen agenda is gespecificeerd, wordt de standaardagenda hernoemd.
+- **Delete calendar**
+- **List events** haalt een lijst op van afspraken in een agenda. Als er geen agenda is gespecificeerd, worden de afspraken van de standaardagenda weergegeven.
+- **Get event**
+- **List occurrences of event** geeft de voorkomens van een afspraak terug voor een opgegeven tijdsbereik.
+- **List recently created events** haalt een lijst op van afspraken die in de afgelopen uren zijn gemaakt. Als het aantal uren niet is opgegeven, worden afspraken die in de afgelopen 24 uur zijn aangemaakt weergegeven. Als er geen agenda is gespecificeerd, worden de afspraken van de standaardagenda weergegeven.
+- **List recently updated events** haalt een lijst op van afspraken die in de afgelopen uren zijn bijgewerkt. Als het aantal uren niet is opgegeven, worden afspraken die in de afgelopen 24 uur zijn bijgewerkt weergegeven. Als er geen agenda is gespecificeerd, worden de afspraken van de standaardagenda weergegeven.
+- **Create event in a calendar** maakt een nieuwe afspraak in een agenda. Als er geen agenda is gespecificeerd, wordt de afspraak in de standaardagenda aangemaakt. Als de afspraak een online vergadering is, wordt er automatisch een Microsoft Teams-vergadering aangemaakt. Om een terugkerende afspraak te maken, specificeer je het herhalingspatroon en interval, dat kan zijn in dagen, weken of maanden, afhankelijk van het type herhalingspatroon. Als het interval niet is opgegeven, wordt het ingesteld op 1. Voor wekelijkse of maandelijkse patronen geef je de dagen van de week op waarop de afspraak plaatsvindt.
+- **Cancel event** verstuurt een annuleringsbericht en annuleert de afspraak. Kan alleen worden uitgevoerd door de organisator van de vergadering.
+- **Cancel event occurrence** verstuurt een annuleringsbericht en annuleert een voorkomen van een terugkerende vergadering. Kan alleen worden uitgevoerd door de organisator van de vergadering.
+- **Forward event** stuurt het vergaderverzoek door naar een nieuwe ontvanger.
+- **Update event**
+- **Update event occurrence**
+- **Delete event**
+
+## Events
+
+- **On event created** wordt geactiveerd wanneer een nieuwe afspraak wordt gemaakt in de opgegeven agenda.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

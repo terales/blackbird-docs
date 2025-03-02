@@ -1,0 +1,53 @@
+---
+  title: Termbase.io
+  description: De Termbase.io Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Termbase.io" icon="github" />
+
+termbase.io is een volledige vertaaloplossing voor bedrijven en LSP's, met de focus op het benutten van AI & bedrijfstaal om de beste kwaliteit en door mensen geverifieerde resultaten te leveren.
+
+## Voordat u begint
+
+Voordat u verbinding kunt maken, moet u zorgen dat:
+
+- U een persoonlijke Auth-Token heeft ontvangen van het termbase.io-team
+
+## Verbinding maken
+
+1. Ga naar apps en zoek naar LanguageWire
+2. Klik op _Add Connection_
+3. Geef uw verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'termbase.io'
+4. Vul het veld 'API token' in met uw Auth token
+5. Klik op _Connect_
+
+![connection](https://raw.githubusercontent.com/bb-io/Termbase.io/main/image/README/connection.png)
+
+## Actions
+
+### Language actions
+
+- **Get languages** - Alle talen ophalen
+
+### Termbase actions
+
+- **Get termbases** - Alle termbases ophalen
+- **Get termbase** - Termbase ophalen via uuid
+- **Export termbase** - Termbase exporteren in gespecificeerd formaat (standaard wordt geëxporteerd in tbx)
+
+### Term import actions
+
+- **Create term import** - Een term-import aanmaken en starten, standaard wordt geïmporteerd in xliff-formaat
+- **Get term import** - Een term-import ophalen via uuid
+- **Delete term import** - Een term-import verwijderen via uuid
+- **Export termbase from term import** - Termbase downloaden van term-import in gespecificeerd formaat (standaard wordt geëxporteerd in tbx)
+
+## Webhooks
+
+- **On term changed** - Wordt geactiveerd wanneer een term is gewijzigd
+- **On term import finished** - Wordt geactiveerd wanneer een term-import is voltooid
+
+## Feedback
+
+Wilt u deze app gebruiken of heeft u feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

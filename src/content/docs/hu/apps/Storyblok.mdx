@@ -1,0 +1,70 @@
+---
+  title: Storyblok
+  description: A Storyblok Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Github-on" target="_blank" href="https://github.com/bb-io/Storyblok" icon="github" />
+ 
+  
+A Storyblok egy headless tartalomkezelő rendszer. Ez a Storyblok alkalmazás elsősorban a történetek és feladatok kezelésére összpontosít.  
+
+## Csatlakozás  
+  
+1. Navigálj az alkalmazásokhoz és keress rá a Storyblok-ra. Ha nem találod a Notion-t, kattints a jobb felső sarokban lévő _Add App_ gombra, válaszd a Storyblok-ot, és add hozzá az alkalmazást a Blackbird környezetedhez.  
+2. Kattints az _Add Connection_ gombra.  
+3. Nevezd el a kapcsolatot a későbbi hivatkozáshoz, pl. 'Saját ügyfelem'.  
+4. Menj a Storyblok profilodba és válaszd a `Personal access tokens` részt.
+5. Hozz létre egy új API tokent.
+7. Másold a generált tokent és illeszd be a megfelelő mezőbe a Blackbird-ben.
+8. Kattints a _Connect_ gombra.  
+9. Ellenőrizd, hogy a kapcsolat megjelent és az állapota _Connected_.  
+  
+## Actions  
+ 
+### Components
+
+- **List/Get/Create/Delete components**
+
+### Releases
+
+- **List/Get/Create/Delete release**
+
+### Spaces
+
+- **List/Get/Create/Delete/Backup spaces**
+
+### Stories
+
+- **Export story content** a történet tartalmát HTML fájlként adja vissza.
+- **Import story content** frissíti a történet tartalmát egy HTML fájlból.
+- **List/Get/Create/Update/Delete stories**
+- **Publish/Unpublish story**
+- **Get story as HTML for translation** a történetet HTML fájlként kapja meg a mezőszintű lokalizációhoz.
+- **Translate story from HTML file** frissíti a történetet egy HTML fájlból mezőszintű lokalizáció használatával.
+
+### Tasks
+
+- **List/Get/Create/Delete tasks**
+
+## Events
+
+- **On story published**
+- **On story unpublished**
+- **On story moved**
+- **On story deleted**
+- **On asset created**
+- **On asset deleted**
+- **On asset replaced**
+- **On asset restored**
+- **On user added**
+- **On user removed**
+- **On user roles updated**
+- **On data source entry saved**
+- **On pipeline deployed**
+- **On release merged**
+- **On workflow changed**
+  
+## Visszajelzés  
+  
+Szeretnéd használni ezt az alkalmazást, vagy van visszajelzésed a megvalósításunkról? Vedd fel velünk a kapcsolatot a [megszokott csatornákon](https://www.blackbird.io/) keresztül vagy hozz létre egy hibajegyet.

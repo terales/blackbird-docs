@@ -1,0 +1,77 @@
+---
+  title: Pangeanic
+  description: De Pangeanic Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Pangeanic" icon="github" />
+
+Pangeanic produceert aangepaste AI-modellen zodat u uw eigen Generatieve AI (GenAI) kunt creëren zonder gegevensoverdracht naar derden.
+
+## Voordat u begint
+
+Voordat u verbinding kunt maken, moet u ervoor zorgen dat:
+
+- U een API-sleutel heeft voor Pangeanic-diensten
+
+Als u geen API-sleutel heeft, kunt u contact opnemen met [Pangeanic](https://pangeanic.com/translation-technology/translate-easy).
+
+## Verbinding maken
+
+1. Navigeer naar Apps en zoek de **Pangeanic** app. U kunt de zoekfunctie gebruiken om deze te vinden.
+2. Klik op _Add Connection_.
+3. Geef uw verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn klant'.
+4. Voer in het veld _API Key_ uw API-sleutel in.
+5. Voer in het veld _URL_ de URL van uw API in. Bijvoorbeeld: http://prod.pangeamt.com:8080/
+5. Klik op _Connect_.
+6. Controleer of de verbinding is verschenen en de status _Connected_ is.
+
+![PangeanicConnection](https://raw.githubusercontent.com/bb-io/Pangeanic/main/image/README/PangeanicConnection.png)
+
+## Actions
+
+### Text
+
+- **Process text**: Verzendt tekst om te worden verwerkt en vertaald als een enkele string
+
+- **Process text as array**: Verzendt tekst om te worden verwerkt en vertaald als een array van strings
+
+Bij de tekstverwerking-acties heeft u de mogelijkheid om anonimiseringsinstellingen te specificeren, waaronder gevoeligheid, type en tags.
+
+### File
+
+- **Process file**: Verzendt een bestand naar de API voor verwerking en vertaling, en haalt vervolgens de respons op met de bestand-ID
+
+- **Download file**: Download vertaald bestand op basis van bestand-ID
+
+## Events
+
+### Translations
+
+- **On file translation status updated**: Controleert op updates over bestandsvertalingen. Standaard wordt gecontroleerd op voltooide vertalingen. U kunt aangeven voor welke status er moet worden gecontroleerd
+
+## Voorbeelden
+
+Met deze app kunt u de volgende birds bouwen:
+
+- Eerste bird:
+
+![PangeanicExample1](https://raw.githubusercontent.com/bb-io/Pangeanic/main/image/README/PangeanicExample1.png)
+
+- Tweede bird:
+
+![PangeanicExample2](https://raw.githubusercontent.com/bb-io/Pangeanic/main/image/README/PangeanicExample2.png)
+
+Kortom, deze birds stellen u in staat om bestanden te uploaden naar Google Drive, ze te vertalen met Pangeanic, en zodra het bestand is vertaald, het te uploaden naar waar u maar wilt (in dit geval, Dropbox).
+
+Let ook op dat om de Pangeanic 'On file translation status updated' event te gebruiken, u deze moet publiceren en vervolgens de 'Webhook URL' moet kopiëren:
+
+![Pangeanic-callback-url](https://raw.githubusercontent.com/bb-io/Pangeanic/main/image/README/Pangeanic-callback-url.png)
+
+Plak deze URL in de optionele invoer 'Callback URL' van de 'Process file' actie:
+
+![Pangeanic-callback-url2](https://raw.githubusercontent.com/bb-io/Pangeanic/main/image/README/Pangeanic-callback-url2.png)
+
+## Feedback
+
+Wilt u deze app gebruiken of heeft u feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

@@ -1,0 +1,43 @@
+---
+  title: Microsoft Forms
+  description: De Microsoft Forms Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/MicrosoftForms" icon="github" />
+
+Microsoft Forms (voorheen Office 365 Forms) is een online enquêtemaker, onderdeel van Office 365. Uitgebracht door Microsoft in juni 2016, stelt Forms gebruikers in staat om enquêtes en quizzen te maken met automatische beoordeling.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat je een Microsoft 365-account hebt.
+
+## Verbinden
+
+1. Navigeer naar apps en zoek naar Microsoft Forms.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn organisatie'.
+4. Klik op _Authorize connection_.
+5. Volg de instructies van Microsoft op en autoriseer Blackbird.io om namens jou te handelen.
+6. Wanneer je terugkeert naar Blackbird, controleer of de verbinding is verschenen en de status _Connected_ is.
+
+![Connecting](https://raw.githubusercontent.com/bb-io/MicrosoftForms/main/image/README/connecting.png)
+
+## Actions
+
+- **List my forms** haalt een lijst op van formulieren die door mij zijn gemaakt.
+- **Get form info** haalt informatie op over een specifiek formulier.
+- **List questions** haalt een lijst op van vragen van een specifiek formulier.
+- **List responses** haalt een lijst op van antwoorden op een specifiek formulier.
+- **Get answer from response** haalt een antwoord op een specifieke vraag van een specifieke respons op als een string
+- **Download responses as excel file** download antwoorden van een specifiek formulier als een Excel-bestand
+
+## Events
+
+- **On responses received** wordt geactiveerd wanneer nieuwe antwoorden worden ontvangen van een gespecificeerd formulier.
+
+## Voorbeeld
+
+![example](https://raw.githubusercontent.com/bb-io/MicrosoftForms/main/image/README/example.png)
+
+Hier sturen we, wanneer nieuwe antwoorden worden ontvangen, een antwoord op elke vraag van elke respons naar Slack.

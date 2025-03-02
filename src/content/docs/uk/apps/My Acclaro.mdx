@@ -1,0 +1,69 @@
+---
+  title: My Acclaro
+  description: Застосунок Blackbird для My Acclaro
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Acclaro" icon="github" />
+
+MyAcclaro — це портальний застосунок компанії Acclaro, розроблений для спрощення процесу перекладу для їхніх клієнтів. За допомогою MyAcclaro користувачі можуть легко створювати цінові пропозиції, ініціювати проєкти, завантажувати файли та ефективно керувати своїми потребами у перекладі.
+
+## Перед налаштуванням
+
+Перш ніж підключитися, вам потрібно переконатися, що:
+
+- У вас є обліковий запис MyAcclaro.
+- У вас є API-токен. Ви можете отримати його, зв'язавшись із представником відділу продажів або бізнес-розвитку Acclaro, або надіславши запит електронною поштою на portal@acclaro.com
+
+## Підключення
+
+1. Перейдіть до розділу Застосунки та знайдіть застосунок MyAcclaro. Ви можете скористатися пошуком, щоб знайти його.
+2. Натисніть _Add Connection_.
+3. Назвіть своє підключення для подальшого використання, наприклад, "Моє підключення".
+4. Заповніть URL-адресу екземпляра MyAcclaro, до якого ви хочете підключитися. Ви можете підключитися до пісочниці або виробничого середовища.
+5. Введіть свій API-токен. Токени для пісочниці та виробничого середовища не є взаємозамінними.
+7. Натисніть _Connect_.
+
+## Actions
+
+###  File
+
+- **Upload file** Upload a file to an order
+- **Search order files** Search for files in an order depending on certain criteria
+- **Get file information** Get information of a file
+- **Download file** Download order file by ID
+- **Get source file** Get the source file that corresponds with a target file
+
+###  Order
+
+- **Create order** Create order
+- **Update order** UPdate order
+- **Search orders** Search through all orders
+- **Get order** Get order by ID
+- **Does order exist** Find out whether an order with a certain ID exists
+- **Delete order** Delete order
+- **Submit order** Submit order
+- **Add order comment** Add a new comment to an order
+- **Update order comment** Updates an exisitng order comment (note: changes comment ID)
+- **Get order comments** Get a list of all comments attached to an order
+
+###  Quote
+
+- **Request quote** Request a quote for an order
+- **Approve quote** Approve an order for which a quote was requested
+- **Decline quote** Decline an order for which a quote was requested
+
+###  String
+
+- **Get order strings** Get a list of all string of order
+- **Add strings to order** Add strings to an existing order. Note: order process type should be string.
+
+## Events
+
+- **On order updated**
+- **On order string updated**
+- **On order file updated**
+
+## Відгуки
+
+Хочете використовувати цей застосунок або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть запит.

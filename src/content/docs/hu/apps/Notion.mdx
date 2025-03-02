@@ -1,0 +1,128 @@
+---
+  title: Notion
+  description: A Notion Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Notion" icon="github" />
+ 
+  
+A Notion egy jegyzetelő és ötletszervező platform. Ez a Notion alkalmazás elsősorban oldal- és adatbázis-kezelésre összpontosít.  
+  
+ ## Beállítás előtt
+ Mielőtt csatlakozhatna, győződjön meg a következőkről:
+ - Rendelkezik Notion fiókkal
+ - Elegendő jogosultsággal rendelkezik abban a munkaterületen, amelyet a Blackbirddel szeretne összekapcsolni.
+ 
+## Csatlakozás  
+  
+1. Navigáljon az alkalmazásokhoz és keressen rá a Notionre. 
+2. Kattintson az _Add Connection_ gombra.  
+3. Nevezze el a kapcsolatot a későbbi hivatkozásokhoz, pl. 'Saját Notion kapcsolat'.  
+4. Kattintson az _Authorize connection_ gombra.
+5. A felugró ablakban válassza ki a jobb felső sarokban azt a munkaterületet, amelyhez csatlakozni szeretne.
+6. Kattintson a _Select pages_ gombra
+7. Válassza ki manuálisan az összes oldalt, amelyhez a Blackbird hozzáférhet.
+8. Kattintson az _Allow access_ gombra
+9. Ellenőrizze, hogy a kapcsolat megjelent-e, és az állapota _Connected_.  
+  
+> Ha később szeretné lehetővé tenni a Blackbird számára más oldalak elérését, ezt manuálisan megteheti a Notion oldal beállításain keresztül.
+
+## Actions  
+  
+### Blocks  
+  
+- **Search block's children** visszaadja egy meghatározott blokk összes gyermekét. Blokk helyett megadhatja egy `Page` azonosítóját is, így visszaadja az adott oldalhoz tartozó összes blokkot.  
+- **Get/Delete block** 
+
+### Comments
+
+- **Search comments** visszaadja a megadott `Block`-hoz hozzáadott megjegyzések listáját.
+- **Add comment** megjegyzést fűz egy megadott `Page`-hez vagy `Discussion`-höz.
+
+### Databases
+
+- **Search databases** visszaadja a munkaterület összes adatbázisának listáját. Szűrheti a listát létrehozási/szerkesztési idő szerint.
+- **Search pages in database** visszaadja az adatbázisban található összes gyermek `Pages` listáját. Szűrheti a listát létrehozási/szerkesztési idő szerint. 
+- **Create/Get database**
+
+### Pages
+
+- **Search pages** visszaadja a munkaterület összes oldalának listáját. Szűrheti a listát létrehozási/szerkesztési idő szerint.
+- **Get page as HTML** a megadott oldal tartalmát HTML fájlként adja vissza.
+- **Create/Update page from HTML** oldalt hoz létre/frissít egy HTML fájlból. Javasoljuk a 'Create page from HTML' művelet használatát, mivel ez nem befolyásolja a meglévő tartalmat. Ezzel szemben az 'Update page from HTML' művelet befolyásolja a meglévő tartalmat. Mivel a Notion nem teszi lehetővé a blokkok közvetlen frissítését, először törli az oldal teljes tartalmát, majd hozzáadja a HTML fájlból.
+- **Get page string/number/date/boolean/files/multiple property** visszaadja egy adatbázis-bejegyzés adott típusú tulajdonságának értékét.
+- **Set page string/number/boolean/files/multiple property** frissíti egy adatbázis-bejegyzés adott típusú tulajdonságának értékét.
+- **Set page property as empty**
+- **Create/Get/Archive page**
+
+> A 'Create page' és 'Create page from HTML' műveleteknél meg kell adnia a szülő oldalt vagy adatbázist, ahol az új oldal létrejön. Ha ez nincs megadva, a művelet hibaüzenettel meghiúsul.
+
+### Users
+
+- **Search users** visszaadja a munkaterülethez tartozó felhasználók listáját.
+- **Get users** részletes információkat ad a megadott felhasználóról.
+
+## Events
+
+### Pages
+
+- **On pages created** Olyan oldalakat figyel, amelyeket egy megadott időtartamon belül hoztak létre. Ahhoz, hogy a Blackbird hozzáférjen az újonnan létrehozott oldalakhoz, ezt manuálisan kell engedélyeznie a Notion oldal beállításain keresztül
+- **On pages updated** Olyan oldalakat figyel, amelyeket egy megadott időtartamon belül frissítettek.
+- **On pages status changed** Egy adatbázist figyel olyan oldalakra, amelyek állapota a kívánt értékre változott egy megadott időtartamon belül.
+- **On button clicked** akkor aktiválódik, amikor egy felhasználó a Notionban egy gombra kattint. Lásd az alábbi beállítási utasításokat.
+
+## A gombra kattintás esemény beállítása
+
+1. Hozzon létre egy Madarat (Bird), amely az *On button clicked* eseménnyel kezdődik
+2. Konfigurálja és tegye közzé a Madarat.
+
+![1737728505623](https://raw.githubusercontent.com/bb-io/Notion/main/image/README/1737728505623.png)
+
+3. Másolja ki a Webhook URL-t az eseménypanel alján.
+4. Hozzon létre egy gombot a Notion-ben. Ezt megteheti az oldal tartalmán belül vagy oldaljellemzőként.
+
+![1737728586269](https://raw.githubusercontent.com/bb-io/Notion/main/image/README/1737728586269.png)
+
+5. Kattintson az *Edit automation* gombra. Ezután kattintson a *+ New action* lehetőségre és válassza a *Send webhook* opciót
+
+![1737728711506](https://raw.githubusercontent.com/bb-io/Notion/main/image/README/1737728711506.png)
+
+6. Illessze be a Blackbirdből másolt URL-t az URL mezőbe, és kattintson a *Done* gombra.
+
+![1737728748357](https://raw.githubusercontent.com/bb-io/Notion/main/image/README/1737728748357.png)
+
+7. Tesztelje a gombot kattintással!
+
+## HTML konverzió
+
+A Blackbird képes a `Page` tartalmát HTML fájllá alakítani és vissza, lehetővé téve a Notion-tartalom automatikus fordítását a Blackbird segítségével. Például beállíthat egy munkafolyamatot, mint: "Notion: Get page as HTML" → "DeepL: Translate" → "Notion: Update page from HTML."
+
+A nem lefordítható tartalmak is át lesznek helyezve, néhány kivétellel. Ezek közé tartoznak:
+
+- **Link preview**
+- **Notion által tárolt fájlok** (például PDF-ek, hang-, videó- vagy képfájlok; azonban a külső URL-ek megfelelően működnek)
+
+Egyelőre ezek a típusok nem lesznek áthelyezve. Folyamatosan dolgozunk a folyamat javításán.
+
+> A gyermek oldalak és gyermek adatbázisok fordítása teljes mértékben támogatott. Lefordíthatja a gyermek oldalakat és/vagy gyermek adatbázisokat a 'Get page as HTML' műveletnél az 'Include child pages' és 'Include child databases' opcionális bemenetek true értékre állításával. Ha ezek a bemenetek nincsenek beállítva, vagy false értékűek, akkor nem fogjuk kinyerni vagy lefordítani a gyermek oldalakat/adatbázisokat, és az új (vagy frissített) oldal nem fogja tartalmazni ezeket a gyermek oldalakat/adatbázisokat.
+
+> Kérjük, vegye figyelembe, hogy a Notion API csak akkor teszi lehetővé oldalak vagy adatbázisok létrehozását, ha azok szülője **oldal vagy adatbázis**. Ez azt jelenti, hogy ha egy aloldalt vagy adatbázist egy oszlopon belül (vagy bármely más blokkban) helyez el, a művelet a következőhöz hasonló hibaüzenettel fog meghiúsulni:  
+> `Pages and databases cannot be nested inside other blocks. Page or database ('Page name or ID') has parent type 'block_id'. Please move it to the root level.`  
+> E probléma megoldásához győződjön meg arról, hogy minden aloldal és aladatbázis gyökérszinten helyezkedik el, és nincs más blokkokba ágyazva.
+
+### Korlátozások
+
+A Notion alkalmazás fejlesztése, hibák javítása és a hibaüzenetek javítása során több API-korlátozást azonosítottunk, amelyek befolyásolják a funkcionalitást:
+
+1. **A `status` tulajdonságokkal rendelkező adatbázisok nem hozhatók létre a Notion API-n keresztül** ([Referencia](https://developers.notion.com/reference/create-a-database)). Emellett az API nem teszi lehetővé az állapot tulajdonságok tárolását egy oldalon. Ennek eredményeként az újbóli létrehozás után a 'status' típusú oszlopok elvesznek.
+
+2. **Csak az adatbázis táblázatos nézete érhető el az API-n keresztül.** Az API nem tesz különbséget a táblanézet-elem és az adatbázis között, és nem nyújt információt az adatbázison belüli különböző nézetekről. Ennek eredményeként a nézetek nem hozhatók újra létre, és csak a táblázatos nézet érhető el.
+
+3. **Az oldalak és adatbázisok csak egy meglévő oldal vagy adatbázis alatt hozhatók létre.** Az API nem teszi lehetővé aloldalak vagy adatbázisok elhelyezését egy oszlopban vagy más blokkban. Az aloldalakat és adatbázisokat közvetlenül egy oldal vagy adatbázis alatt kell létrehozni, és nem ágyazhatók be más tartalmi blokkokba ([Referencia](https://developers.notion.com/reference/post-page)).
+
+4. **Lehetetlen a Notion által tárolt fájlok újbóli hozzáadása**
+
+## Visszajelzés  
+  
+Szeretné használni ezt az alkalmazást, vagy van visszajelzése a megvalósításunkról? Lépjen kapcsolatba velünk a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

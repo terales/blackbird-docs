@@ -1,0 +1,53 @@
+---
+  title: Microsoft 365 Naptár
+  description: A Microsoft 365 Naptár Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/Microsoft365Calendar" icon="github" />
+
+A Microsoft 365 Naptár alkalmazás lehetővé teszi a naptáresemények elérését és kezelését.
+
+## Beállítás előtt
+
+A kapcsolódás előtt győződjön meg arról, hogy rendelkezik Microsoft 365 fiókkal.
+
+## Kapcsolódás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Microsoft 365 Naptárra.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például 'Saját szervezet'.
+4. Kattintson az _Authorize connection_ gombra.
+5. Kövesse a Microsoft által megadott utasításokat, engedélyezve a Blackbird.io számára, hogy az Ön nevében eljárjon.
+6. Amikor visszatér a Blackbird felületére, győződjön meg arról, hogy a kapcsolat megjelent és az állapota _Connected_.
+
+![Kapcsolódás](https://raw.githubusercontent.com/bb-io/Microsoft365Calendar/main/image/README/connecting.png)
+
+## Actions
+
+- **List calendars** visszaadja az aktuális felhasználó naptárainak listáját.
+- **Get calendar** lekérdez egy naptárat. Ha nincs megadva naptár, az alapértelmezett naptár kerül visszaadásra.
+- **Create calendar**
+- **Get users' schedule information** visszaadja a szabad/foglalt elérhetőségi információkat egy felhasználói csoport számára a meghatározott időszakban.
+- **Rename calendar** átnevez egy naptárat. Ha nincs megadva naptár, az alapértelmezett naptár kerül átnevezésre.
+- **Delete calendar**
+- **List events** lekérdezi az események listáját egy naptárban. Ha nincs megadva naptár, az alapértelmezett naptár eseményei kerülnek listázásra.
+- **Get event**
+- **List occurrences of event** visszaadja egy esemény előfordulásait egy meghatározott időtartamon belül.
+- **List recently created events** lekérdezi az elmúlt órákban létrehozott események listáját. Ha az órák száma nincs megadva, az elmúlt 24 órában létrehozott események kerülnek listázásra. Ha nincs megadva naptár, az alapértelmezett naptár eseményei kerülnek listázásra.
+- **List recently updated events** lekérdezi az elmúlt órákban frissített események listáját. Ha az órák száma nincs megadva, az elmúlt 24 órában frissített események kerülnek listázásra. Ha nincs megadva naptár, az alapértelmezett naptár eseményei kerülnek listázásra.
+- **Create event in a calendar** új eseményt hoz létre egy naptárban. Ha nincs megadva naptár, az esemény az alapértelmezett naptárban jön létre. Ha az esemény online megbeszélés, automatikusan létrejön egy Microsoft Teams megbeszélés. Ismétlődő esemény létrehozásához adja meg az ismétlődési mintát és intervallumot, amely lehet napokban, hetekben vagy hónapokban, az ismétlődési minta típusától függően. Ha az intervallum nincs megadva, értéke 1 lesz. Heti vagy havi minták esetén adja meg a hét azon napjait, amelyeken az esemény előfordul.
+- **Cancel event** lemondó üzenetet küld és törli az eseményt. Ezt csak a megbeszélés szervezője végezheti el.
+- **Cancel event occurrence** lemondó üzenetet küld és törli egy ismétlődő megbeszélés egy előfordulását. Ezt csak a megbeszélés szervezője végezheti el.
+- **Forward event** továbbítja a megbeszélés-kérést egy új címzettnek.
+- **Update event**
+- **Update event occurrence**
+- **Delete event**
+
+## Events
+
+- **On event created** akkor aktiválódik, amikor új esemény jön létre a megadott naptárban.
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy van visszajelzése a megvalósításunkról? Lépjen kapcsolatba velünk a [megszokott csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

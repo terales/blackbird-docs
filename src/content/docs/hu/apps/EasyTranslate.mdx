@@ -1,0 +1,110 @@
+---
+  title: EasyTranslate
+  description: Az EasyTranslate Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/EasyTranslate" icon="github" />
+
+Az EasyTranslate egy SaaS vállalat, amely fordításkezelést, élvonalbeli generatív mesterséges intelligenciát és szabadúszó fordítói/korrektori hozzáférést kínál - mindezt egy szoftverben.
+
+Akár a semmiből szeretne tartalmat létrehozni, akár webhelyét, webáruházát, CMS-ét vagy egyebet kíván lefordítani - minden szükséges eszközt biztosítunk a sikerhez. Integráljon számos kódolás nélküli beépülő modullal, és automatizálja teljes fordítási és tartalomgenerálási folyamatait.
+
+## Beállítás előtt
+
+Mielőtt csatlakozhatna, kérjük, győződjön meg arról, hogy elvégezte a következő lépéseket:
+
+1. Hozzon létre egy fiókot az EasyTranslate rendszerben
+2. Állítson be egy integrációt az **EasyTranslate API**-val, hogy megszerezze a Client ID-t és Client Secret-et
+
+A Client ID és Client Secret megszerzéséhez navigáljon az 'Integrations' oldalra, és keresse meg az **EasyTranslate API** részt
+
+![integration](https://raw.githubusercontent.com/bb-io/EasyTranslate/main/image/README/integration-1.png)
+
+3. Ismerje a csapatnevét. Alapértelmezés szerint ezt megtalálhatja, ha a bal alsó sarokra kattint, és az e-mail címe alatt lesz látható
+
+## Csatlakozás
+
+Az EasyTranslate-hez való csatlakozáshoz kövesse ezeket a lépéseket:
+
+1. Navigáljon az "Apps" részhez és keressen rá az "EasyTranslate"-re.
+2. Kattintson az "Add Connection" gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például "EasyTranslate".
+4. Töltse ki a "Host" mezőt a kiszolgálójával. Ennek így kell kinéznie: api.platform.sandbox.easytranslate.com.
+5. Töltse ki a "Client ID" mezőt.
+6. Töltse ki a "Client Secret" mezőt.
+7. Töltse ki a "Username" mezőt annak a felhasználónak a felhasználónevével vagy e-mail címével, aki a műveleteket fogja végrehajtani.
+8. Töltse ki a "Password" mezőt annak a felhasználónak a jelszavával, aki a műveleteket fogja végrehajtani.
+9. Töltse ki a "Teamname" mezőt (alulvonással kell ellátni). Vegye figyelembe, hogy a csapatnév mező nem kerül ellenőrzésre, ezért győződjön meg arról, hogy a helyeset adja meg a jövőbeli hibák elkerülése érdekében.
+10. Kattintson a "Connect" gombra.
+
+![connection](https://raw.githubusercontent.com/bb-io/EasyTranslate/main/image/README/connection.png)
+
+## Actions
+
+### Library
+
+- **Get all libraries**: Csapat összes könyvtárának lekérése
+- **Get library**: Csapat egy könyvtárának lekérése
+- **Create library**: Könyvtár létrehozása egy csapat számára
+- **Delete library**: Csapat könyvtárának törlése
+- **Start library automation**: Könyvtár automatizálás indítása egy csapat számára
+- **Add target languages to library**: Célnyelvek hozzáadása egy csapat könyvtárához
+- **Remove target languages from library**: Célnyelvek eltávolítása egy csapat könyvtárából
+- **Download library**: Csapat könyvtárának letöltése
+
+### Project
+
+- **Get all projects**: Csapat összes projektjének lekérése
+- **Create a project**: Projekt létrehozása űrlapból
+- **Create project with file**: Projekt létrehozása feltöltött fájlból
+- **Get project**: Projekt lekérése azonosító alapján
+- **Download source file**: Forrásfájl letöltése egy projektből
+
+### Task
+
+- **Get all tasks**: Meghatározott projekt összes feladatának lekérése
+- **Get task by ID**: Feladat lekérése projektből azonosító alapján
+
+### Translation key
+
+- **Get translation keys**: Fordítási kulcsok lekérése meghatározott könyvtárhoz
+- **Get translation key**: Fordítási kulcs lekérése meghatározott könyvtárhoz
+- **Create translation keys**: Fordítási kulcsok létrehozása meghatározott könyvtárhoz
+- **Create translation key**: Fordítási kulcs létrehozása meghatározott könyvtárhoz
+- **Delete translation key**: Fordítási kulcs törlése meghatározott könyvtárból
+
+### Translation string
+
+- **Get translation strings**: Összes fordítási karakterlánc lekérése egy adott könyvtárhoz. Ez a művelet lekéri az összes fordítási karakterláncot, amely egy adott könyvtárhoz kapcsolódik. Hasznos lehet egy adott könyvtár összes elérhető fordításának lekéréséhez.
+- **Get translation string**: Egy adott fordítási karakterlánc lekérése egy könyvtárhoz. Ez a művelet egyetlen fordítási karakterláncot kér le a megadott könyvtárazonosító és fordítási karakterlánc-azonosító alapján. Használható egy adott fordítási karakterlánc lekérésére további feldolgozás vagy módosítás céljából.
+- **Update translation string**: Fordítási karakterlánc frissítése egy adott könyvtárhoz. Ez a művelet lehetővé teszi egy fordítási karakterlánc szövegének frissítését egy könyvtárban. Bemenetként a könyvtárazonosítót, a fordítási karakterlánc-azonosítót és a frissített szöveget igényli.
+- **Update translation strings**: Több fordítási karakterlánc frissítése egy adott könyvtárhoz. Ez a művelet lehetővé teszi több fordítási karakterlánc egyidejű frissítését egy könyvtárban. Bemenetként a könyvtárazonosítót, a fordítási karakterlánc-azonosítók listáját és a megfelelő frissített szövegeket igényli.
+
+### Folder
+
+- **Get all folders**: Csapat összes mappájának lekérése
+- **Get folder**: Csapat egy mappájának lekérése
+- **Create folder**: Mappa létrehozása egy csapat számára
+- **Update folder**: Csapat mappájának frissítése
+
+### Content
+
+- **Download content**: Forrás- vagy célbeli tartalom letöltése a megadott URL alapján
+
+### Content generation
+
+- **Create content**: Tartalom létrehozása a megadott prompt és beállítások alapján
+
+## Events
+
+- **On task updated**: Akkor aktiválódik, amikor egy feladat frissül
+- **On project price accepted**: Akkor aktiválódik, amikor egy projekt árát elfogadják
+- **On string key updated**: Akkor aktiválódik, amikor egy karakterlánc-kulcs frissül
+- **On project approval needed**: Akkor aktiválódik, amikor egy projekt jóváhagyásra vár
+- **On project price declined**: Akkor aktiválódik, amikor egy projekt árát elutasítják
+- **On project cancelled**: Akkor aktiválódik, amikor egy projektet a vásárló lemond
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Lépjen kapcsolatba velünk a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

@@ -1,0 +1,49 @@
+---
+  title: GlobalLink Now
+  description: De GlobalLink Now Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/GlobalLinkNow" icon="github" />
+
+ GlobalLink NOW is een ad-hoc Neurale Machinevertaling oplossing die gebruik maakt van AI-technologie om veilig hoogwaardige content op aanvraag te leveren.
+ 
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een GlobalLink NOW-instantie hebt.
+- Je HOST en API-sleutelgegevens hebt voor je GlobalLink NOW-instantie.
+
+## Verbinding maken
+
+1. Ga naar apps en zoek naar GlobalLink NOW. Als je GlobalLink NOW niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer GlobalLink NOW en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijv. 'Mijn verbinding'.
+4. Vul de Host van je GlobalLink NOW-instantie in.
+5. Vul de API-sleutel in voor je GlobalLink NOW-instantie.
+6. Klik op _Connect_.
+
+![Een verbinding toevoegen](https://raw.githubusercontent.com/bb-io/GlobalLinkNow/main/image/README/GLN_AddConnection.png)
+
+## Actions
+
+- **Translate** Translate text
+- **Translate Document** Translate a file.
+Input:
+    - File
+    - Target Language
+    - Source Language (optional)
+    - Domain (optional)
+    - Engine ID (optional)
+    - OCR (optional)
+
+## Voorbeeld
+
+De vogel in de onderstaande afbeelding toont een workflow waarin inhoud wordt geëxtraheerd uit een Wordpress-pagina in HTML-formaat, evenals alle taalvarianten die nog geen vertaling hebben voor deze specifieke pagina. Vervolgens doorlopen we de taalvarianten, vertalen het HTML-bestand naar elke taalvariant met behulp van GlobalLink NOW en maken de vertaalde pagina's in Wordpress aan vanuit de vertaalde HTML-bestanden.
+
+![Wordpress + GlobalLink NOW](https://raw.githubusercontent.com/bb-io/GlobalLinkNow/main/image/README/WordpressGLN.png)
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

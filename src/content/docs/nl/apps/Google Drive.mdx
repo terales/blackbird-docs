@@ -1,0 +1,64 @@
+---
+  title: Google Drive
+  description: De Google Drive Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/GoogleDrive" icon="github" />
+
+Google Drive is een bestandshostingdienst en synchronisatiedienst ontwikkeld door Google. Gelanceerd op 24 april 2012, stelt Google Drive gebruikers in staat om bestanden op te slaan in de cloud (op Google's servers), bestanden te synchroniseren tussen apparaten en bestanden te delen.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een **Google Drive** account hebt en over de inloggegevens beschikt om toegang te krijgen.
+
+## Verbinding maken
+
+1. Navigeer naar Apps en zoek de **Google Drive** app. Je kunt de zoekfunctie gebruiken om deze te vinden.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Google Drive verbinding'.
+4. Klik op _Authorize connection_.
+5. Maak verbinding met Google Drive via OAuth.
+
+![connection](https://raw.githubusercontent.com/bb-io/GoogleDrive/main/image/README/connection.png)
+
+## Actions
+
+- **Download file** Download een specifiek bestand van Google Drive.
+- **Upload file** Upload een bestand naar Google Drive, inclusief het uploaden van bestanden naar een gedeelde drive.
+- **Delete item** Verwijder een bestand van Google Drive.
+- **Create folder** Maak een map aan in Google Drive.
+- **Search files** Zoek bestanden in Google Drive door specifieke zoekcriteria op te geven (bijv. bestandsnaam, bestandstype, enz.). Geeft alle bestanden terug die aan de zoekcriteria voldoen.
+- **Find file information** Vergelijkbaar met de search files actie, maar deze actie geeft alleen het eerste bestand terug dat aan de zoekcriteria voldoet, zodat je geen lus hoeft te gebruiken om de bestandsinformatie te krijgen. Geeft ook de `Is found` output terug om aan te geven of het bestand is gevonden of niet.
+
+### Labels
+
+- **Get file labels** geeft alle labelsleutels terug die aan een bestand zijn gekoppeld. Dit is in de vorm van een lijst met teksten. Je kunt de array contains utility actie gebruiken om te verifiëren of bepaalde labels aan dit bestand zijn toegevoegd.
+
+## Events
+
+- **On items added** Deze gebeurtenis wordt geactiveerd wanneer een bestand of map aan Google Drive wordt toegevoegd. Via de inputs kun je de map specificeren die moet worden bewaakt.
+- **On items updated** Deze gebeurtenis wordt geactiveerd wanneer een bestand of map in Google Drive wordt bijgewerkt. Via de inputs kun je de map specificeren die moet worden bewaakt.
+- **On items removed** Deze gebeurtenis wordt geactiveerd wanneer een bestand of map uit Google Drive wordt verwijderd. Via de inputs kun je de map specificeren die moet worden bewaakt.
+- **On items restored** Deze gebeurtenis wordt geactiveerd wanneer een bestand of map uit de prullenbak wordt hersteld in Google Drive. Via de inputs kun je de map specificeren die moet worden bewaakt.
+- **On files deleted in shared drives** Deze gebeurtenis wordt geactiveerd wanneer bestaande bestanden in de gedeelde drives worden verwijderd.
+- **On file created** Bij elk bestand dat in de opgegeven map wordt aangemaakt
+- **On file updated** Bij elk bestand dat in de opgegeven map wordt bijgewerkt
+
+## Voorbeeld
+
+Hier is een voorbeeld van hoe je de Google Drive app kunt gebruiken in een workflow:
+
+![example](https://raw.githubusercontent.com/bb-io/GoogleDrive/main/image/README/example.png)
+
+In dit voorbeeld begint de workflow met de **On items added** gebeurtenis, die wordt geactiveerd wanneer een bestand of map aan Google Drive wordt toegevoegd. Vervolgens gebruikt de workflow de **Download files** actie om het toegevoegde bestand te downloaden. In de volgende stap vertalen we het bestand via `DeepL` en uploaden we het vertaalde bestand naar een Slack-kanaal.
+
+## Eggs
+
+Bekijk downloadbare workflow-prototypes met deze app die je kunt importeren naar je Nests [hier](https://docs.blackbird.io/eggs/storage-to-mt/).
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

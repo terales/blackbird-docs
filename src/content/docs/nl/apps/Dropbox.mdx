@@ -1,0 +1,68 @@
+---
+  title: Dropbox
+  description: De Dropbox Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Dropbox" icon="github" />
+
+Dropbox is een cloudgebaseerde bestandshostingservice waarmee gebruikers bestanden kunnen opslaan, delen en synchroniseren op verschillende apparaten en platforms. Het stelt gebruikers in staat om overal toegang te krijgen tot hun bestanden met een internetverbinding, waardoor het een handige oplossing is voor individuen, teams en bedrijven om samen te werken aan documenten, foto's, video's en andere bestandstypen.
+
+## Verbinden
+
+1. Navigeer naar apps en zoek naar Dropbox. Als je Dropbox niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Dropbox en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn Dropbox-verbinding'.
+4. Klik op _Authorize connection_.
+5. Wanneer een nieuw venster verschijnt, volg de instructies van Dropbox.
+6. Wanneer je terugkeert naar Blackbird, controleer dan of de verbinding is verschenen en de status _Connected_ is.
+
+## Actions
+
+### Storage
+
+- **Create file request** Create file request for current user
+- **Copy file** Copy file from one directory to another
+- **Create folder** Create folder with a given name
+- **Delete file** Delete specified file
+- **Delete folder** Delete specified folder
+- **Download file** Download specified file
+- **Get files list by path** Get files list by specified path
+- **Get folders list by path** Get folders list by specified path
+- **Get link for file download** Get temporary link for download of a file
+- **Move file** Move file from one directory to another
+- **Share folder** Share given folder
+- **Upload file** Upload file
+
+### Team
+
+- **Create group** Creates a new, empty group
+- **Delete group** Deletes a group
+- **Get group info** Retrieves information about a group
+- **Get team info** Retrieves information about a team
+- **List groups** Lists groups on a team
+- **List member devices** Lists all device sessions of a team's member
+- **List member linked apps** Lists all linked applications of the team member
+- **List members devices** Lists all device sessions of a team
+- **List members** Lists members of a team
+- **List namespaces** Lists all team-accessible namespaces.
+- **List sharing allowlist** Lists Approve List entries for given team
+
+## Polling events
+
+- **On files created or updated** This polling event is triggered when files are created or updated.
+    - Als optionele invoer kun je de hoofdmap specificeren die je wilt monitoren, zodat je Birds alleen worden geactiveerd als bestanden worden gemaakt of bijgewerkt binnen die ene map.
+- **On files deleted** This polling event is triggered when file(s) are deleted.
+
+## Voorbeelden
+
+![Connecting](https://raw.githubusercontent.com/bb-io/Dropbox/main/image/README/example_bird.png)
+Deze bird haalt nieuwe of bijgewerkte bestanden op uit Dropbox, vertaalt ze met DeepL en stuurt ze vervolgens naar een Slack-kanaal
+
+## Eggs
+
+Bekijk downloadbare werkstroomprototypes met deze app die je kunt importeren naar je Nests [hier](https://docs.blackbird.io/eggs/storage-to-mt/).
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback over onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

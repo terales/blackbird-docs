@@ -1,0 +1,234 @@
+---
+  title: Phrase
+  description: Додаток Blackbird для Phrase
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/Phrase-TMS" icon="github" />
+
+Phrase (раніше відомий як Memsource) — це програмна платформа як послуга, призначена для автоматизації та оптимізації перекладу та локалізації цифрових продуктів, таких як веб- або мобільні додатки, веб-сайти, маркетинговий контент тощо для міжнародних ринків.
+
+## Перед налаштуванням
+
+Перш ніж підключитися, переконайтеся, що:
+
+- У вас є обліковий запис Phrase на екземплярі, до якого ви хочете підключитися.
+- У вас є дозвіл на створення та зміну зареєстрованих додатків OAuth.
+- У Phrase перейдіть до Налаштування > Зареєстровані додатки OAuth і натисніть _New_.
+- Заповніть будь-яке ім'я та опис. Для URI перенаправлення вкажіть: `https://bridge.blackbird.io/api/AuthorizationCode` і натисніть _Save_.
+- Скопіюйте _Client ID_ новоствореного додатка OAuth.
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть Phrase. Якщо ви не можете знайти Phrase, натисніть _Add App_ у верхньому правому куті, виберіть Phrase і додайте додаток у своє середовище Blackbird.
+2. Натисніть _Add Connection_.
+3. Назвіть ваше з'єднання для майбутніх посилань, наприклад, "Моє з'єднання з Phrase".
+4. Заповніть _Client ID_, який ви скопіювали з Phrase.
+5. Виберіть Base URL для екземпляра Phrase, до якого ви хочете підключитися, залежно від розташування вашого центру даних Phrase (такий самий, який ви використовуєте для входу в Phrase).
+6. Натисніть _Authorize connection_.
+7. Дотримуйтесь інструкцій, які надає Phrase, авторизуючи Blackbird.io діяти від вашого імені.
+8. Коли ви повернетеся до Blackbird, переконайтеся, що з'єднання з'явилося і його статус — _Connected_.
+
+![1695994786183](https://raw.githubusercontent.com/bb-io/Phrase-TMS/main/image/README/1695994786183.png)
+
+## Actions
+
+### Analysis
+
+- **List analyses**
+- **Get analysis**
+- **Create analysis**
+- **Download analysis file**
+
+### Clients
+
+- **List clients**
+- **Get client**
+- **Add client**
+- **Update client**
+- **Delete client**
+
+### Connector
+
+- **List connector**
+- **Get connector**
+
+### Custom fields
+
+- **Get date custom field value**
+- **Get numeric custom field value**
+- **Get single select custom field value**
+- **Get multi select custom field value**
+- **Get text custom field value**
+- **Set date custom field value**
+- **Set numeric custom field value**
+- **Set single select custom field value**
+- **Set text custom field value**
+
+> Якщо Спеціальне поле відсутнє в проекті, воно буде додано в рамках дії `Set`.
+
+### File
+
+- **List all files**
+- **Get file**
+- **Upload file**
+
+### Glossary
+
+- **Create new glossary**
+- **Export glossary**
+- **Import glossary**
+
+### Job
+
+- **Search jobs**
+- **Get job**
+- **Create job**
+- **Delete job**
+- **Get segments**
+- **Edit job**
+- **Download target file**
+- **Download bilingual file**
+- **Upload bilingual file**
+- **Pre-translate job**
+- **Update job source**
+
+### Pricelist
+
+- **List price lists**
+
+### Project
+
+- **List projects**
+- **List project templates**
+- **Find project**
+- **Get project**
+- **Create project**
+  - **Propagate Translations: Propagate translations to lower workflows during update source**
+- **Create project from template**
+- **Add target language**
+- **Edit project**
+- **Delete project**
+- **Download project original files** 
+- **Download project target files**
+- **Assign providers from template**
+
+### Project reference file
+
+- **List reference files**
+- **Create reference files**
+- **Download reference file**
+- **Delete reference file**
+
+### Quality assurance
+
+- **Add ignored warning**
+- **List LQA profiles**
+- **Delete LQA profile**
+- **Run auto LQA**
+- **Download LQA assessment**
+- **Get LQA assessment**
+
+### Quote
+
+- **Get quote**
+- **Create quote**
+- **Delete quote**
+
+### Translation
+
+- **List translation settings**
+- **Translate with MT**
+- **Translate with MT by project**
+- **Delete all translations**
+
+### Translation memory
+
+- **List translation memories**
+- **Create translation memory**
+- **Get translation memory**
+- **Import TMX file**
+- **Export translation memory**
+- **Insert segment into memory**
+- **Delete translation memory**
+
+### User
+
+- **List users**
+- **Get user**
+- **Find user**
+- **Add user**
+- **Update user**
+- **Delete user**
+
+### Vendor
+
+- **Add vendor**
+- **List vendors**
+- **Get vendor**
+
+## Events
+
+### Project
+
+- **On project created**
+- **On project deleted**
+- **On project due date changed**
+- **On project metadata updated**
+- **On shared project assigned**
+- **On project status changed**
+- **Find project termbase** отримує термінологічну базу, пов'язану з проектом, на основі додаткових фільтрів
+
+### Job
+
+- **On job created**
+- **On job deleted**
+- **On continuous job updated**
+- **On job assigned**
+- **On job due date changed**
+- **On job exported**
+- **On job source updated**
+- **On job status changed** Якщо ви використовуєте контрольні точки, заповніть усі необов'язкові поля (включаючи Project ID). Це працюватиме навіть без вказаного Project ID, але використання його дозволить нам перевірити, чи вже має завдання вказаний статус. Статус "Completed by linguist" також спрацює, якщо встановлено необов'язковий статус "Completed".
+- **On job target updated**
+- **On job unexported**
+- **On all jobs in workflow step reached status** Спрацьовує, коли всі завдання на певному етапі робочого процесу досягають зазначеного статусу. Повертає лише завдання на вказаному етапі робочого процесу
+
+### Template
+
+- **On template created**
+- **On template deleted**
+- **On template updated**
+
+### Analysis
+
+- **On analysis created**
+
+### Quality assurance
+
+- **On LQA reports created** (Подія опитування)
+
+## Приклад
+
+![1695995715372](https://raw.githubusercontent.com/bb-io/Phrase-TMS/main/image/README/1695995715372.png)
+
+Цей приклад показує один із багатьох випадків використання. Тут, коли стаття публікується, ми отримуємо відсутні переклади та отримуємо статтю у форматі HTML. Потім ми створюємо новий проект Phrase з відсутніми локалями як цільовими мовами та завантажуємо статтю як завдання. Після зміни статусу проекту на "Завершено", ми завантажуємо перекладені HTML-статті та надсилаємо переклади назад до CMS.
+
+## Аналіз з іншими системами
+
+Наш додаток дозволяє експортувати файл аналізу (за допомогою дії **Download analysis file**) і використовувати його у вашому робочому процесі, коли це потрібно. Ви також можете вказати формат, у якому ви хочете завантажити файл (такі як JSON, CSV або лог), а потім імпортувати його в службу за вашим вибором.
+
+Ось приклад для демонстрації цієї функції між додатками Phrase та XTRF:
+
+![phrase-xtrf-1](https://raw.githubusercontent.com/bb-io/Phrase-TMS/main/image/README/phrase-xtrf-1.png)
+
+![phrase-xtrf-2](https://raw.githubusercontent.com/bb-io/Phrase-TMS/main/image/README/phrase-xtrf-2.png)
+
+![phrase-xtrf-2](https://raw.githubusercontent.com/bb-io/Phrase-TMS/main/image/README/phrase-xtrf-3.png)
+
+## Відсутні функції
+
+Не всі кінцеві точки API охоплені, повідомте нам, якщо вам не вистачає функцій або якщо ви бачите інші можливості для вдосконалення!
+
+## Відгуки
+
+Відгуки щодо нашої реалізації Phrase завжди дуже вітаються. Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть проблему.

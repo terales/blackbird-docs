@@ -1,0 +1,51 @@
+---
+  title: Wise
+  description: A Wise Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/Wise" icon="github" />
+
+A Wise gyors, alacsony költségű nemzetközi pénzátutalásokat biztosít, és több devizanemű számlát kínál több mint 50 valutában történő pénztartáshoz, küldéshez, fogadáshoz és költéshez. Jellemzői az átlátható díjak, a gyors átutalások és a Wise betéti kártya, amellyel alacsony átváltási díjakkal lehet külföldön költeni.
+
+## Actions
+
+###  Balance
+- **List balances** Összes egyenleg listázása egy profilhoz
+- **Get balance** Egy adott egyenleg részleteinek lekérése
+- **Create balance** Új egyenleg létrehozása
+- **Delete balance** Adott egyenleg törlése
+
+###  BatchGroup
+- **Create batch group** Új kötegcsoport létrehozása
+- **Create batch group transfer** Új átutalás létrehozása a kötegcsoporthoz
+
+###  Card
+- **List cards** Összes profilkártya listázása
+
+###  Profile
+- **List profiles** Összes felhasználói profil listázása
+
+###  Transaction
+- **List transactions** Összes kártyatranzakció listázása
+- **Get transaction** Egy adott tranzakció részleteinek lekérése
+
+###  Transfer
+- **List transfers** Összes átutalási információ listázása
+- **Create transfer** Új átutalás létrehozása
+- **Get transfer** Egy adott átutalás részleteinek lekérése
+- **Cancel transfer** Adott átutalás törlése
+- **Get transfer receipt as PDF** Egy adott átutalás nyugtájának lekérése PDF formátumban
+
+##  Events
+- **On account credited** Amikor egy több devizanemű számla jóváírást kap
+- **On balance updated** Amikor egy adott egyenleg frissül
+- **On payment initiations state changed** Amikor egy kötegcsoport fizetés kezdeményezési állapota megváltozik
+- **On SWIFT message received and a credit deposited** Amikor SWIFT üzenet érkezik és jóváírás történik egy egyenlegszámlán
+- **On transfer status updated** Amikor egy adott átutalás állapota frissül
+- **On transfer active cases updated** Amikor egy átutalás aktív eseteinek listája frissül
+- **On transfer payout failed** Amikor egy adott átutalás kifizetése sikertelen
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Lépjen kapcsolatba velünk a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémajegyet.

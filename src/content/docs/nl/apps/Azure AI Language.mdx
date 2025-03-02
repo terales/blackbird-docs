@@ -1,0 +1,43 @@
+---
+  title: Azure AI Language
+  description: De Azure AI Language Blackbird-app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Bekijk op Github" target="_blank" href="https://github.com/bb-io/MicrosoftAILanguage" icon="github" />
+
+[Azure AI Language](https://azure.microsoft.com/en-us/products/ai-services/ai-language) is een beheerde service voor het ontwikkelen van toepassingen voor natuurlijke taalverwerking. Identificeer belangrijke termen en zinnen, analyseer sentimenten, vat tekst samen en bouw conversatie-interfaces. Gebruik Language om aanpasbare AI-modellen te annoteren, trainen, evalueren en implementeren met minimale expertise in machine learning.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een Language AI-resource hebt ingesteld op je Azure-instantie.
+- Je de API-sleutel en endpoint-URL hebt die nodig zijn om verbinding te maken met Language AI. Ga naar je resource in de Azure-portal. De sectie Sleutels & Eindpunt is te vinden in het gedeelte Resourcebeheer. Kopieer je eindpunt en toegangssleutel, want je hebt beide nodig om je API-aanroepen te authenticeren.
+
+## Verbinding maken
+
+1. Navigeer naar Apps en zoek de **Azure AI Language** app. Je kunt de zoekfunctie gebruiken om deze te vinden.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn AI Language'.
+4. Voer de `API key` en het `Endpoint` in voor je Language AI-instantie.
+5. Klik op _Connect_.
+6. Controleer of de verbinding succesvol is toegevoegd.
+
+![1723644054383](https://raw.githubusercontent.com/bb-io/MicrosoftAILanguage/main/image/README/1723644054383.png)
+
+## Actions
+
+Alle Language AI-acties nemen tekst als invoer.
+
+- **Analyze sentiment** biedt sentimentlabels (zoals "negatief", "neutraal" en "positief") op basis van de hoogste betrouwbaarheidsscore die door de service is gevonden op zins- en documentniveau. Deze functie geeft ook betrouwbaarheidsscores tussen 0 en 1 voor elk document en de zinnen erin voor positief, neutraal en negatief sentiment.
+- **Detect language** retourneert één overheersende taal voor elk document dat je indient, samen met de ISO 639-1-naam, een mensvriendelijke naam en een betrouwbaarheidsscore.
+- **Extract key phrases** retourneert de belangrijkste zinsdelen van een tekst. Bijvoorbeeld, in de tekst _"Het eten was heerlijk en het personeel was geweldig."_, zal de extractie van belangrijke zinsdelen de hoofdonderwerpen retourneren: _"eten"_ en _"geweldig personeel"_.
+- **Find linked entities** identificeert en verduidelijkt de identiteit van entiteiten die in de tekst zijn gevonden. In de zin _"We gingen vorige week naar Seattle."_ zou het woord _"Seattle"_ worden geïdentificeerd, met een link naar meer informatie op Wikipedia.
+- **Identify personally identifiable information** kan gevoelige informatie in ongestructureerde tekst identificeren, categoriseren en redigeren. Bijvoorbeeld: telefoonnummers, e-mailadressen en identificatieformulieren.
+- **Summarize text (abstractive)** genereert een samenvatting met beknopte, samenhangende zinnen of woorden die geen letterlijk geëxtraheerde zinnen uit het originele document zijn.
+- **Summarize text (extractive)** produceert een samenvatting door belangrijke zinnen binnen het document te extraheren, samen met de positioneringsinformatie van deze zinnen.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

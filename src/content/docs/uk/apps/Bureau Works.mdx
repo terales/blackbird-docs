@@ -1,0 +1,80 @@
+---
+  title: Bureau Works
+  description: Додаток Blackbird для Bureau Works
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Перегляд на Github" target="_blank" href="https://github.com/bb-io/BureauWorks" icon="github" />
+
+Bureau Works - це передове програмне забезпечення для перекладу, яке допомагає користувачам перекладати з більшою швидкістю та підвищеним відчуттям авторства.
+
+## Перед налаштуванням
+
+Перш ніж підключитися, вам потрібно переконатися, що:
+
+- У вас є обліковий запис Bureau Works на тому екземплярі, до якого ви хочете підключитися.
+- У Bureau Works перейдіть до Profile > Security та натисніть _Generate_ у розділі API Token.
+- Скопіюйте _Access key_ і _Secret_ для подальшого використання
+
+## Підключення
+
+1. Перейдіть до додатків та знайдіть Bureau Works.
+2. Натисніть _Add Connection_.
+3. Назвіть ваше підключення для подальшого використання, наприклад, 'Моє підключення до Bureau Works'.
+4. Заповніть _Access key_ і _Secret_, які ви скопіювали з Bureau Works.
+5. Натисніть _Authorize connection_.
+
+![connectionsetup](https://raw.githubusercontent.com/bb-io/BureauWorks/main/image/README/connectionsetup.png)
+
+## Налаштування подій
+
+1. Створіть птаха з тригером подій з додатку Bureau Works та опублікуйте його
+2. Скопіюйте "Webhook URL" з тригера подій опублікованого птаха
+3. Перейдіть на [сторінку Webhooks](https://app.bwx.io/settings/account-settings/webhooks) у Bureau Works.
+4. Вставте "Webhook URL" у поле URL і залиште поле "Secret" порожнім
+5. Виберіть тип вебхука такий самий, який ви вибрали в кроці 1 у Blackbird (Наприклад, якщо ви вибрали "On project status changed" у Blackbird - виберіть "Project status changed" тип вебхука у Bureau Works).
+6. Натисніть "Save webhook"
+
+![eventsetup0](https://raw.githubusercontent.com/bb-io/BureauWorks/main/image/README/eventsetup0.png)
+
+![eventsetup1](https://raw.githubusercontent.com/bb-io/BureauWorks/main/image/README/eventsetup1.png)
+
+## Actions
+
+### Project
+
+- **Create project**
+- **Change project status**
+- **Download translated files**
+- **Get project**
+- **Search projects**
+- **Upload file to project**
+
+### Glossary
+
+- **Create glossary**
+- **Export glossary**
+- **Import glossary**
+
+## Events
+
+### Project
+
+- **On empty project created**
+- **On new organization created**
+- **On new organization unit created**
+- **On new project created**
+- **On work unit status changed**
+- **On new user created**
+- **On project status changed**
+- **On project translation finished**
+- **On task assigned**
+- **On task status changed**
+
+## Відсутні функції
+
+Не всі кінцеві точки API охоплені, повідомте нам, якщо вам не вистачає функцій або якщо ви бачите інші можливості для вдосконалення!
+
+## Зворотній зв'язок
+
+Відгуки щодо нашої реалізації Bureau Works завжди дуже вітаються. Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть запит.

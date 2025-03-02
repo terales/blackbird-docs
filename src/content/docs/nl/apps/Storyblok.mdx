@@ -1,0 +1,70 @@
+---
+  title: Storyblok
+  description: De Storyblok Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Storyblok" icon="github" />
+ 
+  
+Storyblok is een headless contentmanagementsysteem. Deze Storyblok-applicatie richt zich voornamelijk op verhaal- en taakbeheer.  
+
+## Verbinden  
+  
+1. Navigeer naar apps en zoek naar Storyblok. Als je Notion niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Storyblok en voeg de app toe aan je Blackbird-omgeving.  
+2. Klik op _Add Connection_.  
+3. Geef je verbinding een naam voor toekomstige referentie, bijvoorbeeld 'Mijn klant'.  
+4. Ga naar je Storyblok-profiel en selecteer de sectie `Personal access tokens`
+5. Genereer een nieuwe API-token
+7. Kopieer het gegenereerde token en plak het in het juiste veld in Blackbird
+8. Klik op _Connect_.  
+9. Bevestig dat de verbinding is verschenen en de status is _Connected_.  
+  
+## Actions  
+ 
+### Components
+
+- **List/Get/Create/Delete components**
+
+### Releases
+
+- **List/Get/Create/Delete release**
+
+### Spaces
+
+- **List/Get/Create/Delete/Backup spaces**
+
+### Stories
+
+- **Export story content** retourneert verhaalinhoud als een HTML-bestand.
+- **Import story content** werkt verhaalinhoud bij vanuit een HTML-bestand.
+- **List/Get/Create/Update/Delete stories**
+- **Publish/Unpublish story**
+- **Get story as HTML for translation** haalt verhaal op als een HTML-bestand voor lokalisatie op veldniveau.
+- **Translate story from HTML file** werkt verhaal bij vanuit een HTML-bestand met lokalisatie op veldniveau.
+
+### Tasks
+
+- **List/Get/Create/Delete tasks**
+
+## Events
+
+- **On story published**
+- **On story unpublished**
+- **On story moved**
+- **On story deleted**
+- **On asset created**
+- **On asset deleted**
+- **On asset replaced**
+- **On asset restored**
+- **On user added**
+- **On user removed**
+- **On user roles updated**
+- **On data source entry saved**
+- **On pipeline deployed**
+- **On release merged**
+- **On workflow changed**
+  
+## Feedback  
+  
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [bestaande kanalen](https://www.blackbird.io/) of maak een issue aan.

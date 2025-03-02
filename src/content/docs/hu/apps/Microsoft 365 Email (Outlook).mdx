@@ -1,0 +1,55 @@
+---
+  title: Microsoft 365 Email (Outlook)
+  description: A Microsoft 365 Email (Outlook) Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/MicrosoftOutlook" icon="github" />
+
+A Microsoft 365 Email egy személyes információkezelő szoftverrendszer, amely lehetővé teszi a felhasználók számára e-mailjeik kezelését.
+
+## Beállítás előtt
+
+A csatlakozás előtt győződjön meg arról, hogy rendelkezik Microsoft 365 fiókkal.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Microsoft 365 Email-re.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például: 'Saját szervezet'.
+4. Kattintson az _Authorize connection_ gombra.
+5. Kövesse a Microsoft utasításait, hogy engedélyezze a Blackbird.io számára, hogy az Ön nevében eljárjon.
+6. Amikor visszatér a Blackbird-hez, erősítse meg, hogy a kapcsolat megjelent és az állapota _Connected_.
+
+![Csatlakozás](https://raw.githubusercontent.com/bb-io/MicrosoftOutlook/main/image/README/connecting.png)
+
+## Actions
+
+- **List most recent messages** visszaadja az elmúlt órákban kapott üzeneteket. Ha az órák száma nincs megadva, az elmúlt 24 órában kapott üzenetek lesznek listázva. Ha egy adott levelezési mappából (pl. beérkező üzenetek) szeretne üzeneteket lekérni, adja meg a megfelelő paramétert.
+- **Get message** lekér egy adott e-mailt a postafiókjából.
+- **List attached files** lekéri az üzenethez csatolt fájlok listáját.
+- **List mail folders**.
+- **Create draft message** létrehoz egy új üzenet piszkozatát. Ez a művelet hasznos, ha később frissíteni szeretné az e-mailt a folyamatban (például mellékleteket adna hozzá egy ciklusban), vagy ha később egy személy átnézi.
+- **Attach file to draft message**.
+- **Update draft message subject**.
+- **Update draft message body**.
+- **Add recipients to draft message** hozzáad egy vagy több e-mail címzettet egy piszkozat üzenet meglévő címzettlistájához.
+- **Remove recipients from draft message** eltávolít egy vagy több e-mail címzettet egy piszkozat üzenet meglévő címzettlistájából.
+- **Send draft message**.
+- **Send new message** létrehoz egy új üzenetet és elküldi azt egy műveletben.
+- **Forward message**.
+- **Reply to a message**.
+- **Delete message** törli az elküldött vagy piszkozat üzenetet.
+
+## Events
+
+- **On email created** akkor aktiválódik, amikor új e-mail jön létre a megadott levelezési mappában.
+- **On email updated** akkor aktiválódik, amikor egy e-mail frissül a megadott levelezési mappában.
+- **On emails received** akkor aktiválódik, amikor új e-mailek érkeznek a beérkező levelek mappába.
+- **On emails with files attached received** akkor aktiválódik, amikor fájlmellékletekkel rendelkező e-mailek érkeznek a beérkező levelek mappába.
+
+## Példa
+
+![példa](https://raw.githubusercontent.com/bb-io/MicrosoftOutlook/main/image/README/example.png)
+
+Itt, amikor egy e-mailt kapunk, e-mail tartalom osztályozást végzünk a Cohere egyik modelljének segítségével, majd annak előrejelzése alapján továbbítjuk az üzenetet egy adott ügyfélszolgálati szakembernek.

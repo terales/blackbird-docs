@@ -1,0 +1,72 @@
+---
+  title: ContentQuo Evaluate
+  description: Додаток Blackbird для ContentQuo Evaluate
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Переглянути на Github" target="_blank" href="https://github.com/bb-io/ContentQuo" icon="github" />
+
+ContentQuo Evaluate — це незалежне від постачальників хмарне програмне забезпечення для управління та масштабування програм оцінки якості мови (LQA) для людського та машинного перекладу. Цей додаток зосереджений на створенні оцінок у ContentQuo Evaluate та експорті оцінок у звіти, електронні таблиці або бази даних.
+
+## Перед налаштуванням
+
+Перш ніж ви зможете підключитися, переконайтеся, що:
+
+- У вас є обліковий запис ContentQuo на екземплярі, до якого ви хочете підключитися.
+- Ви отримали публічний ключ та секретний ключ від ContentQuo.
+
+## Підключення
+
+1. Перейдіть до додатків і знайдіть ContentQuo. Якщо ви не можете знайти ContentQuo, натисніть _Add App_ у верхньому правому куті, виберіть ContentQuo та додайте додаток до свого середовища Blackbird.
+2. Натисніть _Add Connection_.
+3. Назвіть своє підключення для подальшого використання, наприклад, 'Моє підключення ContentQuo'.
+4. Заповніть публічний та секретний ключі, які ви отримали від ContentQuo.
+5. Натисніть _Connect_.
+
+![1705419776657](https://raw.githubusercontent.com/bb-io/ContentQuo/main/image/README/1705419776657.png)
+
+## Actions
+
+### Evaluation
+
+- **Create evaluation**
+- **Start evaluation**
+- **Delete evaluation**
+- **Download evaluation report** повертає звіт у форматі Excel про всю оцінку. За бажанням можна використовувати користувацький ID звіту, якщо він налаштований у вашому екземплярі ContentQuo Evaluate.
+- **Get evaluation** повертає загальну інформацію про оцінку, а також:
+  - Список проблем.
+  - Метрики оцінки якості з _оцінкою_ та _показником якості_.
+  - Список файлів з прикріпленою інформацією, включаючи _кількість слів_ та _кількість сегментів_.
+
+### Files
+
+- **Download bilingual file**
+- **Upload bilingual file**
+- **Delete bilingual file**
+
+## Events
+
+- **On evaluations created**
+- **On evaluations finished**
+
+## Приклад
+
+Створення оцінки з проекту memoQ:
+
+![1705420501260](https://raw.githubusercontent.com/bb-io/ContentQuo/main/image/README/1705420501260.png)
+
+Збереження проблем у файлі Excel:
+
+![1705420538988](https://raw.githubusercontent.com/bb-io/ContentQuo/main/image/README/1705420538988.png)
+
+Якщо показник якості оцінки нижче певного порогу, завантажте звіт про оцінку та надішліть його в Slack. В іншому випадку, розмістіть контент.
+
+![1706109758396](https://raw.githubusercontent.com/bb-io/ContentQuo/main/image/README/1706109758396.png)
+
+## Відсутні функції
+
+У документації ContentQuo є численні кінцеві точки, позначені як [ще не реалізовані]. Як тільки вони стануть доступними, їх можна буде додати як функції до цього додатка Blackbird.
+
+## Зворотній зв'язок
+
+Хочете використовувати цей додаток або маєте відгуки щодо нашої реалізації? Зв'яжіться з нами через [встановлені канали](https://www.blackbird.io/) або створіть запит.

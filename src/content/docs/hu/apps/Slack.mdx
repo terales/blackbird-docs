@@ -1,0 +1,109 @@
+---
+title: Slack
+description: A Slack Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/Slack" icon="github" />
+
+A Slack egy üzenetküldő alkalmazás vállalkozások számára, amely javítja a kommunikációt, a csapatmunkát és a döntéshozatalt. Lehetővé teszi az emberek számára a könnyű együttműködést, a saját időbeosztás szerinti munkavégzést és az információmegosztást dedikált csevegőterekben.
+
+## Beállítás előtt
+
+Mielőtt kapcsolódnál, győződj meg arról, hogy rendelkezel Slack fiókkal és egy adott munkaterület tagja vagy. Slack adminisztrátornak kell lenned, vagy rendelkezned kell a külső alkalmazások Slack csatornához való csatlakoztatásának engedélyével. [Meghívhatod a Slack adminisztrátorodat a Blackbird-re](https://docs.blackbird.io/concepts/nests/#users) is, hogy engedélyezze a kapcsolatot.
+
+### Webhookok engedélyezése
+
+Ha használni szeretnéd a Slack webhookokat, a kapcsolat létrehozása után hozzá kell adnod a Blackbird botot az érintett csatornákhoz. Ezt két módon teheted meg.
+
+Az első mód:
+
+- Válassz egy csatornát.
+- Küldj egy üzenetet _@Blackbird_ tartalommal.
+- Kattints a _Hozzáadás a csatornához_ gombra.
+- Tedd ugyanezt a többi csatornával, amelyek érdekelnek.
+
+![Blackbird hozzáadása a csatornához](https://raw.githubusercontent.com/bb-io/Slack/main/image/README/add_to_channel.png)
+
+A második mód:
+
+- Menj a kapcsolat létrehozásakor kiválasztott csatornára.
+- Keresd meg az _integrációt adott hozzá ehhez a csatornához: Blackbird_ üzenetet.
+- Kattints a _Blackbird_ -> _Alkalmazás hozzáadása egy csatornához..._ -> válassz egy csatornát a legördülő menüből.
+- Tedd ugyanezt a többi csatornával, amelyek érdekelnek.
+
+![Blackbird hozzáadása a csatornához](https://raw.githubusercontent.com/bb-io/Slack/main/image/README/add_to_channel2.png)
+
+## Kapcsolódás
+
+1. Navigálj az Alkalmazásokhoz, és keresd meg a **Slack** alkalmazást. Használhatod a keresőt a megtalálásához.
+2. Kattints a _Kapcsolat hozzáadása_ gombra.
+3. Nevezd el a kapcsolatot a későbbi hivatkozáshoz, pl. 'Szervezetem'.
+4. Kattints a _Kapcsolat engedélyezése_ gombra.
+5. Kövesd a Slack által megadott utasításokat, engedélyezve a Blackbird hozzáférését a kiválasztott munkaterülethez.
+6. Amikor visszatérsz a Blackbirdhez, győződj meg arról, hogy a kapcsolat megjelent és az állapota _Kapcsolódva_.
+
+![Kapcsolódás](https://raw.githubusercontent.com/bb-io/Slack/main/image/README/connecting.png)
+
+## Actions
+
+### Messages
+
+- **Send message** üzenetet küld egy Slack csatornára vagy közvetlenül egy felhasználónak. További opcionális bemenetek:
+  - **Thread timestamp**: Állítsd be ezt az értéket egy másik üzenet időbélyegére, hogy válaszolj arra az üzenetre egy szálban.
+  - **Schedule at**: Ha be van állítva, az üzenet ebben az időpontban lesz elküldve.
+  - **Ephemeral user ID**: Ha be van állítva, az üzenet csak ennek a felhasználónak lesz látható. Csak csatornákon belül működik. Nem működik együtt a 'Schedule at' opcióval.
+  - **Bot's username**: Ha be van állítva, a bot felhasználóneve ezzel a szöveggel lesz megjelenítve.
+  - **Send as user**: Ha be van állítva, az üzenet a bot helyett ezen felhasználóként lesz elküldve.
+
+- **Send files** fájlokat küld egy Slack csatornára. További opcionális bemenetek:
+  - **Thread timestamp**: Állítsd be ezt az értéket egy másik üzenet időbélyegére, hogy válaszolj arra az üzenetre egy szálban.
+  - **Message**: Állítsd be az üzenetet, amely a fájlokkal együtt lesz elküldve.
+  
+- **Get message** egy csatorna azonosító és időbélyeg alapján visszaadja:
+  - **Message text** az üzenet szövege
+  - **Sender user ID** a küldő felhasználói azonosítója
+  - **Message timestamp** az üzenet időbélyege. Más Slack műveletekben és ellenőrzőpontokban használható.
+  - **Message timestamp (Datetime)** az üzenet időbélyege Dátum formátumban.
+  - **Thread timestamp** ha az üzenet egy szál része volt, ez a szál időbélyege, amely más Slack műveletekben és ellenőrzőpontokban használható.
+  - **Message timestamp (Datetime)** a szál időbélyege Dátum formátumban.
+  - **Channel ID** annak a csatornának az azonosítója, ahová ezt az üzenetet küldték.
+  - **Files** minden fájl, amely ehhez az üzenethez volt csatolva.
+  - **Reactions** minden reakció, amely erre az üzenetre érkezett
+
+- **Update message** frissíti a meglévő üzenetet új szövegekkel.
+- **Delete message** töröl egy üzenetet
+
+### Reactions
+
+- **Add reaction** reakciót ad egy üzenethez. Legördülő listát kínál minden lehetséges reakció emojiból.
+- **Remove reaction** eltávolít egy reakciót egy üzenetből. Megjegyzés: A Slack bot csak az általa hozzáadott reakciókat tudja eltávolítani.
+
+### Users
+
+- **Search users** visszaadja a Slack csapatban lévő összes felhasználót.
+- **Get user** általános és profil adatokat ad vissza a felhasználóról, beleértve, de nem kizárólag a csapat azonosítóját, nevet, időzónát, állapotot és e-mailt.
+- **Find user by email** visszaadja az ezzel az e-mail címmel társított felhasználót ezen a Slack példányon.
+
+## Events
+
+- **On message** akkor aktiválódik, amikor bármilyen új üzenet érkezik egy csatornára. Ennek az eseménynek van egy _Trigger on message replies_ paramétere, amely alapértelmezetten _False_. Ha azt szeretnéd, hogy a madár a csatornaüzenetekre és az üzenetválaszokra is aktiválódjon, állítsd ezt a paramétert _True_ értékre. Ha egy folyamatban **On channel message** és **Send message in thread** műveleteket használsz, akkor a _Trigger on message replies_ paramétert _False_ értékre kell állítanod vagy üresen hagyod, hogy elkerüld a végtelen hurkot. Ha azt szeretnéd, hogy a madár csak akkor aktiválódjon, amikor egy üzenethez fájlmellékletek vannak, állítsd a _Trigger only when message has files_ paramétert _True_ értékre, az alapértelmezett érték _False_.
+- **On app mentioned** akkor aktiválódik, amikor az alkalmazást megemlítik (@Blackbird). Hasznos olyan munkafolyamat-indítók létrehozásához, amelyek csak akkor indulnak el, amikor egy felhasználó kifejezetten megidézi őket a Slack-en keresztül.
+- **On reaction added**. Konfigurálható egy adott csatornára és az emojik listájára, amelyekre aktiválódnia kell. A "Reaction user ID" értéket is visszaadja, amely a reakciót hozzáadó felhasználó.
+- **On member joined channel**.
+
+> Minden üzenettel kapcsolatos esemény ugyanazt a kimenetet adja vissza, mint a "Get message" művelet, így tartalmazza a fájlokat és reakciókat is.
+
+## Példa
+
+![Példa](https://raw.githubusercontent.com/bb-io/Slack/main/image/README/1734624290730.png)
+
+Ebben a példában a Slack üzenetekre adott reakciókra válaszolunk. Ezek a reakciók országzászlóknak felelnek meg. Az aktiválás után a Bird lefordítja a reakcióval ellátott összes fájlt a kért nyelvre, és egy szálban válaszol a lefordított fájlokkal.
+
+## Hiányzó funkciók
+
+A Slack egy hatalmas alkalmazás rengeteg funkcióval. Ha ezen funkciók bármelyike különösen érdekes számodra, jelezd nekünk!
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy visszajelzésed van a megvalósításunkról? Keress minket a [megszokott csatornákon](https://www.blackbird.io/) vagy hozz létre egy problémát.

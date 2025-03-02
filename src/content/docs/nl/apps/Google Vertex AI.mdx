@@ -1,0 +1,82 @@
+---
+  title: Google Vertex AI
+  description: De Google Vertex AI Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/GoogleVertexAI" icon="github" />
+
+Vertex AI is een uitgebreid platform dat toegang biedt tot krachtige multimodale modellen zoals Gemini van Google, waarmee ontwikkelaars naadloos verschillende inputs zoals tekst, afbeeldingen, video of code kunnen combineren. Met een diverse selectie aan modellen vergemakkelijkt Vertex AI eenvoudige aanpassing en integratie, waardoor de ontwikkeling en implementatie van AI-toepassingen mogelijk wordt. Het platform biedt generatieve AI-modellen, volledig beheerde tools en doelgerichte MLOps-oplossingen om de volledige machine learning-levenscyclus te stroomlijnen—van training en afstemming tot implementatie en monitoring.
+
+## Voordat je begint
+
+Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
+
+- Je een [Cloud Platform-project](https://console.cloud.google.com/project) hebt geselecteerd of aangemaakt.
+- Je [facturering hebt ingeschakeld](https://cloud.google.com/billing/docs/how-to/modify-project) voor je project.
+- Je de [Vertex AI API hebt ingeschakeld](https://console.cloud.google.com/flows/enableapi?apiid=aiplatform.googleapis.com).
+- Je een serviceaccount hebt aangemaakt en JSON-sleutels hebt gegenereerd.
+
+### Serviceaccount aanmaken en JSON-sleutels genereren
+
+1. Navigeer naar het geselecteerde of aangemaakte [Cloud Platform-project](https://console.cloud.google.com/project).
+2. Ga naar de sectie _IAM & Admin_.
+3. Selecteer in de linker zijbalk _Service accounts_.
+4. Klik op _Create service account_.
+5. Voer een naam voor het serviceaccount in en optioneel een beschrijving. Klik op _Create and continue_. Selecteer de rol _Vertex AI Administrator_ of _Vertex AI User_ voor het serviceaccount en klik op _Continue_. 
+![Serviceaccount aanmaken](https://raw.githubusercontent.com/bb-io/GoogleVertexAI/main/image/README/access.png)
+6. Klik op _Done_.
+7. Selecteer in de lijst met serviceaccounts het nieuw aangemaakte serviceaccount en navigeer naar de sectie _Keys_.
+8. Klik op _Add key_ => _Create new key_. Kies het sleuteltype _JSON_ en klik op _Create_.
+9. Open het gedownloade JSON-bestand en kopieer de inhoud, die zal worden gebruikt in de verbindingsparameter _Service account configuration string_.
+
+## Verbinden
+
+1. Navigeer naar apps en zoek naar Google Vertex AI. Als je Google Vertex AI niet kunt vinden, klik dan op _Add App_ in de rechterbovenhoek, selecteer Google Vertex AI en voeg de app toe aan je Blackbird-omgeving.
+2. Klik op _Add Connection_.
+3. Geef je verbinding een naam voor toekomstige referentie, bijv. 'Mijn organisatie'.
+4. Vul de JSON-configuratiestring in die je in de vorige stap hebt verkregen.
+5. Klik op _Connect_.
+6. Controleer of de verbinding is verschenen en de status _Connected_ is.
+
+![Verbinden](https://raw.githubusercontent.com/bb-io/GoogleVertexAI/main/image/README/connecting.png)
+
+> Opmerking: Momenteel werkt de app voor modellen die zijn opgeslagen op de locatie *us-west1*. Als je andere vereisten hebt, laat het ons dan weten!
+
+## Actions
+
+- **Generate text with Gemini** genereert tekst met behulp van het Gemini-model. Als tekstgeneratie is gebaseerd op een enkele prompt, wordt deze uitgevoerd met het gemini-1.0-pro model. Optioneel kun je een afbeelding of video specificeren om generatie uit te voeren met het gemini-1.0-pro-vision model. Zowel afbeelding als video hebben een groottelimiet van 20 MB. Als er al een afbeelding aanwezig is, kan video niet worden gespecificeerd en vice versa. Ondersteunde afbeeldingsformaten zijn PNG en JPEG, terwijl videoformaten MOV, MPEG, MP4, MPG, AVI, WMV, MPEGPS en FLV omvatten. Optioneel, stel _Is Blackbird prompt_ in op _True_ om aan te geven dat de prompt die aan de actie is gegeven het resultaat is van een van de acties van de AI Utilities-app. Je kunt ook veiligheidscategorieën specificeren in de invoerparameter _Safety categories_ en respectieve drempels voor hen in de invoerparameter _Thresholds for safety categories_. Als één lijst meer items heeft dan de andere, worden extra items genegeerd.
+
+- **Get Quality Scores for XLIFF file** Krijgt segment- en bestandsniveaukwaliteitsscores voor XLIFF-bestanden. Optioneel kun je de invoerparameters Threshold, New Target State en Condition toevoegen aan de Blackbird-actie om de doelstaatwaarde van segmenten te wijzigen die aan de gewenste criteria voldoen (alle drie moeten worden ingevuld).
+
+    Optionele invoer:
+	- Prompt: Voeg je criteria toe voor het scoren van elk bron-doelpaar. Als er geen worden opgegeven, wordt dit vervangen door _"accuracy, fluency, consistency, style, grammar and spelling"_.
+	- Bucket size: Aantal vertaaleenheden om in dezelfde aanvraag te verwerken. (Zie toegewijde sectie)
+	- Source and Target languages: Standaard halen we deze waarden uit de XLIFF-header. Je kunt verschillende waarden opgeven, geen specifiek formaat vereist. 
+	- Threshold: waarde tussen 0-10.
+	- Condition: Criteria om segmenten te filteren waarvan de doelstaat zal worden gewijzigd.
+	- New Target State: waarde om de doelstaat naar te updaten voor gefilterde vertaaleenheden.
+
+    Uitvoer:
+	- Average Score: geaggregeerde score van alle segmentniveauscores.
+	- Updated XLIFF file: segmentniveauscore toegevoegd aan extradata-attribuut & bijgewerkte doelstaat indien opgedragen.
+
+- **Post-edit XLIFF file** Werkt de doelen van XLIFF-bestand bij
+
+	Optionele invoer:
+	- Prompt: Voeg je taalkundige criteria toe voor het bewerken van doelen.
+	- Bucket size: Aantal vertaaleenheden om in dezelfde aanvraag te verwerken. (Zie toegewijde sectie)
+	- Source and Target languages: Standaard halen we deze waarden uit de XLIFF-header. Je kunt verschillende waarden opgeven, geen specifiek formaat vereist.
+	- Glossary
+
+- **Process XLIFF file** gegeven een XLIFF-bestand, verwerkt elke vertaaleenheid volgens de verstrekte instructies (standaard is het vertalen van brontags) en werkt de doeltekst voor elke eenheid bij.
+
+Merk op dat alle XLIFF-acties de versies 1.2 en 2.1 van het XLIFF-formaat ondersteunen, aangezien deze versies het meest worden gebruikt in de industrie. Als je een andere versie hebt, laat het ons dan weten en we zullen overwegen om ondersteuning ervoor toe te voegen.
+
+### Bucket size, prestaties en kosten
+
+XLIFF-bestanden kunnen veel segmenten bevatten. Elke actie neemt je segmenten en stuurt ze naar de AI-app voor verwerking. Het is mogelijk dat het aantal segmenten zo hoog is dat de prompt het contextvenster van het model overschrijdt of dat het model langer duurt dan Blackbird-acties mogen duren. Daarom hebben we de parameter bucket size geïntroduceerd. Je kunt de parameter bucket size aanpassen om te bepalen hoeveel segmenten tegelijk naar het AI-model worden gestuurd. Hiermee kun je de werklast verdelen over verschillende API-aanroepen. De afweging is dat dezelfde contextprompt met elke aanvraag moet worden meegestuurd (wat de gebruikte tokens verhoogt). Uit experimenten hebben we ontdekt dat een bucket size van 1500 voldoende is voor modellen zoals gpt-4o. Daarom is 1500 de standaard bucket size, maar andere modellen kunnen verschillende bucket sizes vereisen.
+
+## Feedback
+
+Wil je deze app gebruiken of heb je feedback op onze implementatie? Neem contact met ons op via de [gevestigde kanalen](https://www.blackbird.io/) of maak een issue aan.

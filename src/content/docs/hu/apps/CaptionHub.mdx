@@ -1,0 +1,86 @@
+---
+  title: CaptionHub
+  description: A CaptionHub Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/CaptionHub" icon="github" />
+
+A CaptionHub egy felhőalapú platform, amely videófelirat és feliratozási szolgáltatásokat nyújt. Ez a CaptionHub alkalmazás elsősorban a projektek és felirat készletek kezelésére összpontosít.
+
+## Csatlakozás
+
+1.  Navigálj az alkalmazásokhoz és keress rá a CaptionHub-ra. Ha nem találod a CaptionHub-ot, kattints a jobb felső sarokban található _Add App_ gombra, válaszd a CaptionHub-ot, és add hozzá az alkalmazást a Blackbird környezetedhez.
+2.  Kattints az _Add Connection_ gombra.
+3.  Nevezd el a kapcsolatot a későbbi azonosításhoz, például: 'Saját ügyfél'.
+4.  Menj a CaptionHub csapat beállításokhoz és válaszd az _API Keys_ lehetőséget a bal oldali menüből.
+5.  Menj az _API Keys_ szekcióhoz és kattints a _Create API Key_ gombra.
+6.  Másold az API kulcsot és illeszd be a megfelelő mezőbe a BlackBird felületén.
+7.  Kattints a _Connect_ gombra.
+8.  Ellenőrizd, hogy a kapcsolat megjelent-e és a státusza _Connected_.
+
+## Actions
+
+### Activities
+
+- **List activities** visszaadja az összes tevékenység listáját egy `Team`, `Project` vagy `Caption set` esetében.
+
+### Automations
+
+- **List automations** visszaadja az összes automatizálás listáját, amelyek egy `Project` létrehozásakor alkalmazhatók.
+
+### Caption sets
+
+- **List caption sets** visszaadja azon felirat készletek adatainak listáját, amelyeket a felhasználó szerkeszt.
+- **Approve caption set** jóváhagyottként jelöli meg a felirat készlet összes szegmensét.
+- **Make caption set reviewable** áttekinthetővé teszi a felirat készlet összes szegmensét.
+- **Make caption set claimable** igényelhetővé teszi a felirat készlet összes szegmensét.
+- **Create translated caption set** létrehoz egy fordításra kész felirat készletet.
+- **Create original caption set** létrehoz egy új eredeti felirat készletet.
+- **Download original/translated captions** letölti a felirat készletet a kért formátumban.
+
+### Custom dictionaries
+
+- **Get custom dictionary** visszaadja egy adott egyéni szótár részleteit.
+- **List custom dictionaries** visszaadja a csapatodhoz tartozó összes egyéni szótár listáját.
+
+### Languages
+
+- **List languages** visszaadja a csapatod számára elérhető összes nyelv listáját.
+
+### Projects
+
+- **Get/create/update/delete project**
+- **Replace the video for a project** kicseréli a projekt eredeti videóját.
+
+### Renders
+
+- **Get render status** visszaadja egy renderelés státuszát.
+- **Create render** létrehoz egy renderelést a megadott `Caption set` számára.
+- **Download render** letölt egy befejezett renderelést.
+
+### Teams
+
+- **List teams** visszaadja minden csapat listáját, amelynek az API felhasználó tagja.
+
+### Termbases
+
+- **List termbases** visszaadja a `Team` összes szószedeteinek listáját.
+
+### Users
+
+- **List users** visszaadja a `Team` összes felhasználójának listáját.
+
+### Workflow transitions
+
+- **List workflow transitions** visszaadja egy csapat, projekt vagy felirat készlet minden munkafolyamat-átmenetének listáját.
+
+## Hiányzó funkciók
+
+A jövőben hozzáadhatunk műveleteket a következőkhöz:
+
+- Team workflows
+
+## Visszajelzés
+
+A CaptionHub megvalósításával kapcsolatos visszajelzéseket mindig szívesen fogadjuk. Lépj kapcsolatba velünk a kialakított csatornákon keresztül vagy hozz létre egy problémát.

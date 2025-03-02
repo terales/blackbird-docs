@@ -1,0 +1,71 @@
+---
+  title: Drupal
+  description: De Drupal Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/Drupal" icon="github" />
+
+**Drupal** is een gratis, open-source content management systeem (CMS) met een grote, ondersteunende gemeenschap. Het wordt door miljoenen mensen en organisaties over de hele wereld gebruikt om hun websites te bouwen en te onderhouden.
+
+## [**TMGMT Blackbird**](https://git.drupalcode.org/project/tmgmt_blackbird) module configuratie
+
+De **TMGMT Blackbird** module biedt integratie met het Blackbird platform. Hiermee kunt u vertaalopdrachten verzenden naar en ontvangen van het Blackbird platform. Meer informatie over de plugin vindt u op de [Drupal TMGMT Blackbird plugin pagina](https://git.drupalcode.org/project/tmgmt_blackbird).
+
+### Vereisten
+
+De module is afhankelijk van de [Translation Management (TMGMT) module](https://www.drupal.org/project/tmgmt).
+
+### Installatie
+
+Installeer de module zoals u normaal gesproken een bijgedragen Drupal-module zou installeren. Bezoek [Installing contributed modules](https://www.drupal.org/docs/8/extending-drupal-8/installing-contributed-modules) voor meer informatie.
+
+### Configuratie
+
+Ga naar `/admin/tmgmt/translators` en configureer de `Blackbird` plugin. Op het configuratieformulier dient u de volgende informatie te verstrekken:
+
+- API Key: De API-sleutel die door Blackbird wordt gebruikt om vertaalopdrachten te verwerken. De API-sleutel moet worden gekopieerd naar de Blackbird platform-instellingen om de integratie te voltooien.
+- Om te voorkomen dat u alle vertalingen handmatig moet accepteren, kunt u de instelling `Auto accept finished translations` inschakelen. Hierdoor worden alle vertalingen automatisch geaccepteerd wanneer ze voltooid zijn.
+
+### Vertaalopdrachten
+
+Bij het aanmaken van een nieuwe vertaalopdracht kunt u de `Blackbird` vertaler selecteren om de opdracht te verwerken. Blackbird zal dan automatisch de opdracht verwerken en de vertalingen terugsturen wanneer ze klaar zijn. De module zal de volgende eindpunten beschikbaar stellen voor `Blackbird` om te interageren met de vertaalopdrachten:
+
+## Vóór het instellen
+
+Voordat u verbinding kunt maken, moet u ervoor zorgen dat:
+
+- U een Drupal-instantie heeft
+- U een Drupal API-sleutel heeft.
+
+## Verbinding maken
+
+1. Navigeer naar Apps en zoek de **Drupal** app. U kunt de zoekfunctie gebruiken om deze te vinden.
+2. Klik op _Add Connection_.
+3. Geef uw verbinding een naam voor toekomstig gebruik, bijvoorbeeld 'Mijn Drupal-verbinding'.
+4. Vul het veld `Base URL` in. Bijvoorbeeld: `https://your-drupal-site.com`.
+5. Vul de `API key` in die u van Drupal heeft gekregen.
+6. Klik op **Connect**.
+7. Zorg ervoor dat de verbinding succesvol is toegevoegd.
+
+![connection](https://raw.githubusercontent.com/bb-io/Drupal/main/./image/README/connecting.png)
+
+## Actions
+
+- **Search jobs** - Krijg opdrachten op basis van gespecificeerde zoekparameters.
+- **Get job as HTML** - Krijg HTML-bestand van de opdracht met de opgegeven opdracht-ID.
+- **Update job from HTML** - Werk opdracht bij vanuit HTML-bestand.
+
+## Events
+
+- **On translation jobs requested** - Polling-gebaseerde gebeurtenis. Retourneert vertaalopdrachten die zijn aangevraagd na de laatste pollingtijd.
+
+## Foutafhandeling
+
+In geval van een fout zal de app een foutmelding teruggeven. De foutmelding bevat de foutcode en een bericht dat de fout beschrijft. Als u een fout tegenkomt, raadpleeg dan de foutmelding en statuscode om het probleem te begrijpen. Als u verdere hulp nodig heeft, neem dan contact op met ons ondersteuningsteam.
+
+Voorbeeld foutmelding: `Status code: 404, Error: Page not found | Blackbird Demo`
+
+## Feedback
+
+Wilt u deze app gebruiken of heeft u feedback over onze implementatie? Neem contact met ons op via de [gebruikelijke kanalen](https://www.blackbird.io/) of maak een issue aan.

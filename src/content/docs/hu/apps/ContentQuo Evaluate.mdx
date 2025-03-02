@@ -1,0 +1,72 @@
+---
+  title: ContentQuo Evaluate
+  description: A ContentQuo Evaluate Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Github-on" target="_blank" href="https://github.com/bb-io/ContentQuo" icon="github" />
+
+A ContentQuo Evaluate egy gyártó-független felhőalapú szoftver az emberi és gépi fordítások nyelvi minőségellenőrzési (LQA) programjainak kezelésére és skálázására. Ez az alkalmazás a ContentQuo Evaluate-ben történő értékelések létrehozására, valamint az értékelések jelentésekben, táblázatokban vagy adatbázisokban történő exportálására összpontosít.
+
+## Beállítás előtt
+
+Mielőtt csatlakozhatna, győződjön meg a következőkről:
+
+- Rendelkezik ContentQuo fiókkal azon a példányon, amelyhez csatlakozni szeretne.
+- Megkapta a nyilvános kulcsot és a titkos kulcsot a ContentQuo-tól.
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a ContentQuo-ra. Ha nem találja a ContentQuo-t, kattintson a jobb felső sarokban található _Add App_ gombra, válassza a ContentQuo-t és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például: "Saját ContentQuo kapcsolat".
+4. Töltse ki a ContentQuo-tól kapott nyilvános és titkos kulcsot.
+5. Kattintson a _Connect_ gombra.
+
+![1705419776657](https://raw.githubusercontent.com/bb-io/ContentQuo/main/image/README/1705419776657.png)
+
+## Actions
+
+### Evaluation
+
+- **Create evaluation**
+- **Start evaluation**
+- **Delete evaluation**
+- **Download evaluation report** Excel fájl alapú jelentést ad vissza a teljes értékelésről. Opcionálisan használható egyedi jelentés azonosító, ha az be van állítva a ContentQuo Evaluate példányban.
+- **Get evaluation** általános információkat ad az értékelésről, valamint:
+  - Problémák listája.
+  - Minőségértékelési mérőszámok _osztályzattal_ és _minőségi pontszámmal_.
+  - Fájlok listája csatolt információkkal, beleértve a _szószámot_ és a _szegmensszámot_.
+
+### Files
+
+- **Download bilingual file**
+- **Upload bilingual file**
+- **Delete bilingual file**
+
+## Events
+
+- **On evaluations created**
+- **On evaluations finished**
+
+## Példa
+
+Értékelés létrehozása egy memoQ projektből:
+
+![1705420501260](https://raw.githubusercontent.com/bb-io/ContentQuo/main/image/README/1705420501260.png)
+
+Problémák tárolása Excel fájlban:
+
+![1705420538988](https://raw.githubusercontent.com/bb-io/ContentQuo/main/image/README/1705420538988.png)
+
+Ha egy értékelés minőségi pontszáma egy bizonyos küszöbérték alatt van, töltse le az értékelési jelentést és küldje el Slack-en. Egyébként, továbbítsa a tartalmat.
+
+![1706109758396](https://raw.githubusercontent.com/bb-io/ContentQuo/main/image/README/1706109758396.png)
+
+## Hiányzó funkciók
+
+A ContentQuo dokumentációjában számos végpont van [még nem implementált] címkével ellátva. Amint ezek elérhetővé válnak, hozzáadhatók funkciókként ehhez a Blackbird alkalmazáshoz.
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Keressen meg minket a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy problémát.

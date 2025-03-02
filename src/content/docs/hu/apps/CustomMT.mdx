@@ -1,0 +1,41 @@
+---
+  title: CustomMT
+  description: A CustomMT Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/CustomMT" icon="github" />
+
+A [Custom.MT](https://custom.mt/) finomhangolt nyelvi modelleket kínál fordításhoz. Lehetővé teszi gépi fordítási sablonok létrehozását és azok használatát automatizált fordításra. A Blackbirdben használhatja a Custom.MT sablonokat a lokalizációs folyamatokban szövegek fordítására.
+
+## Beállítás előtt
+
+Mielőtt kapcsolódna, győződjön meg a következőkről:
+
+- Rendelkezik [Custom.MT fiókkal](https://console.custom.mt/).
+- Van API kulcsa a Custom.MT-hez, amely [itt](https://console.custom.mt/credentials/) szerezhető be.
+- Legalább egy sablont létrehozott [itt](https://console.custom.mt/templates/).
+
+## Csatlakozás
+
+1. Navigáljon az alkalmazásokhoz és keressen rá a Custom.MT-re. Ha nem találja a Custom.MT-t, kattintson a jobb felső sarokban található _Add App_ gombra, válassza a Custom.MT-t, és adja hozzá az alkalmazást a Blackbird környezetéhez.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot későbbi hivatkozáshoz, például "My Custom MT connection".
+4. Másolja át az API kulcsot a Custom.MT konzolból az API Token mezőbe.
+5. Kattintson a _Connect_ gombra
+
+![kapcsolódás](https://raw.githubusercontent.com/bb-io/CustomMT/main/image/README/1692783524226.png)
+
+## Actions
+
+- **Translate text**: Adjon meg egy dinamikus sablonazonosítót vagy válassza ki sablonját a meglévő sablonok listájából. Adja meg a lefordítandó szöveget a szövegmezőbe. Ez a művelet visszaadja a szöveg fordítását a megadott sablon használatával.
+- **Translate multiple texts**: Ugyanaz, mint a fenti, kivéve, hogy több szöveget ad meg bemenetként.
+
+## Példa
+
+![példa](https://raw.githubusercontent.com/bb-io/CustomMT/main/image/README/1692783915834.png)
+Ez a példa egy nagyon egyszerű munkafolyamatot mutat be, ahol minden beérkező említés egy adott csatornán lefordításra kerül a megadott _EnToHu_ sablon használatával, majd válaszként visszaküldésre kerül ugyanarra a csatornára.
+
+## Visszajelzés
+
+A Custom.MT megvalósításunkkal kapcsolatos visszajelzéseket mindig nagyon szívesen fogadjuk. Keressen meg minket a bevált csatornákon vagy hozzon létre egy hibajelentést.

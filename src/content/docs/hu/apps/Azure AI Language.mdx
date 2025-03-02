@@ -1,0 +1,43 @@
+---
+  title: Azure AI Language
+  description: A Blackbird.io Azure AI Language alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/MicrosoftAILanguage" icon="github" />
+
+Az [Azure AI Language](https://azure.microsoft.com/en-us/products/ai-services/ai-language) egy menedzselt szolgáltatás természetes nyelvfeldolgozó alkalmazások fejlesztéséhez. Azonosíthatja a kulcsfontosságú kifejezéseket és frázisokat, elemezheti a hangulatot, összefoglalhatja a szöveget, és létrehozhat beszélgetési felületeket. Használja a Language-et testreszabható AI modellek jegyzetelésére, betanítására, értékelésére és telepítésére minimális gépi tanulási szaktudással.
+
+## Beállítás előtt
+
+Mielőtt kapcsolódna, győződjön meg arról, hogy:
+
+- Létrehozott egy Language AI erőforrást az Azure-fiókon.
+- Rendelkezik a Language AI-hoz való kapcsolódáshoz szükséges API-kulccsal és végpont URL-lel. Keresse fel erőforrását az Azure portálon. A Kulcsok és Végpont szakasz a Erőforráskezelés részben található. Másolja ki a végpontot és a hozzáférési kulcsot, mivel mindkettőre szüksége lesz az API-hívások hitelesítéséhez.
+
+## Csatlakozás
+
+1. Navigáljon az Alkalmazásokhoz, és keresse meg az **Azure AI Language** alkalmazást. A keresést használhatja a megtalálásához.
+2. Kattintson a _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például 'Saját AI Language'.
+4. Adja meg az `API key` és az `Endpoint` adatokat a Language AI példányához.
+5. Kattintson a _Connect_ gombra.
+6. Ellenőrizze, hogy a kapcsolat sikeresen hozzáadódott.
+
+![1723644054383](https://raw.githubusercontent.com/bb-io/MicrosoftAILanguage/main/image/README/1723644054383.png)
+
+## Actions
+
+Minden Language AI művelet szöveget fogad bemenetként.
+
+- **Analyze sentiment** hangulati címkéket biztosít (mint például "negatív", "semleges" és "pozitív") a szolgáltatás által talált legmagasabb megbízhatósági pontszám alapján mondat- és dokumentumszinten. Ez a funkció 0 és 1 közötti megbízhatósági pontszámokat is visszaad minden dokumentumhoz és az abban található mondatokhoz a pozitív, semleges és negatív hangulatra vonatkozóan.
+- **Detect language** egy domináns nyelvet ad vissza minden beküldött dokumentumhoz, annak ISO 639-1 nevével, emberek számára olvasható nevével és megbízhatósági pontszámával együtt.
+- **Extract key phrases** visszaadja egy szöveg kulcskifejezéseit. Például az _"Az étel finom volt és a személyzet csodálatos volt."_ szövegben a kulcskifejezés-kinyerés a fő témákat adja vissza: _"étel"_ és _"csodálatos személyzet"_.
+- **Find linked entities** azonosítja és egyértelműsíti a szövegben talált entitások identitását. Például az _"A múlt héten Seattleben jártunk."_ mondatban a _"Seattle"_ szót azonosítaná, hivatkozással további információkra a Wikipédián.
+- **Identify personally identifiable information** azonosíthatja, kategorizálhatja és kitörölheti a strukturálatlan szövegben található érzékeny információkat. Például: telefonszámok, e-mail címek és azonosítási formák.
+- **Summarize text (abstractive)** tömör, koherens mondatokból vagy szavakból álló összefoglalót generál, amelyek nem szó szerinti kivonatmondatok az eredeti dokumentumból.
+- **Summarize text (extractive)** úgy készít összefoglalót, hogy kivonja a dokumentum lényeges mondatait, az ezekhez a mondatokhoz tartozó pozícionálási információkkal együtt.
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy visszajelzése van a megvalósításunkról? Keressen minket a [kialakított csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy hibajegyet.

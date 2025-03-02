@@ -1,0 +1,68 @@
+---
+  title: Dropbox
+  description: A Dropbox Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés Githubon" target="_blank" href="https://github.com/bb-io/Dropbox" icon="github" />
+
+A Dropbox egy felhőalapú fájltárhely szolgáltatás, amely lehetővé teszi a felhasználók számára, hogy fájlokat tároljanak, megosszanak és szinkronizáljanak különböző eszközök és platformok között. Lehetővé teszi a felhasználók számára, hogy bárhonnan hozzáférjenek fájljaikhoz internetkapcsolattal, így kényelmes megoldást kínál magánszemélyek, csapatok és vállalkozások számára, hogy együttműködhessenek dokumentumokon, fényképeken, videókon és egyéb típusú fájlokon.
+
+## Csatlakozás
+
+1. Navigálj az alkalmazásokhoz és keress rá a Dropboxra. Ha nem találod a Dropboxot, kattints a jobb felső sarokban található _Add App_ gombra, válaszd a Dropboxot, és add hozzá az alkalmazást a Blackbird környezetedhez.
+2. Kattints az _Add Connection_ gombra.
+3. Nevezd el a kapcsolatot későbbi hivatkozáshoz, pl. 'Saját Dropbox kapcsolat'.
+4. Kattints az _Authorize connection_ gombra.
+5. Amikor egy új ablak megnyílik, kövesd a Dropbox utasításait.
+6. Amikor visszatérsz a Blackbirdhez, ellenőrizd, hogy a kapcsolat megjelent-e és a státusza _Connected_.
+
+## Actions
+
+### Storage
+
+- **Create file request** Create file request for current user
+- **Copy file** Copy file from one directory to another
+- **Create folder** Create folder with a given name
+- **Delete file** Delete specified file
+- **Delete folder** Delete specified folder
+- **Download file** Download specified file
+- **Get files list by path** Get files list by specified path
+- **Get folders list by path** Get folders list by specified path
+- **Get link for file download** Get temporary link for download of a file
+- **Move file** Move file from one directory to another
+- **Share folder** Share given folder
+- **Upload file** Upload file
+
+### Team
+
+- **Create group** Creates a new, empty group
+- **Delete group** Deletes a group
+- **Get group info** Retrieves information about a group
+- **Get team info** Retrieves information about a team
+- **List groups** Lists groups on a team
+- **List member devices** Lists all device sessions of a team's member
+- **List member linked apps** Lists all linked applications of the team member
+- **List members devices** Lists all device sessions of a team
+- **List members** Lists members of a team
+- **List namespaces** Lists all team-accessible namespaces.
+- **List sharing allowlist** Lists Approve List entries for given team
+
+## Polling events
+
+- **On files created or updated** This polling event is triggered when files are created or updated.
+    - Opcionális bemenetként megadhatsz egy szülőmappát a figyeléshez, hogy a Birds eseményeid csak akkor aktiválódjanak, ha az adott mappán belül hoznak létre vagy frissítenek fájlokat.
+- **On files deleted** This polling event is triggered when file(s) are deleted.
+
+## Példák
+
+![Csatlakozás](https://raw.githubusercontent.com/bb-io/Dropbox/main/image/README/example_bird.png)
+Ez a bird új vagy frissített fájlokat tölt le a Dropboxból, lefordítja őket a DeepL segítségével, majd elküldi őket egy Slack csatornára
+
+## Eggs
+
+Itt találhatók letölthető munkafolyamat-prototípusok ezzel az alkalmazással, amelyeket importálhatsz a Nests-be [itt](https://docs.blackbird.io/eggs/storage-to-mt/).
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy visszajelzést adnál a megvalósításunkról? Keress minket a [bevett csatornákon](https://www.blackbird.io/) vagy hozz létre egy problémát.

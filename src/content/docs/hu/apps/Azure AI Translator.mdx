@@ -1,0 +1,82 @@
+---
+  title: Azure AI Translator
+  description: Az Azure AI Translator Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés a Githubon" target="_blank" href="https://github.com/bb-io/MicrosoftTranslator" icon="github" />
+
+Ez az alkalmazás az Azure AI Translator API köré épül. Az Azure AI Translator egy felhőalapú neurális gépi fordítási szolgáltatás, amely bármely operációs rendszerrel használható. Számos Microsoft termék és szolgáltatás fordítási és egyéb nyelvi műveleteit támogatja. A szolgáltatás modern neurális gépi fordítási technológiát használ, és statisztikai gépi fordítási technológiát is kínál.
+
+## Beállítás előtt
+
+A kapcsolat beállítása előtt a következőket kell tudnia:
+
+- A `Document translation endpoint` megszerzéséhez a dokumentációt [itt](https://learn.microsoft.com/en-us/azure/ai-services/translator/document-translation/how-to-guides/use-rest-api-programmatically?tabs=csharp#retrieve-your-key-and-custom-domain-endpoint) találja. Vegye figyelembe, hogy a Dokumentumfordítás az S1 Standard szolgáltatási tervben (Pay-as-you-go), valamint a C2, C3, C4 és D3 mennyiségi kedvezményes csomagokban támogatott. Lásd [Azure AI szolgáltatások árazása—Translator](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator/)
+- Az `API key` megszerzéséről [itt](https://learn.microsoft.com/en-us/azure/ai-services/translator/document-translation/how-to-guides/use-rest-api-programmatically?tabs=csharp#prerequisites) talál információt
+- Ha nem biztos a régiójában, próbálkozhat a `global` alapértelmezett értékkel. További információkat [itt](https://learn.microsoft.com/en-us/azure/ai-services/translator/document-translation/how-to-guides/create-use-managed-identities) találhat
+
+## Csatlakozás
+
+1. Navigáljon az Alkalmazásokhoz, és keresse meg az **Azure AI Translator** alkalmazást. A keresést használhatja a megtalálásához.
+2. Kattintson az _Add Connection_ gombra.
+3. Nevezze el a kapcsolatot a későbbi hivatkozáshoz, például: 'Saját szervezetem'.
+4. Töltse ki az összes kötelező mezőt:
+   - `Document translation endpoint` - A dokumentumfordítási szolgáltatás végpontja. Valami ilyesmi várható: https://[ERŐFORRÁS-NEVE].cognitiveservices.azure.com.
+   - `API key` - A dokumentumfordítási szolgáltatás API kulcsa.
+   - `Region` - A régió, ahol a dokumentumfordítási szolgáltatást hosztolják.
+5. Kattintson a _Connect_ gombra.
+6. Ellenőrizze, hogy a kapcsolat megjelent-e, és a státusza _Connected_.
+
+![Kapcsolat](https://raw.githubusercontent.com/bb-io/MicrosoftTranslator/main/image/README/connection.png)
+
+## Actions
+
+### **Translate**
+Lefordítja a szöveget a célnyelvre. Ez a művelet a következő bemeneti paramétereket támogatja:
+
+- **Text**: A fordítandó szöveg.
+- **Target language**: A nyelv, amelyre a szöveg fordítva lesz.
+- **Source language**: A bemeneti szöveg nyelve. Ha nincs megadva, automatikus nyelvfelismerés történik.
+- **Text type**: Meghatározza, hogy a fordítandó szöveg egyszerű szöveg vagy HTML. Lehetséges értékek: `plain` vagy `html`.
+- **Category**: Meghatározza a fordítás kategóriáját (doménjét), amelyet egy testreszabott rendszerből származó fordítások eléréséhez használnak.
+- **Profanity action**: Meghatározza, hogyan kell kezelni a trágárságokat a fordításokban. Lehetséges értékek: `NoAction`, `Marked` vagy `Deleted`.
+- **Profanity marker**: Meghatározza, hogyan kell jelölni a trágárságokat a fordításokban. Lehetséges értékek: `Asterisk` vagy `Tag`.
+- **Include alignment**: Meghatározza, hogy tartalmazza-e a forrásszöveg és a lefordított szöveg közötti igazítási vetítést. Lehetséges értékek: `true` vagy `false`.
+- **Include sentence length**: Meghatározza, hogy tartalmazza-e a bemeneti szöveg és a lefordított szöveg mondathatárait. Lehetséges értékek: `true` vagy `false`.
+- **Suggested from**: Egy tartalék nyelv, ha a bemeneti szöveg nyelve nem azonosítható.
+- **From script**: A bemeneti szöveg írásrendszere.
+- **To script**: A lefordított szöveg írásrendszere.
+- **Allow fallback**: Meghatározza, hogy a szolgáltatás visszaeshet-e egy általános rendszerre, ha egyéni rendszer nem létezik. Lehetséges értékek: `true` vagy `false`. Allow fallback = false meghatározza, hogy a fordítás csak a kérés által meghatározott kategóriára kiképzett rendszereket használjon. Ha egy X nyelvről Y nyelvre történő fordítás köztes E nyelven keresztüli láncolást igényel, akkor a láncban lévő összes rendszernek (X → E és E → Y) egyéninek kell lennie, és ugyanazzal a kategóriával kell rendelkeznie. Ha nem található rendszer a megadott kategóriával, a kérés 400-as státuszkóddal tér vissza. Allow fallback = true meghatározza, hogy a szolgáltatás visszaeshet egy általános rendszerre, ha egyéni rendszer nem létezik.
+
+Ahogy ez a [dokumentáció](https://learn.microsoft.com/en-us/azure/ai-services/translator/custom-translator/how-to/translate-with-custom-model) említi, ha egyéni modellel szeretne szöveget fordítani, meg kell adnia a `category` opcionális bemenetet, és ebben a mezőben meg kell adnia az egyéni kategória azonosítóját.
+Példa kategória azonosítóra: `a2eb72f9-43a8-46bd-82fa-4693c8b64c3c-TECH`
+
+### **Translate document**
+Lefordítja a dokumentumot a célnyelvre, szinkron fordítást használva a háttérben. A művelet visszaadja a lefordított dokumentumot. Ez a művelet a következő bemeneti paramétereket támogatja:
+
+- **File**: A fordítandó dokumentumfájl.
+- **Target language**: A nyelv, amelyre a dokumentum fordítva lesz.
+- **Source language**: A bemeneti dokumentum nyelve. Ha nincs megadva, automatikus nyelvfelismerés történik.
+- **Category**: Meghatározza a fordítás kategóriáját (doménjét), amelyet egy testreszabott rendszerből származó fordítások eléréséhez használnak.
+- **Allow fallback**: Meghatározza, hogy a szolgáltatás visszaeshet-e egy általános rendszerre, ha egyéni rendszer nem létezik. Lehetséges értékek: `true` vagy `false`. Allow fallback = false meghatározza, hogy a fordítás csak a kérés által meghatározott kategóriára kiképzett rendszereket használjon. Ha egy X nyelvről Y nyelvre történő fordítás köztes E nyelven keresztüli láncolást igényel, akkor a láncban lévő összes rendszernek (X → E és E → Y) egyéninek kell lennie, és ugyanazzal a kategóriával kell rendelkeznie. Ha nem található rendszer a megadott kategóriával, a kérés 400-as státuszkóddal tér vissza. Allow fallback = true meghatározza, hogy a szolgáltatás visszaeshet egy általános rendszerre, ha egyéni rendszer nem létezik.
+
+A támogatott fájlformátumokat [itt](https://learn.microsoft.com/en-us/azure/ai-services/translator/document-translation/overview#synchronous-supported-document-formats) találja.
+
+### **Transliterate**
+Átalakítja a szöveget a célírásrendszerre. Ez a művelet a következő bemeneti paramétereket támogatja:
+
+- **Text**: Az átalakítandó szöveg.
+- **Source language**: A bemeneti szöveg nyelve.
+- **Source script**: Meghatározza a bemeneti szöveg által használt írásrendszert.
+- **Target script**: Meghatározza az írásrendszert, amelyre a szöveg átalakítva lesz.
+
+## Példa 
+
+Íme egy példa arra, hogyan használhatja az Azure AI Translator alkalmazást egy munkafolyamatban. Ebben a példában egy dokumentumot fordítunk le a Google Drive-ról a célnyelvre, majd a lefordított dokumentumot visszaküldjük egy másik mappába.
+
+![Példa](https://raw.githubusercontent.com/bb-io/MicrosoftTranslator/main/image/README/example.png)
+
+## Visszajelzés
+
+Szeretné használni ezt az alkalmazást, vagy van visszajelzése a megvalósításunkról? Keressen meg minket a [bevált csatornákon](https://www.blackbird.io/) keresztül, vagy hozzon létre egy hibajegyet.

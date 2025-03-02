@@ -1,0 +1,53 @@
+---
+  title: Termbase.io
+  description: A Termbase.io Blackbird alkalmazás
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="Megtekintés GitHubon" target="_blank" href="https://github.com/bb-io/Termbase.io" icon="github" />
+
+A termbase.io egy teljes körű fordítási megoldás vállalatok és nyelvi szolgáltatók számára, amely az MI és a vállalati nyelvezet hasznosítására összpontosít a legjobb minőségű és emberileg ellenőrzött eredmények előállítása érdekében.
+
+## Beállítás előtt
+
+Mielőtt csatlakozhatnál, ellenőrizd, hogy:
+
+- Megkaptad a személyes Auth-Tokent a termbase.io csapatától
+
+## Csatlakozás
+
+1. Navigálj az alkalmazásokhoz és keress rá a LanguageWire-re
+2. Kattints az _Add Connection_ gombra
+3. Nevezd el a kapcsolatot a későbbi hivatkozáshoz, pl. 'termbase.io'
+4. Töltsd ki az 'API token' mezőt az Auth tokened megadásával
+5. Kattints a _Connect_ gombra
+
+![csatlakozás](https://raw.githubusercontent.com/bb-io/Termbase.io/main/image/README/connection.png)
+
+## Actions
+
+### Language actions
+
+- **Get languages** - Összes nyelv lekérése
+
+### Termbase actions
+
+- **Get termbases** - Összes terminológiai adatbázis lekérése
+- **Get termbase** - Terminológiai adatbázis lekérése uuid alapján
+- **Export termbase** - Terminológiai adatbázis exportálása meghatározott formátumban (alapértelmezetten tbx formátumban kerül exportálásra)
+
+### Term import actions
+
+- **Create term import** - Terminológia importálás létrehozása és indítása, alapértelmezetten xliff formátumban kerül importálásra
+- **Get term import** - Terminológia importálás lekérése uuid alapján
+- **Delete term import** - Terminológia importálás törlése uuid alapján
+- **Export termbase from term import** - Terminológiai adatbázis letöltése a terminológia importálásból meghatározott formátumban (alapértelmezetten tbx formátumban kerül exportálásra)
+
+## Webhooks
+
+- **On term changed** - Akkor aktiválódik, amikor egy terminust módosítanak
+- **On term import finished** - Akkor aktiválódik, amikor egy terminológia importálás befejeződik
+
+## Visszajelzés
+
+Szeretnéd használni ezt az alkalmazást, vagy visszajelzésed van a megvalósításunkról? Vedd fel velünk a kapcsolatot a [megszokott csatornákon](https://www.blackbird.io/) keresztül vagy hozz létre egy hibajegyet.
