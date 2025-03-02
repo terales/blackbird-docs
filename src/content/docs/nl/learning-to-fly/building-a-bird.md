@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Building a Bird
 description: Laten we opstijgen. Leer hoe je je eerste bird bouwt.
 sidebar:

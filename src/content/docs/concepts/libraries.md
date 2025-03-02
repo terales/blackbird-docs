@@ -1,4 +1,5 @@
 ---
+locale: en
 title: Libraries
 description: Learn how to map predefined data and use it during your Flights
 sidebar:

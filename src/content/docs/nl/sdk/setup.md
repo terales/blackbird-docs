@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Een Blackbird-project opzetten
 description: Leer hoe je een Blackbird-project maakt met behulp van de Blackbird SDK.
 sidebar:
@@ -52,7 +53,7 @@ Open het solution-bestand en verken het project
 
 Kloon de repository van de app die je wilt wijzigen. Je kunt alle Blackbird-repositories [hier](https://github.com/orgs/bb-io/repositories) vinden.
 
-Bij het implementeren van je wijzigingen doe je dit in een aangepaste app. Zie de [implementatiehandleiding](/blackbird-docs/sdk/deploying). Houd er rekening mee dat je ook de variabelen `Product` en `AssemblyName` in de metadatastructuur moet wijzigen. Zie hieronder.
+Bij het implementeren van je wijzigingen doe je dit in een aangepaste app. Zie de [implementatiehandleiding](../../sdk/deploying). Houd er rekening mee dat je ook de variabelen `Product` en `AssemblyName` in de metadatastructuur moet wijzigen. Zie hieronder.
 
 ## Metadatastructuur
 

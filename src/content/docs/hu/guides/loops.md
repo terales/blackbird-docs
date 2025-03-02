@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Mi az a Ciklus és hogyan kell használni?
 description: Ebben az útmutatóban megmutatjuk, hogyan kell eljárni, amikor egy művelet kimenetele elemek listája, de a következő művelet csak egy elemet fogad el - más néven Ciklus.
 sidebar:

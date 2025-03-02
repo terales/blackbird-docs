@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Beginner Bird - Je eerste Bird stap voor stap bouwen
 description: Om een expert vogelkijker te worden moet je ergens beginnen. Deze gids is voor Blackbird-beginners en brengt je op de hoogte van de basisprincipes van het bouwen van birds.
 sidebar:
@@ -8,7 +9,7 @@ sidebar:
 
 Om een expert vogelkijker te worden moet je ergens beginnen. Deze gids is voor Blackbird-beginners en brengt je op de hoogte van de basisprincipes van het bouwen van birds.
 
-Deze gids leert je de algemene aanpak voor elke workflow die je wilt automatiseren met Blackbird. We doen dit stap voor stap, dus we moedigen je aan om mee te doen met je eigen Blackbird-account! We gebruiken de [Slack](/blackbird-docs/apps/slack), [DeepL](/blackbird-docs/apps/deepl) en [OpenAI](/blackbird-docs/apps/openai) apps. Wanneer je wordt gevraagd om inloggegevens, kun je in de bijbehorende documentatiesecties bekijken hoe je verbinding maakt. Je kunt natuurlijk ook alternatieven voor deze apps gebruiken, bijvoorbeeld [Amazon Translate](/blackbird-docs/apps/amazon-translate) in plaats van DeepL.
+Deze gids leert je de algemene aanpak voor elke workflow die je wilt automatiseren met Blackbird. We doen dit stap voor stap, dus we moedigen je aan om mee te doen met je eigen Blackbird-account! We gebruiken de [Slack](../../apps/slack), [DeepL](../../apps/deepl) en [OpenAI](../../apps/openai) apps. Wanneer je wordt gevraagd om inloggegevens, kun je in de bijbehorende documentatiesecties bekijken hoe je verbinding maakt. Je kunt natuurlijk ook alternatieven voor deze apps gebruiken, bijvoorbeeld [Amazon Translate](../../apps/amazon-translate) in plaats van DeepL.
 
 Aan het einde van deze gids heb je een Slack-bot gebouwd die reageert op je berichten in Slack in een andere taal. Dit is volgens onze ervaring de leukste eerste bird die je kunt bouwen! Natuurlijk is het niet echt toepasbaar op _echte wereld_ scenario's (hoewel elementen ervan dat wel kunnen zijn). In latere gidsen leer je meer over hoe je productie-birds kunt aanpakken en hoe je lokalisatie-gerelateerde workflows kunt opzetten.
 

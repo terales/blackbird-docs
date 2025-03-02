@@ -1,4 +1,5 @@
 ---
+locale: uk
 title: Створення вашого першого з'єднання
 description: Підключення додатків.
 sidebar:

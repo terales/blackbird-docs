@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Hibák
 description: Ismerje meg, hogyan és milyen hibákat dobjon az SDK-ban
 sidebar:

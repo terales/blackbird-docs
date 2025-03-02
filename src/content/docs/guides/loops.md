@@ -1,4 +1,5 @@
 ---
+locale: en
 title: What Is a Loop and How to Use It?
 description: In this guide, we'll show you how to proceed when an action's output is a list of items but the next action only takes one of those items - a.k.a. Looping.
 sidebar:

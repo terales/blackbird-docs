@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: CMS Workflows - Contentful
 description: Leer hoe je krachtige workflows kunt bouwen rondom CMS-apps. In deze gids nemen we een nadere kijk op Contentful.
 sidebar:
@@ -21,9 +22,9 @@ De eerste vraag die je jezelf moet stellen bij het benaderen van een CMS-workflo
 
 Uit onze ervaring kan het antwoord een van drie opties zijn:
 
-1. Ja ([Contentful](/blackbird-docs/apps/contentful), [Zendesk guides](/blackbird-docs/apps/zendesk), [Sitecore](/blackbird-docs/apps/sitecore), [Hubspot blog posts & pages](/blackbird-docs/apps/hubspot-cms), etc.)
-2. Ja, maar alleen met de ondersteuning van een populaire plugin ([WordPress](/blackbird-docs/apps/wordpress), Drupal, etc.)
-3. Nee ([Marketo](/blackbird-docs/apps/marketo), [Notion](/blackbird-docs/apps/notion), [Hubspot forms & emails](/blackbird-docs/apps/hubspot-cms), etc.)
+1. Ja ([Contentful](../../apps/contentful), [Zendesk guides](../../apps/zendesk), [Sitecore](../../apps/sitecore), [Hubspot blog posts & pages](../../apps/hubspot-cms), etc.)
+2. Ja, maar alleen met de ondersteuning van een populaire plugin ([WordPress](../../apps/wordpress), Drupal, etc.)
+3. Nee ([Marketo](../../apps/marketo), [Notion](../../apps/notion), [Hubspot forms & emails](../../apps/hubspot-cms), etc.)
 
 Wanneer je CMS in de tweede of derde categorie valt, zal er wat meer 'oplossingsarchitectuur' moeten plaatsvinden om de best mogelijke workflow met je CMS te bouwen. Je kunt ook zien dat sommige apps slechts gedeeltelijk native lokalisatie ondersteunen (Hubspot), dit geeft extra uitdagingen wanneer het lokaliseren van alle mogelijke content gewenst is.
 

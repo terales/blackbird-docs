@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Flights
 description: Ismerje meg, mik a Flights
 sidebar:

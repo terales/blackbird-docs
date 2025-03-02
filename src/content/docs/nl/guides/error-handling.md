@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Omgaan met fouten
 description: Effectieve foutafhandeling kan een cruciaal onderdeel zijn van elke workflow-orchestrator. Blackbird biedt verschillende manieren om fouten te beheren wanneer ze optreden. Deze gids leidt je door de drie belangrijkste aspecten van foutafhandeling in Blackbird.
 sidebar:

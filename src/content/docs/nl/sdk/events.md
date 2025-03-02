@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Gebeurtenissen definiëren
 description: Leer hoe je webhook- en callback-gebeurtenissen definieert in een Blackbird project.
 sidebar:

@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Checkpoints
 description: A Checkpoints bemutatása
 sidebar:
@@ -50,7 +51,7 @@ Olyan platformokon, mint az Asana, Jira vagy Trello, bizonyos feladatok jóváha
 A fenti kép egy két Checkpoint-ot tartalmazó Bird-et mutat. A folyamat akkor indul, amikor egy új Zendesk cikket közzétesznek, az új cikk tartalmát HTML-ként kivonják és forrás fájlként hozzáadják egy újonnan létrehozott Trados projekthez. Ezen a ponton a folyamat szünetel, és amikor a projektet frissítik és eléri a kívánt állapotot, a célnyelvi fájlt letöltik és hozzáadják egy új Jira feladathoz mellékletként. Újabb megállást érünk el, mivel a folyamat arra vár, hogy a Jira feladat állapota megváltozzon, lehetővé téve az emberi beavatkozást — lehet, hogy egy jogi vagy marketing csapatnak felül kell vizsgálnia a fordítást. Ezután egy döntési pont következik: ha az új állapot "Approved", akkor a lefordított Zendesk cikket közzéteszik. Ellenkező esetben értesítik a megfelelő Teams csatornát.
 
 ### Nagy nyelvi modellek (LLM-ek) és kötegelt feldolgozás
-Amikor olyan LLM szolgáltatásokat használunk, mint az [OpenAI Batch API](https://docs.blackbird.io/apps/openai/#batch-processing) tartalom generálásához vagy adatfeldolgozáshoz (különösen hosszú futásidejű feladatokhoz), egy Checkpoint szüneteltetheti a munkafolyamatot, amíg az LLM eredményt nem ad, vagy egy kötegelt folyamat befejeződik. Ha további emberi érvényesítésre van szükség, a munkafolyamat várhat erre a bemenetre, mielőtt a következő szakaszba lépne.
+Amikor olyan LLM szolgáltatásokat használunk, mint az [OpenAI Batch API](../../apps/openai/#batch-processing) tartalom generálásához vagy adatfeldolgozáshoz (különösen hosszú futásidejű feladatokhoz), egy Checkpoint szüneteltetheti a munkafolyamatot, amíg az LLM eredményt nem ad, vagy egy kötegelt folyamat befejeződik. Ha további emberi érvényesítésre van szükség, a munkafolyamat várhat erre a bemenetre, mielőtt a következő szakaszba lépne.
 
 ![Open AI batch](~/assets/guides/checkpoints/OpenAICheckpoint.png)
 

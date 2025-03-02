@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: XLIFF használata
 description: Az XLIFF a fordítási automatizálás sarokköve, ebben az útmutatóban bemutatjuk, hogyan használhatod az XLIFF-et a Blackbird.io-ban.
 sidebar:
@@ -25,11 +26,11 @@ Miért ne? Ez a lokalizáció univerzális nyelve! Ráadásul az újonnan integr
 
 ### Okapi
 
-Az [Okapi](https://docs.blackbird.io/apps/okapi/) keretrendszerrel a fájlok XLIFF-re és vissza történő konvertálása gyerekjáték. Két új műveletünk, a "Fájl konvertálása XLIFF-re" és megbízható társa, az "XLIFF konvertálása fájlra", megnyitja az utat a zökkenőmentes fájlformátum-átalakításokhoz. Ellenőrizd az ezekhez a műveletekhez támogatott fájltípusokat [itt](https://www.okapiframework.org/wiki/index.php?title=Filters), és engedd, hogy fájljaid kitárják szárnyaikat.
+Az [Okapi](../../apps/okapi/) keretrendszerrel a fájlok XLIFF-re és vissza történő konvertálása gyerekjáték. Két új műveletünk, a "Fájl konvertálása XLIFF-re" és megbízható társa, az "XLIFF konvertálása fájlra", megnyitja az utat a zökkenőmentes fájlformátum-átalakításokhoz. Ellenőrizd az ezekhez a műveletekhez támogatott fájltípusokat [itt](https://www.okapiframework.org/wiki/index.php?title=Filters), és engedd, hogy fájljaid kitárják szárnyaikat.
 
 ### Matecat filters
 
-Egy másik hatékony alkalmazás az XLIFF-re való konvertáláshoz és vissza a [Matecat filters](https://docs.blackbird.io/apps/matecatfilters/), mivel lehetővé teszi bármely támogatott fájlformátumból az összes fordítható tartalom kinyerését egy kényelmes XLIFF fájlba. Amint az XLIFF lefordításra kerül, újra használhatod a szűrőket, hogy visszakapd a fájlodat a célnyelven, tökéletesen megőrzött formázással.
+Egy másik hatékony alkalmazás az XLIFF-re való konvertáláshoz és vissza a [Matecat filters](../../apps/matecatfilters/), mivel lehetővé teszi bármely támogatott fájlformátumból az összes fordítható tartalom kinyerését egy kényelmes XLIFF fájlba. Amint az XLIFF lefordításra kerül, újra használhatod a szűrőket, hogy visszakapd a fájlodat a célnyelven, tökéletesen megőrzött formázással.
 
 ## LLM-ek
 
@@ -37,13 +38,13 @@ Egy másik hatékony alkalmazás az XLIFF-re való konvertáláshoz és vissza a
 
 Bemutatjuk fejlett műveleteinket az XLIFF fájlok feldolgozásához! A Blackbird.io három kényelmes műveletet kínál az AI erejének kihasználására fordítási munkafolyamatod javításához:
 
-- XLIFF fájl feldolgozása: Ez a művelet egy XLIFF fájlt vesz bemenetként, gondosan elemezve az összes forrásszegmenst. Konkrét utasításokat adhatsz meg a `Prompt` bemenetben, vagy alapértelmezetten hagyhatod, hogy az [OpenAI](https://docs.blackbird.io/apps/openai/) fordítsa le. Az eredmények zökkenőmentesen kerülnek be a célszegmensekbe, biztosítva egy teljesen lokalizált XLIFF fájlt kimenetként. A szószedettámogatás elérhető a terminológiai következetesség fenntartásához.
+- XLIFF fájl feldolgozása: Ez a művelet egy XLIFF fájlt vesz bemenetként, gondosan elemezve az összes forrásszegmenst. Konkrét utasításokat adhatsz meg a `Prompt` bemenetben, vagy alapértelmezetten hagyhatod, hogy az [OpenAI](../../apps/openai/) fordítsa le. Az eredmények zökkenőmentesen kerülnek be a célszegmensekbe, biztosítva egy teljesen lokalizált XLIFF fájlt kimenetként. A szószedettámogatás elérhető a terminológiai következetesség fenntartásához.
 - XLIFF utószerkesztése: Ez a művelet tovább megy azzal, hogy mind a forrás-, mind a célszegmenseket feldolgozza. Finomítja a meglévő fordításokat, elvégezve a szükséges szerkesztéseket az általános minőség javítása érdekében. A szószedetek beépítésének lehetőségével biztosítja, hogy fordításaid nemcsak pontosak, hanem következetesek is legyenek az előnyben részesített terminológiáddal.
-- Minőségi pontszámok lekérése XLIFF fájlhoz: Ez a művelet értékeli a fordításaid minőségét, pontszámot rendelve minden fordítási egységhez és egy átfogó pontszámot a fájl szintjén. További részleteket erről a műveletről [itt](https://docs.blackbird.io/apps/openai/#xliff-operations) találsz.
+- Minőségi pontszámok lekérése XLIFF fájlhoz: Ez a művelet értékeli a fordításaid minőségét, pontszámot rendelve minden fordítási egységhez és egy átfogó pontszámot a fájl szintjén. További részleteket erről a műveletről [itt](../../apps/openai/#xliff-operations) találsz.
 
 ### Anthropic
 
-Hasonló műveletek kerültek hozzáadásra az [Anthropic](https://docs.blackbird.io/apps/anthropic/#xliff-actions) alkalmazáshoz, hogy kísérletezhess a választott modelleddel.
+Hasonló műveletek kerültek hozzáadásra az [Anthropic](../../apps/anthropic/#xliff-actions) alkalmazáshoz, hogy kísérletezhess a választott modelleddel.
 Műveletek:
 
 - XLIFF feldolgozása
@@ -54,13 +55,13 @@ Műveletek:
 
 ### DeepL
 
-Bár a [DeepL](https://docs.blackbird.io/apps/deepl/) több [fájltípust](https://developers.deepl.com/docs/api-reference/document) támogat, XLIFF fájlok esetében csak a 2.1-es verzió fogadható el bemenetként. Most több háttérvarázslat adtunk hozzá, hogy áthidaljuk ezt a szakadékot, így lehetőséged van 1.2-es XLIFF fájljaidat a DeepL-en keresztül lefordíttatni, valamint bármely más fájlt, amelyet korábban XLIFF 1.2-re konvertáltál az Okapi vagy Matecat filters műveleteinkkel.
+Bár a [DeepL](../../apps/deepl/) több [fájltípust](https://developers.deepl.com/docs/api-reference/document) támogat, XLIFF fájlok esetében csak a 2.1-es verzió fogadható el bemenetként. Most több háttérvarázslat adtunk hozzá, hogy áthidaljuk ezt a szakadékot, így lehetőséged van 1.2-es XLIFF fájljaidat a DeepL-en keresztül lefordíttatni, valamint bármely más fájlt, amelyet korábban XLIFF 1.2-re konvertáltál az Okapi vagy Matecat filters műveleteinkkel.
 
 ### ModernMT
 
-[ModernMT](https://docs.blackbird.io/apps/modernmt/) alkalmazásunkat is úgy alakítottuk, hogy az XLIFF fájlokat fel lehessen dolgozni akár teljes fájlok fordításához, akár minőségbecsléshez. Az Okapiból vagy Matecat filtersből érkező fájlok problémamentesen feldolgozhatók.
+[ModernMT](../../apps/modernmt/) alkalmazásunkat is úgy alakítottuk, hogy az XLIFF fájlokat fel lehessen dolgozni akár teljes fájlok fordításához, akár minőségbecsléshez. Az Okapiból vagy Matecat filtersből érkező fájlok problémamentesen feldolgozhatók.
 
-## Minőségbecslő alkalmazások ([TAUS](https://docs.blackbird.io/apps/taus/), ModernMT, OpenAI, Anthropic és [ModelFront](https://docs.blackbird.io/apps/modelfront/))
+## Minőségbecslő alkalmazások ([TAUS](../../apps/taus/), ModernMT, OpenAI, Anthropic és [ModelFront](../../apps/modelfront/))
 
 Legújabb Blackbird műveleteink madártávlatból teszik lehetővé az XLIFF minőségének megtekintését. Az XLIFF-en belüli minden szegmens minőségi pontszámának kiszámításával és egy olyan aggregált szám visszaadásával, amely képet ad a fájl általános minőségéről. Ez korábban csak egyedi szegmensekre volt fenntartva. Ezen kívül minden fordítási egység kiegészül az egyéni pontszámával, amely az XLIFF fájl extradata attribútumához adódik hozzá.
 

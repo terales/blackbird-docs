@@ -1,4 +1,5 @@
 ---
+locale: uk
 title: Поширені випадки використання електронних таблиць
 description: Давайте глибше розглянемо поширені випадки використання електронних таблиць
 sidebar:
@@ -11,7 +12,7 @@ sidebar:
 
 У Blackbird, Eggs є насінням або кресленнями для ваших робочих процесів. Вони представляють початкові ідеї, які мають потенціал стати повноцінними Birds.
 
-У цьому посібнику з Egg розглянемо деякі поширені випадки використання електронних таблиць за допомогою [Google Sheets](https://docs.blackbird.io/apps/google-sheets/), [Microsoft Excel](https://docs.blackbird.io/apps/microsoft-excel/) або [Airtable](https://docs.blackbird.io/apps/airtable/). Знайдіть **Eggs для завантаження** під прикладами - завантажте JSON-робочі процеси, щоб [імпортувати в своє Nest](https://docs.blackbird.io/eggs/spreadsheets/#importing-eggs), додайте свої з'єднання, внесіть будь-які бажані корективи, та **запускайте**.
+У цьому посібнику з Egg розглянемо деякі поширені випадки використання електронних таблиць за допомогою [Google Sheets](../../apps/google-sheets/), [Microsoft Excel](../../apps/microsoft-excel/) або [Airtable](../../apps/airtable/). Знайдіть **Eggs для завантаження** під прикладами - завантажте JSON-робочі процеси, щоб [імпортувати в своє Nest](../../eggs/spreadsheets/#importing-eggs), додайте свої з'єднання, внесіть будь-які бажані корективи, та **запускайте**.
 
 ## Випадки використання
 

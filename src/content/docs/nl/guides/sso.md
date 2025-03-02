@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: SSO
 description: Stroomlijn uw authenticatie met Single Sign-On (SSO) integratie
 sidebar:

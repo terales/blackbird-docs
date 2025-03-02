@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Kezdő Bird - Az első Bird lépésről lépésre történő felépítése
 description: Ahhoz, hogy szakértő madarász legyél, valahol el kell kezdened. Ez az útmutató a Blackbird kezdőknek szól, és megismertet a bird-ök építésének alapjaival.
 sidebar:
@@ -8,7 +9,7 @@ sidebar:
 
 Ahhoz, hogy szakértő madarász legyél, valahol el kell kezdened. Ez az útmutató a Blackbird kezdőknek szól, és megismertet a bird-ök építésének alapjaival.
 
-Ez az útmutató megtanítja neked az általános megközelítést bármilyen munkafolyamathoz, amit a Blackbirddel szeretnél automatizálni. Lépésről lépésre haladunk, ezért javasoljuk, hogy kövesd a saját Blackbird fiókoddal! A [Slack](/blackbird-docs/apps/slack), a [DeepL](/blackbird-docs/apps/deepl) és az [OpenAI](/blackbird-docs/apps/openai) alkalmazásokat fogjuk használni. Amikor a kapcsolódási adatokat kéri, megtekintheted a csatlakozás módját a megfelelő dokumentációs szakaszokban. Természetesen használhatsz alternatívákat is, például a [Amazon Translate](/blackbird-docs/apps/amazon-translate) szolgáltatást a DeepL helyett.
+Ez az útmutató megtanítja neked az általános megközelítést bármilyen munkafolyamathoz, amit a Blackbirddel szeretnél automatizálni. Lépésről lépésre haladunk, ezért javasoljuk, hogy kövesd a saját Blackbird fiókoddal! A [Slack](../../apps/slack), a [DeepL](../../apps/deepl) és az [OpenAI](../../apps/openai) alkalmazásokat fogjuk használni. Amikor a kapcsolódási adatokat kéri, megtekintheted a csatlakozás módját a megfelelő dokumentációs szakaszokban. Természetesen használhatsz alternatívákat is, például a [Amazon Translate](../../apps/amazon-translate) szolgáltatást a DeepL helyett.
 
 Ennek az útmutatónak a végére egy olyan Slack botot fogsz létrehozni, amely a Slackben küldött üzeneteidre más nyelven válaszol. Tapasztalataink szerint ez a legszórakoztatóbb első bird, amit építhetsz! Természetesen ez nem igazán alkalmazható a _valós világ_ forgatókönyveire (bár egyes elemei igen). Későbbi útmutatókban többet tanulhatsz arról, hogyan kezeld a gyártási birdeket és hogyan állíts be lokalizációval kapcsolatos munkafolyamatokat.
 

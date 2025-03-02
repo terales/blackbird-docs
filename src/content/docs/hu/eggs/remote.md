@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Remote.com felhasználási esetek
 description: Egy Egg (tojás), amely potenciállal rendelkezik Remote.com-mal kapcsolatos Birds (madarak) létrehozására
 sidebar:
@@ -11,7 +12,7 @@ sidebar:
 
 A Blackbirdben az Eggs (tojások) a munkafolyamatok kezdeti tervei vagy alapjai. Ezek azokat a kezdeti ötleteket képviselik, amelyek teljes értékű Birds-ekké válhatnak.
 
-Ebben az Egg-útmutatóban tekintsük át a [Remote.com](https://docs.blackbird.io/apps/remote/) különböző alkalmazásokkal való integrálásának lehetőségeit. Minden felhasználási eset alatt találhatók **Letölthető Eggs** - töltsön le JSON munkafolyamatokat, hogy [importálja a Nest-be](https://docs.blackbird.io/eggs/remote/#importing-eggs), adja hozzá kapcsolatait, végezze el a kívánt módosításokat, és **repüljön**.
+Ebben az Egg-útmutatóban tekintsük át a [Remote.com](../../apps/remote/) különböző alkalmazásokkal való integrálásának lehetőségeit. Minden felhasználási eset alatt találhatók **Letölthető Eggs** - töltsön le JSON munkafolyamatokat, hogy [importálja a Nest-be](../../eggs/remote/#importing-eggs), adja hozzá kapcsolatait, végezze el a kívánt módosításokat, és **repüljön**.
 
 ## Felhasználási esetek
 
@@ -47,9 +48,9 @@ Az alábbi kép egy olyan Bird-et mutat, amely akkor aktiválódik, amikor egy s
 ## Tippek
 
 - **Adatok összekapcsolása az alkalmazások között:** A fontos adatpontok összekapcsolásához, amelyek ugyanarra vonatkoznak (pl. Vállalkozói azonosító a Remote-ban és Erőforrás azonosító a Plunet-ben), különböző lehetőségek állnak rendelkezésre:
-    - [Egyéni könyvtárak](https://docs.blackbird.io/concepts/libraries/#custom-libraries) használhatók az adatok összekapcsolásához, és ezeket a Birds-ekben a Convert operátoron keresztül használhatja, ugyanúgy, mint egy VLookup formulát az Excelben.
+    - [Egyéni könyvtárak](../../concepts/libraries/#custom-libraries) használhatók az adatok összekapcsolásához, és ezeket a Birds-ekben a Convert operátoron keresztül használhatja, ugyanúgy, mint egy VLookup formulát az Excelben.
     - Egyéni mezők. Sok alkalmazás kínál egyéni mezőket, amelyeket igény szerint lehet meghatározni.
-    - [Összekapcsolt entitások](https://docs.blackbird.io/guides/entity-linking/).
+    - [Összekapcsolt entitások](../../guides/entity-linking/).
 - **Opcionális bemenetek:** Ellenőrizze a különböző bementi lehetőségeket, különösen az eseményindítóknál, mivel ezek lehetőséget adnak a Bird indításának szűrésére. Például, ha egy "állapot frissítéskor" eseményindítót használ, valószínűleg megtalálja azt a lehetőséget, hogy meghatározza, melyik állapot indítsa el a folyamatot.
 
 ### Eggs importálása

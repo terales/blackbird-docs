@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Files
 description: Ismerje meg, hogyan kezelje a (nagy) fájlokat a Blackbird rendszerben.
 sidebar:

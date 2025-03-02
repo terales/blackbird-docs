@@ -1,5 +1,6 @@
 ---
-title: Setting Up a Blackbird Project
+locale: hu
+title: Projekt beállítása és alkalmazások klónozása
 description: Ismerje meg, hogyan hozhat létre Blackbird projektet a Blackbird SDK használatával.
 sidebar:
   label: Projekt beállítása és alkalmazások klónozása
@@ -52,7 +53,7 @@ Nyissa meg a solution fájlt és fedezze fel a projektet
 
 Klónozza annak az alkalmazásnak a repozitóriumát, amelyet módosítani szeretne. A Blackbird összes repozitóriumát [itt](https://github.com/orgs/bb-io/repositories) találja.
 
-A módosítások telepítésekor egy egyéni alkalmazásban kell ezt megtennie. Kérjük, tekintse meg a [telepítési útmutatót](/blackbird-docs/sdk/deploying). Vegye figyelembe, hogy a metaadat struktúrában a `Product` és az `AssemblyName` változókat is módosítania kell. Lásd alább.
+A módosítások telepítésekor egy egyéni alkalmazásban kell ezt megtennie. Kérjük, tekintse meg a [telepítési útmutatót](../../sdk/deploying). Vegye figyelembe, hogy a metaadat struktúrában a `Product` és az `AssemblyName` változókat is módosítania kell. Lásd alább.
 
 ## Metaadat struktúra
 

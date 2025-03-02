@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Plunet & Hubspot CRM
 description: Onze eerste introductie tot oplossingsarchitectuur met Blackbird - laten we Plunet klant/order gegevens synchroniseren met Hubspot CRM!
 sidebar:

@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Blackbird App
 description: Een Egg met het potentieel om monitoringsvogels te creëren die alles bijhouden wat er in uw Blackbird-instantie gebeurt
 sidebar:

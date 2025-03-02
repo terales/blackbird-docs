@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: A triggerek megértése - Folyamatok és munkafolyamatok kezdeményezése
 description: Ismerje meg, mik azok a triggerek.
 sidebar:
@@ -10,7 +11,7 @@ Minden folyamatnak valahol el kell kezdődnie: a **trigger** az, ami meghatároz
 
 ## Manuális triggerek
 
-A manuális triggereket (más néven [Manuális indítás](https://docs.blackbird.io/guides/manual-triggers/)) emberi beavatkozás aktiválja. Ezek a munkafolyamatok azonnal elindulnak, amint valaki a `Fly` gombra kattint. Ez a trigger típus ideális teszteléshez és hibakereséshez, vagy amikor a folyamatokat specifikus, gyakran kiszámíthatatlan feltételek alapján kell elindítani, amelyek emberi megítélést igényelnek. Ez a javasolt trigger típus, amíg a Birds-ek építésének folyamatában van.
+A manuális triggereket (más néven [Manuális indítás](../../guides/manual-triggers/)) emberi beavatkozás aktiválja. Ezek a munkafolyamatok azonnal elindulnak, amint valaki a `Fly` gombra kattint. Ez a trigger típus ideális teszteléshez és hibakereséshez, vagy amikor a folyamatokat specifikus, gyakran kiszámíthatatlan feltételek alapján kell elindítani, amelyek emberi megítélést igényelnek. Ez a javasolt trigger típus, amíg a Birds-ek építésének folyamatában van.
 
 ![Fly gomb](~/assets/docs/triggers/Fly.gif)
 
@@ -68,4 +69,4 @@ Mivel egyes rendszerek nem rendelkeznek webhook-okkal vagy callback-ekkel, de sz
 
 ## Ellenőrzőpontok
 
-Ez az innovatív funkció lehetővé teszi a Bird-en belüli triggereket, lehetővé téve, hogy a Bird várjon egy specifikus esemény bekövetkezésére, mielőtt továbblépne a következő lépésekre. Az Ellenőrzőpontokról további információkat találhat a dedikált bejegyzésben [itt](https://docs.blackbird.io/concepts/checkpoints/).
+Ez az innovatív funkció lehetővé teszi a Bird-en belüli triggereket, lehetővé téve, hogy a Bird várjon egy specifikus esemény bekövetkezésére, mielőtt továbblépne a következő lépésekre. Az Ellenőrzőpontokról további információkat találhat a dedikált bejegyzésben [itt](../../concepts/checkpoints/).

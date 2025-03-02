@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Első kapcsolatod létrehozása
 description: Az alkalmazások összekötése.
 sidebar:

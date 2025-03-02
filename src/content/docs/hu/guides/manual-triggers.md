@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Kézi Push használati esetek
 description: Különböző használati esetek, ahol a Madarak kézi indítása teljesen észszerű
 sidebar:
@@ -21,4 +22,4 @@ A kézi indítók a lokalizáció és tartalomfeldolgozás területén is kivál
 
 A fenti kép egy olyan Madarat mutat, amely egy nagy csoport, meghatározott kritériumoknak megfelelő Sitecore oldalt visz át egy TMS-be (ebben az esetben Trados-ba). Amint a felhasználó a Reptetés gombra kattint - a kézi indítóra - a munkafolyamat elindul. A Madár megkeresi az összes Sitecore oldalt, amelyek 2024. január 1. után jöttek létre és publikáltak. Az opcionális bemeneti szűrők segítségével testre szabhatók a keresési kritériumok, így könnyen módosíthatók igény szerint. Ezek a szűrők segítenek azonosítani, hogy mely oldalakat kell letölteni. A munkafolyamat következő lépései létrehoznak egy projektet a Trados-ban, lekérik a Sitecore oldalakat HTML fájlokként, letöltik, majd feltöltik a frissen létrehozott Trados projektbe fordítási forrástartalmakként. Ez a munkafolyamat a Reptetés gombra kattintva szükség szerint többször is végrehajtható, bár egy végrehajtás is elegendő lehet ahhoz, hogy az összes szükséges tartalmat lehúzza fordításra és átnyomja a választott TMS-be.
 
-> További információkat a kioldókról [itt](https://docs.blackbird.io/concepts/triggers/) talál.
+> További információkat a kioldókról [itt](../../concepts/triggers/) talál.

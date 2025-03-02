@@ -104,6 +104,7 @@ await all_repos
       console.log(name);
 
       const frontmatter = `---
+  locale: en
   title: ${friendly_name}
   description: The ${friendly_name} Blackbird app
 ---
@@ -120,7 +121,8 @@ import { LinkCard } from "@astrojs/starlight/components";
             a.replace(b, `https://raw.githubusercontent.com/bb-io/${name}/${default_branch}/${b}`)
           )
           .replace("</br>", "")
-          .replace("<br>", "");
+          .replace("<br>", "")
+          .replace("](https://docs.blackbird.io/", "](../"); // allows starlight to resolve localized links
 
       fs.writeFile(`./src/content/docs/apps/${friendly_name}.mdx`, md_content, function (err) {
         if (err) throw err;

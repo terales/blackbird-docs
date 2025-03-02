@@ -1,4 +1,5 @@
 ---
+locale: uk
 title: Помилки
 description: Дізнайтеся як і які помилки потрібно викидати в SDK
 sidebar:

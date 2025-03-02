@@ -1,4 +1,5 @@
 ---
+locale: en
 title: Defining Connections
 description: Learn how to define how Blackbird should treat the connections of your app.
 sidebar:

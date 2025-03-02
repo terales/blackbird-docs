@@ -1,4 +1,5 @@
 ---
+locale: uk
 title: Blackbird App
 description: Egg з потенціалом створення моніторингових Birds для відстеження всього, що відбувається у вашому екземплярі Blackbird
 sidebar:

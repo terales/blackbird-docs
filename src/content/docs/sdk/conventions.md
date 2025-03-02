@@ -1,4 +1,5 @@
 ---
+locale: en
 title: App Conventions
 description: Use the knowledge that we aquired with building over a 100 apps and integrations.
 sidebar:
@@ -11,7 +12,7 @@ As you know, Blackbird apps can be viewed as mini products where each event, act
 
 ## 1. Types
 
-In Blackbird, users can encounter the following 5 basic types: text (string), number (any numeric type in .NET), dates [(`DateTime`)](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-8.0), files [(`FileReference`)](/blackbird-docs/sdk/files) and booleans. Then the user can also find 'multiple' versions of the aforementioned which are denoted as `IEnumerable<string>`, `IEnumerable<FileReference>`, etc. in the SDK.
+In Blackbird, users can encounter the following 5 basic types: text (string), number (any numeric type in .NET), dates [(`DateTime`)](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-8.0), files [(`FileReference`)](../../sdk/files) and booleans. Then the user can also find 'multiple' versions of the aforementioned which are denoted as `IEnumerable<string>`, `IEnumerable<FileReference>`, etc. in the SDK.
 
 ### 1.1 - ID types
 
@@ -73,7 +74,7 @@ We want to **provide descriptive and actionable errors to users at all times**. 
 
 ### 3.1 - Displaying errors
 
-Errors in Blackbird are simply thrown as exceptions, and Blackbird will output the exception message to the users when the flight is inspected. When using `throw new Exception("My error message goes here") ` the error message will be displayed to the user. However, we prefer to always eliminate the regular exceptions that a user sees. Instead the two exception classes `PluginMisconfigurationException` and `PluginApplicationException` should be used. Read the [errors page](/blackbird-docs/sdk/errors) for a detailed description.
+Errors in Blackbird are simply thrown as exceptions, and Blackbird will output the exception message to the users when the flight is inspected. When using `throw new Exception("My error message goes here") ` the error message will be displayed to the user. However, we prefer to always eliminate the regular exceptions that a user sees. Instead the two exception classes `PluginMisconfigurationException` and `PluginApplicationException` should be used. Read the [errors page](../../sdk/errors) for a detailed description.
 
 In order to provide a good experience, **errors should be caught and whenever there is a detailed description possible, this description should be displayed**. And **A configuration error should always inform the user how they can fix their issue.**
 
@@ -106,7 +107,7 @@ Static data sources are designed for variables that are predefined and finite. T
 
 ### 5.2 - Dynamic data sources
 
-[Dynamic data sources](https://docs.blackbird.io/sdk/datasources/#dynamic-data-sources), as the word suggests, are used when the data has to be loaded in from the connection. Classic examples of dynamic data sources are:
+[Dynamic data sources](../../sdk/datasources/#dynamic-data-sources), as the word suggests, are used when the data has to be loaded in from the connection. Classic examples of dynamic data sources are:
 
 - Projects, when the input parameter is a Project ID in a TMS app.
 - Channels, when the input parameter is a Channel ID for Slack.
@@ -115,7 +116,7 @@ Static data sources are designed for variables that are predefined and finite. T
 
 **Any input parameter that has a finite number of possible values, but which depend on the connection of the user, should have a dynamic data source defined.**
 
-Sometimes, to load the data of a data source, you need more information from the user. An example of this would be a structure where projects can have multiple jobs. In order to show a dynamic dropdown for all the jobs in the project, the API and underlying code requires the Project ID first. In these cases you should use [dynamic data sources with advanced context](/blackbird-docs/sdk/datasources/#advanced-context). Be very mindful when using advanced contexts though, as there are cases where you think an advanced context would be useful while in actuality it blocks the user from building its workflow. And example of this is a dropdown for adding language information when uploading a file. It would seem that loading the configured files on the project is a good idea, but the user may be building a workflow where the Project ID is coming from a different step. The user thus cannot select a project before selecting a language. Thus the language dropdown should not depend on the project but on all possible languages.
+Sometimes, to load the data of a data source, you need more information from the user. An example of this would be a structure where projects can have multiple jobs. In order to show a dynamic dropdown for all the jobs in the project, the API and underlying code requires the Project ID first. In these cases you should use [dynamic data sources with advanced context](../../sdk/datasources/#advanced-context). Be very mindful when using advanced contexts though, as there are cases where you think an advanced context would be useful while in actuality it blocks the user from building its workflow. And example of this is a dropdown for adding language information when uploading a file. It would seem that loading the configured files on the project is a good idea, but the user may be building a workflow where the Project ID is coming from a different step. The user thus cannot select a project before selecting a language. Thus the language dropdown should not depend on the project but on all possible languages.
 
 As a rule of thumb, only **add advanced context dropdowns if you are certain that all dependent information is always known at the time of building a bird**.
 
@@ -221,7 +222,7 @@ Callbacks are difficult for the user to configure. Additionally, callbacks are h
 
 ## 8. Files
 
-Blackbird is a unique orchestrator focussing on content. This also means that we have given extra attention to how files are handled both from a technical perspective as well as user experience. As you may have read at the [files](/blackbird-docs/sdk/files) documentation, there are two ways of handling files in the SDK: URL references and file content. When handling files, **if the API you work with allows it URL references should be used preferably**. Only if the API does not able to handle URL references for files then file content should be used. When using file content be wary of memory limits. Each action only gets access to 100MB, therefore **when handling multiple files make appropriate use of streams to never use more memory than you have to**.
+Blackbird is a unique orchestrator focussing on content. This also means that we have given extra attention to how files are handled both from a technical perspective as well as user experience. As you may have read at the [files](../../sdk/files) documentation, there are two ways of handling files in the SDK: URL references and file content. When handling files, **if the API you work with allows it URL references should be used preferably**. Only if the API does not able to handle URL references for files then file content should be used. When using file content be wary of memory limits. Each action only gets access to 100MB, therefore **when handling multiple files make appropriate use of streams to never use more memory than you have to**.
 
 ### 8.1 - File action structure
 

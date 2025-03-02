@@ -3,12 +3,19 @@ import starlight from "@astrojs/starlight";
 import starlightOpenAPI, { openAPISidebarGroups } from "starlight-openapi";
 
 
-import { labels, locales } from "./i18n.config.mjs";
+import { labels, locales, defaultLocale } from "./i18n.config.mjs";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://terales.github.io',
   base: 'blackbird-docs',
+  i18n: {
+    locales: Object.keys(locales),
+    defaultLocale: defaultLocale,
+    routing: {
+      prefixDefaultLocale: false
+    }
+  },
   integrations: [
     starlight({
       title: {
@@ -17,8 +24,6 @@ export default defineConfig({
         'hu-HU': labels.huHU.title,
         'uk-UA': labels.ukUA.title,
       },
-      defaultLocale: 'root',
-      locales: locales,
       customCss: ["./src/styles/custom.css"],
       logo: {
         light: "./src/assets/light-logo.svg",

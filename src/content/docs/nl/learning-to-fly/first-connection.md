@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Uw Eerste Verbinding Maken
 description: De bedrading van apps.
 sidebar:

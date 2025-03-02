@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Triggers begrijpen - Processen en workflows starten
 description: Leer wat triggers zijn.
 sidebar:
@@ -10,7 +11,7 @@ Alle processen moeten ergens beginnen: een **trigger** definieert wanneer een wo
 
 ## Handmatige triggers
 
-Handmatige triggers (ook wel [Manual push](https://docs.blackbird.io/guides/manual-triggers/) genoemd) worden geactiveerd door menselijk ingrijpen. Deze workflows starten zodra iemand op de knop `Fly` klikt. Dit type trigger is ideaal voor testen en debuggen, of wanneer processen moeten worden gestart op basis van specifieke, vaak onvoorspelbare, omstandigheden die menselijk oordeel vereisen. Dit is het aanbevolen triggertype terwijl je bezig bent met het bouwen van je Birds.
+Handmatige triggers (ook wel [Manual push](../../guides/manual-triggers/) genoemd) worden geactiveerd door menselijk ingrijpen. Deze workflows starten zodra iemand op de knop `Fly` klikt. Dit type trigger is ideaal voor testen en debuggen, of wanneer processen moeten worden gestart op basis van specifieke, vaak onvoorspelbare, omstandigheden die menselijk oordeel vereisen. Dit is het aanbevolen triggertype terwijl je bezig bent met het bouwen van je Birds.
 
 ![Fly knop](~/assets/docs/triggers/Fly.gif)
 
@@ -68,4 +69,4 @@ Aangezien sommige systemen geen webhooks of callbacks hebben, maar we toch alert
 
 ## Checkpoints
 
-Deze innovatieve functie maakt in-Bird triggers mogelijk, waardoor je Bird kan wachten op een specifieke gebeurtenis voordat er wordt verdergegaan met de volgende stappen. Meer informatie over Checkpoints vind je in een speciaal artikel [hier](https://docs.blackbird.io/concepts/checkpoints/).
+Deze innovatieve functie maakt in-Bird triggers mogelijk, waardoor je Bird kan wachten op een specifieke gebeurtenis voordat er wordt verdergegaan met de volgende stappen. Meer informatie over Checkpoints vind je in een speciaal artikel [hier](../../concepts/checkpoints/).

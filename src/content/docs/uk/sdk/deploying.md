@@ -1,4 +1,5 @@
 ---
+locale: uk
 title: Deploying Your App
 description: Дізнайтеся, як розгорнути додаток Blackbird.
 sidebar:

@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Building a Bird
 description: Készüljünk a felszállásra. Tanuljuk meg, hogyan hozzuk létre az első madarunkat.
 sidebar:

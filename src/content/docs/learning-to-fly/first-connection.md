@@ -1,4 +1,5 @@
 ---
+locale: en
 title: Creating Your First Connection
 description: The wiring of apps.
 sidebar:

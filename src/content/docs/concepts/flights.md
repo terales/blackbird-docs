@@ -1,4 +1,5 @@
 ---
+locale: en
 title: Flights
 description: Learn what Flights are
 sidebar:

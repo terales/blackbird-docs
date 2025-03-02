@@ -1,4 +1,5 @@
 ---
+locale: uk
 title: Польоти
 description: Дізнайтеся, що таке Польоти
 sidebar:

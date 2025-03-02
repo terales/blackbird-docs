@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Bevezetés
 description: Terjeszd ki szárnyaidat először a Blackbird segítségével.
 sidebar:

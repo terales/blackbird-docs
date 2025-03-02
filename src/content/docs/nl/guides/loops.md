@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Wat is een Loop en hoe gebruik je het?
 description: In deze gids laten we je zien hoe je te werk gaat wanneer de output van een actie een lijst met items is, maar de volgende actie slechts één van die items kan verwerken - oftewel Looping.
 sidebar:

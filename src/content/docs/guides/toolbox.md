@@ -1,4 +1,5 @@
 ---
+locale: en
 title: The Toolbox - Different Helpers to Ease Your Flights
 description: In this guide, we will go through different actions within Blackbird's pre-built apps that will help with data extraction or transformation, many times a must for your workflows.
 sidebar:
@@ -11,7 +12,7 @@ When navigating across apps in a workflow, you may find yourself needing to perf
 
 ## Utilities app
 
-The [Utilities](https://docs.blackbird.io/apps/utilities/) app provides a wide range of actions to help you manage your data. Here are some examples:
+The [Utilities](../../apps/utilities/) app provides a wide range of actions to help you manage your data. Here are some examples:
 
 - Dates: 
     - You can generate a date (e.g. today) and add/subtract days to it (considering or not business days). This can be very convient for setting up deadlines or creating dynamic dates for querying data. You can also format your date in various ways.
@@ -63,7 +64,7 @@ When adding an action via plus sign, you can also choose to add an Operator inst
 
 - String Split: Given a string of text, maybe a list of items in text format. You can specify the separator and get in return an actual list that you can loop through and treat each of these items separately. 
 
-Finally, if you need to twist these _apps_ in any way (maybe add your own recurring prompt to Blackbird Prompts, or change the HTTP app to add authentication or specific parameters), you can clone the code from Github, where our [open source code resides](https://github.com/orgs/bb-io/repositories), make the necessary changes and redeploy your customized app to Blackbird (Apps > Custom apps > Create app). Find more details [here](https://docs.blackbird.io/sdk/deploying/#uploading). These custom apps will only be available to the nest(s) you choose to upload it to. 
+Finally, if you need to twist these _apps_ in any way (maybe add your own recurring prompt to Blackbird Prompts, or change the HTTP app to add authentication or specific parameters), you can clone the code from Github, where our [open source code resides](https://github.com/orgs/bb-io/repositories), make the necessary changes and redeploy your customized app to Blackbird (Apps > Custom apps > Create app). Find more details [here](../../sdk/deploying/#uploading). These custom apps will only be available to the nest(s) you choose to upload it to. 
 
 Now that you've made it through this guide and with these options at your fingertips, the sky's the limit. So, spread your wings, explore, and let your creativity soar. Should you need guidance or find a feature missing, don't hesitate to contact us. Happy Flights!
 

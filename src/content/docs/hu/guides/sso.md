@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: SSO
 description: Egyszerűsítse a hitelesítést az egyszeri bejelentkezés (SSO) integrációval
 sidebar:

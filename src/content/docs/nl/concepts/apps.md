@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Apps in Blackbird begrijpen
 description: Leer wat Apps zijn
 sidebar:

@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Data Sources
 description: Leer hoe je statische en dynamische gegevensbronnen definieert voor je actie- en event-invoer.
 sidebar:

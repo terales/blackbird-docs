@@ -1,4 +1,5 @@
 ---
+locale: en
 title: SSO
 description: Streamline Your Authentication with Single Sign-On (SSO) Integration
 sidebar:

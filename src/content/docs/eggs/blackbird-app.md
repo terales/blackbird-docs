@@ -1,4 +1,5 @@
 ---
+locale: en
 title: Blackbird App
 description: An Egg with the potential to create monitoring Birds to keep up with everything that happens in your Blackbird instance
 sidebar:

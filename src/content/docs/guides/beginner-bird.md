@@ -1,4 +1,5 @@
 ---
+locale: en
 title: Beginner Bird - Building Your First Bird Step by Step
 description: In order to become an expert bird watcher you have to start somewhere. This guide is for Blackbird beginners and will get you up to speed with the basics of building birds.
 sidebar:
@@ -8,7 +9,7 @@ sidebar:
 
 In order to become an expert bird watcher you have to start somewhere. This guide is for Blackbird beginners and will get you up to speed with the basics of building birds.
 
-This guide is going to teach you the general approach to any workflow you may want to automate with Blackbird. We are going to do this step-by-step so you are encouraged to follow along with your own Blackbird account! We will be using the [Slack](/blackbird-docs/apps/slack), [DeepL](/blackbird-docs/apps/deepl) and [OpenAI](/blackbird-docs/apps/openai) apps. When prompted for connection credentials you can view how to connect in their respective documentation sections. Of course you can also use alternatives to these apps, e.g. [Amazon Translate](/blackbird-docs/apps/amazon-translate) instead of DeepL.
+This guide is going to teach you the general approach to any workflow you may want to automate with Blackbird. We are going to do this step-by-step so you are encouraged to follow along with your own Blackbird account! We will be using the [Slack](../../apps/slack), [DeepL](../../apps/deepl) and [OpenAI](../../apps/openai) apps. When prompted for connection credentials you can view how to connect in their respective documentation sections. Of course you can also use alternatives to these apps, e.g. [Amazon Translate](../../apps/amazon-translate) instead of DeepL.
 
 By the end of this guide, you will have built a Slack bot that responds to your messages in Slack in a different language. This is in our experience the most fun first bird you can build! Of course it is not really applicable to _real world_ scenarios (although elements of it can be). In later guides you will learn more about how to tackle production birds and how to set up localization-related workflows.
 

@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Flights
 description: Leer wat Flights zijn
 sidebar:

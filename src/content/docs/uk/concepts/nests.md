@@ -1,4 +1,5 @@
 ---
+locale: uk
 title: Let's Talk About Nests & Access Control
 description: У цьому посібнику ви дізнаєтеся про способи компартменталізації процесів, облікових даних та користувачів у Blackbird.
 sidebar:

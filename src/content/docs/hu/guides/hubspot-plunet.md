@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Plunet & Hubspot CRM
 description: Első bevezetőnk a megoldásépítésbe a Blackbird segítségével - szinkronizáljuk a Plunet ügyfél/megrendelés adatait a Hubspot CRM-mel!
 sidebar:

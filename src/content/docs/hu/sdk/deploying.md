@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Deploying Your App
 description: Ismerje meg, hogyan telepíthet Blackbird alkalmazást.
 sidebar:

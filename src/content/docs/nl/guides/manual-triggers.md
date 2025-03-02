@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Manuele Push Gebruik
 description: Verschillende gebruikssituaties waarbij het handmatig activeren van je Birds volkomen logisch is
 sidebar:
@@ -21,4 +22,4 @@ Handmatige triggers blinken ook uit in het domein van lokalisatie en contentverw
 
 De bovenstaande afbeelding toont een Bird die een grote groep Sitecore-pagina's die aan specifieke criteria voldoen naar een TMS (in dit geval Trados) verplaatst. Zodra de gebruiker op de Fly-knop klikt — de handmatige trigger — begint de workflow. De Bird zoekt naar alle pagina's in Sitecore die na 1 januari 2024 zijn gemaakt en gepubliceerd zijn. De optionele invoerfilters zijn gebruikt om de zoekcriteria aan te passen, waardoor ze gemakkelijk kunnen worden bijgesteld wanneer nodig. Deze filters helpen bij het identificeren van welke pagina's gedownload moeten worden. De volgende stappen in de workflow maken een project aan in Trados, halen de Sitecore-pagina's op als HTML-bestanden, downloaden ze en uploaden ze naar het nieuw aangemaakte Trados-project als broninhoud voor vertaling. Deze workflow kan zo vaak als nodig worden uitgevoerd door op de Fly-knop te klikken, hoewel één uitvoering voldoende zou moeten zijn om alle benodigde content voor vertaling op te halen en naar de gewenste TMS te sturen.
 
-> Zie meer informatie over triggers [hier](https://docs.blackbird.io/concepts/triggers/).
+> Zie meer informatie over triggers [hier](../../concepts/triggers/).

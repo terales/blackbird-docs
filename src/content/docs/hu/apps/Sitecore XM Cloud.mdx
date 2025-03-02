@@ -1,4 +1,5 @@
 ---
+  locale: hu
   title: Sitecore XM Cloud
   description: A Sitecore XM Cloud Blackbird alkalmazás
 ---
@@ -8,7 +9,7 @@ import { LinkCard } from "@astrojs/starlight/components";
 
 A Sitecore az egyik vezető vállalati szintű tartalomkezelő rendszer, amely lehetővé teszi a webes tartalomszerkesztők és marketingesek számára, hogy teljes irányítást gyakoroljanak a webhelyük minden aspektusa felett, a közösségi média integráció és blogbejegyzések, a fejlett személyre szabás, e-kereskedelem és még sok más funkció révén. Ez az alkalmazás a Sitecore elemek, nyelvek és a Blackbird ökoszisztéma többi része közötti integrációra összpontosít. A többi Blackbird alkalmazással ellentétben, a használathoz telepítenie kell egy egyedileg készített bővítményt a Sitecore példányára.
 
-Ez az alkalmazás a Sitecore XP számára készült. A Sitecore XM Cloud esetében lásd [ezt az útmutatót](https://docs.blackbird.io/apps/sitecore-xp/).
+Ez az alkalmazás a Sitecore XP számára készült. A Sitecore XM Cloud esetében lásd [ezt az útmutatót](../apps/sitecore-xp/).
 
 ## A beállítás előtt
 
@@ -16,13 +17,13 @@ Mielőtt csatlakozna, győződjön meg arról, hogy:
 
 - Hozzáféréssel rendelkezik az XM Cloud Deploy-hoz, annak hitelesítő adatainak kezeléséhez és egy aktív Sitecore projekthez.
 - Hozzáféréssel rendelkezik egy Sitecore projekt forráskód-tárolójához (Github), és lehetősége van új bővítmények konfigurálására.
-- Letöltötte a legújabb Blackbird Sitecore bővítménycsomagot [innen](https://docs.blackbird.io/sitecore/package.zip).
+- Letöltötte a legújabb Blackbird Sitecore bővítménycsomagot [innen](../sitecore/package.zip).
 
 ## A bővítmény telepítése
 
 Feltételezve, hogy a forrástartalom-tárolóját ebből a [tárolóból](https://github.com/sitecorelabs/xmcloud-foundation-head) forkolták.
 
-1. Csomagolja ki a fájlokat a [package.zip](https://docs.blackbird.io/sitecore/package.zip) fájlból
+1. Csomagolja ki a fájlokat a [package.zip](../sitecore/package.zip) fájlból
 2. Másolja a 2 konfigurációs fájlt a csomag `package\files\App_Config\Include\BlackBird` mappájából a forráskód-tároló `authoring\platform\App_Config\Include\` mappájába.
 3. Másolja a 2 dll fájlt a csomag `package\files\bin` mappájából a forráskód-tároló `authoring\platform\_dlls` mappájába.
 4. Nyissa meg az `XmCloudAuthoring.sln` fájlt a Visual Studio-ban (vagy bármely más .NET-kompatibilis IDE-ben), és adjon hozzá hivatkozásokat a hozzáadott .dll fájlokra a Platform projektben.

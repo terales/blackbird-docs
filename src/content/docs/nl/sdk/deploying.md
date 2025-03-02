@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Deploying Your App
 description: Leer hoe je een Blackbird app implementeert.
 sidebar:

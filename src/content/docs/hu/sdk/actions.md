@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Műveletek meghatározása
 description: Ismerje meg, hogyan lehet műveleteket definiálni egy Blackbird projektben.
 sidebar:

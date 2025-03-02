@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Gyakori táblázatkezelő használati esetek
 description: Mélyedjünk el a táblázatkezelőkkel kapcsolatos gyakori használati esetekben
 sidebar:
@@ -11,7 +12,7 @@ sidebar:
 
 A Blackbirdben az Eggs a munkafolyamatok magjai vagy tervrajzai. Kezdeti ötleteket képviselnek, amelyek teljes értékű Birds-szé válhatnak.
 
-Ebben az Egg-útmutatóban nézzünk meg néhány gyakori használati esetet a táblázatkezelőkkel kapcsolatban, a [Google Sheets](https://docs.blackbird.io/apps/google-sheets/), [Microsoft Excel](https://docs.blackbird.io/apps/microsoft-excel/) vagy [Airtable](https://docs.blackbird.io/apps/airtable/) használatával. A példák alatt találsz **Letölthető Eggs**-et - tölts le JSON munkafolyamatokat, hogy [importáld a Nest-be](https://docs.blackbird.io/eggs/spreadsheets/#importing-eggs), add hozzá a kapcsolataidat, végezz el bármilyen kívánt módosítást, és **indulj el**.
+Ebben az Egg-útmutatóban nézzünk meg néhány gyakori használati esetet a táblázatkezelőkkel kapcsolatban, a [Google Sheets](../../apps/google-sheets/), [Microsoft Excel](../../apps/microsoft-excel/) vagy [Airtable](../../apps/airtable/) használatával. A példák alatt találsz **Letölthető Eggs**-et - tölts le JSON munkafolyamatokat, hogy [importáld a Nest-be](../../eggs/spreadsheets/#importing-eggs), add hozzá a kapcsolataidat, végezz el bármilyen kívánt módosítást, és **indulj el**.
 
 ## Használati esetek
 

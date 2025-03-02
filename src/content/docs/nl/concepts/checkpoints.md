@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Checkpoints
 description: Introductie van Checkpoints
 sidebar:
@@ -50,7 +51,7 @@ Op platforms zoals Asana, Jira of Trello vereisen bepaalde taken goedkeuring voo
 De bovenstaande afbeelding toont een Bird met twee Checkpoints. De flow start wanneer een nieuw Zendesk-artikel wordt gepubliceerd, de inhoud van het nieuwe artikel wordt geëxtraheerd als HTML en toegevoegd als bronbestand in een nieuw aangemaakt Trados-project. Op dit punt wordt het proces gepauzeerd en zodra het project is bijgewerkt en de gewenste status heeft bereikt, wordt het doelbestand gedownload en toegevoegd als bijlage aan een nieuwe Jira-issue. Een nieuwe stop wordt bereikt omdat de flow wacht tot de status van de Jira-issue wordt gewijzigd, wat menselijke tussenkomst mogelijk maakt — misschien moet een juridisch of marketingteam de vertaling beoordelen. Daarna wordt een beslissingspunt bereikt: als de nieuwe status "Approved" is, wordt het vertaalde Zendesk-artikel gepubliceerd. Anders wordt het bijbehorende Teams-kanaal op de hoogte gebracht.
 
 ### Large Language Models (LLMs) & Batch-verwerking
-Bij het gebruik van LLM-diensten zoals [OpenAI's Batch API](https://docs.blackbird.io/apps/openai/#batch-processing) voor contentgeneratie of gegevensverwerking (vooral langlopende taken), kan een Checkpoint de workflow pauzeren totdat de LLM een resultaat retourneert of een batchproces voltooit. Als verdere menselijke validatie nodig is, kan de workflow wachten op die input voordat naar de volgende fase wordt overgegaan.
+Bij het gebruik van LLM-diensten zoals [OpenAI's Batch API](../../apps/openai/#batch-processing) voor contentgeneratie of gegevensverwerking (vooral langlopende taken), kan een Checkpoint de workflow pauzeren totdat de LLM een resultaat retourneert of een batchproces voltooit. Als verdere menselijke validatie nodig is, kan de workflow wachten op die input voordat naar de volgende fase wordt overgegaan.
 
 ![Open AI batch](~/assets/guides/checkpoints/OpenAICheckpoint.png)
 

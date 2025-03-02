@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Entity Linking
 description: Nu je hebt gezien hoe je entiteiten kunt koppelen met behulp van de mogelijkheden van een systeem, laten we eens kijken hoe we workflows kunnen bouwen die meerdere birds omvatten met behulp van entity linking.
 sidebar:
@@ -7,7 +8,7 @@ sidebar:
   hidden: false
 ---
 
-> **🚨 BELANGRIJKE OPMERKING 🚨 Kijk altijd eerst naar het gebruik van [checkpoints](/blackbird-docs/concepts/checkpoints/) in plaats van entity linking. Checkpoints is een nieuwere functie met als doel entity linking volledig af te schaffen, waardoor entity linking in de toekomst mogelijk uit Blackbird zal worden verwijderd.** 
+> **🚨 BELANGRIJKE OPMERKING 🚨 Kijk altijd eerst naar het gebruik van [checkpoints](../../concepts/checkpoints/) in plaats van entity linking. Checkpoints is een nieuwere functie met als doel entity linking volledig af te schaffen, waardoor entity linking in de toekomst mogelijk uit Blackbird zal worden verwijderd.** 
 
 Nu je in de vorige handleiding het concept van een gekoppelde entiteit tussen verschillende systemen en platforms hebt geleerd, is het tijd om te kijken hoe je entiteiten kunt koppelen zonder afhankelijk te zijn van de mogelijkheid van een bepaald systeem om aangepaste waarden op te slaan. Blackbird biedt je namelijk de mogelijkheid om deze entiteiten te koppelen via een speciale operator, toepasselijk genaamd _Link entities_. Maar eerst een korte samenvatting van de vorige handleiding:
 

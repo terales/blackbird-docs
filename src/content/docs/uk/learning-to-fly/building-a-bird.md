@@ -1,4 +1,5 @@
 ---
+locale: uk
 title: Building a Bird
 description: Створімо підйом. Дізнайтеся, як створити вашого першого птаха.
 sidebar:

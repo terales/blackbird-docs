@@ -1,4 +1,5 @@
 ---
+locale: uk
 title: Plunet & Hubspot CRM
 description: Наш перший вступ до архітектури рішень з Blackbird - давайте синхронізуємо дані про клієнтів/замовлення Plunet з Hubspot CRM!
 sidebar:

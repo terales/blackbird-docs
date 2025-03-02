@@ -1,4 +1,5 @@
 ---
+locale: uk
 title: Defining Actions
 description: Дізнайтеся, як визначати дії в проекті Blackbird.
 sidebar:

@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Acties Definiëren
 description: Leer hoe je acties definieert in een Blackbird project.
 sidebar:

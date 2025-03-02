@@ -1,4 +1,5 @@
 ---
+locale: en
 title: Let's Talk About Nests & Access Control
 description: In this guide you will learn about Blackbird's way to compartmentalizing your processes, credentials and users.
 sidebar:

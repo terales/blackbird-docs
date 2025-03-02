@@ -1,4 +1,5 @@
 ---
+locale: en
 title: Common Spreadsheets Use Cases
 description: Let's deep dive into common use cases around spreadsheets
 sidebar:
@@ -11,7 +12,7 @@ sidebar:
 
 In Blackbird, Eggs are the seeds or blueprints for your workflows. They represent the initial ideas that have the potential to become fully-fledged Birds.
 
-In this Egg-guide, let's explore some common use cases around spreadsheets using [Google Sheets](https://docs.blackbird.io/apps/google-sheets/), [Microsoft Excel](https://docs.blackbird.io/apps/microsoft-excel/) or [Airtable](https://docs.blackbird.io/apps/airtable/). Find **Downloadable Eggs** under the examples - download JSON workflows to [import into your Nest](https://docs.blackbird.io/eggs/spreadsheets/#importing-eggs), add your connections, make any desired adjustments, and **fly**.
+In this Egg-guide, let's explore some common use cases around spreadsheets using [Google Sheets](../../apps/google-sheets/), [Microsoft Excel](../../apps/microsoft-excel/) or [Airtable](../../apps/airtable/). Find **Downloadable Eggs** under the examples - download JSON workflows to [import into your Nest](../../eggs/spreadsheets/#importing-eggs), add your connections, make any desired adjustments, and **fly**.
 
 ## Use cases
 

@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Kapcsolatok Definiálása
 description: Ismerje meg, hogyan definiálja, hogy a Blackbird hogyan kezelje az alkalmazás kapcsolatait.
 sidebar:

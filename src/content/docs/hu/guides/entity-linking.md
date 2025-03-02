@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Entity Linking
 description: Most megnéztük, hogyan lehet entitásokat összekapcsolni egy rendszer képességeivel, lássuk, hogyan építhetünk több madarat átfogó munkafolyamatokat entity linking segítségével.
 sidebar:
@@ -7,7 +8,7 @@ sidebar:
   hidden: false
 ---
 
-> **🚨 FONTOS MEGJEGYZÉS 🚨 Mindig próbáljuk a [checkponts](/blackbird-docs/concepts/checkpoints/) funkciót használni az entity linking helyett. A Checkpoints egy újabb funkció, amelynek célja az entity linking teljes kiváltása, így az entity linking a jövőben esetleg eltávolításra kerülhet a Blackbird-ből.** 
+> **🚨 FONTOS MEGJEGYZÉS 🚨 Mindig próbáljuk a [checkponts](../../concepts/checkpoints/) funkciót használni az entity linking helyett. A Checkpoints egy újabb funkció, amelynek célja az entity linking teljes kiváltása, így az entity linking a jövőben esetleg eltávolításra kerülhet a Blackbird-ből.** 
 
 Most, hogy megismerted az összekötött entitások koncepcióját különböző rendszerek és platformok között az előző útmutatóban, itt az ideje megnézni, hogyan kapcsolhatod össze az entitásokat anélkül, hogy egy bizonyos rendszer egyedi értékek tárolási képességére kellene támaszkodnod. A Blackbird egy speciális operátort kínál erre a célra, amelynek neve _Link entities_. De először egy rövid összefoglaló az előző útmutatóból:
 

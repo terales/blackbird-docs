@@ -1,4 +1,5 @@
 ---
+locale: uk
 title: Робочі процеси СКК - Contentful
 description: Дізнайтеся, як створювати потужні робочі процеси навколо додатків СКК. У цьому посібнику ми більш детально розглянемо Contentful.
 sidebar:
@@ -21,9 +22,9 @@ sidebar:
 
 З нашого досвіду відповідь може бути однією з трьох варіантів:
 
-1. Так ([Contentful](/blackbird-docs/apps/contentful), [Zendesk guides](/blackbird-docs/apps/zendesk), [Sitecore](/blackbird-docs/apps/sitecore), [Hubspot blog posts & pages](/blackbird-docs/apps/hubspot-cms) тощо)
-2. Так, але тільки з підтримкою популярного плагіна ([WordPress](/blackbird-docs/apps/wordpress), Drupal тощо)
-3. Ні ([Marketo](/blackbird-docs/apps/marketo), [Notion](/blackbird-docs/apps/notion), [Hubspot forms & emails](/blackbird-docs/apps/hubspot-cms) тощо)
+1. Так ([Contentful](../../apps/contentful), [Zendesk guides](../../apps/zendesk), [Sitecore](../../apps/sitecore), [Hubspot blog posts & pages](../../apps/hubspot-cms) тощо)
+2. Так, але тільки з підтримкою популярного плагіна ([WordPress](../../apps/wordpress), Drupal тощо)
+3. Ні ([Marketo](../../apps/marketo), [Notion](../../apps/notion), [Hubspot forms & emails](../../apps/hubspot-cms) тощо)
 
 Коли ваша СКК відноситься до другої чи третьої категорії, потрібно буде більше 'архітектурних рішень', щоб створити найкращий можливий робочий процес з вашою СКК. Також видно, що деякі додатки лише частково підтримують нативну локалізацію (Hubspot), що створює додаткові виклики, коли бажана локалізація всього можливого контенту.
 

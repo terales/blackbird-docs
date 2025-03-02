@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: App Conventies
 description: Gebruik de kennis die we hebben opgedaan bij het bouwen van meer dan 100 apps en integraties.
 sidebar:
@@ -11,7 +12,7 @@ Zoals je weet, kunnen Blackbird apps worden gezien als mini-producten waarbij el
 
 ## 1. Types
 
-In Blackbird kunnen gebruikers de volgende 5 basistypes tegenkomen: tekst (string), getal (elk numeriek type in .NET), datums [(`DateTime`)](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-8.0), bestanden [(`FileReference`)](/blackbird-docs/sdk/files) en booleaanse waarden. Daarnaast kan de gebruiker ook 'meervoudige' versies van de bovengenoemde types vinden, die in de SDK worden aangeduid als `IEnumerable<string>`, `IEnumerable<FileReference>`, enz.
+In Blackbird kunnen gebruikers de volgende 5 basistypes tegenkomen: tekst (string), getal (elk numeriek type in .NET), datums [(`DateTime`)](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-8.0), bestanden [(`FileReference`)](../../sdk/files) en booleaanse waarden. Daarnaast kan de gebruiker ook 'meervoudige' versies van de bovengenoemde types vinden, die in de SDK worden aangeduid als `IEnumerable<string>`, `IEnumerable<FileReference>`, enz.
 
 ### 1.1 - ID-types
 
@@ -73,7 +74,7 @@ We willen **te allen tijde beschrijvende en bruikbare foutmeldingen aan gebruike
 
 ### 3.1 - Fouten weergeven
 
-Fouten in Blackbird worden eenvoudigweg als uitzonderingen gegooid, en Blackbird geeft het uitzonderingsbericht weer aan de gebruikers wanneer de flight wordt geïnspecteerd. Bij gebruik van `throw new Exception("Mijn foutmelding komt hier")` wordt de foutmelding aan de gebruiker getoond. We geven er echter de voorkeur aan om altijd de reguliere uitzonderingen die een gebruiker ziet te elimineren. In plaats daarvan moeten de twee uitzonderingsklassen `PluginMisconfigurationException` en `PluginApplicationException` worden gebruikt. Lees de [errors pagina](/blackbird-docs/sdk/errors) voor een gedetailleerde beschrijving.
+Fouten in Blackbird worden eenvoudigweg als uitzonderingen gegooid, en Blackbird geeft het uitzonderingsbericht weer aan de gebruikers wanneer de flight wordt geïnspecteerd. Bij gebruik van `throw new Exception("Mijn foutmelding komt hier")` wordt de foutmelding aan de gebruiker getoond. We geven er echter de voorkeur aan om altijd de reguliere uitzonderingen die een gebruiker ziet te elimineren. In plaats daarvan moeten de twee uitzonderingsklassen `PluginMisconfigurationException` en `PluginApplicationException` worden gebruikt. Lees de [errors pagina](../../sdk/errors) voor een gedetailleerde beschrijving.
 
 Om een goede ervaring te bieden, **moeten fouten worden opgevangen en waar mogelijk moet een gedetailleerde beschrijving worden weergegeven**. En **een configuratiefout moet de gebruiker altijd informeren over hoe ze hun probleem kunnen oplossen**.
 
@@ -106,7 +107,7 @@ Statische gegevensbronnen zijn ontworpen voor variabelen die vooraf zijn gedefin
 
 ### 5.2 - Dynamische gegevensbronnen
 
-[Dynamische gegevensbronnen](https://docs.blackbird.io/sdk/datasources/#dynamic-data-sources), zoals het woord al suggereert, worden gebruikt wanneer de gegevens moeten worden geladen vanuit de verbinding. Klassieke voorbeelden van dynamische gegevensbronnen zijn:
+[Dynamische gegevensbronnen](../../sdk/datasources/#dynamic-data-sources), zoals het woord al suggereert, worden gebruikt wanneer de gegevens moeten worden geladen vanuit de verbinding. Klassieke voorbeelden van dynamische gegevensbronnen zijn:
 
 - Projecten, wanneer de invoerparameter een Project ID is in een TMS-app.
 - Kanalen, wanneer de invoerparameter een Channel ID is voor Slack.
@@ -115,7 +116,7 @@ Statische gegevensbronnen zijn ontworpen voor variabelen die vooraf zijn gedefin
 
 **Elke invoerparameter die een eindig aantal mogelijke waarden heeft, maar die afhankelijk zijn van de verbinding van de gebruiker, moet een gedefinieerde dynamische gegevensbron hebben.**
 
-Soms heb je, om de gegevens van een gegevensbron te laden, meer informatie nodig van de gebruiker. Een voorbeeld hiervan zou een structuur zijn waarbij projecten meerdere opdrachten kunnen hebben. Om een dynamische dropdown te tonen voor alle opdrachten in het project, vereist de API en de onderliggende code eerst de Project ID. In deze gevallen moet je [dynamische gegevensbronnen met geavanceerde context](/blackbird-docs/sdk/datasources/#advanced-context) gebruiken. Wees wel voorzichtig bij het gebruik van geavanceerde contexten, want er zijn gevallen waarin je denkt dat een geavanceerde context nuttig zou zijn, terwijl deze in werkelijkheid de gebruiker blokkeert bij het bouwen van zijn workflow. Een voorbeeld hiervan is een dropdown voor het toevoegen van taalinformatie bij het uploaden van een bestand. Het lijkt misschien een goed idee om de geconfigureerde bestanden op het project te laden, maar de gebruiker kan een workflow aan het bouwen zijn waarbij de Project ID uit een andere stap komt. De gebruiker kan dus geen project selecteren voordat hij een taal selecteert. Dus de taaldropdown zou niet afhankelijk moeten zijn van het project, maar van alle mogelijke talen.
+Soms heb je, om de gegevens van een gegevensbron te laden, meer informatie nodig van de gebruiker. Een voorbeeld hiervan zou een structuur zijn waarbij projecten meerdere opdrachten kunnen hebben. Om een dynamische dropdown te tonen voor alle opdrachten in het project, vereist de API en de onderliggende code eerst de Project ID. In deze gevallen moet je [dynamische gegevensbronnen met geavanceerde context](../../sdk/datasources/#advanced-context) gebruiken. Wees wel voorzichtig bij het gebruik van geavanceerde contexten, want er zijn gevallen waarin je denkt dat een geavanceerde context nuttig zou zijn, terwijl deze in werkelijkheid de gebruiker blokkeert bij het bouwen van zijn workflow. Een voorbeeld hiervan is een dropdown voor het toevoegen van taalinformatie bij het uploaden van een bestand. Het lijkt misschien een goed idee om de geconfigureerde bestanden op het project te laden, maar de gebruiker kan een workflow aan het bouwen zijn waarbij de Project ID uit een andere stap komt. De gebruiker kan dus geen project selecteren voordat hij een taal selecteert. Dus de taaldropdown zou niet afhankelijk moeten zijn van het project, maar van alle mogelijke talen.
 
 Als vuistregel geldt, **voeg alleen geavanceerde context dropdowns toe als je er zeker van bent dat alle afhankelijke informatie altijd bekend is op het moment van het bouwen van een bird**.
 

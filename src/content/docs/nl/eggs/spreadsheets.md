@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Veelvoorkomende gebruikstoepassingen voor Spreadsheets
 description: Laten we dieper ingaan op veelvoorkomende gebruikstoepassingen rond spreadsheets
 sidebar:
@@ -11,7 +12,7 @@ sidebar:
 
 In Blackbird zijn Eggs de zaden of blauwdrukken voor je workflows. Ze vertegenwoordigen de initiële ideeën die het potentieel hebben om volledig ontwikkelde Birds te worden.
 
-In deze Egg-gids verkennen we enkele veelvoorkomende gebruikstoepassingen rond spreadsheets met behulp van [Google Sheets](https://docs.blackbird.io/apps/google-sheets/), [Microsoft Excel](https://docs.blackbird.io/apps/microsoft-excel/) of [Airtable](https://docs.blackbird.io/apps/airtable/). Zoek **Downloadbare Eggs** onder de voorbeelden - download JSON-workflows om [te importeren in je Nest](https://docs.blackbird.io/eggs/spreadsheets/#importing-eggs), voeg je verbindingen toe, maak gewenste aanpassingen en **vlieg**.
+In deze Egg-gids verkennen we enkele veelvoorkomende gebruikstoepassingen rond spreadsheets met behulp van [Google Sheets](../../apps/google-sheets/), [Microsoft Excel](../../apps/microsoft-excel/) of [Airtable](../../apps/airtable/). Zoek **Downloadbare Eggs** onder de voorbeelden - download JSON-workflows om [te importeren in je Nest](../../eggs/spreadsheets/#importing-eggs), voeg je verbindingen toe, maak gewenste aanpassingen en **vlieg**.
 
 ## Gebruikstoepassingen
 

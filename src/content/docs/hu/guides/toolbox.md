@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Az eszköztár - Különböző segédeszközök a repüléseid megkönnyítésére
 description: Ebben az útmutatóban különböző műveleteket tekintünk át a Blackbird előre beépített alkalmazásaiból, amelyek segítenek az adatok kinyerésében vagy átalakításában, amelyek gyakran elengedhetetlenek munkafolyamataidhoz.
 sidebar:
@@ -11,7 +12,7 @@ Amikor egy munkafolyamatban különböző alkalmazások között navigálsz, el�
 
 ## Utilities alkalmazás
 
-A [Utilities](https://docs.blackbird.io/apps/utilities/) alkalmazás számos műveletet kínál az adatok kezeléséhez. Íme néhány példa:
+A [Utilities](../../apps/utilities/) alkalmazás számos műveletet kínál az adatok kezeléséhez. Íme néhány példa:
 
 - Dátumok: 
     - Létrehozhatsz dátumot (pl. mai napot) és hozzáadhatsz/kivonhatsz belőle napokat (figyelembe véve vagy figyelmen kívül hagyva a munkanapokat). Ez nagyon hasznos lehet határidők beállításához vagy dinamikus dátumok létrehozásához adatlekérdezéshez. A dátumokat különböző formátumokban is formázhatod.
@@ -63,6 +64,6 @@ Amikor a plusz jelen keresztül hozzáadsz egy műveletet, választhatod helyett
 
 - String Split (Szöveg felosztás): Egy szövegből, például egy szöveges formátumú elemlistából, megadhatod az elválasztót, és cserébe egy valódi listát kapsz, amelyen végigitarálhatsz, és minden elemet külön kezelhetsz. 
 
-Végül, ha bármilyen módon módosítani szeretnéd ezeket az _apps_-okat (például saját ismétlődő promptot szeretnél hozzáadni a Blackbird Prompts-hoz, vagy módosítani a HTTP alkalmazást hitelesítés vagy specifikus paraméterek hozzáadásával), klónozhatod a kódot a Github-ról, ahol a [nyílt forráskódú kódunk található](https://github.com/orgs/bb-io/repositories), elvégezheted a szükséges módosításokat és újra telepítheted a testre szabott alkalmazásodat a Blackbird-re (Apps > Custom apps > Create app). További részleteket [itt](https://docs.blackbird.io/sdk/deploying/#uploading) találsz. Ezek az egyéni alkalmazások csak azokban a nest(ek)ben lesznek elérhetők, amelyekbe feltöltöd őket. 
+Végül, ha bármilyen módon módosítani szeretnéd ezeket az _apps_-okat (például saját ismétlődő promptot szeretnél hozzáadni a Blackbird Prompts-hoz, vagy módosítani a HTTP alkalmazást hitelesítés vagy specifikus paraméterek hozzáadásával), klónozhatod a kódot a Github-ról, ahol a [nyílt forráskódú kódunk található](https://github.com/orgs/bb-io/repositories), elvégezheted a szükséges módosításokat és újra telepítheted a testre szabott alkalmazásodat a Blackbird-re (Apps > Custom apps > Create app). További részleteket [itt](../../sdk/deploying/#uploading) találsz. Ezek az egyéni alkalmazások csak azokban a nest(ek)ben lesznek elérhetők, amelyekbe feltöltöd őket. 
 
 Most, hogy végigolvastad ezt az útmutatót, és ezek a lehetőségek a rendelkezésedre állnak, az égig ér a lehetőségek tárháza. Terjeszd ki a szárnyaidat, fedezz fel, és engedd szabadjára a kreativitásodat. Ha segítségre van szükséged vagy hiányzik egy funkció, ne habozz kapcsolatba lépni velünk. Boldog Repülést!

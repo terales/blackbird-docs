@@ -1,4 +1,5 @@
 ---
+locale: en
 title: Files
 description: Learn how to deal with (large) files in Blackbird.
 sidebar:

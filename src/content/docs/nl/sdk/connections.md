@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Verbindingen definiëren
 description: Leer hoe je definieert hoe Blackbird met de verbindingen van je app moet omgaan.
 sidebar:

@@ -1,4 +1,5 @@
 ---
+locale: en
 title: Deploying Your App
 description: Learn how to deploy a Blackbird app.
 sidebar:

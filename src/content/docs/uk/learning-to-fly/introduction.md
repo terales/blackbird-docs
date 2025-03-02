@@ -1,4 +1,5 @@
 ---
+locale: uk
 title: Вступ
 description: Розправте крила вперше з Blackbird.
 sidebar:

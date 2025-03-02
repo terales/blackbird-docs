@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Hibaelhárítás
 description: A hatékony hibakezelés kritikus komponense lehet bármely munkafolyamat-vezérlőnek. A Blackbird több módot is kínál a hibák kezelésére, amikor azok előfordulnak. Ez az útmutató végigvezeti a Blackbird hibakezelésének három fő szempontján.
 sidebar:

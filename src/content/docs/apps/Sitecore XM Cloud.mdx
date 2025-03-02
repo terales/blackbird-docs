@@ -1,4 +1,5 @@
 ---
+  locale: en
   title: Sitecore XM Cloud
   description: The Sitecore XM Cloud Blackbird app
 ---
@@ -8,7 +9,7 @@ import { LinkCard } from "@astrojs/starlight/components";
 
 Sitecore is one of the leading enterprise-level content management systems, enabling web content editors and marketers to have full control over all aspects of their website from social integration and blog posts to advanced personalisation, ecommerce and more. This app focusses on the integration between Sitecore items, languages and the rest of the Blackbird ecosystem. Contrary to other Blackbird apps, in order to get up and running you need to install a custom-built plugin on your Sitecore instance.
 
-This app is built for Sitecore XP. For Sitecore XM Cloud see [this guide](https://docs.blackbird.io/apps/sitecore-xp/) instead.
+This app is built for Sitecore XP. For Sitecore XM Cloud see [this guide](../apps/sitecore-xp/) instead.
 
 ## Before setting up
 
@@ -16,13 +17,13 @@ Before you can connect you need to make sure that:
 
 - You have access to XM Cloud Deploy, its credential management and an active Sitecore project.
 - You have access to the source code repository (Github) of a Sitecore project and the ability to configure new plugins.
-- You have downloaded the latest Blackbird Sitecore plugin package from [here](https://docs.blackbird.io/sitecore/package.zip).
+- You have downloaded the latest Blackbird Sitecore plugin package from [here](../sitecore/package.zip).
 
 ## Installing the plugin
 
 Assuming your source content repository is forked form this [repo](https://github.com/sitecorelabs/xmcloud-foundation-head).
 
-1. Extract the files from [package.zip](https://docs.blackbird.io/sitecore/package.zip)
+1. Extract the files from [package.zip](../sitecore/package.zip)
 2. Copy the 2 config files from `package\files\App_Config\Include\BlackBird` in the package to `authoring\platform\App_Config\Include\` in the source code repository.
 3. Copy the 2 dll files from `package\files\bin` in the package to `authoring\platform\_dlls` in the source code repository.
 4. Open the `XmCloudAuthoring.sln` in Visual Studio (or any other .NET compatible IDE) and add references to the added .dll files in the Platform project.

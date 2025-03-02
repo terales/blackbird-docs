@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Remote.com Gebruiksvoorbeelden
 description: Een Egg met het potentieel om Remote.com-gerelateerde Birds te creëren
 sidebar:
@@ -11,7 +12,7 @@ sidebar:
 
 In Blackbird zijn Eggs de zaden of blauwdrukken voor je workflows. Ze vertegenwoordigen de initiële ideeën die het potentieel hebben om volledig ontwikkelde Birds te worden.
 
-In deze Egg-gids verkennen we enkele opties om [Remote.com](https://docs.blackbird.io/apps/remote/) te integreren met verschillende apps. Vind **Downloadbare Eggs** onder elk gebruiksgeval - download JSON-workflows om [in je Nest te importeren](https://docs.blackbird.io/eggs/remote/#importing-eggs), voeg je verbindingen toe, maak gewenste aanpassingen en **vlieg**.
+In deze Egg-gids verkennen we enkele opties om [Remote.com](../../apps/remote/) te integreren met verschillende apps. Vind **Downloadbare Eggs** onder elk gebruiksgeval - download JSON-workflows om [in je Nest te importeren](../../eggs/remote/#importing-eggs), voeg je verbindingen toe, maak gewenste aanpassingen en **vlieg**.
 
 ## Gebruiksvoorbeelden
 
@@ -47,9 +48,9 @@ De onderstaande afbeelding toont een Bird die wordt geactiveerd wanneer een verl
 ## Tips
 
 - **Gegevens tussen apps in kaart brengen:** Om belangrijke gegevenspunten die naar hetzelfde verwijzen (bijv. Contractor ID in Remote en Resource ID in Plunet) in kaart te brengen, zijn er verschillende opties:
-    - [Aangepaste bibliotheken](https://docs.blackbird.io/concepts/libraries/#custom-libraries) kunnen worden gebruikt om je gegevensmapping op te zetten en te gebruiken binnen je Birds via de Convert-operator, op dezelfde manier als je een VLookup-formule in Excel zou gebruiken.
+    - [Aangepaste bibliotheken](../../concepts/libraries/#custom-libraries) kunnen worden gebruikt om je gegevensmapping op te zetten en te gebruiken binnen je Birds via de Convert-operator, op dezelfde manier als je een VLookup-formule in Excel zou gebruiken.
     - Aangepaste velden. Veel apps bieden aangepaste velden die je naar eigen wens kunt definiëren.
-    - [Gekoppelde entiteiten](https://docs.blackbird.io/guides/entity-linking/).
+    - [Gekoppelde entiteiten](../../guides/entity-linking/).
 - **Optionele invoer:** Bekijk de verschillende invoeropties, vooral bij de gebeurtenistriggers, aangezien deze je opties bieden om te filteren wanneer een Bird moet worden geactiveerd. Als voorbeeld, als je een "on status update" gebeurtenistrigger gebruikt, vind je waarschijnlijk de optie om te specificeren welke status het proces moet starten.
 
 ### Eggs importeren

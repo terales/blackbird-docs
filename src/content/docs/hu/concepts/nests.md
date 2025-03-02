@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Beszéljünk a Fészkekről és a Hozzáférés-szabályozásról
 description: Ebben az útmutatóban megtanulhatja, hogyan szervezheti el Blackbird folyamatait, hitelesítő adatait és felhasználóit.
 sidebar:

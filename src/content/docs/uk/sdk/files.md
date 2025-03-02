@@ -1,4 +1,5 @@
 ---
+locale: uk
 title: Files
 description: Дізнайтеся, як працювати з (великими) файлами у Blackbird.
 sidebar:

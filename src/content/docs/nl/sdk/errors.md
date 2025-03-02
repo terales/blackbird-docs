@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Errors
 description: Leer hoe en welke fouten moeten worden veroorzaakt in de SDK
 sidebar:

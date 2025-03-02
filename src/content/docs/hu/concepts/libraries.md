@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Libraries
 description: Ismerje meg, hogyan térképezze fel az előre meghatározott adatokat és hogyan használja azokat a Járatai során
 sidebar:

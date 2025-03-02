@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Blackbird App
 description: Egy Egg, amely lehetőséget nyújt figyelő Madaraknak a létrehozására, hogy nyomon követhess mindent, ami a Blackbird példányodban történik
 sidebar:

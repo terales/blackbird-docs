@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Blackbird.io Dokumentáció
 description: A Nyelvi Technológiai Ipar gerince.
 template: splash
@@ -8,7 +9,7 @@ hero:
     file: ~/assets/bird.svg
   actions:
     - text: Kezdjünk hozzá
-      link: /blackbird-docs/learning-to-fly/introduction/
+      link: /blackbird-docs/hu/learning-to-fly/introduction/
       icon: right-arrow
       variant: primary
     - text: Kövess minket a Githubon
@@ -17,20 +18,21 @@ hero:
 ---
 
 import { Card, CardGrid } from "@astrojs/starlight/components";
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 ## Következő lépések
 
 <CardGrid stagger>
   <Card title="Bemutatkozunk" icon="rocket">
-    Olvasd el, mi a Blackbird a [bemutatkozó oldalunkon](/blackbird-docs/learning-to-fly/introduction/).
+    Olvasd el, mi a Blackbird a <a href={getRelativeLocaleUrl(frontmatter.locale, '/learning-to-fly/introduction/')}>bemutatkozó oldalunkon</a>.
   </Card>
   <Card title="Kapcsolat létrehozása" icon="setting">
-    [Hozz létre kapcsolatot](/blackbird-docs/learning-to-fly/first-connection/) valamelyik alkalmazásodhoz a Blackbirden
+    <a href={getRelativeLocaleUrl(frontmatter.locale, '/learning-to-fly/first-connection/')}>Hozz létre kapcsolatot</a> valamelyik alkalmazásodhoz a Blackbirden
   </Card>
   <Card title="Bird készítése" icon="random">
-    [Készíts egy birdet](/blackbird-docs/learning-to-fly/building-a-bird/), amely alkalmazásaidat és kapcsolataidat használja a munkád automatizálásához.
+    <a href={getRelativeLocaleUrl(frontmatter.locale, '/learning-to-fly/building-a-bird/')}>Készíts egy birdet</a>, amely alkalmazásaidat és kapcsolataidat használja a munkád automatizálásához.
   </Card>
   <Card title="Egyedi Blackbird alkalmazások fejlesztése" icon="laptop">
-    Készen állsz a haladó használatra? [Készítsd el saját alkalmazásodat](/blackbird-docs/sdk/setup/) a Blackbirden!
+    Készen állsz a haladó használatra? <a href={getRelativeLocaleUrl(frontmatter.locale, '/sdk/setup/')}>Készítsd el saját alkalmazásodat</a> a Blackbirden!
   </Card>
 </CardGrid>

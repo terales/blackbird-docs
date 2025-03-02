@@ -1,4 +1,5 @@
 ---
+locale: en
 title: Blackbird.io Documentation
 description: Backbone for the Language Technology Industry.
 template: splash
@@ -17,20 +18,21 @@ hero:
 ---
 
 import { Card, CardGrid } from "@astrojs/starlight/components";
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 ## Next steps
 
 <CardGrid stagger>
   <Card title="Let's Introduce Ourselves" icon="rocket">
-    Read what Blackbird is on our [introduction page](/blackbird-docs/learning-to-fly/introduction/).
+    Read what Blackbird is on our <a href={getRelativeLocaleUrl(frontmatter.locale, '/learning-to-fly/introduction/')}>introduction page</a>.
   </Card>
   <Card title="Create a Connection" icon="setting">
-    [Create a connection](/blackbird-docs/learning-to-fly/first-connection/) to one of your apps on Blackbird
+    <a href={getRelativeLocaleUrl(frontmatter.locale, '/learning-to-fly/first-connection/')}>Create a connection</a> to one of your apps on Blackbird
   </Card>
   <Card title="Build a Bird" icon="random">
-    [Build a bird](/blackbird-docs/learning-to-fly/building-a-bird/) that uses your apps and connections to automate your work.
+    <a href={getRelativeLocaleUrl(frontmatter.locale, '/learning-to-fly/building-a-bird/')}>Build a bird</a> that uses your apps and connections to automate your work.
   </Card>
   <Card title="Develop Custom Blackbird Apps" icon="laptop">
-    Ready for advanced usage? [Create your own app](/blackbird-docs/sdk/setup/) on Blackbird!
+    Ready for advanced usage? <a href={getRelativeLocaleUrl(frontmatter.locale, '/sdk/setup/')}>Create your own app</a> on Blackbird!
   </Card>
 </CardGrid>

@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: De Toolbox - Verschillende hulpmiddelen om uw vluchten te vergemakkelijken
 description: In deze gids behandelen we verschillende acties binnen de vooraf gebouwde apps van Blackbird die helpen bij het extraheren of transformeren van gegevens, wat vaak essentieel is voor uw workflows.
 sidebar:
@@ -11,7 +12,7 @@ Bij het navigeren tussen apps in een workflow kan het zijn dat u extra acties mo
 
 ## Utilities app
 
-De [Utilities](https://docs.blackbird.io/apps/utilities/) app biedt een breed scala aan acties om u te helpen uw gegevens te beheren. Hier zijn enkele voorbeelden:
+De [Utilities](../../apps/utilities/) app biedt een breed scala aan acties om u te helpen uw gegevens te beheren. Hier zijn enkele voorbeelden:
 
 - Datums: 
     - U kunt een datum genereren (bijv. vandaag) en dagen toevoegen/aftrekken (al dan niet rekening houdend met werkdagen). Dit kan zeer handig zijn voor het instellen van deadlines of het creëren van dynamische datums voor het opvragen van gegevens. U kunt uw datum ook op verschillende manieren formatteren.
@@ -63,6 +64,6 @@ Bij het toevoegen van een actie via het plusteken, kunt u er ook voor kiezen om 
 
 - String Split: Gegeven een tekenreeks, misschien een lijst met items in tekstformaat. U kunt de scheidingsteken specificeren en krijgt als resultaat een echte lijst waar u doorheen kunt lopen en elk van deze items afzonderlijk kunt behandelen. 
 
-Ten slotte, als u deze _apps_ op een bepaalde manier wilt aanpassen (misschien uw eigen terugkerende prompt toevoegen aan Blackbird Prompts, of de HTTP-app wijzigen om authenticatie of specifieke parameters toe te voegen), kunt u de code klonen van Github, waar onze [open source code zich bevindt](https://github.com/orgs/bb-io/repositories), de nodige wijzigingen aanbrengen en uw aangepaste app opnieuw implementeren naar Blackbird (Apps > Custom apps > Create app). Meer details vindt u [hier](https://docs.blackbird.io/sdk/deploying/#uploading). Deze aangepaste apps zullen alleen beschikbaar zijn voor de nest(s) waar u deze naartoe uploadt. 
+Ten slotte, als u deze _apps_ op een bepaalde manier wilt aanpassen (misschien uw eigen terugkerende prompt toevoegen aan Blackbird Prompts, of de HTTP-app wijzigen om authenticatie of specifieke parameters toe te voegen), kunt u de code klonen van Github, waar onze [open source code zich bevindt](https://github.com/orgs/bb-io/repositories), de nodige wijzigingen aanbrengen en uw aangepaste app opnieuw implementeren naar Blackbird (Apps > Custom apps > Create app). Meer details vindt u [hier](../../sdk/deploying/#uploading). Deze aangepaste apps zullen alleen beschikbaar zijn voor de nest(s) waar u deze naartoe uploadt. 
 
 Nu u deze gids hebt doorgenomen en met deze opties binnen handbereik, zijn de mogelijkheden eindeloos. Spreid dus uw vleugels, verken, en laat uw creativiteit de vrije loop. Mocht u begeleiding nodig hebben of een functie missen, aarzel dan niet om contact met ons op te nemen. Fijne vluchten!

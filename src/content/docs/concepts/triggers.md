@@ -1,4 +1,5 @@
 ---
+locale: en
 title: Understanding Triggers - Initiating Processes and Workflows
 description: Learn what trigges are.
 sidebar:
@@ -10,7 +11,7 @@ All processes must begin at some point: a **trigger** is what defines when a wor
 
 ## Manual Triggers
 
-Manual triggers (also referred to as [Manual push](https://docs.blackbird.io/guides/manual-triggers/)) are activated by human intervention. These workflows start as soon as someone clicks the `Fly` button. This type of trigger is ideal for testing and debugging, or when processes need to be started based on specific, often unpredictable, conditions that require human judgment. This is the recommended trigger type while you are in the process of building your Birds.
+Manual triggers (also referred to as [Manual push](../../guides/manual-triggers/)) are activated by human intervention. These workflows start as soon as someone clicks the `Fly` button. This type of trigger is ideal for testing and debugging, or when processes need to be started based on specific, often unpredictable, conditions that require human judgment. This is the recommended trigger type while you are in the process of building your Birds.
 
 ![Fly button](~/assets/docs/triggers/Fly.gif)
 
@@ -68,5 +69,5 @@ Since some systems don't have webhooks or callbacks, but we would still like to 
 
 ## Checkpoints
 
-This innovative feature enables in-Bird triggers, allowing your Bird to wait for a specific event to occur before moving on to the subsequent steps. Find more information about Checkpoints in a dedicated entry [here](https://docs.blackbird.io/concepts/checkpoints/).
+This innovative feature enables in-Bird triggers, allowing your Bird to wait for a specific event to occur before moving on to the subsequent steps. Find more information about Checkpoints in a dedicated entry [here](../../concepts/checkpoints/).
 

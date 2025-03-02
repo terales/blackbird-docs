@@ -3,6 +3,8 @@ import nlNL from "./i18n-labels/nl-NL.json" with { type: "json" };
 import huHU from "./i18n-labels/hu-HU.json" with { type: "json" };
 import ukUA from "./i18n-labels/uk-UA.json" with { type: "json" };
 
+export const defaultLocale = 'en';
+
 export const labels = {
     en,
     nlNL: { ...en, ...nlNL },
@@ -11,19 +13,19 @@ export const labels = {
 };
 
 export const locales = {
-    root: {
+    en: {
         label: labels.en.locale_name,
         lang: 'en',
     },
-    'nl': {
+    nl: {
         label: labels.nlNL.locale_name,
         lang: 'nl-NL',
     },
-    'hu': {
+    hu: {
         label: labels.huHU.locale_name,
         lang: 'hu-HU',
     },
-    'uk': {
+    uk: {
         label: labels.ukUA.locale_name,
         lang: 'uk-UA',
     },

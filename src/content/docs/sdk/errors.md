@@ -1,4 +1,5 @@
 ---
+locale: en
 title: Errors
 description: Learn how and which errors to throw in the SDK
 sidebar:

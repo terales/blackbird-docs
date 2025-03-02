@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: CMS Workflows - Contentful
 description: Ismerje meg, hogyan építhet hatékony munkafolyamatokat CMS alkalmazások köré. Ebben az útmutatóban közelebbről megnézzük a Contentful-t.
 sidebar:
@@ -21,9 +22,9 @@ Az első dolog, amit meg kell kérdezned magadtól egy CMS munkafolyamat megköz
 
 Tapasztalataink szerint a válasz háromféle lehet:
 
-1. Igen ([Contentful](/blackbird-docs/apps/contentful), [Zendesk guides](/blackbird-docs/apps/zendesk), [Sitecore](/blackbird-docs/apps/sitecore), [Hubspot blog posts & pages](/blackbird-docs/apps/hubspot-cms), stb.)
-2. Igen, de csak egy népszerű bővítmény támogatásával ([WordPress](/blackbird-docs/apps/wordpress), Drupal, stb.)
-3. Nem ([Marketo](/blackbird-docs/apps/marketo), [Notion](/blackbird-docs/apps/notion), [Hubspot forms & emails](/blackbird-docs/apps/hubspot-cms), stb.)
+1. Igen ([Contentful](../../apps/contentful), [Zendesk guides](../../apps/zendesk), [Sitecore](../../apps/sitecore), [Hubspot blog posts & pages](../../apps/hubspot-cms), stb.)
+2. Igen, de csak egy népszerű bővítmény támogatásával ([WordPress](../../apps/wordpress), Drupal, stb.)
+3. Nem ([Marketo](../../apps/marketo), [Notion](../../apps/notion), [Hubspot forms & emails](../../apps/hubspot-cms), stb.)
 
 Amikor a CMS a második vagy harmadik kategóriába tartozik, több "megoldástervezésre" lesz szükség a lehető legjobb munkafolyamat kialakításához. Látható, hogy néhány alkalmazás csak részben támogatja a natív lokalizációt (Hubspot), ez extra kihívásokat jelent, ha minden lehetséges tartalom lokalizálása a cél.
 

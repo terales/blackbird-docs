@@ -1,4 +1,5 @@
 ---
+locale: en
 title: Data Sources
 description: Learn how to define static dynamic data sources for your action and event inputs.
 sidebar:

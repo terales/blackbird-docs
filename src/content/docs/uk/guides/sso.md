@@ -1,4 +1,5 @@
 ---
+locale: uk
 title: SSO
 description: Спростіть свою автентифікацію за допомогою інтеграції єдиного входу (SSO)
 sidebar:

@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Data Sources
 description: Ismerje meg a statikus és dinamikus adatforrások meghatározását a műveletek és események bemeneteihez.
 sidebar:
