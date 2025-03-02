@@ -1,4 +1,5 @@
 ---
+locale: uk
 title: Визначення підключень
 description: Дізнайтеся, як визначити, як Blackbird повинен обробляти підключення вашого додатка.
 sidebar:
@@ -63,7 +64,7 @@ public IEnumerable<ConnectionPropertyGroup> ConnectionPropertyGroups => new List
 
 Це призведе до відображення випадаючого списку:
 
-![dropdown](../../../../assets/docs/dropdown.png)
+![dropdown](~/assets/docs/dropdown.png)
 
 ## Перетворення властивостей підключення на облікові дані
 
@@ -238,7 +239,7 @@ public class ConnectionValidator : IConnectionValidator
 
 Після налаштування всього цього, Blackbird тепер може відображати форму підключення для користувача.
 
-![connection](../../../../assets/docs/connection_modal.png)
+![connection](~/assets/docs/connection_modal.png)
 
 ## Доступ до облікових даних у діях та подіях
 

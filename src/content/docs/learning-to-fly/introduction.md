@@ -1,4 +1,5 @@
 ---
+locale: en
 title: Introduction
 description: Spread your wings for the first time with Blackbird.
 sidebar:

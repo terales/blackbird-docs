@@ -1,4 +1,5 @@
 ---
+locale: uk
 title: Розуміння додатків у Blackbird
 description: Дізнайтеся, що таке додатки
 sidebar:

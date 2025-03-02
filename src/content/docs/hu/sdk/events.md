@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Események definiálása
 description: Tanulja meg a webhook és callback események definiálását egy Blackbird projektben.
 sidebar:
@@ -198,7 +199,7 @@ public Task<WebhookResponse<CallbackPayload>> OnCallbackReceived(WebhookRequest 
 
 Ez a következőképpen jelenik meg:
 
-![callback](../../../../assets/docs/callback.png)
+![callback](~/assets/docs/callback.png)
 
 > Tipp: a callback funkcionalitás használható "hívható" madarak létrehozására, mintha a Blackbird saját API-val rendelkezne.
 

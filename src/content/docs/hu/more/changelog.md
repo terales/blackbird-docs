@@ -1,4 +1,5 @@
 ---
+  locale: hu
   title: Változásnapló
   description: A BlackBird alapplatform összes változtatásainak globális áttekintése
 ---
@@ -114,7 +115,7 @@ Fő funkciók: Barátságosabb és informatívabb hibaüzenetek és SDK fejleszt
 Fő funkciók: Ellenőrzőpontok 🎉
 
 ##### Bird szerkesztő
-- Most már létrehozhat _ellenőrzőpontokat_ a Bird szerkesztőben. Az ellenőrzőpontok a BlackBird munkafolyamatokban olyan vezérlési lépések, amelyek lehetővé teszik a Bird-ek számára, hogy szüneteljenek és különböző eseményekre várjanak, mielőtt folytatnák Repülésüket. Az ellenőrzőpontokról [itt](/blackbird-docs/concepts/checkpoints) olvashat többet.
+- Most már létrehozhat _ellenőrzőpontokat_ a Bird szerkesztőben. Az ellenőrzőpontok a BlackBird munkafolyamatokban olyan vezérlési lépések, amelyek lehetővé teszik a Bird-ek számára, hogy szüneteljenek és különböző eseményekre várjanak, mielőtt folytatnák Repülésüket. Az ellenőrzőpontokról [itt](../../concepts/checkpoints) olvashat többet.
 - A trigger típus kiválasztása vizuális átdolgozáson esett át.
 - A késleltetés funkció az operátoroktól átkerült az ellenőrzőpontok alatti trigger típusokhoz.
 

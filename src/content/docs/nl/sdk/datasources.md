@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Data Sources
 description: Leer hoe je statische en dynamische gegevensbronnen definieert voor je actie- en event-invoer.
 sidebar:
@@ -47,7 +48,7 @@ De `DataSourceContext.SearchString` biedt de ingetypte zoekopdracht van de gebru
 
 Je moet een `IEnumerable<DataSourceItem>` retourneren waarbij het `value` argument van een `DataSourceItem` de waarde vertegenwoordigt die zal worden "ingevuld", bijvoorbeeld de ID van een bepaalde status of entiteit. Het tweede argument is de weergegeven naam.
 
-![connection](../../../../assets/docs/dynamic_input.png)
+![connection](~/assets/docs/dynamic_input.png)
 
 ### Geavanceerde context
 

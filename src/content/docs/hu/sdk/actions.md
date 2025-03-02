@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Műveletek meghatározása
 description: Ismerje meg, hogyan lehet műveleteket definiálni egy Blackbird projektben.
 sidebar:
@@ -55,7 +56,7 @@ public class GetBerryRequest
 
 Ez az osztály a következőképpen alakul át:
 
-![connection](../../../../assets/docs/berry.png)
+![connection](~/assets/docs/berry.png)
 
 Csakúgy, mint a bemeneti argumentumoknál, a `[Display]` attribútum a műveletek visszatérési típusainál is működik, hogy felhasználóbarát neveket adhasson nekik.
 

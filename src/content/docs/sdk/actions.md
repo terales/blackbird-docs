@@ -1,4 +1,5 @@
 ---
+locale: en
 title: Defining Actions
 description: Learn how to define actions in a Blackbird project.
 sidebar:
@@ -55,7 +56,7 @@ public class GetBerryRequest
 
 This class is transformed to:
 
-![connection](../../../assets/docs/berry.png)
+![connection](~/assets/docs/berry.png)
 
 Just as with input arguments, the `[Display]` atribute also works on the return types of your actions in order to give them user-friendly names.
 

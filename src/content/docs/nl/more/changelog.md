@@ -1,4 +1,5 @@
 ---
+  locale: nl
   title: Changelog
   description: Een globaal overzicht van alle wijzigingen aan het BlackBird core platform
 ---
@@ -114,7 +115,7 @@ Hoofdfuncties: Vriendelijkere en informatievere foutmeldingen en SDK-verbetering
 Hoofdfuncties: Checkpoints 🎉
 
 ##### Bird-editor
-- Je kunt nu _checkpoints_ maken in de Bird-editor. Checkpoints in BlackBird-workflows zijn controlestappen die Birds in staat stellen om te pauzeren en te wachten op verschillende events voordat ze hun Flights voortzetten. Je kunt meer lezen over checkpoints [hier](/blackbird-docs/concepts/checkpoints).
+- Je kunt nu _checkpoints_ maken in de Bird-editor. Checkpoints in BlackBird-workflows zijn controlestappen die Birds in staat stellen om te pauzeren en te wachten op verschillende events voordat ze hun Flights voortzetten. Je kunt meer lezen over checkpoints [hier](../../concepts/checkpoints).
 - De selectie van triggertype heeft een visuele vernieuwing gekregen.
 - De vertragingsfunctie is verplaatst van operators naar een triggertype onder checkpoint.
 

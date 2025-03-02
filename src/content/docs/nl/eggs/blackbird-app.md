@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Blackbird App
 description: Een Egg met het potentieel om monitoringsvogels te creëren die alles bijhouden wat er in uw Blackbird-instantie gebeurt
 sidebar:
@@ -25,7 +26,7 @@ Het meest populaire gebruiksgeval voor de Blackbird app in Blackbird is het moni
 
 > Gebruik optionele invoer om een specifieke Nest te monitoren, anders zal een enkele Bird alle Nests binnen uw Blackbird-instantie monitoren.
 
-![Egg](../../../../assets/docs/eggs/BBApp1.png)
+![Egg](~/assets/docs/eggs/BBApp1.png)
 Error escalation Bird
 
 - Download Egg: <a href="https://docs.blackbird.io/downloads/Report_failed_Flights_on_Slack.json" download>Report failed Flights on Slack</a>
@@ -33,7 +34,7 @@ Error escalation Bird
 - Download Egg: <a href="https://docs.blackbird.io/downloads/Report_failed_Flights_via_Outlook_email.json" download>Report failed Flights via Outlook email</a>
 - Download Egg: <a href="https://docs.blackbird.io/downloads/Report_failed_Flights_via_Gmail.json" download>Report failed Flights via Gmail</a>
 
-![Egg](../../../../assets/docs/eggs/BBApp2.png)
+![Egg](~/assets/docs/eggs/BBApp2.png)
 Error logging Bird
 
 - Download Egg: <a href="https://docs.blackbird.io/downloads/Log_failed_Flights_on_Google_Sheets.json" download>Log failed Flights on Google Sheets</a>
@@ -43,7 +44,7 @@ Error logging Bird
 
 Monitor gebruikers die zijn toegevoegd aan of verwijderd uit een specifieke Nest.
 
-![Egg](../../../../assets/docs/eggs/BBApp3.png)
+![Egg](~/assets/docs/eggs/BBApp3.png)
 
 - Download Egg: <a href="https://docs.blackbird.io/downloads/On_user_removed_send_Slack_message.json" download>On user removed send Slack message</a>
 
@@ -51,7 +52,7 @@ Monitor gebruikers die zijn toegevoegd aan of verwijderd uit een specifieke Nest
 
 Ontvang meldingen wanneer Birds worden opgeschort of geactiveerd: krijg realtime meldingen van wijzigingen in uw Production Nest.
 
-![Egg](../../../../assets/docs/eggs/BBApp4.png)
+![Egg](~/assets/docs/eggs/BBApp4.png)
 
 > Gebruik optionele invoer om een specifieke Nest te monitoren, anders zal een enkele Bird alle Nests binnen uw Blackbird-instantie monitoren.
 
@@ -69,4 +70,4 @@ Om een Egg in uw Nest te importeren:
 6. Klik op de drie puntjes naast de naam van de Bird en update de apps als er updates beschikbaar zijn.
 7. Klik op Opslaan/Publiceren.
 
-![Importing Eggs](../../../../assets/docs/eggs/ImportEggs.gif)
+![Importing Eggs](~/assets/docs/eggs/ImportEggs.gif)

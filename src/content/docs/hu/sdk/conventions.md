@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Alkalmazás konvenciók
 description: Használja a több mint 100 alkalmazás és integráció építésével szerzett tudásunkat.
 sidebar:
@@ -11,7 +12,7 @@ Mint tudja, a Blackbird alkalmazások kis termékekként tekinthetők, ahol mind
 
 ## 1. Típusok
 
-A Blackbird-ben a felhasználók az alábbi 5 alaptípussal találkozhatnak: szöveg (string), szám (bármilyen numerikus típus a .NET-ben), dátumok [(`DateTime`)](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-8.0), fájlok [(`FileReference`)](/blackbird-docs/sdk/files) és logikai értékek. Ezenkívül a felhasználó találkozhat a fentiek "többszörös" verzióival is, amelyeket az SDK-ban `IEnumerable<string>`, `IEnumerable<FileReference>` stb. jelöl.
+A Blackbird-ben a felhasználók az alábbi 5 alaptípussal találkozhatnak: szöveg (string), szám (bármilyen numerikus típus a .NET-ben), dátumok [(`DateTime`)](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-8.0), fájlok [(`FileReference`)](../../sdk/files) és logikai értékek. Ezenkívül a felhasználó találkozhat a fentiek "többszörös" verzióival is, amelyeket az SDK-ban `IEnumerable<string>`, `IEnumerable<FileReference>` stb. jelöl.
 
 ### 1.1 - ID típusok
 
@@ -73,7 +74,7 @@ A madár szerkesztőben a neveknek nincs túl sok helyük. Ezért **a tulajdons�
 
 ### 3.1 - Hibák megjelenítése
 
-A Blackbird-ben a hibákat egyszerűen kivételekként dobják, és a Blackbird a kivétel üzenetét megjeleníti a felhasználóknak, amikor a repülést megvizsgálják. A `throw new Exception("A hibaüzenetem ide kerül")` használatakor a hibaüzenet megjelenik a felhasználónak. Azonban előnyben részesítjük, hogy mindig kiküszöböljük a szokásos kivételeket, amelyeket a felhasználó lát. Ehelyett a `PluginMisconfigurationException` és a `PluginApplicationException` kivételosztályokat kell használni. A részletes leírásért olvassa el a [hibák oldalt](/blackbird-docs/sdk/errors).
+A Blackbird-ben a hibákat egyszerűen kivételekként dobják, és a Blackbird a kivétel üzenetét megjeleníti a felhasználóknak, amikor a repülést megvizsgálják. A `throw new Exception("A hibaüzenetem ide kerül")` használatakor a hibaüzenet megjelenik a felhasználónak. Azonban előnyben részesítjük, hogy mindig kiküszöböljük a szokásos kivételeket, amelyeket a felhasználó lát. Ehelyett a `PluginMisconfigurationException` és a `PluginApplicationException` kivételosztályokat kell használni. A részletes leírásért olvassa el a [hibák oldalt](../../sdk/errors).
 
 A jó felhasználói élmény érdekében **el kell kapni a hibákat, és amikor részletes leírás lehetséges, ezt a leírást meg kell jeleníteni**. És **egy konfigurációs hibának mindig tájékoztatnia kell a felhasználót arról, hogyan javíthatja a problémáját**.
 
@@ -89,9 +90,9 @@ Másodszor, vegye figyelembe, hogy a kapcsolati mezők szintén rendelkezhetnek 
 
 A kapcsolati mező neveknek rövidnek, leírónak és egyértelműnek kell lenniük. A mező nevéből a felhasználónak ki kell tudnia találni, hogy pontosan milyen adatot kérnek tőle.
 
-![Kapcsolat definíció](../../../../assets/docs/conventions/connection_fields.png)
+![Kapcsolat definíció](~/assets/docs/conventions/connection_fields.png)
 
-![Kapcsolat részletek](../../../../assets/docs/conventions/connection_details.png)
+![Kapcsolat részletek](~/assets/docs/conventions/connection_details.png)
 
 ## 5. Adatforrások
 
@@ -106,7 +107,7 @@ A statikus adatforrásokat olyan változókhoz tervezték, amelyek előre defini
 
 ### 5.2 - Dinamikus adatforrások
 
-A [dinamikus adatforrásokat](https://docs.blackbird.io/sdk/datasources/#dynamic-data-sources), ahogy a szó is sugallja, akkor használjuk, amikor az adatokat a kapcsolatból kell betölteni. A dinamikus adatforrások klasszikus példái:
+A [dinamikus adatforrásokat](../../sdk/datasources/#dynamic-data-sources), ahogy a szó is sugallja, akkor használjuk, amikor az adatokat a kapcsolatból kell betölteni. A dinamikus adatforrások klasszikus példái:
 
 - Projektek, amikor a bemeneti paraméter egy Project ID egy TMS alkalmazásban.
 - Csatornák, amikor a bemeneti paraméter egy Channel ID a Slack-ben.
@@ -115,4 +116,4 @@ A [dinamikus adatforrásokat](https://docs.blackbird.io/sdk/datasources/#dynamic
 
 **Minden olyan bemeneti paraméternek, amelynek véges számú lehetséges értéke van, de amely a felhasználó kapcsolatától függ, dinamikus adatforrással kell rendelkeznie**.
 
-Néha az adatforrás adatainak betöltéséhez több információra van szükség a felhasználótól. Ennek példája lehet egy olyan struktúra, ahol a projekteknek több feladatuk lehet. Ahhoz, hogy a projekt összes feladatához dinamikus legördülő menüt mutassunk, az API-nak és az alapul szolgáló kódnak először a Project ID-re van szüksége. Ezekben az esetekben [fejlett kontextusú dinamikus adatforrásokat](/blackbird-docs/sdk/datasources/#advanced-context) kell használnia. Legyen azonban nagyon körültekintő a fejlett kontextusok használatakor, mivel vannak esetek, amikor azt gondolná, hogy a fejlett kontextus hasznos lenne, miközben valójában megakadályozza a felhasználót a munkafolyamat felépítésében. Ennek példája egy legördülő menü a nyelvi információk hozzáadásához egy fájl feltöltésekor. Úgy tűnhet, hogy jó ötlet a projekten k
+Néha az adatforrás adatainak betöltéséhez több információra van szükség a felhasználótól. Ennek példája lehet egy olyan struktúra, ahol a projekteknek több feladatuk lehet. Ahhoz, hogy a projekt összes feladatához dinamikus legördülő menüt mutassunk, az API-nak és az alapul szolgáló kódnak először a Project ID-re van szüksége. Ezekben az esetekben [fejlett kontextusú dinamikus adatforrásokat](../../sdk/datasources/#advanced-context) kell használnia. Legyen azonban nagyon körültekintő a fejlett kontextusok használatakor, mivel vannak esetek, amikor azt gondolná, hogy a fejlett kontextus hasznos lenne, miközben valójában megakadályozza a felhasználót a munkafolyamat felépítésében. Ennek példája egy legördülő menü a nyelvi információk hozzáadásához egy fájl feltöltésekor. Úgy tűnhet, hogy jó ötlet a projekten k

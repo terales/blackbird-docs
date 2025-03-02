@@ -1,4 +1,5 @@
 ---
+locale: en
 title: Building a Bird
 description: Let's create lift-off. Learn how to build your first bird.
 sidebar:

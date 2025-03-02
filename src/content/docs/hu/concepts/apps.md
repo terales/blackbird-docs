@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Appok megértése a Blackbirdben
 description: Ismerje meg, mik azok az Appok
 sidebar:

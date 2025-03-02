@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: CMS Workflows - Contentful
 description: Leer hoe je krachtige workflows kunt bouwen rondom CMS-apps. In deze gids nemen we een nadere kijk op Contentful.
 sidebar:
@@ -21,9 +22,9 @@ De eerste vraag die je jezelf moet stellen bij het benaderen van een CMS-workflo
 
 Uit onze ervaring kan het antwoord een van drie opties zijn:
 
-1. Ja ([Contentful](/blackbird-docs/apps/contentful), [Zendesk guides](/blackbird-docs/apps/zendesk), [Sitecore](/blackbird-docs/apps/sitecore), [Hubspot blog posts & pages](/blackbird-docs/apps/hubspot-cms), etc.)
-2. Ja, maar alleen met de ondersteuning van een populaire plugin ([WordPress](/blackbird-docs/apps/wordpress), Drupal, etc.)
-3. Nee ([Marketo](/blackbird-docs/apps/marketo), [Notion](/blackbird-docs/apps/notion), [Hubspot forms & emails](/blackbird-docs/apps/hubspot-cms), etc.)
+1. Ja ([Contentful](../../apps/contentful), [Zendesk guides](../../apps/zendesk), [Sitecore](../../apps/sitecore), [Hubspot blog posts & pages](../../apps/hubspot-cms), etc.)
+2. Ja, maar alleen met de ondersteuning van een populaire plugin ([WordPress](../../apps/wordpress), Drupal, etc.)
+3. Nee ([Marketo](../../apps/marketo), [Notion](../../apps/notion), [Hubspot forms & emails](../../apps/hubspot-cms), etc.)
 
 Wanneer je CMS in de tweede of derde categorie valt, zal er wat meer 'oplossingsarchitectuur' moeten plaatsvinden om de best mogelijke workflow met je CMS te bouwen. Je kunt ook zien dat sommige apps slechts gedeeltelijk native lokalisatie ondersteunen (Hubspot), dit geeft extra uitdagingen wanneer het lokaliseren van alle mogelijke content gewenst is.
 
@@ -51,7 +52,7 @@ In de kern zullen alle workflows met CMS'en de volgende structuur bevatten:
 
 De 3 P's van CMS-workflows (Pull, Process, Push) zullen altijd hun weg vinden in je birds.
 
-![Schematisch](../../../../assets/guides/cms/1729004201270.png)
+![Schematisch](~/assets/guides/cms/1729004201270.png)
 
 Het is aan jou om de belangrijkste beslissingen te nemen die, samen met de 3 P's, je bird zullen vormgeven:
 
@@ -70,7 +71,7 @@ Wanneer je hebt besloten over deze aspecten, zul je zien dat Blackbird voor de r
 
 Laten we deze theoretische workflow in de praktijk brengen. In de onderstaande afbeelding zie je een voorbeeld van de pull-, process- en push-stappen met hun respectievelijke acties in Contentful. De **Get entry as HTML file** wordt gebruikt om een HTML-bestand op te halen dat de entry vertegenwoordigt. In dit geval wordt DeepL gebruikt om het bestand te verwerken (vertalen naar een andere taal). Daarna wordt de actie **Update entry from HTML file** gebruikt om het vertaalde HTML-bestand van DeepL te nemen en terug te sturen naar Contentful. Natuurlijk kan DeepL worden vervangen door elke andere enkelactie-verwerkingstoepassing en deze workflow zou er vergelijkbaar uitzien met andere CMS'en.
 
-![Core met NMT](../../../../assets/guides/cms/1729083328505.png)
+![Core met NMT](~/assets/guides/cms/1729083328505.png)
 
 ### 2.2 Mens-in-de-orkestratie
 
@@ -78,7 +79,7 @@ Het is meer dan waarschijnlijk dat alleen machinale verwerking niet aan je lokal
 
 > **💡 Opmerking**: Bekijk onze [checkpoints conceptgids](../../concepts/checkpoints) om meer te leren over checkpoints!
 
-![Core met TMS](../../../../assets/guides/cms/1729083153924.png)
+![Core met TMS](~/assets/guides/cms/1729083153924.png)
 
 ## 3. Continue lokalisatie
 
@@ -86,7 +87,7 @@ Je hebt geleerd hoe de kern-vertaalworkflow typisch wordt opgebouwd in een bird.
 
 Voor onze Contentful kern-vertaalworkflow hoeven we eigenlijk alleen maar een event aan te maken dat wordt geactiveerd wanneer nieuwe content wordt gecreëerd (of in ons geval gepubliceerd). Vervolgens wijzen we de **Get entry as HTML file** naar de entry-ID die we van het event ontvangen.
 
-![Continue lokalisatie](../../../../assets/guides/cms/continuous.gif)
+![Continue lokalisatie](~/assets/guides/cms/continuous.gif)
 
 Dat is het! Continue lokalisatie afgevinkt. ✔️
 
@@ -94,7 +95,7 @@ De kritische lezer, Contentful-veteraan of beide, zal wijzen op een kleine fout 
 
 We raden aan om te kijken naar de ondersteunende functies die CMS'en hebben, zoals **tags** of **aangepaste velden** zoals eerder vermeld. Een populiere manier om hiermee om te gaan in Contentful is het gebruik van het tagsysteem. Je kunt filters toevoegen aan de entry-events in Blackbird, zodat alleen entries met een bepaalde tag de bird activeren. Een goede kandidaat zou kunnen zijn *Ready for localization*. Zorg ervoor dat je de tag aan het einde van je workflow verwijdert!
 
-![Core met tags](../../../../assets/guides/cms/1729086551991.png)
+![Core met tags](~/assets/guides/cms/1729086551991.png)
 
 ## 4. Geplande en historische lokalisatie
 
@@ -102,7 +103,7 @@ Het is mogelijk dat continue lokalisatie niet helemaal je ding is. Misschien ben
 
 Elk CMS heeft een actie in de vorm van *Search entities*, die je kunt gebruiken om de exacte content te zoeken en selecteren die je wilt verwerken. Het komt meestal met verschillende filters, waaronder een *Updated from* en *Updated to* filter die je kunt gebruiken om het tijdsbereik te selecteren waarin de content mag worden bijgewerkt.
 
-![Geplande memoQ](../../../../assets/guides/cms/1729090495297.png)
+![Geplande memoQ](~/assets/guides/cms/1729090495297.png)
 
 ## 5. Meerdere talen verwerken
 
@@ -110,13 +111,13 @@ Tot nu toe heeft elke bird die we hebben gezien de content slechts naar één ta
 
 In het eenvoudigste scenario zijn de talen waarnaar je wilt vertalen vooraf gedefinieerd volgens een bepaalde overeenkomst. Meestal kun je deze talen dan "hardcoden" in de acties die ze vereisen. Het is ook waarschijnlijk dat je slim wilt zijn en de talen wilt krijgen zoals ze zijn gedefinieerd in het CMS. De meeste CMS-apps hebben een actie **Get locales** of **Get languages** die de standaardtaal en de andere geconfigureerde talen zal teruggeven. Dit is perfect! Want nu kun je die talen direct naar je verwerkingsapplicatie sturen.
 
-![TMS talen](../../../../assets/guides/cms/1729176014667.png)
+![TMS talen](~/assets/guides/cms/1729176014667.png)
 
 Er is een heel belangrijk punt om op te wijzen bij het verzenden van talen van het ene naar het andere systeem: ze gebruiken mogelijk niet dezelfde taalcodes. Daarom gebruiken we in de bovenstaande bird-sectie de **Convert operator** om van Contentful-taalcodes naar memoQ-taalcodes te converteren. Je kunt meer lezen over conversie en bibliotheken in [deze gids](../../concepts/libraries).
 
 Een TMS kan meestal alle talen waarnaar je wilt converteren in één invoerveld nemen, aangezien het een project voor je content zou creëren. NMT en andere enkelvoudige verwerkingsapps nemen echter vaak maar één taal tegelijk. In dit geval moet je over alle talen itereren en ze voor elk bestand verwerken (zie gif hieronder). Je kunt meer informatie over loops vinden [hier](../loops).
 
-![Continue lokalisatie](../../../../assets/guides/cms/multilocales.gif)
+![Continue lokalisatie](~/assets/guides/cms/multilocales.gif)
 
 ## 6. Contentful aandachtspunten
 

@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Acties Definiëren
 description: Leer hoe je acties definieert in een Blackbird project.
 sidebar:
@@ -55,7 +56,7 @@ public class GetBerryRequest
 
 Deze klasse wordt omgezet naar:
 
-![connection](../../../../assets/docs/berry.png)
+![connection](~/assets/docs/berry.png)
 
 Net als bij invoerargumenten werkt het `[Display]` attribuut ook op de retourtypen van je acties om ze gebruiksvriendelijke namen te geven.
 

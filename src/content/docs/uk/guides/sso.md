@@ -1,4 +1,5 @@
 ---
+locale: uk
 title: SSO
 description: Спростіть свою автентифікацію за допомогою інтеграції єдиного входу (SSO)
 sidebar:
@@ -16,7 +17,7 @@ sidebar:
 
 На екрані входу виберіть кнопку Google або Microsoft після введення вашої електронної адреси.
 
-![Initial](../../../../assets/guides/sso/buttons.png)
+![Initial](~/assets/guides/sso/buttons.png)
 
 Ця дія відкриє вибрану службу та запропонує вам увійти, якщо ви ще цього не зробили.
 

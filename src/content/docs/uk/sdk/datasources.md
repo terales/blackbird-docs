@@ -1,4 +1,5 @@
 ---
+locale: uk
 title: Data Sources
 description: Дізнайтеся, як визначати статичні та динамічні джерела даних для вхідних параметрів ваших дій та подій.
 sidebar:
@@ -47,7 +48,7 @@ public class AsyncDataSourceHandler : AppInvocable, IAsyncDataSourceItemHandler
 
 Ви повинні повернути `IEnumerable<DataSourceItem>`, де аргумент `value` об'єкта `DataSourceItem` представляє значення, яке буде "заповнене", наприклад, ID певного статусу або сутності. Другий аргумент — це відображуване ім'я.
 
-![connection](../../../../assets/docs/dynamic_input.png)
+![connection](~/assets/docs/dynamic_input.png)
 
 ### Розширений контекст
 

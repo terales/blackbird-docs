@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Kapcsolatok Definiálása
 description: Ismerje meg, hogyan definiálja, hogy a Blackbird hogyan kezelje az alkalmazás kapcsolatait.
 sidebar:
@@ -63,7 +64,7 @@ A kapcsolati tulajdonsága lehet egy legördülő lista véges értékekkel is. 
 
 Ami a következő legördülő menüt jeleníti meg:
 
-![dropdown](../../../../assets/docs/dropdown.png)
+![dropdown](~/assets/docs/dropdown.png)
 
 ## Kapcsolati tulajdonságok hitelesítő adatokká alakítása
 
@@ -238,7 +239,7 @@ public class ConnectionValidator : IConnectionValidator
 
 Miután mindez be van állítva, a Blackbird most már meg tudja jeleníteni a kapcsolati űrlapot a felhasználónak.
 
-![connection](../../../../assets/docs/connection_modal.png)
+![connection](~/assets/docs/connection_modal.png)
 
 ## Hozzáférés a hitelesítő adatokhoz műveletekben és eseményekben
 

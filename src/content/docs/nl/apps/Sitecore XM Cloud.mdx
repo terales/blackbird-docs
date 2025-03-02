@@ -1,4 +1,5 @@
 ---
+  locale: nl
   title: Sitecore XM Cloud
   description: De Sitecore XM Cloud Blackbird app
 ---
@@ -8,7 +9,7 @@ import { LinkCard } from "@astrojs/starlight/components";
 
 Sitecore is een van de toonaangevende contentmanagementsystemen op ondernemingsniveau, waarmee webredacteuren en marketeers volledige controle hebben over alle aspecten van hun website, van sociale integratie en blogberichten tot geavanceerde personalisatie, e-commerce en meer. Deze app richt zich op de integratie tussen Sitecore-items, talen en de rest van het Blackbird-ecosysteem. In tegenstelling tot andere Blackbird-apps moet je voor het gebruik een speciaal gebouwde plugin op je Sitecore-instantie installeren.
 
-Deze app is gebouwd voor Sitecore XP. Voor Sitecore XM Cloud, raadpleeg [deze handleiding](https://docs.blackbird.io/apps/sitecore-xp/) in plaats daarvan.
+Deze app is gebouwd voor Sitecore XP. Voor Sitecore XM Cloud, raadpleeg [deze handleiding](../apps/sitecore-xp/) in plaats daarvan.
 
 ## Vóór het instellen
 
@@ -16,13 +17,13 @@ Voordat je verbinding kunt maken, moet je ervoor zorgen dat:
 
 - Je toegang hebt tot XM Cloud Deploy, het beheer van inloggegevens en een actief Sitecore-project.
 - Je toegang hebt tot de broncoderepositorium (Github) van een Sitecore-project en de mogelijkheid hebt om nieuwe plugins te configureren.
-- Je het nieuwste Blackbird Sitecore plugin-pakket hebt gedownload van [hier](https://docs.blackbird.io/sitecore/package.zip).
+- Je het nieuwste Blackbird Sitecore plugin-pakket hebt gedownload van [hier](../sitecore/package.zip).
 
 ## De plugin installeren
 
 Aangenomen dat je content-repository is geforkt van deze [repo](https://github.com/sitecorelabs/xmcloud-foundation-head).
 
-1. Pak de bestanden uit van [package.zip](https://docs.blackbird.io/sitecore/package.zip)
+1. Pak de bestanden uit van [package.zip](../sitecore/package.zip)
 2. Kopieer de 2 configuratiebestanden uit `package\files\App_Config\Include\BlackBird` in het pakket naar `authoring\platform\App_Config\Include\` in de broncoderepositorium.
 3. Kopieer de 2 dll-bestanden uit `package\files\bin` in het pakket naar `authoring\platform\_dlls` in de broncoderepositorium.
 4. Open de `XmCloudAuthoring.sln` in Visual Studio (of een andere .NET-compatibele IDE) en voeg verwijzingen toe naar de toegevoegde .dll-bestanden in het Platform-project.

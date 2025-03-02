@@ -1,4 +1,5 @@
 ---
+locale: en
 title: Understanding Apps in Blackbird
 description: Learn what Apps are
 sidebar:

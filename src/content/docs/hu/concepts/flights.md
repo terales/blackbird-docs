@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Flights
 description: Ismerje meg, mik a Flights
 sidebar:
@@ -14,4 +15,4 @@ A repülések ellenőrzéséhez navigáljon a _Flights_ fülre, és kattintson e
 
 A _Szerkesztés_ gombra kattintva megnyithatja az aktuális Madár szerkesztőoldalát, ahol elvégezheti a szükséges módosításokat.
 
-![connection](../../../../assets/docs/flight-details.png)
+![connection](~/assets/docs/flight-details.png)

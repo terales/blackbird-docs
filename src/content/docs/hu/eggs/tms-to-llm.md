@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: TMS to LLM and Back
 description: Egy olyan Egg, amely lehetőséget kínál egy TMS-ből LLM-be és vissza irányuló Bird létrehozására
 sidebar:
@@ -11,7 +12,7 @@ sidebar:
 
 A Blackbirdben az Egg-ek a munkafolyamatok magjai vagy tervrajzai. Olyan kezdeti ötleteket képviselnek, amelyek teljes értékű Birdekké fejlődhetnek.
 
-Ebben az Egg-útmutatóban nézzünk meg néhány lehetőséget egy TMS és egy LLM integrálására. [A **Letölthető Egg-eket** a végén találja!](https://docs.blackbird.io/eggs/tms-to-llm/#download-an-egg)
+Ebben az Egg-útmutatóban nézzünk meg néhány lehetőséget egy TMS és egy LLM integrálására. [A **Letölthető Egg-eket** a végén találja!](../../eggs/tms-to-llm/#download-an-egg)
 
 ## Folyamat vázlata
 
@@ -25,31 +26,31 @@ A letöltött fájlokat feldolgozásra küldjük egy LLM-nek.
 A feldolgozott fájlokat visszatöltjük a TMS-be.
 
 Egg a Phrase és az Anthropic között
-![Egg](../../../../assets/docs/eggs/Egg2-Phrase-to-Anthropic.png)
+![Egg](~/assets/docs/eggs/Egg2-Phrase-to-Anthropic.png)
 
 ## Tippek
 
 - **Prompt:** Az opcionális bemenetek között hozzáadhatja saját utasításait az LLM számára.
 - **Bucket méret:** Az XLIFF fájlok sok szegmenst tartalmazhatnak. Minden művelet veszi a szegmenseket és elküldi azokat az LLM-nek feldolgozásra. Előfordulhat, hogy a szegmensek mennyisége olyan nagy, hogy a prompt meghaladja a modell kontextusablakát, vagy a modell több időt vesz igénybe, mint amennyi a Blackbird műveleteknek megengedett. Ezért vezettük be a bucket méret paramétert. A bucket méret paraméter beállításával meghatározhatja, hány szegmenst küldjön egyszerre az LLM-nek. Ez lehetővé teszi a munkaterhelés felosztását különböző hívásokra. Ennek hátránya, hogy ugyanazt a kontextus promptot minden kéréssel együtt el kell küldeni (ami növeli a felhasznált tokenek számát). Kísérleteink alapján azt találtuk, hogy az 1500-as bucket méret elegendő olyan modellek esetében, mint a gpt-4o. Ezért 1500 az alapértelmezett bucket méret, azonban más modellek esetében eltérő bucket méretek lehetnek szükségesek.
-- **Polling Events:** Néhány alkalmazás [polling](https://docs.blackbird.io/concepts/triggers/#polling) módszert használ webhookok helyett a frissített/új fájlok észlelésére. Ellenőrizze az _Interval_ fület a trigger beállításakor, és válassza az Önnek megfelelő időtartamot (5 perc és 7 nap között).
-- **Szószedet integráció:** Szószedetek adhatók hozzá a fordítás pontosságának és következetességének javítása érdekében. Ezek exportálhatók számos alkalmazásból, és a Blackbird biztosítja a kompatibilitást (az alkalmazások között szerepelnek TMS és CAT eszközök, sőt [Microsoft Excel táblázatok](https://docs.blackbird.io/apps/microsoft-excel/#exporting-glossaries) is).
+- **Polling Events:** Néhány alkalmazás [polling](../../concepts/triggers/#polling) módszert használ webhookok helyett a frissített/új fájlok észlelésére. Ellenőrizze az _Interval_ fület a trigger beállításakor, és válassza az Önnek megfelelő időtartamot (5 perc és 7 nap között).
+- **Szószedet integráció:** Szószedetek adhatók hozzá a fordítás pontosságának és következetességének javítása érdekében. Ezek exportálhatók számos alkalmazásból, és a Blackbird biztosítja a kompatibilitást (az alkalmazások között szerepelnek TMS és CAT eszközök, sőt [Microsoft Excel táblázatok](../../apps/microsoft-excel/#exporting-glossaries) is).
 - **Célnyelv:** Kiválaszthat egy nyelvet a használt LLM alkalmazás bemenetei közül. Ha nincs megadva, a nyelveket az XLIFF fájlok fejlécéből nyeri ki a rendszer.
 - **Opcionális paraméterek:** Sok LLM alkalmazás különböző beállítható paramétereket kínál, például formalitást, hőmérsékletet, modelleket és bucket méretet. Ellenőrizze a bemenet fület minden lépésnél.
-- **Ciklusok szükségesek:** Akár a célnyelvek listáján kell végigmenni, akár minden egyes fájlt a letöltött fájlcsoportból olyan művelethez kell küldeni, amely egyszerre csak egyet fogad, a [ciklusok](https://docs.blackbird.io/guides/loops/) jelentik a megoldást.
+- **Ciklusok szükségesek:** Akár a célnyelvek listáján kell végigmenni, akár minden egyes fájlt a letöltött fájlcsoportból olyan művelethez kell küldeni, amely egyszerre csak egyet fogad, a [ciklusok](../../guides/loops/) jelentik a megoldást.
 
 Egg a MemoQ és az Anthropic között
-![Egg simple](../../../../assets/docs/eggs/Egg2-memoQ-to-Anthropic.png)
+![Egg simple](~/assets/docs/eggs/Egg2-memoQ-to-Anthropic.png)
 
 Egg a MemoQ és az OpenAI között szószedetekkel.
-![Egg with Glossary](../../../../assets/docs/eggs/Egg2-memoQ-to-OpenAI-with-glossary.png)
+![Egg with Glossary](~/assets/docs/eggs/Egg2-memoQ-to-OpenAI-with-glossary.png)
 
 ## Javasolt alkalmazások
 
 ### LLM-ek
 
-- [OpenAI](https://docs.blackbird.io/apps/openai/)
-- [Anthropic](https://docs.blackbird.io/apps/anthropic/)
-- [Google Vertex AI](https://docs.blackbird.io/apps/google-vertex-ai/)
+- [OpenAI](../../apps/openai/)
+- [Anthropic](../../apps/anthropic/)
+- [Google Vertex AI](../../apps/google-vertex-ai/)
 
 ## Egg letöltése
 
@@ -72,4 +73,4 @@ Egg importálása a Nest-be:
 6. Kattintson a Bird neve melletti három pontra, és frissítse az alkalmazásokat, ha vannak elérhető frissítések.
 7. Kattintson a Mentés/Közzététel gombra.
 
-![Importing Eggs](../../../../assets/docs/eggs/ImportEggs.gif)
+![Importing Eggs](~/assets/docs/eggs/ImportEggs.gif)

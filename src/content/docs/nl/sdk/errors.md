@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Errors
 description: Leer hoe en welke fouten moeten worden veroorzaakt in de SDK
 sidebar:
@@ -12,7 +13,7 @@ Er zijn 5 verschillende soorten fouten die op de flights pagina kunnen worden we
 
 ## 1. Configuratiefout
 
-![Configuration exception](../../../../assets/docs/conventions/configuration_error.png)
+![Configuration exception](~/assets/docs/conventions/configuration_error.png)
 
 Het doel van deze fout is om de gebruiker te melden dat **zij een fout hebben gemaakt** en **alleen zij het kunnen oplossen**. Dit gebeurt meestal bij verkeerd geconfigureerde variabelen, waarden of omgevingen. Daarom wordt dit fouttype een *configuratiefout* genoemd. Voorbeelden van configuratiefouten zijn:
 
@@ -48,7 +49,7 @@ try
 
 ## 2. App reageert niet
 
-![app not responding](../../../../assets/docs/conventions/not_responding_error.png)
+![app not responding](~/assets/docs/conventions/not_responding_error.png)
 
 Het doel van deze fout is om de gebruiker te melden dat **de verbonden app problemen heeft waar noch jij** (de app-ontwikkelaar), **noch de gebruiker iets aan kan doen**. Dit is meestal het geval wanneer de app een onverwacht probleem geeft (500), of wanneer de API een fout geeft die bedoeld is voor de gebruiker, in plaats van voor de app-ontwikkelaar. Voorbeelden zijn:
 
@@ -62,7 +63,7 @@ De 'app reageert niet'-fout kan worden veroorzaakt met de klasse `PluginApplicat
 
 ## 3. Onverwacht app-probleem
 
-![unexpected_error](../../../../assets/docs/conventions/unexpected_error.png)
+![unexpected_error](~/assets/docs/conventions/unexpected_error.png)
 
 Alle andere fouten die door je app worden veroorzaakt, verschijnen als *onverwachte fouten*. Het doel is om **het aantal onverwachte fouten te minimaliseren**. Als een onverwachte fout wordt gezien, is het de verantwoordelijkheid van de app-ontwikkelaar om de fout in code af te handelen of een van de andere 2 fouttypes te veroorzaken.
 

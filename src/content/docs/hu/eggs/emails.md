@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Gyakori e-mail-rendelés/projekt használati esetek
 description: Vizsgáljuk meg alaposabban az e-mailekkel kapcsolatos gyakori használati eseteket
 sidebar:
@@ -11,7 +12,7 @@ sidebar:
 
 A Blackbird-ben az Eggs (tojások) a munkafolyamataid magjai vagy tervrajzai. Ezek olyan kezdeti ötleteket képviselnek, amelyek teljes értékű Birds-ekké (madarakká) válhatnak.
 
-Ebben az Egg-útmutatóban felfedezzük az e-mailekkel kapcsolatos gyakori használati eseteket [Microsoft Outlook](https://docs.blackbird.io/apps/microsoft-365-email-outlook/) vagy [Gmail](https://docs.blackbird.io/apps/gmail/) segítségével. A **Letölthető Eggs** a végén találhatók - tölts le JSON munkafolyamatokat, hogy [importáld a Nest-edbe](https://docs.blackbird.io/eggs/emails/#importing-eggs), add hozzá a kapcsolataidat, végezd el a kívánt módosításokat, és **repülj**.
+Ebben az Egg-útmutatóban felfedezzük az e-mailekkel kapcsolatos gyakori használati eseteket [Microsoft Outlook](../../apps/microsoft-365-email-outlook/) vagy [Gmail](../../apps/gmail/) segítségével. A **Letölthető Eggs** a végén találhatók - tölts le JSON munkafolyamatokat, hogy [importáld a Nest-edbe](../../eggs/emails/#importing-eggs), add hozzá a kapcsolataidat, végezd el a kívánt módosításokat, és **repülj**.
 
 ## Folyamat áttekintése
 
@@ -26,24 +27,24 @@ Az új rendelés/projekt részleteit válaszként elküldjük. Gépi fordítás�
 
 ## Tippek
 
-- **Szűrők:** Döntési lépések vagy szűrők adhatók hozzá annak biztosítására, hogy csak a megfelelő e-maileket kezeljük. Pl. ellenőrizzük, hogy a tárgy tartalmaz-e bizonyos előre meghatározott kulcsszavakat. Ha a [Gmail](https://docs.blackbird.io/apps/gmail/) alkalmazást használod, egy szűrő adható hozzá az `On emails received` indítóeseményhez keresési lekérdezés formájában.
+- **Szűrők:** Döntési lépések vagy szűrők adhatók hozzá annak biztosítására, hogy csak a megfelelő e-maileket kezeljük. Pl. ellenőrizzük, hogy a tárgy tartalmaz-e bizonyos előre meghatározott kulcsszavakat. Ha a [Gmail](../../apps/gmail/) alkalmazást használod, egy szűrő adható hozzá az `On emails received` indítóeseményhez keresési lekérdezés formájában.
 - **Információkinyerés:** megállapodható egy űrlapszerkezet, amelyből reguláris kifejezésekkel nyerhetünk ki információkat. Ez hibalehetőségeket rejthet az emberi beviteltől való függés miatt. LLM is használható a fontos részletek kinyerésére az e-mail szövegéből a kívánt formátumban.
-- **Nyelvi konverzió:** Az alkalmazások különböző nyelvkód szabványokat használnak. A [Libraries](https://docs.blackbird.io/concepts/libraries/) segíthetnek ezeket a különbségeket megoldani.
+- **Nyelvi konverzió:** Az alkalmazások különböző nyelvkód szabványokat használnak. A [Libraries](../../concepts/libraries/) segíthetnek ezeket a különbségeket megoldani.
 - **Gépi fordítás:** MT alkalmazások használhatók a lefordított fájlok szinte azonnali visszaküldésére.
 - **Minőségbecslés:** Döntési lépés adható hozzá annak meghatározására, hogy az MT fordításokat végső verzióként küldjük-e vissza, vagy emberi ellenőrzésre irányítsuk.
-- **Lekérdezési események:** Egyes alkalmazások [lekérdezést](https://docs.blackbird.io/concepts/triggers/#polling) használnak webhookok helyett az új e-mailek észlelésére. Ellenőrizd az _Interval_ lapot az indítóesemény beállításakor, és válaszd a számodra megfelelő időt (5 perc és 7 nap között).
+- **Lekérdezési események:** Egyes alkalmazások [lekérdezést](../../concepts/triggers/#polling) használnak webhookok helyett az új e-mailek észlelésére. Ellenőrizd az _Interval_ lapot az indítóesemény beállításakor, és válaszd a számodra megfelelő időt (5 perc és 7 nap között).
 
 Egg, amely e-maileket kap az Outlookból a DeepL-be és a Tradosba.
-![Egg e-mailekkel](../../../../assets/docs/eggs/Egg6_Outlook_DeepL_Trados.png)
+![Egg e-mailekkel](~/assets/docs/eggs/Egg6_Outlook_DeepL_Trados.png)
 
 Közelebbi pillantás az e-mail válaszra.
-![E-mail válasz](../../../../assets/docs/eggs/Egg6_InstantReply.png)
+![E-mail válasz](~/assets/docs/eggs/Egg6_InstantReply.png)
 
 Példa promtra a nyelvkódok kinyeréséhez
-![LLM prompt](../../../../assets/docs/eggs/Egg6_GetLanguageExample.png)
+![LLM prompt](~/assets/docs/eggs/Egg6_GetLanguageExample.png)
 
 Nyelvkódok kinyerése reguláris kifejezések segítségével.
-![Regex](../../../../assets/docs/eggs/Egg6_ExtractLanguagesRegex.png)
+![Regex](~/assets/docs/eggs/Egg6_ExtractLanguagesRegex.png)
 
 ## Egg letöltése
 
@@ -64,4 +65,4 @@ Egy Egg importálása a Nest-be:
 5. Frissítsd a kapcsolat részleteit és bármilyen más szükséges bemeneti/kimeneti paramétert vagy kívánt lépést. Figyelj a piros figyelmeztető jelekre a lépés neve mellett, amelyek hiányzó részletekre utalnak az adott lépésben.
 6. Kattints a Mentés/Közzététel gombra.
 
-![Eggs importálása](../../../../assets/docs/eggs/ImportEggs.gif)
+![Eggs importálása](~/assets/docs/eggs/ImportEggs.gif)

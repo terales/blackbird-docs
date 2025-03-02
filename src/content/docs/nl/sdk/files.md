@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Files
 description: Leer hoe je met (grote) bestanden in Blackbird kunt werken.
 sidebar:

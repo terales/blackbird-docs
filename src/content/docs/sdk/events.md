@@ -1,4 +1,5 @@
 ---
+locale: en
 title: Defining Events
 description: Learn how to define webhook and callback events in a Blackbird project.
 sidebar:
@@ -198,7 +199,7 @@ public Task<WebhookResponse<CallbackPayload>> OnCallbackReceived(WebhookRequest 
 
 This translates to:
 
-![callback](../../../assets/docs/callback.png)
+![callback](~/assets/docs/callback.png)
 
 > Tip: one can use the callback functionality to create "callable" birds as if Blackbird had its own API.
 

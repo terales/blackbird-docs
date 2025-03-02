@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Blackbird App
 description: Egy Egg, amely lehetőséget nyújt figyelő Madaraknak a létrehozására, hogy nyomon követhess mindent, ami a Blackbird példányodban történik
 sidebar:
@@ -25,7 +26,7 @@ A Blackbird alkalmazás legnépszerűbb felhasználási esete a Blackbird-ben a 
 
 > Használd az opcionális bemeneteket egy adott Fészek figyeléséhez, különben egyetlen Madár fogja figyelni a Blackbird példányodban lévő összes Fészket.
 
-![Egg](../../../../assets/docs/eggs/BBApp1.png)
+![Egg](~/assets/docs/eggs/BBApp1.png)
 Hiba eszkalációs Madár
 
 - Egg letöltése: <a href="https://docs.blackbird.io/downloads/Report_failed_Flights_on_Slack.json" download>Sikertelen Repülések jelentése Slacken</a>
@@ -33,7 +34,7 @@ Hiba eszkalációs Madár
 - Egg letöltése: <a href="https://docs.blackbird.io/downloads/Report_failed_Flights_via_Outlook_email.json" download>Sikertelen Repülések jelentése Outlook e-mailben</a>
 - Egg letöltése: <a href="https://docs.blackbird.io/downloads/Report_failed_Flights_via_Gmail.json" download>Sikertelen Repülések jelentése Gmailben</a>
 
-![Egg](../../../../assets/docs/eggs/BBApp2.png)
+![Egg](~/assets/docs/eggs/BBApp2.png)
 Hiba naplózó Madár
 
 - Egg letöltése: <a href="https://docs.blackbird.io/downloads/Log_failed_Flights_on_Google_Sheets.json" download>Sikertelen Repülések naplózása Google Sheetsben</a>
@@ -43,7 +44,7 @@ Hiba naplózó Madár
 
 Figyeld az adott Fészekhez hozzáadott vagy onnan eltávolított felhasználókat.
 
-![Egg](../../../../assets/docs/eggs/BBApp3.png)
+![Egg](~/assets/docs/eggs/BBApp3.png)
 
 - Egg letöltése: <a href="https://docs.blackbird.io/downloads/On_user_removed_send_Slack_message.json" download>Felhasználó eltávolításakor Slack üzenet küldése</a>
 
@@ -51,7 +52,7 @@ Figyeld az adott Fészekhez hozzáadott vagy onnan eltávolított felhasználók
 
 Értesülj a Madarak felfüggesztéséről vagy aktiválásáról: kapj valós idejű értesítéseket a Termelési Fészkedben történő változásokról.
 
-![Egg](../../../../assets/docs/eggs/BBApp4.png)
+![Egg](~/assets/docs/eggs/BBApp4.png)
 
 > Használd az opcionális bemeneteket egy adott Fészek figyeléséhez, különben egyetlen Madár fogja figyelni a Blackbird példányodban lévő összes Fészket.
 
@@ -69,4 +70,4 @@ Egg importálása a Fészkedbe:
 6. Kattints a Madár neve melletti három pontra, és frissítsd az alkalmazásokat, ha vannak elérhető frissítések.
 7. Kattints a Mentés/Közzététel gombra.
 
-![Egg-ek importálása](../../../../assets/docs/eggs/ImportEggs.gif)
+![Egg-ek importálása](~/assets/docs/eggs/ImportEggs.gif)

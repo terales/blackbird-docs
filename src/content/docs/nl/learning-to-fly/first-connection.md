@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Uw Eerste Verbinding Maken
 description: De bedrading van apps.
 sidebar:
@@ -14,4 +15,4 @@ Voordat u begint, moet u ervoor zorgen dat u een app heeft. U kunt naar het tabb
 
 Wanneer u een of meerdere apps in uw weergave heeft toegevoegd, kunt u op de app klikken om te beginnen met verbinden. Klik op het verbindingenscherm op _Add connection_. Volg de instructies of lees de app-specifieke documentatie.
 
-![connection](../../../../assets/docs/connection.png)
+![connection](~/assets/docs/connection.png)

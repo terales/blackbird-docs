@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Hibák
 description: Ismerje meg, hogyan és milyen hibákat dobjon az SDK-ban
 sidebar:
@@ -12,7 +13,7 @@ A repülések oldalon 5 különböző típusú hiba jeleníthető meg. 2 típus�
 
 ## 1. Konfigurációs hiba
 
-![Configuration exception](../../../../assets/docs/conventions/configuration_error.png)
+![Configuration exception](~/assets/docs/conventions/configuration_error.png)
 
 Ennek a hibának a célja, hogy értesítse a felhasználót arról, hogy **hibát követett el**, és **csak ő tudja megoldani**. Ez általában helytelenül konfigurált változók, értékek vagy környezetek esetén fordul elő. Ezért ezt a hibatípust *konfigurációs hibának* nevezzük. Konfigurációs hibák példái:
 
@@ -48,7 +49,7 @@ try
 
 ## 2. Az alkalmazás nem válaszol
 
-![app not responding](../../../../assets/docs/conventions/not_responding_error.png)
+![app not responding](~/assets/docs/conventions/not_responding_error.png)
 
 Ennek a hibának a célja, hogy értesítse a felhasználót arról, hogy **a csatlakoztatott alkalmazásnak olyan problémái vannak, amelyekkel sem Ön** (az alkalmazásfejlesztő), **sem a felhasználó nem tud mit kezdeni**. Ez általában akkor fordul elő, amikor az alkalmazás váratlan problémát dob (500), vagy amikor az API olyan hibát dob, amely a felhasználónak, nem pedig az alkalmazásfejlesztőnek szól. Példák:
 
@@ -62,7 +63,7 @@ Az alkalmazás nem válaszol hiba a `PluginApplicationException` osztállyal dob
 
 ## 3. Váratlan alkalmazásprobléma
 
-![unexpected_error](../../../../assets/docs/conventions/unexpected_error.png)
+![unexpected_error](~/assets/docs/conventions/unexpected_error.png)
 
 Minden más hiba, amelyet az alkalmazása dob, *váratlan hibaként* jelenik meg. A cél a **váratlan hibák számának minimalizálása**. Ha váratlan hiba jelentkezik, az alkalmazásfejlesztő felelőssége, hogy vagy kezelje a hibát a kódban, vagy a másik 2 hibatípus valamelyikét dobja.
 

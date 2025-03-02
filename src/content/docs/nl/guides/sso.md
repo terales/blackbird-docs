@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: SSO
 description: Stroomlijn uw authenticatie met Single Sign-On (SSO) integratie
 sidebar:
@@ -16,7 +17,7 @@ Bij Blackbird bieden we flexibele inlogopties die bij uw behoeften passen. U kun
 
 Selecteer op het inlogscherm de Google- of Microsoft-knop na het invoeren van uw e-mailadres.
 
-![Initial](../../../../assets/guides/sso/buttons.png)
+![Initial](~/assets/guides/sso/buttons.png)
 
 Deze actie opent de geselecteerde service en vraagt u om in te loggen, als u dat nog niet hebt gedaan.
 

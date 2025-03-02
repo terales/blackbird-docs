@@ -1,4 +1,5 @@
 ---
+locale: uk
 title: Визначення подій
 description: Дізнайтеся, як визначати події вебхуків та зворотних викликів у проєкті Blackbird.
 sidebar:
@@ -198,7 +199,7 @@ public Task<WebhookResponse<CallbackPayload>> OnCallbackReceived(WebhookRequest 
 
 Це перекладається в:
 
-![callback](../../../../assets/docs/callback.png)
+![callback](~/assets/docs/callback.png)
 
 > Порада: можна використовувати функціонал зворотного виклику для створення "викликаних" робочих процесів, ніби у Blackbird був свій власний API.
 

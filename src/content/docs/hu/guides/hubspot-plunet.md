@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: Plunet & Hubspot CRM
 description: Első bevezetőnk a megoldásépítésbe a Blackbird segítségével - szinkronizáljuk a Plunet ügyfél/megrendelés adatait a Hubspot CRM-mel!
 sidebar:
@@ -38,7 +39,7 @@ Kezdjük a Plunettel, de röviden:
 - Több megrendelés lehet, mindegyik az ügyféllel megkötött üzletet képviseli.
 - Egy Plunet megrendelés egy "belső erőforráshoz" van kapcsolva projektmenedzserként, egy ügyfélhez és annak egy kapcsolattartójához.
 
-![Plunet diagram](../../../../assets/guides/hubspot-plunet/plunet-diagram.png)
+![Plunet diagram](~/assets/guides/hubspot-plunet/plunet-diagram.png)
 
 A Hubspotban a dolgok hasonlóak, de jelentős különbséggel:
 
@@ -47,13 +48,13 @@ A Hubspotban a dolgok hasonlóak, de jelentős különbséggel:
 - Több üzlet van. Egy üzletnek van egy "üzlet tulajdonosa", aki egy Hubspot felhasználó
 - E három entitás között sok-a-sokhoz kapcsolatok léteznek. A Hubspot "asszociációkat" használ ezeknek a kapcsolatoknak a nyilvántartására.
 
-![Hubspot diagram](../../../../assets/guides/hubspot-plunet/hubspot-diagram.png)
+![Hubspot diagram](~/assets/guides/hubspot-plunet/hubspot-diagram.png)
 
 Ezek a struktúrák elég hasonlóak ahhoz, hogy leképezést készítsünk a kettő között. Azonban néhány esetben ezek a hasonlóságok nem léteznek. Ezekben az esetekben célszerű megvizsgálni, hogyan képezték le ezeket a kapcsolatokat az adott szervezetben.
 
 Rajzoljuk fel a szemantikai kapcsolati térképet:
 
-![Hubspot Plunet](../../../../assets/guides/hubspot-plunet/hubspot-plunet.png)
+![Hubspot Plunet](~/assets/guides/hubspot-plunet/hubspot-plunet.png)
 
 ## 3. A kapcsolatok implementálása
 
@@ -63,11 +64,11 @@ Valahol tárolni kell a másik megfelelő entitásra való hivatkozásokat. Szer
 
 A Plunet esetében létrehozunk egy _szövegmodult_ és alkalmazzuk azt az Ügyfelekre, belső erőforrásokra és megrendelésekre. A szövegmodul neve _Hubspot ID_ lesz, hogy elmenthessük a megfelelő entitások Hubspot azonosítóit. A szövegmodulokról további információkat a [Plunet dokumentációjában](https://kb.plunet.com/display/KB/Text+modules) találhat.
 
-![Plunet text module](../../../../assets/guides/hubspot-plunet/plunet-text-module.png)
+![Plunet text module](~/assets/guides/hubspot-plunet/plunet-text-module.png)
 
 A Hubspotban minden entitás rendelkezhet _Egyéni tulajdonságokkal_ (Beállítások -> Adatkezelés -> Tulajdonságok). Létrehozhatunk egy új tulajdonságot mindegyik releváns entitáson. Az egyéni tulajdonságokról további információkat a [Hubspot dokumentációjában](https://knowledge.hubspot.com/properties/create-and-edit-properties) találhat.
 
-![Plunet properties](../../../../assets/guides/hubspot-plunet/hubspot-properties.png)
+![Plunet properties](~/assets/guides/hubspot-plunet/hubspot-properties.png)
 
 Létrehoztuk a két különálló rendszerünkben lévő entitások szemantikai összekapcsolásához szükséges infrastruktúrát, és készen állunk a következő lépésre!
 
@@ -97,7 +98,7 @@ Elérkeztünk a legfontosabb lépéshez, amelyet a madár építése előtt tesz
 
 Végre készen állunk a madár megépítésére! Ha helyesen tervezted meg a műveleteidet, akkor a madárban szereplő műveletek alapvetően megfelelnek azoknak a manuális lépéseknek, amelyeket végre kellene hajtanod.
 
-![Simple bird](../../../../assets/guides/hubspot-plunet/bird-simple.png)
+![Simple bird](~/assets/guides/hubspot-plunet/bird-simple.png)
 
 Ahogy látható, a számozott műveletek megfelelnek a fent megtervezett lépéseknek!
 
@@ -115,7 +116,7 @@ A legjobb módja annak, hogy elkerüljük ezt az újonnan létrehozott problém�
 
 Ezekkel a részletekkel kiegészítve a teljes madár így néz ki:
 
-![Complete bird](../../../../assets/guides/hubspot-plunet/complete-bird.png)
+![Complete bird](~/assets/guides/hubspot-plunet/complete-bird.png)
 
 Gratulálunk! Elvégezted a megoldásépítő összes lépését egy üzemkész madár létrehozásához!
 

@@ -1,5 +1,6 @@
 ---
-title: Setting Up a Blackbird Project
+locale: hu
+title: Projekt beállítása és alkalmazások klónozása
 description: Ismerje meg, hogyan hozhat létre Blackbird projektet a Blackbird SDK használatával.
 sidebar:
   label: Projekt beállítása és alkalmazások klónozása
@@ -36,7 +37,7 @@ A `Blackbird.Applications.Sdk.Common` csomag telepítéséhez a NuGet Package Ma
 3. A _Böngészés_ fülön keressen rá a _Blackbird.Applications.Sdk.Common_ kifejezésre, válassza ki a `Blackbird.Applications.Sdk.Common` csomagot a listából, majd kattintson a _Telepítés_ gombra.
 4. Amikor a rendszer kéri a telepítés megerősítését, kattintson az _OK_ gombra.
 
-![nuget](../../../../assets/docs/nuget.png)
+![nuget](~/assets/docs/nuget.png)
 
 ## Sablon alapján
 
@@ -52,10 +53,10 @@ Nyissa meg a solution fájlt és fedezze fel a projektet
 
 Klónozza annak az alkalmazásnak a repozitóriumát, amelyet módosítani szeretne. A Blackbird összes repozitóriumát [itt](https://github.com/orgs/bb-io/repositories) találja.
 
-A módosítások telepítésekor egy egyéni alkalmazásban kell ezt megtennie. Kérjük, tekintse meg a [telepítési útmutatót](/blackbird-docs/sdk/deploying). Vegye figyelembe, hogy a metaadat struktúrában a `Product` és az `AssemblyName` változókat is módosítania kell. Lásd alább.
+A módosítások telepítésekor egy egyéni alkalmazásban kell ezt megtennie. Kérjük, tekintse meg a [telepítési útmutatót](../../sdk/deploying). Vegye figyelembe, hogy a metaadat struktúrában a `Product` és az `AssemblyName` változókat is módosítania kell. Lásd alább.
 
 ## Metaadat struktúra
 
 A Blackbird a `.csproj` fájlban meghatározott tulajdonságokat használja a metaadat mezők kitöltéséhez. A legtöbb egyéni alkalmazás esetében csak a Version és az AssemblyName releváns (a többi tulajdonság a felhasználói felületen van meghatározva). Egy meglévő alkalmazás újabb verziójának feltöltésekor győződjön meg arról, hogy a verziószám magasabb.
 
-![nuget](../../../../assets/docs/csproj.png)
+![nuget](~/assets/docs/csproj.png)

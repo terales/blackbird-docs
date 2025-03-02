@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Introductie
 description: Spreid voor het eerst je vleugels met Blackbird.
 sidebar:

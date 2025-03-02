@@ -1,4 +1,5 @@
 ---
+locale: hu
 title: SSO
 description: Egyszerűsítse a hitelesítést az egyszeri bejelentkezés (SSO) integrációval
 sidebar:
@@ -16,7 +17,7 @@ A Blackbird-nél rugalmas bejelentkezési lehetőségeket kínálunk az igényei
 
 A bejelentkezési képernyőn válassza a Google vagy Microsoft gombot az e-mail címének megadása után.
 
-![Initial](../../../../assets/guides/sso/buttons.png)
+![Initial](~/assets/guides/sso/buttons.png)
 
 Ez megnyitja a kiválasztott szolgáltatást, és felkéri a bejelentkezésre, ha még nem tette meg.
 

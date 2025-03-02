@@ -1,4 +1,5 @@
 ---
+locale: nl
 title: Deploying Your App
 description: Leer hoe je een Blackbird app implementeert.
 sidebar:
@@ -14,7 +15,7 @@ Voordat je een app implementeert, zorg ervoor dat deze minimaal een klasse bevat
 
 1. Klik met de rechtermuisknop op je project in de solution explorer en klik op _Publish_
 
-![connection](../../../../assets/docs/publishing.png)
+![connection](~/assets/docs/publishing.png)
 
 2. Als je nog geen publicatieprofiel hebt gemaakt, maak dan een publicatieprofiel aan dat publiceert naar een lokale map.
 3. Klik op _Publish_ en vervolgens op _Open folder_
@@ -22,7 +23,7 @@ Voordat je een app implementeert, zorg ervoor dat deze minimaal een klasse bevat
 
 > **Opmerking: Als je op een Mac werkt, zorg ervoor dat je de verborgen _\_MACOSX_ map in het zip-archief verwijdert voordat je het uploadt naar Blackbird.**
 
-![zipping](../../../../assets/docs/zipping.png)
+![zipping](~/assets/docs/zipping.png)
 
 ## Uploaden
 
@@ -32,4 +33,4 @@ Als je een bestaande app wilt updaten. Klik bij de app die je wilt updaten op _N
 
 > Opmerking: Zorg er bij het updaten van een app voor dat de nieuwe versie van de app (gedefinieerd in het `.csproj` bestand) hoger is dan de bestaande versie.
 
-![zipping](../../../../assets/docs/upload.png)
+![zipping](~/assets/docs/upload.png)
