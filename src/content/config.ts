@@ -6,7 +6,7 @@ import { locales } from '~/../i18n.config.mjs';
 export const collections = {
 	docs: defineCollection({ schema: docsSchema({
 		extend: z.object({
-			locale: z.enum(['', ...Object.keys(locales)]),
+			locale: z.enum(['', ...Object.keys(locales)]).optional(),
 		  }),
 	}) }),
 	i18n: defineCollection({ type: 'data', schema: i18nSchema() }),
