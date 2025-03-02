@@ -19,7 +19,7 @@ Om een herhalingsbeleid in te stellen in Blackbird:
 2. Definieer het maximale aantal herhalingen in het veld '_Number of retries_'.
 3. Specificeer het herhalingsinterval in het veld '_Frequency (Seconds)_'.
 
-![Retry policy](../../../../assets/guides/errors/retry.png)
+![Retry policy](~/assets/guides/errors/retry.png)
 
 De vogel zal nu proberen de actie opnieuw uit te voeren met het aangegeven aantal keren op het gespecificeerde interval als er een fout optreedt.
 
@@ -44,7 +44,7 @@ Om dit mogelijk te maken:
 1. Zoek de gewenste actie in je workflow en ga naar het tabblad '_Error Handling_'.
 2. Zet '_Enable Skip Action_' aan.
 
-![Skip](../../../../assets/guides/errors/skip.png)
+![Skip](~/assets/guides/errors/skip.png)
 
 Als deze specifieke actie nu een fout geeft, wordt deze overgeslagen, zodat de workflow kan doorgaan.
 

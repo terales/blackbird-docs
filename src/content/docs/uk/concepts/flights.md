@@ -14,4 +14,4 @@ sidebar:
 
 Ви можете натиснути _Edit_, щоб відкрити сторінку редактора поточного Bird, де можна внести необхідні зміни.
 
-![connection](../../../../assets/docs/flight-details.png)
+![connection](~/assets/docs/flight-details.png)

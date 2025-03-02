@@ -14,4 +14,4 @@ Om je flights te controleren, navigeer naar het tabblad _Flights_ en klik op een
 
 Je kunt op _Edit_ klikken om de editorpagina van de huidige Bird te openen, waar je de nodige aanpassingen kunt maken.
 
-![connection](../../../../assets/docs/flight-details.png)
+![connection](~/assets/docs/flight-details.png)

@@ -22,15 +22,15 @@ Libraries worden gebruikt om:
 
 In Blackbird is er een speciaal tabblad voor Libraries (navigatiebalk rechtsboven). Het standaard gebruiksgeval is voor taalcodes: hoewel er standaarden bestaan, gebruikt elke app een andere code om naar dezelfde taal te verwijzen. Daarom gebruiken we de standaard library om verschillende codevarianten op te slaan die verwijzen naar dezelfde taal in verschillende apps.
 
-![Library Tab and Default Library](../../../../assets/docs/libraries/LibrariesTab.gif)
+![Library Tab and Default Library](~/assets/docs/libraries/LibrariesTab.gif)
 
 Binnen je workflow (Bird) kun je verwijzen naar de library door de Convert-operator te gebruiken. Klik op het plus-teken, alsof je een actie toevoegt, maar selecteer Operator in plaats daarvan. Kies vervolgens `Convert`, de te gebruiken library, en de gegevensdelen die je wilt converteren van en naar. Zodra je Bird vliegt (_workflow draait_), worden gegevens getransformeerd en dienovereenkomstig doorgestuurd.
 
-<!-- ![Convert Operator](../../../../assets/docs/libraries/Convert.gif) -->
+<!-- ![Convert Operator](~/assets/docs/libraries/Convert.gif) -->
 
 Hier is een voorbeeld waarbij de output van het ene hulpmiddel de input van het volgende wordt, en daartussenin volgt de Convert-operator de regels in de library om ervoor te zorgen dat alles soepel werkt op het gebied van interoperabiliteit, zelfs wanneer de twee hulpmiddelen verschillende standaarden gebruiken om naar talen te verwijzen. In dit geval krijgen we de lijst met talen waarvoor een vertaling ontbreekt voor een bepaald artikel in Zendesk en we willen de artikelen vertalen naar deze talen via DeepL. We weten echter dat DeepL een andere code gebruikt om naar dezelfde talen te verwijzen. Daarom stellen we deze codes eenmalig in onze library in, voegen we de Convert-operator toe als onderdeel van onze workflow, en hebben we nu een volledig functionele Bird die niet zal worden onderbroken omdat twee apps _niet dezelfde taal spreken_.
 
-![Example Bird](../../../../assets/docs/libraries/SampleBird.png)
+![Example Bird](~/assets/docs/libraries/SampleBird.png)
 
 Hoewel de standaard Library alleen-lezen is, kun je ook je eigen aangepaste libraries maken.
 
@@ -44,7 +44,7 @@ Terwijl je kunt profiteren van het gebruik van de Languages library, kun je ook 
 | 2 | Technisch      | Template B      | 0.85              |
 | 3 | Door gebruiker gegenereerd | Template C | 0.8       |
 
-![Custom](../../../../assets/docs/libraries/Custom.png)
+![Custom](~/assets/docs/libraries/Custom.png)
 
 ## Hoe maak je je eigen Library
 
@@ -52,14 +52,14 @@ Om een nieuwe library toe te voegen kun je:
 
 1. Klik op de knop `Add Library`. Kies een naam en beschrijving. Open de library en voeg handmatig rijen en kolommen toe, waarbij je de inhoud vult door de cellen in te vullen met relevante waarden.
 
-![Add Library](../../../../assets/docs/libraries/AddLibrary.gif)
+![Add Library](~/assets/docs/libraries/AddLibrary.gif)
 
 2. Kloon een bestaande library en bewerk de inhoud ervan.
 
-![Clone Library](../../../../assets/docs/libraries/CloneLibrary.gif)
+![Clone Library](~/assets/docs/libraries/CloneLibrary.gif)
 
 3. Importeer een of meerdere .csv-bestanden met de knop `Import`. De inhoud van het bestand wordt de inhoud van de library, waarbij de bovenste rij als kolomkoppen wordt gebruikt en de linkerkolom als entiteitsnamen. Standaard wordt de naam van je eerste bestand de naam van de library, tenzij je deze bewerkt. Naam en beschrijving kunnen ook later worden bewerkt.
 
-![Import Library](../../../../assets/docs/libraries/ImportLibrary.gif)
+![Import Library](~/assets/docs/libraries/ImportLibrary.gif)
 
 > Libraries kunnen ook worden gekopieerd naar andere Nests, geëxporteerd als `.csv`-bestanden, hernoemd en verwijderd.

@@ -25,7 +25,7 @@ sidebar:
 Оброблені файли завантажуються назад до TMS.
 
 Яйце між Phrase та Anthropic
-![Egg](../../../../assets/docs/eggs/Egg2-Phrase-to-Anthropic.png)
+![Egg](~/assets/docs/eggs/Egg2-Phrase-to-Anthropic.png)
 
 ## Поради
 
@@ -38,10 +38,10 @@ sidebar:
 - **Потрібні цикли:** Незалежно від того, ітеруєте ви через список цільових мов чи надсилаєте кожен файл з групи завантажених файлів до дії, що приймає лише один за раз, [цикли](https://docs.blackbird.io/guides/loops/) є ключовим елементом.
 
 Яйце між MemoQ та Anthropic
-![Egg simple](../../../../assets/docs/eggs/Egg2-memoQ-to-Anthropic.png)
+![Egg simple](~/assets/docs/eggs/Egg2-memoQ-to-Anthropic.png)
 
 Яйце між MemoQ та OpenAI з глосаріями.
-![Egg with Glossary](../../../../assets/docs/eggs/Egg2-memoQ-to-OpenAI-with-glossary.png)
+![Egg with Glossary](~/assets/docs/eggs/Egg2-memoQ-to-OpenAI-with-glossary.png)
 
 ## Рекомендовані програми
 
@@ -72,4 +72,4 @@ sidebar:
 6. Натисніть на три крапки поруч з назвою Bird і оновіть програми, якщо є доступні оновлення.
 7. Натисніть Зберегти/Опублікувати.
 
-![Importing Eggs](../../../../assets/docs/eggs/ImportEggs.gif)
+![Importing Eggs](~/assets/docs/eggs/ImportEggs.gif)

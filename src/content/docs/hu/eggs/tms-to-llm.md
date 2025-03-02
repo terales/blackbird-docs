@@ -25,7 +25,7 @@ A letöltött fájlokat feldolgozásra küldjük egy LLM-nek.
 A feldolgozott fájlokat visszatöltjük a TMS-be.
 
 Egg a Phrase és az Anthropic között
-![Egg](../../../../assets/docs/eggs/Egg2-Phrase-to-Anthropic.png)
+![Egg](~/assets/docs/eggs/Egg2-Phrase-to-Anthropic.png)
 
 ## Tippek
 
@@ -38,10 +38,10 @@ Egg a Phrase és az Anthropic között
 - **Ciklusok szükségesek:** Akár a célnyelvek listáján kell végigmenni, akár minden egyes fájlt a letöltött fájlcsoportból olyan művelethez kell küldeni, amely egyszerre csak egyet fogad, a [ciklusok](https://docs.blackbird.io/guides/loops/) jelentik a megoldást.
 
 Egg a MemoQ és az Anthropic között
-![Egg simple](../../../../assets/docs/eggs/Egg2-memoQ-to-Anthropic.png)
+![Egg simple](~/assets/docs/eggs/Egg2-memoQ-to-Anthropic.png)
 
 Egg a MemoQ és az OpenAI között szószedetekkel.
-![Egg with Glossary](../../../../assets/docs/eggs/Egg2-memoQ-to-OpenAI-with-glossary.png)
+![Egg with Glossary](~/assets/docs/eggs/Egg2-memoQ-to-OpenAI-with-glossary.png)
 
 ## Javasolt alkalmazások
 
@@ -72,4 +72,4 @@ Egg importálása a Nest-be:
 6. Kattintson a Bird neve melletti három pontra, és frissítse az alkalmazásokat, ha vannak elérhető frissítések.
 7. Kattintson a Mentés/Közzététel gombra.
 
-![Importing Eggs](../../../../assets/docs/eggs/ImportEggs.gif)
+![Importing Eggs](~/assets/docs/eggs/ImportEggs.gif)

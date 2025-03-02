@@ -25,7 +25,7 @@ sidebar:
 
 > Використовуйте додаткові вхідні дані для моніторингу конкретного Nest, інакше один Bird буде відстежувати всі Nests у вашому екземплярі Blackbird.
 
-![Egg](../../../../assets/docs/eggs/BBApp1.png)
+![Egg](~/assets/docs/eggs/BBApp1.png)
 Bird ескалації помилок
 
 - Завантажити Egg: <a href="https://docs.blackbird.io/downloads/Report_failed_Flights_on_Slack.json" download>Звітувати про невдалі Flights у Slack</a>
@@ -33,7 +33,7 @@ Bird ескалації помилок
 - Завантажити Egg: <a href="https://docs.blackbird.io/downloads/Report_failed_Flights_via_Outlook_email.json" download>Звітувати про невдалі Flights через Outlook email</a>
 - Завантажити Egg: <a href="https://docs.blackbird.io/downloads/Report_failed_Flights_via_Gmail.json" download>Звітувати про невдалі Flights через Gmail</a>
 
-![Egg](../../../../assets/docs/eggs/BBApp2.png)
+![Egg](~/assets/docs/eggs/BBApp2.png)
 Bird для логування помилок
 
 - Завантажити Egg: <a href="https://docs.blackbird.io/downloads/Log_failed_Flights_on_Google_Sheets.json" download>Логувати невдалі Flights у Google Sheets</a>
@@ -43,7 +43,7 @@ Bird для логування помилок
 
 Моніторинг користувачів, доданих або видалених з конкретного Nest.
 
-![Egg](../../../../assets/docs/eggs/BBApp3.png)
+![Egg](~/assets/docs/eggs/BBApp3.png)
 
 - Завантажити Egg: <a href="https://docs.blackbird.io/downloads/On_user_removed_send_Slack_message.json" download>При видаленні користувача надіслати повідомлення в Slack</a>
 
@@ -51,7 +51,7 @@ Bird для логування помилок
 
 Отримуйте сповіщення, коли Birds призупиняються або активуються: отримуйте сповіщення в реальному часі про зміни у вашому Production Nest.
 
-![Egg](../../../../assets/docs/eggs/BBApp4.png)
+![Egg](~/assets/docs/eggs/BBApp4.png)
 
 > Використовуйте додаткові вхідні дані для моніторингу конкретного Nest, інакше один Bird буде відстежувати всі Nests у вашому екземплярі Blackbird.
 
@@ -69,4 +69,4 @@ Bird для логування помилок
 6. Натисніть на три крапки поруч із назвою Bird і оновіть додатки, якщо доступні оновлення.
 7. Натисніть Зберегти/Опублікувати.
 
-![Імпорт Eggs](../../../../assets/docs/eggs/ImportEggs.gif)
+![Імпорт Eggs](~/assets/docs/eggs/ImportEggs.gif)

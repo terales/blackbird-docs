@@ -12,7 +12,7 @@ Minden folyamatnak valahol el kell kezdődnie: a **trigger** az, ami meghatároz
 
 A manuális triggereket (más néven [Manuális indítás](https://docs.blackbird.io/guides/manual-triggers/)) emberi beavatkozás aktiválja. Ezek a munkafolyamatok azonnal elindulnak, amint valaki a `Fly` gombra kattint. Ez a trigger típus ideális teszteléshez és hibakereséshez, vagy amikor a folyamatokat specifikus, gyakran kiszámíthatatlan feltételek alapján kell elindítani, amelyek emberi megítélést igényelnek. Ez a javasolt trigger típus, amíg a Birds-ek építésének folyamatában van.
 
-![Fly gomb](../../../../assets/docs/triggers/Fly.gif)
+![Fly gomb](~/assets/docs/triggers/Fly.gif)
 
 **Főbb jellemzők**:
 
@@ -26,7 +26,7 @@ Az ütemezett triggerek időalapúak, és előre meghatározott időközönként
 
 A Blackbird-ben választhat egy intervallumot—a Bird közzétételének pillanatától kezdve, minden X óra vagy perc elteltével a Bird aktiválódik. Egy másik lehetőség, hogy a folyamatot naponta egy adott időpontban indítja, vagy mindig a hét/hónap egy meghatározott napján. Emellett megadhat egy időzónát is, hogy elkerülje a félreértéseket.
 
-![Ütemezett](../../../../assets/docs/triggers/Scheduled.gif)
+![Ütemezett](~/assets/docs/triggers/Scheduled.gif)
 
 **Főbb jellemzők**:
 
@@ -42,7 +42,7 @@ Miután kiválasztotta az Esemény típust, lépjen a Kapcsolat fülre vagy katt
 
 Az alábbi képen különböző eseményekre reagálhatunk, amelyek a Zendesk-ben történnek, például egy új cikk közzététele.
 
-![Esemény](../../../../assets/docs/triggers/Event.png)
+![Esemény](~/assets/docs/triggers/Event.png)
 
 Amennyiben további beállításra van szükség (egyes alkalmazások ezt igénylik), előfordulhat, hogy egy URL-t kell másolni és beilleszteni valahová. Ilyen esetekben a részleteket az alkalmazás Blackbird dokumentációján belüli részében határozzák meg.
 
@@ -58,13 +58,13 @@ Néha, ha minden egyes alkalommal reagálunk, amikor valami történik, az túl 
 
 Az alábbi képen, az előző példát folytatva, nem szeretnénk minden alkalommal új TMS projektet létrehozni, amikor egy cikket közzétesznek a Zendesk-ben. Ehelyett várunk, amíg legalább öt cikket tesznek közzé, vagy két óra eltelik, amelyik előbb bekövetkezik. Ha két óra után csak három cikket tettek közzé, a Bird így is végrehajtódik, és létrehoz egy új TMS projektet e három cikk számára. Ez a beállítás biztosítja, hogy a folyamatok kellően reagálóképesek legyenek anélkül, hogy túlzott forgalmat generálnának.
 
-![Csoportosítás](../../../../assets/docs/triggers/Bucketing.png)
+![Csoportosítás](~/assets/docs/triggers/Bucketing.png)
 
 ## Lekérdezés
 
 Mivel egyes rendszerek nem rendelkeznek webhook-okkal vagy callback-ekkel, de szeretnénk gondosak és reagálóképesek lenni, a Blackbird bevezette a Lekérdezéses eseményeket. A normál felhasználó számára ez a trigger pontosan úgy néz ki, mint egy esemény-alapú, míg a háttérben a Blackbird meghatározott időközönként ellenőrzi a változásokat. Ez az ütemezett trigger típus egy alkalmazás adataiban keresi a frissítéseket annak eldöntésére, hogy elindítson-e egy munkafolyamatot, áthidalva a webhookokat nem biztosító alkalmazások közötti szakadékot, lehetővé téve Birds-eink számára, hogy _valós időben_ reagáljanak.
 
-![Lekérdezés](../../../../assets/docs/triggers/Polling.gif)
+![Lekérdezés](~/assets/docs/triggers/Polling.gif)
 
 ## Ellenőrzőpontok
 

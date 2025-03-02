@@ -19,7 +19,7 @@ Az, hogy egy munkafolyamat hogyan kezeli a hibákat, nagy hatással lehet annak 
 2. Határozd meg az újrapróbálások maximális számát a '_Number of retries_' (Újrapróbálások száma) mezőben.
 3. Add meg az újrapróbálási időközt a '_Frequency (Seconds)_' (Gyakoriság (másodperc)) mezőben.
 
-![Retry policy](../../../../assets/guides/errors/retry.png)
+![Retry policy](~/assets/guides/errors/retry.png)
 
 A madár most megpróbálja újra végrehajtani a műveletet a megadott számú alkalommal és a meghatározott időközönként, ha hibát észlel.
 
@@ -44,7 +44,7 @@ Ennek engedélyezéséhez:
 1. Keresd meg a kívánt műveletet a munkafolyamatban, majd menj az '_Error Handling_' (Hibakezelés) fülre.
 2. Kapcsold be az '_Enable Skip Action_' (Művelet kihagyásának engedélyezése) opciót.
 
-![Skip](../../../../assets/guides/errors/skip.png)
+![Skip](~/assets/guides/errors/skip.png)
 
 Most, ha ez a konkrét művelet hibát okoz, átugrásra kerül, lehetővé téve a munkafolyamat folytatását.
 

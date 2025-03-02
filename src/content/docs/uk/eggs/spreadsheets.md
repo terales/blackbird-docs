@@ -21,7 +21,7 @@ sidebar:
 
 Дія `Add new sheet row` у Blackbird ідеально підходить для цієї мети. Вона **додає новий рядок у кінці використовуваного діапазону електронної таблиці** і дозволяє передавати кілька точок даних у послідовні клітинки, зберігаючи порядок, який ви вказуєте в Blackbird. Вона також перевірить, чи є доступні рядки (Google Sheets) і додасть один, якщо ми знаходимося в кінці електронної таблиці.
 
-![Add new sheet row](../../../../assets/docs/eggs/AddNewSheetRow.png)
+![Add new sheet row](~/assets/docs/eggs/AddNewSheetRow.png)
 
 ### Пошук та оновлення інформації
 
@@ -29,11 +29,11 @@ sidebar:
 Приклад: У вас може бути стовпець у таблиці з унікальними ідентифікаторами замовлень. Щоразу, коли відбувається оновлення, ви хочете зареєструвати ці зміни (можливо, оновлення статусу) у електронній таблиці, використайте дію `Find sheet row`, щоб знайти відповідний рядок для цього конкретного замовлення, а наступні дії, такі як `Update sheet row` або `Update sheet cell`, дозволять вам змінити інформацію — наприклад, статус замовлення — в іншому стовпці, але відповідному рядку.
 Цю дію також можна поєднати з точкою прийняття рішення, щоб перевірити, чи унікальне значення вже існує в електронній таблиці. Якщо вихід дорівнює null, ви можете додати новий запис; в іншому випадку — оновити існуючий.
 
-![FindSheetRow](../../../../assets/docs/eggs/FindSheetRow.png)
+![FindSheetRow](~/assets/docs/eggs/FindSheetRow.png)
 
 Те ж саме можна зробити в Airtable. На зображенні нижче показано Bird, яка запускається щоразу, коли статус проєкту було оновлено в Bureau Works, потім ID оновленого проєкту використовується як унікальний ідентифікатор у стовпці, і ми отримуємо інформацію про рядок, використовуючи дію `Search record`. Потім ми оновлюємо правильну клітинку з новим статусом для відповідного проєкту. Таким чином, інформація про мій проєкт залишається актуальною.
 
-![AirtableSearchRecord](../../../../assets/docs/eggs/AirtableSearchRecord.png)
+![AirtableSearchRecord](~/assets/docs/eggs/AirtableSearchRecord.png)
 
 - Завантажити Egg: <a href="https://docs.blackbird.io/downloads/Bureau_Works_to_Airtable.json" download>Airtable Search record</a>
 
@@ -48,7 +48,7 @@ sidebar:
 3. Всередині циклу використовуйте дію `Get sheet cell` для отримання даних, складаючи адресу клітинки (комбінуючи відомий стовпець з поточним номером рядка з циклу).
 4. Після обробки витягнутих даних використовуйте дію `Update sheet cell`, щоб додати свій результат або відмітити рядок як оброблений.
 
-![Generate range](../../../../assets/docs/eggs/GenerateRange.png)
+![Generate range](~/assets/docs/eggs/GenerateRange.png)
 
 - Завантажити Egg: <a href="https://docs.blackbird.io/downloads/excel_generate_range.json" download>Microsoft Excel Generate Range</a>
 
@@ -60,7 +60,7 @@ sidebar:
 
 > Зауважте, що ви можете ввести 2 як початковий рядок для генерації діапазону, якщо хочете пропустити заголовки електронної таблиці.
 
-![Generate range Google Sheets](../../../../assets/docs/eggs/GenerateRange2.png)
+![Generate range Google Sheets](~/assets/docs/eggs/GenerateRange2.png)
 
 - Завантажити Egg: <a href="https://docs.blackbird.io/downloads/google_sheets_generate_range.json" download>Google Sheets Generate Range</a>
 
@@ -72,11 +72,11 @@ sidebar:
 3. Використайте дію `Get entry by position` з додатку Utilities, щоб витягти конкретні значення стовпців на основі їх позиції в масиві (наприклад, позиція 3 для стовпця C).
 4. Після обробки даних ви можете використати `Update sheet cell`, складаючи адресу клітинки (використовуючи Row ID з циклу та вказуючи стовпець)
 
-![Iterate through range](../../../../assets/docs/eggs/IterateThroughRangeSheets.png)
+![Iterate through range](~/assets/docs/eggs/IterateThroughRangeSheets.png)
 
 Інший варіант, використовуючи підмножину та кілька записів стовпців як вхід для інших дій:
 
-![Iterate through range](../../../../assets/docs/eggs/IterateThroughRangeExcel.png)
+![Iterate through range](~/assets/docs/eggs/IterateThroughRangeExcel.png)
 
 - Завантажити Egg: <a href="https://docs.blackbird.io/downloads/google_sheets_iterate_through_range.json" download>Google Sheets Iterate through Range</a>
 - Завантажити Egg: <a href="https://docs.blackbird.io/downloads/microsoft_excel_iterate_through_range.json.json" download>Microsoft Excel Generate Range</a>
@@ -87,13 +87,13 @@ sidebar:
 #### Update Sheet Column
 Коли у вас є список або масив значень (наприклад, коди цільових мов або назви файлів), які ви хочете заповнити в стовпці електронної таблиці, дія `Update sheet column` спрощує це завдання. Ця дія може приймати як вхідні дані один або кілька масивів та/або групу окремих значень. Вони будуть записані в вказаний стовпець електронної таблиці одне значення під іншим, починаючи з наданої адреси клітинки і дотримуючись того ж порядку, в якому вони були перераховані у вхідних даних дії.
 
-![Update Sheet Column](../../../../assets/docs/eggs/Update-sheet-column.png)
+![Update Sheet Column](~/assets/docs/eggs/Update-sheet-column.png)
 
 #### Get Sheet Column
 
 Подібним чином, вам може знадобитися отримати набір значень з певного стовпця для подальшого використання. Використайте дію `Get column`, щоб вказати стовпець (наприклад, стовпець C) та початкові та кінцеві клітинки (наприклад, від 1 до 10). Вихід буде масивом, що містить значення з вказаного діапазону стовпця, який ви можете пізніше використати як вхід для наступних кроків.
 
-![Get column](../../../../assets/docs/eggs/GetColumn.png)
+![Get column](~/assets/docs/eggs/GetColumn.png)
 
 ## Імпортування Eggs
 
@@ -106,4 +106,4 @@ sidebar:
 5. Оновіть дані про підключення та будь-які інші необхідні вхідні/вихідні параметри або бажані кроки. Шукайте червоні попереджувальні знаки поруч з назвою кроку, які сигналізують про відсутні деталі в цьому кроці.
 6. Натисніть Зберегти/Опублікувати.
 
-![Importing Eggs](../../../../assets/docs/eggs/ImportEggs.gif)
+![Importing Eggs](~/assets/docs/eggs/ImportEggs.gif)

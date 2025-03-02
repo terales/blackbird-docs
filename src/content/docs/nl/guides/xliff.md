@@ -9,7 +9,7 @@ sidebar:
 
 XLIFF (XML Localization Interchange File Format) is het baken van standaardisatie in de taal- en lokalisatie-industrie, waardoor vertaalgegevens naadloos kunnen worden uitgewisseld. Het organiseert inhoud in vertalingseenheden, elk bestaande uit een bronsegment en de bijbehorende doelvertaling.
 
-![Image of XLIFF](../../../../assets/guides/xliff/ImageOfXliff.png)
+![Image of XLIFF](~/assets/guides/xliff/ImageOfXliff.png)
 
 Hoewel de meeste Translation Management Systems (TMS) en Computer-Assisted Translation (CAT) tools moeiteloos met XLIFF-bestanden kunnen werken, zijn sommige andere tools mogelijk minder bestandsvriendelijk. In de wereld van Blackbird, waar interoperabiliteit van het grootste belang is, hebben we echter nieuwe vleugels—eh, acties—ontvouwd om XLIFFs zelfs in niet-bestandsvriendelijke apps te laten vliegen.
 
@@ -64,9 +64,9 @@ Onze [ModernMT](https://docs.blackbird.io/apps/modernmt/)-app is ook aangepast z
 
 Onze nieuwste Blackbird-acties bieden een vogelperspectief op de kwaliteit van je XLIFF. Door de kwaliteitsscore van elk segment binnen de XLIFF te berekenen en een geaggregeerd cijfer terug te geven dat ons een idee geeft van de algehele kwaliteit in het bestand. Dit was voorheen alleen voorbehouden aan afzonderlijke segmenten. Bovendien worden alle vertaaleenheden aangevuld met hun individuele score die wordt toegevoegd aan het extradata-attribuut in het XLIFF-bestand.
 
-![Average Scores as output](../../../../assets/guides/xliff/AverageScore.png)
+![Average Scores as output](~/assets/guides/xliff/AverageScore.png)
 
-![Image of extradata and scores](../../../../assets/guides/xliff/Imageofextradataandscores.png)
+![Image of extradata and scores](~/assets/guides/xliff/Imageofextradataandscores.png)
 
 Optioneel kunnen de inputparameters Threshold, New Target State en Condition worden ingesteld voor de Blackbird-actie om de doelstaat-waarde van segmenten die aan de gewenste criteria voldoen te wijzigen. Dit betekent dat je correct vertaalde segmenten kunt markeren en blokkeren bij het importeren van het XLIFF-bestand in een TMS voor menselijke revisie, waardoor tijd en geld worden bespaard en inspanningen worden gericht op die segmenten die daadwerkelijk bewerking nodig hebben.
 
@@ -74,12 +74,12 @@ Voorbeeld
 
 Het instellen van de optionele invoerwaarden zoals weergegeven in de onderstaande afbeelding zal ertoe leiden dat alle segmenten met een score boven 0,9 hun doelstaat-waarden bijgewerkt krijgen naar "final". Bij het importeren van deze XLIFF-bestanden in TMS-tools kan meestal een instelling worden toegevoegd om segmenten met een specifieke doelwaarde ("final" in dit geval) te vergrendelen, zodat vertalers zich alleen kunnen concentreren op en bewerken van de segmenten van lagere kwaliteit.
 
-![Optional Input](../../../../assets/guides/xliff/optionalinput.png)
+![Optional Input](~/assets/guides/xliff/optionalinput.png)
 
-![Updated Target State](../../../../assets/guides/xliff/UpdatedTargetState.png)
+![Updated Target State](~/assets/guides/xliff/UpdatedTargetState.png)
 
 ## Aanschouw, een majestueuze vogel in actie!
 
 Hoewel de nieuwe acties op zichzelf al grote waarde toevoegen en nieuwe mogelijkheden mogelijk maken, worden ze nog krachtiger wanneer ze worden gekoppeld. Hieronder staat een voorbeeld van een bird die een .docx-bestand als invoer neemt, het bestand wordt vervolgens geconverteerd naar XLIFF voor interoperabiliteitsdoeleinden, OpenAI wordt vervolgens gebruikt om het bestand naar de doeltaal te vertalen. Daarna wordt TAUS gebruikt om de kwaliteit van genoemde vertalingen te bepalen en een beslissingsoperator wordt gebruikt om de volgende stappen voor het bestand te definiëren: als de gemiddelde kwaliteitsscore boven de gedefinieerde drempel van 0,95 ligt, wordt de XLIFF geconverteerd naar een vertaalde .docx en geleverd als definitief. Anders, als de gemiddelde score onder 0,95 ligt, wordt het bestand geïmporteerd in een TMS voor verdere menselijke bewerking. Dit zorgt ervoor dat alleen bestanden die daadwerkelijk een mens in de lus nodig hebben, worden geüpload naar de TMS, terwijl kwaliteitsvertalingen onmiddellijk worden teruggeleverd.
 
-![screenshot of bird](../../../../assets/guides/xliff/XliffSampleBird.png)
+![screenshot of bird](~/assets/guides/xliff/XliffSampleBird.png)

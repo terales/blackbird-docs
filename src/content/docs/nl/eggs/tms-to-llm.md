@@ -25,7 +25,7 @@ De gedownloade bestanden worden naar een LLM gestuurd voor verwerking.
 Verwerkte bestanden worden terug geüpload naar de TMS.
 
 Egg tussen Phrase en Anthropic
-![Egg](../../../../assets/docs/eggs/Egg2-Phrase-to-Anthropic.png)
+![Egg](~/assets/docs/eggs/Egg2-Phrase-to-Anthropic.png)
 
 ## Tips
 
@@ -38,10 +38,10 @@ Egg tussen Phrase en Anthropic
 - **Loops zijn nodig:** Of het nu gaat om het doorlopen van een lijst met doeltalen of het sturen van elk bestand binnen een groep gedownloade bestanden naar een actie die er slechts één tegelijk accepteert, [loops](https://docs.blackbird.io/guides/loops/) zijn de sleutel.
 
 Egg tussen MemoQ en Anthropic
-![Egg simple](../../../../assets/docs/eggs/Egg2-memoQ-to-Anthropic.png)
+![Egg simple](~/assets/docs/eggs/Egg2-memoQ-to-Anthropic.png)
 
 Egg tussen MemoQ en OpenAI met glossaria.
-![Egg with Glossary](../../../../assets/docs/eggs/Egg2-memoQ-to-OpenAI-with-glossary.png)
+![Egg with Glossary](~/assets/docs/eggs/Egg2-memoQ-to-OpenAI-with-glossary.png)
 
 ## Aanbevolen Apps
 
@@ -72,4 +72,4 @@ Om een Egg in uw Nest te importeren:
 6. Klik op de drie puntjes naast de naam van de Bird en update de apps als er updates beschikbaar zijn.
 7. Klik op Opslaan/Publiceren.
 
-![Importing Eggs](../../../../assets/docs/eggs/ImportEggs.gif)
+![Importing Eggs](~/assets/docs/eggs/ImportEggs.gif)

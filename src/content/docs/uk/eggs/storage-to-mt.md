@@ -25,7 +25,7 @@ sidebar:
 Перекладені файли завантажуються назад у хмарне сховище та розміщуються у визначеній папці виводу.
 
 Egg між Google Drive та DeepL
-![Egg](../../../../assets/docs/eggs/Eggs1.png)
+![Egg](~/assets/docs/eggs/Eggs1.png)
 
 ## Поради
 
@@ -39,10 +39,10 @@ Egg між Google Drive та DeepL
 - **Перейменування файлів:** Ви можете змінювати імена файлів перед повторним завантаженням. Якщо ви хочете додати код цільової мови в кінці назви файлу або вказати через назву файлу, що він був перекладений машинним перекладом, ви можете використовувати додаток [Utilities](https://docs.blackbird.io/apps/utilities/) або інші [помічники](https://docs.blackbird.io/guides/toolbox/). Приклад робочого процесу для завантаження знаходиться [внизу сторінки](https://docs.blackbird.io/eggs/storage-to-mt/#download-an-egg).
 
 Egg між Google Drive та DeepL з глосаріями.
-![Egg with Glossary](../../../../assets/docs/eggs/Eggs1_withGlossary.png)
+![Egg with Glossary](~/assets/docs/eggs/Eggs1_withGlossary.png)
 
 Додавання масиву мовних кодів до циклу.
-![Multiple languages](../../../../assets/docs/eggs/MultipleLangs.png)
+![Multiple languages](~/assets/docs/eggs/MultipleLangs.png)
 
 ## Рекомендовані додатки
 
@@ -64,10 +64,10 @@ Egg між Google Drive та DeepL з глосаріями.
 - [Google Translate](https://docs.blackbird.io/apps/google-translate/)
 
 Egg між Dropbox та GlobalLink NOW
-![Egg GL NOW](../../../../assets/docs/eggs/Eggs1_GlobalLinkNow.png)
+![Egg GL NOW](~/assets/docs/eggs/Eggs1_GlobalLinkNow.png)
 
 Egg між Amazon S3 та Lanugage Weaver
-![Egg S3 Language Weaver](../../../../assets/docs/eggs/Eggs1_S3toLanguageWeaver.png)
+![Egg S3 Language Weaver](~/assets/docs/eggs/Eggs1_S3toLanguageWeaver.png)
 
 ## Завантажте Egg
 
@@ -92,4 +92,4 @@ Egg між Amazon S3 та Lanugage Weaver
 5. Оновіть деталі підключення та будь-які інші необхідні параметри введення/виведення або бажані кроки. Зверніть увагу на червоні попереджувальні знаки поруч з назвою кроку, які сигналізують про відсутність деталей у цьому кроці.
 6. Натисніть Зберегти/Опублікувати.
 
-![Importing Eggs](../../../../assets/docs/eggs/ImportEggs.gif)
+![Importing Eggs](~/assets/docs/eggs/ImportEggs.gif)

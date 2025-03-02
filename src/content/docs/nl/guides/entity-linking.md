@@ -33,13 +33,13 @@ Vervolgens:
 
 Zonder op de details in te gaan, ziet het eerste deel van de workflow er als volgt uit:
 
-![Initial](../../../../assets/guides/linking/initial.png)
+![Initial](~/assets/guides/linking/initial.png)
 
 We gebruiken een lus over alle bijlagen in de issue, downloaden vervolgens de bijlage en maken hiervan een Phrase-taak, samen met de taal die uit een dropdown in Jira was geselecteerd.
 
 Dan zal het tweede deel van de workflow er zo uitzien:
 
-![Missing key](../../../../assets/guides/linking/missing-key.png)
+![Missing key](~/assets/guides/linking/missing-key.png)
 
 We downloaden het vertaalde bestand en willen het vervolgens toevoegen aan onze Jira-ticket. We worden nu echter geconfronteerd met precies hetzelfde probleem dat we eerder noemden: **gegeven deze voltooide taak, met welke issue kwam deze overeen?**
 
@@ -51,11 +51,11 @@ Om deze vraag te beantwoorden, moeten we nog een stap toevoegen aan onze eerste 
 
 Klik op het pictogram `+` en selecteer _Operator_. Selecteer vervolgens in het menu aan de rechterkant _Entity connection_.
 
-![Connection](../../../../assets/guides/linking/connection.png)
+![Connection](~/assets/guides/linking/connection.png)
 
 Selecteer vervolgens voor type _Link entities_. We moeten nu de namen en de ID's van onze twee entiteiten definiëren. We raden aan om herkenbare namen te gebruiken. In ons geval gebruiken we `Jira_issue` en we selecteren de _Issue key_ (wat de ID is voor de issue die we in onze tweede bird willen hebben), en we koppelen het aan `Phrase_job` en voegen de _UID_ toe van de Phrase-taak die we zojuist hebben gemaakt.
 
-![Setup](../../../../assets/guides/linking/setup.png)
+![Setup](~/assets/guides/linking/setup.png)
 
 Klaar! We kunnen deze bird nu uitvoeren en verifiëren dat deze succesvol werkt. Wanneer we de operator _Link entities_ aan onze bird hebben toegevoegd, kunnen we deze koppeling nu in onze andere bird gebruiken.
 
@@ -65,7 +65,7 @@ Klaar! We kunnen deze bird nu uitvoeren en verifiëren dat deze succesvol werkt.
 
 Laten we teruggaan naar de bird die verantwoordelijk is voor het terugplaatsen van de vertalingen in Jira. Tussen de Phrase- en Jira-acties kunnen we nu opnieuw de operator _Entity connection_ toevoegen. Deze keer kiezen we in plaats van _Link entities_ als type voor _Get linked entity_.
 
-![Get entity](../../../../assets/guides/linking/get-entity.png)
+![Get entity](~/assets/guides/linking/get-entity.png)
 
 Wanneer we op _name_ klikken, zien we een dropdown met alle verschillende entiteitstypes die Blackbird voor je heeft opgeslagen. We weten dat we een Phrase-taak hebben en een Jira-issue willen, daarom selecteren we `Phrase_job` en vullen we de taak-ID in die we via de gebeurtenis hebben ontvangen. Vervolgens selecteren we voor gekoppelde entiteit `Jira_issue`.
 
@@ -73,7 +73,7 @@ Hoera! We hebben nu de gekoppelde entiteit opgehaald!
 
 We kunnen deze ID (die in ons geval de Jira-issue-sleutel vertegenwoordigt) nu gebruiken in onze laatste actie om de bird te voltooien.
 
-![Complete](../../../../assets/guides/linking/complete.png)
+![Complete](~/assets/guides/linking/complete.png)
 
 Et voilà, wanneer de Phrase-taak is voltooid, zien we nu onze bijlagen terug in de juiste Jira-ticket! 🎉
 

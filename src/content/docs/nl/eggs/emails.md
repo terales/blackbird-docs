@@ -34,16 +34,16 @@ Nieuwe bestelling/project details worden als antwoord verzonden. Machinaal verta
 - **Polling Events:** Sommige apps gebruiken [polling](https://docs.blackbird.io/concepts/triggers/#polling) in plaats van webhooks om nieuwe e-mails te detecteren. Controleer op een _Interval_ tabblad bij het instellen van uw trigger en kies de geschikte tijd voor u (tussen 5 minuten en 7 dagen).
 
 Egg die e-mails van Outlook naar DeepL en Trados haalt.
-![Egg with emails](../../../../assets/docs/eggs/Egg6_Outlook_DeepL_Trados.png)
+![Egg with emails](~/assets/docs/eggs/Egg6_Outlook_DeepL_Trados.png)
 
 Nadere blik op e-mailaantwoord.
-![Email reply](../../../../assets/docs/eggs/Egg6_InstantReply.png)
+![Email reply](~/assets/docs/eggs/Egg6_InstantReply.png)
 
 Voorbeeldprompt om taalcodes te krijgen
-![LLM prompt](../../../../assets/docs/eggs/Egg6_GetLanguageExample.png)
+![LLM prompt](~/assets/docs/eggs/Egg6_GetLanguageExample.png)
 
 Taalcodes extraheren met Regular expressions.
-![Regex](../../../../assets/docs/eggs/Egg6_ExtractLanguagesRegex.png)
+![Regex](~/assets/docs/eggs/Egg6_ExtractLanguagesRegex.png)
 
 ## Download een Egg
 
@@ -64,4 +64,4 @@ Om een Egg in uw Nest te importeren:
 5. Werk de Connection details bij en eventuele andere benodigde invoer/uitvoerparameters of gewenste stappen. Let op rode waarschuwingstekens naast de stapnaam die ontbrekende details in die stap signaleren.
 6. Klik op Opslaan/Publiceren.
 
-![Importing Eggs](../../../../assets/docs/eggs/ImportEggs.gif)
+![Importing Eggs](~/assets/docs/eggs/ImportEggs.gif)

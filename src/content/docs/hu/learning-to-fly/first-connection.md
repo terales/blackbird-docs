@@ -14,4 +14,4 @@ Mielőtt elkezdenéd, győződj meg róla, hogy van alkalmazásod. A felső navi
 
 Ha már egy vagy több alkalmazás szerepel a nézetedben, a kapcsolódás megkezdéséhez kattints az alkalmazásra. A kapcsolatok képernyőn kattints az _Add connection_ gombra. Kövesd az utasításokat, vagy olvasd el az alkalmazásra vonatkozó dokumentációt.
 
-![connection](../../../../assets/docs/connection.png)
+![connection](~/assets/docs/connection.png)

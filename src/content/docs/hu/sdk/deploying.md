@@ -14,7 +14,7 @@ Mielőtt telepítene egy alkalmazást, győződjön meg arról, hogy legalább t
 
 1. Kattintson jobb gombbal a projektjére a megoldáskezelőben, és kattintson a _Publish_ (Közzététel) gombra
 
-![connection](../../../../assets/docs/publishing.png)
+![connection](~/assets/docs/publishing.png)
 
 2. Ha még nem hozott létre közzétételi profilt, hozzon létre egy közzétételi profilt, amely helyi mappába publikál.
 3. Kattintson a _Publish_ (Közzététel), majd az _Open folder_ (Mappa megnyitása) gombra
@@ -22,7 +22,7 @@ Mielőtt telepítene egy alkalmazást, győződjön meg arról, hogy legalább t
 
 > **Megjegyzés: Ha Mac gépen dolgozik, győződjön meg arról, hogy törli a rejtett _\_MACOSX_ mappát a zip archívumból, mielőtt feltöltené a Blackbird-re.**
 
-![zipping](../../../../assets/docs/zipping.png)
+![zipping](~/assets/docs/zipping.png)
 
 ## Feltöltés
 
@@ -32,4 +32,4 @@ Ha meglévő alkalmazást szeretne frissíteni, kattintson a frissíteni kíván
 
 > Megjegyzés: Alkalmazás frissítésekor győződjön meg arról, hogy az alkalmazás új verziója (a `.csproj` fájlban meghatározva) magasabb, mint a meglévő verzió.
 
-![zipping](../../../../assets/docs/upload.png)
+![zipping](~/assets/docs/upload.png)

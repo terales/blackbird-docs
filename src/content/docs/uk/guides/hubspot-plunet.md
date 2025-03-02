@@ -38,7 +38,7 @@ sidebar:
 - Може бути кілька замовлень, кожне з яких представляє бізнес, узгоджений з клієнтом.
 - Замовлення Plunet пов'язане з 'внутрішнім ресурсом' як менеджером проекту, клієнтом та контактною особою цього клієнта.
 
-![Plunet diagram](../../../../assets/guides/hubspot-plunet/plunet-diagram.png)
+![Plunet diagram](~/assets/guides/hubspot-plunet/plunet-diagram.png)
 
 У Hubspot речі виглядають подібно, але з суттєвою відмінністю:
 
@@ -47,13 +47,13 @@ sidebar:
 - Є кілька угод. Угода має 'власника угоди', який є користувачем Hubspot
 - Між цими трьома сутностями існують зв'язки типу "багато-до-багатьох". І Hubspot використовує 'асоціації' для відстеження цих зв'язків.
 
-![Hubspot diagram](../../../../assets/guides/hubspot-plunet/hubspot-diagram.png)
+![Hubspot diagram](~/assets/guides/hubspot-plunet/hubspot-diagram.png)
 
 Ці структури достатньо схожі, щоб створити відображення між ними. Однак, у деяких випадках такої схожості не існує. У таких випадках доцільно дослідити, як люди відображали ці зв'язки у своїй організації.
 
 Намалюємо карту семантичних зв'язків:
 
-![Hubspot Plunet](../../../../assets/guides/hubspot-plunet/hubspot-plunet.png)
+![Hubspot Plunet](~/assets/guides/hubspot-plunet/hubspot-plunet.png)
 
 ## 3. Впровадження зв'язків
 
@@ -63,11 +63,11 @@ sidebar:
 
 Для Plunet ми створимо _текстовий модуль_ і застосуємо його до Клієнтів, внутрішніх ресурсів та замовлень. Назва текстового модуля буде _Hubspot ID_, щоб ми могли зберігати ідентифікатори Hubspot еквівалентних сутностей. Для отримання додаткової інформації про текстові модулі див. [документацію Plunet](https://kb.plunet.com/display/KB/Text+modules).
 
-![Plunet text module](../../../../assets/guides/hubspot-plunet/plunet-text-module.png)
+![Plunet text module](~/assets/guides/hubspot-plunet/plunet-text-module.png)
 
 У Hubspot кожна сутність також може мати _Користувацькі властивості_ (Settings -> Data Management -> Properties). Ми можемо створити нову властивість для кожної з наших відповідних сутностей. Для отримання додаткової інформації про користувацькі властивості див. [документацію Hubspot](https://knowledge.hubspot.com/properties/create-and-edit-properties)
 
-![Plunet properties](../../../../assets/guides/hubspot-plunet/hubspot-properties.png)
+![Plunet properties](~/assets/guides/hubspot-plunet/hubspot-properties.png)
 
 Ми створили інфраструктуру, необхідну для семантичного зв'язування сутностей у наших двох окремих системах, і ми готові перейти до наступного кроку!
 
@@ -97,7 +97,7 @@ sidebar:
 
 Нарешті, ми готові створити bird! Якщо ви правильно спланували свої дії, то дії у вашому bird повинні в основному відповідати ручним крокам, які вам довелося б виконати.
 
-![Simple bird](../../../../assets/guides/hubspot-plunet/bird-simple.png)
+![Simple bird](~/assets/guides/hubspot-plunet/bird-simple.png)
 
 Як бачите, пронумеровані дії відповідають крокам, які ми спланували вище!
 

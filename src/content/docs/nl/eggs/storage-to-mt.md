@@ -25,7 +25,7 @@ De gedownloade bestanden worden naar een machinevertaalengine gestuurd voor snel
 Vertaalde bestanden worden terug geüpload naar de cloudopslag, geplaatst in een aangewezen uitvoermap.
 
 Egg tussen Google Drive en DeepL
-![Egg](../../../../assets/docs/eggs/Eggs1.png)
+![Egg](~/assets/docs/eggs/Eggs1.png)
 
 ## Tips
 
@@ -39,10 +39,10 @@ Egg tussen Google Drive en DeepL
 - **Bestand hernoemen:** U kunt de naam van bestanden wijzigen voordat u ze opnieuw uploadt. Als u de doeltaalcode aan het einde van uw bestandsnaam wilt toevoegen of via de bestandsnaam wilt aangeven dat het MT is, kunt u de [Utilities](https://docs.blackbird.io/apps/utilities/) app of andere [helpers](https://docs.blackbird.io/guides/toolbox/) gebruiken. Er is een downloadbaar workflow-voorbeeld hiervoor aan de [onderkant van de pagina](https://docs.blackbird.io/eggs/storage-to-mt/#download-an-egg).
 
 Egg tussen Google Drive en DeepL met glossaries.
-![Egg with Glossary](../../../../assets/docs/eggs/Eggs1_withGlossary.png)
+![Egg with Glossary](~/assets/docs/eggs/Eggs1_withGlossary.png)
 
 Een array van taalcodes toevoegen aan een loop.
-![Multiple languages](../../../../assets/docs/eggs/MultipleLangs.png)
+![Multiple languages](~/assets/docs/eggs/MultipleLangs.png)
 
 ## Aanbevolen Apps
 
@@ -64,10 +64,10 @@ Een array van taalcodes toevoegen aan een loop.
 - [Google Translate](https://docs.blackbird.io/apps/google-translate/)
 
 Egg tussen Dropbox en GlobalLink NOW
-![Egg GL NOW](../../../../assets/docs/eggs/Eggs1_GlobalLinkNow.png)
+![Egg GL NOW](~/assets/docs/eggs/Eggs1_GlobalLinkNow.png)
 
 Egg tussen Amazon S3 en Lanugage Weaver
-![Egg S3 Language Weaver](../../../../assets/docs/eggs/Eggs1_S3toLanguageWeaver.png)
+![Egg S3 Language Weaver](~/assets/docs/eggs/Eggs1_S3toLanguageWeaver.png)
 
 ## Download een Egg
 
@@ -92,4 +92,4 @@ Om een Egg in uw Nest te importeren:
 5. Werk de Connection-details bij en alle andere benodigde invoer/uitvoerparameters of gewenste stappen. Let op rode waarschuwingstekens naast de stapnaam die ontbrekende details in die stap signaleren.
 6. Klik op Opslaan/Publiceren.
 
-![Importing Eggs](../../../../assets/docs/eggs/ImportEggs.gif)
+![Importing Eggs](~/assets/docs/eggs/ImportEggs.gif)

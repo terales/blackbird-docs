@@ -12,7 +12,7 @@ Alle processen moeten ergens beginnen: een **trigger** definieert wanneer een wo
 
 Handmatige triggers (ook wel [Manual push](https://docs.blackbird.io/guides/manual-triggers/) genoemd) worden geactiveerd door menselijk ingrijpen. Deze workflows starten zodra iemand op de knop `Fly` klikt. Dit type trigger is ideaal voor testen en debuggen, of wanneer processen moeten worden gestart op basis van specifieke, vaak onvoorspelbare, omstandigheden die menselijk oordeel vereisen. Dit is het aanbevolen triggertype terwijl je bezig bent met het bouwen van je Birds.
 
-![Fly knop](../../../../assets/docs/triggers/Fly.gif)
+![Fly knop](~/assets/docs/triggers/Fly.gif)
 
 **Belangrijkste kenmerken**:
 
@@ -26,7 +26,7 @@ Geplande triggers zijn tijdgebaseerd en starten processen op vooraf gedefinieerd
 
 In Blackbird kun je een interval kiezen—vanaf het moment dat de Bird wordt gepubliceerd, zal de Bird elke X aantal uren of minuten worden getriggerd. Een andere optie is om het proces dagelijks op een specifiek tijdstip te starten, of altijd op een bepaalde dag van de week/maand. Daarnaast kun je een tijdzone specificeren om verwarring te voorkomen.
 
-![Gepland](../../../../assets/docs/triggers/Scheduled.gif)
+![Gepland](~/assets/docs/triggers/Scheduled.gif)
 
 **Belangrijkste kenmerken**:
 
@@ -42,7 +42,7 @@ Zodra je het Event-type selecteert, ga je naar het tabblad Verbinding of klik je
 
 In de onderstaande afbeelding kunnen we ervoor kiezen om te reageren op verschillende gebeurtenissen die in Zendesk plaatsvinden, bijvoorbeeld wanneer er een nieuw artikel wordt gepubliceerd.
 
-![Gebeurtenis](../../../../assets/docs/triggers/Event.png)
+![Gebeurtenis](~/assets/docs/triggers/Event.png)
 
 Als er extra instellingen nodig zijn (sommige apps vereisen dit), zie je mogelijk een URL die ergens moet worden gekopieerd en geplakt. In dergelijke scenario's worden details gespecificeerd in het gedeelte van de app binnen de Blackbird-documentatie.
 
@@ -58,13 +58,13 @@ Soms kan het reageren op elke afzonderlijke gebeurtenis rommelig worden als deze
 
 In de onderstaande afbeelding, volgend op het vorige voorbeeld, willen we niet elke keer een nieuw TMS-project aanmaken wanneer een artikel in Zendesk wordt gepubliceerd. In plaats daarvan wachten we tot er minstens vijf artikelen zijn gepubliceerd of twee uur is verstreken, wat het eerst gebeurt. Als na twee uur slechts drie artikelen werden gepubliceerd, zal de Bird toch worden uitgevoerd en een nieuw TMS-project voor die drie artikelen aanmaken. Deze aanpassing zorgt ervoor dat processen voldoende responsief zijn zonder overmatige ruis te creëren.
 
-![Bucketing](../../../../assets/docs/triggers/Bucketing.png)
+![Bucketing](~/assets/docs/triggers/Bucketing.png)
 
 ## Polling
 
 Aangezien sommige systemen geen webhooks of callbacks hebben, maar we toch alert en reactief willen zijn, heeft Blackbird Polling-events geïntroduceerd. Voor de gewone gebruiker ziet deze trigger er precies hetzelfde uit als een gebeurtenisgebaseerde trigger, terwijl Blackbird onder de motorkap op opgegeven intervallen controleert op wijzigingen. Dit type geplande trigger zoekt naar updates in de gegevens van een app om te beslissen of een workflow moet worden gestart, waardoor de kloof wordt overbrugd voor apps die geen webhooks bieden door onze Birds in _realtime_ te laten reageren.
 
-![Polling](../../../../assets/docs/triggers/Polling.gif)
+![Polling](~/assets/docs/triggers/Polling.gif)
 
 ## Checkpoints
 

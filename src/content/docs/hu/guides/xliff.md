@@ -9,7 +9,7 @@ sidebar:
 
 Az XLIFF (XML Localization Interchange File Format) a nyelvi és lokalizációs ipar szabványosításának világítótornya, amely lehetővé teszi a fordítási adatok zökkenőmentes cseréjét. A tartalmat fordítási egységekbe szervezi, amelyek mindegyike egy forrásszegmensből és a hozzá tartozó célfordításból áll.
 
-![Image of XLIFF](../../../../assets/guides/xliff/ImageOfXliff.png)
+![Image of XLIFF](~/assets/guides/xliff/ImageOfXliff.png)
 
 Míg a legtöbb Fordításkezelő Rendszer (TMS) és Számítógéppel Támogatott Fordítási (CAT) eszköz könnyedén kezeli az XLIFF fájlokat, más eszközök esetleg nem annyira fájlbarátok. Azonban a Blackbird.io világában, ahol az interoperabilitás uralkodik, új szárnyakat - vagyis műveleteket - bontottunk ki, hogy az XLIFF-ek még a nem fájlbarát alkalmazásokban is szárnyalhassanak.
 
@@ -64,9 +64,9 @@ Bár a [DeepL](https://docs.blackbird.io/apps/deepl/) több [fájltípust](https
 
 Legújabb Blackbird műveleteink madártávlatból teszik lehetővé az XLIFF minőségének megtekintését. Az XLIFF-en belüli minden szegmens minőségi pontszámának kiszámításával és egy olyan aggregált szám visszaadásával, amely képet ad a fájl általános minőségéről. Ez korábban csak egyedi szegmensekre volt fenntartva. Ezen kívül minden fordítási egység kiegészül az egyéni pontszámával, amely az XLIFF fájl extradata attribútumához adódik hozzá.
 
-![Average Scores as output](../../../../assets/guides/xliff/AverageScore.png)
+![Average Scores as output](~/assets/guides/xliff/AverageScore.png)
 
-![Image of extradata and scores](../../../../assets/guides/xliff/Imageofextradataandscores.png)
+![Image of extradata and scores](~/assets/guides/xliff/Imageofextradataandscores.png)
 
 Opcionálisan a Küszöbérték, Új cél állapot és Feltétel bemeneti paraméterek beállíthatók a Blackbird művelethez, hogy megváltoztassák a kívánt kritériumoknak megfelelő szegmensek cél állapot értékét. Ez azt jelenti, hogy jelezheted a megfelelően lefordított szegmenseket, és blokkolhatod őket, amikor az XLIFF fájlt egy TMS-be importálod emberi ellenőrzésre, időt és pénzt takarítva meg, és az erőfeszítéseket azokra a szegmensekre összpontosítva, amelyek valóban szerkesztést igényelnek.
 
@@ -74,12 +74,12 @@ Példa
 
 Az opcionális bemeneti értékek alábbi képen látható beállítása azt eredményezi, hogy minden 0,9 feletti pontszámú szegmens cél állapot értéke "final"-ra frissül. Amikor ezeket az XLIFF fájlokat TMS eszközökbe importálod, általában hozzáadható egy beállítás, amely lezárja a meghatározott cél értékkel rendelkező szegmenseket (ebben az esetben "final"), így a fordítók csak az alacsonyabb minőségű szegmensekre koncentrálhatnak és szerkeszthetik azokat.
 
-![Optional Input](../../../../assets/guides/xliff/optionalinput.png)
+![Optional Input](~/assets/guides/xliff/optionalinput.png)
 
-![Updated Target State](../../../../assets/guides/xliff/UpdatedTargetState.png)
+![Updated Target State](~/assets/guides/xliff/UpdatedTargetState.png)
 
 ## Íme, egy fenséges madár akcióban!
 
 Bár az új műveletek önmagukban is nagy értéket adnak és új lehetőségeket teremtenek, amikor láncolatban vannak, még hatékonyabbá válnak. Alább egy példa látható egy madárra, amely egy .docx fájlt vesz bemenetként, a fájl XLIFF-ré konvertálódik az interoperabilitás érdekében, majd az OpenAI-t használja a fájl lefordításához a célnyelvre. Ezután a TAUS-t használja a fordítások minőségének meghatározására, és egy döntési operátor határozza meg a fájl következő lépéseit: ha az átlagos minőségi pontszám a meghatározott 0,95-ös küszöbérték felett van, az XLIFF lefordított .docx-szé konvertálódik és véglegesként kerül kézbesítésre. Egyébként, ha az átlagos pontszám 0,95 alatt van, a fájl importálásra kerül egy TMS-be további emberi szerkesztésre. Ez biztosítja, hogy csak azok a fájlok kerülnek feltöltésre a TMS-be, amelyek valóban emberi beavatkozást igényelnek, míg a minőségi fordítások azonnal visszakerülnek.
 
-![screenshot of bird](../../../../assets/guides/xliff/XliffSampleBird.png)
+![screenshot of bird](~/assets/guides/xliff/XliffSampleBird.png)

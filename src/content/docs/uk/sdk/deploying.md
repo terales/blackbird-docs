@@ -14,7 +14,7 @@ sidebar:
 
 1. Клацніть правою кнопкою миші на вашому проєкті в оглядачі рішень і натисніть _Publish_
 
-![connection](../../../../assets/docs/publishing.png)
+![connection](~/assets/docs/publishing.png)
 
 2. Якщо ви ще не створили профіль публікації, створіть профіль публікації, який публікуватиме у локальну папку.
 3. Натисніть _Publish_, а потім _Open folder_
@@ -22,7 +22,7 @@ sidebar:
 
 > **Примітка: Якщо ви працюєте на Mac, переконайтеся, що видалили приховану папку _\_MACOSX_ в zip-архіві перед завантаженням його до Blackbird.**
 
-![zipping](../../../../assets/docs/zipping.png)
+![zipping](~/assets/docs/zipping.png)
 
 ## Завантаження
 
@@ -32,4 +32,4 @@ sidebar:
 
 > Примітка: При оновленні додатку переконайтеся, що нова версія додатку (визначена у файлі `.csproj`) вища, ніж існуюча.
 
-![zipping](../../../../assets/docs/upload.png)
+![zipping](~/assets/docs/upload.png)

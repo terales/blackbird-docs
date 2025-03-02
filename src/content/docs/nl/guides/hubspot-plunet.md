@@ -38,7 +38,7 @@ Laten we beginnen met Plunet, maar laten we kort zijn:
 - Er kunnen meerdere orders zijn, die elk zakelijke afspraken met een klant vertegenwoordigen.
 - Een Plunet order is gekoppeld aan een 'interne resource' als projectmanager, een klant en een contactpersoon van die klant.
 
-![Plunet diagram](../../../../assets/guides/hubspot-plunet/plunet-diagram.png)
+![Plunet diagram](~/assets/guides/hubspot-plunet/plunet-diagram.png)
 
 In Hubspot zien dingen er vergelijkbaar uit, maar met een significant verschil:
 
@@ -47,13 +47,13 @@ In Hubspot zien dingen er vergelijkbaar uit, maar met een significant verschil:
 - Er zijn meerdere deals. Een deal heeft een 'deal eigenaar' die een Hubspot-gebruiker is
 - Tussen deze drie entiteiten bestaan veel-op-veel relaties. En Hubspot gebruikt 'associaties' om deze relaties bij te houden.
 
-![Hubspot diagram](../../../../assets/guides/hubspot-plunet/hubspot-diagram.png)
+![Hubspot diagram](~/assets/guides/hubspot-plunet/hubspot-diagram.png)
 
 Deze structuren zijn vergelijkbaar genoeg om een toewijzing tussen de twee te maken. In sommige gevallen bestaan deze overeenkomsten echter niet. In die gevallen is het verstandig om te onderzoeken hoe mensen deze relaties in hun organisatie hebben toegewezen.
 
 Laten we de semantische relatiekaart tekenen:
 
-![Hubspot Plunet](../../../../assets/guides/hubspot-plunet/hubspot-plunet.png)
+![Hubspot Plunet](~/assets/guides/hubspot-plunet/hubspot-plunet.png)
 
 ## 3. Implementatie van de relaties
 
@@ -63,11 +63,11 @@ Ergens moeten referenties naar de andere equivalente entiteit worden opgeslagen.
 
 Voor Plunet maken we een _tekstmodule_ en passen deze toe op Klanten, interne resources en orders. De naam van de tekstmodule zal _Hubspot ID_ zijn, zodat we de Hubspot-ID's van equivalente entiteiten kunnen opslaan. Voor meer informatie over tekstmodules, zie de [Plunet documentatie](https://kb.plunet.com/display/KB/Text+modules).
 
-![Plunet text module](../../../../assets/guides/hubspot-plunet/plunet-text-module.png)
+![Plunet text module](~/assets/guides/hubspot-plunet/plunet-text-module.png)
 
 In Hubspot kan elke entiteit ook _Aangepaste eigenschappen_ hebben (Instellingen -> Gegevensbeheer -> Eigenschappen). We kunnen een nieuwe eigenschap maken op elk van onze relevante entiteiten. Voor meer informatie over aangepaste eigenschappen, zie de [Hubspot documentatie](https://knowledge.hubspot.com/properties/create-and-edit-properties)
 
-![Plunet properties](../../../../assets/guides/hubspot-plunet/hubspot-properties.png)
+![Plunet properties](~/assets/guides/hubspot-plunet/hubspot-properties.png)
 
 We hebben de infrastructuur gecreëerd die nodig is om de entiteiten in onze twee afzonderlijke systemen semantisch te koppelen en we zijn klaar om naar de volgende stap te gaan!
 
@@ -97,7 +97,7 @@ Dus het lijkt erop dat onze bird vrij eenvoudig gaat zijn! We voeren ongeveer 6 
 
 Eindelijk zijn we klaar om de bird te bouwen! Als je je acties correct hebt gepland, zouden de acties in je bird in wezen moeten overeenkomen met de handmatige stappen die je zou moeten uitvoeren.
 
-![Simple bird](../../../../assets/guides/hubspot-plunet/bird-simple.png)
+![Simple bird](~/assets/guides/hubspot-plunet/bird-simple.png)
 
 Zoals je kunt zien, komen de genummerde acties overeen met de stappen die we hierboven hebben gepland!
 
@@ -115,7 +115,7 @@ De beste manier om dit nieuwe probleem dat we voor onszelf hebben gecreëerd te 
 
 Met die details toegevoegd, ziet onze complete bird er zo uit:
 
-![Complete bird](../../../../assets/guides/hubspot-plunet/complete-bird.png)
+![Complete bird](~/assets/guides/hubspot-plunet/complete-bird.png)
 
 Gefeliciteerd! Je hebt alle stappen van de oplossingsarchitect genomen om een productie-klare bird te maken!
 
@@ -146,7 +146,7 @@ Handmatige stappen (nadat een bedrijf is aangemaakt in Hubspot):
 
 Bird:
 
-![Complete bird](../../../../assets/guides/hubspot-plunet/company-sync.png)
+![Complete bird](~/assets/guides/hubspot-plunet/company-sync.png)
 
 > Het grootste verschil tussen klanten en contacten in Plunet is dat contacten geen tekstmodules hebben. Gelukkig hebben ze in plaats daarvan een "extern ID" eigenschap die we kunnen gebruiken.
 

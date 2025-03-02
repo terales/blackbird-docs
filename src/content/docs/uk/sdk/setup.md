@@ -36,7 +36,7 @@ Visual Studio створює проєкт, і він з'являється в So
 3. На вкладці _Browse_ знайдіть _Blackbird.Applications.Sdk.Common_, виберіть `Blackbird.Applications.Sdk.Common` у списку, а потім натисніть _Install_.
 4. Коли вам буде запропоновано підтвердити встановлення, натисніть _OK_.
 
-![nuget](../../../../assets/docs/nuget.png)
+![nuget](~/assets/docs/nuget.png)
 
 ## З шаблону
 
@@ -58,4 +58,4 @@ git clone https://github.com/bb-io/TemplateApp.git
 
 Blackbird використовує властивості, визначені у файлі `.csproj`, для заповнення полів метаданих. Для більшості користувацьких додатків актуальні лише Version та AssemblyName (інші властивості визначаються в інтерфейсі користувача). При завантаженні новішої версії існуючого додатка переконайтеся, що номер версії вищий.
 
-![nuget](../../../../assets/docs/csproj.png)
+![nuget](~/assets/docs/csproj.png)

@@ -34,16 +34,16 @@ sidebar:
 - **Події опитування:** Деякі додатки використовують [polling](https://docs.blackbird.io/concepts/triggers/#polling) замість вебхуків для виявлення нових електронних листів. Перевірте наявність вкладки _Interval_ під час налаштування тригера та виберіть відповідний для вас час (від 5 хвилин до 7 днів).
 
 Egg для отримання електронних листів з Outlook у DeepL та Trados.
-![Egg з електронними листами](../../../../assets/docs/eggs/Egg6_Outlook_DeepL_Trados.png)
+![Egg з електронними листами](~/assets/docs/eggs/Egg6_Outlook_DeepL_Trados.png)
 
 Ближчий погляд на відповідь електронною поштою.
-![Відповідь електронною поштою](../../../../assets/docs/eggs/Egg6_InstantReply.png)
+![Відповідь електронною поштою](~/assets/docs/eggs/Egg6_InstantReply.png)
 
 Приклад запиту для отримання мовних кодів
-![Запит LLM](../../../../assets/docs/eggs/Egg6_GetLanguageExample.png)
+![Запит LLM](~/assets/docs/eggs/Egg6_GetLanguageExample.png)
 
 Вилучення мовних кодів за допомогою регулярних виразів.
-![Регулярні вирази](../../../../assets/docs/eggs/Egg6_ExtractLanguagesRegex.png)
+![Регулярні вирази](~/assets/docs/eggs/Egg6_ExtractLanguagesRegex.png)
 
 ## Завантажити Egg
 
@@ -64,4 +64,4 @@ Egg для отримання електронних листів з Outlook у 
 5. Оновіть дані з'єднання та будь-які інші необхідні вхідні/вихідні параметри або бажані кроки. Зверніть увагу на червоні попереджувальні знаки поруч із назвою кроку, які сигналізують про відсутні деталі у цьому кроці.
 6. Натисніть Save/Publish.
 
-![Імпорт Eggs](../../../../assets/docs/eggs/ImportEggs.gif)
+![Імпорт Eggs](~/assets/docs/eggs/ImportEggs.gif)

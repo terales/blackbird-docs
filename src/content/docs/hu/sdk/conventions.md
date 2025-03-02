@@ -89,9 +89,9 @@ Másodszor, vegye figyelembe, hogy a kapcsolati mezők szintén rendelkezhetnek 
 
 A kapcsolati mező neveknek rövidnek, leírónak és egyértelműnek kell lenniük. A mező nevéből a felhasználónak ki kell tudnia találni, hogy pontosan milyen adatot kérnek tőle.
 
-![Kapcsolat definíció](../../../../assets/docs/conventions/connection_fields.png)
+![Kapcsolat definíció](~/assets/docs/conventions/connection_fields.png)
 
-![Kapcsolat részletek](../../../../assets/docs/conventions/connection_details.png)
+![Kapcsolat részletek](~/assets/docs/conventions/connection_details.png)
 
 ## 5. Adatforrások
 

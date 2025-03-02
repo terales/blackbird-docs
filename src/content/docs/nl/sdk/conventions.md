@@ -89,9 +89,9 @@ Ten tweede, houd er rekening mee dat verbindingsvelden ook weergavenamen, beschr
 
 Verbindingsveldnamen moeten kort, beschrijvend en duidelijk zijn. Uit de veldnaam moet de gebruiker kunnen opmaken welke exacte gegevens van hem worden verwacht.
 
-![Connection definition](../../../../assets/docs/conventions/connection_fields.png)
+![Connection definition](~/assets/docs/conventions/connection_fields.png)
 
-![Connection details](../../../../assets/docs/conventions/connection_details.png)
+![Connection details](~/assets/docs/conventions/connection_details.png)
 
 ## 5. Gegevensbronnen
 

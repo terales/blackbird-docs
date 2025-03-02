@@ -89,9 +89,9 @@ sidebar:
 
 Назви полів з'єднання повинні бути короткими, описовими та зрозумілими. З назви поля користувач повинен зрозуміти, які саме дані від них потрібні.
 
-![Connection definition](../../../../assets/docs/conventions/connection_fields.png)
+![Connection definition](~/assets/docs/conventions/connection_fields.png)
 
-![Connection details](../../../../assets/docs/conventions/connection_details.png)
+![Connection details](~/assets/docs/conventions/connection_details.png)
 
 ## 5. Джерела даних
 

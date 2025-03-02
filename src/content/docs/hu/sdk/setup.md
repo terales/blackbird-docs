@@ -36,7 +36,7 @@ A `Blackbird.Applications.Sdk.Common` csomag telepítéséhez a NuGet Package Ma
 3. A _Böngészés_ fülön keressen rá a _Blackbird.Applications.Sdk.Common_ kifejezésre, válassza ki a `Blackbird.Applications.Sdk.Common` csomagot a listából, majd kattintson a _Telepítés_ gombra.
 4. Amikor a rendszer kéri a telepítés megerősítését, kattintson az _OK_ gombra.
 
-![nuget](../../../../assets/docs/nuget.png)
+![nuget](~/assets/docs/nuget.png)
 
 ## Sablon alapján
 
@@ -58,4 +58,4 @@ A módosítások telepítésekor egy egyéni alkalmazásban kell ezt megtennie. 
 
 A Blackbird a `.csproj` fájlban meghatározott tulajdonságokat használja a metaadat mezők kitöltéséhez. A legtöbb egyéni alkalmazás esetében csak a Version és az AssemblyName releváns (a többi tulajdonság a felhasználói felületen van meghatározva). Egy meglévő alkalmazás újabb verziójának feltöltésekor győződjön meg arról, hogy a verziószám magasabb.
 
-![nuget](../../../../assets/docs/csproj.png)
+![nuget](~/assets/docs/csproj.png)

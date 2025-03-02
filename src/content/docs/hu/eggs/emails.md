@@ -34,16 +34,16 @@ Az új rendelés/projekt részleteit válaszként elküldjük. Gépi fordítás�
 - **Lekérdezési események:** Egyes alkalmazások [lekérdezést](https://docs.blackbird.io/concepts/triggers/#polling) használnak webhookok helyett az új e-mailek észlelésére. Ellenőrizd az _Interval_ lapot az indítóesemény beállításakor, és válaszd a számodra megfelelő időt (5 perc és 7 nap között).
 
 Egg, amely e-maileket kap az Outlookból a DeepL-be és a Tradosba.
-![Egg e-mailekkel](../../../../assets/docs/eggs/Egg6_Outlook_DeepL_Trados.png)
+![Egg e-mailekkel](~/assets/docs/eggs/Egg6_Outlook_DeepL_Trados.png)
 
 Közelebbi pillantás az e-mail válaszra.
-![E-mail válasz](../../../../assets/docs/eggs/Egg6_InstantReply.png)
+![E-mail válasz](~/assets/docs/eggs/Egg6_InstantReply.png)
 
 Példa promtra a nyelvkódok kinyeréséhez
-![LLM prompt](../../../../assets/docs/eggs/Egg6_GetLanguageExample.png)
+![LLM prompt](~/assets/docs/eggs/Egg6_GetLanguageExample.png)
 
 Nyelvkódok kinyerése reguláris kifejezések segítségével.
-![Regex](../../../../assets/docs/eggs/Egg6_ExtractLanguagesRegex.png)
+![Regex](~/assets/docs/eggs/Egg6_ExtractLanguagesRegex.png)
 
 ## Egg letöltése
 
@@ -64,4 +64,4 @@ Egy Egg importálása a Nest-be:
 5. Frissítsd a kapcsolat részleteit és bármilyen más szükséges bemeneti/kimeneti paramétert vagy kívánt lépést. Figyelj a piros figyelmeztető jelekre a lépés neve mellett, amelyek hiányzó részletekre utalnak az adott lépésben.
 6. Kattints a Mentés/Közzététel gombra.
 
-![Eggs importálása](../../../../assets/docs/eggs/ImportEggs.gif)
+![Eggs importálása](~/assets/docs/eggs/ImportEggs.gif)

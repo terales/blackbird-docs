@@ -21,7 +21,7 @@ sidebar:
 
 Bird, показаний нижче, створює нове працевлаштування в Remote, як тільки новий ресурс встановлюється як активний в Plunet.
 
-![PlunettoRemote](../../../../assets/docs/eggs/PlunetResourceActivatedCreateRemoteEmployment.png)
+![PlunettoRemote](~/assets/docs/eggs/PlunetResourceActivatedCreateRemoteEmployment.png)
 
 - Завантажити Egg: <a href="https://docs.blackbird.io/downloads/Plunet_resource_activated_to_Remote_Employment.json" download>On Plunet resource activated create Remote employment</a>
 - Завантажити Egg: <a href="https://docs.blackbird.io/downloads/Remote_employment_completed_set_Plunet_resource_Active.json" download>On Remote employment completed set Plunet resource active</a>
@@ -30,7 +30,7 @@ Bird, показаний нижче, створює нове працевлаш�
 
 Цей Bird запускається щотижня, шукає рахунки-фактури в XTRF, які були оновлені протягом останнього тижня, експортує їх та імпортує в Remote. Зверніть увагу на використання оператора Convert для отримання даних з користувацької бібліотеки.
 
-![XTRFtoRemote](../../../../assets/docs/eggs/XtrfInvoiceToRemote.png)
+![XTRFtoRemote](~/assets/docs/eggs/XtrfInvoiceToRemote.png)
 
 - Завантажити Egg: <a href="https://docs.blackbird.io/downloads/XTRF_invoice_to_Remote.json" download>XTRF invoice to Remote</a>
 - Завантажити Egg: <a href="https://docs.blackbird.io/downloads/Remote_to_XTRF_invoice_status_update.json" download>Remote to XTRF invoice status update</a>
@@ -39,7 +39,7 @@ Bird, показаний нижче, створює нове працевлаш�
 
 Зображення нижче показує Bird, який запускається щоразу, коли запит на відпустку був схвалений в Remote, потім додає подію в календар Microsoft 365, реєструє деталі відпустки в Excel та надсилає сповіщення в Slack.
 
-![RemoteTimeoffApproved](../../../../assets/docs/eggs/RemoteTimeoffApproved.png)
+![RemoteTimeoffApproved](~/assets/docs/eggs/RemoteTimeoffApproved.png)
 
 - Завантажити Egg: <a href="https://docs.blackbird.io/downloads/On_timeoff_approved_add_to_Calendar_Excel.json" download>On timeoff approved add to calendar and Excel</a>
 - Завантажити Egg: <a href="https://docs.blackbird.io/downloads/Manual_payout_notification.json" download>Monthly manual payout notification</a>
@@ -63,4 +63,4 @@ Bird, показаний нижче, створює нове працевлаш�
 5. Оновіть деталі підключення та будь-які інші необхідні параметри введення/виведення або бажані кроки. Шукайте червоні попереджувальні знаки поруч з назвою кроку, які сигналізують про відсутність деталей у цьому кроці.
 6. Натисніть "Зберегти/Опублікувати".
 
-![Імпорт Eggs](../../../../assets/docs/eggs/ImportEggs.gif)
+![Імпорт Eggs](~/assets/docs/eggs/ImportEggs.gif)

@@ -55,7 +55,7 @@ public class GetBerryRequest
 
 Цей клас трансформується в:
 
-![connection](../../../../assets/docs/berry.png)
+![connection](~/assets/docs/berry.png)
 
 Так само, як із вхідними аргументами, атрибут `[Display]` також працює з типами повернення ваших дій, щоб надати їм зручні для користувача імена.
 

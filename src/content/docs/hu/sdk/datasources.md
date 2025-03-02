@@ -47,7 +47,7 @@ A `DataSourceContext.SearchString` a felhasználó által beírt keresési karak
 
 Vissza kell adnia egy `IEnumerable<DataSourceItem>` típusú eredményt, ahol a `DataSourceItem` `value` argumentuma azt az értéket képviseli, amely "kitöltésre" kerül, például egy bizonyos állapot vagy entitás azonosítója. A második argumentum a megjelenített név.
 
-![connection](../../../../assets/docs/dynamic_input.png)
+![connection](~/assets/docs/dynamic_input.png)
 
 ### Speciális kontextus
 

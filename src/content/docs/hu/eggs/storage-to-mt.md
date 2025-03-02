@@ -25,7 +25,7 @@ A letöltött fájlokat gépi fordítási rendszerbe küldik gyors feldolgozásr
 A lefordított fájlokat visszatöltik a felhőalapú tárhelyre, egy kijelölt kimeneti mappába helyezve.
 
 Tojás a Google Drive és a DeepL között
-![Tojás](../../../../assets/docs/eggs/Eggs1.png)
+![Tojás](~/assets/docs/eggs/Eggs1.png)
 
 ## Tippek
 
@@ -39,10 +39,10 @@ Tojás a Google Drive és a DeepL között
 - **Fájl átnevezés:** Megváltoztathatod a fájlok nevét a visszatöltés előtt. Ha a célnyelv kódját szeretnéd a fájlnév végéhez csatolni, vagy a fájlnévben jelezni, hogy gépi fordításon esett át, használhatod a [Utilities](https://docs.blackbird.io/apps/utilities/) alkalmazást vagy más [segédeszközöket](https://docs.blackbird.io/guides/toolbox/). Ehhez letölthető munkafolyamat-példa található az [oldal alján](https://docs.blackbird.io/eggs/storage-to-mt/#download-an-egg).
 
 Tojás a Google Drive és DeepL között szójegyzékekkel.
-![Tojás szójegyzékkel](../../../../assets/docs/eggs/Eggs1_withGlossary.png)
+![Tojás szójegyzékkel](~/assets/docs/eggs/Eggs1_withGlossary.png)
 
 Nyelvkódok tömbjének hozzáadása egy hurokhoz.
-![Több nyelv](../../../../assets/docs/eggs/MultipleLangs.png)
+![Több nyelv](~/assets/docs/eggs/MultipleLangs.png)
 
 ## Javasolt alkalmazások
 
@@ -64,10 +64,10 @@ Nyelvkódok tömbjének hozzáadása egy hurokhoz.
 - [Google Translate](https://docs.blackbird.io/apps/google-translate/)
 
 Tojás a Dropbox és a GlobalLink NOW között
-![Tojás GL NOW](../../../../assets/docs/eggs/Eggs1_GlobalLinkNow.png)
+![Tojás GL NOW](~/assets/docs/eggs/Eggs1_GlobalLinkNow.png)
 
 Tojás az Amazon S3 és a Language Weaver között
-![Tojás S3 Language Weaver](../../../../assets/docs/eggs/Eggs1_S3toLanguageWeaver.png)
+![Tojás S3 Language Weaver](~/assets/docs/eggs/Eggs1_S3toLanguageWeaver.png)
 
 ## Tojás letöltése
 
@@ -92,4 +92,4 @@ Tojás importálása a Fészkedbe:
 5. Frissítsd a Kapcsolat részleteit és minden más szükséges bemeneti/kimeneti paramétert vagy kívánt lépést. Figyelj a lépés neve mellett megjelenő piros figyelmeztető jelekre, amelyek az adott lépésben hiányzó részletekre utalnak.
 6. Kattints a Mentés/Közzététel gombra.
 
-![Tojások importálása](../../../../assets/docs/eggs/ImportEggs.gif)
+![Tojások importálása](~/assets/docs/eggs/ImportEggs.gif)

@@ -36,7 +36,7 @@ Volg deze stappen om de NuGet Package Manager te gebruiken om het pakket `Blackb
 3. Zoek vanuit het tabblad _Browse_ naar _Blackbird.Applications.Sdk.Common_, selecteer `Blackbird.Applications.Sdk.Common` in de lijst en selecteer vervolgens _Install_.
 4. Wanneer je wordt gevraagd om de installatie te verifiëren, selecteer _OK_.
 
-![nuget](../../../../assets/docs/nuget.png)
+![nuget](~/assets/docs/nuget.png)
 
 ## Vanuit een sjabloon
 
@@ -58,4 +58,4 @@ Bij het implementeren van je wijzigingen doe je dit in een aangepaste app. Zie d
 
 Blackbird gebruikt eigenschappen die zijn gedefinieerd in het `.csproj`-bestand om metadatavelden te vullen. Voor de meeste aangepaste apps zijn alleen de Version en AssemblyName relevant (de andere eigenschappen worden gedefinieerd in de UI). Zorg ervoor dat het versienummer hoger is wanneer je een nieuwere versie van een bestaande app uploadt.
 
-![nuget](../../../../assets/docs/csproj.png)
+![nuget](~/assets/docs/csproj.png)

@@ -198,7 +198,7 @@ public Task<WebhookResponse<CallbackPayload>> OnCallbackReceived(WebhookRequest 
 
 Dit vertaalt zich naar:
 
-![callback](../../../../assets/docs/callback.png)
+![callback](~/assets/docs/callback.png)
 
 > Tip: men kan de callback-functionaliteit gebruiken om "aanroepbare" birds te maken alsof Blackbird zijn eigen API had.
 

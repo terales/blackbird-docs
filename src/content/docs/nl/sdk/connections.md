@@ -63,7 +63,7 @@ Je verbindingseigenschap kan ook een dropdown-lijst van eindige waarden zijn. Ge
 
 Dit zal de dropdown weergeven:
 
-![dropdown](../../../../assets/docs/dropdown.png)
+![dropdown](~/assets/docs/dropdown.png)
 
 ## Verbindingseigenschappen omzetten in inloggegevens
 
@@ -238,7 +238,7 @@ public class ConnectionValidator : IConnectionValidator
 
 Na dit alles ingesteld te hebben, kan Blackbird nu het verbindingsformulier aan de gebruiker tonen.
 
-![connection](../../../../assets/docs/connection_modal.png)
+![connection](~/assets/docs/connection_modal.png)
 
 ## Toegang tot inloggegevens in acties en gebeurtenissen
 

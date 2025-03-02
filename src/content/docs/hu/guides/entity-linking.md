@@ -33,13 +33,13 @@ Majd:
 
 A részletek mellőzésével a munkafolyamat első része így néz ki:
 
-![Initial](../../../../assets/guides/linking/initial.png)
+![Initial](~/assets/guides/linking/initial.png)
 
 Egy ciklust használunk a problémában lévő összes csatolmány végigfutásához, majd letöltjük a csatolmányt és létrehozunk egy Phrase munkát ezekből, valamint a Jira legördülő menüjéből kiválasztott nyelvvel.
 
 Ezután a munkafolyamat második része így fog kinézni:
 
-![Missing key](../../../../assets/guides/linking/missing-key.png)
+![Missing key](~/assets/guides/linking/missing-key.png)
 
 Letöltjük a lefordított fájlt, és szeretnénk hozzáadni a Jira jegyünkhöz. Azonban most szembesülünk pontosan ugyanazzal a problémával, amit korábban említettünk: **adva ezt a befejezett munkát, melyik jegynek felelt meg?**
 
@@ -51,11 +51,11 @@ Ahhoz, hogy válaszoljunk erre a kérdésre, még egy lépést hozzá kell adnun
 
 Kattints a `+` ikonra és válaszd az _Operator_ lehetőséget. Ezután a jobb oldali menüben válaszd az _Entity connection_ opciót.
 
-![Connection](../../../../assets/guides/linking/connection.png)
+![Connection](~/assets/guides/linking/connection.png)
 
 Ezután a típusnál válaszd a _Link entities_ opciót. Most meg kell határoznunk a két entitás neveit és azonosítóit. Javasoljuk, hogy használj felismerhető neveket. Esetünkben a `Jira_issue` nevet használjuk, és kiválasztjuk az _Issue key_-t (amely a jegy azonosítója, amire a második madárban szükségünk lesz), és összekötjük a `Phrase_job` elemmel, és hozzáadjuk az éppen létrehozott Phrase munka _UID_-jét.
 
-![Setup](../../../../assets/guides/linking/setup.png)
+![Setup](~/assets/guides/linking/setup.png)
 
 Kész! Most már reptethetjük ezt a madarat, és ellenőrizhetjük, hogy sikeresen működik-e. Miután hozzáadtuk a _Link entities_ operátort a madarunkhoz, most már használhatjuk ezt a kapcsolatot a másik madarunkban.
 
@@ -65,7 +65,7 @@ Kész! Most már reptethetjük ezt a madarat, és ellenőrizhetjük, hogy sikere
 
 Térjünk vissza ahhoz a madárhoz, amely a fordítások Jirába való visszahelyezéséért felelős. A Phrase és Jira műveletek között most újra hozzáadhatjuk az _Entity connection_ operátort. Ezúttal a _Link entities_ helyett a _Get linked entity_ opciót választjuk a típusnál.
 
-![Get entity](../../../../assets/guides/linking/get-entity.png)
+![Get entity](~/assets/guides/linking/get-entity.png)
 
 Amikor a _name_ mezőre kattintunk, egy legördülő menüt látunk az összes különböző entitástípussal, amit a Blackbird eltárolt számodra. Tudjuk, hogy van egy Phrase munkánk, és egy Jira jegyre van szükségünk, ezért kiválasztjuk a `Phrase_job` opciót és kitöltjük a Job ID-t, amit az eseményen keresztül kaptunk. Majd a kapcsolódó entitásnál a `Jira_issue` opciót választjuk.
 
@@ -73,7 +73,7 @@ Hurrá! Most már lekértük az összekapcsolt entitást!
 
 Most már használhatjuk ezt az azonosítót (ami esetünkben a Jira jegy kulcsát jelenti) a végső műveletünkben a madár befejezéséhez.
 
-![Complete](../../../../assets/guides/linking/complete.png)
+![Complete](~/assets/guides/linking/complete.png)
 
 Et Voila, amikor a Phrase munka elkészül, most már látjuk a csatolmányainkat a megfelelő Jira jegyben visszaadva! 🎉
 

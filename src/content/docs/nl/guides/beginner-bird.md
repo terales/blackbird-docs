@@ -16,7 +16,7 @@ Aan het einde van deze gids heb je een Slack-bot gebouwd die reageert op je beri
 
 Navigeer naar de birds-pagina en klik op de grote paarse knop **Create**. Dit opent de bird-editor. Je wordt begroet door het volgende scherm.
 
-![Empty bird](../../../../assets/guides/beginner-bird/empty.png)
+![Empty bird](~/assets/guides/beginner-bird/empty.png)
 
 Laten we de elementen op het scherm doornemen:
 
@@ -26,29 +26,29 @@ Laten we de elementen op het scherm doornemen:
 
 Om de eenvoudigste bird mogelijk te bouwen, selecteren we **Manual trigger** aan de rechterkant van het scherm. Een handmatige trigger betekent dat we deze bird vanuit Blackbird kunnen triggeren door op een knop te klikken.
 
-![Manual trigger](../../../../assets/guides/beginner-bird/manual_trigger.png)
+![Manual trigger](~/assets/guides/beginner-bird/manual_trigger.png)
 
 Nu is het tijd om onze eerste actie te definiëren. We doen dit door op het **+** pictogram in het midden van het scherm te klikken en **Action** te selecteren.
 
-![Action](../../../../assets/guides/beginner-bird/action.png)
+![Action](~/assets/guides/beginner-bird/action.png)
 
 Je ziet een nieuwe actie onder je trigger. De actie is echter nog leeg en we moeten definiëren wat we willen doen met welke app en welke verbinding.
 Ga verder en klik op app aan de rechterkant van je scherm. Zoek naar de app waarvoor je de actie wilt toevoegen. In ons geval is dit _Slack_.
 
-![Action added](../../../../assets/guides/beginner-bird/action_added.png)
+![Action added](~/assets/guides/beginner-bird/action_added.png)
 
 Na het definiëren van de app moeten we nu de actie definiëren die we willen uitvoeren. We gaan een bericht versturen in Slack, dus zoek naar _Send message_ en selecteer het.
 Tot slot selecteren we de verbinding. Je kunt op **Add new connection** klikken als je nog geen Slack-verbinding hebt gemaakt.
 
 Het eindresultaat zou er zo uit moeten zien:
 
-![Action added](../../../../assets/guides/beginner-bird/action_configured.png)
+![Action added](~/assets/guides/beginner-bird/action_configured.png)
 
 Nu we weten wat we moeten doen, moeten we Blackbird vertellen welke informatie we willen versturen. Klik op de paarse knop **Continue**, of op het tabblad dat **Inputs** zegt.
 
 Je acties hebben extra informatie nodig om uitgevoerd te worden. Sommige van deze informatie is vereist, sommige is optioneel. We kunnen in de onderstaande afbeelding zien dat de _Channel ID_ een vereiste parameter is voor de actie: Blackbird wil weten naar welk kanaal het bericht moet worden verzonden.
 
-![Send message](../../../../assets/guides/beginner-bird/send_message.png)
+![Send message](~/assets/guides/beginner-bird/send_message.png)
 
 Bij het doorgeven van informatie aan een actie moeten we ons ervan bewust zijn dat deze informatie uit een van twee plaatsen kan komen:
 
@@ -59,7 +59,7 @@ Bij het doorgeven van informatie aan een actie moeten we ons ervan bewust zijn d
 
 Laten we de _Channel ID_ definiëren die Blackbird van ons wil. De kanalen die mogelijke waarden zijn voor deze parameter zijn eindig en vooraf gedefinieerd. Daarom, wanneer je op **Select input data** klikt, zal Blackbird je daadwerkelijk de kanalen tonen die beschikbaar zijn voor jou vanuit de verbinding!
 
-![Channels](../../../../assets/guides/beginner-bird/channels.png)
+![Channels](~/assets/guides/beginner-bird/channels.png)
 
 Je kunt typen in het zoekvak om je zoekopdracht te verfijnen. Selecteer een kanaal dat je wilt gebruiken voor deze bird, in ons geval gaan we gewoon het kanaal _#general_ selecteren.
 
@@ -69,15 +69,15 @@ We hebben gedefinieerd naar welk kanaal het bericht moet worden verzonden, gewel
 
 Je actie zou er nu ongeveer zo uit moeten zien:
 
-![Send message complete](../../../../assets/guides/beginner-bird/send_message_complete.png)
+![Send message complete](~/assets/guides/beginner-bird/send_message_complete.png)
 
 Dat is het! Nu is het tijd om je eerste bird te laten vliegen. Je doet dit door op de paarse **Fly** knop bovenaan het scherm te klikken.
 
-![Fly](../../../../assets/guides/beginner-bird/fly.png)
+![Fly](~/assets/guides/beginner-bird/fly.png)
 
 Je zou bijna direct het bericht in je Slack-kanaal moeten zien!
 
-![From Slack](../../../../assets/guides/beginner-bird/from_slack.png)
+![From Slack](~/assets/guides/beginner-bird/from_slack.png)
 
 Het is nu ook mogelijk om de uitvoering van deze bird in Blackbird te verifiëren. We doen dit door op **Show Flights** naast de fly-knop te klikken. Je ziet een lijst met flights. Door op een flight te klikken kun je elke gebeurtenis en actie die is uitgevoerd inspecteren. Door op een actie te klikken kun je ook de input- en outputwaarden zien die werden doorgegeven.
 
@@ -85,15 +85,15 @@ Het is nu ook mogelijk om de uitvoering van deze bird in Blackbird te verifiëre
 
 Laten we een tweede stap aan de bird toevoegen. We willen eerst een zin vertalen met DeepL, en dan de vertaling naar ons Slack-kanaal sturen. Om dit te doen, moeten we een nieuwe actie toevoegen. Deze actie moet _vóór_ we het bericht naar Slack sturen gebeuren. Daarom maken we een nieuwe actie tussen de trigger en **Send message**. Klik op het **+** pictogram en selecteer opnieuw actie.
 
-![Action in between](../../../../assets/guides/beginner-bird/action_in_between.png)
+![Action in between](~/assets/guides/beginner-bird/action_in_between.png)
 
 Deze keer selecteren we niet Slack als onze app maar DeepL. Selecteer vervolgens de actie **Translate** en je verbinding (maak er een aan als je er nog geen hebt). Je scherm zou er dan zo uit moeten zien:
 
-![DeepL Added](../../../../assets/guides/beginner-bird/deepl_added.png)
+![DeepL Added](~/assets/guides/beginner-bird/deepl_added.png)
 
 Het is tijd om de informatie weer in te vullen door op **Continue** te klikken. Deze keer zijn twee velden vereist: _Text_ en _Target language_. We zijn vrij om elke tekst te typen die we willen, we zien ook dat _Target language_ ons een dropdown zal presenteren. Vul een tekst in om te vertalen en selecteer een doeltaal, in dit geval gaan we voor _Hello from Blackbird!_ en _Spanish_.
 
-![Translate filled](../../../../assets/guides/beginner-bird/translate_filled.png)
+![Translate filled](~/assets/guides/beginner-bird/translate_filled.png)
 
 > **💡 Opmerking**: Bij het inspecteren van de optionele waarden zien we dat DeepL veel meer informatie kan opnemen, voel je vrij om deze opties te verkennen!
 
@@ -103,11 +103,11 @@ We doen dit door terug te gaan naar onze Send message actie door erop te klikken
 
 Klik op de toverstaf voor het veld _Message_. Het invoerveld verandert nu in een dropdown. Klik op de dropdown en je krijgt de informatie te zien die van DeepL terugkomt.
 
-![Slack DeepL input](../../../../assets/guides/beginner-bird/slack_deepl_input.png)
+![Slack DeepL input](~/assets/guides/beginner-bird/slack_deepl_input.png)
 
 Je merkt misschien op dat Blackbird je ook waarschuwt dat je workflow onvolledig is. Laten we snel op **Translated text** klikken, want dat is de informatie die we van DeepL naar Slack willen sturen. Nadat je dit hebt gedaan, zou alles er goed uit moeten zien en is het tijd om opnieuw op de **Fly** knop te klikken!
 
-![Result Spanish](../../../../assets/guides/beginner-bird/result_spanish.png)
+![Result Spanish](~/assets/guides/beginner-bird/result_spanish.png)
 
 🥳 ¡Felicidades! Je hebt zojuist een bird gemaakt die het belangrijkste aspect van Blackbird demonstreert: informatie van de ene applicatie nemen en doorgeven aan de andere. Voel je vrij om nogmaals op _Show Flights_ te klikken om alle informatie over de flight te zien. Ben je na dat gedaan te hebben klaar om het naar een hoger niveau te tillen?
 
@@ -118,21 +118,21 @@ Het is tijd om deze handmatige trigger te veranderen. Wat we willen bereiken is 
 
 Laten we beginnen door op de **Manual trigger** te klikken. Aan de rechterkant kunnen we deze nu veranderen in een **Event trigger**. Event trigger betekent altijd dat we triggeren op basis van dingen die in verbonden applicaties gebeuren.
 
-![Event trigger](../../../../assets/guides/beginner-bird/event_trigger.png)
+![Event trigger](~/assets/guides/beginner-bird/event_trigger.png)
 
 In tegenstelling tot de handmatige trigger vereist de event trigger wel wat configuratie. Nadat je op **Continue** hebt geklikt, krijg je een vertrouwd menu te zien. Het is tijd om de app, gebeurtenis en verbinding te selecteren. Voor app selecteer je Slack en voor de gebeurtenis selecteer je **On app mentioned**
 
-![Trigger config](../../../../assets/guides/beginner-bird/trigger_config.png)
+![Trigger config](~/assets/guides/beginner-bird/trigger_config.png)
 
 > **⚠️ Waarschuwing**: je bent misschien geneigd om de gebeurtenis **on message** te gebruiken. Dit zou echter een vergissing zijn, aangezien we tijdens deze bird ook een bericht terug naar Slack gaan sturen, wat op zijn beurt weer de bird zou triggeren. Dat is een oneindige lus! Je zult merken dat je bewust zijn van scenario's zoals deze het daadwerkelijk moeilijke deel van _Solution architecting_ gaat worden.
 
 Als we de bird zo zouden publiceren, zou Blackbird reageren op elk bericht waarin het getagd wordt _in elk kanaal_. Als je wilt dat Blackbird alleen naar een specifiek kanaal luistert, klik dan op **Inputs** en selecteer een kanaal voor **Channel ID**.
 
-![Slack event input](../../../../assets/guides/beginner-bird/slack_event_input.png)
+![Slack event input](~/assets/guides/beginner-bird/slack_event_input.png)
 
 Nu we de trigger hebben veranderd in een gebeurtenis, zien we de **Fly** knop niet meer. In plaats daarvan zien we **Save** en na het klikken op **Save** zien we **Publish**.
 
-![Publish](../../../../assets/guides/beginner-bird/publish.png)
+![Publish](~/assets/guides/beginner-bird/publish.png)
 
 Ga verder en klik op **Publish**. Achter de schermen neemt Blackbird nu contact op met Slack en vertelt het dat Slack Blackbird moet informeren wanneer een gebruiker een bericht stuurt waarin het wordt vermeld.
 
@@ -140,6 +140,6 @@ Laten we het in actie zien! Ga naar je kanaal en stuur een bericht waarin je _@B
 
 > **💡 Opmerking** je hebt misschien in de Slack-documentatie gelezen dat voor events de Slack-app moet worden toegevoegd aan een kanaal. Je kunt dit doen via het Slack-kanaalmenu, of door een bericht te sturen met _@Blackbird_, Slack zal je dan vragen of je de app aan dat kanaal wilt toevoegen. Ga akkoord.
 
-![Oops](../../../../assets/guides/beginner-bird/message_oops.png)
+![Oops](~/assets/guides/beginner-bird/message_oops.png)
 
 Oeps! Je ziet dat we de bird hebben veranderd om te triggeren wanneer we een bericht sturen dat _@Blackbird_ bevat. Het doet echter nog niet wat we

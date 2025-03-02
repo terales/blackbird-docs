@@ -51,7 +51,7 @@ Alapvetően minden CMS-t érintő munkafolyamat a következő szerkezettel rende
 
 A CMS munkafolyamatok 3 P-je (Pull, Process, Push - lekérés, feldolgozás, feltöltés) mindig megjelenik a madaraidban.
 
-![Schematic](../../../../assets/guides/cms/1729004201270.png)
+![Schematic](~/assets/guides/cms/1729004201270.png)
 
 Rajtad múlik, hogy meghozd a legfontosabb döntéseket, amelyek a 3 P-vel együtt alakítják a madaradat:
 
@@ -70,7 +70,7 @@ Amikor döntöttél ezekről a szempontokról, látni fogod, hogy a Blackbird go
 
 Vegyük ezt az elméleti munkafolyamatot és ültessük át a gyakorlatba. Az alábbi képen látható példa a lekérés, feldolgozás és feltöltés lépéseire a megfelelő műveletekkel a Contentfulban. A **Get entry as HTML file** műveletet használjuk a bejegyzést reprezentáló HTML fájl lekéréséhez. Ebben az esetben a DeepL-t használjuk a fájl feldolgozására (másik nyelvre fordítására). Végül az **Update entry from HTML file** műveletet használjuk arra, hogy a DeepL által lefordított HTML fájlt visszatöltsük a Contentfulba. Természetesen a DeepL helyettesíthető bármely más egylépéses feldolgozó alkalmazással, és ez a munkafolyamat hasonlóan nézne ki más CMS-ek esetében is.
 
-![Core with NMT](../../../../assets/guides/cms/1729083328505.png)
+![Core with NMT](~/assets/guides/cms/1729083328505.png)
 
 ### 2.2 Emberi beavatkozás az eljárásban
 
@@ -78,7 +78,7 @@ Valószínű, hogy a puszta gépi feldolgozás nem elégíti ki a lokalizációs
 
 > **💡 Megjegyzés**: Nézd meg [ellenőrzőpontok koncepció útmutatónkat](../../concepts/checkpoints) hogy többet megtudj az ellenőrzőpontokról!
 
-![Core with TMS](../../../../assets/guides/cms/1729083153924.png)
+![Core with TMS](~/assets/guides/cms/1729083153924.png)
 
 ## 3. Folyamatos lokalizáció
 
@@ -86,7 +86,7 @@ Megtanultad, hogyan épül fel általában az alapvető fordítási munkafolyama
 
 A Contentful alapvető fordítási munkafolyamatunkhoz mindössze annyit kell tennünk, hogy létrehozunk egy eseményt, amely akkor indul, amikor új tartalom jön létre (vagy a mi esetünkben, amikor közzétesszük). Ezután a **Get entry as HTML file** műveletet az eseményből kapott bejegyzés azonosítóra irányítjuk.
 
-![Continuous localization](../../../../assets/guides/cms/continuous.gif)
+![Continuous localization](~/assets/guides/cms/continuous.gif)
 
 Ennyi! A folyamatos lokalizáció kipipálva. ✔️
 
@@ -94,7 +94,7 @@ A kritikus olvasó, a Contentful szakértő vagy mindkettő rámutatna egy kis h
 
 Javasoljuk, hogy nézd meg a CMS-ek támogató funkcióit, mint a korábban említett **címkék** vagy **egyéni mezők**. Egy népszerű megoldás a Contentfulban a címkerendszer használata. A Blackbirdben szűrőket adhatsz hozzá a bejegyzési eseményekhez, hogy csak bizonyos címkével rendelkező bejegyzések indítsák el a madarat. Jó jelölt lehet például a *Ready for localization* (Lokalizációra kész). Ne felejtsd el törölni a címkét a munkafolyamat végén!
 
-![Core with tags](../../../../assets/guides/cms/1729086551991.png)
+![Core with tags](~/assets/guides/cms/1729086551991.png)
 
 ## 4. Ütemezett és történeti lokalizáció
 
@@ -102,7 +102,7 @@ Lehetséges, hogy a folyamatos lokalizáció nem egészen nyeri el a tetszésede
 
 Minden CMS rendelkezik egy *Search entities* jellegű művelettel, amelyet arra használhatsz, hogy megkeresd és kiválaszd a pontosan feldolgozni kívánt tartalmat. Általában különböző szűrőkkel rendelkezik, beleértve az *Updated from* és *Updated to* szűrőket, amelyekkel kiválaszthatod azt az időtartományt, amelyben a tartalom frissíthető.
 
-![Scheduled memoQ](../../../../assets/guides/cms/1729090495297.png)
+![Scheduled memoQ](~/assets/guides/cms/1729090495297.png)
 
 ## 5. Több nyelv feldolgozása
 
