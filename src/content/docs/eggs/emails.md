@@ -4,7 +4,7 @@ description: Let's deep dive into common use cases around email
 sidebar:
   label: Email
   order: 6
-  hidden: true
+  hidden: false
 ---
 
 ### Eggs: Starting Points for Your Birds
