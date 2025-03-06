@@ -2,6 +2,22 @@
   title: Changelog
   description: A global overview of all changes made to the BlackBird core platform
 ---
+### (06-03-2025) 4.20
+Main features: Periodic connection verification
+
+##### Flight page
+- Stretched input and output fields on the Chrome browser were fixed.
+- The Flight overview sidebar is not overlapping the action input/outputs anymore.
+- On Safari the [\>] button is now displayed on the actual row you're hovering on the All Flights page. 
+
+#### Apps
+- Connections now automatically verify themselves once a day and the 'connected' status is updated on the UI if it was found that this was changed.
+- OAuth connections now also periodically automatically refresh their tokens depending on token lifetime.
+
+#### Other
+- Various minor issues and bugs were resolved.
+- Phrase webhooks are now properly deleted after a checkpoint.
+
 ### (04-02-2025) 4.19
 Main features: More Flight page improvements and custom app upload logic
 
