@@ -26,7 +26,6 @@ const altered_names = {
   AmazonS3: "Amazon S3",
   MicrosoftSharePoint: "Microsoft SharePoint",
   AmazonPolly: "Amazon Polly",
-  CrowdinEnterprise: "Crowdin Enterprise",
   GoogleAnalytics: "Google Analytics",
   GoogleDrive: "Google Drive",
   GoogleSheets: "Google Sheets",
