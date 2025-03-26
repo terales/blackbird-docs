@@ -66,6 +66,7 @@ const altered_names = {
   SitecoreXmCloud: "Sitecore XM Cloud",
   SitecoreXp: "Sitecore XP",
   Sitecore: "Sitecore XP",
+  PhraseLanguageAI: "Phrase Language AI",
 };
 
 const skip_repos = ["docs", "template-repo", "NotionOAuth", "LanguageWire", "CraftCMS"];
