@@ -67,6 +67,7 @@ const altered_names = {
   SitecoreXp: "Sitecore XP",
   Sitecore: "Sitecore XP",
   PhraseLanguageAI: "Phrase Language AI",
+  MemoQResources: "MemoQ Resources",
 };
 
 const skip_repos = ["docs", "template-repo", "NotionOAuth", "LanguageWire", "CraftCMS"];

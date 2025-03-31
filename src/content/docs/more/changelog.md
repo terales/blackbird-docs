@@ -2,19 +2,40 @@
   title: Changelog
   description: A global overview of all changes made to the BlackBird core platform
 ---
+### (20-03-2025) 4.21
+Main features: Front-end performance and usability.
+
+##### General
+- Updated Angular to version 19.2.0.
+- Updated all URL path names to be consistent.
+- Added the current nest ID in the URL path.
+- Back buttons in the UI now have browser consistent behavior.
+- All search filter parameters are now included in URL query parameters.
+- Implemented caching for most loaded resources and a consistent loading state.
+- Maintained scroll navigation on backward navigation.
+- Added browser links to all navigation elements.
+- Added UI interaction using keyboard for dropdowns (arrows) and input elements (tab).
+- Changing nests does not redirect users to the homepage anymore.
+- Fixed various bugs that caused front-end performance issues.
+- Implemented optimistic updates for various actions.
+- Implemented virtual scroll for apps page.
+
+##### Bird editor
+- Increased the timeout for dropdowns with dynamic loading.
+
 ### (06-03-2025) 4.20
-Main features: Periodic connection verification
+Main features: Periodic connection verification.
 
 ##### Flight page
 - Stretched input and output fields on the Chrome browser were fixed.
 - The Flight overview sidebar is not overlapping the action input/outputs anymore.
 - On Safari the [\>] button is now displayed on the actual row you're hovering on the All Flights page. 
 
-#### Apps
+##### Apps
 - Connections now automatically verify themselves once a day and the 'connected' status is updated on the UI if it was found that this was changed.
 - OAuth connections now also periodically automatically refresh their tokens depending on token lifetime.
 
-#### Other
+##### Other
 - Various minor issues and bugs were resolved.
 - Phrase webhooks are now properly deleted after a checkpoint.
 
@@ -28,7 +49,7 @@ Main features: More Flight page improvements and custom app upload logic
 - An animation is shown when a manual Flight is still queued.
 - Various copy standardizations.
 
-#### Custom apps
+##### Custom apps
 - Custom apps are now visible to all Nests, no matter in which Nest the user was when uploading the app.
 
 ### (07-01-2025) 4.18
@@ -58,7 +79,7 @@ Main features: SAML, home page, and many smaller UI updates
 - The order of selectable variables have been reversed. Now, the top most variables in the dropdown will come from actions closer to where you are compared to from the top down.
 - Dynamic input values now also have the option to still input a custom value. This is useful if for some reason the dropdown fails to load.
 
-#### Other
+##### Other
 - A help icon with links to documentation articles has been added on many pages of the app in the bottom left corner.
 - Some buttons, tabs and inputs have gotten an improved hover and interaction state.
 - Enterprise users can now request SAML based SSO to be provisioned.
