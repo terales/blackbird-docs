@@ -3,7 +3,7 @@ title: Understanding Apps in Blackbird
 description: Learn what Apps are
 sidebar:
   label: Apps
-  order: 1
+  order: 2
 ---
 
 A Blackbird App connects an application to the vast Blackbird ecosystem using its API. An App consists of events and/or actions that allow the user to orchestrate workflows. You can manage and set up _Apps_ in the Apps screen of Blackbird.io.

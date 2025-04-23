@@ -3,7 +3,7 @@ title: Understanding Triggers - Initiating Processes and Workflows
 description: Learn what trigges are.
 sidebar:
   label: Triggers
-  order: 4
+  order: 5
 ---
 
 All processes must begin at some point: a **trigger** is what defines when a workflow should start, ensuring that tasks are executed at the right time and under the right conditions. Within Blackbird, there are four types of triggers: manual, scheduled, event-based and polling. Each type serves a unique purpose and is suited to different scenarios.

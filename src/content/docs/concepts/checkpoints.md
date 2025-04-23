@@ -3,7 +3,7 @@ title: Checkpoints
 description: Introducing Checkpoints
 sidebar:
   label: Checkpoints
-  order: 6
+  order: 7
   hidden: false
 ---
 
