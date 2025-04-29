@@ -2,6 +2,34 @@
   title: Changelog
   description: A global overview of all changes made to the BlackBird core platform
 ---
+### (25-04-2025) 4.22
+Main features: Various minor improvements and bug fixes
+
+##### Flights
+- If a checkpoint subscription fails it now shows a detailed error message on the Flight page.
+- If during a checkpoint invocation we receive a misconfiguration exception it is now displayed on the Flight page.
+
+#### Bird Editor
+- Updated the hours/minutes selector in the scheduled trigger to be more in line with other time selectors in the UI.
+- Failure of subscription and unsubscripting of events on publish now shows more informative errors messages.
+
+#### SDK
+- The invocation context in the SDK now has the updated URL for Flights which includes the Nest.
+- The `DefinitionIgnore` attribute now properly works on properties inside a collection.
+
+##### Bug fixes
+- Fixed a bug where dropdown values were not properly displayed in rare cases.
+- Fixed a bug where the Blackbird icon was displayed in multiple dropdown values on Apps without an icon.
+- Fixed a bug where the refresh token expiration retry mechanism showed a 401 page instead of proceeding normally.
+- Fixed a bug where a certain Bird configuration didn't allow publishing.
+- Fixed a wrong Flight state when a polling Bird is republished and suspended.
+- Events are now properly unsubscribed when bucketing is enabled inside checkpoints.
+- Fixed various instances where a Bird would get stuck due to niche configurations of loops and checkpoints.
+
+
+##### Other
+- Active polling instances are now canceled if the Bird is republished.
+
 ### (20-03-2025) 4.21
 Main features: Front-end performance and usability.
 
