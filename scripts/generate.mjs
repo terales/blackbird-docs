@@ -68,6 +68,9 @@ const altered_names = {
   Sitecore: "Sitecore XP",
   PhraseLanguageAI: "Phrase Language AI",
   MemoQResources: "MemoQ Resources",
+  Utilities: "Blackbird Utilities",
+  RePurpose: "Blackbird Repurpose",
+  AdobeExperienceManager: "Adobe Experience Manager",
 };
 
 const skip_repos = ["docs", "template-repo", "NotionOAuth", "LanguageWire", "CraftCMS"];
