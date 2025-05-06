@@ -8,7 +8,7 @@ sidebar:
 
 Blackbird apps that you create using the SDK can be deployed to your Blackbird organization as a _custom app_. This tutorial assumes Visual Studio 2022.
 
-> **Note:** If you are forking a public app to create a custom app, make sure to update the `Product` and `AssemblyName` fields in the app's `.csproj` file. Blackbird requires every custom app to have unique system-wide identifiers.
+> **Note:** If you are forking a public app to create a custom app, make sure to update the `Product`, `PackageId`, and `AssemblyName` fields in the app's `.csproj` file. Blackbird requires every custom app to have unique system-wide identifiers.
 
 ## Publishing
 
