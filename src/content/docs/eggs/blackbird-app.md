@@ -1,8 +1,8 @@
 ---
-title: Blackbird App
+title: Blackbird Services API App
 description: An Egg with the potential to create monitoring Birds to keep up with everything that happens in your Blackbird instance
 sidebar:
-  label: Blackbird app
+  label: Blackbird Services API app
   order: 5
   hidden: false
 ---
@@ -21,7 +21,7 @@ With so many Nests, Birds, users and Flights in action, it’s easy to lose trac
 
 ### Error notification or tracking
 
-The most popular use case for the Blackbird app in Blackbird is monitoring failed Flights. You can receive real-time notifications containing key details such as the error message, Nest name, Bird name, Flight ID, and start date. Alternatively, you can log these failed Flights in a spreadsheet for later review or to populate dashboards.
+The most popular use case for the Blackbird Services API app in Blackbird is monitoring failed Flights. You can receive real-time notifications containing key details such as the error message, Nest name, Bird name, Flight ID, and start date. Alternatively, you can log these failed Flights in a spreadsheet for later review or to populate dashboards.
 
 > Use optional inputs to monitor a specific Nest, otherwise a single Bird will monitor all Nests within your Blackbird instance.
 
