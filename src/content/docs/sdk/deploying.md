@@ -24,6 +24,34 @@ Before deploying an app, make sure that it at least contains a class that implem
 
 ![zipping](~/assets/docs/zipping.png)
 
+* Size limitation: plugin builds must be **under 16MB**. Builds up to **15MB inclusive** are accepted. If the build exceeds 16MB, the platform will reject it.
+* The `.csproj` file may include the `<EnableDynamicLoading>true</EnableDynamicLoading>` parameter, which increases the build size. Use it only if the final `.zip` file remains under 16MB. If the build exceeds the limit, set this value to `false`.
+* Example:
+
+```xml
+<EnableDynamicLoading>false</EnableDynamicLoading>
+```
+
+### Building via CLI
+
+* Plugins can be built not only via Visual Studio, but also using the command line with `dotnet build`.
+
+* Use the `Release` configuration to minimize the build size.
+
+* Do **not** specify the `--runtime` parameter, as Blackbird requires a Portable Runtime. Just omit this parameter entirely.
+
+* Example command:
+
+```bash
+dotnet build [path to .csproj file] --configuration Release
+```
+
+* Concrete example:
+
+```bash
+dotnet build Apps.Contentful/Apps.Contentful.csproj --configuration Release
+```
+
 ## Uploading
 
 If you want to create a new app, go to _Apps_ -> _My custom apps_ -> Click on _Create app_. Upload the `.zip` file on the second step.
