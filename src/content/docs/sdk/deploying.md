@@ -8,6 +8,8 @@ sidebar:
 
 Blackbird apps that you create using the SDK can be deployed to your Blackbird organization as a _custom app_. This tutorial assumes Visual Studio 2022.
 
+> **Note:** If you are forking a public app to create a custom app, make sure to update the `Product`, `PackageId`, and `AssemblyName` fields in the app's `.csproj` file. Blackbird requires every custom app to have unique system-wide identifiers.
+
 ## Publishing
 
 Before deploying an app, make sure that it at least contains a class that implements `IApplication` (and optionally `ICategoryProvider` ), a class that implements `IConnectionDefinition` and a class that implements `IConnectionValidator`. If your app has actions, then make sure your classes implementing actions have the `[ActionList]` attribute. If you have events make sure that your event classes have the `[WebhookList]` or `[PollingEventList]` attribute.
