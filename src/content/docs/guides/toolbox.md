@@ -11,7 +11,7 @@ When navigating across apps in a workflow, you may find yourself needing to perf
 
 ## Utilities app
 
-The [Utilities](https://docs.blackbird.io/apps/utilities/) app provides a wide range of actions to help you manage your data. Here are some examples:
+The [Utilities](https://docs.blackbird.io/apps/blackbird-utilities/) app provides a wide range of actions to help you manage your data. Here are some examples:
 
 - Dates: 
     - You can generate a date (e.g. today) and add/subtract days to it (considering or not business days). This can be very convient for setting up deadlines or creating dynamic dates for querying data. You can also format your date in various ways.

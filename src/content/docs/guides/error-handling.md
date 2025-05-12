@@ -62,7 +62,7 @@ Even with retry policies and skipping actions it's still possible that things fa
 
 This incredibly simple bird will send a notification in Slack when any flight fails. This can be useful for alerting people about possible issues. An alternative, or suplementary action to Slack would be logging a ticket in f.e. Jira.
 
-You can read more about how to setup error handling birds on the [Blackbird app page](../../apps/blackbird/)
+You can read more about how to setup error handling birds on the [Blackbird app page](../../apps/blackbird-service-api/)
 
 ## End Notes
 
