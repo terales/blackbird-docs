@@ -26,6 +26,10 @@ You can watch a flight in real time as a _bird flies_ through the steps of your 
 
 ![live bird](~/assets/docs/live-bird.gif)
 
+## Parallel flights
+
+While a Bird can produce an unlimited number of flights, we’ve introduced a limit on how many can fly in parallel. This does not affect the total number of executions or the amount of data processed, but it does control how many flights can start at the exact same time. If you trigger more flights than your subscription allows to run concurrently, the extra ones will queue up and execute as soon as capacity becomes available. You can monitor these queued flights using the `Waiting` filter in the _Flights_ tab. The parallel execution limits depend on your subscription: the Team plan allows up to 6 concurrent flights, the Business plan allows 12, and the Enterprise plan supports unlimited parallel executions.
+
 ## Stop a flight
 
 To end a Flight that hasn’t completed yet, use the `Stop Flight` button next to the Bird’s name when viewing that specific flight under the _Flights_ tab.
