@@ -1,0 +1,59 @@
+---
+  title: Telegram Bot
+  description: The Telegram Bot Blackbird app
+---
+import { LinkCard } from "@astrojs/starlight/components";
+
+<LinkCard title="View on Github" target="_blank" href="https://github.com/bb-io/TelegramBot" icon="github" />
+
+This app integrates with Telegram to send messages, manage files, and handle real-time events like receiving messages. It simplifies communication and automates interactions with Telegram chats.
+
+## Before setting up
+
+Before you can set up the app, you need to create a bot on Telegram. Follow these steps:
+
+1. Open Telegram and search for the **BotFather**.
+2. Start a chat with the BotFather and send the command `/newbot`.
+3. Follow the prompts to set up your bot:
+   - Choose a name for your bot.
+4. After creating the bot, the BotFather will provide you with a **bot token**. This token is essential for connecting your bot to the Blackbird platform.
+5. Save the bot token securely, as you'll need it to configure the app.
+
+For more information on creating a bot, refer to the [Telegram Bot API documentation](https://core.telegram.org/bots/tutorial#obtain-your-bot-token).
+
+## Connecting
+
+1. Navigate to apps and search for **Telegram Bot**
+2. Click _Add Connection_
+3. Name your connection for future reference e.g., 'My Bot'
+4. Fill in the following fields:
+    - **Bot token**: The token you received from the BotFather when creating your bot.
+5. Click _Connect_
+6. Confirm that the connection has appeared and the status is _Connected_
+
+![connection](https://raw.githubusercontent.com/bb-io/TelegramBot/main/docs/images/connection.png)
+
+## Actions
+
+- **Send message**: Sends a message to a specified chat. Can send text-only messages or include a file attachment with an optional caption. You can also reply to existing messages by providing a message ID.
+
+## Events
+
+- **On message received**: Triggered when a message is received through your Telegram bot. Returns message details including text content, message ID, chat ID, and any attached audio files. Can be filtered by chat ID or username to listen only for specific conversations.
+
+## Bird building concept
+
+Typically, you will need to use the **Send message** action together with the **On message received** event. The **Send message** action requires a chat ID to send a message to, and the Telegram API does not provide a direct way to get a user's chat ID. The **On message received** event returns the chat ID of the user who sent a message to your bot. You can use this information to send messages back to the user.
+
+If you want to send a message to a user separately, you first need to obtain their **Chat ID** from the **On message received** event and then use this ID in the **Send message** action. This is a limitation of the Telegram API, not the Blackbird implementation.
+
+## Example
+
+![Example](https://raw.githubusercontent.com/bb-io/TelegramBot/main/docs/images/example.png)
+
+This bird shows the typical flow of a Telegram bot with LLM. The bot listens for incoming messages and responds with the LLM's output. The bird can also accept audio messages, which are transcribed to text. The transcribed text is then sent to the LLM for processing.
+
+## Feedback
+
+Do you want to use this app or do you have feedback on our implementation? Reach out to us using the [established channels](https://www.blackbird.io/) or create an issue.
+
