@@ -72,6 +72,7 @@ const altered_names = {
   RePurpose: "Blackbird Repurpose",
   AdobeExperienceManager: "Adobe Experience Manager",
   Blackbird: "Blackbird Service API",
+  TelegramBot: "Telegram Bot"
 };
 
 const skip_repos = ["docs", "template-repo", "NotionOAuth", "LanguageWire", "CraftCMS"];
