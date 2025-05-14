@@ -7,13 +7,13 @@ sidebar:
   hidden: false
 ---
 
-In this guide you will learn about Blackbird's way to compartmentalizing your processes, credentials and users.
+In this guide you will learn about Blackbird's way to compartmentalizing your processes, credentials and users. Keeping your data separated not only fortifies security measures but also enhances productivity as a clear delineation of data compartment eliminates unnecessary clutter. Nests in Blackbird is our implementation of [RBAC (Role-based Access Control)](https://en.wikipedia.org/wiki/Role-based_access_control). This feature allows you to restrict the access to Birds and Connections, or even restrict the actions that certain useres can perform.
 
 > As an administrator with access to your Blackbird account, you have the power to create multiple Nests, users, and roles to suit your organizational needs. Navigate to Organization Management to access these options.
 
 ## Nests
 
-Keeping your data separated not only fortifies security measures but also enhances productivity as a clear delineation of data compartment eliminates unnecessary clutter. Consider creating a separate Nest for each of your clients or per stage of your workflow design process (playground, QA, production) - or even both as Nests can also have subnests for further organization. On the top right, click on your profile picture and select Organization Management. The first option on the left is Nests, you will see a list of the existing Nests under your organization along with their names, total users and creation date. By clicking on a specific Nest, you will see more details, such as each user that has been added, and you also have the option to delete said Nest.
+Consider creating a separate Nest for each of your clients or per stage of your workflow design process (playground, QA, production) - or even both as Nests can also have subnests for further organization. On the top right, click on your profile picture and select Organization Management. The first option on the left is Nests, you will see a list of the existing Nests under your organization along with their names, total users and creation date. By clicking on a specific Nest, you will see more details, such as each user that has been added, and you also have the option to delete said Nest.
 
 ![Nests details of users](~/assets/guides/nests/1.png)
 
