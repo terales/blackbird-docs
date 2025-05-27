@@ -40,7 +40,8 @@ See the [Matecat API documentation](https://www.matecat.com/api/docs#/) for a de
 ### Jobs
 
 - **Download job translated files** returns all translated files of this job.
-- **Download job TMX** returns the TMX file representing the current translation memory.
+- **Download job file as TMX** returns the TMX file representing the current translation memory.
+- **Download job file as XLIFF** returns the XLIFF file representing the current translation memory.
 - **Get job segments comments** returns a list of all comments that have been made in this job.
 - **Get job** returns general job information.
 - **Cancel job** cancels the job.
