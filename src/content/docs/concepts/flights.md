@@ -33,7 +33,7 @@ While a Bird can produce an unlimited number of flights, we’ve introduced a li
 > Flights awaiting a checkpoint don't count towards the parallel flights quota.
 
 Filter flights by status
-![live bird](~/assets/docs/waiting-filter.gif)
+![live bird](~/assets/docs/waiting-filter.png)
 
 ## Stop a flight
 
