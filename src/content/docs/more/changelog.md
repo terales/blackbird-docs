@@ -2,6 +2,34 @@
   title: Changelog
   description: A global overview of all changes made to the BlackBird core platform
 ---
+### (28-05-2025) 4.25
+Main features: Flight performance improvement
+
+##### Other
+- Due to some engine performance enhancements, actions and events now trigger considerably faster which results in a 3-5x performance improvement on most Flights.
+
+### (27-05-2025) 4.24
+Main features: Several bug fixes
+
+##### Bug fixes
+- Fixed a bug where Flight information was not synchronized properly when other Flights are in the process of being suspended.
+- Fixed a bug where too many scheduled triggered Flights were triggering due to internal service switching.
+- Fixed a bug where the organization mangement menu was not visible to admin users in some cases.
+- Fixed a bug where a scheduled Flight was stuck in the 'waiting' state when an internal service was temporarily down.
+- Fixed a bug where scheduled Flights didn't appear in the UI if they were started before other scheduled Flights were completed.
+- Fixed a bug where internal keyvault calls failing caused a Connection to incorrectly appear as disconnected.
+- Fixed a bug where a stopped Flight was still shown as 'Flying' in certain cases.
+
+##### Other
+- Improved the error message in OAuth Connection failures to be less generic.
+- Improved the speed of redirect after connecting with 2FA.
+
+### (13-05-2025) 4.23
+Main features: Performance improvement preparation
+
+##### Other
+- Prepared for an upcoming release that will improve Flight performance.
+
 ### (25-04-2025) 4.22
 Main features: Various minor improvements and bug fixes
 
@@ -9,11 +37,11 @@ Main features: Various minor improvements and bug fixes
 - If a checkpoint subscription fails it now shows a detailed error message on the Flight page.
 - If during a checkpoint invocation we receive a misconfiguration exception it is now displayed on the Flight page.
 
-#### Bird Editor
+##### Bird Editor
 - Updated the hours/minutes selector in the scheduled trigger to be more in line with other time selectors in the UI.
 - Failure of subscription and unsubscripting of events on publish now shows more informative errors messages.
 
-#### SDK
+##### SDK
 - The invocation context in the SDK now has the updated URL for Flights which includes the Nest.
 - The `DefinitionIgnore` attribute now properly works on properties inside a collection.
 
@@ -25,7 +53,6 @@ Main features: Various minor improvements and bug fixes
 - Fixed a wrong Flight state when a polling Bird is republished and suspended.
 - Events are now properly unsubscribed when bucketing is enabled inside checkpoints.
 - Fixed various instances where a Bird would get stuck due to niche configurations of loops and checkpoints.
-
 
 ##### Other
 - Active polling instances are now canceled if the Bird is republished.
